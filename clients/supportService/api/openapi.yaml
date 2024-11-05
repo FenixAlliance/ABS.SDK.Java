@@ -1,0 +1,5289 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: SupportService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/SupportService/SupportEntitlements:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportEntitlementDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportEntitlementDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportEntitlements
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportEntitlements
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportEntitlements/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportEntitlements
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportEntitlements/{supportEntitlementId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportEntitlementId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportEntitlements
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportEntitlementId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportEntitlementDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportEntitlementDtoEnvelope'
+          description: OK
+      tags:
+      - SupportEntitlements
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportEntitlementId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportEntitlementUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportEntitlements
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequestAttachments:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportRequestAttachments
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportRequestAttachments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequestAttachments/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportRequestAttachments
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestAttachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportRequestAttachments
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportRequestAttachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoEnvelope'
+          description: OK
+      tags:
+      - SupportRequestAttachments
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestAttachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportRequestAttachments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/{supportRequestId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestDtoEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportRequestAttachmentCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportRequestAttachmentDtoEnvelope'
+          description: OK
+      tags:
+      - SupportRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketPriorities:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketPriorityDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketPriorityDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportTicketPriorities
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportTicketPriorities
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketPriorities/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportTicketPriorities
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketPriorityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTicketPriorities
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketPriorityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketPriorityDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketPriorityDtoEnvelope'
+          description: OK
+      tags:
+      - SupportTicketPriorities
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketPriorityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketPriorityUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTicketPriorities
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportTickets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets/{supportTicketId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketDtoEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketConversationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketConversationDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketConversationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketConversationCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportTickets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: supportTicketConversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: supportTicketConversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketConversationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketConversationDtoEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations/{supportTicketConversationId}/Messages:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketConversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pageNumber
+        required: false
+        schema:
+          format: int32
+          maximum: 2147483647
+          minimum: 1
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateMessageDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PrivateMessageDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportTickets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketTypes:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketTypeDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketTypeDtoListEnvelope'
+          description: OK
+      tags:
+      - SupportTicketTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SupportTicketTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketTypes/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SupportTicketTypes
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTicketTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: supportTicketTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportTicketTypeDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SupportTicketTypeDtoEnvelope'
+          description: OK
+      tags:
+      - SupportTicketTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: supportTicketTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SupportTicketTypeUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SupportTicketTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    PrivateMessageDto:
+      additionalProperties: false
+      example:
+        readTimestamp: 2000-01-23T04:56:07.000+00:00
+        read: true
+        receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+        conversationId: conversationId
+        sentTimestamp: 2000-01-23T04:56:07.000+00:00
+        senderSocialProfileId: senderSocialProfileId
+        receiverSocialProfileID: receiverSocialProfileID
+        id: id
+        title: title
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        read:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        conversationId:
+          nullable: true
+          type: string
+        senderSocialProfileId:
+          nullable: true
+          type: string
+        receiverSocialProfileID:
+          nullable: true
+          type: string
+        sentTimestamp:
+          format: date-time
+          type: string
+        readTimestamp:
+          format: date-time
+          type: string
+        receivedTimestamp:
+          format: date-time
+          type: string
+      type: object
+    PrivateMessageDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+          conversationId: conversationId
+          sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          senderSocialProfileId: senderSocialProfileId
+          receiverSocialProfileID: receiverSocialProfileID
+          id: id
+          title: title
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+          conversationId: conversationId
+          sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          senderSocialProfileId: senderSocialProfileId
+          receiverSocialProfileID: receiverSocialProfileID
+          id: id
+          title: title
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PrivateMessageDto'
+          nullable: true
+          type: array
+      type: object
+    SupportEntitlementCreateDto:
+      additionalProperties: false
+      example:
+        data: data
+        data8Label: data8Label
+        customRenewalPeriod: 2
+        repetitions: 6
+        usageThreshold: 7
+        paymentTokenID: paymentTokenID
+        enableAutomaticRenew: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        data2Label: data2Label
+        securityCertificateID: securityCertificateID
+        enableAutomaticDisable: true
+        dataLabel: dataLabel
+        businessID: businessID
+        gracePeriodInDays: 5
+        individualID: individualID
+        endDateTime: 2000-01-23T04:56:07.000+00:00
+        businessProfileRecordID: businessProfileRecordID
+        receiverBusinessID: receiverBusinessID
+        enableProRateBilling: true
+        data1Label: data1Label
+        organizationID: organizationID
+        data4Label: data4Label
+        enableUsageThreshold: true
+        freeTrialInDays: 5
+        data7Label: data7Label
+        accountHolderID: accountHolderID
+        walletAccountID: walletAccountID
+        code: code
+        signature: signature
+        description: description
+        title: title
+        data5Label: data5Label
+        nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        enableAutomaticPayments: true
+        data7: data7
+        quantity: 0
+        data6: data6
+        data5: data5
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        startDateTime: 2000-01-23T04:56:07.000+00:00
+        chargeAttempts: 1
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        startDateTime:
+          format: date-time
+          type: string
+        endDateTime:
+          format: date-time
+          type: string
+        nextInvoiceDateTime:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        signature:
+          nullable: true
+          type: string
+        quantity:
+          format: int32
+          type: integer
+        repetitions:
+          format: int32
+          type: integer
+        chargeAttempts:
+          format: int32
+          type: integer
+        freeTrialInDays:
+          format: int32
+          type: integer
+        gracePeriodInDays:
+          format: int32
+          type: integer
+        customRenewalPeriod:
+          format: int32
+          type: integer
+        enableAutomaticRenew:
+          type: boolean
+        enableProRateBilling:
+          type: boolean
+        enableUsageThreshold:
+          type: boolean
+        enableAutomaticDisable:
+          type: boolean
+        enableAutomaticPayments:
+          type: boolean
+        usageThreshold:
+          format: int32
+          type: integer
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+        individualID:
+          nullable: true
+          type: string
+        organizationID:
+          nullable: true
+          type: string
+        receiverBusinessID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        paymentTokenID:
+          nullable: true
+          type: string
+        walletAccountID:
+          nullable: true
+          type: string
+        securityCertificateID:
+          nullable: true
+          type: string
+      type: object
+    SupportEntitlementDto:
+      additionalProperties: false
+      example:
+        data: data
+        data8Label: data8Label
+        customRenewalPeriod: 2
+        repetitions: 6
+        usageThreshold: 7
+        paymentTokenID: paymentTokenID
+        enableAutomaticRenew: true
+        id: id
+        data2Label: data2Label
+        securityCertificateID: securityCertificateID
+        enableAutomaticDisable: true
+        dataLabel: dataLabel
+        businessID: businessID
+        gracePeriodInDays: 5
+        individualID: individualID
+        endDateTime: 2000-01-23T04:56:07.000+00:00
+        businessProfileRecordID: businessProfileRecordID
+        receiverBusinessID: receiverBusinessID
+        enableProRateBilling: true
+        data1Label: data1Label
+        organizationID: organizationID
+        data4Label: data4Label
+        enableUsageThreshold: true
+        freeTrialInDays: 5
+        data7Label: data7Label
+        accountHolderID: accountHolderID
+        walletAccountID: walletAccountID
+        code: code
+        signature: signature
+        description: description
+        title: title
+        data5Label: data5Label
+        nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        enableAutomaticPayments: true
+        data7: data7
+        quantity: 0
+        data6: data6
+        data5: data5
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        startDateTime: 2000-01-23T04:56:07.000+00:00
+        chargeAttempts: 1
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        startDateTime:
+          format: date-time
+          type: string
+        endDateTime:
+          format: date-time
+          type: string
+        nextInvoiceDateTime:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        signature:
+          nullable: true
+          type: string
+        quantity:
+          format: int32
+          type: integer
+        repetitions:
+          format: int32
+          type: integer
+        chargeAttempts:
+          format: int32
+          type: integer
+        freeTrialInDays:
+          format: int32
+          type: integer
+        gracePeriodInDays:
+          format: int32
+          type: integer
+        customRenewalPeriod:
+          format: int32
+          type: integer
+        enableAutomaticRenew:
+          type: boolean
+        enableProRateBilling:
+          type: boolean
+        enableUsageThreshold:
+          type: boolean
+        enableAutomaticDisable:
+          type: boolean
+        enableAutomaticPayments:
+          type: boolean
+        usageThreshold:
+          format: int32
+          type: integer
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+        individualID:
+          nullable: true
+          type: string
+        organizationID:
+          nullable: true
+          type: string
+        receiverBusinessID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        paymentTokenID:
+          nullable: true
+          type: string
+        walletAccountID:
+          nullable: true
+          type: string
+        securityCertificateID:
+          nullable: true
+          type: string
+      type: object
+    SupportEntitlementDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          data: data
+          data8Label: data8Label
+          customRenewalPeriod: 2
+          repetitions: 6
+          usageThreshold: 7
+          paymentTokenID: paymentTokenID
+          enableAutomaticRenew: true
+          id: id
+          data2Label: data2Label
+          securityCertificateID: securityCertificateID
+          enableAutomaticDisable: true
+          dataLabel: dataLabel
+          businessID: businessID
+          gracePeriodInDays: 5
+          individualID: individualID
+          endDateTime: 2000-01-23T04:56:07.000+00:00
+          businessProfileRecordID: businessProfileRecordID
+          receiverBusinessID: receiverBusinessID
+          enableProRateBilling: true
+          data1Label: data1Label
+          organizationID: organizationID
+          data4Label: data4Label
+          enableUsageThreshold: true
+          freeTrialInDays: 5
+          data7Label: data7Label
+          accountHolderID: accountHolderID
+          walletAccountID: walletAccountID
+          code: code
+          signature: signature
+          description: description
+          title: title
+          data5Label: data5Label
+          nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          enableAutomaticPayments: true
+          data7: data7
+          quantity: 0
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          startDateTime: 2000-01-23T04:56:07.000+00:00
+          chargeAttempts: 1
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportEntitlementDto'
+      type: object
+    SupportEntitlementDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          data8Label: data8Label
+          customRenewalPeriod: 2
+          repetitions: 6
+          usageThreshold: 7
+          paymentTokenID: paymentTokenID
+          enableAutomaticRenew: true
+          id: id
+          data2Label: data2Label
+          securityCertificateID: securityCertificateID
+          enableAutomaticDisable: true
+          dataLabel: dataLabel
+          businessID: businessID
+          gracePeriodInDays: 5
+          individualID: individualID
+          endDateTime: 2000-01-23T04:56:07.000+00:00
+          businessProfileRecordID: businessProfileRecordID
+          receiverBusinessID: receiverBusinessID
+          enableProRateBilling: true
+          data1Label: data1Label
+          organizationID: organizationID
+          data4Label: data4Label
+          enableUsageThreshold: true
+          freeTrialInDays: 5
+          data7Label: data7Label
+          accountHolderID: accountHolderID
+          walletAccountID: walletAccountID
+          code: code
+          signature: signature
+          description: description
+          title: title
+          data5Label: data5Label
+          nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          enableAutomaticPayments: true
+          data7: data7
+          quantity: 0
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          startDateTime: 2000-01-23T04:56:07.000+00:00
+          chargeAttempts: 1
+        - data: data
+          data8Label: data8Label
+          customRenewalPeriod: 2
+          repetitions: 6
+          usageThreshold: 7
+          paymentTokenID: paymentTokenID
+          enableAutomaticRenew: true
+          id: id
+          data2Label: data2Label
+          securityCertificateID: securityCertificateID
+          enableAutomaticDisable: true
+          dataLabel: dataLabel
+          businessID: businessID
+          gracePeriodInDays: 5
+          individualID: individualID
+          endDateTime: 2000-01-23T04:56:07.000+00:00
+          businessProfileRecordID: businessProfileRecordID
+          receiverBusinessID: receiverBusinessID
+          enableProRateBilling: true
+          data1Label: data1Label
+          organizationID: organizationID
+          data4Label: data4Label
+          enableUsageThreshold: true
+          freeTrialInDays: 5
+          data7Label: data7Label
+          accountHolderID: accountHolderID
+          walletAccountID: walletAccountID
+          code: code
+          signature: signature
+          description: description
+          title: title
+          data5Label: data5Label
+          nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          enableAutomaticPayments: true
+          data7: data7
+          quantity: 0
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          startDateTime: 2000-01-23T04:56:07.000+00:00
+          chargeAttempts: 1
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportEntitlementDto'
+          nullable: true
+          type: array
+      type: object
+    SupportEntitlementUpdateDto:
+      additionalProperties: false
+      example:
+        accountHolderID: accountHolderID
+        walletAccountID: walletAccountID
+        code: code
+        data: data
+        signature: signature
+        data8Label: data8Label
+        description: description
+        customRenewalPeriod: 2
+        title: title
+        repetitions: 6
+        usageThreshold: 7
+        data5Label: data5Label
+        paymentTokenID: paymentTokenID
+        nextInvoiceDateTime: 2000-01-23T04:56:07.000+00:00
+        enableAutomaticRenew: true
+        data2Label: data2Label
+        securityCertificateID: securityCertificateID
+        data9: data9
+        data8: data8
+        enableAutomaticPayments: true
+        data7: data7
+        quantity: 0
+        data6: data6
+        data5: data5
+        data4: data4
+        enableAutomaticDisable: true
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        businessID: businessID
+        gracePeriodInDays: 5
+        individualID: individualID
+        endDateTime: 2000-01-23T04:56:07.000+00:00
+        data3Label: data3Label
+        data6Label: data6Label
+        businessProfileRecordID: businessProfileRecordID
+        receiverBusinessID: receiverBusinessID
+        enableProRateBilling: true
+        data1Label: data1Label
+        organizationID: organizationID
+        data4Label: data4Label
+        enableUsageThreshold: true
+        chargeAttempts: 1
+        freeTrialInDays: 5
+        data7Label: data7Label
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        endDateTime:
+          format: date-time
+          type: string
+        nextInvoiceDateTime:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        signature:
+          nullable: true
+          type: string
+        quantity:
+          format: int32
+          type: integer
+        repetitions:
+          format: int32
+          type: integer
+        chargeAttempts:
+          format: int32
+          type: integer
+        freeTrialInDays:
+          format: int32
+          type: integer
+        gracePeriodInDays:
+          format: int32
+          type: integer
+        customRenewalPeriod:
+          format: int32
+          type: integer
+        enableAutomaticRenew:
+          type: boolean
+        enableProRateBilling:
+          type: boolean
+        enableUsageThreshold:
+          type: boolean
+        enableAutomaticDisable:
+          type: boolean
+        enableAutomaticPayments:
+          type: boolean
+        usageThreshold:
+          format: int32
+          type: integer
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+        individualID:
+          nullable: true
+          type: string
+        organizationID:
+          nullable: true
+          type: string
+        receiverBusinessID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        paymentTokenID:
+          nullable: true
+          type: string
+        walletAccountID:
+          nullable: true
+          type: string
+        securityCertificateID:
+          nullable: true
+          type: string
+      type: object
+    SupportRequestAttachmentCreateDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        fileName: fileName
+        metadata: metadata
+        notes: notes
+        author: author
+        supportRequestID: supportRequestID
+        filePath: filePath
+        businessID: businessID
+        abstract: abstract
+        title: title
+        businessProfileRecordID: businessProfileRecordID
+        isFolder: true
+        parentFileUploadId: parentFileUploadId
+        file: ""
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadId:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        file:
+          format: binary
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        supportRequestID:
+          nullable: true
+          type: string
+      type: object
+    SupportRequestAttachmentDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        enrollmentId: enrollmentId
+        fileName: fileName
+        metadata: metadata
+        notes: notes
+        author: author
+        supportRequestID: supportRequestID
+        filePath: filePath
+        abstract: abstract
+        title: title
+        userId: userId
+        folderPath: folderPath
+        isFolder: true
+        parentFileId: parentFileId
+        tenantId: tenantId
+        fileUrl: fileUrl
+        id: id
+        socialProfileId: socialProfileId
+        contentType: contentType
+        hash: hash
+        fileLength: 0
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        hash:
+          nullable: true
+          type: string
+        fileUrl:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        fileLength:
+          format: int64
+          type: integer
+        contentType:
+          nullable: true
+          type: string
+        parentFileId:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        folderPath:
+          nullable: true
+          type: string
+        supportRequestID:
+          nullable: true
+          type: string
+      type: object
+    SupportRequestAttachmentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          supportRequestID: supportRequestID
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportRequestAttachmentDto'
+      type: object
+    SupportRequestAttachmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          supportRequestID: supportRequestID
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          supportRequestID: supportRequestID
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportRequestAttachmentDto'
+          nullable: true
+          type: array
+      type: object
+    SupportRequestAttachmentUpdateDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        metadata: metadata
+        fileName: fileName
+        notes: notes
+        author: author
+        filePath: filePath
+        abstract: abstract
+        title: title
+        isFolder: true
+        parentFileUploadID: parentFileUploadID
+        file: ""
+        contentType: contentType
+        fileLength: 0
+      properties:
+        notes:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadID:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        file:
+          format: binary
+          nullable: true
+          type: string
+        contentType:
+          nullable: true
+          type: string
+        fileLength:
+          format: int64
+          type: integer
+      type: object
+    SupportRequestCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        accountHolderID: accountHolderID
+        approved: true
+        contactID: contactID
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        businessID: businessID
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 4000
+          minLength: 0
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+        contactID:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    SupportRequestDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        accountHolderID: accountHolderID
+        approved: true
+        contactID: contactID
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        businessID: businessID
+        description: description
+        id: id
+        title: title
+        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+        contactID:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+      type: object
+    SupportRequestDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          supportEntitlementID: supportEntitlementID
+          accountHolderID: accountHolderID
+          approved: true
+          contactID: contactID
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportRequestDto'
+      type: object
+    SupportRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportEntitlementID: supportEntitlementID
+          accountHolderID: accountHolderID
+          approved: true
+          contactID: contactID
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - supportEntitlementID: supportEntitlementID
+          accountHolderID: accountHolderID
+          approved: true
+          contactID: contactID
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportRequestDto'
+          nullable: true
+          type: array
+      type: object
+    SupportRequestUpdateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        approved: true
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketConversationCreateDto:
+      additionalProperties: false
+      example:
+        closedTimestamp: 2000-01-23T04:56:07.000+00:00
+        topic: topic
+        closed: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        socialProfileID: socialProfileID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        topic:
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        closedTimestamp:
+          format: date-time
+          type: string
+        socialProfileID:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SupportTicketConversationDto:
+      additionalProperties: false
+      example:
+        closedTimestamp: 2000-01-23T04:56:07.000+00:00
+        topic: topic
+        closed: true
+        id: id
+        supportTicketID: supportTicketID
+        socialProfileID: socialProfileID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        supportTicketID:
+          nullable: true
+          type: string
+        topic:
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        closedTimestamp:
+          format: date-time
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketConversationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          closedTimestamp: 2000-01-23T04:56:07.000+00:00
+          topic: topic
+          closed: true
+          id: id
+          supportTicketID: supportTicketID
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportTicketConversationDto'
+      type: object
+    SupportTicketConversationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - closedTimestamp: 2000-01-23T04:56:07.000+00:00
+          topic: topic
+          closed: true
+          id: id
+          supportTicketID: supportTicketID
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - closedTimestamp: 2000-01-23T04:56:07.000+00:00
+          topic: topic
+          closed: true
+          id: id
+          supportTicketID: supportTicketID
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportTicketConversationDto'
+          nullable: true
+          type: array
+      type: object
+    SupportTicketCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        supportPriorityID: supportPriorityID
+        accountHolderID: accountHolderID
+        contactID: contactID
+        supportTicketTypeID: supportTicketTypeID
+        businessID: businessID
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        accountHolderID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        contactID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        supportTicketTypeID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        supportEntitlementID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        supportPriorityID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      type: object
+    SupportTicketDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        supportPriorityID: supportPriorityID
+        accountHolderID: accountHolderID
+        contactID: contactID
+        supportTicketTypeID: supportTicketTypeID
+        businessID: businessID
+        description: description
+        id: id
+        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+        contactID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        supportTicketTypeID:
+          nullable: true
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+        supportPriorityID:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          supportEntitlementID: supportEntitlementID
+          supportPriorityID: supportPriorityID
+          accountHolderID: accountHolderID
+          contactID: contactID
+          supportTicketTypeID: supportTicketTypeID
+          businessID: businessID
+          description: description
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportTicketDto'
+      type: object
+    SupportTicketDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportEntitlementID: supportEntitlementID
+          supportPriorityID: supportPriorityID
+          accountHolderID: accountHolderID
+          contactID: contactID
+          supportTicketTypeID: supportTicketTypeID
+          businessID: businessID
+          description: description
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - supportEntitlementID: supportEntitlementID
+          supportPriorityID: supportPriorityID
+          accountHolderID: accountHolderID
+          contactID: contactID
+          supportTicketTypeID: supportTicketTypeID
+          businessID: businessID
+          description: description
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportTicketDto'
+          nullable: true
+          type: array
+      type: object
+    SupportTicketPriorityCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        businessID: businessID
+        description: description
+        title: title
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        supportEntitlementID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      type: object
+    SupportTicketPriorityDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        businessID: businessID
+        description: description
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketPriorityDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          supportEntitlementID: supportEntitlementID
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportTicketPriorityDto'
+      type: object
+    SupportTicketPriorityDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportEntitlementID: supportEntitlementID
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - supportEntitlementID: supportEntitlementID
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportTicketPriorityDto'
+          nullable: true
+          type: array
+      type: object
+    SupportTicketPriorityUpdateDto:
+      additionalProperties: false
+      example:
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketTypeCreateDto:
+      additionalProperties: false
+      example:
+        businessID: businessID
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      type: object
+    SupportTicketTypeDto:
+      additionalProperties: false
+      example:
+        businessID: businessID
+        description: description
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    SupportTicketTypeDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SupportTicketTypeDto'
+      type: object
+    SupportTicketTypeDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - businessID: businessID
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SupportTicketTypeDto'
+          nullable: true
+          type: array
+      type: object
+    SupportTicketTypeUpdateDto:
+      additionalProperties: false
+      example:
+        description: description
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SupportTicketUpdateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementID: supportEntitlementID
+        supportPriorityID: supportPriorityID
+        accountHolderID: accountHolderID
+        contactID: contactID
+        supportTicketTypeID: supportTicketTypeID
+        description: description
+        businessProfileRecordID: businessProfileRecordID
+      properties:
+        description:
+          nullable: true
+          type: string
+        accountHolderID:
+          nullable: true
+          type: string
+        contactID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        supportTicketTypeID:
+          nullable: true
+          type: string
+        supportEntitlementID:
+          nullable: true
+          type: string
+        supportPriorityID:
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

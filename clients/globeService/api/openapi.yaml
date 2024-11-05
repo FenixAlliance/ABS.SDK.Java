@@ -1,0 +1,1875 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: GlobeService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/GlobeService/Countries:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryDtoListEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/Search:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: countryName
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryDtoEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/States:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryStateDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryStateDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryStateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryStateDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryStateDtoEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryStateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CityDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/Timezones:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/Currencies:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryTopLevelDomainDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryTopLevelDomainDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Countries/{countryId}/CallingCodes:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: countryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryCallingCodeDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryCallingCodeDtoListEnvelope'
+          description: OK
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Currencies:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoListEnvelope'
+          description: OK
+      tags:
+      - Currencies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Currencies/{currencyId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: currencyId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoEnvelope'
+          description: OK
+      tags:
+      - Currencies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Languages:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryLanguageDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryLanguageDtoListEnvelope'
+          description: OK
+      tags:
+      - Languages
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Languages/{languageId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: languageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryLanguageDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryLanguageDtoEnvelope'
+          description: OK
+      tags:
+      - Languages
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/Global/System/Migrate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+          description: OK
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+          description: Internal Server Error
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+          description: Unauthorized
+      tags:
+      - Migrations
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Timezones:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoListEnvelope'
+          description: OK
+      tags:
+      - Timezones
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Timezones/{timeZoneId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: timeZoneId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimezoneDtoEnvelope'
+          description: OK
+      tags:
+      - Timezones
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    CityDto:
+      additionalProperties: false
+      example:
+        imageUrl: imageUrl
+        stateID: stateID
+        latitude: latitude
+        name: name
+        id: id
+        countryID: countryID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: longitude
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        stateID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        latitude:
+          nullable: true
+          type: string
+        longitude:
+          nullable: true
+          type: string
+      type: object
+    CityDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - imageUrl: imageUrl
+          stateID: stateID
+          latitude: latitude
+          name: name
+          id: id
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: longitude
+        - imageUrl: imageUrl
+          stateID: stateID
+          latitude: latitude
+          name: name
+          id: id
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: longitude
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CityDto'
+          nullable: true
+          type: array
+      type: object
+    CountryCallingCodeDto:
+      additionalProperties: false
+      example:
+        callingCode: callingCode
+        id: 0
+        countryID: countryID
+      properties:
+        id:
+          format: int32
+          type: integer
+        callingCode:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+      type: object
+    CountryCallingCodeDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - callingCode: callingCode
+          id: 0
+          countryID: countryID
+        - callingCode: callingCode
+          id: 0
+          countryID: countryID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CountryCallingCodeDto'
+          nullable: true
+          type: array
+      type: object
+    CountryDto:
+      additionalProperties: false
+      example:
+        nativeName: nativeName
+        name: name
+        id: id
+        iso2: iso2
+        flagUrl: flagUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        iso3: iso3
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        iso3:
+          nullable: true
+          type: string
+        iso2:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        nativeName:
+          nullable: true
+          type: string
+        flagUrl:
+          nullable: true
+          type: string
+      type: object
+    CountryDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CountryDto'
+      type: object
+    CountryDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        - nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CountryDto'
+          nullable: true
+          type: array
+      type: object
+    CountryLanguageDto:
+      additionalProperties: false
+      example:
+        languageNativeName: languageNativeName
+        iso639_2: iso639_2
+        name: name
+        id: id
+        iso639_1: iso639_1
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        iso639_1:
+          nullable: true
+          type: string
+        iso639_2:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        languageNativeName:
+          nullable: true
+          type: string
+      type: object
+    CountryLanguageDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          languageNativeName: languageNativeName
+          iso639_2: iso639_2
+          name: name
+          id: id
+          iso639_1: iso639_1
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CountryLanguageDto'
+      type: object
+    CountryLanguageDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - languageNativeName: languageNativeName
+          iso639_2: iso639_2
+          name: name
+          id: id
+          iso639_1: iso639_1
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - languageNativeName: languageNativeName
+          iso639_2: iso639_2
+          name: name
+          id: id
+          iso639_1: iso639_1
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CountryLanguageDto'
+          nullable: true
+          type: array
+      type: object
+    CountryStateDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        id: id
+        countryID: countryID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+      type: object
+    CountryStateDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          name: name
+          id: id
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CountryStateDto'
+      type: object
+    CountryStateDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          name: name
+          id: id
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - code: code
+          name: name
+          id: id
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CountryStateDto'
+          nullable: true
+          type: array
+      type: object
+    CountryTopLevelDomainDto:
+      additionalProperties: false
+      example:
+        domain: domain
+        id: id
+        countryID: countryID
+      properties:
+        id:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+      type: object
+    CountryTopLevelDomainDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - domain: domain
+          id: id
+          countryID: countryID
+        - domain: domain
+          id: id
+          countryID: countryID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CountryTopLevelDomainDto'
+          nullable: true
+          type: array
+      type: object
+    CurrencyDto:
+      additionalProperties: false
+      example:
+        symbol: symbol
+        country:
+          nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        code: code
+        name: name
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        symbol:
+          nullable: true
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryDto'
+      type: object
+    CurrencyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          symbol: symbol
+          country:
+            nativeName: nativeName
+            name: name
+            id: id
+            iso2: iso2
+            flagUrl: flagUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            iso3: iso3
+          code: code
+          name: name
+          id: id
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CurrencyDto'
+      type: object
+    CurrencyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - symbol: symbol
+          country:
+            nativeName: nativeName
+            name: name
+            id: id
+            iso2: iso2
+            flagUrl: flagUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            iso3: iso3
+          code: code
+          name: name
+          id: id
+        - symbol: symbol
+          country:
+            nativeName: nativeName
+            name: name
+            id: id
+            iso2: iso2
+            flagUrl: flagUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            iso3: iso3
+          code: code
+          name: name
+          id: id
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CurrencyDto'
+          nullable: true
+          type: array
+      type: object
+    Error:
+      additionalProperties: false
+      example:
+        help: help
+        description: description
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        help:
+          nullable: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    PaymentResponse:
+      additionalProperties: false
+      example:
+        bank: bank
+        franchise: franchise
+        authCode: authCode
+        test: true
+        signature: signature
+        response: response
+        paymentID: paymentID
+        ip: ip
+        errors: ""
+        paymentStatus: 0
+        status: status
+      properties:
+        test:
+          type: boolean
+        ip:
+          nullable: true
+          type: string
+        bank:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        errors:
+          nullable: true
+        response:
+          nullable: true
+          type: string
+        authCode:
+          nullable: true
+          type: string
+        paymentID:
+          nullable: true
+          type: string
+        franchise:
+          nullable: true
+          type: string
+        signature:
+          nullable: true
+          type: string
+        paymentStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          format: int32
+          type: integer
+      type: object
+    ResponseStatus:
+      additionalProperties: false
+      example:
+        utcTimestamp: 2000-01-23T04:56:07.000+00:00
+        success: true
+        correlationID: correlationID
+        error:
+          help: help
+          description: description
+          id: id
+      properties:
+        success:
+          type: boolean
+        error:
+          $ref: '#/components/schemas/Error'
+        correlationID:
+          nullable: true
+          type: string
+        utcTimestamp:
+          format: date-time
+          type: string
+      type: object
+    TimezoneDto:
+      additionalProperties: false
+      example:
+        utcOffset: utcOffset
+        displayName: displayName
+        name: name
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          readOnly: true
+          type: string
+        utcOffset:
+          nullable: true
+          type: string
+      type: object
+    TimezoneDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          utcOffset: utcOffset
+          displayName: displayName
+          name: name
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/TimezoneDto'
+      type: object
+    TimezoneDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - utcOffset: utcOffset
+          displayName: displayName
+          name: name
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - utcOffset: utcOffset
+          displayName: displayName
+          name: name
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/TimezoneDto'
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

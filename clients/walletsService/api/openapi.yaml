@@ -1,0 +1,5941 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: WalletsService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/WalletsService/Wallets/{walletId}:
+    get:
+      description: Get details of a specific wallet by ID.
+      operationId: GetWalletDetailsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+          description: OK
+      summary: Get Wallet Details
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Orders:
+    get:
+      description: Get orders of a specific wallet by ID.
+      operationId: GetWalletOrdersAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OrderDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Orders
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended:
+    get:
+      description: Get extended orders of a specific wallet by ID.
+      operationId: GetWalletExtendedOrdersAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedOrderDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedOrderDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Extended Orders
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Orders/Count:
+    get:
+      description: Get orders count of a specific wallet by ID.
+      operationId: GetWalletOrdersCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Orders Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices:
+    get:
+      description: Get invoices of a specific wallet by ID.
+      operationId: GetWalletInvoicesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Invoices
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices/Count:
+    get:
+      description: Get invoices count of a specific wallet by ID.
+      operationId: GetWalletInvoicesCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Invoices Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments:
+    get:
+      description: Get payments of a specific wallet by ID.
+      operationId: GetWalletPaymentsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Payments
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments/Count:
+    get:
+      description: Get payments count of a specific wallet by ID.
+      operationId: GetWalletPaymentsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Payments Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Locations:
+    get:
+      description: Get locations of a specific wallet by ID.
+      operationId: GetWalletLocationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Locations
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new location for a specific wallet by ID.
+      operationId: CreateWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Location
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Locations/Count:
+    get:
+      description: Get locations count of a specific wallet by ID.
+      operationId: GetWalletLocationsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Locations Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}:
+    delete:
+      description: Delete a specific location of a specific wallet by ID.
+      operationId: DeleteWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete Wallet Location
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a specific location of a specific wallet by ID.
+      operationId: GetWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+          description: OK
+      summary: Get Wallet Location
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a specific location of a specific wallet by ID.
+      operationId: UpdateWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Wallet Location
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming:
+    get:
+      description: Get incoming invoices of a specific wallet by ID.
+      operationId: GetIncomingWalletInvoicesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+          description: OK
+      summary: Get Incoming Wallet Invoices
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count:
+    get:
+      description: Get incoming invoices count of a specific wallet by ID.
+      operationId: GetIncomingWalletInvoicesCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Incoming Wallet Invoices Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing:
+    get:
+      description: Get outgoing invoices of a specific wallet by ID.
+      operationId: GetOutgoingWalletInvoicesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+          description: OK
+      summary: Get Outgoing Wallet Invoices
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing/Count:
+    get:
+      description: Get outgoing invoices count of a specific wallet by ID.
+      operationId: GetOutgoingWalletInvoicesCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Outgoing Wallet Invoices Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming:
+    get:
+      description: Get incoming payments of a specific wallet by ID.
+      operationId: GetIncomingPaymentsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      summary: Get Incoming Payments
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count:
+    get:
+      description: Get incoming payments count of a specific wallet by ID.
+      operationId: GetIncomingPaymentsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Incoming Payments Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing:
+    get:
+      description: Get outgoing payments of a specific wallet by ID.
+      operationId: GetOutgoingPaymentsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      summary: Get Outgoing Payments
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count:
+    get:
+      description: Get outgoing payments count of a specific wallet by ID.
+      operationId: GetOutgoingPaymentsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Outgoing Payments Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    ContactDto:
+      additionalProperties: false
+      example:
+        streetLine2: streetLine2
+        zipCode: zipCode
+        streetLine1: streetLine1
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        postalCode: postalCode
+        tikTokUrl: tikTokUrl
+        about: about
+        cityId: cityId
+        type: 0
+        identityProvider: identityProvider
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        gitHubUrl: gitHubUrl
+        walletId: walletId
+        enrollmentId: enrollmentId
+        parentContactId: parentContactId
+        activeDirectoryId: activeDirectoryId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        relatedTenantId: relatedTenantId
+        twitchUrl: twitchUrl
+        ownerContactId: ownerContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        activityFeedId: activityFeedId
+        mobilePhone: mobilePhone
+        webUrl: webUrl
+        taxId: taxId
+        duns: duns
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+        annualRevenue: annualRevenue
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        relatedUserId: relatedUserId
+        countryId: countryId
+        redditUrl: redditUrl
+        facebookUrl: facebookUrl
+        websiteUrl: websiteUrl
+        street: street
+        territoryId: territoryId
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        partnerProfileId: partnerProfileId
+        stateId: stateId
+        languageId: languageId
+        primaryContactId: primaryContactId
+        identityProviderAccessToken: identityProviderAccessToken
+        githubUsername: githubUsername
+        tenantId: tenantId
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: instagramUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        zipCode:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        territoryId:
+          nullable: true
+          type: string
+        mobilePhone:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        annualRevenue:
+          nullable: true
+          type: string
+        relatedUserId:
+          nullable: true
+          type: string
+        businessPhone:
+          nullable: true
+          type: string
+        ownerContactId:
+          nullable: true
+          type: string
+        relatedTenantId:
+          nullable: true
+          type: string
+        activityFeedId:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        primaryContactId:
+          nullable: true
+          type: string
+        activeDirectoryId:
+          nullable: true
+          type: string
+        identityProviderAccessToken:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    Currency:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExtendedOrderDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        freightTerms: 6
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        customDiscountsAmount: 1.284659006116532
+        totalAmountInUsd: 2.027123023002322
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        tenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTaxAmount: 9.018348186070783
+        enrollmentId: enrollmentId
+        walletId: walletId
+        totalProfitInUsd: 4.145608029883936
+        orderLinesCount: 9
+        individual:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        shippingMethodId: shippingMethodId
+        costCalculationMethod: 9
+        totalShippingTaxesInUsd: 5.025004791520295
+        quoteId: quoteId
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        customDetailAmount: 3.5571952270680973
+        customSurchargesAmount: 2.8841621266687802
+        requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        customShippingCostAmount: 6.878052220127876
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customWithholdingTaxAmount: 5.944895607614016
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        billingLocationId: billingLocationId
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        totalDiscounts: 5.637376656633329
+        description: description
+        orderStatus: 8
+        customerNotes: customerNotes
+        shippingLocationId: shippingLocationId
+        individualId: individualId
+        title: title
+        qualifiedIdentifier: qualifiedIdentifier
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        parentOrderId: parentOrderId
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTotalAmount: 6.438423552598547
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        paymentTermId: paymentTermId
+        totalTaxes: 1.4658129805029452
+        stateId: stateId
+        customShippingTaxAmount: 6.778324963048013
+        priceListId: priceListId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enrollment:
+          isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customProfitAmount: 6.965117697638846
+        organization:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        tenantId: tenantId
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+        user:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          gender: 6
+          emailConfirmed: true
+          twitterUrl: twitterUrl
+          jobTitle: jobTitle
+          about: about
+          currentEnrollmentId: currentEnrollmentId
+          cityId: cityId
+          availability: 3
+          countryId: countryId
+          identityProvider: identityProvider
+          phoneNumberConfirmed: true
+          currentTenantId: currentTenantId
+          facebookUrl: facebookUrl
+          siteTheme: 7
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          publicIdentifier: publicIdentifier
+          gitHubUrl: gitHubUrl
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          cartId: cartId
+          lockoutEnabled: true
+          languageId: languageId
+          fullName: fullName
+          userName: userName
+          enrollmentsCount: 3
+          coverUrl: coverUrl
+          firstName: firstName
+          phoneNumber: phoneNumber
+          idProvider: idProvider
+          socialFeedId: socialFeedId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+          status: status
+        receiverTenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        orderLinesCount:
+          format: int32
+          type: integer
+        quoteId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        paymentTermId:
+          nullable: true
+          type: string
+        parentOrderId:
+          nullable: true
+          type: string
+        shippingMethodId:
+          nullable: true
+          type: string
+        billingLocationId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        qualifiedIdentifier:
+          nullable: true
+          type: string
+        costCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        freightTerms:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        orderStatus:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          format: int32
+          type: integer
+        requestedDeliveryDate:
+          format: date-time
+          type: string
+        customTaxAmount:
+          format: double
+          type: number
+        customTotalAmount:
+          format: double
+          type: number
+        customDetailAmount:
+          format: double
+          type: number
+        customProfitAmount:
+          format: double
+          type: number
+        customDiscountsAmount:
+          format: double
+          type: number
+        customSurchargesAmount:
+          format: double
+          type: number
+        customShippingTaxAmount:
+          format: double
+          type: number
+        customShippingCostAmount:
+          format: double
+          type: number
+        customWithholdingTaxAmount:
+          format: double
+          type: number
+        user:
+          $ref: '#/components/schemas/UserDto'
+        tenant:
+          $ref: '#/components/schemas/TenantDto'
+        individual:
+          $ref: '#/components/schemas/ContactDto'
+        organization:
+          $ref: '#/components/schemas/ContactDto'
+        receiverTenant:
+          $ref: '#/components/schemas/TenantDto'
+        enrollment:
+          $ref: '#/components/schemas/TenantEnrolmentDto'
+      type: object
+    ExtendedOrderDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          freightTerms: 6
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          customDiscountsAmount: 1.284659006116532
+          totalAmountInUsd: 2.027123023002322
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTaxAmount: 9.018348186070783
+          enrollmentId: enrollmentId
+          walletId: walletId
+          totalProfitInUsd: 4.145608029883936
+          orderLinesCount: 9
+          individual:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            postalCode: postalCode
+            tikTokUrl: tikTokUrl
+            about: about
+            cityId: cityId
+            type: 0
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: gitHubUrl
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: twitchUrl
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            webUrl: webUrl
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: youTubeUrl
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            websiteUrl: websiteUrl
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: instagramUrl
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          shippingMethodId: shippingMethodId
+          costCalculationMethod: 9
+          totalShippingTaxesInUsd: 5.025004791520295
+          quoteId: quoteId
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          customDetailAmount: 3.5571952270680973
+          customSurchargesAmount: 2.8841621266687802
+          requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          customShippingCostAmount: 6.878052220127876
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customWithholdingTaxAmount: 5.944895607614016
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          billingLocationId: billingLocationId
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          totalDiscounts: 5.637376656633329
+          description: description
+          orderStatus: 8
+          customerNotes: customerNotes
+          shippingLocationId: shippingLocationId
+          individualId: individualId
+          title: title
+          qualifiedIdentifier: qualifiedIdentifier
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          parentOrderId: parentOrderId
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTotalAmount: 6.438423552598547
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          paymentTermId: paymentTermId
+          totalTaxes: 1.4658129805029452
+          stateId: stateId
+          customShippingTaxAmount: 6.778324963048013
+          priceListId: priceListId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollment:
+            isRoot: true
+            isOwner: true
+            tenantId: tenantId
+            id: id
+            isAdmin: true
+            isDisabled: true
+            userId: userId
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customProfitAmount: 6.965117697638846
+          organization:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            postalCode: postalCode
+            tikTokUrl: tikTokUrl
+            about: about
+            cityId: cityId
+            type: 0
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: gitHubUrl
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: twitchUrl
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            webUrl: webUrl
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: youTubeUrl
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            websiteUrl: websiteUrl
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: instagramUrl
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          user:
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            gender: 6
+            emailConfirmed: true
+            twitterUrl: twitterUrl
+            jobTitle: jobTitle
+            about: about
+            currentEnrollmentId: currentEnrollmentId
+            cityId: cityId
+            availability: 3
+            countryId: countryId
+            identityProvider: identityProvider
+            phoneNumberConfirmed: true
+            currentTenantId: currentTenantId
+            facebookUrl: facebookUrl
+            siteTheme: 7
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            publicIdentifier: publicIdentifier
+            gitHubUrl: gitHubUrl
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            stateId: stateId
+            cartId: cartId
+            lockoutEnabled: true
+            languageId: languageId
+            fullName: fullName
+            userName: userName
+            enrollmentsCount: 3
+            coverUrl: coverUrl
+            firstName: firstName
+            phoneNumber: phoneNumber
+            idProvider: idProvider
+            socialFeedId: socialFeedId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+            status: status
+          receiverTenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+        - totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          freightTerms: 6
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          customDiscountsAmount: 1.284659006116532
+          totalAmountInUsd: 2.027123023002322
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTaxAmount: 9.018348186070783
+          enrollmentId: enrollmentId
+          walletId: walletId
+          totalProfitInUsd: 4.145608029883936
+          orderLinesCount: 9
+          individual:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            postalCode: postalCode
+            tikTokUrl: tikTokUrl
+            about: about
+            cityId: cityId
+            type: 0
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: gitHubUrl
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: twitchUrl
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            webUrl: webUrl
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: youTubeUrl
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            websiteUrl: websiteUrl
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: instagramUrl
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          shippingMethodId: shippingMethodId
+          costCalculationMethod: 9
+          totalShippingTaxesInUsd: 5.025004791520295
+          quoteId: quoteId
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          customDetailAmount: 3.5571952270680973
+          customSurchargesAmount: 2.8841621266687802
+          requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          customShippingCostAmount: 6.878052220127876
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customWithholdingTaxAmount: 5.944895607614016
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          billingLocationId: billingLocationId
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          totalDiscounts: 5.637376656633329
+          description: description
+          orderStatus: 8
+          customerNotes: customerNotes
+          shippingLocationId: shippingLocationId
+          individualId: individualId
+          title: title
+          qualifiedIdentifier: qualifiedIdentifier
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          parentOrderId: parentOrderId
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTotalAmount: 6.438423552598547
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          paymentTermId: paymentTermId
+          totalTaxes: 1.4658129805029452
+          stateId: stateId
+          customShippingTaxAmount: 6.778324963048013
+          priceListId: priceListId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollment:
+            isRoot: true
+            isOwner: true
+            tenantId: tenantId
+            id: id
+            isAdmin: true
+            isDisabled: true
+            userId: userId
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customProfitAmount: 6.965117697638846
+          organization:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            postalCode: postalCode
+            tikTokUrl: tikTokUrl
+            about: about
+            cityId: cityId
+            type: 0
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: gitHubUrl
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: twitchUrl
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            webUrl: webUrl
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: youTubeUrl
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            websiteUrl: websiteUrl
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: instagramUrl
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          user:
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            gender: 6
+            emailConfirmed: true
+            twitterUrl: twitterUrl
+            jobTitle: jobTitle
+            about: about
+            currentEnrollmentId: currentEnrollmentId
+            cityId: cityId
+            availability: 3
+            countryId: countryId
+            identityProvider: identityProvider
+            phoneNumberConfirmed: true
+            currentTenantId: currentTenantId
+            facebookUrl: facebookUrl
+            siteTheme: 7
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            publicIdentifier: publicIdentifier
+            gitHubUrl: gitHubUrl
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            stateId: stateId
+            cartId: cartId
+            lockoutEnabled: true
+            languageId: languageId
+            fullName: fullName
+            userName: userName
+            enrollmentsCount: 3
+            coverUrl: coverUrl
+            firstName: firstName
+            phoneNumber: phoneNumber
+            idProvider: idProvider
+            socialFeedId: socialFeedId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+            status: status
+          receiverTenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedOrderDto'
+          nullable: true
+          type: array
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    InvoiceDto:
+      additionalProperties: false
+      example:
+        paymentModeId: paymentModeId
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        notes: notes
+        orderId: orderId
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enumerationRangeId: enumerationRangeId
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        number: 9
+        emisorWalletAccountId: emisorWalletAccountId
+        totalAmountInUsd: 2.027123023002322
+        receiverWalletAccountId: receiverWalletAccountId
+        addressLine1: addressLine1
+        invoiceType: 9
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        enumeration: enumeration
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enrollmentId: enrollmentId
+        totalProfitInUsd: 4.145608029883936
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        totalShippingTaxesInUsd: 5.025004791520295
+        paymentDue: 2000-01-23T04:56:07.000+00:00
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        documentType: 6
+        totalDiscounts: 5.637376656633329
+        description: description
+        customerNotes: customerNotes
+        individualId: individualId
+        title: title
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxes: 1.4658129805029452
+        emisorBillingProfileId: emisorBillingProfileId
+        stateId: stateId
+        priceListId: priceListId
+        receiverBillingProfileId: receiverBillingProfileId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        tenantId: tenantId
+        paid: true
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+        invoiceStatus: 8
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        paid:
+          type: boolean
+        number:
+          format: int64
+          type: integer
+        notes:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        enumeration:
+          nullable: true
+          type: string
+        paymentModeId:
+          nullable: true
+          type: string
+        enumerationRangeId:
+          nullable: true
+          type: string
+        emisorBillingProfileId:
+          nullable: true
+          type: string
+        receiverBillingProfileId:
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
+        paymentDue:
+          format: date-time
+          nullable: true
+          type: string
+        invoiceType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        documentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        invoiceStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          type: integer
+      type: object
+    InvoiceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 9
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 6
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 8
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 9
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 6
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 8
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceDto'
+          nullable: true
+          type: array
+      type: object
+    LocationCreateDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fax: fax
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: 0.8008281904610115
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    LocationDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        business: business
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        id: id
+        fax: fax
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: 0.8008281904610115
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        business:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    LocationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/LocationDto'
+      type: object
+    LocationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LocationDto'
+          nullable: true
+          type: array
+      type: object
+    LocationUpdateDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
+        fax: fax
+        email: email
+        longitude: 0.8008281904610115
+      properties:
+        title:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 9.965781217890562
+        currency:
+          country: country
+          code: code
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+      type: object
+    OrderDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        freightTerms: 8
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        customDiscountsAmount: 2.8841621266687802
+        totalAmountInUsd: 2.027123023002322
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTaxAmount: 6.438423552598547
+        enrollmentId: enrollmentId
+        walletId: walletId
+        totalProfitInUsd: 4.145608029883936
+        orderLinesCount: 9
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        shippingMethodId: shippingMethodId
+        costCalculationMethod: 6
+        totalShippingTaxesInUsd: 5.025004791520295
+        quoteId: quoteId
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        customDetailAmount: 6.965117697638846
+        customSurchargesAmount: 6.778324963048013
+        requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        customShippingCostAmount: 5.944895607614016
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customWithholdingTaxAmount: 6.704019297950036
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        billingLocationId: billingLocationId
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        totalDiscounts: 5.637376656633329
+        description: description
+        orderStatus: 9
+        customerNotes: customerNotes
+        shippingLocationId: shippingLocationId
+        individualId: individualId
+        title: title
+        qualifiedIdentifier: qualifiedIdentifier
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        parentOrderId: parentOrderId
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTotalAmount: 3.5571952270680973
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        paymentTermId: paymentTermId
+        totalTaxes: 1.4658129805029452
+        stateId: stateId
+        customShippingTaxAmount: 6.878052220127876
+        priceListId: priceListId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customProfitAmount: 1.284659006116532
+        tenantId: tenantId
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        orderLinesCount:
+          format: int32
+          type: integer
+        quoteId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        paymentTermId:
+          nullable: true
+          type: string
+        parentOrderId:
+          nullable: true
+          type: string
+        shippingMethodId:
+          nullable: true
+          type: string
+        billingLocationId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        qualifiedIdentifier:
+          nullable: true
+          type: string
+        costCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        freightTerms:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        orderStatus:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          format: int32
+          type: integer
+        requestedDeliveryDate:
+          format: date-time
+          type: string
+        customTaxAmount:
+          format: double
+          type: number
+        customTotalAmount:
+          format: double
+          type: number
+        customDetailAmount:
+          format: double
+          type: number
+        customProfitAmount:
+          format: double
+          type: number
+        customDiscountsAmount:
+          format: double
+          type: number
+        customSurchargesAmount:
+          format: double
+          type: number
+        customShippingTaxAmount:
+          format: double
+          type: number
+        customShippingCostAmount:
+          format: double
+          type: number
+        customWithholdingTaxAmount:
+          format: double
+          type: number
+      type: object
+    OrderDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          freightTerms: 8
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          customDiscountsAmount: 2.8841621266687802
+          totalAmountInUsd: 2.027123023002322
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTaxAmount: 6.438423552598547
+          enrollmentId: enrollmentId
+          walletId: walletId
+          totalProfitInUsd: 4.145608029883936
+          orderLinesCount: 9
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          shippingMethodId: shippingMethodId
+          costCalculationMethod: 6
+          totalShippingTaxesInUsd: 5.025004791520295
+          quoteId: quoteId
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          customDetailAmount: 6.965117697638846
+          customSurchargesAmount: 6.778324963048013
+          requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          customShippingCostAmount: 5.944895607614016
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customWithholdingTaxAmount: 6.704019297950036
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          billingLocationId: billingLocationId
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          totalDiscounts: 5.637376656633329
+          description: description
+          orderStatus: 9
+          customerNotes: customerNotes
+          shippingLocationId: shippingLocationId
+          individualId: individualId
+          title: title
+          qualifiedIdentifier: qualifiedIdentifier
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          parentOrderId: parentOrderId
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTotalAmount: 3.5571952270680973
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          paymentTermId: paymentTermId
+          totalTaxes: 1.4658129805029452
+          stateId: stateId
+          customShippingTaxAmount: 6.878052220127876
+          priceListId: priceListId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customProfitAmount: 1.284659006116532
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+        - totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          freightTerms: 8
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          customDiscountsAmount: 2.8841621266687802
+          totalAmountInUsd: 2.027123023002322
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTaxAmount: 6.438423552598547
+          enrollmentId: enrollmentId
+          walletId: walletId
+          totalProfitInUsd: 4.145608029883936
+          orderLinesCount: 9
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          shippingMethodId: shippingMethodId
+          costCalculationMethod: 6
+          totalShippingTaxesInUsd: 5.025004791520295
+          quoteId: quoteId
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          customDetailAmount: 6.965117697638846
+          customSurchargesAmount: 6.778324963048013
+          requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          customShippingCostAmount: 5.944895607614016
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customWithholdingTaxAmount: 6.704019297950036
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          billingLocationId: billingLocationId
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          totalDiscounts: 5.637376656633329
+          description: description
+          orderStatus: 9
+          customerNotes: customerNotes
+          shippingLocationId: shippingLocationId
+          individualId: individualId
+          title: title
+          qualifiedIdentifier: qualifiedIdentifier
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          parentOrderId: parentOrderId
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTotalAmount: 3.5571952270680973
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          paymentTermId: paymentTermId
+          totalTaxes: 1.4658129805029452
+          stateId: stateId
+          customShippingTaxAmount: 6.878052220127876
+          priceListId: priceListId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customProfitAmount: 1.284659006116532
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/OrderDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentDto:
+      additionalProperties: false
+      example:
+        data: data
+        called: true
+        orderId: orderId
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        signatureMismatch: true
+        authorization: authorization
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        id: id
+        currencyId: currencyId
+        forexRatesSnapshot: forexRatesSnapshot
+        correlationCode: correlationCode
+        test: true
+        isExternal: true
+        dataLabel: dataLabel
+        emisorWalletId: emisorWalletId
+        data1Label: data1Label
+        antiFraudScore: 9.301444243932576
+        bankId: bankId
+        forexRate: 0.8008281904610115
+        phone: phone
+        bankAccountId: bankAccountId
+        markedForRevision: true
+        referenceCode: referenceCode
+        callRecordURL: callRecordURL
+        ipLookupId: ipLookupId
+        totalCost: 6.027456183070403
+        payerPictureTimestamp: payerPictureTimestamp
+        officialId: officialId
+        signature: signature
+        city: city
+        accountingEntryId: accountingEntryId
+        onBehalfOf: 5
+        entitlementId: entitlementId
+        identificationBackPicture: identificationBackPicture
+        payerPicture: payerPicture
+        countryId: countryId
+        identificationPicture: identificationPicture
+        paymentType: 5
+        locationId: locationId
+        enrolmentId: enrolmentId
+        cellphone: cellphone
+        department: department
+        paymentStatus: 2
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        baseCost: 7.061401241503109
+        totalTaxes: 1.4658129805029452
+        identificationBackPictureTimestamp: identificationBackPictureTimestamp
+        receiverWalletId: receiverWalletId
+        data1: data1
+        verified: true
+        identificationPictureTimestamp: identificationPictureTimestamp
+        timeStamp: 2000-01-23T04:56:07.000+00:00
+        paymentGatewayId: paymentGatewayId
+        officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+        response: response
+        tenantId: tenantId
+        closed: true
+        paymentTokenId: paymentTokenId
+        invoiceId: invoiceId
+        billingAddress: billingAddress
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        timeStamp:
+          format: date-time
+          type: string
+        test:
+          type: boolean
+        invoiceId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        emisorWalletId:
+          nullable: true
+          type: string
+        receiverWalletId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalCost:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        closed:
+          type: boolean
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        response:
+          nullable: true
+          type: string
+        authorization:
+          nullable: true
+          type: string
+        referenceCode:
+          nullable: true
+          type: string
+        correlationCode:
+          nullable: true
+          type: string
+        lastUpdated:
+          format: date-time
+          type: string
+        onBehalfOf:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          format: int32
+          type: integer
+        paymentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        paymentStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          format: int32
+          type: integer
+        baseCost:
+          format: double
+          type: number
+        signature:
+          nullable: true
+          type: string
+        signatureMismatch:
+          type: boolean
+        isExternal:
+          type: boolean
+        markedForRevision:
+          type: boolean
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        officialId:
+          nullable: true
+          type: string
+        officialIdExpeditionDate:
+          format: date-time
+          type: string
+        fiscalIdentificationTypeId:
+          nullable: true
+          type: string
+        billingAddress:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        cellphone:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        entitlementId:
+          nullable: true
+          type: string
+        antiFraudScore:
+          format: double
+          type: number
+        callRecordURL:
+          nullable: true
+          type: string
+        called:
+          type: boolean
+        verified:
+          type: boolean
+        payerPictureTimestamp:
+          nullable: true
+          type: string
+        payerPicture:
+          nullable: true
+          type: string
+        identificationPictureTimestamp:
+          nullable: true
+          type: string
+        identificationPicture:
+          nullable: true
+          type: string
+        identificationBackPicture:
+          nullable: true
+          type: string
+        identificationBackPictureTimestamp:
+          nullable: true
+          type: string
+        ipLookupId:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        accountingEntryId:
+          nullable: true
+          type: string
+        paymentGatewayId:
+          nullable: true
+          type: string
+        bankAccountId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        bankId:
+          nullable: true
+          type: string
+        paymentTokenId:
+          nullable: true
+          type: string
+      type: object
+    PaymentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          called: true
+          orderId: orderId
+          fiscalIdentificationTypeId: fiscalIdentificationTypeId
+          signatureMismatch: true
+          authorization: authorization
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          id: id
+          currencyId: currencyId
+          forexRatesSnapshot: forexRatesSnapshot
+          correlationCode: correlationCode
+          test: true
+          isExternal: true
+          dataLabel: dataLabel
+          emisorWalletId: emisorWalletId
+          data1Label: data1Label
+          antiFraudScore: 9.301444243932576
+          bankId: bankId
+          forexRate: 0.8008281904610115
+          phone: phone
+          bankAccountId: bankAccountId
+          markedForRevision: true
+          referenceCode: referenceCode
+          callRecordURL: callRecordURL
+          ipLookupId: ipLookupId
+          totalCost: 6.027456183070403
+          payerPictureTimestamp: payerPictureTimestamp
+          officialId: officialId
+          signature: signature
+          city: city
+          accountingEntryId: accountingEntryId
+          onBehalfOf: 5
+          entitlementId: entitlementId
+          identificationBackPicture: identificationBackPicture
+          payerPicture: payerPicture
+          countryId: countryId
+          identificationPicture: identificationPicture
+          paymentType: 5
+          locationId: locationId
+          enrolmentId: enrolmentId
+          cellphone: cellphone
+          department: department
+          paymentStatus: 2
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          baseCost: 7.061401241503109
+          totalTaxes: 1.4658129805029452
+          identificationBackPictureTimestamp: identificationBackPictureTimestamp
+          receiverWalletId: receiverWalletId
+          data1: data1
+          verified: true
+          identificationPictureTimestamp: identificationPictureTimestamp
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          paymentGatewayId: paymentGatewayId
+          officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+          response: response
+          tenantId: tenantId
+          closed: true
+          paymentTokenId: paymentTokenId
+          invoiceId: invoiceId
+          billingAddress: billingAddress
+        - data: data
+          called: true
+          orderId: orderId
+          fiscalIdentificationTypeId: fiscalIdentificationTypeId
+          signatureMismatch: true
+          authorization: authorization
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          id: id
+          currencyId: currencyId
+          forexRatesSnapshot: forexRatesSnapshot
+          correlationCode: correlationCode
+          test: true
+          isExternal: true
+          dataLabel: dataLabel
+          emisorWalletId: emisorWalletId
+          data1Label: data1Label
+          antiFraudScore: 9.301444243932576
+          bankId: bankId
+          forexRate: 0.8008281904610115
+          phone: phone
+          bankAccountId: bankAccountId
+          markedForRevision: true
+          referenceCode: referenceCode
+          callRecordURL: callRecordURL
+          ipLookupId: ipLookupId
+          totalCost: 6.027456183070403
+          payerPictureTimestamp: payerPictureTimestamp
+          officialId: officialId
+          signature: signature
+          city: city
+          accountingEntryId: accountingEntryId
+          onBehalfOf: 5
+          entitlementId: entitlementId
+          identificationBackPicture: identificationBackPicture
+          payerPicture: payerPicture
+          countryId: countryId
+          identificationPicture: identificationPicture
+          paymentType: 5
+          locationId: locationId
+          enrolmentId: enrolmentId
+          cellphone: cellphone
+          department: department
+          paymentStatus: 2
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          baseCost: 7.061401241503109
+          totalTaxes: 1.4658129805029452
+          identificationBackPictureTimestamp: identificationBackPictureTimestamp
+          receiverWalletId: receiverWalletId
+          data1: data1
+          verified: true
+          identificationPictureTimestamp: identificationPictureTimestamp
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          paymentGatewayId: paymentGatewayId
+          officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+          response: response
+          tenantId: tenantId
+          closed: true
+          paymentTokenId: paymentTokenId
+          invoiceId: invoiceId
+          billingAddress: billingAddress
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentDto'
+          nullable: true
+          type: array
+      type: object
+    TenantDto:
+      additionalProperties: false
+      example:
+        supportPhoneNumber: supportPhoneNumber
+        whatsAppNumber: whatsAppNumber
+        twitterUrl: twitterUrl
+        about: about
+        businessName: businessName
+        cityId: cityId
+        businessSegmentId: businessSegmentId
+        countryId: countryId
+        legalName: legalName
+        facebookUrl: facebookUrl
+        id: id
+        businessIndustryId: businessIndustryId
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        stateId: stateId
+        languageId: languageId
+        verified: true
+        coverUrl: coverUrl
+        twitterUsername: twitterUsername
+        socialFeedId: socialFeedId
+        phone: phone
+        taxId: taxId
+        webUrl: webUrl
+        name: name
+        duns: duns
+        timezoneId: timezoneId
+        businessLegalName: businessLegalName
+        instagramUrl: instagramUrl
+        slogan: slogan
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        businessIndustryId:
+          nullable: true
+          type: string
+        businessSegmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        slogan:
+          nullable: true
+          type: string
+        legalName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        whatsAppNumber:
+          nullable: true
+          type: string
+        supportPhoneNumber:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessName:
+          nullable: true
+          readOnly: true
+          type: string
+        businessLegalName:
+          nullable: true
+          readOnly: true
+          type: string
+        twitterUsername:
+          nullable: true
+          type: string
+      type: object
+    TenantEnrolmentDto:
+      additionalProperties: false
+      example:
+        isRoot: true
+        isOwner: true
+        tenantId: tenantId
+        id: id
+        isAdmin: true
+        isDisabled: true
+        userId: userId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        isRoot:
+          type: boolean
+        isOwner:
+          type: boolean
+        isAdmin:
+          type: boolean
+        isDisabled:
+          type: boolean
+      type: object
+    UserDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: 6
+        emailConfirmed: true
+        twitterUrl: twitterUrl
+        jobTitle: jobTitle
+        about: about
+        currentEnrollmentId: currentEnrollmentId
+        cityId: cityId
+        availability: 3
+        countryId: countryId
+        identityProvider: identityProvider
+        phoneNumberConfirmed: true
+        currentTenantId: currentTenantId
+        facebookUrl: facebookUrl
+        siteTheme: 7
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: id
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        publicIdentifier: publicIdentifier
+        gitHubUrl: gitHubUrl
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        cartId: cartId
+        lockoutEnabled: true
+        languageId: languageId
+        fullName: fullName
+        userName: userName
+        enrollmentsCount: 3
+        coverUrl: coverUrl
+        firstName: firstName
+        phoneNumber: phoneNumber
+        idProvider: idProvider
+        socialFeedId: socialFeedId
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        currentTenantId:
+          nullable: true
+          type: string
+        currentEnrollmentId:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        publicIdentifier:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        phoneNumberConfirmed:
+          type: boolean
+        emailConfirmed:
+          type: boolean
+        availability:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          nullable: true
+          type: integer
+        lockoutEnabled:
+          type: boolean
+        lockoutEnd:
+          format: date-time
+          nullable: true
+          type: string
+        enrollmentsCount:
+          format: int32
+          nullable: true
+          type: integer
+        siteTheme:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    WalletDto:
+      additionalProperties: false
+      example:
+        verified: true
+        balanceInUsd: 5.962133916683182
+        type: type
+        ethereumPrivateKey: ethereumPrivateKey
+        balance: 0.8008281904610115
+        forexRate: 1.4658129805029452
+        ethereumAddress: ethereumAddress
+        ethereumPublicKey: ethereumPublicKey
+        testMode: true
+        id: id
+        currencyId: currencyId
+        rollingReservePercent: 2.3021358869347655
+        cryptoBalance: 6.027456183070403
+        mainNetEtherBalance: 5.637376656633329
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        balance:
+          format: double
+          type: number
+        cryptoBalance:
+          format: double
+          type: number
+        testMode:
+          type: boolean
+        verified:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        balanceInUsd:
+          format: double
+          type: number
+        mainNetEtherBalance:
+          format: double
+          type: number
+        ethereumAddress:
+          nullable: true
+          type: string
+        ethereumPublicKey:
+          nullable: true
+          type: string
+        ethereumPrivateKey:
+          nullable: true
+          type: string
+        rollingReservePercent:
+          format: double
+          type: number
+      type: object
+    WalletDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          verified: true
+          balanceInUsd: 5.962133916683182
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 0.8008281904610115
+          forexRate: 1.4658129805029452
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 2.3021358869347655
+          cryptoBalance: 6.027456183070403
+          mainNetEtherBalance: 5.637376656633329
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WalletDto'
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

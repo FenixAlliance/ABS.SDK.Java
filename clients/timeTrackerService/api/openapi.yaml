@@ -1,0 +1,1076 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: TimeTrackerService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/TimeTrackerService/ProjectTimeLogs:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: projectPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogCreateDto'
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - ProjectTimeLogs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoEnvelope'
+          description: OK
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogUpdateDto'
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - ProjectTimeLogs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/TimeLogApprovals:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status:
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: approvalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalStatusUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalStatusUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: approvalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalApproverUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalApproverUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ProjectHoursApprovalApproverUpdateDto:
+      additionalProperties: false
+      example:
+        approverContactID: approverContactID
+      properties:
+        approverContactID:
+          nullable: true
+          type: string
+      type: object
+    ProjectHoursApprovalCreateDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        approverContactID: approverContactID
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        projectPeriodID: projectPeriodID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        requesterContactID: requesterContactID
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        requesterContactID:
+          nullable: true
+          type: string
+        approverContactID:
+          nullable: true
+          type: string
+        projectPeriodID:
+          nullable: true
+          type: string
+        comments:
+          nullable: true
+          type: string
+      type: object
+    ProjectHoursApprovalStatusUpdateDto:
+      additionalProperties: false
+      example:
+        approvalStatus: 0
+        comments: comments
+      properties:
+        approvalStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        comments:
+          nullable: true
+          type: string
+      type: object
+    ProjectTimeLogCreateDto:
+      additionalProperties: false
+      example:
+        projectTaskID: projectTaskID
+        comments: comments
+        logDate: 2000-01-23T04:56:07.000+00:00
+        projectTimeLogRecordType: 0
+        timeSpan: PT2H30M
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        projectID: projectID
+        projectPeriodID: projectPeriodID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        timeSpan:
+          example: PT2H30M
+          type: string
+        logDate:
+          format: date-time
+          type: string
+        comments:
+          nullable: true
+          type: string
+        projectTaskID:
+          minLength: 1
+          type: string
+        projectPeriodID:
+          minLength: 1
+          type: string
+        projectTimeLogRecordType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        projectID:
+          nullable: true
+          type: string
+      required:
+      - projectPeriodID
+      - projectTaskID
+      type: object
+    ProjectTimeLogDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        logDate: 2000-01-23T04:56:07.000+00:00
+        recordType: 0
+        type: type
+        projectPeriodId: projectPeriodId
+        timeStamp: 2000-01-23T04:56:07.000+00:00
+        projectTaskId: projectTaskId
+        responsibleContactId: responsibleContactId
+        timeSpan: PT2H30M
+        id: id
+        taskCategoryId: taskCategoryId
+        projectId: projectId
+        creatorContactId: creatorContactId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        projectId:
+          nullable: true
+          type: string
+        projectTaskId:
+          nullable: true
+          type: string
+        taskCategoryId:
+          nullable: true
+          type: string
+        projectPeriodId:
+          nullable: true
+          type: string
+        responsibleContactId:
+          nullable: true
+          type: string
+        creatorContactId:
+          nullable: true
+          type: string
+        recordType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        timeStamp:
+          format: date-time
+          type: string
+        timeSpan:
+          example: PT2H30M
+          type: string
+        logDate:
+          format: date-time
+          type: string
+        comments:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      type: object
+    ProjectTimeLogDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          comments: comments
+          logDate: 2000-01-23T04:56:07.000+00:00
+          recordType: 0
+          type: type
+          projectPeriodId: projectPeriodId
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          projectTaskId: projectTaskId
+          responsibleContactId: responsibleContactId
+          timeSpan: PT2H30M
+          id: id
+          taskCategoryId: taskCategoryId
+          projectId: projectId
+          creatorContactId: creatorContactId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ProjectTimeLogDto'
+      type: object
+    ProjectTimeLogDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - comments: comments
+          logDate: 2000-01-23T04:56:07.000+00:00
+          recordType: 0
+          type: type
+          projectPeriodId: projectPeriodId
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          projectTaskId: projectTaskId
+          responsibleContactId: responsibleContactId
+          timeSpan: PT2H30M
+          id: id
+          taskCategoryId: taskCategoryId
+          projectId: projectId
+          creatorContactId: creatorContactId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - comments: comments
+          logDate: 2000-01-23T04:56:07.000+00:00
+          recordType: 0
+          type: type
+          projectPeriodId: projectPeriodId
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          projectTaskId: projectTaskId
+          responsibleContactId: responsibleContactId
+          timeSpan: PT2H30M
+          id: id
+          taskCategoryId: taskCategoryId
+          projectId: projectId
+          creatorContactId: creatorContactId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ProjectTimeLogDto'
+          nullable: true
+          type: array
+      type: object
+    ProjectTimeLogUpdateDto:
+      additionalProperties: false
+      example:
+        projectTaskID: projectTaskID
+        comments: comments
+        logDate: 2000-01-23T04:56:07.000+00:00
+        projectTimeLogRecordType: 0
+        timeSpan: PT2H30M
+        projectPeriodID: projectPeriodID
+      properties:
+        logDate:
+          format: date-time
+          type: string
+        timeSpan:
+          example: PT2H30M
+          type: string
+        comments:
+          nullable: true
+          type: string
+        projectTaskID:
+          nullable: true
+          type: string
+        projectPeriodID:
+          nullable: true
+          type: string
+        projectTimeLogRecordType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

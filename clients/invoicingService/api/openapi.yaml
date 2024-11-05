@@ -1,0 +1,6752 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: InvoicingService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/InvoicingService/Invoices:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/Extended:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedInvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedInvoiceDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/Extended/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Extended:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetInvoiceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Calculate:
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: itemId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineDtoEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Calculate:
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineAppliedTaxDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceLineAppliedTaxDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineAppliedTaxCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineAppliedTaxCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineTaxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceLineTaxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineAppliedTaxUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceLineAppliedTaxUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceAdjustmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceAdjustmentDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceAdjustmentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceAdjustmentCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceAdjustmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceAdjustmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceAdjustmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceAdjustmentDtoEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceAdjustmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceAdjustmentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceAdjustmentUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/References:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceReferenceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceReferenceDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceReferenceCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceReferenceCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceReferenceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceReferenceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceReferenceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceReferenceDtoEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: invoiceReferenceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvoiceReferenceUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InvoiceReferenceUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Payments:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InvoiceDtoListEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: invoiceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Invoices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/TotalsAggregate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/TaxesAggregate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/DiscountsAggregate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/TaxBasesAggregate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+          application/xml:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Invoices
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    Currency:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExtendedInvoiceDto:
+      additionalProperties: false
+      example:
+        paymentModeId: paymentModeId
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        notes: notes
+        orderId: orderId
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enumerationRangeId: enumerationRangeId
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        number: 9
+        emisorWalletAccountId: emisorWalletAccountId
+        totalAmountInUsd: 2.027123023002322
+        receiverWalletAccountId: receiverWalletAccountId
+        addressLine1: addressLine1
+        invoiceType: 9
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        enumeration: enumeration
+        tenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enrollmentId: enrollmentId
+        totalProfitInUsd: 4.145608029883936
+        individual:
+          lastName: lastName
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          tikTokUrl: tikTokUrl
+          type: 9
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          languageId: languageId
+          twitchUrl: twitchUrl
+          coverUrl: coverUrl
+          firstName: firstName
+          githubUsername: githubUsername
+          webUrl: webUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        totalShippingTaxesInUsd: 5.025004791520295
+        paymentDue: 2000-01-23T04:56:07.000+00:00
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        documentType: 6
+        totalDiscounts: 5.637376656633329
+        description: description
+        customerNotes: customerNotes
+        individualId: individualId
+        title: title
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxes: 1.4658129805029452
+        emisorBillingProfileId: emisorBillingProfileId
+        stateId: stateId
+        priceListId: priceListId
+        receiverBillingProfileId: receiverBillingProfileId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enrollment:
+          tenantId: tenantId
+          id: id
+          userId: userId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organization:
+          lastName: lastName
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          tikTokUrl: tikTokUrl
+          type: 9
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          languageId: languageId
+          twitchUrl: twitchUrl
+          coverUrl: coverUrl
+          firstName: firstName
+          githubUsername: githubUsername
+          webUrl: webUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+        tenantId: tenantId
+        paid: true
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+        invoiceStatus: 8
+        user:
+          lastName: lastName
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          twitterUrl: twitterUrl
+          fullName: fullName
+          countryId: countryId
+          coverUrl: coverUrl
+          firstName: firstName
+          facebookUrl: facebookUrl
+          publicName: publicName
+          websiteUrl: websiteUrl
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          id: id
+          socialProfileId: socialProfileId
+          gitHubUrl: gitHubUrl
+          youTubeUrl: youTubeUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        receiverTenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        paid:
+          type: boolean
+        number:
+          format: int64
+          type: integer
+        notes:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        enumeration:
+          nullable: true
+          type: string
+        paymentModeId:
+          nullable: true
+          type: string
+        enumerationRangeId:
+          nullable: true
+          type: string
+        emisorBillingProfileId:
+          nullable: true
+          type: string
+        receiverBillingProfileId:
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
+        paymentDue:
+          format: date-time
+          nullable: true
+          type: string
+        invoiceType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        documentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        invoiceStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          type: integer
+        tenant:
+          $ref: '#/components/schemas/TenantDto'
+        user:
+          $ref: '#/components/schemas/SimpleUserDto'
+        receiverTenant:
+          $ref: '#/components/schemas/TenantDto'
+        individual:
+          $ref: '#/components/schemas/SimpleContactDto'
+        organization:
+          $ref: '#/components/schemas/SimpleContactDto'
+        enrollment:
+          $ref: '#/components/schemas/SimpleTenantEnrolmentDto'
+      type: object
+    ExtendedInvoiceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 9
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          individual:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 6
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollment:
+            tenantId: tenantId
+            id: id
+            userId: userId
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organization:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 8
+          user:
+            lastName: lastName
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            twitterUrl: twitterUrl
+            fullName: fullName
+            countryId: countryId
+            coverUrl: coverUrl
+            firstName: firstName
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            youTubeUrl: youTubeUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          receiverTenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 9
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          individual:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 6
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollment:
+            tenantId: tenantId
+            id: id
+            userId: userId
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organization:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 8
+          user:
+            lastName: lastName
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            twitterUrl: twitterUrl
+            fullName: fullName
+            countryId: countryId
+            coverUrl: coverUrl
+            firstName: firstName
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            youTubeUrl: youTubeUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          receiverTenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedInvoiceDto'
+          nullable: true
+          type: array
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    InvoiceAdjustmentCreateDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        surchargeAmount: 6.027456183070403
+        discountPercent: 1.4658129805029452
+        surchargePercent: 0.8008281904610115
+        totalSurcharge: 5.637376656633329
+        description: description
+        discountAmount: 5.962133916683182
+        type: 7
+        tenantId: tenantId
+        totalDiscount: 2.3021358869347655
+        invoiceId: invoiceId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        surchargePercent:
+          format: double
+          type: number
+        surchargeAmount:
+          format: double
+          type: number
+        discountPercent:
+          format: double
+          type: number
+        discountAmount:
+          format: double
+          type: number
+        totalSurcharge:
+          format: double
+          type: number
+        totalDiscount:
+          format: double
+          type: number
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+      type: object
+    InvoiceAdjustmentDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        surchargeAmount: 6.519180951018382
+        discountPercent: 0.10263654006109402
+        surchargePercent: 7.058770351582356
+        totalSurcharge: 8.969578798196912
+        description: description
+        discountAmount: 4.652396432933246
+        type: 3
+        tenantId: tenantId
+        totalDiscount: 7.740351818741173
+        invoiceId: invoiceId
+        id: id
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        surchargePercent:
+          format: double
+          type: number
+        surchargeAmount:
+          format: double
+          type: number
+        discountPercent:
+          format: double
+          type: number
+        discountAmount:
+          format: double
+          type: number
+        totalSurcharge:
+          format: double
+          type: number
+        totalDiscount:
+          format: double
+          type: number
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+      type: object
+    InvoiceAdjustmentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          surchargeAmount: 6.519180951018382
+          discountPercent: 0.10263654006109402
+          surchargePercent: 7.058770351582356
+          totalSurcharge: 8.969578798196912
+          description: description
+          discountAmount: 4.652396432933246
+          type: 3
+          tenantId: tenantId
+          totalDiscount: 7.740351818741173
+          invoiceId: invoiceId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/InvoiceAdjustmentDto'
+      type: object
+    InvoiceAdjustmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          surchargeAmount: 6.519180951018382
+          discountPercent: 0.10263654006109402
+          surchargePercent: 7.058770351582356
+          totalSurcharge: 8.969578798196912
+          description: description
+          discountAmount: 4.652396432933246
+          type: 3
+          tenantId: tenantId
+          totalDiscount: 7.740351818741173
+          invoiceId: invoiceId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          surchargeAmount: 6.519180951018382
+          discountPercent: 0.10263654006109402
+          surchargePercent: 7.058770351582356
+          totalSurcharge: 8.969578798196912
+          description: description
+          discountAmount: 4.652396432933246
+          type: 3
+          tenantId: tenantId
+          totalDiscount: 7.740351818741173
+          invoiceId: invoiceId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceAdjustmentDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceAdjustmentUpdateDto:
+      additionalProperties: false
+      example:
+        surchargeAmount: 6.027456183070403
+        discountPercent: 1.4658129805029452
+        surchargePercent: 0.8008281904610115
+        totalSurcharge: 5.637376656633329
+        description: description
+        discountAmount: 5.962133916683182
+        totalDiscount: 2.3021358869347655
+        currencyId: currencyId
+        type: 7
+      properties:
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        surchargePercent:
+          format: double
+          type: number
+        surchargeAmount:
+          format: double
+          type: number
+        discountPercent:
+          format: double
+          type: number
+        discountAmount:
+          format: double
+          type: number
+        totalSurcharge:
+          format: double
+          type: number
+        totalDiscount:
+          format: double
+          type: number
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+      type: object
+    InvoiceCreateDto:
+      additionalProperties: false
+      example:
+        paymentModeId: paymentModeId
+        lastName: lastName
+        invoiceAdjustments:
+        - enrollmentId: enrollmentId
+          surchargeAmount: 6.519180951018382
+          discountPercent: 0.10263654006109402
+          surchargePercent: 7.058770351582356
+          totalSurcharge: 8.969578798196912
+          description: description
+          discountAmount: 4.652396432933246
+          type: 3
+          tenantId: tenantId
+          totalDiscount: 7.740351818741173
+          invoiceId: invoiceId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          surchargeAmount: 6.519180951018382
+          discountPercent: 0.10263654006109402
+          surchargePercent: 7.058770351582356
+          totalSurcharge: 8.969578798196912
+          description: description
+          discountAmount: 4.652396432933246
+          type: 3
+          tenantId: tenantId
+          totalDiscount: 7.740351818741173
+          invoiceId: invoiceId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        notes: notes
+        orderId: orderId
+        documentType: 5
+        companyName: companyName
+        postalCode: postalCode
+        description: description
+        customerNotes: customerNotes
+        individualId: individualId
+        cityId: cityId
+        validFrom: 2000-01-23T04:56:07.000+00:00
+        invoiceItemRecords:
+        - totalDiscountsInUsd: 1.0246457001441578
+          data: data
+          refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          data8Label: data8Label
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 1.2315135367772556
+          customDiscountsAmount: 2.8841621266687802
+          totalWarrantyCostInUsd: 4.965218492984954
+          totalAmountInUsd: 6.683562403749608
+          itemShortDescription: itemShortDescription
+          totalDetailAmountInUsd: 7.386281948385884
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          priceListItemId: priceListItemId
+          customTaxAmount: 3.0937452626664474
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          customGlobalSurchargesAmount: 6.438423552598547
+          totalProfitInUsd: 4.145608029883936
+          totalRefundCostInUsd: 9.965781217890562
+          totalGlobalSurchargesInUsd: 9.018348186070783
+          parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
+          costCalculationMethod: 9
+          totalShippingTaxesInUsd: 1.1730742509559433
+          data1Label: data1Label
+          itemId: itemId
+          data4Label: data4Label
+          unitGroupId: unitGroupId
+          forexRate: 3.616076749251911
+          returnPolicyId: returnPolicyId
+          customDetailAmount: 1.284659006116532
+          totalReturnCostInUsd: 5.025004791520295
+          customSurchargesAmount: 6.878052220127876
+          customShippingCostAmount: 6.704019297950036
+          freeReasonCode: freeReasonCode
+          totalShippingCostInUsd: 7.457744773683766
+          warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
+          customWithholdingTaxAmount: 7.143538047012306
+          shippingPolicyId: shippingPolicyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          description: description
+          customBaseAmount: 6.965117697638846
+          shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 9.369310271410669
+          itemPriceId: itemPriceId
+          totalWithholdingTaxesInUsd: 6.84685269835264
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          free: true
+          customTaxBase: 6.778324963048013
+          customTotalAmount: 0.8851374739011653
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          quantity: 2.3021358869347655
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          customShippingTaxAmount: 3.353193347011243
+          data1: data1
+          customGlobalDiscountsAmount: 3.5571952270680973
+          data3Label: data3Label
+          data6Label: data6Label
+          shipmentPolicyId: shipmentPolicyId
+          totalBaseAmountInUsd: 2.027123023002322
+          totalTaxesInUsd: 1.4894159098541704
+          customProfitAmount: 5.944895607614016
+          tenantId: tenantId
+          closed: true
+          taxCalculationMethod: 7
+          totalGlobalDiscountsInUsd: 8.762042012749001
+          invoiceId: invoiceId
+        - totalDiscountsInUsd: 1.0246457001441578
+          data: data
+          refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          data8Label: data8Label
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 1.2315135367772556
+          customDiscountsAmount: 2.8841621266687802
+          totalWarrantyCostInUsd: 4.965218492984954
+          totalAmountInUsd: 6.683562403749608
+          itemShortDescription: itemShortDescription
+          totalDetailAmountInUsd: 7.386281948385884
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          priceListItemId: priceListItemId
+          customTaxAmount: 3.0937452626664474
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          customGlobalSurchargesAmount: 6.438423552598547
+          totalProfitInUsd: 4.145608029883936
+          totalRefundCostInUsd: 9.965781217890562
+          totalGlobalSurchargesInUsd: 9.018348186070783
+          parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
+          costCalculationMethod: 9
+          totalShippingTaxesInUsd: 1.1730742509559433
+          data1Label: data1Label
+          itemId: itemId
+          data4Label: data4Label
+          unitGroupId: unitGroupId
+          forexRate: 3.616076749251911
+          returnPolicyId: returnPolicyId
+          customDetailAmount: 1.284659006116532
+          totalReturnCostInUsd: 5.025004791520295
+          customSurchargesAmount: 6.878052220127876
+          customShippingCostAmount: 6.704019297950036
+          freeReasonCode: freeReasonCode
+          totalShippingCostInUsd: 7.457744773683766
+          warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
+          customWithholdingTaxAmount: 7.143538047012306
+          shippingPolicyId: shippingPolicyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          description: description
+          customBaseAmount: 6.965117697638846
+          shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 9.369310271410669
+          itemPriceId: itemPriceId
+          totalWithholdingTaxesInUsd: 6.84685269835264
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          free: true
+          customTaxBase: 6.778324963048013
+          customTotalAmount: 0.8851374739011653
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          quantity: 2.3021358869347655
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          customShippingTaxAmount: 3.353193347011243
+          data1: data1
+          customGlobalDiscountsAmount: 3.5571952270680973
+          data3Label: data3Label
+          data6Label: data6Label
+          shipmentPolicyId: shipmentPolicyId
+          totalBaseAmountInUsd: 2.027123023002322
+          totalTaxesInUsd: 1.4894159098541704
+          customProfitAmount: 5.944895607614016
+          tenantId: tenantId
+          closed: true
+          taxCalculationMethod: 7
+          totalGlobalDiscountsInUsd: 8.762042012749001
+          invoiceId: invoiceId
+        title: title
+        enumerationRangeId: enumerationRangeId
+        countryId: countryId
+        organizationId: organizationId
+        number: 6
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
+        billingEmail: billingEmail
+        addressLine1: addressLine1
+        invoiceType: 1
+        addressLine2: addressLine2
+        receiverTenantId: receiverTenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        enumeration: enumeration
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        validTo: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
+        paymentTermId: paymentTermId
+        invoiceReferences:
+        - enrollmentId: enrollmentId
+          referralInvoiceId: referralInvoiceId
+          referencedInvoiceId: referencedInvoiceId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          referralInvoiceId: referralInvoiceId
+          referencedInvoiceId: referencedInvoiceId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        emisorBillingProfileId: emisorBillingProfileId
+        stateId: stateId
+        priceListId: priceListId
+        receiverBillingProfileId: receiverBillingProfileId
+        paymentDue: 2000-01-23T04:56:07.000+00:00
+        userId: userId
+        firstName: firstName
+        forexRate: 0.8008281904610115
+        tenantId: tenantId
+        paid: true
+        closed: true
+        invoiceStatus: 5
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        closed:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        paymentTermId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        paid:
+          type: boolean
+        number:
+          format: int32
+          type: integer
+        notes:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        enumeration:
+          nullable: true
+          type: string
+        paymentModeId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        enumerationRangeId:
+          nullable: true
+          type: string
+        emisorBillingProfileId:
+          nullable: true
+          type: string
+        receiverBillingProfileId:
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
+        paymentDue:
+          format: date-time
+          nullable: true
+          type: string
+        invoiceType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        documentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        invoiceStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          type: integer
+        validFrom:
+          format: date-time
+          nullable: true
+          type: string
+        validTo:
+          format: date-time
+          nullable: true
+          type: string
+        invoiceReferences:
+          items:
+            $ref: '#/components/schemas/InvoiceReferenceDto'
+          nullable: true
+          type: array
+        invoiceItemRecords:
+          items:
+            $ref: '#/components/schemas/InvoiceItemRecordDto'
+          nullable: true
+          type: array
+        invoiceAdjustments:
+          items:
+            $ref: '#/components/schemas/InvoiceAdjustmentDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceDto:
+      additionalProperties: false
+      example:
+        paymentModeId: paymentModeId
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        notes: notes
+        orderId: orderId
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enumerationRangeId: enumerationRangeId
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        number: 9
+        emisorWalletAccountId: emisorWalletAccountId
+        totalAmountInUsd: 2.027123023002322
+        receiverWalletAccountId: receiverWalletAccountId
+        addressLine1: addressLine1
+        invoiceType: 6
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        enumeration: enumeration
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        enrollmentId: enrollmentId
+        totalProfitInUsd: 4.145608029883936
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        totalShippingTaxesInUsd: 5.025004791520295
+        paymentDue: 2000-01-23T04:56:07.000+00:00
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        documentType: 8
+        totalDiscounts: 5.637376656633329
+        description: description
+        customerNotes: customerNotes
+        individualId: individualId
+        title: title
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxes: 1.4658129805029452
+        emisorBillingProfileId: emisorBillingProfileId
+        stateId: stateId
+        priceListId: priceListId
+        receiverBillingProfileId: receiverBillingProfileId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        tenantId: tenantId
+        paid: true
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+        invoiceStatus: 9
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        paid:
+          type: boolean
+        number:
+          format: int64
+          type: integer
+        notes:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        enumeration:
+          nullable: true
+          type: string
+        paymentModeId:
+          nullable: true
+          type: string
+        enumerationRangeId:
+          nullable: true
+          type: string
+        emisorBillingProfileId:
+          nullable: true
+          type: string
+        receiverBillingProfileId:
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
+        paymentDue:
+          format: date-time
+          nullable: true
+          type: string
+        invoiceType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        documentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        invoiceStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          type: integer
+      type: object
+    InvoiceDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 6
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 8
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 9
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/InvoiceDto'
+      type: object
+    InvoiceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 6
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 8
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 9
+        - paymentModeId: paymentModeId
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          notes: notes
+          orderId: orderId
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enumerationRangeId: enumerationRangeId
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          number: 9
+          emisorWalletAccountId: emisorWalletAccountId
+          totalAmountInUsd: 2.027123023002322
+          receiverWalletAccountId: receiverWalletAccountId
+          addressLine1: addressLine1
+          invoiceType: 6
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          enumeration: enumeration
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          enrollmentId: enrollmentId
+          totalProfitInUsd: 4.145608029883936
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalShippingTaxesInUsd: 5.025004791520295
+          paymentDue: 2000-01-23T04:56:07.000+00:00
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          documentType: 8
+          totalDiscounts: 5.637376656633329
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 1.4658129805029452
+          emisorBillingProfileId: emisorBillingProfileId
+          stateId: stateId
+          priceListId: priceListId
+          receiverBillingProfileId: receiverBillingProfileId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          paid: true
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+          invoiceStatus: 9
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceItemRecordDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 1.0246457001441578
+        data: data
+        refundPolicyId: refundPolicyId
+        itemPrimaryImageUrl: itemPrimaryImageUrl
+        data8Label: data8Label
+        quoteItemRecordId: quoteItemRecordId
+        businessProfileRecordId: businessProfileRecordId
+        totalTaxBaseInUsd: 1.2315135367772556
+        customDiscountsAmount: 2.8841621266687802
+        totalWarrantyCostInUsd: 4.965218492984954
+        totalAmountInUsd: 6.683562403749608
+        itemShortDescription: itemShortDescription
+        totalDetailAmountInUsd: 7.386281948385884
+        id: id
+        currencyId: currencyId
+        data2Label: data2Label
+        priceListItemId: priceListItemId
+        customTaxAmount: 3.0937452626664474
+        enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
+        customGlobalSurchargesAmount: 6.438423552598547
+        totalProfitInUsd: 4.145608029883936
+        totalRefundCostInUsd: 9.965781217890562
+        totalGlobalSurchargesInUsd: 9.018348186070783
+        parentBillingItemRecordId: parentBillingItemRecordId
+        dataLabel: dataLabel
+        costCalculationMethod: 9
+        totalShippingTaxesInUsd: 1.1730742509559433
+        data1Label: data1Label
+        itemId: itemId
+        data4Label: data4Label
+        unitGroupId: unitGroupId
+        forexRate: 3.616076749251911
+        returnPolicyId: returnPolicyId
+        customDetailAmount: 1.284659006116532
+        totalReturnCostInUsd: 5.025004791520295
+        customSurchargesAmount: 6.878052220127876
+        customShippingCostAmount: 6.704019297950036
+        freeReasonCode: freeReasonCode
+        totalShippingCostInUsd: 7.457744773683766
+        warrantyPolicyId: warrantyPolicyId
+        data7Label: data7Label
+        customWithholdingTaxAmount: 7.143538047012306
+        shippingPolicyId: shippingPolicyId
+        freeReason: freeReason
+        itemTitle: itemTitle
+        description: description
+        customBaseAmount: 6.965117697638846
+        shippingLocationId: shippingLocationId
+        totalSurchargesInUsd: 9.369310271410669
+        itemPriceId: itemPriceId
+        totalWithholdingTaxesInUsd: 6.84685269835264
+        locationId: locationId
+        data5Label: data5Label
+        unitId: unitId
+        free: true
+        customTaxBase: 6.778324963048013
+        customTotalAmount: 0.8851374739011653
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
+        quantity: 2.3021358869347655
+        data6: data6
+        data5: data5
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        customShippingTaxAmount: 3.353193347011243
+        data1: data1
+        customGlobalDiscountsAmount: 3.5571952270680973
+        data3Label: data3Label
+        data6Label: data6Label
+        shipmentPolicyId: shipmentPolicyId
+        totalBaseAmountInUsd: 2.027123023002322
+        totalTaxesInUsd: 1.4894159098541704
+        customProfitAmount: 5.944895607614016
+        tenantId: tenantId
+        closed: true
+        taxCalculationMethod: 7
+        totalGlobalDiscountsInUsd: 8.762042012749001
+        invoiceId: invoiceId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        itemId:
+          nullable: true
+          type: string
+        itemTitle:
+          nullable: true
+          type: string
+        itemShortDescription:
+          nullable: true
+          type: string
+        itemPrimaryImageUrl:
+          nullable: true
+          type: string
+        shippingPolicyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        free:
+          type: boolean
+        freeReason:
+          nullable: true
+          type: string
+        freeReasonCode:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        itemPriceId:
+          nullable: true
+          type: string
+        priceListItemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        taxCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        costCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalBaseAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        totalWarrantyCostInUsd:
+          format: double
+          type: number
+        totalReturnCostInUsd:
+          format: double
+          type: number
+        totalRefundCostInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        customGlobalSurchargesAmount:
+          format: double
+          type: number
+        customGlobalDiscountsAmount:
+          format: double
+          type: number
+        customBaseAmount:
+          format: double
+          type: number
+        customDetailAmount:
+          format: double
+          type: number
+        customDiscountsAmount:
+          format: double
+          type: number
+        customTaxBase:
+          format: double
+          type: number
+        customSurchargesAmount:
+          format: double
+          type: number
+        customProfitAmount:
+          format: double
+          type: number
+        customShippingCostAmount:
+          format: double
+          type: number
+        customShippingTaxAmount:
+          format: double
+          type: number
+        customTaxAmount:
+          format: double
+          type: number
+        customWithholdingTaxAmount:
+          format: double
+          type: number
+        customTotalAmount:
+          format: double
+          type: number
+        returnPolicyId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
+        shipmentPolicyId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        quoteItemRecordId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        parentBillingItemRecordId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceLineAppliedTaxCreateDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        taxPolicyId: taxPolicyId
+        tenantId: tenantId
+        invoiceId: invoiceId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        taxPolicyId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceLineAppliedTaxDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        taxPolicyId: taxPolicyId
+        taxPolicyName: taxPolicyName
+        taxBaseAmountInUsd: 6.027456183070403
+        invoiceLineId: invoiceLineId
+        taxAmountInUsd: 0.8008281904610115
+        itemId: itemId
+        itemPriceId: itemPriceId
+        tenantId: tenantId
+        invoiceId: invoiceId
+        taxPolicyDescription: taxPolicyDescription
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        invoiceLineId:
+          nullable: true
+          type: string
+        taxPolicyId:
+          nullable: true
+          type: string
+        itemPriceId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        taxAmountInUsd:
+          format: double
+          type: number
+        taxBaseAmountInUsd:
+          format: double
+          type: number
+        taxPolicyName:
+          nullable: true
+          type: string
+        taxPolicyDescription:
+          nullable: true
+          type: string
+      type: object
+    InvoiceLineAppliedTaxDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          taxPolicyId: taxPolicyId
+          taxPolicyName: taxPolicyName
+          taxBaseAmountInUsd: 6.027456183070403
+          invoiceLineId: invoiceLineId
+          taxAmountInUsd: 0.8008281904610115
+          itemId: itemId
+          itemPriceId: itemPriceId
+          tenantId: tenantId
+          invoiceId: invoiceId
+          taxPolicyDescription: taxPolicyDescription
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          taxPolicyId: taxPolicyId
+          taxPolicyName: taxPolicyName
+          taxBaseAmountInUsd: 6.027456183070403
+          invoiceLineId: invoiceLineId
+          taxAmountInUsd: 0.8008281904610115
+          itemId: itemId
+          itemPriceId: itemPriceId
+          tenantId: tenantId
+          invoiceId: invoiceId
+          taxPolicyDescription: taxPolicyDescription
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceLineAppliedTaxDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceLineAppliedTaxUpdateDto:
+      additionalProperties: false
+      example:
+        taxPolicyId: taxPolicyId
+      properties:
+        taxPolicyId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceLineCreateDto:
+      additionalProperties: false
+      example:
+        itemId: itemId
+        quantity: 0
+        invoiceId: invoiceId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        quantity:
+          format: int32
+          type: integer
+      type: object
+    InvoiceLineDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 3.616076749251911
+        data: data
+        refundPolicyId: refundPolicyId
+        itemPrimaryImageUrl: itemPrimaryImageUrl
+        data8Label: data8Label
+        quoteItemRecordId: quoteItemRecordId
+        businessProfileRecordId: businessProfileRecordId
+        totalTaxBaseInUsd: 9.301444243932576
+        customDiscountsAmount: 9.018348186070783
+        totalWarrantyCostInUsd: 1.0246457001441578
+        totalAmountInUsd: 1.1730742509559433
+        itemShortDescription: itemShortDescription
+        totalDetailAmountInUsd: 7.061401241503109
+        id: id
+        currencyId: currencyId
+        data2Label: data2Label
+        priceListItemId: priceListItemId
+        customTaxAmount: 6.778324963048013
+        enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
+        customGlobalSurchargesAmount: 9.965781217890562
+        totalProfitInUsd: 2.3021358869347655
+        totalRefundCostInUsd: 6.84685269835264
+        totalGlobalSurchargesInUsd: 5.025004791520295
+        parentBillingItemRecordId: parentBillingItemRecordId
+        dataLabel: dataLabel
+        costCalculationMethod: 1
+        totalShippingTaxesInUsd: 1.2315135367772556
+        data1Label: data1Label
+        itemId: itemId
+        data4Label: data4Label
+        unitGroupId: unitGroupId
+        forexRate: 5.962133916683182
+        returnPolicyId: returnPolicyId
+        customDetailAmount: 8.762042012749001
+        totalReturnCostInUsd: 1.4894159098541704
+        customSurchargesAmount: 3.5571952270680973
+        customShippingCostAmount: 1.284659006116532
+        freeReasonCode: freeReasonCode
+        totalShippingCostInUsd: 7.386281948385884
+        warrantyPolicyId: warrantyPolicyId
+        data7Label: data7Label
+        customWithholdingTaxAmount: 6.878052220127876
+        shippingPolicyId: shippingPolicyId
+        freeReason: freeReason
+        itemTitle: itemTitle
+        description: description
+        customBaseAmount: 6.683562403749608
+        shippingLocationId: shippingLocationId
+        totalSurchargesInUsd: 7.457744773683766
+        itemPriceId: itemPriceId
+        totalWithholdingTaxesInUsd: 4.145608029883936
+        locationId: locationId
+        data5Label: data5Label
+        unitId: unitId
+        free: true
+        customTaxBase: 6.438423552598547
+        customTotalAmount: 5.944895607614016
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
+        quantity: 0.8008281904610115
+        data6: data6
+        data5: data5
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        customShippingTaxAmount: 2.8841621266687802
+        data1: data1
+        customGlobalDiscountsAmount: 9.369310271410669
+        data3Label: data3Label
+        data6Label: data6Label
+        shipmentPolicyId: shipmentPolicyId
+        totalBaseAmountInUsd: 5.637376656633329
+        totalTaxesInUsd: 2.027123023002322
+        customProfitAmount: 6.965117697638846
+        tenantId: tenantId
+        closed: true
+        taxCalculationMethod: 6
+        totalGlobalDiscountsInUsd: 4.965218492984954
+        invoiceId: invoiceId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        itemId:
+          nullable: true
+          type: string
+        itemTitle:
+          nullable: true
+          type: string
+        itemShortDescription:
+          nullable: true
+          type: string
+        itemPrimaryImageUrl:
+          nullable: true
+          type: string
+        shippingPolicyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        free:
+          type: boolean
+        freeReason:
+          nullable: true
+          type: string
+        freeReasonCode:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        itemPriceId:
+          nullable: true
+          type: string
+        priceListItemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        taxCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        costCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalBaseAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        totalWarrantyCostInUsd:
+          format: double
+          type: number
+        totalReturnCostInUsd:
+          format: double
+          type: number
+        totalRefundCostInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        customGlobalSurchargesAmount:
+          format: double
+          type: number
+        customGlobalDiscountsAmount:
+          format: double
+          type: number
+        customBaseAmount:
+          format: double
+          type: number
+        customDetailAmount:
+          format: double
+          type: number
+        customDiscountsAmount:
+          format: double
+          type: number
+        customTaxBase:
+          format: double
+          type: number
+        customSurchargesAmount:
+          format: double
+          type: number
+        customProfitAmount:
+          format: double
+          type: number
+        customShippingCostAmount:
+          format: double
+          type: number
+        customShippingTaxAmount:
+          format: double
+          type: number
+        customTaxAmount:
+          format: double
+          type: number
+        customWithholdingTaxAmount:
+          format: double
+          type: number
+        customTotalAmount:
+          format: double
+          type: number
+        returnPolicyId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
+        shipmentPolicyId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        quoteItemRecordId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        parentBillingItemRecordId:
+          nullable: true
+          type: string
+        invoiceId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceLineDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          totalDiscountsInUsd: 3.616076749251911
+          data: data
+          refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          data8Label: data8Label
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 9.301444243932576
+          customDiscountsAmount: 9.018348186070783
+          totalWarrantyCostInUsd: 1.0246457001441578
+          totalAmountInUsd: 1.1730742509559433
+          itemShortDescription: itemShortDescription
+          totalDetailAmountInUsd: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          priceListItemId: priceListItemId
+          customTaxAmount: 6.778324963048013
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          customGlobalSurchargesAmount: 9.965781217890562
+          totalProfitInUsd: 2.3021358869347655
+          totalRefundCostInUsd: 6.84685269835264
+          totalGlobalSurchargesInUsd: 5.025004791520295
+          parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
+          costCalculationMethod: 1
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          itemId: itemId
+          data4Label: data4Label
+          unitGroupId: unitGroupId
+          forexRate: 5.962133916683182
+          returnPolicyId: returnPolicyId
+          customDetailAmount: 8.762042012749001
+          totalReturnCostInUsd: 1.4894159098541704
+          customSurchargesAmount: 3.5571952270680973
+          customShippingCostAmount: 1.284659006116532
+          freeReasonCode: freeReasonCode
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
+          customWithholdingTaxAmount: 6.878052220127876
+          shippingPolicyId: shippingPolicyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          description: description
+          customBaseAmount: 6.683562403749608
+          shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 7.457744773683766
+          itemPriceId: itemPriceId
+          totalWithholdingTaxesInUsd: 4.145608029883936
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          free: true
+          customTaxBase: 6.438423552598547
+          customTotalAmount: 5.944895607614016
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          quantity: 0.8008281904610115
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          customShippingTaxAmount: 2.8841621266687802
+          data1: data1
+          customGlobalDiscountsAmount: 9.369310271410669
+          data3Label: data3Label
+          data6Label: data6Label
+          shipmentPolicyId: shipmentPolicyId
+          totalBaseAmountInUsd: 5.637376656633329
+          totalTaxesInUsd: 2.027123023002322
+          customProfitAmount: 6.965117697638846
+          tenantId: tenantId
+          closed: true
+          taxCalculationMethod: 6
+          totalGlobalDiscountsInUsd: 4.965218492984954
+          invoiceId: invoiceId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/InvoiceLineDto'
+      type: object
+    InvoiceLineDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalDiscountsInUsd: 3.616076749251911
+          data: data
+          refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          data8Label: data8Label
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 9.301444243932576
+          customDiscountsAmount: 9.018348186070783
+          totalWarrantyCostInUsd: 1.0246457001441578
+          totalAmountInUsd: 1.1730742509559433
+          itemShortDescription: itemShortDescription
+          totalDetailAmountInUsd: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          priceListItemId: priceListItemId
+          customTaxAmount: 6.778324963048013
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          customGlobalSurchargesAmount: 9.965781217890562
+          totalProfitInUsd: 2.3021358869347655
+          totalRefundCostInUsd: 6.84685269835264
+          totalGlobalSurchargesInUsd: 5.025004791520295
+          parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
+          costCalculationMethod: 1
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          itemId: itemId
+          data4Label: data4Label
+          unitGroupId: unitGroupId
+          forexRate: 5.962133916683182
+          returnPolicyId: returnPolicyId
+          customDetailAmount: 8.762042012749001
+          totalReturnCostInUsd: 1.4894159098541704
+          customSurchargesAmount: 3.5571952270680973
+          customShippingCostAmount: 1.284659006116532
+          freeReasonCode: freeReasonCode
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
+          customWithholdingTaxAmount: 6.878052220127876
+          shippingPolicyId: shippingPolicyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          description: description
+          customBaseAmount: 6.683562403749608
+          shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 7.457744773683766
+          itemPriceId: itemPriceId
+          totalWithholdingTaxesInUsd: 4.145608029883936
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          free: true
+          customTaxBase: 6.438423552598547
+          customTotalAmount: 5.944895607614016
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          quantity: 0.8008281904610115
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          customShippingTaxAmount: 2.8841621266687802
+          data1: data1
+          customGlobalDiscountsAmount: 9.369310271410669
+          data3Label: data3Label
+          data6Label: data6Label
+          shipmentPolicyId: shipmentPolicyId
+          totalBaseAmountInUsd: 5.637376656633329
+          totalTaxesInUsd: 2.027123023002322
+          customProfitAmount: 6.965117697638846
+          tenantId: tenantId
+          closed: true
+          taxCalculationMethod: 6
+          totalGlobalDiscountsInUsd: 4.965218492984954
+          invoiceId: invoiceId
+        - totalDiscountsInUsd: 3.616076749251911
+          data: data
+          refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          data8Label: data8Label
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 9.301444243932576
+          customDiscountsAmount: 9.018348186070783
+          totalWarrantyCostInUsd: 1.0246457001441578
+          totalAmountInUsd: 1.1730742509559433
+          itemShortDescription: itemShortDescription
+          totalDetailAmountInUsd: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          priceListItemId: priceListItemId
+          customTaxAmount: 6.778324963048013
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          customGlobalSurchargesAmount: 9.965781217890562
+          totalProfitInUsd: 2.3021358869347655
+          totalRefundCostInUsd: 6.84685269835264
+          totalGlobalSurchargesInUsd: 5.025004791520295
+          parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
+          costCalculationMethod: 1
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          itemId: itemId
+          data4Label: data4Label
+          unitGroupId: unitGroupId
+          forexRate: 5.962133916683182
+          returnPolicyId: returnPolicyId
+          customDetailAmount: 8.762042012749001
+          totalReturnCostInUsd: 1.4894159098541704
+          customSurchargesAmount: 3.5571952270680973
+          customShippingCostAmount: 1.284659006116532
+          freeReasonCode: freeReasonCode
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
+          customWithholdingTaxAmount: 6.878052220127876
+          shippingPolicyId: shippingPolicyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          description: description
+          customBaseAmount: 6.683562403749608
+          shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 7.457744773683766
+          itemPriceId: itemPriceId
+          totalWithholdingTaxesInUsd: 4.145608029883936
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          free: true
+          customTaxBase: 6.438423552598547
+          customTotalAmount: 5.944895607614016
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          quantity: 0.8008281904610115
+          data6: data6
+          data5: data5
+          data4: data4
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          customShippingTaxAmount: 2.8841621266687802
+          data1: data1
+          customGlobalDiscountsAmount: 9.369310271410669
+          data3Label: data3Label
+          data6Label: data6Label
+          shipmentPolicyId: shipmentPolicyId
+          totalBaseAmountInUsd: 5.637376656633329
+          totalTaxesInUsd: 2.027123023002322
+          customProfitAmount: 6.965117697638846
+          tenantId: tenantId
+          closed: true
+          taxCalculationMethod: 6
+          totalGlobalDiscountsInUsd: 4.965218492984954
+          invoiceId: invoiceId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceLineDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceLineUpdateDto:
+      additionalProperties: false
+      example:
+        quantity: 1
+        discountListId: discountListId
+        taxBaseAmountInUsd: 5.637376656633329
+        invoiceLineId: invoiceLineId
+        percent: 6.027456183070403
+        taxAmountInUsd: 5.962133916683182
+        itemId: itemId
+        unitGroupId: unitGroupId
+        itemPriceId: itemPriceId
+        price: 0.8008281904610115
+        unitId: unitId
+        currencyId: currencyId
+        roundingPolicyId: roundingPolicyId
+      properties:
+        price:
+          format: double
+          type: number
+        unitId:
+          nullable: true
+          type: string
+        percent:
+          format: double
+          type: number
+        unitGroupId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+        quantity:
+          format: int32
+          type: integer
+        itemId:
+          nullable: true
+          type: string
+        itemPriceId:
+          nullable: true
+          type: string
+        invoiceLineId:
+          nullable: true
+          type: string
+        taxAmountInUsd:
+          format: double
+          type: number
+        taxBaseAmountInUsd:
+          format: double
+          type: number
+      type: object
+    InvoiceReferenceCreateDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        referralInvoiceId: referralInvoiceId
+        referencedInvoiceId: referencedInvoiceId
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        referralInvoiceId:
+          nullable: true
+          type: string
+        referencedInvoiceId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceReferenceDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        referralInvoiceId: referralInvoiceId
+        referencedInvoiceId: referencedInvoiceId
+        tenantId: tenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        referralInvoiceId:
+          nullable: true
+          type: string
+        referencedInvoiceId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceReferenceDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          referralInvoiceId: referralInvoiceId
+          referencedInvoiceId: referencedInvoiceId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/InvoiceReferenceDto'
+      type: object
+    InvoiceReferenceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          referralInvoiceId: referralInvoiceId
+          referencedInvoiceId: referencedInvoiceId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          referralInvoiceId: referralInvoiceId
+          referencedInvoiceId: referencedInvoiceId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InvoiceReferenceDto'
+          nullable: true
+          type: array
+      type: object
+    InvoiceReferenceUpdateDto:
+      additionalProperties: false
+      example:
+        referencedInvoiceId: referencedInvoiceId
+      properties:
+        referencedInvoiceId:
+          nullable: true
+          type: string
+      type: object
+    InvoiceUpdateDto:
+      additionalProperties: false
+      example:
+        billingLocationId: billingLocationId
+        lastName: lastName
+        companyName: companyName
+        postalCode: postalCode
+        description: description
+        shippingLocationId: shippingLocationId
+        individualId: individualId
+        cityId: cityId
+        title: title
+        countryId: countryId
+        organizationId: organizationId
+        billingEmail: billingEmail
+        addressLine1: addressLine1
+        receiverTenantId: receiverTenantId
+        addressLine2: addressLine2
+        currencyId: currencyId
+        enrollmentId: enrollmentId
+        paymentTermId: paymentTermId
+        stateId: stateId
+        priceListId: priceListId
+        shippingMethodId: shippingMethodId
+        userId: userId
+        firstName: firstName
+        forexRate: 0.8008281904610115
+        tenantId: tenantId
+        closed: true
+      properties:
+        closed:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        paymentTermId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        billingLocationId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        shippingMethodId:
+          nullable: true
+          type: string
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 9.965781217890562
+        currency:
+          country: country
+          code: code
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+      type: object
+    MoneyEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/Money'
+      type: object
+    SimpleContactDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        tikTokUrl: tikTokUrl
+        type: 9
+        countryId: countryId
+        redditUrl: redditUrl
+        facebookUrl: facebookUrl
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: id
+        socialProfileId: socialProfileId
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        languageId: languageId
+        twitchUrl: twitchUrl
+        coverUrl: coverUrl
+        firstName: firstName
+        githubUsername: githubUsername
+        webUrl: webUrl
+        tenantId: tenantId
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+      type: object
+    SimpleTenantEnrolmentDto:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        id: id
+        userId: userId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+      type: object
+    SimpleUserDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        twitterUrl: twitterUrl
+        fullName: fullName
+        countryId: countryId
+        coverUrl: coverUrl
+        firstName: firstName
+        facebookUrl: facebookUrl
+        publicName: publicName
+        websiteUrl: websiteUrl
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        id: id
+        socialProfileId: socialProfileId
+        gitHubUrl: gitHubUrl
+        youTubeUrl: youTubeUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    TenantDto:
+      additionalProperties: false
+      example:
+        supportPhoneNumber: supportPhoneNumber
+        whatsAppNumber: whatsAppNumber
+        twitterUrl: twitterUrl
+        about: about
+        businessName: businessName
+        cityId: cityId
+        businessSegmentId: businessSegmentId
+        countryId: countryId
+        legalName: legalName
+        facebookUrl: facebookUrl
+        id: id
+        businessIndustryId: businessIndustryId
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        stateId: stateId
+        languageId: languageId
+        verified: true
+        coverUrl: coverUrl
+        twitterUsername: twitterUsername
+        socialFeedId: socialFeedId
+        phone: phone
+        taxId: taxId
+        webUrl: webUrl
+        name: name
+        duns: duns
+        timezoneId: timezoneId
+        businessLegalName: businessLegalName
+        instagramUrl: instagramUrl
+        slogan: slogan
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        businessIndustryId:
+          nullable: true
+          type: string
+        businessSegmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        slogan:
+          nullable: true
+          type: string
+        legalName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        whatsAppNumber:
+          nullable: true
+          type: string
+        supportPhoneNumber:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessName:
+          nullable: true
+          readOnly: true
+          type: string
+        businessLegalName:
+          nullable: true
+          readOnly: true
+          type: string
+        twitterUsername:
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

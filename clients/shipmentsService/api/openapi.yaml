@@ -1,0 +1,192 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: ShipmentsService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/ShipmentsService/Shipments:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShipmentDtoListEnvelope'
+          description: OK
+      tags:
+      - Shipments
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ShipmentDto:
+      additionalProperties: false
+      example:
+        shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
+        expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+        isInternational: true
+        deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        trackingCode: trackingCode
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+        trackingCode:
+          nullable: true
+          type: string
+        isInternational:
+          type: boolean
+        shipmentTimestamp:
+          format: date-time
+          type: string
+        deliveryTimestamp:
+          format: date-time
+          type: string
+        expectedShippingDate:
+          format: date-time
+          type: string
+        expectedDeliveryDate:
+          format: date-time
+          type: string
+      type: object
+    ShipmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
+          expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+          isInternational: true
+          deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
+          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          trackingCode: trackingCode
+          id: id
+        - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
+          expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+          isInternational: true
+          deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
+          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          trackingCode: trackingCode
+          id: id
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShipmentDto'
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

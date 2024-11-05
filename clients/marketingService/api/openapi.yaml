@@ -1,0 +1,6906 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: MarketingService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/MarketingService/EmailGroups:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailGroupDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailGroupDtoListEnvelope'
+          description: OK
+      tags:
+      - EmailGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailGroupCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailGroupCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - EmailGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailGroups/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - EmailGroups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailGroups/{emailgroupId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailgroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailgroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailGroupDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailGroupDtoEnvelope'
+          description: OK
+      tags:
+      - EmailGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailgroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailGroupUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailGroupUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailSignatures:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSignatureDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailSignatureDtoListEnvelope'
+          description: OK
+      tags:
+      - EmailSignatures
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - EmailSignatures
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailSignatures/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - EmailSignatures
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailSignatures/{emailsignatureId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailsignatureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailSignatures
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailsignatureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailSignatureDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailSignatureDtoEnvelope'
+          description: OK
+      tags:
+      - EmailSignatures
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailsignatureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailSignatureUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailSignatures
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailTemplates:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDtoListEnvelope'
+          description: OK
+      tags:
+      - EmailTemplates
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - EmailTemplates
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailTemplates/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - EmailTemplates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/EmailTemplates/{emailTemplateId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailTemplateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailTemplates
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: emailTemplatesId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailTemplateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDtoEnvelope'
+          description: OK
+      tags:
+      - EmailTemplates
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: emailTemplateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - EmailTemplates
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingCampaigns:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+      tags:
+      - MarketingCampaigns
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - MarketingCampaigns
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingCampaigns/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - MarketingCampaigns
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketingcampaignId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - MarketingCampaigns
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketingcampaignId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingCampaignDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MarketingCampaignDtoEnvelope'
+          description: OK
+      tags:
+      - MarketingCampaigns
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketingcampaignId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingCampaignUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - MarketingCampaigns
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingLists:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingListDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MarketingListDtoListEnvelope'
+          description: OK
+      tags:
+      - MarketingLists
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingListCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingListCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - MarketingLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingLists/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - MarketingLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/MarketingLists/{marketinglistId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketinglistId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - MarketingLists
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketinglistId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingListDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MarketingListDtoEnvelope'
+          description: OK
+      tags:
+      - MarketingLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: marketinglistId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketingListUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MarketingListUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - MarketingLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/Newsletters:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+      tags:
+      - Newsletters
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - Newsletters
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/Newsletters/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - Newsletters
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/Newsletters/{newsletterId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Newsletters
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsletterDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NewsletterDtoEnvelope'
+          description: OK
+      tags:
+      - Newsletters
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Newsletters
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialMediaPosts:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialMediaPostDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialMediaPostDtoListEnvelope'
+          description: OK
+      tags:
+      - SocialMediaPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SocialMediaPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialMediaPosts/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SocialMediaPosts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialmediapostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SocialMediaPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialmediapostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialMediaPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialMediaPostDtoEnvelope'
+          description: OK
+      tags:
+      - SocialMediaPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialmediapostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialMediaPostUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SocialMediaPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialPostBuckets:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostBucketDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostBucketDtoListEnvelope'
+          description: OK
+      tags:
+      - SocialPostBuckets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - SocialPostBuckets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialPostBuckets/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - SocialPostBuckets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialpostbucketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SocialPostBuckets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialpostbucketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostBucketDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostBucketDtoEnvelope'
+          description: OK
+      tags:
+      - SocialPostBuckets
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialpostbucketId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostBucketUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - SocialPostBuckets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/TrackingPixels/{pixelId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: pixelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OrderDtoEnvelope'
+          description: OK
+      tags:
+      - TrackingPixels
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    Currency:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    EmailGroupCreateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    EmailGroupDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        name: name
+        description: description
+        id: id
+        enabled: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+      type: object
+    EmailGroupDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          name: name
+          description: description
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/EmailGroupDto'
+      type: object
+    EmailGroupDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrolmentId: enrolmentId
+          tenantId: tenantId
+          name: name
+          description: description
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrolmentId: enrolmentId
+          tenantId: tenantId
+          name: name
+          description: description
+          id: id
+          enabled: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/EmailGroupDto'
+          nullable: true
+          type: array
+      type: object
+    EmailGroupUpdateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        enabled: true
+      properties:
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enabled:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    EmailSignatureCreateDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: featuredImageUrl
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        authorId: authorId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        htmlContent: htmlContent
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        authorId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          nullable: true
+          type: string
+      type: object
+    EmailSignatureDto:
+      additionalProperties: false
+      example:
+        enableComments: true
+        twitterTitle: twitterTitle
+        parentWebContentId: parentWebContentId
+        metaDescription: metaDescription
+        htmlContent: htmlContent
+        featuredImageUrl: featuredImageUrl
+        password: password
+        highlightImage: highlightImage
+        enable: true
+        id: id
+        jsContent: jsContent
+        allowPingBacks: true
+        slug: slug
+        order: 0
+        enrollmentId: enrollmentId
+        twitterImage: twitterImage
+        systemLocked: true
+        published: true
+        seoKeyWords: seoKeyWords
+        displaySocialBox: true
+        jsFiles: jsFiles
+        twitterDescription: twitterDescription
+        cornerstoneContent: true
+        name: name
+        generatedCode: generatedCode
+        excerpt: excerpt
+        template: true
+        code: code
+        inTrashCan: true
+        typeName: typeName
+        description: description
+        parentWebContentVersionId: parentWebContentVersionId
+        title: title
+        seoTitle: seoTitle
+        facebookTitle: facebookTitle
+        cssContent: cssContent
+        allowTrackbacks: true
+        content: content
+        facebookImage: facebookImage
+        default: true
+        seoKeyPhrases: seoKeyPhrases
+        compilationPath: compilationPath
+        socialProfileId: socialProfileId
+        isEssentialContent: true
+        webPortalId: webPortalId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        cSharpContent: cSharpContent
+        canonicalUrl: canonicalUrl
+        facebookDescription: facebookDescription
+        razorGeneratedCode: razorGeneratedCode
+        cSharpGeneratedCode: cSharpGeneratedCode
+        razorContent: razorContent
+        websiteThemeId: websiteThemeId
+        namespace: namespace
+        tenantId: tenantId
+        allowSearchEngineIndexing: true
+        cssFiles: cssFiles
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        slug:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        canonicalUrl:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        seoKeyPhrases:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        twitterImage:
+          nullable: true
+          type: string
+        twitterTitle:
+          nullable: true
+          type: string
+        twitterDescription:
+          nullable: true
+          type: string
+        facebookImage:
+          nullable: true
+          type: string
+        facebookTitle:
+          nullable: true
+          type: string
+        facebookDescription:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        typeName:
+          nullable: true
+          type: string
+        generatedCode:
+          nullable: true
+          type: string
+        compilationPath:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cSharpContent:
+          nullable: true
+          type: string
+        razorContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        cssFiles:
+          nullable: true
+          type: string
+        jsFiles:
+          nullable: true
+          type: string
+        razorGeneratedCode:
+          nullable: true
+          type: string
+        cSharpGeneratedCode:
+          nullable: true
+          type: string
+        template:
+          type: boolean
+        default:
+          type: boolean
+        enable:
+          type: boolean
+        enableComments:
+          type: boolean
+        displaySocialBox:
+          type: boolean
+        published:
+          type: boolean
+        inTrashCan:
+          type: boolean
+        systemLocked:
+          type: boolean
+        allowPingBacks:
+          type: boolean
+        allowTrackbacks:
+          type: boolean
+        cornerstoneContent:
+          type: boolean
+        isEssentialContent:
+          type: boolean
+        allowSearchEngineIndexing:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
+        websiteThemeId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        parentWebContentId:
+          nullable: true
+          type: string
+        parentWebContentVersionId:
+          nullable: true
+          type: string
+      type: object
+    EmailSignatureDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          cssFiles: cssFiles
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/EmailSignatureDto'
+      type: object
+    EmailSignatureDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          cssFiles: cssFiles
+        - enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          cssFiles: cssFiles
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/EmailSignatureDto'
+          nullable: true
+          type: array
+      type: object
+    EmailSignatureUpdateDto:
+      additionalProperties: false
+      example:
+        enableComments: true
+        twitterTitle: twitterTitle
+        metaDescription: metaDescription
+        htmlContent: htmlContent
+        featuredImageURL: featuredImageURL
+        password: password
+        highlightImage: highlightImage
+        enable: true
+        precompiledViewSize: 5
+        jsContent: jsContent
+        slug: slug
+        precompiledViewSizeLong: 5
+        order: 0
+        twitterImage: twitterImage
+        systemLocked: true
+        published: true
+        seoKeyWords: seoKeyWords
+        displaySocialBox: true
+        jsFiles: jsFiles
+        twitterDescription: twitterDescription
+        cornerstoneContent: true
+        name: name
+        generatedCode: generatedCode
+        precompiledLogicViewSize: 2
+        excerpt: excerpt
+        precompiledLogicSizeLong: 1
+        precompiledLogicSize: 6
+        template: true
+        code: code
+        inTrashCan: true
+        typeName: typeName
+        description: description
+        title: title
+        seoTitle: seoTitle
+        facebookTitle: facebookTitle
+        cssContent: cssContent
+        allowTrackbacks: true
+        content: content
+        facebookImage: facebookImage
+        default: true
+        seoKeyPhrases: seoKeyPhrases
+        compilationPath: compilationPath
+        isEssentialContent: true
+        cSharpContent: cSharpContent
+        allowPingbacks: true
+        canonicalUrl: canonicalUrl
+        facebookDescription: facebookDescription
+        razorGeneratedCode: razorGeneratedCode
+        cSharpGeneratedCode: cSharpGeneratedCode
+        razorContent: razorContent
+        namespace: namespace
+        allowSearchEngineIndexing: true
+        cssFiles: cssFiles
+      properties:
+        order:
+          format: int32
+          type: integer
+        slug:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        canonicalUrl:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        seoKeyPhrases:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        twitterImage:
+          nullable: true
+          type: string
+        twitterTitle:
+          nullable: true
+          type: string
+        twitterDescription:
+          nullable: true
+          type: string
+        facebookImage:
+          nullable: true
+          type: string
+        facebookTitle:
+          nullable: true
+          type: string
+        facebookDescription:
+          nullable: true
+          type: string
+        featuredImageURL:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        typeName:
+          nullable: true
+          type: string
+        generatedCode:
+          nullable: true
+          type: string
+        compilationPath:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cSharpContent:
+          nullable: true
+          type: string
+        razorContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        cssFiles:
+          nullable: true
+          type: string
+        jsFiles:
+          nullable: true
+          type: string
+        razorGeneratedCode:
+          nullable: true
+          type: string
+        cSharpGeneratedCode:
+          nullable: true
+          type: string
+        precompiledLogicSize:
+          format: int32
+          type: integer
+        precompiledLogicSizeLong:
+          format: int64
+          type: integer
+        precompiledViewSize:
+          format: int32
+          type: integer
+        precompiledViewSizeLong:
+          format: int64
+          type: integer
+        precompiledLogicViewSize:
+          format: int32
+          type: integer
+        template:
+          type: boolean
+        default:
+          type: boolean
+        enable:
+          type: boolean
+        enableComments:
+          type: boolean
+        displaySocialBox:
+          type: boolean
+        published:
+          type: boolean
+        inTrashCan:
+          type: boolean
+        systemLocked:
+          type: boolean
+        allowPingbacks:
+          type: boolean
+        allowTrackbacks:
+          type: boolean
+        cornerstoneContent:
+          type: boolean
+        isEssentialContent:
+          type: boolean
+        allowSearchEngineIndexing:
+          type: boolean
+      type: object
+    EmailTemplateCreateDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: featuredImageUrl
+        marketingCampaignId: marketingCampaignId
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        authorId: authorId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        htmlContent: htmlContent
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        authorId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          nullable: true
+          type: string
+        marketingCampaignId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    EmailTemplateDto:
+      additionalProperties: false
+      example:
+        enableComments: true
+        twitterTitle: twitterTitle
+        parentWebContentId: parentWebContentId
+        metaDescription: metaDescription
+        htmlContent: htmlContent
+        featuredImageUrl: featuredImageUrl
+        password: password
+        highlightImage: highlightImage
+        enable: true
+        id: id
+        jsContent: jsContent
+        allowPingBacks: true
+        slug: slug
+        order: 0
+        enrollmentId: enrollmentId
+        twitterImage: twitterImage
+        systemLocked: true
+        published: true
+        seoKeyWords: seoKeyWords
+        displaySocialBox: true
+        jsFiles: jsFiles
+        twitterDescription: twitterDescription
+        cornerstoneContent: true
+        name: name
+        generatedCode: generatedCode
+        excerpt: excerpt
+        template: true
+        code: code
+        marketingCampaignId: marketingCampaignId
+        inTrashCan: true
+        typeName: typeName
+        description: description
+        parentWebContentVersionId: parentWebContentVersionId
+        title: title
+        seoTitle: seoTitle
+        facebookTitle: facebookTitle
+        cssContent: cssContent
+        allowTrackbacks: true
+        content: content
+        facebookImage: facebookImage
+        default: true
+        seoKeyPhrases: seoKeyPhrases
+        compilationPath: compilationPath
+        socialProfileId: socialProfileId
+        isEssentialContent: true
+        webPortalId: webPortalId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        cSharpContent: cSharpContent
+        canonicalUrl: canonicalUrl
+        facebookDescription: facebookDescription
+        razorGeneratedCode: razorGeneratedCode
+        cSharpGeneratedCode: cSharpGeneratedCode
+        razorContent: razorContent
+        websiteThemeId: websiteThemeId
+        namespace: namespace
+        tenantId: tenantId
+        allowSearchEngineIndexing: true
+        marketingCampaignName: marketingCampaignName
+        cssFiles: cssFiles
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        slug:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        canonicalUrl:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        seoKeyPhrases:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        twitterImage:
+          nullable: true
+          type: string
+        twitterTitle:
+          nullable: true
+          type: string
+        twitterDescription:
+          nullable: true
+          type: string
+        facebookImage:
+          nullable: true
+          type: string
+        facebookTitle:
+          nullable: true
+          type: string
+        facebookDescription:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        typeName:
+          nullable: true
+          type: string
+        generatedCode:
+          nullable: true
+          type: string
+        compilationPath:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cSharpContent:
+          nullable: true
+          type: string
+        razorContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        cssFiles:
+          nullable: true
+          type: string
+        jsFiles:
+          nullable: true
+          type: string
+        razorGeneratedCode:
+          nullable: true
+          type: string
+        cSharpGeneratedCode:
+          nullable: true
+          type: string
+        template:
+          type: boolean
+        default:
+          type: boolean
+        enable:
+          type: boolean
+        enableComments:
+          type: boolean
+        displaySocialBox:
+          type: boolean
+        published:
+          type: boolean
+        inTrashCan:
+          type: boolean
+        systemLocked:
+          type: boolean
+        allowPingBacks:
+          type: boolean
+        allowTrackbacks:
+          type: boolean
+        cornerstoneContent:
+          type: boolean
+        isEssentialContent:
+          type: boolean
+        allowSearchEngineIndexing:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        webPortalId:
+          nullable: true
+          type: string
+        websiteThemeId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        parentWebContentId:
+          nullable: true
+          type: string
+        parentWebContentVersionId:
+          nullable: true
+          type: string
+        marketingCampaignId:
+          nullable: true
+          type: string
+        marketingCampaignName:
+          nullable: true
+          type: string
+      type: object
+    EmailTemplateDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          marketingCampaignId: marketingCampaignId
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          marketingCampaignName: marketingCampaignName
+          cssFiles: cssFiles
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/EmailTemplateDto'
+      type: object
+    EmailTemplateDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          marketingCampaignId: marketingCampaignId
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          marketingCampaignName: marketingCampaignName
+          cssFiles: cssFiles
+        - enableComments: true
+          twitterTitle: twitterTitle
+          parentWebContentId: parentWebContentId
+          metaDescription: metaDescription
+          htmlContent: htmlContent
+          featuredImageUrl: featuredImageUrl
+          password: password
+          highlightImage: highlightImage
+          enable: true
+          id: id
+          jsContent: jsContent
+          allowPingBacks: true
+          slug: slug
+          order: 0
+          enrollmentId: enrollmentId
+          twitterImage: twitterImage
+          systemLocked: true
+          published: true
+          seoKeyWords: seoKeyWords
+          displaySocialBox: true
+          jsFiles: jsFiles
+          twitterDescription: twitterDescription
+          cornerstoneContent: true
+          name: name
+          generatedCode: generatedCode
+          excerpt: excerpt
+          template: true
+          code: code
+          marketingCampaignId: marketingCampaignId
+          inTrashCan: true
+          typeName: typeName
+          description: description
+          parentWebContentVersionId: parentWebContentVersionId
+          title: title
+          seoTitle: seoTitle
+          facebookTitle: facebookTitle
+          cssContent: cssContent
+          allowTrackbacks: true
+          content: content
+          facebookImage: facebookImage
+          default: true
+          seoKeyPhrases: seoKeyPhrases
+          compilationPath: compilationPath
+          socialProfileId: socialProfileId
+          isEssentialContent: true
+          webPortalId: webPortalId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          cSharpContent: cSharpContent
+          canonicalUrl: canonicalUrl
+          facebookDescription: facebookDescription
+          razorGeneratedCode: razorGeneratedCode
+          cSharpGeneratedCode: cSharpGeneratedCode
+          razorContent: razorContent
+          websiteThemeId: websiteThemeId
+          namespace: namespace
+          tenantId: tenantId
+          allowSearchEngineIndexing: true
+          marketingCampaignName: marketingCampaignName
+          cssFiles: cssFiles
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/EmailTemplateDto'
+          nullable: true
+          type: array
+      type: object
+    EmailTemplateUpdateDto:
+      additionalProperties: false
+      example:
+        enableComments: true
+        twitterTitle: twitterTitle
+        metaDescription: metaDescription
+        htmlContent: htmlContent
+        featuredImageURL: featuredImageURL
+        password: password
+        highlightImage: highlightImage
+        enable: true
+        precompiledViewSize: 5
+        jsContent: jsContent
+        slug: slug
+        precompiledViewSizeLong: 5
+        order: 0
+        twitterImage: twitterImage
+        systemLocked: true
+        published: true
+        seoKeyWords: seoKeyWords
+        displaySocialBox: true
+        jsFiles: jsFiles
+        twitterDescription: twitterDescription
+        cornerstoneContent: true
+        name: name
+        generatedCode: generatedCode
+        precompiledLogicViewSize: 2
+        excerpt: excerpt
+        precompiledLogicSizeLong: 1
+        precompiledLogicSize: 6
+        template: true
+        code: code
+        marketingCampaignId: marketingCampaignId
+        inTrashCan: true
+        typeName: typeName
+        description: description
+        title: title
+        seoTitle: seoTitle
+        facebookTitle: facebookTitle
+        cssContent: cssContent
+        allowTrackbacks: true
+        content: content
+        facebookImage: facebookImage
+        default: true
+        seoKeyPhrases: seoKeyPhrases
+        compilationPath: compilationPath
+        isEssentialContent: true
+        cSharpContent: cSharpContent
+        allowPingbacks: true
+        canonicalUrl: canonicalUrl
+        facebookDescription: facebookDescription
+        razorGeneratedCode: razorGeneratedCode
+        cSharpGeneratedCode: cSharpGeneratedCode
+        razorContent: razorContent
+        namespace: namespace
+        allowSearchEngineIndexing: true
+        cssFiles: cssFiles
+      properties:
+        order:
+          format: int32
+          type: integer
+        slug:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        canonicalUrl:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        seoKeyPhrases:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        twitterImage:
+          nullable: true
+          type: string
+        twitterTitle:
+          nullable: true
+          type: string
+        twitterDescription:
+          nullable: true
+          type: string
+        facebookImage:
+          nullable: true
+          type: string
+        facebookTitle:
+          nullable: true
+          type: string
+        facebookDescription:
+          nullable: true
+          type: string
+        featuredImageURL:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        typeName:
+          nullable: true
+          type: string
+        generatedCode:
+          nullable: true
+          type: string
+        compilationPath:
+          nullable: true
+          type: string
+        htmlContent:
+          nullable: true
+          type: string
+        cSharpContent:
+          nullable: true
+          type: string
+        razorContent:
+          nullable: true
+          type: string
+        cssContent:
+          nullable: true
+          type: string
+        jsContent:
+          nullable: true
+          type: string
+        cssFiles:
+          nullable: true
+          type: string
+        jsFiles:
+          nullable: true
+          type: string
+        razorGeneratedCode:
+          nullable: true
+          type: string
+        cSharpGeneratedCode:
+          nullable: true
+          type: string
+        precompiledLogicSize:
+          format: int32
+          type: integer
+        precompiledLogicSizeLong:
+          format: int64
+          type: integer
+        precompiledViewSize:
+          format: int32
+          type: integer
+        precompiledViewSizeLong:
+          format: int64
+          type: integer
+        precompiledLogicViewSize:
+          format: int32
+          type: integer
+        template:
+          type: boolean
+        default:
+          type: boolean
+        enable:
+          type: boolean
+        enableComments:
+          type: boolean
+        displaySocialBox:
+          type: boolean
+        published:
+          type: boolean
+        inTrashCan:
+          type: boolean
+        systemLocked:
+          type: boolean
+        allowPingbacks:
+          type: boolean
+        allowTrackbacks:
+          type: boolean
+        cornerstoneContent:
+          type: boolean
+        isEssentialContent:
+          type: boolean
+        allowSearchEngineIndexing:
+          type: boolean
+        marketingCampaignId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    MarketingCampaignCreateDto:
+      additionalProperties: false
+      example:
+        expectedResponsePercent: 5.962133916683182
+        allocatedBudget: 0.8008281904610115
+        code: code
+        miscCost: 1.4658129805029452
+        actualEnd: 2000-01-23T04:56:07.000+00:00
+        active: true
+        marketingAreaId: marketingAreaId
+        offer: offer
+        activityCost: 6.027456183070403
+        proposedStart: 2000-01-23T04:56:07.000+00:00
+        proposedEnd: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        actualStart: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        offer:
+          nullable: true
+          type: string
+        active:
+          type: boolean
+        proposedStart:
+          format: date-time
+          type: string
+        proposedEnd:
+          format: date-time
+          type: string
+        actualStart:
+          format: date-time
+          type: string
+        actualEnd:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        allocatedBudget:
+          format: double
+          type: number
+        activityCost:
+          format: double
+          type: number
+        miscCost:
+          format: double
+          type: number
+        expectedResponsePercent:
+          format: double
+          type: number
+        marketingAreaId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    MarketingCampaignDto:
+      additionalProperties: false
+      example:
+        expectedResponsePercent: 5.962133916683182
+        allocatedBudget: 0.8008281904610115
+        code: code
+        miscCost: 1.4658129805029452
+        actualEnd: 2000-01-23T04:56:07.000+00:00
+        active: true
+        marketingAreaId: marketingAreaId
+        offer: offer
+        activityCost: 6.027456183070403
+        proposedStart: 2000-01-23T04:56:07.000+00:00
+        proposedEnd: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        currencyId: currencyId
+        actualStart: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        offer:
+          nullable: true
+          type: string
+        active:
+          type: boolean
+        proposedStart:
+          format: date-time
+          type: string
+        proposedEnd:
+          format: date-time
+          type: string
+        actualStart:
+          format: date-time
+          type: string
+        actualEnd:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        allocatedBudget:
+          format: double
+          type: number
+        activityCost:
+          format: double
+          type: number
+        miscCost:
+          format: double
+          type: number
+        expectedResponsePercent:
+          format: double
+          type: number
+        marketingAreaId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    MarketingCampaignDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          expectedResponsePercent: 5.962133916683182
+          allocatedBudget: 0.8008281904610115
+          code: code
+          miscCost: 1.4658129805029452
+          actualEnd: 2000-01-23T04:56:07.000+00:00
+          active: true
+          marketingAreaId: marketingAreaId
+          offer: offer
+          activityCost: 6.027456183070403
+          proposedStart: 2000-01-23T04:56:07.000+00:00
+          proposedEnd: 2000-01-23T04:56:07.000+00:00
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          currencyId: currencyId
+          actualStart: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/MarketingCampaignDto'
+      type: object
+    MarketingCampaignUpdateDto:
+      additionalProperties: false
+      example:
+        expectedResponsePercent: 5.962133916683182
+        allocatedBudget: 0.8008281904610115
+        code: code
+        miscCost: 1.4658129805029452
+        actualEnd: 2000-01-23T04:56:07.000+00:00
+        active: true
+        marketingAreaId: marketingAreaId
+        offer: offer
+        activityCost: 6.027456183070403
+        proposedStart: 2000-01-23T04:56:07.000+00:00
+        proposedEnd: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        currencyId: currencyId
+        actualStart: 2000-01-23T04:56:07.000+00:00
+      properties:
+        name:
+          nullable: true
+          type: string
+        offer:
+          nullable: true
+          type: string
+        active:
+          type: boolean
+        proposedStart:
+          format: date-time
+          type: string
+        proposedEnd:
+          format: date-time
+          type: string
+        actualStart:
+          format: date-time
+          type: string
+        actualEnd:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        allocatedBudget:
+          format: double
+          type: number
+        activityCost:
+          format: double
+          type: number
+        miscCost:
+          format: double
+          type: number
+        expectedResponsePercent:
+          format: double
+          type: number
+        marketingAreaId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    MarketingListCreateDto:
+      additionalProperties: false
+      example:
+        lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        cost: 0.8008281904610115
+        purpose: purpose
+        marketingListTarget: 1
+        description: description
+        source: source
+        modifiedOn: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        marketingListType: 6
+        locked: true
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        locked:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        purpose:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        modifiedOn:
+          format: date-time
+          type: string
+        lastUsedOn:
+          format: date-time
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        marketingListType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        marketingListTarget:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      type: object
+    MarketingListDto:
+      additionalProperties: false
+      example:
+        lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        cost: 0.8008281904610115
+        purpose: purpose
+        marketingListTarget: 1
+        description: description
+        source: source
+        modifiedOn: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        marketingListType: 6
+        locked: true
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        locked:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        purpose:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        modifiedOn:
+          format: date-time
+          type: string
+        lastUsedOn:
+          format: date-time
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        marketingListType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        marketingListTarget:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      type: object
+    MarketingListDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          cost: 0.8008281904610115
+          purpose: purpose
+          marketingListTarget: 1
+          description: description
+          source: source
+          modifiedOn: 2000-01-23T04:56:07.000+00:00
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          marketingListType: 6
+          locked: true
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/MarketingListDto'
+      type: object
+    MarketingListDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          cost: 0.8008281904610115
+          purpose: purpose
+          marketingListTarget: 1
+          description: description
+          source: source
+          modifiedOn: 2000-01-23T04:56:07.000+00:00
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          marketingListType: 6
+          locked: true
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          cost: 0.8008281904610115
+          purpose: purpose
+          marketingListTarget: 1
+          description: description
+          source: source
+          modifiedOn: 2000-01-23T04:56:07.000+00:00
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          marketingListType: 6
+          locked: true
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/MarketingListDto'
+          nullable: true
+          type: array
+      type: object
+    MarketingListUpdateDto:
+      additionalProperties: false
+      example:
+        lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        cost: 0.8008281904610115
+        purpose: purpose
+        marketingListTarget: 1
+        description: description
+        source: source
+        modifiedOn: 2000-01-23T04:56:07.000+00:00
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        marketingListType: 6
+        locked: true
+        currencyId: currencyId
+      properties:
+        locked:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        purpose:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        source:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        modifiedOn:
+          format: date-time
+          type: string
+        lastUsedOn:
+          format: date-time
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        marketingListType:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        marketingListTarget:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 9.965781217890562
+        currency:
+          country: country
+          code: code
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+      type: object
+    NewsletterCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    NewsletterDto:
+      additionalProperties: false
+      example:
+        code: code
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    NewsletterDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/NewsletterDto'
+      type: object
+    NewsletterUpdateDto:
+      additionalProperties: false
+      example:
+        code: code
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        name: name
+        title: title
+      properties:
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+      type: object
+    OrderDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 1.2315135367772556
+        totalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        companyName: companyName
+        postalCode: postalCode
+        freightTerms: 8
+        cityId: cityId
+        totalGlobalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        type: type
+        totalGlobalDiscountsAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxBaseInUsd: 7.386281948385884
+        totalGlobalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        organizationId: organizationId
+        totalTaxBase: 5.962133916683182
+        customDiscountsAmount: 2.8841621266687802
+        totalAmountInUsd: 2.027123023002322
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        totalDetailAmountInUsd: 1.4894159098541704
+        totalTaxAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        id: id
+        currencyId: currencyId
+        totalSurchargesAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTaxAmount: 6.438423552598547
+        enrollmentId: enrollmentId
+        walletId: walletId
+        totalProfitInUsd: 4.145608029883936
+        orderLinesCount: 9
+        totalGlobalSurchargesInUsd: 7.457744773683766
+        shippingMethodId: shippingMethodId
+        costCalculationMethod: 6
+        totalShippingTaxesInUsd: 5.025004791520295
+        quoteId: quoteId
+        firstName: firstName
+        totalAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        forexRate: 0.8008281904610115
+        customDetailAmount: 6.965117697638846
+        customSurchargesAmount: 6.778324963048013
+        requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        customShippingCostAmount: 5.944895607614016
+        totalTaxBaseAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalShippingCostInUsd: 4.965218492984954
+        totalTaxAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customWithholdingTaxAmount: 6.704019297950036
+        totalSurchargesAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        billingLocationId: billingLocationId
+        lastName: lastName
+        totalGlobalDiscounts: 7.061401241503109
+        totalDiscounts: 5.637376656633329
+        description: description
+        orderStatus: 9
+        customerNotes: customerNotes
+        shippingLocationId: shippingLocationId
+        individualId: individualId
+        title: title
+        qualifiedIdentifier: qualifiedIdentifier
+        countryId: countryId
+        total: 6.027456183070403
+        totalSurchargesInUsd: 1.0246457001441578
+        billingEmail: billingEmail
+        totalWithholdingTaxesInUsd: 1.1730742509559433
+        parentOrderId: parentOrderId
+        receiverTenantId: receiverTenantId
+        currency:
+          country: country
+          code: code
+        totalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customTotalAmount: 3.5571952270680973
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        paymentTermId: paymentTermId
+        totalTaxes: 1.4658129805029452
+        stateId: stateId
+        customShippingTaxAmount: 6.878052220127876
+        priceListId: priceListId
+        userId: userId
+        totalGlobalDiscountsAmount:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        totalTaxesInUsd: 3.616076749251911
+        totalTaxBaseAmountInUsd:
+          amount: 9.965781217890562
+          currency:
+            country: country
+            code: code
+        customProfitAmount: 1.284659006116532
+        tenantId: tenantId
+        closed: true
+        totalSurcharges: 2.3021358869347655
+        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalDiscountsInUsd: 6.84685269835264
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        total:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxBase:
+          format: double
+          type: number
+        totalDiscounts:
+          format: double
+          type: number
+        totalSurcharges:
+          format: double
+          type: number
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalAmountInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalDetailAmountInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalWithholdingTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+        totalInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmountInUsd:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        orderLinesCount:
+          format: int32
+          type: integer
+        quoteId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        paymentTermId:
+          nullable: true
+          type: string
+        parentOrderId:
+          nullable: true
+          type: string
+        shippingMethodId:
+          nullable: true
+          type: string
+        billingLocationId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        qualifiedIdentifier:
+          nullable: true
+          type: string
+        costCalculationMethod:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        freightTerms:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        orderStatus:
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          format: int32
+          type: integer
+        requestedDeliveryDate:
+          format: date-time
+          type: string
+        customTaxAmount:
+          format: double
+          type: number
+        customTotalAmount:
+          format: double
+          type: number
+        customDetailAmount:
+          format: double
+          type: number
+        customProfitAmount:
+          format: double
+          type: number
+        customDiscountsAmount:
+          format: double
+          type: number
+        customSurchargesAmount:
+          format: double
+          type: number
+        customShippingTaxAmount:
+          format: double
+          type: number
+        customShippingCostAmount:
+          format: double
+          type: number
+        customWithholdingTaxAmount:
+          format: double
+          type: number
+      type: object
+    OrderDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          totalDiscountsInUsd: 1.2315135367772556
+          totalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          companyName: companyName
+          postalCode: postalCode
+          freightTerms: 8
+          cityId: cityId
+          totalGlobalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          type: type
+          totalGlobalDiscountsAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxBaseInUsd: 7.386281948385884
+          totalGlobalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          organizationId: organizationId
+          totalTaxBase: 5.962133916683182
+          customDiscountsAmount: 2.8841621266687802
+          totalAmountInUsd: 2.027123023002322
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          totalDetailAmountInUsd: 1.4894159098541704
+          totalTaxAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          id: id
+          currencyId: currencyId
+          totalSurchargesAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTaxAmount: 6.438423552598547
+          enrollmentId: enrollmentId
+          walletId: walletId
+          totalProfitInUsd: 4.145608029883936
+          orderLinesCount: 9
+          totalGlobalSurchargesInUsd: 7.457744773683766
+          shippingMethodId: shippingMethodId
+          costCalculationMethod: 6
+          totalShippingTaxesInUsd: 5.025004791520295
+          quoteId: quoteId
+          firstName: firstName
+          totalAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          forexRate: 0.8008281904610115
+          customDetailAmount: 6.965117697638846
+          customSurchargesAmount: 6.778324963048013
+          requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          customShippingCostAmount: 5.944895607614016
+          totalTaxBaseAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalShippingCostInUsd: 4.965218492984954
+          totalTaxAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customWithholdingTaxAmount: 6.704019297950036
+          totalSurchargesAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          billingLocationId: billingLocationId
+          lastName: lastName
+          totalGlobalDiscounts: 7.061401241503109
+          totalDiscounts: 5.637376656633329
+          description: description
+          orderStatus: 9
+          customerNotes: customerNotes
+          shippingLocationId: shippingLocationId
+          individualId: individualId
+          title: title
+          qualifiedIdentifier: qualifiedIdentifier
+          countryId: countryId
+          total: 6.027456183070403
+          totalSurchargesInUsd: 1.0246457001441578
+          billingEmail: billingEmail
+          totalWithholdingTaxesInUsd: 1.1730742509559433
+          parentOrderId: parentOrderId
+          receiverTenantId: receiverTenantId
+          currency:
+            country: country
+            code: code
+          totalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customTotalAmount: 3.5571952270680973
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          paymentTermId: paymentTermId
+          totalTaxes: 1.4658129805029452
+          stateId: stateId
+          customShippingTaxAmount: 6.878052220127876
+          priceListId: priceListId
+          userId: userId
+          totalGlobalDiscountsAmount:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          totalTaxesInUsd: 3.616076749251911
+          totalTaxBaseAmountInUsd:
+            amount: 9.965781217890562
+            currency:
+              country: country
+              code: code
+          customProfitAmount: 1.284659006116532
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 2.3021358869347655
+          totalGlobalSurcharges: 9.301444243932576
+          totalGlobalDiscountsInUsd: 6.84685269835264
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OrderDto'
+      type: object
+    SocialMediaPostCreateDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: https://openapi-generator.tech
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        title: title
+        socialPostBucketId: socialPostBucketId
+        content: content
+      properties:
+        title:
+          maxLength: 99
+          minLength: 0
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          format: uri
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        socialPostBucketId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SocialMediaPostDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: featuredImageUrl
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        id: id
+        title: title
+        socialPostBucketId: socialPostBucketId
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        socialPostBucketId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    SocialMediaPostDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          featuredImageUrl: featuredImageUrl
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          id: id
+          title: title
+          socialPostBucketId: socialPostBucketId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialMediaPostDto'
+      type: object
+    SocialMediaPostDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - featuredImageUrl: featuredImageUrl
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          id: id
+          title: title
+          socialPostBucketId: socialPostBucketId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - featuredImageUrl: featuredImageUrl
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          id: id
+          title: title
+          socialPostBucketId: socialPostBucketId
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialMediaPostDto'
+          nullable: true
+          type: array
+      type: object
+    SocialMediaPostUpdateDto:
+      additionalProperties: false
+      example:
+        featuredImageUrl: https://openapi-generator.tech
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        title: title
+        socialPostBucketId: socialPostBucketId
+        content: content
+      properties:
+        title:
+          maxLength: 99
+          minLength: 0
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        featuredImageUrl:
+          format: uri
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        socialPostBucketId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SocialPostBucketCreateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          maxLength: 99
+          minLength: 0
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SocialPostBucketDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostBucketDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialPostBucketDto'
+      type: object
+    SocialPostBucketDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialPostBucketDto'
+          nullable: true
+          type: array
+      type: object
+    SocialPostBucketUpdateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+      properties:
+        name:
+          maxLength: 99
+          minLength: 0
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

@@ -1,0 +1,4913 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: CrmService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/CrmService/Contacts:
+    get:
+      description: Get all business owned contacts
+      operationId: GetContactsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get all business owned contacts
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new contact
+      operationId: CreateContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a new contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Count:
+    get:
+      description: Get all business owned contacts count
+      operationId: GetContactsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get all business owned contacts count
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Extended:
+    get:
+      description: Get all business owned contacts
+      operationId: GetExtendedContactsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+          description: OK
+      summary: Get all business owned contacts
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}:
+    delete:
+      description: Delete a contact
+      operationId: DeleteContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a contact
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a contact by ID
+      operationId: GetContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+          description: OK
+      summary: Get a contact by ID
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact
+      operationId: PatchContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a contact
+      operationId: UpdateContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Extended:
+    get:
+      description: Get a contact by ID
+      operationId: GetExtendedContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoEnvelope'
+          description: OK
+      summary: Get a contact by ID
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals:
+    get:
+      description: Get all contacts of type individual
+      operationId: GetBusinessOwnedIndividualsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get all contacts of type individual
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/Count:
+    get:
+      description: Get all contacts of type individual count
+      operationId: GetBusinessOwnedIndividualsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get all contacts of type individual count
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/Extended:
+    get:
+      description: Get all contacts of type individual
+      operationId: GetExtendedBusinessOwnedIndividualsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+          description: OK
+      summary: Get all contacts of type individual
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/{contactId}:
+    get:
+      description: Get a Contact of type Individual by ID
+      operationId: GetBusinessOwnedIndividualAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+          description: OK
+      summary: Get a Contact of type Individual by ID
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations:
+    get:
+      description: Get all contacts of type organization
+      operationId: GetBusinessOwnedOrganizationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactDto'
+                type: array
+          description: OK
+      summary: Get all contacts of type organization
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/Count:
+    get:
+      description: Get all contacts of type organization count
+      operationId: GetBusinessOwnedOrganizationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get all contacts of type organization count
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/Extended:
+    get:
+      description: Get all contacts of type organization
+      operationId: GetExtendedBusinessOwnedOrganizationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedContactDtoListEnvelope'
+          description: OK
+      summary: Get all contacts of type organization
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/{contactId}:
+    get:
+      description: Get a Contact of type Organization by ID
+      operationId: GetBusinessOwnedOrganizationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+          description: OK
+      summary: Get a Contact of type Organization by ID
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Cart:
+    get:
+      description: Get a contact's cart
+      operationId: GetContactCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+      summary: Get a contact's cart
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Avatar:
+    get:
+      description: Get a contact's avatar
+      operationId: GetContactAvatarAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get a contact's avatar
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Update a contact's avatar
+      operationId: UpdateContactAvatarAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateContactAvatarAsync_request'
+          application/json:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateContactAvatarAsync_request'
+          application/xml:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateContactAvatarAsync_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a contact's avatar
+      tags:
+      - Contacts
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Wallet:
+    get:
+      description: Get a contact's wallet
+      operationId: GetContactWalletAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+          description: OK
+      summary: Get a contact's wallet
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Profiles:
+    get:
+      description: Get a contact's social profiles
+      operationId: GetContactProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDtoListEnvelope'
+          description: OK
+      summary: Get a contact's social profiles
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/SocialProfile:
+    get:
+      description: Get a contact's social profile
+      operationId: GetContactSocialProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+          description: OK
+      summary: Get a contact's social profile
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations:
+    get:
+      description: Get individual related organizations
+      operationId: GetIndividualRelatedOrganizationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get individual related organizations
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/{contactId}/Individuals:
+    get:
+      description: Get individual related individuals
+      operationId: GetIndividualRelatedIndividualsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get individual related individuals
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals:
+    get:
+      description: Get organization related individuals
+      operationId: GetOrganizationRelatedIndividualsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get organization related individuals
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations:
+    get:
+      description: Get organization related organizations
+      operationId: GetOrganizationRelatedOrganizationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      summary: Get organization related organizations
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Organizations/Upsert:
+    post:
+      description: Upsert a tenant onto another tenant's contact list
+      operationId: UpsertTenantOntoAnotherTenantContactListAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: relatedTenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+          description: OK
+      summary: Upsert a tenant onto another tenant's contact list
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/Individuals/Upsert:
+    post:
+      description: Upsert a user onto a tenant's contact list
+      operationId: UpsertUserOntoAnotherTenantContactListAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: relatedUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoEnvelope'
+          description: OK
+      summary: Upsert a user onto a tenant's contact list
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Sync:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      tags:
+      - Sync
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Sync/Me:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      tags:
+      - Sync
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Sync/User:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: relatedUserId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactDtoListEnvelope'
+          description: OK
+      tags:
+      - Sync
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Sync/Tenant:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: relatedTenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Sync
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    CartDto:
+      additionalProperties: false
+      example:
+        total: 6.027456183070403
+        itemCartRecordsCount: 2
+        ip: ip
+        freight: 5.962133916683182
+        itemToCompareRecordsCount: 7
+        taxes: 1.4658129805029452
+        id: id
+        subTotal: 5.637376656633329
+        type: type
+        currencyId: currencyId
+        countryId: countryId
+      properties:
+        id:
+          nullable: true
+          type: string
+        ip:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        total:
+          format: double
+          type: number
+        taxes:
+          format: double
+          type: number
+        freight:
+          format: double
+          type: number
+        subTotal:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        itemCartRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+        itemToCompareRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    CartDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          total: 6.027456183070403
+          itemCartRecordsCount: 2
+          ip: ip
+          freight: 5.962133916683182
+          itemToCompareRecordsCount: 7
+          taxes: 1.4658129805029452
+          id: id
+          subTotal: 5.637376656633329
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CartDto'
+      type: object
+    ContactCreateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        streetLine2: streetLine2
+        lastName: lastName
+        streetLine1: streetLine1
+        postalCode: postalCode
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        tikTokUrl: tikTokUrl
+        cityId: cityId
+        type: 0
+        countryId: countryId
+        redditUrl: redditUrl
+        stackOverflowUrl: ""
+        facebookUrl: facebookUrl
+        stackExchangeUrl: ""
+        websiteUrl: websiteUrl
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        parentContactId: ""
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        twitchUrl: twitchUrl
+        tikTokUsername: ""
+        primaryContactId: primaryContactId
+        firstName: firstName
+        githubUsername: githubUsername
+        instagramUsername: ""
+        mobilePhone: mobilePhone
+        taxId: taxId
+        webUrl: webUrl
+        tenantId: tenantId
+        duns: duns
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        tenantId:
+          minLength: 1
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        firstName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        lastName:
+          maxLength: 50
+          nullable: true
+          type: string
+        email:
+          format: email
+          minLength: 1
+          type: string
+        taxId:
+          maxLength: 20
+          minLength: 0
+          nullable: true
+          type: string
+        primaryContactId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        about:
+          maxLength: 500
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 3
+          minLength: 0
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        mobilePhone:
+          format: tel
+          nullable: true
+          type: string
+        businessPhone:
+          format: tel
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          pattern: "^[\\w\\s-]{3,10}$"
+          type: string
+        duns:
+          maxLength: 9
+          minLength: 0
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        instagramUsername:
+          nullable: true
+        tikTokUsername:
+          nullable: true
+        stackExchangeUrl:
+          nullable: true
+        stackOverflowUrl:
+          nullable: true
+        parentContactId:
+          nullable: true
+      required:
+      - email
+      - firstName
+      - tenantId
+      - type
+      type: object
+    ContactDto:
+      additionalProperties: false
+      example:
+        streetLine2: streetLine2
+        zipCode: zipCode
+        streetLine1: streetLine1
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        postalCode: postalCode
+        tikTokUrl: tikTokUrl
+        about: about
+        cityId: cityId
+        type: 0
+        identityProvider: identityProvider
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        gitHubUrl: gitHubUrl
+        walletId: walletId
+        enrollmentId: enrollmentId
+        parentContactId: parentContactId
+        activeDirectoryId: activeDirectoryId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        relatedTenantId: relatedTenantId
+        twitchUrl: twitchUrl
+        ownerContactId: ownerContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        activityFeedId: activityFeedId
+        mobilePhone: mobilePhone
+        webUrl: webUrl
+        taxId: taxId
+        duns: duns
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+        annualRevenue: annualRevenue
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        relatedUserId: relatedUserId
+        countryId: countryId
+        redditUrl: redditUrl
+        facebookUrl: facebookUrl
+        websiteUrl: websiteUrl
+        street: street
+        territoryId: territoryId
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        partnerProfileId: partnerProfileId
+        stateId: stateId
+        languageId: languageId
+        primaryContactId: primaryContactId
+        identityProviderAccessToken: identityProviderAccessToken
+        githubUsername: githubUsername
+        tenantId: tenantId
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: instagramUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        zipCode:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        territoryId:
+          nullable: true
+          type: string
+        mobilePhone:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        annualRevenue:
+          nullable: true
+          type: string
+        relatedUserId:
+          nullable: true
+          type: string
+        businessPhone:
+          nullable: true
+          type: string
+        ownerContactId:
+          nullable: true
+          type: string
+        relatedTenantId:
+          nullable: true
+          type: string
+        activityFeedId:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        primaryContactId:
+          nullable: true
+          type: string
+        activeDirectoryId:
+          nullable: true
+          type: string
+        identityProviderAccessToken:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    ContactDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ContactDto'
+      type: object
+    ContactDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        - streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactDto'
+          nullable: true
+          type: array
+      type: object
+    ContactProfileDto:
+      additionalProperties: false
+      example:
+        data: data
+        about: about
+        data8Label: data8Label
+        data5Label: data5Label
+        id: id
+        data2Label: data2Label
+        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        enrollmentId: enrollmentId
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        qualifiedName: qualifiedName
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        verified: true
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        submitted: true
+        tenantId: tenantId
+        data7Label: data7Label
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        submitted:
+          type: boolean
+        avatarUrl:
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        verificationTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+      type: object
+    ContactProfileDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          about: about
+          data8Label: data8Label
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        - data: data
+          about: about
+          data8Label: data8Label
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactProfileDto'
+          nullable: true
+          type: array
+      type: object
+    ContactUpdateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        streetLine2: streetLine2
+        lastName: lastName
+        streetLine1: streetLine1
+        githubUrl: githubUrl
+        jobTitle: jobTitle
+        postalCode: postalCode
+        twitterUrl: twitterUrl
+        about: about
+        tikTokUrl: tikTokUrl
+        cityId: cityId
+        type: 0
+        countryId: countryId
+        redditUrl: redditUrl
+        stackOverflowUrl: stackOverflowUrl
+        facebookUrl: facebookUrl
+        stackExchangeUrl: stackExchangeUrl
+        websiteUrl: websiteUrl
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        parentContactId: parentContactId
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        twitchUrl: twitchUrl
+        tikTokUsername: tikTokUsername
+        primaryContactId: primaryContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        githubUsername: githubUsername
+        instagramUsername: instagramUsername
+        mobilePhone: mobilePhone
+        taxId: taxId
+        duns: duns
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+      properties:
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        duns:
+          maxLength: 9
+          minLength: 0
+          nullable: true
+          type: string
+        taxId:
+          maxLength: 20
+          minLength: 0
+          nullable: true
+          type: string
+        email:
+          format: email
+          minLength: 1
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        lastName:
+          maxLength: 50
+          nullable: true
+          type: string
+        primaryContactId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        about:
+          maxLength: 500
+          nullable: true
+          type: string
+        mobilePhone:
+          format: tel
+          nullable: true
+          type: string
+        businessPhone:
+          format: tel
+          nullable: true
+          type: string
+        jobTitle:
+          maxLength: 50
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 3
+          minLength: 0
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        instagramUsername:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        githubUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        tikTokUsername:
+          nullable: true
+          type: string
+        stackExchangeUrl:
+          nullable: true
+          type: string
+        stackOverflowUrl:
+          nullable: true
+          type: string
+      required:
+      - email
+      - firstName
+      - type
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExtendedContactDto:
+      additionalProperties: false
+      example:
+        streetLine2: streetLine2
+        zipCode: zipCode
+        streetLine1: streetLine1
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        postalCode: postalCode
+        tikTokUrl: tikTokUrl
+        about: about
+        cityId: cityId
+        type: 0
+        identityProvider: identityProvider
+        cart:
+          total: 6.027456183070403
+          itemCartRecordsCount: 2
+          ip: ip
+          freight: 5.962133916683182
+          itemToCompareRecordsCount: 7
+          taxes: 1.4658129805029452
+          id: id
+          subTotal: 5.637376656633329
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        gitHubUrl: gitHubUrl
+        walletId: walletId
+        enrollmentId: enrollmentId
+        parentContactId: parentContactId
+        activeDirectoryId: activeDirectoryId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        relatedTenantId: relatedTenantId
+        twitchUrl: twitchUrl
+        ownerContactId: ownerContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        activityFeedId: activityFeedId
+        mobilePhone: mobilePhone
+        webUrl: webUrl
+        taxId: taxId
+        duns: duns
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+        annualRevenue: annualRevenue
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        parentContact:
+          lastName: lastName
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          tikTokUrl: tikTokUrl
+          type: 9
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          languageId: languageId
+          twitchUrl: twitchUrl
+          coverUrl: coverUrl
+          firstName: firstName
+          githubUsername: githubUsername
+          webUrl: webUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+        relatedUserId: relatedUserId
+        countryId: countryId
+        redditUrl: redditUrl
+        facebookUrl: facebookUrl
+        websiteUrl: websiteUrl
+        street: street
+        territoryId: territoryId
+        socialProfile:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 4
+          type: 5
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 1
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 1
+          notificationsCount: 7
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 1
+          followersCount: 6
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        partnerProfileId: partnerProfileId
+        wallet:
+          verified: true
+          balanceInUsd: 4.145608029883936
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 9.301444243932576
+          forexRate: 2.027123023002322
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 1.2315135367772556
+          cryptoBalance: 3.616076749251911
+          mainNetEtherBalance: 7.386281948385884
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        stateId: stateId
+        languageId: languageId
+        primaryContactId: primaryContactId
+        identityProviderAccessToken: identityProviderAccessToken
+        githubUsername: githubUsername
+        primaryContact:
+          lastName: lastName
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          tikTokUrl: tikTokUrl
+          type: 9
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          languageId: languageId
+          twitchUrl: twitchUrl
+          coverUrl: coverUrl
+          firstName: firstName
+          githubUsername: githubUsername
+          webUrl: webUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+        tenantId: tenantId
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: instagramUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        zipCode:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        territoryId:
+          nullable: true
+          type: string
+        mobilePhone:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        annualRevenue:
+          nullable: true
+          type: string
+        relatedUserId:
+          nullable: true
+          type: string
+        businessPhone:
+          nullable: true
+          type: string
+        ownerContactId:
+          nullable: true
+          type: string
+        relatedTenantId:
+          nullable: true
+          type: string
+        activityFeedId:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        primaryContactId:
+          nullable: true
+          type: string
+        activeDirectoryId:
+          nullable: true
+          type: string
+        identityProviderAccessToken:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        cart:
+          $ref: '#/components/schemas/CartDto'
+        wallet:
+          $ref: '#/components/schemas/WalletDto'
+        socialProfile:
+          $ref: '#/components/schemas/SocialProfileDto'
+        parentContact:
+          $ref: '#/components/schemas/SimpleContactDto'
+        primaryContact:
+          $ref: '#/components/schemas/SimpleContactDto'
+      type: object
+    ExtendedContactDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          cart:
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
+            ip: ip
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
+            id: id
+            subTotal: 5.637376656633329
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          parentContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 4
+            type: 5
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 1
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 1
+            notificationsCount: 7
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 6
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          wallet:
+            verified: true
+            balanceInUsd: 4.145608029883936
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          primaryContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ExtendedContactDto'
+      type: object
+    ExtendedContactDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          cart:
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
+            ip: ip
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
+            id: id
+            subTotal: 5.637376656633329
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          parentContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 4
+            type: 5
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 1
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 1
+            notificationsCount: 7
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 6
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          wallet:
+            verified: true
+            balanceInUsd: 4.145608029883936
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          primaryContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        - streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          postalCode: postalCode
+          tikTokUrl: tikTokUrl
+          about: about
+          cityId: cityId
+          type: 0
+          identityProvider: identityProvider
+          cart:
+            total: 6.027456183070403
+            itemCartRecordsCount: 2
+            ip: ip
+            freight: 5.962133916683182
+            itemToCompareRecordsCount: 7
+            taxes: 1.4658129805029452
+            id: id
+            subTotal: 5.637376656633329
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: gitHubUrl
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: twitchUrl
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          webUrl: webUrl
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          parentContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: redditUrl
+          facebookUrl: facebookUrl
+          websiteUrl: websiteUrl
+          street: street
+          territoryId: territoryId
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 4
+            type: 5
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 1
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 1
+            notificationsCount: 7
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 6
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          wallet:
+            verified: true
+            balanceInUsd: 4.145608029883936
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 9.301444243932576
+            forexRate: 2.027123023002322
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 1.2315135367772556
+            cryptoBalance: 3.616076749251911
+            mainNetEtherBalance: 7.386281948385884
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          primaryContact:
+            lastName: lastName
+            jobTitle: jobTitle
+            twitterUrl: twitterUrl
+            tikTokUrl: tikTokUrl
+            type: 9
+            countryId: countryId
+            redditUrl: redditUrl
+            facebookUrl: facebookUrl
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            languageId: languageId
+            twitchUrl: twitchUrl
+            coverUrl: coverUrl
+            firstName: firstName
+            githubUsername: githubUsername
+            webUrl: webUrl
+            tenantId: tenantId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedContactDto'
+          nullable: true
+          type: array
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: 0
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          format: int32
+          readOnly: true
+          type: integer
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
+    SimpleContactDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        tikTokUrl: tikTokUrl
+        type: 9
+        countryId: countryId
+        redditUrl: redditUrl
+        facebookUrl: facebookUrl
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: id
+        socialProfileId: socialProfileId
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        languageId: languageId
+        twitchUrl: twitchUrl
+        coverUrl: coverUrl
+        firstName: firstName
+        githubUsername: githubUsername
+        webUrl: webUrl
+        tenantId: tenantId
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+      type: object
+    SocialProfileDto:
+      additionalProperties: false
+      example:
+        githubURL: githubURL
+        notes: notes
+        twitterUrl: twitterUrl
+        about: about
+        unreadMessagesCount: 4
+        type: 5
+        countryId: countryId
+        cover: cover
+        facebookURL: facebookURL
+        youtubeURL: youtubeURL
+        followsCount: 1
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        pinterestURL: pinterestURL
+        linkedInURL: linkedInURL
+        unreadNotificationsCount: 1
+        notificationsCount: 7
+        avatar: avatar
+        socialFeedId: socialFeedId
+        identityId: identityId
+        domain: domain
+        name: name
+        dribbleURL: dribbleURL
+        countryName: countryName
+        messagesCount: 1
+        followersCount: 6
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        cover:
+          nullable: true
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryName:
+          nullable: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        followsCount:
+          format: int32
+          nullable: true
+          type: integer
+        messagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        followersCount:
+          format: int32
+          nullable: true
+          type: integer
+        notificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadNotificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadMessagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        type:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        socialFeedId:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookURL:
+          nullable: true
+          type: string
+        linkedInURL:
+          nullable: true
+          type: string
+        youtubeURL:
+          nullable: true
+          type: string
+        githubURL:
+          nullable: true
+          type: string
+        pinterestURL:
+          nullable: true
+          type: string
+        dribbleURL:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+      type: object
+    SocialProfileDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 4
+          type: 5
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 1
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 1
+          notificationsCount: 7
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 1
+          followersCount: 6
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialProfileDto'
+      type: object
+    WalletDto:
+      additionalProperties: false
+      example:
+        verified: true
+        balanceInUsd: 4.145608029883936
+        type: type
+        ethereumPrivateKey: ethereumPrivateKey
+        balance: 9.301444243932576
+        forexRate: 2.027123023002322
+        ethereumAddress: ethereumAddress
+        ethereumPublicKey: ethereumPublicKey
+        testMode: true
+        id: id
+        currencyId: currencyId
+        rollingReservePercent: 1.2315135367772556
+        cryptoBalance: 3.616076749251911
+        mainNetEtherBalance: 7.386281948385884
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        balance:
+          format: double
+          type: number
+        cryptoBalance:
+          format: double
+          type: number
+        testMode:
+          type: boolean
+        verified:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        balanceInUsd:
+          format: double
+          type: number
+        mainNetEtherBalance:
+          format: double
+          type: number
+        ethereumAddress:
+          nullable: true
+          type: string
+        ethereumPublicKey:
+          nullable: true
+          type: string
+        ethereumPrivateKey:
+          nullable: true
+          type: string
+        rollingReservePercent:
+          format: double
+          type: number
+      type: object
+    WalletDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          verified: true
+          balanceInUsd: 4.145608029883936
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 9.301444243932576
+          forexRate: 2.027123023002322
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 1.2315135367772556
+          cryptoBalance: 3.616076749251911
+          mainNetEtherBalance: 7.386281948385884
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WalletDto'
+      type: object
+    UpdateContactAvatarAsync_request:
+      properties:
+        avatar:
+          format: binary
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

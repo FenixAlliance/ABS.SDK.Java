@@ -1,0 +1,1412 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: PaymentsService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/PaymentsService/Payments/{paymentId}/Details:
+    get:
+      deprecated: true
+      parameters:
+      - explode: false
+        in: path
+        name: paymentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      tags:
+      - Payments
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PaymentsService/Payments/{paymentId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: paymentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Payments
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: paymentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      tags:
+      - Payments
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: paymentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - Payments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PaymentsService/Payments:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentDtoListEnvelope'
+          description: OK
+      tags:
+      - Payments
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      tags:
+      - Payments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    PaymentCreateDto:
+      additionalProperties: false
+      example:
+        data: data
+        called: true
+        orderId: orderId
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        signatureMismatch: true
+        authorization: authorization
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        forexRatesSnapshot: forexRatesSnapshot
+        correlationCode: correlationCode
+        isExternal: true
+        dataLabel: dataLabel
+        emisorWalletId: emisorWalletId
+        data1Label: data1Label
+        antiFraudScore: 9.301444243932576
+        bankId: bankId
+        forexRate: 0.8008281904610115
+        phone: phone
+        bankAccountId: bankAccountId
+        markedForRevision: true
+        referenceCode: referenceCode
+        callRecordURL: callRecordURL
+        ipLookupId: ipLookupId
+        totalCost: 6.027456183070403
+        payerPictureTimestamp: payerPictureTimestamp
+        officialId: officialId
+        signature: signature
+        city: city
+        accountingEntryId: accountingEntryId
+        onBehalfOf: 5
+        entitlementId: entitlementId
+        identificationBackPicture: identificationBackPicture
+        payerPicture: payerPicture
+        countryId: countryId
+        identificationPicture: identificationPicture
+        paymentType: 5
+        locationId: locationId
+        enrolmentId: enrolmentId
+        cellphone: cellphone
+        department: department
+        paymentStatus: 2
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        baseCost: 7.061401241503109
+        totalTaxes: 1.4658129805029452
+        identificationBackPictureTimestamp: identificationBackPictureTimestamp
+        receiverWalletId: receiverWalletId
+        data1: data1
+        verified: true
+        identificationPictureTimestamp: identificationPictureTimestamp
+        paymentGatewayId: paymentGatewayId
+        officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+        response: response
+        tenantId: tenantId
+        closed: true
+        paymentTokenId: paymentTokenId
+        invoiceId: invoiceId
+        billingAddress: billingAddress
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        invoiceId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalCost:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        closed:
+          type: boolean
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        response:
+          nullable: true
+          type: string
+        authorization:
+          nullable: true
+          type: string
+        referenceCode:
+          nullable: true
+          type: string
+        correlationCode:
+          nullable: true
+          type: string
+        lastUpdated:
+          format: date-time
+          type: string
+        onBehalfOf:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          format: int32
+          type: integer
+        paymentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        paymentStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          format: int32
+          type: integer
+        baseCost:
+          format: double
+          type: number
+        signature:
+          nullable: true
+          type: string
+        signatureMismatch:
+          type: boolean
+        isExternal:
+          type: boolean
+        markedForRevision:
+          type: boolean
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        officialId:
+          nullable: true
+          type: string
+        officialIdExpeditionDate:
+          format: date-time
+          type: string
+        fiscalIdentificationTypeId:
+          nullable: true
+          type: string
+        billingAddress:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        cellphone:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        locationId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        entitlementId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        antiFraudScore:
+          format: double
+          type: number
+        callRecordURL:
+          nullable: true
+          type: string
+        called:
+          type: boolean
+        verified:
+          type: boolean
+        payerPictureTimestamp:
+          nullable: true
+          type: string
+        payerPicture:
+          nullable: true
+          type: string
+        identificationPictureTimestamp:
+          nullable: true
+          type: string
+        identificationPicture:
+          nullable: true
+          type: string
+        identificationBackPicture:
+          nullable: true
+          type: string
+        identificationBackPictureTimestamp:
+          nullable: true
+          type: string
+        ipLookupId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        orderId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        accountingEntryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentGatewayId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentTokenId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    PaymentDto:
+      additionalProperties: false
+      example:
+        data: data
+        called: true
+        orderId: orderId
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        signatureMismatch: true
+        authorization: authorization
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        id: id
+        currencyId: currencyId
+        forexRatesSnapshot: forexRatesSnapshot
+        correlationCode: correlationCode
+        test: true
+        isExternal: true
+        dataLabel: dataLabel
+        emisorWalletId: emisorWalletId
+        data1Label: data1Label
+        antiFraudScore: 9.301444243932576
+        bankId: bankId
+        forexRate: 0.8008281904610115
+        phone: phone
+        bankAccountId: bankAccountId
+        markedForRevision: true
+        referenceCode: referenceCode
+        callRecordURL: callRecordURL
+        ipLookupId: ipLookupId
+        totalCost: 6.027456183070403
+        payerPictureTimestamp: payerPictureTimestamp
+        officialId: officialId
+        signature: signature
+        city: city
+        accountingEntryId: accountingEntryId
+        onBehalfOf: 5
+        entitlementId: entitlementId
+        identificationBackPicture: identificationBackPicture
+        payerPicture: payerPicture
+        countryId: countryId
+        identificationPicture: identificationPicture
+        paymentType: 5
+        locationId: locationId
+        enrolmentId: enrolmentId
+        cellphone: cellphone
+        department: department
+        paymentStatus: 2
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        baseCost: 7.061401241503109
+        totalTaxes: 1.4658129805029452
+        identificationBackPictureTimestamp: identificationBackPictureTimestamp
+        receiverWalletId: receiverWalletId
+        data1: data1
+        verified: true
+        identificationPictureTimestamp: identificationPictureTimestamp
+        timeStamp: 2000-01-23T04:56:07.000+00:00
+        paymentGatewayId: paymentGatewayId
+        officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+        response: response
+        tenantId: tenantId
+        closed: true
+        paymentTokenId: paymentTokenId
+        invoiceId: invoiceId
+        billingAddress: billingAddress
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        timeStamp:
+          format: date-time
+          type: string
+        test:
+          type: boolean
+        invoiceId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        emisorWalletId:
+          nullable: true
+          type: string
+        receiverWalletId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalCost:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        closed:
+          type: boolean
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        response:
+          nullable: true
+          type: string
+        authorization:
+          nullable: true
+          type: string
+        referenceCode:
+          nullable: true
+          type: string
+        correlationCode:
+          nullable: true
+          type: string
+        lastUpdated:
+          format: date-time
+          type: string
+        onBehalfOf:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          format: int32
+          type: integer
+        paymentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        paymentStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          format: int32
+          type: integer
+        baseCost:
+          format: double
+          type: number
+        signature:
+          nullable: true
+          type: string
+        signatureMismatch:
+          type: boolean
+        isExternal:
+          type: boolean
+        markedForRevision:
+          type: boolean
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        officialId:
+          nullable: true
+          type: string
+        officialIdExpeditionDate:
+          format: date-time
+          type: string
+        fiscalIdentificationTypeId:
+          nullable: true
+          type: string
+        billingAddress:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        cellphone:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        entitlementId:
+          nullable: true
+          type: string
+        antiFraudScore:
+          format: double
+          type: number
+        callRecordURL:
+          nullable: true
+          type: string
+        called:
+          type: boolean
+        verified:
+          type: boolean
+        payerPictureTimestamp:
+          nullable: true
+          type: string
+        payerPicture:
+          nullable: true
+          type: string
+        identificationPictureTimestamp:
+          nullable: true
+          type: string
+        identificationPicture:
+          nullable: true
+          type: string
+        identificationBackPicture:
+          nullable: true
+          type: string
+        identificationBackPictureTimestamp:
+          nullable: true
+          type: string
+        ipLookupId:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        accountingEntryId:
+          nullable: true
+          type: string
+        paymentGatewayId:
+          nullable: true
+          type: string
+        bankAccountId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        bankId:
+          nullable: true
+          type: string
+        paymentTokenId:
+          nullable: true
+          type: string
+      type: object
+    PaymentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          called: true
+          orderId: orderId
+          fiscalIdentificationTypeId: fiscalIdentificationTypeId
+          signatureMismatch: true
+          authorization: authorization
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          id: id
+          currencyId: currencyId
+          forexRatesSnapshot: forexRatesSnapshot
+          correlationCode: correlationCode
+          test: true
+          isExternal: true
+          dataLabel: dataLabel
+          emisorWalletId: emisorWalletId
+          data1Label: data1Label
+          antiFraudScore: 9.301444243932576
+          bankId: bankId
+          forexRate: 0.8008281904610115
+          phone: phone
+          bankAccountId: bankAccountId
+          markedForRevision: true
+          referenceCode: referenceCode
+          callRecordURL: callRecordURL
+          ipLookupId: ipLookupId
+          totalCost: 6.027456183070403
+          payerPictureTimestamp: payerPictureTimestamp
+          officialId: officialId
+          signature: signature
+          city: city
+          accountingEntryId: accountingEntryId
+          onBehalfOf: 5
+          entitlementId: entitlementId
+          identificationBackPicture: identificationBackPicture
+          payerPicture: payerPicture
+          countryId: countryId
+          identificationPicture: identificationPicture
+          paymentType: 5
+          locationId: locationId
+          enrolmentId: enrolmentId
+          cellphone: cellphone
+          department: department
+          paymentStatus: 2
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          baseCost: 7.061401241503109
+          totalTaxes: 1.4658129805029452
+          identificationBackPictureTimestamp: identificationBackPictureTimestamp
+          receiverWalletId: receiverWalletId
+          data1: data1
+          verified: true
+          identificationPictureTimestamp: identificationPictureTimestamp
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          paymentGatewayId: paymentGatewayId
+          officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+          response: response
+          tenantId: tenantId
+          closed: true
+          paymentTokenId: paymentTokenId
+          invoiceId: invoiceId
+          billingAddress: billingAddress
+        - data: data
+          called: true
+          orderId: orderId
+          fiscalIdentificationTypeId: fiscalIdentificationTypeId
+          signatureMismatch: true
+          authorization: authorization
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          id: id
+          currencyId: currencyId
+          forexRatesSnapshot: forexRatesSnapshot
+          correlationCode: correlationCode
+          test: true
+          isExternal: true
+          dataLabel: dataLabel
+          emisorWalletId: emisorWalletId
+          data1Label: data1Label
+          antiFraudScore: 9.301444243932576
+          bankId: bankId
+          forexRate: 0.8008281904610115
+          phone: phone
+          bankAccountId: bankAccountId
+          markedForRevision: true
+          referenceCode: referenceCode
+          callRecordURL: callRecordURL
+          ipLookupId: ipLookupId
+          totalCost: 6.027456183070403
+          payerPictureTimestamp: payerPictureTimestamp
+          officialId: officialId
+          signature: signature
+          city: city
+          accountingEntryId: accountingEntryId
+          onBehalfOf: 5
+          entitlementId: entitlementId
+          identificationBackPicture: identificationBackPicture
+          payerPicture: payerPicture
+          countryId: countryId
+          identificationPicture: identificationPicture
+          paymentType: 5
+          locationId: locationId
+          enrolmentId: enrolmentId
+          cellphone: cellphone
+          department: department
+          paymentStatus: 2
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          baseCost: 7.061401241503109
+          totalTaxes: 1.4658129805029452
+          identificationBackPictureTimestamp: identificationBackPictureTimestamp
+          receiverWalletId: receiverWalletId
+          data1: data1
+          verified: true
+          identificationPictureTimestamp: identificationPictureTimestamp
+          timeStamp: 2000-01-23T04:56:07.000+00:00
+          paymentGatewayId: paymentGatewayId
+          officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+          response: response
+          tenantId: tenantId
+          closed: true
+          paymentTokenId: paymentTokenId
+          invoiceId: invoiceId
+          billingAddress: billingAddress
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentUpdateDto:
+      additionalProperties: false
+      example:
+        data: data
+        called: true
+        orderId: orderId
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        signatureMismatch: true
+        authorization: authorization
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
+        currencyId: currencyId
+        forexRatesSnapshot: forexRatesSnapshot
+        correlationCode: correlationCode
+        isExternal: true
+        dataLabel: dataLabel
+        emisorWalletId: emisorWalletId
+        data1Label: data1Label
+        antiFraudScore: 9.301444243932576
+        bankId: bankId
+        forexRate: 0.8008281904610115
+        phone: phone
+        bankAccountId: bankAccountId
+        markedForRevision: true
+        referenceCode: referenceCode
+        callRecordURL: callRecordURL
+        ipLookupId: ipLookupId
+        totalCost: 6.027456183070403
+        payerPictureTimestamp: payerPictureTimestamp
+        officialId: officialId
+        signature: signature
+        city: city
+        accountingEntryId: accountingEntryId
+        onBehalfOf: 5
+        entitlementId: entitlementId
+        identificationBackPicture: identificationBackPicture
+        payerPicture: payerPicture
+        countryId: countryId
+        identificationPicture: identificationPicture
+        paymentType: 5
+        locationId: locationId
+        enrolmentId: enrolmentId
+        cellphone: cellphone
+        department: department
+        paymentStatus: 2
+        baseCost: 7.061401241503109
+        totalTaxes: 1.4658129805029452
+        identificationBackPictureTimestamp: identificationBackPictureTimestamp
+        receiverWalletId: receiverWalletId
+        data1: data1
+        verified: true
+        identificationPictureTimestamp: identificationPictureTimestamp
+        paymentGatewayId: paymentGatewayId
+        officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+        response: response
+        tenantId: tenantId
+        closed: true
+        paymentTokenId: paymentTokenId
+        invoiceId: invoiceId
+        billingAddress: billingAddress
+      properties:
+        invoiceId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalCost:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        closed:
+          type: boolean
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        response:
+          nullable: true
+          type: string
+        authorization:
+          nullable: true
+          type: string
+        referenceCode:
+          nullable: true
+          type: string
+        correlationCode:
+          nullable: true
+          type: string
+        lastUpdated:
+          format: date-time
+          type: string
+        onBehalfOf:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          format: int32
+          type: integer
+        paymentType:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+        paymentStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          format: int32
+          type: integer
+        baseCost:
+          format: double
+          type: number
+        signature:
+          nullable: true
+          type: string
+        signatureMismatch:
+          type: boolean
+        isExternal:
+          type: boolean
+        markedForRevision:
+          type: boolean
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        officialId:
+          nullable: true
+          type: string
+        officialIdExpeditionDate:
+          format: date-time
+          type: string
+        fiscalIdentificationTypeId:
+          nullable: true
+          type: string
+        billingAddress:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        cellphone:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        locationId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        entitlementId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        antiFraudScore:
+          format: double
+          type: number
+        callRecordURL:
+          nullable: true
+          type: string
+        called:
+          type: boolean
+        verified:
+          type: boolean
+        payerPictureTimestamp:
+          nullable: true
+          type: string
+        payerPicture:
+          nullable: true
+          type: string
+        identificationPictureTimestamp:
+          nullable: true
+          type: string
+        identificationPicture:
+          nullable: true
+          type: string
+        identificationBackPicture:
+          nullable: true
+          type: string
+        identificationBackPictureTimestamp:
+          nullable: true
+          type: string
+        ipLookupId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        orderId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        accountingEntryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentGatewayId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentTokenId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

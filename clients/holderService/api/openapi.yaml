@@ -1,0 +1,4484 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: HolderService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/Me:
+    get:
+      description: Get the currently acting user.
+      operationId: GetCurrentUserAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/UserDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Gets the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+    patch:
+      description: Partially update the current user's profile
+      operationId: PatchCurrentUserAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          multipart/form-data:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Partially update the current user's profile
+      tags:
+      - User
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+    put:
+      description: Update the current user's profile
+      operationId: UpdateCurrentUserAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserUpdateDto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update the current user's profile
+      tags:
+      - User
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Extended:
+    get:
+      description: Get the current user's extended profile
+      operationId: GetExtendedCurrentUserAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedUserDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedUserDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ExtendedUserDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the current user's extended profile
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Avatar:
+    get:
+      description: Get the current user's avatar
+      operationId: GetCurrentUserAvatarAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: binary
+                type: string
+            application/xml:
+              schema:
+                format: binary
+                type: string
+            multipart/form-data:
+              schema:
+                format: binary
+                type: string
+          description: OK
+      summary: Get the current user's avatar
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+    post:
+      description: Update the current user's avatar
+      operationId: UpdateAvatarAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+          application/json:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+          application/xml:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update the current user's avatar
+      tags:
+      - User
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Follows:
+    get:
+      description: Get the social profiles that the current user follows
+      operationId: GetCurrentUserFollowsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+          description: OK
+      summary: Get the social profiles that the current user follows
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Follows/Count:
+    get:
+      description: Count the social profiles that the current user follows
+      operationId: CountCurrentUserFollowsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count the social profiles that the current user follows
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Followers:
+    get:
+      description: Get the social profiles that follow the current user
+      operationId: GetCurrentUserFollowersAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+          description: OK
+      summary: Get the social profiles that follow the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Followers/Count:
+    get:
+      description: Count the social profiles that follow the current user
+      operationId: CountCurrentUserFollowersAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count the social profiles that follow the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Businesses:
+    get:
+      description: Get the tenants that the current user is enrolled in
+      operationId: GetCurrentUserTenantsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TenantDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/TenantDtoListEnvelope'
+          description: OK
+      summary: Get the tenants that the current user is enrolled in
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Businesses/Count:
+    get:
+      description: Count the tenants that the current user is enrolled in
+      operationId: CountCurrentUserTenantsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count the tenants that the current user is enrolled in
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Businesses/Extended:
+    get:
+      description: Get the tenants that the current user is enrolled in
+      operationId: GetCurrentUserTenantsExtendedAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantDtoListEnvelope'
+          description: OK
+      summary: Get the tenants that the current user is enrolled in
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Enrollments:
+    get:
+      description: Get the list of enrollments for the current user
+      operationId: GetCurrentUserEnrollmentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+          description: OK
+      summary: Get the list of enrollments for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Enrollments/Extended:
+    get:
+      description: Get the list of enrollments for the current user
+      operationId: GetCurrentUserEnrollmentsExtendedAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantEnrolmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantEnrolmentDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ExtendedTenantEnrolmentDtoListEnvelope'
+          description: OK
+      summary: Get the list of enrollments for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Enrollments/{enrollmentId}:
+    get:
+      description: Get a single TenantEnrollment by its ID
+      operationId: GetTenantEnrollmentAsync
+      parameters:
+      - explode: false
+        in: path
+        name: enrollmentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnrollmentId'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EnrollmentId'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EnrollmentId'
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/TenantEnrolmentDtoEnvelope'
+          description: OK
+      summary: Get a single TenantEnrollment by its ID
+      tags:
+      - User
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/SocialProfile:
+    get:
+      description: Get the current user's social profile
+      operationId: GetCurrentUserSocialProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the current user's social profile
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Cart:
+    get:
+      description: Get the current user's cart
+      operationId: GetCurrentUserCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the current user's cart
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Wallet:
+    get:
+      description: Get the current user's billing profile
+      operationId: GetCurrentUserWalletAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/WalletDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the current user's billing profile
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Notifications:
+    get:
+      description: Get the list of notifications for the current user
+      operationId: GetCurrentUserNotificationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NotificationDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/NotificationDtoListEnvelope'
+          description: OK
+      summary: Get the list of notifications for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Notifications/Count:
+    get:
+      description: Count the notifications for the current user
+      operationId: CountCurrentUserNotificationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count the notifications for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Settings:
+    get:
+      description: Get the settings for the current user
+      operationId: GetCurrentUserSettingsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+          description: OK
+      summary: Get the settings for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+    put:
+      description: Update the settings for the current user
+      operationId: UpdateCurrentUserSettingsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSettingsUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserSettingsUpdateDto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserSettingsUpdateDto'
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/UserSettingsDtoEnvelope'
+          description: OK
+      summary: Update the settings for the current user
+      tags:
+      - User
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Addresses:
+    get:
+      description: Get the list of addresses for the current user
+      operationId: GetCurrentUserAddressesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AddressDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/AddressDtoListEnvelope'
+          description: OK
+      summary: Get the list of addresses for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+  /api/v2/Me/Invitations:
+    get:
+      description: Get the list of tenant enrollment invitations for the current user
+      operationId: GetCurrentUserInvitationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantInvitationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TenantInvitationDtoListEnvelope'
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/TenantInvitationDtoListEnvelope'
+          description: OK
+      summary: Get the list of tenant enrollment invitations for the current user
+      tags:
+      - User
+      x-accepts:
+      - application/json
+      - application/xml
+      - multipart/form-data
+components:
+  schemas:
+    AddressDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        business: business
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        id: id
+        fax: fax
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: 0.8008281904610115
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        business:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    AddressDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/AddressDto'
+          nullable: true
+          type: array
+      type: object
+    CartDto:
+      additionalProperties: false
+      example:
+        total: 5.637376656633329
+        itemCartRecordsCount: 3
+        ip: ip
+        freight: 7.061401241503109
+        itemToCompareRecordsCount: 2
+        taxes: 2.3021358869347655
+        id: id
+        subTotal: 9.301444243932576
+        type: type
+        currencyId: currencyId
+        countryId: countryId
+      properties:
+        id:
+          nullable: true
+          type: string
+        ip:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        total:
+          format: double
+          type: number
+        taxes:
+          format: double
+          type: number
+        freight:
+          format: double
+          type: number
+        subTotal:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        itemCartRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+        itemToCompareRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    CartDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          total: 5.637376656633329
+          itemCartRecordsCount: 3
+          ip: ip
+          freight: 7.061401241503109
+          itemToCompareRecordsCount: 2
+          taxes: 2.3021358869347655
+          id: id
+          subTotal: 9.301444243932576
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CartDto'
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    EnrollmentId:
+      additionalProperties: false
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExtendedTenantDto:
+      additionalProperties: false
+      example:
+        supportPhoneNumber: supportPhoneNumber
+        whatsAppNumber: whatsAppNumber
+        twitterUrl: twitterUrl
+        about: about
+        businessName: businessName
+        cityId: cityId
+        businessSegmentId: businessSegmentId
+        countryId: countryId
+        cart:
+          total: 5.637376656633329
+          itemCartRecordsCount: 3
+          ip: ip
+          freight: 7.061401241503109
+          itemToCompareRecordsCount: 2
+          taxes: 2.3021358869347655
+          id: id
+          subTotal: 9.301444243932576
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        legalName: legalName
+        facebookUrl: facebookUrl
+        id: id
+        socialProfile:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 9
+          type: 6
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 7
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 9
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 1
+          followersCount: 4
+        businessIndustryId: businessIndustryId
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        wallet:
+          verified: true
+          balanceInUsd: 1.0246457001441578
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 4.145608029883936
+          forexRate: 1.2315135367772556
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 6.84685269835264
+          cryptoBalance: 7.386281948385884
+          mainNetEtherBalance: 1.4894159098541704
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        stateId: stateId
+        languageId: languageId
+        verified: true
+        coverUrl: coverUrl
+        twitterUsername: twitterUsername
+        socialFeedId: socialFeedId
+        phone: phone
+        taxId: taxId
+        webUrl: webUrl
+        name: name
+        duns: duns
+        timezoneId: timezoneId
+        businessLegalName: businessLegalName
+        instagramUrl: instagramUrl
+        slogan: slogan
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        businessIndustryId:
+          nullable: true
+          type: string
+        businessSegmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        slogan:
+          nullable: true
+          type: string
+        legalName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        whatsAppNumber:
+          nullable: true
+          type: string
+        supportPhoneNumber:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessName:
+          nullable: true
+          readOnly: true
+          type: string
+        businessLegalName:
+          nullable: true
+          readOnly: true
+          type: string
+        twitterUsername:
+          nullable: true
+          type: string
+        cart:
+          $ref: '#/components/schemas/CartDto'
+        wallet:
+          $ref: '#/components/schemas/WalletDto'
+        socialProfile:
+          $ref: '#/components/schemas/SocialProfileDto'
+      type: object
+    ExtendedTenantDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          cart:
+            total: 5.637376656633329
+            itemCartRecordsCount: 3
+            ip: ip
+            freight: 7.061401241503109
+            itemToCompareRecordsCount: 2
+            taxes: 2.3021358869347655
+            id: id
+            subTotal: 9.301444243932576
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 9
+            type: 6
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 7
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 9
+            notificationsCount: 5
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 4
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          wallet:
+            verified: true
+            balanceInUsd: 1.0246457001441578
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 4.145608029883936
+            forexRate: 1.2315135367772556
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 6.84685269835264
+            cryptoBalance: 7.386281948385884
+            mainNetEtherBalance: 1.4894159098541704
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        - supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          cart:
+            total: 5.637376656633329
+            itemCartRecordsCount: 3
+            ip: ip
+            freight: 7.061401241503109
+            itemToCompareRecordsCount: 2
+            taxes: 2.3021358869347655
+            id: id
+            subTotal: 9.301444243932576
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 9
+            type: 6
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 7
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 9
+            notificationsCount: 5
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 4
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          wallet:
+            verified: true
+            balanceInUsd: 1.0246457001441578
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 4.145608029883936
+            forexRate: 1.2315135367772556
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 6.84685269835264
+            cryptoBalance: 7.386281948385884
+            mainNetEtherBalance: 1.4894159098541704
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedTenantDto'
+          nullable: true
+          type: array
+      type: object
+    ExtendedTenantEnrolmentDto:
+      additionalProperties: false
+      example:
+        isRoot: true
+        isOwner: true
+        tenantId: tenantId
+        id: id
+        isAdmin: true
+        isDisabled: true
+        userId: userId
+        user:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          gender: 0
+          emailConfirmed: true
+          twitterUrl: twitterUrl
+          jobTitle: jobTitle
+          about: about
+          currentEnrollmentId: currentEnrollmentId
+          cityId: cityId
+          availability: 6
+          countryId: countryId
+          identityProvider: identityProvider
+          phoneNumberConfirmed: true
+          currentTenantId: currentTenantId
+          facebookUrl: facebookUrl
+          siteTheme: 5
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          publicIdentifier: publicIdentifier
+          gitHubUrl: gitHubUrl
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          cartId: cartId
+          lockoutEnabled: true
+          languageId: languageId
+          fullName: fullName
+          userName: userName
+          enrollmentsCount: 1
+          coverUrl: coverUrl
+          firstName: firstName
+          phoneNumber: phoneNumber
+          idProvider: idProvider
+          socialFeedId: socialFeedId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+          status: status
+        tenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        isRoot:
+          type: boolean
+        isOwner:
+          type: boolean
+        isAdmin:
+          type: boolean
+        isDisabled:
+          type: boolean
+        tenant:
+          $ref: '#/components/schemas/TenantDto'
+        user:
+          $ref: '#/components/schemas/UserDto'
+      type: object
+    ExtendedTenantEnrolmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          user:
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            gender: 0
+            emailConfirmed: true
+            twitterUrl: twitterUrl
+            jobTitle: jobTitle
+            about: about
+            currentEnrollmentId: currentEnrollmentId
+            cityId: cityId
+            availability: 6
+            countryId: countryId
+            identityProvider: identityProvider
+            phoneNumberConfirmed: true
+            currentTenantId: currentTenantId
+            facebookUrl: facebookUrl
+            siteTheme: 5
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            publicIdentifier: publicIdentifier
+            gitHubUrl: gitHubUrl
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            stateId: stateId
+            cartId: cartId
+            lockoutEnabled: true
+            languageId: languageId
+            fullName: fullName
+            userName: userName
+            enrollmentsCount: 1
+            coverUrl: coverUrl
+            firstName: firstName
+            phoneNumber: phoneNumber
+            idProvider: idProvider
+            socialFeedId: socialFeedId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+            status: status
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          user:
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            gender: 0
+            emailConfirmed: true
+            twitterUrl: twitterUrl
+            jobTitle: jobTitle
+            about: about
+            currentEnrollmentId: currentEnrollmentId
+            cityId: cityId
+            availability: 6
+            countryId: countryId
+            identityProvider: identityProvider
+            phoneNumberConfirmed: true
+            currentTenantId: currentTenantId
+            facebookUrl: facebookUrl
+            siteTheme: 5
+            publicName: publicName
+            websiteUrl: websiteUrl
+            id: id
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            publicIdentifier: publicIdentifier
+            gitHubUrl: gitHubUrl
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            lockoutEnd: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            stateId: stateId
+            cartId: cartId
+            lockoutEnabled: true
+            languageId: languageId
+            fullName: fullName
+            userName: userName
+            enrollmentsCount: 1
+            coverUrl: coverUrl
+            firstName: firstName
+            phoneNumber: phoneNumber
+            idProvider: idProvider
+            socialFeedId: socialFeedId
+            timezoneId: timezoneId
+            instagramUrl: instagramUrl
+            youTubeUrl: youTubeUrl
+            status: status
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedTenantEnrolmentDto'
+          nullable: true
+          type: array
+      type: object
+    ExtendedUserDto:
+      additionalProperties: false
+      example:
+        twitterUrl: twitterUrl
+        jobTitle: jobTitle
+        about: about
+        currentEnrollmentId: currentEnrollmentId
+        cityId: cityId
+        identityProvider: identityProvider
+        phoneNumberConfirmed: true
+        cart:
+          total: 5.637376656633329
+          itemCartRecordsCount: 3
+          ip: ip
+          freight: 7.061401241503109
+          itemToCompareRecordsCount: 2
+          taxes: 2.3021358869347655
+          id: id
+          subTotal: 9.301444243932576
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        currentTenantId: currentTenantId
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        publicIdentifier: publicIdentifier
+        gitHubUrl: gitHubUrl
+        lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        settings:
+          dateTimeFormat: dateTimeFormat
+          siteTheme: 9
+          dateFormat: dateFormat
+          pageSize: 8
+          id: id
+          currencyFormat: currencyFormat
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        enrollmentsCount: 1
+        coverUrl: coverUrl
+        firstName: firstName
+        phoneNumber: phoneNumber
+        socialFeedId: socialFeedId
+        youTubeUrl: youTubeUrl
+        status: status
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: 0
+        emailConfirmed: true
+        availability: 6
+        countryId: countryId
+        facebookUrl: facebookUrl
+        siteTheme: 5
+        websiteUrl: websiteUrl
+        socialProfile:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 9
+          type: 6
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 7
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 9
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 1
+          followersCount: 4
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        wallet:
+          verified: true
+          balanceInUsd: 1.0246457001441578
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 4.145608029883936
+          forexRate: 1.2315135367772556
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 6.84685269835264
+          cryptoBalance: 7.386281948385884
+          mainNetEtherBalance: 1.4894159098541704
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        stateId: stateId
+        lockoutEnabled: true
+        languageId: languageId
+        fullName: fullName
+        userName: userName
+        idProvider: idProvider
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        currentTenantId:
+          nullable: true
+          type: string
+        currentEnrollmentId:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        publicIdentifier:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        phoneNumberConfirmed:
+          type: boolean
+        emailConfirmed:
+          type: boolean
+        availability:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          nullable: true
+          type: integer
+        lockoutEnabled:
+          type: boolean
+        lockoutEnd:
+          format: date-time
+          nullable: true
+          type: string
+        enrollmentsCount:
+          format: int32
+          nullable: true
+          type: integer
+        siteTheme:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        cart:
+          $ref: '#/components/schemas/CartDto'
+        wallet:
+          $ref: '#/components/schemas/WalletDto'
+        socialProfile:
+          $ref: '#/components/schemas/SocialProfileDto'
+        settings:
+          $ref: '#/components/schemas/UserSettingsDto'
+      type: object
+    ExtendedUserDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          twitterUrl: twitterUrl
+          jobTitle: jobTitle
+          about: about
+          currentEnrollmentId: currentEnrollmentId
+          cityId: cityId
+          identityProvider: identityProvider
+          phoneNumberConfirmed: true
+          cart:
+            total: 5.637376656633329
+            itemCartRecordsCount: 3
+            ip: ip
+            freight: 7.061401241503109
+            itemToCompareRecordsCount: 2
+            taxes: 2.3021358869347655
+            id: id
+            subTotal: 9.301444243932576
+            type: type
+            currencyId: currencyId
+            countryId: countryId
+          currentTenantId: currentTenantId
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          publicIdentifier: publicIdentifier
+          gitHubUrl: gitHubUrl
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          settings:
+            dateTimeFormat: dateTimeFormat
+            siteTheme: 9
+            dateFormat: dateFormat
+            pageSize: 8
+            id: id
+            currencyFormat: currencyFormat
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          enrollmentsCount: 1
+          coverUrl: coverUrl
+          firstName: firstName
+          phoneNumber: phoneNumber
+          socialFeedId: socialFeedId
+          youTubeUrl: youTubeUrl
+          status: status
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          gender: 0
+          emailConfirmed: true
+          availability: 6
+          countryId: countryId
+          facebookUrl: facebookUrl
+          siteTheme: 5
+          websiteUrl: websiteUrl
+          socialProfile:
+            githubURL: githubURL
+            notes: notes
+            twitterUrl: twitterUrl
+            about: about
+            unreadMessagesCount: 9
+            type: 6
+            countryId: countryId
+            cover: cover
+            facebookURL: facebookURL
+            youtubeURL: youtubeURL
+            followsCount: 7
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            pinterestURL: pinterestURL
+            linkedInURL: linkedInURL
+            unreadNotificationsCount: 9
+            notificationsCount: 5
+            avatar: avatar
+            socialFeedId: socialFeedId
+            identityId: identityId
+            domain: domain
+            name: name
+            dribbleURL: dribbleURL
+            countryName: countryName
+            messagesCount: 1
+            followersCount: 4
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          wallet:
+            verified: true
+            balanceInUsd: 1.0246457001441578
+            type: type
+            ethereumPrivateKey: ethereumPrivateKey
+            balance: 4.145608029883936
+            forexRate: 1.2315135367772556
+            ethereumAddress: ethereumAddress
+            ethereumPublicKey: ethereumPublicKey
+            testMode: true
+            id: id
+            currencyId: currencyId
+            rollingReservePercent: 6.84685269835264
+            cryptoBalance: 7.386281948385884
+            mainNetEtherBalance: 1.4894159098541704
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          stateId: stateId
+          lockoutEnabled: true
+          languageId: languageId
+          fullName: fullName
+          userName: userName
+          idProvider: idProvider
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ExtendedUserDto'
+      type: object
+    FollowRecordDto:
+      additionalProperties: false
+      example:
+        alerts: true
+        id: id
+        type: type
+        followerID: followerID
+        followedID: followedID
+      properties:
+        id:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        followerID:
+          nullable: true
+          type: string
+        followedID:
+          nullable: true
+          type: string
+        alerts:
+          type: boolean
+      type: object
+    FollowRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - alerts: true
+          id: id
+          type: type
+          followerID: followerID
+          followedID: followedID
+        - alerts: true
+          id: id
+          type: type
+          followerID: followerID
+          followedID: followedID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/FollowRecordDto'
+          nullable: true
+          type: array
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    NotificationDto:
+      additionalProperties: false
+      example:
+        readTimestamp: 2000-01-23T04:56:07.000+00:00
+        read: true
+        redirectUrl: redirectUrl
+        icon: icon
+        issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+        id: id
+        message: message
+        socialProfileID: socialProfileID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        read:
+          type: boolean
+        icon:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        redirectUrl:
+          nullable: true
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+        readTimestamp:
+          format: date-time
+          type: string
+        issuedTimestamp:
+          format: date-time
+          type: string
+      type: object
+    NotificationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          redirectUrl: redirectUrl
+          icon: icon
+          issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+          id: id
+          message: message
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          redirectUrl: redirectUrl
+          icon: icon
+          issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+          id: id
+          message: message
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/NotificationDto'
+          nullable: true
+          type: array
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: 0
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          format: int32
+          readOnly: true
+          type: integer
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
+    SocialProfileDto:
+      additionalProperties: false
+      example:
+        githubURL: githubURL
+        notes: notes
+        twitterUrl: twitterUrl
+        about: about
+        unreadMessagesCount: 9
+        type: 6
+        countryId: countryId
+        cover: cover
+        facebookURL: facebookURL
+        youtubeURL: youtubeURL
+        followsCount: 7
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        pinterestURL: pinterestURL
+        linkedInURL: linkedInURL
+        unreadNotificationsCount: 9
+        notificationsCount: 5
+        avatar: avatar
+        socialFeedId: socialFeedId
+        identityId: identityId
+        domain: domain
+        name: name
+        dribbleURL: dribbleURL
+        countryName: countryName
+        messagesCount: 1
+        followersCount: 4
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        cover:
+          nullable: true
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryName:
+          nullable: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        followsCount:
+          format: int32
+          nullable: true
+          type: integer
+        messagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        followersCount:
+          format: int32
+          nullable: true
+          type: integer
+        notificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadNotificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadMessagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        type:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        socialFeedId:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookURL:
+          nullable: true
+          type: string
+        linkedInURL:
+          nullable: true
+          type: string
+        youtubeURL:
+          nullable: true
+          type: string
+        githubURL:
+          nullable: true
+          type: string
+        pinterestURL:
+          nullable: true
+          type: string
+        dribbleURL:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+      type: object
+    SocialProfileDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 9
+          type: 6
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 7
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 9
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 1
+          followersCount: 4
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialProfileDto'
+      type: object
+    TenantDto:
+      additionalProperties: false
+      example:
+        supportPhoneNumber: supportPhoneNumber
+        whatsAppNumber: whatsAppNumber
+        twitterUrl: twitterUrl
+        about: about
+        businessName: businessName
+        cityId: cityId
+        businessSegmentId: businessSegmentId
+        countryId: countryId
+        legalName: legalName
+        facebookUrl: facebookUrl
+        id: id
+        businessIndustryId: businessIndustryId
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        stateId: stateId
+        languageId: languageId
+        verified: true
+        coverUrl: coverUrl
+        twitterUsername: twitterUsername
+        socialFeedId: socialFeedId
+        phone: phone
+        taxId: taxId
+        webUrl: webUrl
+        name: name
+        duns: duns
+        timezoneId: timezoneId
+        businessLegalName: businessLegalName
+        instagramUrl: instagramUrl
+        slogan: slogan
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        businessIndustryId:
+          nullable: true
+          type: string
+        businessSegmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        slogan:
+          nullable: true
+          type: string
+        legalName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        whatsAppNumber:
+          nullable: true
+          type: string
+        supportPhoneNumber:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessName:
+          nullable: true
+          readOnly: true
+          type: string
+        businessLegalName:
+          nullable: true
+          readOnly: true
+          type: string
+        twitterUsername:
+          nullable: true
+          type: string
+      type: object
+    TenantDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        - supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/TenantDto'
+          nullable: true
+          type: array
+      type: object
+    TenantEnrolmentDto:
+      additionalProperties: false
+      example:
+        isRoot: true
+        isOwner: true
+        tenantId: tenantId
+        id: id
+        isAdmin: true
+        isDisabled: true
+        userId: userId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        isRoot:
+          type: boolean
+        isOwner:
+          type: boolean
+        isAdmin:
+          type: boolean
+        isDisabled:
+          type: boolean
+      type: object
+    TenantEnrolmentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/TenantEnrolmentDto'
+      type: object
+    TenantEnrolmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - isRoot: true
+          isOwner: true
+          tenantId: tenantId
+          id: id
+          isAdmin: true
+          isDisabled: true
+          userId: userId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/TenantEnrolmentDto'
+          nullable: true
+          type: array
+      type: object
+    TenantInvitationDto:
+      additionalProperties: false
+      example:
+        redeemed: true
+        creatorEnrollmentId: creatorEnrollmentId
+        tenantId: tenantId
+        redeemedTimestamp: 2000-01-23T04:56:07.000+00:00
+        userEmail: userEmail
+        id: id
+        relatedEnrollmentId: relatedEnrollmentId
+        revoked: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        revoked:
+          type: boolean
+        redeemed:
+          type: boolean
+        redeemedTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        userEmail:
+          nullable: true
+          type: string
+        creatorEnrollmentId:
+          nullable: true
+          type: string
+        relatedEnrollmentId:
+          nullable: true
+          type: string
+      type: object
+    TenantInvitationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - redeemed: true
+          creatorEnrollmentId: creatorEnrollmentId
+          tenantId: tenantId
+          redeemedTimestamp: 2000-01-23T04:56:07.000+00:00
+          userEmail: userEmail
+          id: id
+          relatedEnrollmentId: relatedEnrollmentId
+          revoked: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - redeemed: true
+          creatorEnrollmentId: creatorEnrollmentId
+          tenantId: tenantId
+          redeemedTimestamp: 2000-01-23T04:56:07.000+00:00
+          userEmail: userEmail
+          id: id
+          relatedEnrollmentId: relatedEnrollmentId
+          revoked: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/TenantInvitationDto'
+          nullable: true
+          type: array
+      type: object
+    UserDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: 0
+        emailConfirmed: true
+        twitterUrl: twitterUrl
+        jobTitle: jobTitle
+        about: about
+        currentEnrollmentId: currentEnrollmentId
+        cityId: cityId
+        availability: 6
+        countryId: countryId
+        identityProvider: identityProvider
+        phoneNumberConfirmed: true
+        currentTenantId: currentTenantId
+        facebookUrl: facebookUrl
+        siteTheme: 5
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: id
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        publicIdentifier: publicIdentifier
+        gitHubUrl: gitHubUrl
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        lockoutEnd: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        cartId: cartId
+        lockoutEnabled: true
+        languageId: languageId
+        fullName: fullName
+        userName: userName
+        enrollmentsCount: 1
+        coverUrl: coverUrl
+        firstName: firstName
+        phoneNumber: phoneNumber
+        idProvider: idProvider
+        socialFeedId: socialFeedId
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        currentTenantId:
+          nullable: true
+          type: string
+        currentEnrollmentId:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        userName:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+        publicIdentifier:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        phoneNumberConfirmed:
+          type: boolean
+        emailConfirmed:
+          type: boolean
+        availability:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          nullable: true
+          type: integer
+        lockoutEnabled:
+          type: boolean
+        lockoutEnd:
+          format: date-time
+          nullable: true
+          type: string
+        enrollmentsCount:
+          format: int32
+          nullable: true
+          type: integer
+        siteTheme:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    UserDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          gender: 0
+          emailConfirmed: true
+          twitterUrl: twitterUrl
+          jobTitle: jobTitle
+          about: about
+          currentEnrollmentId: currentEnrollmentId
+          cityId: cityId
+          availability: 6
+          countryId: countryId
+          identityProvider: identityProvider
+          phoneNumberConfirmed: true
+          currentTenantId: currentTenantId
+          facebookUrl: facebookUrl
+          siteTheme: 5
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: id
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          publicIdentifier: publicIdentifier
+          gitHubUrl: gitHubUrl
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          lockoutEnd: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          cartId: cartId
+          lockoutEnabled: true
+          languageId: languageId
+          fullName: fullName
+          userName: userName
+          enrollmentsCount: 1
+          coverUrl: coverUrl
+          firstName: firstName
+          phoneNumber: phoneNumber
+          idProvider: idProvider
+          socialFeedId: socialFeedId
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/UserDto'
+      type: object
+    UserSettingsDto:
+      additionalProperties: false
+      example:
+        dateTimeFormat: dateTimeFormat
+        siteTheme: 9
+        dateFormat: dateFormat
+        pageSize: 8
+        id: id
+        currencyFormat: currencyFormat
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        pageSize:
+          format: int32
+          type: integer
+        dateFormat:
+          nullable: true
+          type: string
+        currencyFormat:
+          nullable: true
+          type: string
+        dateTimeFormat:
+          nullable: true
+          type: string
+        siteTheme:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      type: object
+    UserSettingsDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          dateTimeFormat: dateTimeFormat
+          siteTheme: 9
+          dateFormat: dateFormat
+          pageSize: 8
+          id: id
+          currencyFormat: currencyFormat
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/UserSettingsDto'
+      type: object
+    UserSettingsUpdateDto:
+      additionalProperties: false
+      example:
+        dateTimeFormat: dateTimeFormat
+        siteTheme: 6
+        dateFormat: dateFormat
+        pageSize: 80
+        currencyFormat: currencyFormat
+      properties:
+        pageSize:
+          format: int32
+          maximum: 1000
+          minimum: 0
+          nullable: true
+          type: integer
+        dateFormat:
+          minLength: 1
+          type: string
+        currencyFormat:
+          minLength: 1
+          type: string
+        dateTimeFormat:
+          minLength: 1
+          type: string
+        siteTheme:
+          enum:
+          - 0
+          - 1
+          - 2
+          format: int32
+          type: integer
+      required:
+      - currencyFormat
+      - dateFormat
+      - dateTimeFormat
+      - siteTheme
+      type: object
+    UserUpdateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: gender
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        cityId: cityId
+        availability: 0
+        countryId: countryId
+        facebookUrl: facebookUrl
+        publicName: publicName
+        websiteUrl: websiteUrl
+        currencyId: currencyId
+        gitHubUrl: gitHubUrl
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        stateId: stateId
+        languageId: languageId
+        coverUrl: coverUrl
+        firstName: firstName
+        githubUsername: githubUsername
+        idProvider: idProvider
+        webUrl: webUrl
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        gender:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        availability:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          format: int32
+          type: integer
+      type: object
+    WalletDto:
+      additionalProperties: false
+      example:
+        verified: true
+        balanceInUsd: 1.0246457001441578
+        type: type
+        ethereumPrivateKey: ethereumPrivateKey
+        balance: 4.145608029883936
+        forexRate: 1.2315135367772556
+        ethereumAddress: ethereumAddress
+        ethereumPublicKey: ethereumPublicKey
+        testMode: true
+        id: id
+        currencyId: currencyId
+        rollingReservePercent: 6.84685269835264
+        cryptoBalance: 7.386281948385884
+        mainNetEtherBalance: 1.4894159098541704
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        balance:
+          format: double
+          type: number
+        cryptoBalance:
+          format: double
+          type: number
+        testMode:
+          type: boolean
+        verified:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        balanceInUsd:
+          format: double
+          type: number
+        mainNetEtherBalance:
+          format: double
+          type: number
+        ethereumAddress:
+          nullable: true
+          type: string
+        ethereumPublicKey:
+          nullable: true
+          type: string
+        ethereumPrivateKey:
+          nullable: true
+          type: string
+        rollingReservePercent:
+          format: double
+          type: number
+      type: object
+    WalletDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          verified: true
+          balanceInUsd: 1.0246457001441578
+          type: type
+          ethereumPrivateKey: ethereumPrivateKey
+          balance: 4.145608029883936
+          forexRate: 1.2315135367772556
+          ethereumAddress: ethereumAddress
+          ethereumPublicKey: ethereumPublicKey
+          testMode: true
+          id: id
+          currencyId: currencyId
+          rollingReservePercent: 6.84685269835264
+          cryptoBalance: 7.386281948385884
+          mainNetEtherBalance: 1.4894159098541704
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WalletDto'
+      type: object
+    UpdateAvatarAsync_request:
+      properties:
+        avatar:
+          format: binary
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

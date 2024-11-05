@@ -1,0 +1,734 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: ForexService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/ForexService/Exchange/Latest:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: amount
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: sourceCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: targetCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Exchange
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ForexService/Exchange/History:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: amount
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: sourceCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: targetCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+      tags:
+      - Exchange
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v3/ForexService/Exchange/Latest:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: amount
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: sourceCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: targetCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+          description: OK
+      tags:
+      - ExchangeV
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v3/ForexService/Exchange/History:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: amount
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: sourceCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: targetCurrencyId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+          description: OK
+      tags:
+      - ExchangeV
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ForexService/Rates/Latest:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForexRatesDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ForexRatesDtoEnvelope'
+          description: OK
+      tags:
+      - Rates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ForexService/Rates/Latest/{currencyId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: currencyId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+          description: OK
+      tags:
+      - Rates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ForexService/Rates/History:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForexRatesDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ForexRatesDtoEnvelope'
+          description: OK
+      tags:
+      - Rates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ForexService/Rates/History/{currencyId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: currencyId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateEnvelope'
+          description: OK
+      tags:
+      - Rates
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    Currency:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExchangeRate:
+      additionalProperties: false
+      example:
+        rate:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+        source:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+        target:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+      properties:
+        source:
+          $ref: '#/components/schemas/Money'
+        target:
+          $ref: '#/components/schemas/Money'
+        rate:
+          $ref: '#/components/schemas/Money'
+      type: object
+    ExchangeRateEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          rate:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+          source:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+          target:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ExchangeRate'
+      type: object
+    ForexRatesDto:
+      additionalProperties: false
+      example:
+        date: date
+        requestTimestamp: 2000-01-23T04:56:07.000+00:00
+        success: true
+        rates:
+          key: 6.027456183070403
+        base: base
+        timestamp: 0
+      properties:
+        success:
+          type: boolean
+        date:
+          nullable: true
+          type: string
+        base:
+          nullable: true
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        requestTimestamp:
+          format: date-time
+          type: string
+        rates:
+          additionalProperties:
+            format: double
+            type: number
+          nullable: true
+          type: object
+      type: object
+    ForexRatesDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          date: date
+          requestTimestamp: 2000-01-23T04:56:07.000+00:00
+          success: true
+          rates:
+            key: 6.027456183070403
+          base: base
+          timestamp: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ForexRatesDto'
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 0.8008281904610115
+        currency:
+          country: country
+          code: code
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+      type: object
+    MoneyEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/Money'
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

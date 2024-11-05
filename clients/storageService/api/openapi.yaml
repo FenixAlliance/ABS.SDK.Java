@@ -1,0 +1,1954 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: StorageService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/StorageService/Avatars/{socialProfileId}:
+    get:
+      operationId: GetAvatar
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the avatar for a given social profile.
+      tags:
+      - Avatars
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Avatars/User:
+    get:
+      operationId: GetCurrentUserAvatar
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the avatar for the current user.
+      tags:
+      - Avatars
+      x-accepts:
+      - application/json
+      - image/png
+    post:
+      operationId: UpdateUserAvatar
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateUserAvatar_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+      summary: Update the avatar for the current user.
+      tags:
+      - Avatars
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Avatars/User/{userId}:
+    get:
+      operationId: GetUserAvatar
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the avatar for a given user.
+      tags:
+      - Avatars
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Avatars/Tenant/{tenantId}:
+    get:
+      operationId: GetTenantAvatar
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the avatar for a given tenant.
+      tags:
+      - Avatars
+      x-accepts:
+      - application/json
+      - image/png
+    post:
+      operationId: UpdateTenantAvatar
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateUserAvatar_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+      summary: Update the avatar for a given tenant.
+      tags:
+      - Avatars
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Avatars/Contact/{contactId}:
+    get:
+      operationId: GetContactAvatar
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the avatar for a given contact.
+      tags:
+      - Avatars
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Avatars/Contacts/{contactId}:
+    post:
+      operationId: UpdateContactAvatar
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              avatar:
+                style: form
+            schema:
+              $ref: '#/components/schemas/UpdateUserAvatar_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+      summary: Update the avatar for a given contact.
+      tags:
+      - Avatars
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Blobs:
+    get:
+      operationId: GetBlobsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: folderPath
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: browseFilter
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filePrefix
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: recurse
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: maxResults
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: includeAttributes
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlobEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/BlobEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Blobs
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Blobs/Single:
+    get:
+      operationId: GetBlobAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filePath
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlobEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/BlobEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Blobs
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Files:
+    get:
+      operationId: GetFilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Files
+      x-accepts:
+      - application/json
+      - image/png
+    post:
+      operationId: CreateFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUploadCreateDto'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Conflict
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+      tags:
+      - Files
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Files/{fileId}:
+    delete:
+      operationId: DeleteFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Conflict
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+      tags:
+      - Files
+      x-accepts:
+      - application/json
+      - image/png
+    get:
+      operationId: GetFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Files
+      x-accepts:
+      - application/json
+      - image/png
+    put:
+      operationId: UpdateFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUploadUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/FileUploadDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Conflict
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+      tags:
+      - Files
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/Files/{fileId}/Raw:
+    get:
+      operationId: DownloadFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: binary
+                type: string
+            image/png:
+              schema:
+                format: binary
+                type: string
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            image/png:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Files
+      x-accepts:
+      - application/json
+      - image/png
+  /api/v2/StorageService/RadzenEditor/Uploads/Single:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_RadzenEditor_Uploads_Single_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - RadzenEditor
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /api/v2/StorageService/RadzenEditor/Uploads/Image:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_RadzenEditor_Uploads_Single_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - RadzenEditor
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /api/v2/StorageService/RadzenEditor/Uploads/Multiple:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              files:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_RadzenEditor_Uploads_Multiple_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - RadzenEditor
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /api/v2/StorageService/RadzenEditor/Uploads/{id}:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              files:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_RadzenEditor_Uploads_Multiple_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - RadzenEditor
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /api/v2/StorageService/RadzenEditor/Uploads/Specific:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_RadzenEditor_Uploads_Single_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - RadzenEditor
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /api/v2/StorageService/Uploads:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              notes:
+                style: form
+              title:
+                style: form
+              author:
+                style: form
+              isFolder:
+                style: form
+              fileName:
+                style: form
+              abstract:
+                style: form
+              keyWords:
+                style: form
+              validResponse:
+                style: form
+              parentFileUploadId:
+                style: form
+              filePath:
+                style: form
+              file:
+                style: form
+              iD:
+                style: form
+              timestamp:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_v2_StorageService_Uploads_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - Uploads
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    Blob:
+      additionalProperties: false
+      example:
+        fullPath: fullPath
+        metadata:
+          key: metadata
+        isFile: true
+        lastModificationTime: 2000-01-23T04:56:07.000+00:00
+        kind: 0
+        folderPath: folderPath
+        isFolder: true
+        size: 6
+        name: name
+        isRootFolder: true
+        createdTime: 2000-01-23T04:56:07.000+00:00
+        properties:
+          key: ""
+        md5: md5
+      properties:
+        kind:
+          enum:
+          - 0
+          - 1
+          format: int32
+          type: integer
+        isFolder:
+          readOnly: true
+          type: boolean
+        isFile:
+          readOnly: true
+          type: boolean
+        folderPath:
+          nullable: true
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        size:
+          format: int64
+          nullable: true
+          type: integer
+        md5:
+          nullable: true
+          type: string
+        createdTime:
+          format: date-time
+          nullable: true
+          type: string
+        lastModificationTime:
+          format: date-time
+          nullable: true
+          type: string
+        fullPath:
+          nullable: true
+          type: string
+        properties:
+          additionalProperties:
+            nullable: true
+          nullable: true
+          readOnly: true
+          type: object
+        metadata:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          readOnly: true
+          type: object
+        isRootFolder:
+          readOnly: true
+          type: boolean
+      type: object
+    BlobEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          fullPath: fullPath
+          metadata:
+            key: metadata
+          isFile: true
+          lastModificationTime: 2000-01-23T04:56:07.000+00:00
+          kind: 0
+          folderPath: folderPath
+          isFolder: true
+          size: 6
+          name: name
+          isRootFolder: true
+          createdTime: 2000-01-23T04:56:07.000+00:00
+          properties:
+            key: ""
+          md5: md5
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/Blob'
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    FileUploadCreateDto:
+      additionalProperties: false
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadId:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        file:
+          format: binary
+          nullable: true
+          type: string
+      type: object
+    FileUploadDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        enrollmentId: enrollmentId
+        fileName: fileName
+        metadata: metadata
+        notes: notes
+        author: author
+        filePath: filePath
+        abstract: abstract
+        title: title
+        userId: userId
+        folderPath: folderPath
+        isFolder: true
+        parentFileId: parentFileId
+        tenantId: tenantId
+        fileUrl: fileUrl
+        id: id
+        socialProfileId: socialProfileId
+        contentType: contentType
+        hash: hash
+        fileLength: 0
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        hash:
+          nullable: true
+          type: string
+        fileUrl:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        fileLength:
+          format: int64
+          type: integer
+        contentType:
+          nullable: true
+          type: string
+        parentFileId:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        folderPath:
+          nullable: true
+          type: string
+      type: object
+    FileUploadDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/FileUploadDto'
+      type: object
+    FileUploadUpdateDto:
+      additionalProperties: false
+      properties:
+        notes:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadID:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        file:
+          format: binary
+          nullable: true
+          type: string
+      type: object
+    UpdateUserAvatar_request:
+      properties:
+        avatar:
+          format: binary
+          type: string
+      type: object
+    _api_v2_StorageService_RadzenEditor_Uploads_Single_post_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      type: object
+    _api_v2_StorageService_RadzenEditor_Uploads_Multiple_post_request:
+      properties:
+        files:
+          items:
+            format: binary
+            type: string
+          type: array
+      type: object
+    _api_v2_StorageService_Uploads_post_request:
+      properties:
+        notes:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          type: string
+        abstract:
+          type: string
+        keyWords:
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadId:
+          type: string
+        filePath:
+          type: string
+        file:
+          format: binary
+          type: string
+        iD:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+

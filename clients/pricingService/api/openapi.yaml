@@ -1,0 +1,3141 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: PricingService
+  version: 2.0.1.4089
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/v2/PricingService/DiscountLists:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscountListDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DiscountListDtoListEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscountListCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DiscountListCreateDto'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/DiscountLists/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/DiscountLists/{discountListId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscountListDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DiscountListDtoEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscountListUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DiscountListUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/DiscountLists/{discountListId}/Discounts:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscountDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DiscountDtoListEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscountCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DiscountCreateDto'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: discountListEntryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetDiscountListEntry
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: discountListEntryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscountDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DiscountDtoEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: discountListEntryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscountUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DiscountUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      tags:
+      - DiscountLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PriceLists:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceListDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PriceListDtoListEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PriceListCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PriceListCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PriceLists/Count:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PriceLists/{priceListId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetPriceListAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceListDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PriceListDtoEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PriceListUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PriceListUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PriceLists/{priceListId}/Prices:
+    get:
+      operationId: GetPriceListPricesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: itemId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPriceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemPriceDtoListEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemPriceCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemPriceCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}:
+    delete:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: priceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetPriceListPriceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: priceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPriceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemPriceDtoEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: priceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemPriceUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemPriceUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - PriceLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/Prices/{itemId}/Price:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: priceListId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: discountsListId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceCalculationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PriceCalculationDtoEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      tags:
+      - Prices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/Prices/{itemId}/FinalPrice:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      tags:
+      - Prices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/Prices/{itemId}/TotalTaxes:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      tags:
+      - Prices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/Prices/{itemId}/TotalSavings:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      tags:
+      - Prices
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    Currency:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    DiscountCreateDto:
+      additionalProperties: false
+      example:
+        endQuantity: 6.027456183070403
+        discountListId: discountListId
+        enrolmentId: enrolmentId
+        beginQuantity: 0.8008281904610115
+        tenantId: tenantId
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        percent: 1.4658129805029452
+        value: 5.962133916683182
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        beginQuantity:
+          format: double
+          type: number
+        endQuantity:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+        value:
+          format: double
+          type: number
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        discountListId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    DiscountDto:
+      additionalProperties: false
+      example:
+        itemId: itemId
+        endQuantity: 1.4658129805029452
+        discountListId: discountListId
+        enrolmentId: enrolmentId
+        tenantId: tenantId
+        beginQuantity: 5.962133916683182
+        description: description
+        id: id
+        value: 0.8008281904610115
+        percent: 6.027456183070403
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        value:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+        itemId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        endQuantity:
+          format: double
+          type: number
+        beginQuantity:
+          format: double
+          type: number
+      type: object
+    DiscountDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          itemId: itemId
+          endQuantity: 1.4658129805029452
+          discountListId: discountListId
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          beginQuantity: 5.962133916683182
+          description: description
+          id: id
+          value: 0.8008281904610115
+          percent: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/DiscountDto'
+      type: object
+    DiscountDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - itemId: itemId
+          endQuantity: 1.4658129805029452
+          discountListId: discountListId
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          beginQuantity: 5.962133916683182
+          description: description
+          id: id
+          value: 0.8008281904610115
+          percent: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - itemId: itemId
+          endQuantity: 1.4658129805029452
+          discountListId: discountListId
+          enrolmentId: enrolmentId
+          tenantId: tenantId
+          beginQuantity: 5.962133916683182
+          description: description
+          id: id
+          value: 0.8008281904610115
+          percent: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/DiscountDto'
+          nullable: true
+          type: array
+      type: object
+    DiscountListCreateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    DiscountListDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    DiscountListDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/DiscountListDto'
+      type: object
+    DiscountListDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/DiscountListDto'
+          nullable: true
+          type: array
+      type: object
+    DiscountListUpdateDto:
+      additionalProperties: false
+      example:
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        currencyId: currencyId
+      properties:
+        name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    DiscountUpdateDto:
+      additionalProperties: false
+      example:
+        endQuantity: 6.027456183070403
+        discountListId: discountListId
+        enrolmentId: enrolmentId
+        beginQuantity: 0.8008281904610115
+        tenantId: tenantId
+        description: description
+        percent: 1.4658129805029452
+        value: 5.962133916683182
+      properties:
+        description:
+          nullable: true
+          type: string
+        beginQuantity:
+          format: double
+          type: number
+        endQuantity:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+        value:
+          format: double
+          type: number
+        tenantId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        enrolmentId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        discountListId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    ItemPriceCreateDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        discountListId: discountListId
+        priceListId: priceListId
+        percent: 6.027456183070403
+        itemId: itemId
+        unitGroupId: unitGroupId
+        price: 0.8008281904610115
+        tenantId: tenantId
+        unitId: unitId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        roundingPolicyId: roundingPolicyId
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        itemId:
+          minLength: 1
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+        price:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+      required:
+      - itemId
+      type: object
+    ItemPriceDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        discountListId: discountListId
+        priceListId: priceListId
+        percent: 6.027456183070403
+        itemId: itemId
+        unitGroupId: unitGroupId
+        price: 0.8008281904610115
+        tenantId: tenantId
+        unitId: unitId
+        id: id
+        currencyId: currencyId
+        discountId: discountId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        roundingPolicyId: roundingPolicyId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        discountId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        price:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+      type: object
+    ItemPriceDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          discountListId: discountListId
+          priceListId: priceListId
+          percent: 6.027456183070403
+          itemId: itemId
+          unitGroupId: unitGroupId
+          price: 0.8008281904610115
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          discountId: discountId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          roundingPolicyId: roundingPolicyId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemPriceDto'
+      type: object
+    ItemPriceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          discountListId: discountListId
+          priceListId: priceListId
+          percent: 6.027456183070403
+          itemId: itemId
+          unitGroupId: unitGroupId
+          price: 0.8008281904610115
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          discountId: discountId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          roundingPolicyId: roundingPolicyId
+        - enrollmentId: enrollmentId
+          discountListId: discountListId
+          priceListId: priceListId
+          percent: 6.027456183070403
+          itemId: itemId
+          unitGroupId: unitGroupId
+          price: 0.8008281904610115
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          discountId: discountId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          roundingPolicyId: roundingPolicyId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemPriceDto'
+          nullable: true
+          type: array
+      type: object
+    ItemPriceUpdateDto:
+      additionalProperties: false
+      example:
+        itemId: itemId
+        unitGroupId: unitGroupId
+        discountListId: discountListId
+        price: 0.8008281904610115
+        unitId: unitId
+        currencyId: currencyId
+        percent: 6.027456183070403
+        roundingPolicyId: roundingPolicyId
+      properties:
+        price:
+          format: double
+          type: number
+        itemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        percent:
+          format: double
+          type: number
+        unitGroupId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 6.027456183070403
+        currency:
+          country: country
+          code: code
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/Currency'
+      type: object
+    MoneyEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/Money'
+      type: object
+    PriceCalculationDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        discountListId: discountListId
+        priceListId: priceListId
+        effectiveDiscountPercent: 0.8008281904610115
+        totalShippingAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        itemId: itemId
+        totalAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        unitGroupId: unitGroupId
+        totalBaseAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        tenantId: tenantId
+        unitId: unitId
+        totalShippingTaxAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        id: id
+        priceId: priceId
+        discountId: discountId
+        currencyId: currencyId
+        totalTaxAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        totalDiscountsAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        roundingPolicyId: roundingPolicyId
+        totalSurchargesAmount:
+          amount: 6.027456183070403
+          currency:
+            country: country
+            code: code
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        priceId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        discountId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+        effectiveDiscountPercent:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        totalBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+      type: object
+    PriceCalculationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          discountListId: discountListId
+          priceListId: priceListId
+          effectiveDiscountPercent: 0.8008281904610115
+          totalShippingAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          itemId: itemId
+          totalAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          unitGroupId: unitGroupId
+          totalBaseAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          tenantId: tenantId
+          unitId: unitId
+          totalShippingTaxAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          id: id
+          priceId: priceId
+          discountId: discountId
+          currencyId: currencyId
+          totalTaxAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          totalDiscountsAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          roundingPolicyId: roundingPolicyId
+          totalSurchargesAmount:
+            amount: 6.027456183070403
+            currency:
+              country: country
+              code: code
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/PriceCalculationDto'
+      type: object
+    PriceListCreateDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        unitGroupId: unitGroupId
+        endDate: 2000-01-23T04:56:07.000+00:00
+        name: name
+        tenantId: tenantId
+        description: description
+        unitId: unitId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        startDate: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          readOnly: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          maxLength: 100
+          minLength: 1
+          pattern: "^[a-zA-Z0-9\\s]*$"
+          type: string
+        description:
+          maxLength: 500
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    PriceListDto:
+      additionalProperties: false
+      example:
+        partnerVisible: true
+        endDate: 2000-01-23T04:56:07.000+00:00
+        description: description
+        unitGroupId: unitGroupId
+        unitOfMeasureDependant: true
+        enrolmentId: enrolmentId
+        name: name
+        tenantId: tenantId
+        unitId: unitId
+        id: id
+        currencyId: currencyId
+        startDate: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        description:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        partnerVisible:
+          type: boolean
+        unitOfMeasureDependant:
+          type: boolean
+        enrolmentId:
+          nullable: true
+          type: string
+      type: object
+    PriceListDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          partnerVisible: true
+          endDate: 2000-01-23T04:56:07.000+00:00
+          description: description
+          unitGroupId: unitGroupId
+          unitOfMeasureDependant: true
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          startDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/PriceListDto'
+      type: object
+    PriceListDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - partnerVisible: true
+          endDate: 2000-01-23T04:56:07.000+00:00
+          description: description
+          unitGroupId: unitGroupId
+          unitOfMeasureDependant: true
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          startDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - partnerVisible: true
+          endDate: 2000-01-23T04:56:07.000+00:00
+          description: description
+          unitGroupId: unitGroupId
+          unitOfMeasureDependant: true
+          enrolmentId: enrolmentId
+          name: name
+          tenantId: tenantId
+          unitId: unitId
+          id: id
+          currencyId: currencyId
+          startDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PriceListDto'
+          nullable: true
+          type: array
+      type: object
+    PriceListUpdateDto:
+      additionalProperties: false
+      example:
+        unitGroupId: unitGroupId
+        endDate: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        unitId: unitId
+        currencyId: currencyId
+        startDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        name:
+          maxLength: 100
+          minLength: 1
+          pattern: "^[a-zA-Z0-9\\s]*$"
+          type: string
+        description:
+          maxLength: 500
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+  securitySchemes:
+    Bearer:
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
+        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
+        \r\nExample: \"Bearer ey...cc\""
+      in: header
+      name: Authorization
+      type: apiKey
+
