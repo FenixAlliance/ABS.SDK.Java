@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2ProjectsServiceTaskTypesPost**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesPost) | **POST** /api/v2/ProjectsService/TaskTypes |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdDelete**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdGet**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdGet) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
-| [**apiV2ProjectsServiceTaskTypesTaskTypeIdPut**](TaskTypesApi.md#apiV2ProjectsServiceTaskTypesTaskTypeIdPut) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} |  |
+| [**createTaskTypeAsync**](TaskTypesApi.md#createTaskTypeAsync) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type |
+| [**deleteTaskTypeAsync**](TaskTypesApi.md#deleteTaskTypeAsync) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type |
+| [**getTaskTypeByIdAsync**](TaskTypesApi.md#getTaskTypeByIdAsync) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID |
+| [**updateTaskTypeAsync**](TaskTypesApi.md#updateTaskTypeAsync) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type |
 
 
-<a id="apiV2ProjectsServiceTaskTypesPost"></a>
-# **apiV2ProjectsServiceTaskTypesPost**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesPost(tenantId, apiVersion, xApiVersion, taskTypeCreateDto)
+<a id="createTaskTypeAsync"></a>
+# **createTaskTypeAsync**
+> TaskTypeDto createTaskTypeAsync(tenantId, taskTypeCreateDto)
 
+Creates a new task type
 
+Creates a new task type for the current tenant.
 
 ### Example
 ```java
@@ -22,7 +24,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskTypesApi;
 
@@ -30,23 +31,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     TaskTypeCreateDto taskTypeCreateDto = new TaskTypeCreateDto(); // TaskTypeCreateDto | 
     try {
-      TaskTypeDto result = apiInstance.apiV2ProjectsServiceTaskTypesPost(tenantId, apiVersion, xApiVersion, taskTypeCreateDto);
+      TaskTypeDto result = apiInstance.createTaskTypeAsync(tenantId, taskTypeCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskTypesApi#apiV2ProjectsServiceTaskTypesPost");
+      System.err.println("Exception when calling TaskTypesApi#createTaskTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -61,8 +54,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **taskTypeCreateDto** | [**TaskTypeCreateDto**](TaskTypeCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -71,7 +62,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,11 +76,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdDelete"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdDelete**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId, tenantId, apiVersion, xApiVersion)
+<a id="deleteTaskTypeAsync"></a>
+# **deleteTaskTypeAsync**
+> TaskTypeDto deleteTaskTypeAsync(taskTypeId, tenantId)
 
+Deletes a task type
 
+Deletes the specified task type.
 
 ### Example
 ```java
@@ -97,7 +90,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskTypesApi;
 
@@ -105,23 +97,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
     UUID taskTypeId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TaskTypeDto result = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdDelete(taskTypeId, tenantId, apiVersion, xApiVersion);
+      TaskTypeDto result = apiInstance.deleteTaskTypeAsync(taskTypeId, tenantId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdDelete");
+      System.err.println("Exception when calling TaskTypesApi#deleteTaskTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -137,8 +121,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskTypeId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -146,7 +128,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,11 +142,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdGet"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdGet**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId, tenantId, apiVersion, xApiVersion)
+<a id="getTaskTypeByIdAsync"></a>
+# **getTaskTypeByIdAsync**
+> TaskTypeDto getTaskTypeByIdAsync(taskTypeId, tenantId)
 
+Gets a task type by ID
 
+Retrieves the details of a task type using its unique identifier.
 
 ### Example
 ```java
@@ -172,7 +156,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskTypesApi;
 
@@ -180,23 +163,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
     UUID taskTypeId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TaskTypeDto result = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdGet(taskTypeId, tenantId, apiVersion, xApiVersion);
+      TaskTypeDto result = apiInstance.getTaskTypeByIdAsync(taskTypeId, tenantId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdGet");
+      System.err.println("Exception when calling TaskTypesApi#getTaskTypeByIdAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -212,8 +187,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskTypeId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -221,7 +194,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,11 +208,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskTypesTaskTypeIdPut"></a>
-# **apiV2ProjectsServiceTaskTypesTaskTypeIdPut**
-> TaskTypeDto apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId, tenantId, apiVersion, xApiVersion, taskTypeUpdateDto)
+<a id="updateTaskTypeAsync"></a>
+# **updateTaskTypeAsync**
+> TaskTypeDto updateTaskTypeAsync(taskTypeId, tenantId, taskTypeUpdateDto)
 
+Updates a task type
 
+Updates the specified task type.
 
 ### Example
 ```java
@@ -247,7 +222,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskTypesApi;
 
@@ -255,24 +229,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
     UUID taskTypeId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     TaskTypeUpdateDto taskTypeUpdateDto = new TaskTypeUpdateDto(); // TaskTypeUpdateDto | 
     try {
-      TaskTypeDto result = apiInstance.apiV2ProjectsServiceTaskTypesTaskTypeIdPut(taskTypeId, tenantId, apiVersion, xApiVersion, taskTypeUpdateDto);
+      TaskTypeDto result = apiInstance.updateTaskTypeAsync(taskTypeId, tenantId, taskTypeUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskTypesApi#apiV2ProjectsServiceTaskTypesTaskTypeIdPut");
+      System.err.println("Exception when calling TaskTypesApi#updateTaskTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -288,8 +254,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskTypeId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **taskTypeUpdateDto** | [**TaskTypeUpdateDto**](TaskTypeUpdateDto.md)|  | [optional] |
 
 ### Return type
@@ -298,7 +262,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

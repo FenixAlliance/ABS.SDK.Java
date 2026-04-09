@@ -13,7 +13,7 @@
 |**percent** | **Double** |  |  [optional] |
 |**value** | **Double** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**discountListId** | **String** |  |  [optional] |
 
 

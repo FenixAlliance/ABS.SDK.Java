@@ -4,19 +4,22 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2ProjectsServiceTaskCategoriesGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesGet) | **GET** /api/v2/ProjectsService/TaskCategories |  |
-| [**apiV2ProjectsServiceTaskCategoriesPost**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesPost) | **POST** /api/v2/ProjectsService/TaskCategories |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} |  |
-| [**apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**](TaskCategoriesApi.md#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types |  |
+| [**countTenantTaskCategoriesAsync**](TaskCategoriesApi.md#countTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/Count | Counts task categories |
+| [**createTaskCategoryAsync**](TaskCategoriesApi.md#createTaskCategoryAsync) | **POST** /api/v2/ProjectsService/TaskCategories | Creates a new task category |
+| [**deleteTaskCategoryAsync**](TaskCategoriesApi.md#deleteTaskCategoryAsync) | **DELETE** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Deletes a task category |
+| [**getTaskCategoryByIdAsync**](TaskCategoriesApi.md#getTaskCategoryByIdAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID |
+| [**getTaskCategoryTaskTypesAsync**](TaskCategoriesApi.md#getTaskCategoryTaskTypesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category |
+| [**getTenantTaskCategoriesAsync**](TaskCategoriesApi.md#getTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories |
+| [**updateTaskCategoryAsync**](TaskCategoriesApi.md#updateTaskCategoryAsync) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category |
 
 
-<a id="apiV2ProjectsServiceTaskCategoriesGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesGet**
-> TaskCategoryDtoListEnvelope apiV2ProjectsServiceTaskCategoriesGet(tenantId, apiVersion, xApiVersion)
+<a id="countTenantTaskCategoriesAsync"></a>
+# **countTenantTaskCategoriesAsync**
+> Int32Envelope countTenantTaskCategoriesAsync(tenantId)
 
+Counts task categories
 
+Gets the count of task categories for the current tenant.
 
 ### Example
 ```java
@@ -24,7 +27,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskCategoriesApi;
 
@@ -32,22 +34,14 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TaskCategoryDtoListEnvelope result = apiInstance.apiV2ProjectsServiceTaskCategoriesGet(tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countTenantTaskCategoriesAsync(tenantId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesGet");
+      System.err.println("Exception when calling TaskCategoriesApi#countTenantTaskCategoriesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -62,16 +56,14 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,11 +77,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskCategoriesPost"></a>
-# **apiV2ProjectsServiceTaskCategoriesPost**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesPost(tenantId, apiVersion, xApiVersion, taskCategoryCreateDto)
+<a id="createTaskCategoryAsync"></a>
+# **createTaskCategoryAsync**
+> TaskCategoryDto createTaskCategoryAsync(tenantId, taskCategoryCreateDto)
 
+Creates a new task category
 
+Creates a new task category for the current tenant.
 
 ### Example
 ```java
@@ -97,7 +91,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskCategoriesApi;
 
@@ -105,23 +98,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     TaskCategoryCreateDto taskCategoryCreateDto = new TaskCategoryCreateDto(); // TaskCategoryCreateDto | 
     try {
-      TaskCategoryDto result = apiInstance.apiV2ProjectsServiceTaskCategoriesPost(tenantId, apiVersion, xApiVersion, taskCategoryCreateDto);
+      TaskCategoryDto result = apiInstance.createTaskCategoryAsync(tenantId, taskCategoryCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesPost");
+      System.err.println("Exception when calling TaskCategoriesApi#createTaskCategoryAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -136,8 +121,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **taskCategoryCreateDto** | [**TaskCategoryCreateDto**](TaskCategoryCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -146,7 +129,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,11 +143,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(taskCategoryId, tenantId, apiVersion, xApiVersion)
+<a id="deleteTaskCategoryAsync"></a>
+# **deleteTaskCategoryAsync**
+> TaskCategoryDto deleteTaskCategoryAsync(taskCategoryId, tenantId)
 
+Deletes a task category
 
+Deletes the specified task category.
 
 ### Example
 ```java
@@ -172,7 +157,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskCategoriesApi;
 
@@ -180,23 +164,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID taskCategoryId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TaskCategoryDto result = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete(taskCategoryId, tenantId, apiVersion, xApiVersion);
+      TaskCategoryDto result = apiInstance.deleteTaskCategoryAsync(taskCategoryId, tenantId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdDelete");
+      System.err.println("Exception when calling TaskCategoriesApi#deleteTaskCategoryAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -212,8 +188,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskCategoryId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -221,7 +195,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,11 +209,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
+<a id="getTaskCategoryByIdAsync"></a>
+# **getTaskCategoryByIdAsync**
+> TaskCategoryDto getTaskCategoryByIdAsync(taskCategoryId, tenantId)
 
+Gets a task category by ID
 
+Retrieves the details of a task category using its unique identifier.
 
 ### Example
 ```java
@@ -247,7 +223,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskCategoriesApi;
 
@@ -255,23 +230,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID taskCategoryId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TaskCategoryDto result = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet(taskCategoryId, tenantId, apiVersion, xApiVersion);
+      TaskCategoryDto result = apiInstance.getTaskCategoryByIdAsync(taskCategoryId, tenantId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdGet");
+      System.err.println("Exception when calling TaskCategoriesApi#getTaskCategoryByIdAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -287,8 +254,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskCategoryId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -296,7 +261,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -310,11 +275,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(taskCategoryId, tenantId, apiVersion, xApiVersion, taskCategoryUpdateDto)
+<a id="getTaskCategoryTaskTypesAsync"></a>
+# **getTaskCategoryTaskTypesAsync**
+> TaskCategoryDto getTaskCategoryTaskTypesAsync(taskCategoryId, tenantId)
 
+Retrieves task types for a category
 
+Gets all task types belonging to the specified task category.
 
 ### Example
 ```java
@@ -322,7 +289,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TaskCategoriesApi;
 
@@ -330,24 +296,146 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
     UUID taskCategoryId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      TaskCategoryDto result = apiInstance.getTaskCategoryTaskTypesAsync(taskCategoryId, tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TaskCategoriesApi#getTaskCategoryTaskTypesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taskCategoryId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**TaskCategoryDto**](TaskCategoryDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getTenantTaskCategoriesAsync"></a>
+# **getTenantTaskCategoriesAsync**
+> TaskCategoryDtoListEnvelope getTenantTaskCategoriesAsync(tenantId)
+
+Retrieves all task categories
+
+Gets all task categories for the current tenant with OData support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TaskCategoriesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      TaskCategoryDtoListEnvelope result = apiInstance.getTenantTaskCategoriesAsync(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TaskCategoriesApi#getTenantTaskCategoriesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**TaskCategoryDtoListEnvelope**](TaskCategoryDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateTaskCategoryAsync"></a>
+# **updateTaskCategoryAsync**
+> TaskCategoryDto updateTaskCategoryAsync(taskCategoryId, tenantId, taskCategoryUpdateDto)
+
+Updates a task category
+
+Updates the specified task category.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TaskCategoriesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
+    UUID taskCategoryId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     TaskCategoryUpdateDto taskCategoryUpdateDto = new TaskCategoryUpdateDto(); // TaskCategoryUpdateDto | 
     try {
-      TaskCategoryDto result = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut(taskCategoryId, tenantId, apiVersion, xApiVersion, taskCategoryUpdateDto);
+      TaskCategoryDto result = apiInstance.updateTaskCategoryAsync(taskCategoryId, tenantId, taskCategoryUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdPut");
+      System.err.println("Exception when calling TaskCategoriesApi#updateTaskCategoryAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -363,8 +451,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **taskCategoryId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **taskCategoryUpdateDto** | [**TaskCategoryUpdateDto**](TaskCategoryUpdateDto.md)|  | [optional] |
 
 ### Return type
@@ -373,86 +459,11 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet"></a>
-# **apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet**
-> TaskCategoryDto apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(taskCategoryId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TaskCategoriesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
-    UUID taskCategoryId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      TaskCategoryDto result = apiInstance.apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet(taskCategoryId, tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TaskCategoriesApi#apiV2ProjectsServiceTaskCategoriesTaskCategoryIdTypesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **taskCategoryId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**TaskCategoryDto**](TaskCategoryDto.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

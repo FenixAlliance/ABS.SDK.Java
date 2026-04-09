@@ -4,15 +4,18 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2GlobeServiceLanguagesGet**](LanguagesApi.md#apiV2GlobeServiceLanguagesGet) | **GET** /api/v2/GlobeService/Languages |  |
-| [**apiV2GlobeServiceLanguagesLanguageIdGet**](LanguagesApi.md#apiV2GlobeServiceLanguagesLanguageIdGet) | **GET** /api/v2/GlobeService/Languages/{languageId} |  |
+| [**countLanguagesAsync**](LanguagesApi.md#countLanguagesAsync) | **GET** /api/v2/GlobeService/Languages/Count | Count languages |
+| [**getLanguageByIdAsync**](LanguagesApi.md#getLanguageByIdAsync) | **GET** /api/v2/GlobeService/Languages/{languageId} | Get language by ID |
+| [**getLanguagesAsync**](LanguagesApi.md#getLanguagesAsync) | **GET** /api/v2/GlobeService/Languages | Get all languages |
 
 
-<a id="apiV2GlobeServiceLanguagesGet"></a>
-# **apiV2GlobeServiceLanguagesGet**
-> CountryLanguageDtoListEnvelope apiV2GlobeServiceLanguagesGet(apiVersion, xApiVersion)
+<a id="countLanguagesAsync"></a>
+# **countLanguagesAsync**
+> Int32Envelope countLanguagesAsync(apiVersion, xApiVersion)
 
+Count languages
 
+Returns the total number of supported languages, with optional OData filtering.
 
 ### Example
 ```java
@@ -20,7 +23,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.LanguagesApi;
 
@@ -28,21 +30,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     LanguagesApi apiInstance = new LanguagesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      CountryLanguageDtoListEnvelope result = apiInstance.apiV2GlobeServiceLanguagesGet(apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countLanguagesAsync(apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LanguagesApi#apiV2GlobeServiceLanguagesGet");
+      System.err.println("Exception when calling LanguagesApi#countLanguagesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -61,11 +57,11 @@ public class Example {
 
 ### Return type
 
-[**CountryLanguageDtoListEnvelope**](CountryLanguageDtoListEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,11 +75,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2GlobeServiceLanguagesLanguageIdGet"></a>
-# **apiV2GlobeServiceLanguagesLanguageIdGet**
-> CountryLanguageDtoEnvelope apiV2GlobeServiceLanguagesLanguageIdGet(languageId, apiVersion, xApiVersion)
+<a id="getLanguageByIdAsync"></a>
+# **getLanguageByIdAsync**
+> CountryLanguageDtoEnvelope getLanguageByIdAsync(languageId, apiVersion, xApiVersion)
 
+Get language by ID
 
+Retrieves a single language by its unique identifier.
 
 ### Example
 ```java
@@ -91,7 +89,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.LanguagesApi;
 
@@ -99,22 +96,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     LanguagesApi apiInstance = new LanguagesApi(defaultClient);
     String languageId = "languageId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      CountryLanguageDtoEnvelope result = apiInstance.apiV2GlobeServiceLanguagesLanguageIdGet(languageId, apiVersion, xApiVersion);
+      CountryLanguageDtoEnvelope result = apiInstance.getLanguageByIdAsync(languageId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LanguagesApi#apiV2GlobeServiceLanguagesLanguageIdGet");
+      System.err.println("Exception when calling LanguagesApi#getLanguageByIdAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -138,7 +129,73 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getLanguagesAsync"></a>
+# **getLanguagesAsync**
+> CountryLanguageDtoListEnvelope getLanguagesAsync(apiVersion, xApiVersion)
+
+Get all languages
+
+Retrieves the list of all supported languages with optional OData pagination and filtering.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.LanguagesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    LanguagesApi apiInstance = new LanguagesApi(defaultClient);
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      CountryLanguageDtoListEnvelope result = apiInstance.getLanguagesAsync(apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LanguagesApi#getLanguagesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**CountryLanguageDtoListEnvelope**](CountryLanguageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

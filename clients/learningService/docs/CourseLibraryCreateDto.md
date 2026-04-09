@@ -1,0 +1,20 @@
+
+
+# CourseLibraryCreateDto
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**title** | **String** |  |  |
+|**description** | **String** |  |  [optional] |
+|**courseID** | **String** |  |  |
+|**courseUnitID** | **String** |  |  [optional] |
+|**businessID** | **String** |  |  |
+|**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
+
+
+

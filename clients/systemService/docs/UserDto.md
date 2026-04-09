@@ -12,6 +12,7 @@
 |**fullName** | **String** |  |  [optional] [readonly] |
 |**qualifiedName** | **String** |  |  [optional] |
 |**publicName** | **String** |  |  [optional] |
+|**handler** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**coverUrl** | **String** |  |  [optional] |
@@ -60,9 +61,10 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| UNKNOWN | &quot;Unknown&quot; |
+| MALE | &quot;Male&quot; |
+| FEMALE | &quot;Female&quot; |
+| PREFER_NOT_TO_SAY | &quot;PreferNotToSay&quot; |
 
 
 
@@ -70,11 +72,11 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
+| DND | &quot;DND&quot; |
+| BUSY | &quot;Busy&quot; |
+| AWAY | &quot;Away&quot; |
+| OFFLINE | &quot;Offline&quot; |
+| AVAILABLE | &quot;Available&quot; |
 
 
 
@@ -82,9 +84,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| SYSTEM | &quot;System&quot; |
+| LIGHT | &quot;Light&quot; |
+| DARK | &quot;Dark&quot; |
 
 
 

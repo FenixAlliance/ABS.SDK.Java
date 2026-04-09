@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SalesServiceMarginsMarginIdDetailsGet**](MarginsApi.md#apiV2SalesServiceMarginsMarginIdDetailsGet) | **GET** /api/v2/SalesService/Margins/{marginId}/Details |  |
+| [**getQuoteAsync**](MarginsApi.md#getQuoteAsync) | **GET** /api/v2/SalesService/Margins/{marginId}/Details | Get margin details by ID |
 
 
-<a id="apiV2SalesServiceMarginsMarginIdDetailsGet"></a>
-# **apiV2SalesServiceMarginsMarginIdDetailsGet**
-> apiV2SalesServiceMarginsMarginIdDetailsGet(marginId, apiVersion, xApiVersion)
+<a id="getQuoteAsync"></a>
+# **getQuoteAsync**
+> getQuoteAsync(marginId, apiVersion, xApiVersion)
 
+Get margin details by ID
 
+Retrieves the details of a specific sales margin by its ID.
 
 ### Example
 ```java
@@ -19,7 +21,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.MarginsApi;
 
@@ -27,21 +28,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     MarginsApi apiInstance = new MarginsApi(defaultClient);
     UUID marginId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.apiV2SalesServiceMarginsMarginIdDetailsGet(marginId, apiVersion, xApiVersion);
+      apiInstance.getQuoteAsync(marginId, apiVersion, xApiVersion);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MarginsApi#apiV2SalesServiceMarginsMarginIdDetailsGet");
+      System.err.println("Exception when calling MarginsApi#getQuoteAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -65,7 +60,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

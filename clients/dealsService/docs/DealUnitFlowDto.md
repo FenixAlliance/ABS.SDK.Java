@@ -13,7 +13,7 @@
 |**description** | **String** |  |  [optional] |
 |**parentBusinessProcessId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**tenantEnrolmentId** | **String** |  |  [optional] |
+|**tenantEnrollmentId** | **String** |  |  [optional] |
 
 
 

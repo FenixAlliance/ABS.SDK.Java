@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,19 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: HrmsService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Employees
+- name: Employers
+- name: FenixAlliance.ABP.Web
+- name: Gigs
+- name: JobOffers
 paths:
   /api/v2/HrmsService/Employees:
     get:
+      description: Retrieves employees for the specified tenant.
       operationId: GetEmployeesAsync
       parameters:
       - explode: true
@@ -69,12 +74,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmployeeProfileDtoListEnvelope'
           description: OK
+      summary: Get employees
       tags:
       - Employees
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new employee for the specified tenant.
       operationId: CreateEmployeeAsync
       parameters:
       - explode: true
@@ -135,7 +142,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "201":
+        "200":
           content:
             application/json:
               schema:
@@ -143,7 +150,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: Created
+          description: OK
+      summary: Create an employee
       tags:
       - Employees
       x-content-type: application/json
@@ -152,6 +160,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Employees/Count:
     get:
+      description: Counts employees for the specified tenant.
       operationId: GetEmployeesCountAsync
       parameters:
       - explode: true
@@ -204,6 +213,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Count employees
       tags:
       - Employees
       x-accepts:
@@ -211,6 +221,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Employees/{employeeId}:
     delete:
+      description: Deletes an employee for the specified tenant.
       operationId: DeleteEmployeeAsync
       parameters:
       - explode: true
@@ -262,7 +273,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "404":
+        "400":
           content:
             application/json:
               schema:
@@ -270,8 +281,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-          description: Not Found
-        "204":
+          description: Bad Request
+        "200":
           content:
             application/json:
               schema:
@@ -279,13 +290,15 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: No Content
+          description: OK
+      summary: Delete an employee
       tags:
       - Employees
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific employee by its identifier.
       operationId: GetEmployeeByIdAsync
       parameters:
       - explode: true
@@ -337,15 +350,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Not Found
         "200":
           content:
             application/json:
@@ -355,12 +359,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmployeeProfileDtoEnvelope'
           description: OK
+      summary: Get employee by ID
       tags:
       - Employees
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing employee for the specified tenant.
       operationId: UpdateEmployeeAsync
       parameters:
       - explode: true
@@ -429,15 +435,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Not Found
         "200":
           content:
             application/json:
@@ -447,6 +444,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an employee
       tags:
       - Employees
       x-content-type: application/json
@@ -455,6 +453,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Employers:
     get:
+      description: Retrieves employers for the specified tenant.
       operationId: GetEmployersAsync
       parameters:
       - explode: true
@@ -507,12 +506,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmployerProfileDtoListEnvelope'
           description: OK
+      summary: Get employers
       tags:
       - Employers
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new employer for the specified tenant.
       operationId: CreateEmployerAsync
       parameters:
       - explode: true
@@ -573,6 +574,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create an employer
       tags:
       - Employers
       x-content-type: application/json
@@ -581,6 +592,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Employers/Count:
     get:
+      description: Counts employers for the specified tenant.
       operationId: GetEmployersCountAsync
       parameters:
       - explode: true
@@ -633,6 +645,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Count employers
       tags:
       - Employers
       x-accepts:
@@ -640,6 +653,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Employers/{employerId}:
     delete:
+      description: Deletes an employer for the specified tenant.
       operationId: DeleteEmployerAsync
       parameters:
       - explode: true
@@ -700,12 +714,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete an employer
       tags:
       - Employers
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific employer by its identifier.
       operationId: GetEmployerByIdAsync
       parameters:
       - explode: true
@@ -766,12 +791,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmployerProfileDtoEnvelope'
           description: OK
+      summary: Get employer by ID
       tags:
       - Employers
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing employer for the specified tenant.
       operationId: UpdateEmployerAsync
       parameters:
       - explode: true
@@ -840,14 +867,300 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an employer
       tags:
       - Employers
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/HrmsService/Gigs:
     get:
+      description: Retrieves gigs for the specified tenant.
       operationId: GetGigsAsync
       parameters:
       - explode: true
@@ -900,12 +1213,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/GigDtoListEnvelope'
           description: OK
+      summary: Get gigs
       tags:
       - Gigs
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new gig for the specified tenant.
       operationId: CreateGigAsync
       parameters:
       - explode: true
@@ -957,8 +1272,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "201":
-          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a gig
       tags:
       - Gigs
       x-content-type: application/json
@@ -967,6 +1299,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Gigs/Count:
     get:
+      description: Counts gigs for the specified tenant.
       operationId: GetGigsCountAsync
       parameters:
       - explode: true
@@ -1019,6 +1352,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Count gigs
       tags:
       - Gigs
       x-accepts:
@@ -1026,6 +1360,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/Gigs/{gigId}:
     delete:
+      description: Deletes a gig for the specified tenant.
       operationId: DeleteGigAsync
       parameters:
       - explode: true
@@ -1077,14 +1412,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "204":
-          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a gig
       tags:
       - Gigs
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific gig by its identifier.
       operationId: GetGigByIdAsync
       parameters:
       - explode: true
@@ -1145,12 +1498,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/GigDtoEnvelope'
           description: OK
+      summary: Get gig by ID
       tags:
       - Gigs
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing gig for the specified tenant.
       operationId: UpdateGigAsync
       parameters:
       - explode: true
@@ -1210,8 +1565,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
-        "204":
-          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a gig
       tags:
       - Gigs
       x-content-type: application/json
@@ -1220,6 +1592,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/JobOffers:
     get:
+      description: Retrieves job offers for the specified tenant.
       operationId: GetJobOffersAsync
       parameters:
       - explode: true
@@ -1272,12 +1645,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobOfferDtoListEnvelope'
           description: OK
+      summary: Get job offers
       tags:
       - JobOffers
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new job offer for the specified tenant.
       operationId: CreateJobOfferAsync
       parameters:
       - explode: true
@@ -1338,6 +1713,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a job offer
       tags:
       - JobOffers
       x-content-type: application/json
@@ -1346,6 +1731,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/JobOffers/Count:
     get:
+      description: Counts job offers for the specified tenant.
       operationId: GetJobOffersCountAsync
       parameters:
       - explode: true
@@ -1398,6 +1784,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Count job offers
       tags:
       - JobOffers
       x-accepts:
@@ -1405,6 +1792,7 @@ paths:
       - application/xml
   /api/v2/HrmsService/JobOffers/{jobOfferId}:
     delete:
+      description: Deletes a job offer for the specified tenant.
       operationId: DeleteJobOfferAsync
       parameters:
       - explode: true
@@ -1456,12 +1844,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a job offer
       tags:
       - JobOffers
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific job offer by its identifier.
       operationId: GetJobOfferByIdAsync
       parameters:
       - explode: true
@@ -1522,12 +1930,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobOfferDtoEnvelope'
           description: OK
+      summary: Get job offer by ID
       tags:
       - JobOffers
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing job offer for the specified tenant.
       operationId: UpdateJobOfferAsync
       parameters:
       - explode: true
@@ -1596,6 +2006,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a job offer
       tags:
       - JobOffers
       x-content-type: application/json
@@ -1604,6 +2024,32 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     EmployeeProfileCreateDto:
       additionalProperties: false
       example:
@@ -1612,11 +2058,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
       type: object
     EmployeeProfileDto:
@@ -1713,11 +2157,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
       type: object
     EmployerProfileDto:
@@ -1860,19 +2302,56 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
     GigCreateDto:
       additionalProperties: false
       example:
+        skillsRequired: skillsRequired
+        endDate: 2000-01-23T04:56:07.000+00:00
+        description: description
+        location: location
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        startDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
+        budget: 0.8008281904610115
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        budget:
+          format: double
+          type: number
+        location:
+          nullable: true
+          type: string
+        skillsRequired:
+          nullable: true
           type: string
       type: object
     GigDto:
@@ -1960,6 +2439,106 @@ components:
       type: object
     GigUpdateDto:
       additionalProperties: false
+      example:
+        endDate: 2000-01-23T04:56:07.000+00:00
+        price: 0.8008281904610115
+        description: description
+        currency: currency
+        location: location
+        title: title
+        category: category
+        startDate: 2000-01-23T04:56:07.000+00:00
+        tags: tags
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        price:
+          format: double
+          nullable: true
+          type: number
+        currency:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          nullable: true
+          type: string
+        endDate:
+          format: date-time
+          nullable: true
+          type: string
+        category:
+          nullable: true
+          type: string
+        tags:
+          nullable: true
+          type: string
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
       type: object
     Int32Envelope:
       additionalProperties: false
@@ -2000,11 +2579,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
       type: object
     JobOfferDto:
@@ -2093,12 +2670,141 @@ components:
     JobOfferUpdateDto:
       additionalProperties: false
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

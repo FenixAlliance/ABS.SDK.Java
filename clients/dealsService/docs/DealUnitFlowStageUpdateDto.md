@@ -10,7 +10,7 @@
 |**order** | **Integer** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**dealUnitFlowId** | **String** |  |  [optional] |
 |**parentBusinessProcessStageId** | **String** |  |  [optional] |
 

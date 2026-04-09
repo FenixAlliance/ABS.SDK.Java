@@ -18,7 +18,6 @@
 |**validResponse** | **Boolean** |  |  [optional] |
 |**parentFileUploadID** | **String** |  |  [optional] |
 |**filePath** | **String** |  |  [optional] |
-|**_file** | **File** |  |  [optional] |
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
 

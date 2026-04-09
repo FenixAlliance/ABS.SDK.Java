@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**codeType** | [**CodeTypeEnum**](#CodeTypeEnum) |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
 |**slug** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
@@ -18,6 +19,7 @@
 |**description** | **String** |  |  [optional] |
 |**highlightImage** | **String** |  |  [optional] |
 |**canonicalUrl** | **String** |  |  [optional] |
+|**emitResult** | **Object** |  |  [optional] |
 |**seoTitle** | **String** |  |  [optional] |
 |**seoKeyWords** | **String** |  |  [optional] |
 |**seoKeyPhrases** | **String** |  |  [optional] |
@@ -66,6 +68,19 @@
 |**parentWebContentVersionId** | **String** |  |  [optional] |
 |**marketingCampaignId** | **String** |  |  [optional] |
 |**marketingCampaignName** | **String** |  |  [optional] |
+
+
+
+## Enum: CodeTypeEnum
+
+| Name | Value |
+|---- | -----|
+| RAZOR | &quot;Razor&quot; |
+| C_SHARP | &quot;CSharp&quot; |
+| CS_HTML | &quot;CSHtml&quot; |
+| LIQUID | &quot;Liquid&quot; |
+| HTML5 | &quot;Html5&quot; |
+| MARKDOWN | &quot;Markdown&quot; |
 
 
 

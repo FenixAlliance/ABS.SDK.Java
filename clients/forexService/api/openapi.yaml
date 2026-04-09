@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,20 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: ForexService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Exchange
+- name: ExchangeV
+- name: FenixAlliance.ABP.Web
+- name: Rates
 paths:
   /api/v2/ForexService/Exchange/Latest:
     get:
+      description: Exchange an amount of money from one currency to another using
+        the latest available exchange rates.
+      operationId: ExchangeAmountAsync
       parameters:
       - explode: true
         in: query
@@ -68,6 +74,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MoneyEnvelope'
           description: OK
+      summary: Exchange currency at latest rates
       tags:
       - Exchange
       x-accepts:
@@ -75,6 +82,9 @@ paths:
       - application/xml
   /api/v2/ForexService/Exchange/History:
     get:
+      description: Exchange an amount of money from one currency to another using
+        exchange rates from a specific historical date.
+      operationId: ExchangeAmountHistoricalAsync
       parameters:
       - explode: true
         in: query
@@ -134,6 +144,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MoneyEnvelope'
           description: OK
+      summary: Exchange currency at historical rates
       tags:
       - Exchange
       x-accepts:
@@ -141,6 +152,9 @@ paths:
       - application/xml
   /api/v3/ForexService/Exchange/Latest:
     get:
+      description: Exchange an amount of money from one currency to another using
+        the latest available exchange rates. Returns the full ExchangeRate details.
+      operationId: ExchangeAmountV3Async
       parameters:
       - explode: true
         in: query
@@ -192,6 +206,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExchangeRateEnvelope'
           description: OK
+      summary: Exchange currency at latest rates (v3)
       tags:
       - ExchangeV
       x-accepts:
@@ -199,6 +214,10 @@ paths:
       - application/xml
   /api/v3/ForexService/Exchange/History:
     get:
+      description: Exchange an amount of money from one currency to another using
+        exchange rates from a specific historical date. Returns the full ExchangeRate
+        details.
+      operationId: ExchangeAmountHistoricalV3Async
       parameters:
       - explode: true
         in: query
@@ -258,13 +277,291 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExchangeRateEnvelope'
           description: OK
+      summary: Exchange currency at historical rates (v3)
       tags:
       - ExchangeV
       x-accepts:
       - application/json
       - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/ForexService/Rates/Latest:
     get:
+      description: Retrieves the latest exchange rates for all supported currencies.
+      operationId: GetLatestCurrencyRatesModelAsync
       parameters:
       - explode: true
         in: query
@@ -308,6 +605,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ForexRatesDtoEnvelope'
           description: OK
+      summary: Get latest currency rates
       tags:
       - Rates
       x-accepts:
@@ -315,6 +613,9 @@ paths:
       - application/xml
   /api/v2/ForexService/Rates/Latest/{currencyId}:
     get:
+      description: Retrieves the latest exchange rate for a specific currency by its
+        identifier.
+      operationId: GetLatestCurrencyRateAsync
       parameters:
       - explode: false
         in: path
@@ -365,6 +666,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExchangeRateEnvelope'
           description: OK
+      summary: Get latest rate for a currency
       tags:
       - Rates
       x-accepts:
@@ -372,6 +674,9 @@ paths:
       - application/xml
   /api/v2/ForexService/Rates/History:
     get:
+      description: Retrieves exchange rates for all supported currencies as of a specific
+        historical date.
+      operationId: GetHistoricalCurrencyRatesAsync
       parameters:
       - explode: true
         in: query
@@ -423,6 +728,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ForexRatesDtoEnvelope'
           description: OK
+      summary: Get historical currency rates
       tags:
       - Rates
       x-accepts:
@@ -430,6 +736,9 @@ paths:
       - application/xml
   /api/v2/ForexService/Rates/History/{currencyId}:
     get:
+      description: Retrieves the exchange rate for a specific currency as of a specific
+        historical date.
+      operationId: GetHistoricalCurrencyRateAsync
       parameters:
       - explode: false
         in: path
@@ -488,6 +797,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExchangeRateEnvelope'
           description: OK
+      summary: Get historical rate for a currency
       tags:
       - Rates
       x-accepts:
@@ -495,12 +805,43 @@ paths:
       - application/xml
 components:
   schemas:
-    Currency:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    CurrencyId:
       additionalProperties: false
       example:
         country: country
         code: code
+        value: value
       properties:
+        value:
+          nullable: true
+          readOnly: true
+          type: string
         code:
           nullable: true
           type: string
@@ -543,16 +884,19 @@ components:
           currency:
             country: country
             code: code
+            value: value
         source:
           amount: 0.8008281904610115
           currency:
             country: country
             code: code
+            value: value
         target:
           amount: 0.8008281904610115
           currency:
             country: country
             code: code
+            value: value
       properties:
         source:
           $ref: '#/components/schemas/Money'
@@ -570,16 +914,19 @@ components:
             currency:
               country: country
               code: code
+              value: value
           source:
             amount: 0.8008281904610115
             currency:
               country: country
               code: code
+              value: value
           target:
             amount: 0.8008281904610115
             currency:
               country: country
               code: code
+              value: value
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -675,6 +1022,100 @@ components:
         result:
           $ref: '#/components/schemas/ForexRatesDto'
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     Money:
       additionalProperties: false
       example:
@@ -682,12 +1123,13 @@ components:
         currency:
           country: country
           code: code
+          value: value
       properties:
         amount:
           format: double
           type: number
         currency:
-          $ref: '#/components/schemas/Currency'
+          $ref: '#/components/schemas/CurrencyId'
       type: object
     MoneyEnvelope:
       additionalProperties: false
@@ -697,6 +1139,7 @@ components:
           currency:
             country: country
             code: code
+            value: value
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -723,12 +1166,117 @@ components:
         result:
           $ref: '#/components/schemas/Money'
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

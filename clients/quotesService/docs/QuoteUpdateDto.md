@@ -11,8 +11,6 @@
 |**title** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
@@ -33,12 +31,37 @@
 |**billingLocationId** | **String** |  |  [optional] |
 |**shippingLocationId** | **String** |  |  [optional] |
 |**shippingMethodId** | **String** |  |  [optional] |
-|**cartId** | **String** |  |  [optional] |
-|**total** | **Double** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
+|**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalSurcharges** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
 |**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
+|**cartId** | **String** |  |  [optional] |
 |**quoteStatus** | [**QuoteStatusEnum**](#QuoteStatusEnum) |  |  [optional] |
 |**freightTerms** | [**FreightTermsEnum**](#FreightTermsEnum) |  |  [optional] |
-|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**effectiveTo** | **OffsetDateTime** |  |  [optional] |
 |**effectiveFrom** | **OffsetDateTime** |  |  [optional] |
 |**customTaxAmount** | **Double** |  |  [optional] |
@@ -53,15 +76,33 @@
 
 
 
+## Enum: CostCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
+
+
+
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
+
+
+
 ## Enum: QuoteStatusEnum
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
+| DRAFT | &quot;Draft&quot; |
+| NEW | &quot;New&quot; |
+| ACCEPTED | &quot;Accepted&quot; |
+| DECLINED | &quot;Declined&quot; |
+| EXPIRED | &quot;Expired&quot; |
 
 
 
@@ -69,17 +110,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-
-
-
-## Enum: CostCalculationMethodEnum
-
-| Name | Value |
-|---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| FOB | &quot;FOB&quot; |
+| NO_CHARGE | &quot;NoCharge&quot; |
 
 
 

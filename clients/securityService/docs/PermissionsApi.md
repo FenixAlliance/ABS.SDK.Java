@@ -4,25 +4,31 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SecurityServicePermissionsGet**](PermissionsApi.md#apiV2SecurityServicePermissionsGet) | **GET** /api/v2/SecurityService/Permissions |  |
-| [**apiV2SecurityServicePermissionsPost**](PermissionsApi.md#apiV2SecurityServicePermissionsPost) | **POST** /api/v2/SecurityService/Permissions |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdDelete**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdDelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdGet**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdGet) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdPut**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdPut) | **PUT** /api/v2/SecurityService/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} |  |
-| [**apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost**](PermissionsApi.md#apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} |  |
+| [**assignPermissionToBusinessApplicationAsync**](PermissionsApi.md#assignPermissionToBusinessApplicationAsync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Assign a permission to a business application |
+| [**assignPermissionToEnrollmentAsync**](PermissionsApi.md#assignPermissionToEnrollmentAsync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Assign a permission to an enrollment |
+| [**assignRoleToPermissionAsync**](PermissionsApi.md#assignRoleToPermissionAsync) | **POST** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Assign a role to a permission |
+| [**createPermissionAsync**](PermissionsApi.md#createPermissionAsync) | **POST** /api/v2/SecurityService/Permissions | Create a new permission |
+| [**deletePermissionAsync**](PermissionsApi.md#deletePermissionAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId} | Delete an existing permission |
+| [**getApplicationsByPermissionAsync**](PermissionsApi.md#getApplicationsByPermissionAsync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications | Get applications by permission |
+| [**getEnrollmentsByPermissionAsync**](PermissionsApi.md#getEnrollmentsByPermissionAsync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments | Get enrollments by permission |
+| [**getPermissionAsync**](PermissionsApi.md#getPermissionAsync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId} | Get permission by ID |
+| [**getPermissionsAsync**](PermissionsApi.md#getPermissionsAsync) | **GET** /api/v2/SecurityService/Permissions | Get all permissions |
+| [**getPermissionsByEnrollmentAsync**](PermissionsApi.md#getPermissionsByEnrollmentAsync) | **GET** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment |
+| [**getPermissionsCountAsync**](PermissionsApi.md#getPermissionsCountAsync) | **GET** /api/v2/SecurityService/Permissions/Count | Get permissions count |
+| [**getRolesByPermissionAsync**](PermissionsApi.md#getRolesByPermissionAsync) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission |
+| [**revokePermissionFromBusinessApplicationAsync**](PermissionsApi.md#revokePermissionFromBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application |
+| [**revokePermissionFromEnrollmentAsync**](PermissionsApi.md#revokePermissionFromEnrollmentAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment |
+| [**revokeRoleFromPermissionAsync**](PermissionsApi.md#revokeRoleFromPermissionAsync) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission |
+| [**updatePermissionAsync**](PermissionsApi.md#updatePermissionAsync) | **PUT** /api/v2/SecurityService/Permissions/{securityPermissionId} | Update an existing permission |
 
 
-<a id="apiV2SecurityServicePermissionsGet"></a>
-# **apiV2SecurityServicePermissionsGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServicePermissionsGet(tenantId, apiVersion, xApiVersion)
+<a id="assignPermissionToBusinessApplicationAsync"></a>
+# **assignPermissionToBusinessApplicationAsync**
+> EmptyEnvelope assignPermissionToBusinessApplicationAsync(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion)
 
+Assign a permission to a business application
 
+Assigns a security permission to a business application.
 
 ### Example
 ```java
@@ -30,7 +36,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -38,22 +43,18 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String applicationId = "applicationId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SecurityRoleDtoListEnvelope result = apiInstance.apiV2SecurityServicePermissionsGet(tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.assignPermissionToBusinessApplicationAsync(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsGet");
+      System.err.println("Exception when calling PermissionsApi#assignPermissionToBusinessApplicationAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -68,16 +69,18 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **applicationId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,13 +92,16 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
 
-<a id="apiV2SecurityServicePermissionsPost"></a>
-# **apiV2SecurityServicePermissionsPost**
-> EmptyEnvelope apiV2SecurityServicePermissionsPost(tenantId, securityPermissionCreateDto, apiVersion, xApiVersion)
+<a id="assignPermissionToEnrollmentAsync"></a>
+# **assignPermissionToEnrollmentAsync**
+> EmptyEnvelope assignPermissionToEnrollmentAsync(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion)
 
+Assign a permission to an enrollment
 
+Assigns a security permission to a tenant enrollment.
 
 ### Example
 ```java
@@ -103,7 +109,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -111,12 +116,152 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String enrollmentId = "enrollmentId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.assignPermissionToEnrollmentAsync(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#assignPermissionToEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
+
+<a id="assignRoleToPermissionAsync"></a>
+# **assignRoleToPermissionAsync**
+> EmptyEnvelope assignRoleToPermissionAsync(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion)
+
+Assign a role to a permission
+
+Assigns a security role to a security permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.assignRoleToPermissionAsync(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#assignRoleToPermissionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **securityRoleId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
+
+<a id="createPermissionAsync"></a>
+# **createPermissionAsync**
+> EmptyEnvelope createPermissionAsync(tenantId, securityPermissionCreateDto, apiVersion, xApiVersion)
+
+Create a new permission
+
+Creates a new security permission for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -124,10 +269,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsPost(tenantId, securityPermissionCreateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createPermissionAsync(tenantId, securityPermissionCreateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsPost");
+      System.err.println("Exception when calling PermissionsApi#createPermissionAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -152,7 +297,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,89 +312,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **201** | Created |  -  |
 
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion)
+<a id="deletePermissionAsync"></a>
+# **deletePermissionAsync**
+> EmptyEnvelope deletePermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion)
 
+Delete an existing permission
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String applicationId = "applicationId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **applicationId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion)
-
-
+Deletes an existing security permission for the specified tenant.
 
 ### Example
 ```java
@@ -257,7 +326,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -265,90 +333,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String applicationId = "applicationId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdApplicationsApplicationIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **applicationId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **201** | Created |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdDelete"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdDelete**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdDelete(tenantId, securityPermissionId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -356,10 +340,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdDelete(tenantId, securityPermissionId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deletePermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdDelete");
+      System.err.println("Exception when calling PermissionsApi#deletePermissionAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -384,7 +368,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -399,89 +383,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **204** | No Content |  -  |
 
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion)
+<a id="getApplicationsByPermissionAsync"></a>
+# **getApplicationsByPermissionAsync**
+> BusinessApplicationSimpleDtoListEnvelope getApplicationsByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion)
 
+Get applications by permission
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String enrollmentId = "enrollmentId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **enrollmentId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **204** | No Content |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion)
-
-
+Retrieves all business applications that have a specific permission granted.
 
 ### Example
 ```java
@@ -489,7 +397,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -497,90 +404,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String enrollmentId = "enrollmentId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsEnrollmentIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **enrollmentId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **201** | Created |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet**
-> TenantEnrolmentDtoListEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(tenantId, securityPermissionId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -588,10 +411,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TenantEnrolmentDtoListEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet(tenantId, securityPermissionId, apiVersion, xApiVersion);
+      BusinessApplicationSimpleDtoListEnvelope result = apiInstance.getApplicationsByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdEnrollmentsGet");
+      System.err.println("Exception when calling PermissionsApi#getApplicationsByPermissionAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -612,11 +435,11 @@ public class Example {
 
 ### Return type
 
-[**TenantEnrolmentDtoListEnvelope**](TenantEnrolmentDtoListEnvelope.md)
+[**BusinessApplicationSimpleDtoListEnvelope**](BusinessApplicationSimpleDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -630,11 +453,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdGet"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdGet(tenantId, securityPermissionId, apiVersion, xApiVersion)
+<a id="getEnrollmentsByPermissionAsync"></a>
+# **getEnrollmentsByPermissionAsync**
+> TenantEnrollmentDtoListEnvelope getEnrollmentsByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion)
 
+Get enrollments by permission
 
+Retrieves all tenant enrollments that have a specific permission.
 
 ### Example
 ```java
@@ -642,7 +467,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -650,12 +474,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -663,10 +481,356 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SecurityRoleDtoListEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdGet(tenantId, securityPermissionId, apiVersion, xApiVersion);
+      TenantEnrollmentDtoListEnvelope result = apiInstance.getEnrollmentsByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdGet");
+      System.err.println("Exception when calling PermissionsApi#getEnrollmentsByPermissionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**TenantEnrollmentDtoListEnvelope**](TenantEnrollmentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getPermissionAsync"></a>
+# **getPermissionAsync**
+> SecurityPermissionDtoEnvelope getPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion)
+
+Get permission by ID
+
+Retrieves a specific security permission by its ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityPermissionDtoEnvelope result = apiInstance.getPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#getPermissionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityPermissionDtoEnvelope**](SecurityPermissionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getPermissionsAsync"></a>
+# **getPermissionsAsync**
+> SecurityPermissionDtoListEnvelope getPermissionsAsync(tenantId, apiVersion, xApiVersion)
+
+Get all permissions
+
+Retrieves all security permissions for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityPermissionDtoListEnvelope result = apiInstance.getPermissionsAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#getPermissionsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getPermissionsByEnrollmentAsync"></a>
+# **getPermissionsByEnrollmentAsync**
+> SecurityPermissionDtoListEnvelope getPermissionsByEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion)
+
+Get permissions by enrollment
+
+Retrieves all security permissions granted to a specific enrollment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String enrollmentId = "enrollmentId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityPermissionDtoListEnvelope result = apiInstance.getPermissionsByEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#getPermissionsByEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getPermissionsCountAsync"></a>
+# **getPermissionsCountAsync**
+> Int32Envelope getPermissionsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get permissions count
+
+Retrieves the count of security permissions for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getPermissionsCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#getPermissionsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getRolesByPermissionAsync"></a>
+# **getRolesByPermissionAsync**
+> SecurityRoleDtoListEnvelope getRolesByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion)
+
+Get roles by permission
+
+Retrieves all security roles that have a specific permission granted.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityRoleDtoListEnvelope result = apiInstance.getRolesByPermissionAsync(tenantId, securityPermissionId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#getRolesByPermissionAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -691,7 +855,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -705,11 +869,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdPut"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdPut**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdPut(tenantId, securityPermissionId, securityPermissionUpdateDto, apiVersion, xApiVersion)
+<a id="revokePermissionFromBusinessApplicationAsync"></a>
+# **revokePermissionFromBusinessApplicationAsync**
+> EmptyEnvelope revokePermissionFromBusinessApplicationAsync(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion)
 
+Revoke a permission from a business application
 
+Revokes a security permission from a business application.
 
 ### Example
 ```java
@@ -717,7 +883,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PermissionsApi;
 
@@ -725,12 +890,225 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String applicationId = "applicationId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.revokePermissionFromBusinessApplicationAsync(tenantId, securityPermissionId, applicationId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#revokePermissionFromBusinessApplicationAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **applicationId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
+<a id="revokePermissionFromEnrollmentAsync"></a>
+# **revokePermissionFromEnrollmentAsync**
+> EmptyEnvelope revokePermissionFromEnrollmentAsync(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion)
+
+Revoke a permission from an enrollment
+
+Revokes a security permission from a tenant enrollment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String enrollmentId = "enrollmentId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.revokePermissionFromEnrollmentAsync(tenantId, securityPermissionId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#revokePermissionFromEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
+
+<a id="revokeRoleFromPermissionAsync"></a>
+# **revokeRoleFromPermissionAsync**
+> EmptyEnvelope revokeRoleFromPermissionAsync(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion)
+
+Revoke a role from a permission
+
+Revokes a security role from a security permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.revokeRoleFromPermissionAsync(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PermissionsApi#revokeRoleFromPermissionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityPermissionId** | **String**|  | |
+| **securityRoleId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
+
+<a id="updatePermissionAsync"></a>
+# **updatePermissionAsync**
+> EmptyEnvelope updatePermissionAsync(tenantId, securityPermissionId, securityPermissionUpdateDto, apiVersion, xApiVersion)
+
+Update an existing permission
+
+Updates an existing security permission for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PermissionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -739,10 +1117,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdPut(tenantId, securityPermissionId, securityPermissionUpdateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.updatePermissionAsync(tenantId, securityPermissionId, securityPermissionUpdateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdPut");
+      System.err.println("Exception when calling PermissionsApi#updatePermissionAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -768,7 +1146,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -782,160 +1160,4 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **securityRoleId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **204** | No Content |  -  |
-
-<a id="apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost"></a>
-# **apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost**
-> EmptyEnvelope apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PermissionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PermissionsApi apiInstance = new PermissionsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost(tenantId, securityPermissionId, securityRoleId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PermissionsApi#apiV2SecurityServicePermissionsSecurityPermissionIdRolesSecurityRoleIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityPermissionId** | **String**|  | |
-| **securityRoleId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **201** | Created |  -  |
 

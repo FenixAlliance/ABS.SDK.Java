@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**invoiceId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**emisorWalletId** | **String** |  |  [optional] |
@@ -62,7 +62,7 @@
 |**accountingEntryId** | **String** |  |  [optional] |
 |**paymentGatewayId** | **String** |  |  [optional] |
 |**bankAccountId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**bankId** | **String** |  |  [optional] |
 |**paymentTokenId** | **String** |  |  [optional] |
 |**emisorWalletAccountId** | **String** |  |  [optional] |
@@ -74,10 +74,10 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
+| SELF | &quot;Self&quot; |
+| TENANT | &quot;Tenant&quot; |
+| INDIVIDUAL | &quot;Individual&quot; |
+| ORGANIZATION | &quot;Organization&quot; |
 
 
 
@@ -85,9 +85,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| PAID | &quot;Paid&quot; |
+| RECEIVED | &quot;Received&quot; |
+| INTERNAL | &quot;Internal&quot; |
 
 
 
@@ -95,18 +95,18 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
-| NUMBER_5 | 5 |
-| NUMBER_6 | 6 |
-| NUMBER_7 | 7 |
-| NUMBER_8 | 8 |
-| NUMBER_9 | 9 |
-| NUMBER_10 | 10 |
-| NUMBER_11 | 11 |
+| UNSET | &quot;Unset&quot; |
+| ACCEPTED | &quot;Accepted&quot; |
+| REJECTED | &quot;Rejected&quot; |
+| ON_HOLD | &quot;OnHold&quot; |
+| FAILED | &quot;Failed&quot; |
+| REVERSED | &quot;Reversed&quot; |
+| RETAINED | &quot;Retained&quot; |
+| INITIALIZED | &quot;Initialized&quot; |
+| EXPIRED | &quot;Expired&quot; |
+| ABANDONED | &quot;Abandoned&quot; |
+| CANCELLED | &quot;Cancelled&quot; |
+| ACCEPTED_RETAINED | &quot;AcceptedRetained&quot; |
 
 
 

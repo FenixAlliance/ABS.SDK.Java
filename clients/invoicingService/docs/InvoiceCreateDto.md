@@ -7,20 +7,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**closed** | **Boolean** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
-|**userId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**individualId** | **String** |  |  [optional] |
 |**paymentTermId** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**companyName** | **String** |  |  [optional] |
@@ -31,28 +27,73 @@
 |**countryId** | **String** |  |  [optional] |
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
+|**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalSurcharges** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**paid** | **Boolean** |  |  [optional] |
 |**number** | **Integer** |  |  [optional] |
 |**notes** | **String** |  |  [optional] |
-|**customerNotes** | **String** |  |  [optional] |
 |**orderId** | **String** |  |  [optional] |
 |**enumeration** | **String** |  |  [optional] |
 |**paymentModeId** | **String** |  |  [optional] |
-|**receiverTenantId** | **String** |  |  [optional] |
 |**enumerationRangeId** | **String** |  |  [optional] |
 |**emisorBillingProfileId** | **String** |  |  [optional] |
 |**receiverBillingProfileId** | **String** |  |  [optional] |
 |**emisorWalletAccountId** | **String** |  |  [optional] |
 |**receiverWalletAccountId** | **String** |  |  [optional] |
-|**paymentDue** | **OffsetDateTime** |  |  [optional] |
+|**customerNotes** | **String** |  |  [optional] |
 |**invoiceType** | [**InvoiceTypeEnum**](#InvoiceTypeEnum) |  |  [optional] |
 |**documentType** | [**DocumentTypeEnum**](#DocumentTypeEnum) |  |  [optional] |
 |**invoiceStatus** | [**InvoiceStatusEnum**](#InvoiceStatusEnum) |  |  [optional] |
+|**paymentDue** | **OffsetDateTime** |  |  [optional] |
 |**validFrom** | **OffsetDateTime** |  |  [optional] |
 |**validTo** | **OffsetDateTime** |  |  [optional] |
-|**invoiceReferences** | [**List&lt;InvoiceReferenceDto&gt;**](InvoiceReferenceDto.md) |  |  [optional] |
-|**invoiceItemRecords** | [**List&lt;InvoiceItemRecordDto&gt;**](InvoiceItemRecordDto.md) |  |  [optional] |
-|**invoiceAdjustments** | [**List&lt;InvoiceAdjustmentDto&gt;**](InvoiceAdjustmentDto.md) |  |  [optional] |
+|**invoiceLines** | [**List&lt;InvoiceLineCreateDto&gt;**](InvoiceLineCreateDto.md) |  |  [optional] |
+|**invoiceReferences** | [**List&lt;InvoiceReferenceCreateDto&gt;**](InvoiceReferenceCreateDto.md) |  |  [optional] |
+|**invoiceAdjustments** | [**List&lt;InvoiceAdjustmentCreateDto&gt;**](InvoiceAdjustmentCreateDto.md) |  |  [optional] |
+
+
+
+## Enum: CostCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
+
+
+
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
 
 
 
@@ -60,8 +101,10 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| PURCHASE_INVOICE | &quot;PurchaseInvoice&quot; |
+| SALES_INVOICE | &quot;SalesInvoice&quot; |
+| CREDIT_NOTE | &quot;CreditNote&quot; |
+| DEBIT_NOTE | &quot;DebitNote&quot; |
 
 
 
@@ -69,9 +112,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| STANDARD | &quot;Standard&quot; |
+| DEBIT_NOTE | &quot;DebitNote&quot; |
+| CREDIT_NOTE | &quot;CreditNote&quot; |
 
 
 
@@ -79,11 +122,11 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
+| DRAFT | &quot;Draft&quot; |
+| CLOSED | &quot;Closed&quot; |
+| SIGNED | &quot;Signed&quot; |
+| EXPIRED | &quot;Expired&quot; |
+| PAID | &quot;Paid&quot; |
 
 
 

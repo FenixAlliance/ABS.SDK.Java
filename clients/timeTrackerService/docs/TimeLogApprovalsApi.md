@@ -4,16 +4,18 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver |  |
-| [**apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status |  |
-| [**apiV2TimeTrackerServiceTimeLogApprovalsPost**](TimeLogApprovalsApi.md#apiV2TimeTrackerServiceTimeLogApprovalsPost) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals |  |
+| [**requestProjectHoursApprovalAsync**](TimeLogApprovalsApi.md#requestProjectHoursApprovalAsync) | **POST** /api/v2/TimeTrackerService/TimeLogApprovals | Request project hours approval |
+| [**updateProjectHoursApprovalApproverAsync**](TimeLogApprovalsApi.md#updateProjectHoursApprovalApproverAsync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver | Update approval approver |
+| [**updateProjectHoursApprovalStatusAsync**](TimeLogApprovalsApi.md#updateProjectHoursApprovalStatusAsync) | **PUT** /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status | Update approval status |
 
 
-<a id="apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut"></a>
-# **apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut**
-> apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto)
+<a id="requestProjectHoursApprovalAsync"></a>
+# **requestProjectHoursApprovalAsync**
+> requestProjectHoursApprovalAsync(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto)
 
+Request project hours approval
 
+Creates a new project hours approval request.
 
 ### Example
 ```java
@@ -21,7 +23,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TimeLogApprovalsApi;
 
@@ -29,12 +30,75 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    TimeLogApprovalsApi apiInstance = new TimeLogApprovalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ProjectHoursApprovalCreateDto projectHoursApprovalCreateDto = new ProjectHoursApprovalCreateDto(); // ProjectHoursApprovalCreateDto | 
+    try {
+      apiInstance.requestProjectHoursApprovalAsync(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TimeLogApprovalsApi#requestProjectHoursApprovalAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **projectHoursApprovalCreateDto** | [**ProjectHoursApprovalCreateDto**](ProjectHoursApprovalCreateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateProjectHoursApprovalApproverAsync"></a>
+# **updateProjectHoursApprovalApproverAsync**
+> updateProjectHoursApprovalApproverAsync(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto)
+
+Update approval approver
+
+Updates the approver of an existing project hours approval.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TimeLogApprovalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     TimeLogApprovalsApi apiInstance = new TimeLogApprovalsApi(defaultClient);
     UUID approvalId = UUID.randomUUID(); // UUID | 
@@ -43,9 +107,9 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     ProjectHoursApprovalApproverUpdateDto projectHoursApprovalApproverUpdateDto = new ProjectHoursApprovalApproverUpdateDto(); // ProjectHoursApprovalApproverUpdateDto | 
     try {
-      apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto);
+      apiInstance.updateProjectHoursApprovalApproverAsync(approvalId, tenantId, apiVersion, xApiVersion, projectHoursApprovalApproverUpdateDto);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TimeLogApprovalsApi#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdApproverPut");
+      System.err.println("Exception when calling TimeLogApprovalsApi#updateProjectHoursApprovalApproverAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -71,7 +135,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,11 +149,13 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut"></a>
-# **apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut**
-> apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut(tenantId, approvalId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto)
+<a id="updateProjectHoursApprovalStatusAsync"></a>
+# **updateProjectHoursApprovalStatusAsync**
+> updateProjectHoursApprovalStatusAsync(tenantId, approvalId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto)
 
+Update approval status
 
+Updates the status of an existing project hours approval.
 
 ### Example
 ```java
@@ -97,7 +163,6 @@ null (empty response body)
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.TimeLogApprovalsApi;
 
@@ -105,12 +170,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     TimeLogApprovalsApi apiInstance = new TimeLogApprovalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -119,9 +178,9 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     ProjectHoursApprovalStatusUpdateDto projectHoursApprovalStatusUpdateDto = new ProjectHoursApprovalStatusUpdateDto(); // ProjectHoursApprovalStatusUpdateDto | 
     try {
-      apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut(tenantId, approvalId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto);
+      apiInstance.updateProjectHoursApprovalStatusAsync(tenantId, approvalId, apiVersion, xApiVersion, projectHoursApprovalStatusUpdateDto);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TimeLogApprovalsApi#apiV2TimeTrackerServiceTimeLogApprovalsApprovalIdStatusPut");
+      System.err.println("Exception when calling TimeLogApprovalsApi#updateProjectHoursApprovalStatusAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -147,81 +206,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2TimeTrackerServiceTimeLogApprovalsPost"></a>
-# **apiV2TimeTrackerServiceTimeLogApprovalsPost**
-> apiV2TimeTrackerServiceTimeLogApprovalsPost(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TimeLogApprovalsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    TimeLogApprovalsApi apiInstance = new TimeLogApprovalsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    ProjectHoursApprovalCreateDto projectHoursApprovalCreateDto = new ProjectHoursApprovalCreateDto(); // ProjectHoursApprovalCreateDto | 
-    try {
-      apiInstance.apiV2TimeTrackerServiceTimeLogApprovalsPost(tenantId, apiVersion, xApiVersion, projectHoursApprovalCreateDto);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TimeLogApprovalsApi#apiV2TimeTrackerServiceTimeLogApprovalsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **projectHoursApprovalCreateDto** | [**ProjectHoursApprovalCreateDto**](ProjectHoursApprovalCreateDto.md)|  | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

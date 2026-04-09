@@ -4,26 +4,31 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SecurityServiceRolesGet**](RolesApi.md#apiV2SecurityServiceRolesGet) | **GET** /api/v2/SecurityService/Roles |  |
-| [**apiV2SecurityServiceRolesPost**](RolesApi.md#apiV2SecurityServiceRolesPost) | **POST** /api/v2/SecurityService/Roles |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} |  |
-| [**apiV2SecurityServiceRolesSecurityRoleIdPut**](RolesApi.md#apiV2SecurityServiceRolesSecurityRoleIdPut) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} |  |
+| [**assignPermissionToRoleAsync**](RolesApi.md#assignPermissionToRoleAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Assign a permission to a role |
+| [**assignRoleToBusinessApplicationAsync**](RolesApi.md#assignRoleToBusinessApplicationAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Assign a role to a business application |
+| [**assignRoleToEnrollmentAsync**](RolesApi.md#assignRoleToEnrollmentAsync) | **POST** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Assign a role to an enrollment |
+| [**createRoleAsync**](RolesApi.md#createRoleAsync) | **POST** /api/v2/SecurityService/Roles | Create a new role |
+| [**deleteRoleAsync**](RolesApi.md#deleteRoleAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId} | Delete an existing role |
+| [**getApplicationsByRoleAsync**](RolesApi.md#getApplicationsByRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Applications | Get applications by role |
+| [**getEnrollmentsByRoleAsync**](RolesApi.md#getEnrollmentsByRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments | Get enrollments by role |
+| [**getRoleAsync**](RolesApi.md#getRoleAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId} | Get role by ID |
+| [**getRolePermissionsAsync**](RolesApi.md#getRolePermissionsAsync) | **GET** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions | Get permissions by role |
+| [**getRolesAsync**](RolesApi.md#getRolesAsync) | **GET** /api/v2/SecurityService/Roles | Get all roles |
+| [**getRolesByEnrollmentAsync**](RolesApi.md#getRolesByEnrollmentAsync) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment |
+| [**getRolesCountAsync**](RolesApi.md#getRolesCountAsync) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count |
+| [**revokePermissionFromRoleAsync**](RolesApi.md#revokePermissionFromRoleAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role |
+| [**revokeRoleFromBusinessApplicationAsync**](RolesApi.md#revokeRoleFromBusinessApplicationAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application |
+| [**revokeRoleFromEnrollmentAsync**](RolesApi.md#revokeRoleFromEnrollmentAsync) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment |
+| [**updateRoleAsync**](RolesApi.md#updateRoleAsync) | **PUT** /api/v2/SecurityService/Roles/{securityRoleId} | Update an existing role |
 
 
-<a id="apiV2SecurityServiceRolesGet"></a>
-# **apiV2SecurityServiceRolesGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServiceRolesGet(tenantId, apiVersion, xApiVersion)
+<a id="assignPermissionToRoleAsync"></a>
+# **assignPermissionToRoleAsync**
+> EmptyEnvelope assignPermissionToRoleAsync(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion)
 
+Assign a permission to a role
 
+Assigns a security permission to a security role.
 
 ### Example
 ```java
@@ -31,7 +36,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -39,22 +43,18 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    String securityPermissionId = "securityPermissionId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SecurityRoleDtoListEnvelope result = apiInstance.apiV2SecurityServiceRolesGet(tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.assignPermissionToRoleAsync(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesGet");
+      System.err.println("Exception when calling RolesApi#assignPermissionToRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -69,16 +69,18 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **securityRoleId** | **String**|  | |
+| **securityPermissionId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,13 +92,16 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
 
-<a id="apiV2SecurityServiceRolesPost"></a>
-# **apiV2SecurityServiceRolesPost**
-> EmptyEnvelope apiV2SecurityServiceRolesPost(tenantId, apiVersion, xApiVersion, securityRoleCreateDto)
+<a id="assignRoleToBusinessApplicationAsync"></a>
+# **assignRoleToBusinessApplicationAsync**
+> EmptyEnvelope assignRoleToBusinessApplicationAsync(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion)
 
+Assign a role to a business application
 
+Assigns a security role to a business application.
 
 ### Example
 ```java
@@ -104,7 +109,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -112,23 +116,18 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    UUID applicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    SecurityRoleCreateDto securityRoleCreateDto = new SecurityRoleCreateDto(); // SecurityRoleCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesPost(tenantId, apiVersion, xApiVersion, securityRoleCreateDto);
+      EmptyEnvelope result = apiInstance.assignRoleToBusinessApplicationAsync(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesPost");
+      System.err.println("Exception when calling RolesApi#assignRoleToBusinessApplicationAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -143,9 +142,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **securityRoleId** | **String**|  | |
+| **applicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -153,7 +153,151 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
+
+<a id="assignRoleToEnrollmentAsync"></a>
+# **assignRoleToEnrollmentAsync**
+> EmptyEnvelope assignRoleToEnrollmentAsync(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion)
+
+Assign a role to an enrollment
+
+Assigns a security role to a tenant enrollment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    String enrollmentId = "enrollmentId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.assignRoleToEnrollmentAsync(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#assignRoleToEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityRoleId** | **String**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **201** | Created |  -  |
+
+<a id="createRoleAsync"></a>
+# **createRoleAsync**
+> EmptyEnvelope createRoleAsync(tenantId, securityRoleCreateDto, apiVersion, xApiVersion)
+
+Create a new role
+
+Creates a new security role for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    SecurityRoleCreateDto securityRoleCreateDto = new SecurityRoleCreateDto(); // SecurityRoleCreateDto | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.createRoleAsync(tenantId, securityRoleCreateDto, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#createRoleAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityRoleCreateDto** | [**SecurityRoleCreateDto**](SecurityRoleCreateDto.md)|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -168,89 +312,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **201** | Created |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion)
+<a id="deleteRoleAsync"></a>
+# **deleteRoleAsync**
+> EmptyEnvelope deleteRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion)
 
+Delete an existing role
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RolesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    UUID applicationId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityRoleId** | **String**|  | |
-| **applicationId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion)
-
-
+Deletes an existing security role for the specified tenant.
 
 ### Example
 ```java
@@ -258,7 +326,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -266,90 +333,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    UUID applicationId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdApplicationsApplicationIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityRoleId** | **String**|  | |
-| **applicationId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdDelete(tenantId, securityRoleId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RolesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -357,10 +340,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdDelete(tenantId, securityRoleId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdDelete");
+      System.err.println("Exception when calling RolesApi#deleteRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -385,7 +368,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -398,91 +381,15 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
-| **200** | OK |  -  |
+| **204** | No Content |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion)
+<a id="getApplicationsByRoleAsync"></a>
+# **getApplicationsByRoleAsync**
+> BusinessApplicationSimpleDtoListEnvelope getApplicationsByRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion)
 
+Get applications by role
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RolesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    String enrollmentId = "enrollmentId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityRoleId** | **String**|  | |
-| **enrollmentId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion)
-
-
+Retrieves all business applications that have a specific role granted.
 
 ### Example
 ```java
@@ -490,7 +397,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -498,90 +404,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    RolesApi apiInstance = new RolesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String securityRoleId = "securityRoleId_example"; // String | 
-    String enrollmentId = "enrollmentId_example"; // String | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsEnrollmentIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **securityRoleId** | **String**|  | |
-| **enrollmentId** | **String**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet**
-> TenantEnrolmentDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(tenantId, securityRoleId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.RolesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -589,10 +411,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      TenantEnrolmentDtoListEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet(tenantId, securityRoleId, apiVersion, xApiVersion);
+      BusinessApplicationSimpleDtoListEnvelope result = apiInstance.getApplicationsByRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdEnrollmentsGet");
+      System.err.println("Exception when calling RolesApi#getApplicationsByRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -613,11 +435,11 @@ public class Example {
 
 ### Return type
 
-[**TenantEnrolmentDtoListEnvelope**](TenantEnrolmentDtoListEnvelope.md)
+[**BusinessApplicationSimpleDtoListEnvelope**](BusinessApplicationSimpleDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -631,11 +453,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdGet**
-> SecurityRoleDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdGet(tenantId, securityRoleId, apiVersion, xApiVersion)
+<a id="getEnrollmentsByRoleAsync"></a>
+# **getEnrollmentsByRoleAsync**
+> TenantEnrollmentDtoListEnvelope getEnrollmentsByRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion)
 
+Get enrollments by role
 
+Retrieves all tenant enrollments that have a specific role.
 
 ### Example
 ```java
@@ -643,7 +467,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -651,12 +474,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -664,10 +481,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SecurityRoleDtoListEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdGet(tenantId, securityRoleId, apiVersion, xApiVersion);
+      TenantEnrollmentDtoListEnvelope result = apiInstance.getEnrollmentsByRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdGet");
+      System.err.println("Exception when calling RolesApi#getEnrollmentsByRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -688,11 +505,11 @@ public class Example {
 
 ### Return type
 
-[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+[**TenantEnrollmentDtoListEnvelope**](TenantEnrollmentDtoListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -706,11 +523,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet**
-> SecurityPermissionDtoListEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(tenantId, securityRoleId, apiVersion, xApiVersion)
+<a id="getRoleAsync"></a>
+# **getRoleAsync**
+> SecurityRoleDtoEnvelope getRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion)
 
+Get role by ID
 
+Retrieves a specific security role by its ID.
 
 ### Example
 ```java
@@ -718,7 +537,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -726,12 +544,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -739,10 +551,80 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SecurityPermissionDtoListEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet(tenantId, securityRoleId, apiVersion, xApiVersion);
+      SecurityRoleDtoEnvelope result = apiInstance.getRoleAsync(tenantId, securityRoleId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsGet");
+      System.err.println("Exception when calling RolesApi#getRoleAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityRoleId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoEnvelope**](SecurityRoleDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getRolePermissionsAsync"></a>
+# **getRolePermissionsAsync**
+> SecurityPermissionDtoListEnvelope getRolePermissionsAsync(tenantId, securityRoleId, apiVersion, xApiVersion)
+
+Get permissions by role
+
+Retrieves all security permissions assigned to a specific role.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityRoleId = "securityRoleId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityPermissionDtoListEnvelope result = apiInstance.getRolePermissionsAsync(tenantId, securityRoleId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#getRolePermissionsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -767,7 +649,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -781,11 +663,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion)
+<a id="getRolesAsync"></a>
+# **getRolesAsync**
+> SecurityRoleDtoListEnvelope getRolesAsync(tenantId, apiVersion, xApiVersion)
 
+Get all roles
 
+Retrieves all security roles for the specified tenant.
 
 ### Example
 ```java
@@ -793,7 +677,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -801,12 +684,212 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityRoleDtoListEnvelope result = apiInstance.getRolesAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#getRolesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getRolesByEnrollmentAsync"></a>
+# **getRolesByEnrollmentAsync**
+> SecurityRoleDtoListEnvelope getRolesByEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion)
+
+Get roles by enrollment
+
+Retrieves all security roles granted to a specific enrollment.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String enrollmentId = "enrollmentId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityRoleDtoListEnvelope result = apiInstance.getRolesByEnrollmentAsync(tenantId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#getRolesByEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getRolesCountAsync"></a>
+# **getRolesCountAsync**
+> Int32Envelope getRolesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get roles count
+
+Retrieves the count of security roles for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getRolesCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#getRolesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="revokePermissionFromRoleAsync"></a>
+# **revokePermissionFromRoleAsync**
+> EmptyEnvelope revokePermissionFromRoleAsync(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion)
+
+Revoke a permission from a role
+
+Revokes a security permission from a security role.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -815,10 +898,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.revokePermissionFromRoleAsync(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdDelete");
+      System.err.println("Exception when calling RolesApi#revokePermissionFromRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -844,7 +927,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -857,13 +940,15 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
-| **200** | OK |  -  |
+| **204** | No Content |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion)
+<a id="revokeRoleFromBusinessApplicationAsync"></a>
+# **revokeRoleFromBusinessApplicationAsync**
+> EmptyEnvelope revokeRoleFromBusinessApplicationAsync(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion)
 
+Revoke a role from a business application
 
+Revokes a security role from a business application.
 
 ### Example
 ```java
@@ -871,7 +956,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -879,24 +963,18 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String securityRoleId = "securityRoleId_example"; // String | 
-    String securityPermissionId = "securityPermissionId_example"; // String | 
+    UUID applicationId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost(tenantId, securityRoleId, securityPermissionId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.revokeRoleFromBusinessApplicationAsync(tenantId, securityRoleId, applicationId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPermissionsSecurityPermissionIdPost");
+      System.err.println("Exception when calling RolesApi#revokeRoleFromBusinessApplicationAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -912,7 +990,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **securityRoleId** | **String**|  | |
-| **securityPermissionId** | **String**|  | |
+| **applicationId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -922,7 +1000,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -937,11 +1015,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SecurityServiceRolesSecurityRoleIdPut"></a>
-# **apiV2SecurityServiceRolesSecurityRoleIdPut**
-> EmptyEnvelope apiV2SecurityServiceRolesSecurityRoleIdPut(tenantId, securityRoleId, apiVersion, xApiVersion, securityRoleUpdateDto)
+<a id="revokeRoleFromEnrollmentAsync"></a>
+# **revokeRoleFromEnrollmentAsync**
+> EmptyEnvelope revokeRoleFromEnrollmentAsync(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion)
 
+Revoke a role from an enrollment
 
+Revokes a security role from a tenant enrollment.
 
 ### Example
 ```java
@@ -949,7 +1029,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RolesApi;
 
@@ -957,24 +1036,91 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RolesApi apiInstance = new RolesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String securityRoleId = "securityRoleId_example"; // String | 
+    String enrollmentId = "enrollmentId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.revokeRoleFromEnrollmentAsync(tenantId, securityRoleId, enrollmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RolesApi#revokeRoleFromEnrollmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **securityRoleId** | **String**|  | |
+| **enrollmentId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **204** | No Content |  -  |
+
+<a id="updateRoleAsync"></a>
+# **updateRoleAsync**
+> EmptyEnvelope updateRoleAsync(tenantId, securityRoleId, securityRoleUpdateDto, apiVersion, xApiVersion)
+
+Update an existing role
+
+Updates an existing security role for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RolesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RolesApi apiInstance = new RolesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String securityRoleId = "securityRoleId_example"; // String | 
     SecurityRoleUpdateDto securityRoleUpdateDto = new SecurityRoleUpdateDto(); // SecurityRoleUpdateDto | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SecurityServiceRolesSecurityRoleIdPut(tenantId, securityRoleId, apiVersion, xApiVersion, securityRoleUpdateDto);
+      EmptyEnvelope result = apiInstance.updateRoleAsync(tenantId, securityRoleId, securityRoleUpdateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RolesApi#apiV2SecurityServiceRolesSecurityRoleIdPut");
+      System.err.println("Exception when calling RolesApi#updateRoleAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -990,9 +1136,9 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **securityRoleId** | **String**|  | |
+| **securityRoleUpdateDto** | [**SecurityRoleUpdateDto**](SecurityRoleUpdateDto.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **securityRoleUpdateDto** | [**SecurityRoleUpdateDto**](SecurityRoleUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -1000,7 +1146,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

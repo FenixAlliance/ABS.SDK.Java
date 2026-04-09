@@ -14,7 +14,7 @@
 |**featuredImageUrl** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**socialPostBucketId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

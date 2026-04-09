@@ -22,7 +22,7 @@
 |**marketingAreaId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

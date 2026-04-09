@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  |
 |**firstName** | **String** |  |  |
@@ -44,11 +44,12 @@
 |**linkedInUrl** | **String** |  |  [optional] |
 |**instagramUrl** | **String** |  |  [optional] |
 |**githubUsername** | **String** |  |  [optional] |
-|**instagramUsername** | **Object** |  |  [optional] |
-|**tikTokUsername** | **Object** |  |  [optional] |
-|**stackExchangeUrl** | **Object** |  |  [optional] |
-|**stackOverflowUrl** | **Object** |  |  [optional] |
-|**parentContactId** | **Object** |  |  [optional] |
+|**instagramUsername** | **String** |  |  [optional] |
+|**tikTokUsername** | **String** |  |  [optional] |
+|**stackExchangeUrl** | **String** |  |  [optional] |
+|**stackOverflowUrl** | **String** |  |  [optional] |
+|**parentContactId** | **String** |  |  [optional] |
+|**faxNumber** | **String** |  |  [optional] |
 
 
 
@@ -56,8 +57,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| INDIVIDUAL | &quot;Individual&quot; |
+| ORGANIZATION | &quot;Organization&quot; |
 
 
 

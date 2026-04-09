@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**startDate** | **OffsetDateTime** |  |  [optional] |

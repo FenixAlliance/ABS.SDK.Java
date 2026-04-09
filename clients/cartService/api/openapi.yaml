@@ -1,0 +1,6761 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: CartService
+  version: 2.0.0.0
+servers:
+- url: /
+tags:
+- name: Carts
+- name: Compare
+- name: FenixAlliance.ABP.Web
+- name: Records
+- name: WishLists
+paths:
+  /api/v2/CartService/Carts/{cartId}:
+    get:
+      description: Get all business owned contacts
+      operationId: GetCartByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all business owned contacts
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a cart
+      operationId: UpdateCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartUpdateRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CartUpdateRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Currency:
+    get:
+      description: The currency of a cart used for display purposes
+      operationId: GetCartCurrencyAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurrencyDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the currency of a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Set the currency of a cart
+      operationId: SetCartCurrencyAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencySwitchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurrencySwitchRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Set the currency of a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Country:
+    get:
+      description: The country of a cart is used to calculate taxes and shipping costs
+      operationId: GetCartCountryAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountryDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the country of a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Set the country of a cart
+      operationId: SetCartCountryAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountrySwitchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CountrySwitchRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Set the country of a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Submit:
+    post:
+      description: Submit a cart for processing
+      operationId: SubmitCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Submit a cart for processing
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/ActingCart:
+    get:
+      description: Get the acting cart
+      operationId: GetActingCart
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the acting cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/GuestCart:
+    get:
+      description: Get the guest cart
+      operationId: GetGuestCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the guest cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/UserCart:
+    get:
+      description: Get the current user's cart
+      operationId: GetUserCart
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Get the current user's cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/BusinessCart/{tenantId}:
+    get:
+      description: Get the business cart
+      operationId: GetTenantCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get the business cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Items:
+    delete:
+      description: Clear all items from a cart
+      operationId: ClearCartRecords
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Clear all items from a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get all cart lines
+      operationId: GetCartItems
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all cart lines
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Items/{itemId}:
+    delete:
+      description: Remove an Item from a cart
+      operationId: RemoveItemFromCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove an Item from a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Add an Item to a cart
+      operationId: AddItemToCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Add an Item to a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update an Item in a cart
+      operationId: UpdateItemCartRecordAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update an Item in a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Contains/{itemId}:
+    get:
+      description: Assesses if an Item is already in a cart
+      operationId: IsItemAlreadyInCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Assesses if an Item is already in a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Items/{itemId}/Increase:
+    put:
+      description: Increase an Item in a cart
+      operationId: IncreaseItemCartRecordQuantityAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Increase an Item in a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Items/{itemId}/Decrease:
+    put:
+      description: Decrease an Item in a cart
+      operationId: DecreaseCartItemQuantity
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Decrease an Item in a cart
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Lines:
+    get:
+      description: Get all cart lines
+      operationId: GetCartLinesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all cart lines
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Lines/{lineId}:
+    delete:
+      description: Remove a cart line
+      operationId: RemoveCartLineAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove a cart line
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a cart line by ID
+      operationId: GetCartLineAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoEnvelope'
+          description: Unauthorized
+      summary: Get a cart line by ID
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a cart line
+      operationId: UpdateCartLineAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a cart line
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Lines/{lineId}/Increase:
+    put:
+      description: Increase the quantity of a cart line
+      operationId: IncreaseCartLineAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Increase the quantity of a cart line
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Lines/{lineId}/Decrease:
+    put:
+      description: Decrease the quantity of a cart line
+      operationId: DecreaseCartLineAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Decrease the quantity of a cart line
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists:
+    get:
+      description: Get all wishlists in a cart
+      operationId: GetCartWishList
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListDto'
+                type: array
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all wishlists in a cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new wish list
+      operationId: CreateWishListAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewWishListRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewWishListRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Create a new wish list
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists/Contains/{itemId}:
+    get:
+      description: Assesses if an Item is already in any of the cart's wishlists
+      operationId: IsItemInWishLists
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Assesses if an Item is already in any of the cart's wishlists
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists/{wishListId}/Exists:
+    get:
+      description: Assesses if a WishList exists
+      operationId: WishListExistsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Assesses if a WishList exists
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    head:
+      description: Assesses if a WishList exists but does not return the content
+      operationId: CartWishListExistsHead
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Assesses if a WishList exists
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists/{wishListId}:
+    delete:
+      description: Delete a wish list
+      operationId: DeleteCartWishList
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Delete a wish list
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a wish list by ID
+      operationId: GetCartWishListDetails
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WishListDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WishListDtoEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get a wish list by ID
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a wish list
+      operationId: UpdateItemToWishList
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WishListUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WishListUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a wish list
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists/{wishListId}/Records:
+    get:
+      description: Get all records in a wish list
+      operationId: GetCartWishListItems
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all records in a wish list
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Add a record to a wish list
+      operationId: AddItemToWishList
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductToWishListRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProductToWishListRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Add a record to a wish list
+      tags:
+      - Carts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/WishLists/{wishListId}/Records/{recordId}:
+    delete:
+      description: Remove a record from a wish list
+      operationId: DeleteCartWishListRecord
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove a record from a wish list
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a record in a wish list
+      operationId: GetCartWishListItemAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get a record in a wish list
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Compare:
+    get:
+      description: Get all items in the compare table
+      operationId: GetCartCompareRecords
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoListEnvelope'
+          description: OK
+      summary: Get all items in the compare table
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Compare/{itemId}:
+    delete:
+      description: Remove an item from the compare table
+      operationId: RemoveItemFromCompareTableAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove an item from the compare table
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get an item from the compare table
+      operationId: GetCartCompareRecord
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoEnvelope'
+          description: OK
+      summary: Get an item from the compare table
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Add an item to the compare table
+      operationId: AddItemToCartCompareTable
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDto'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Add an item to the compare table
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Carts/{cartId}/Compare/Contains/{itemId}:
+    get:
+      description: Assesses if an Item is already in the compare table
+      operationId: IsItemInCompareTableAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Assesses if an Item is already in the compare table
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Compare/{cartId}:
+    get:
+      description: Retrieves all items added to the compare table for the specified
+        cart.
+      operationId: GetItemToCompareRecords
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoListEnvelope'
+          description: OK
+      summary: Get items to compare in a cart
+      tags:
+      - Compare
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Compare/{recordId}/Details:
+    get:
+      description: Retrieves the details of a specific item-to-compare cart record.
+      operationId: GetItemToCompareRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDtoEnvelope'
+          description: OK
+      summary: Get compare record details
+      tags:
+      - Compare
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Compare:
+    post:
+      description: Adds a product to the compare table for the specified cart with
+        tracking.
+      operationId: AddItemToCompareTableAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddProductToCompareRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddProductToCompareRequest'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDto'
+          description: OK
+      summary: Add an item to the compare table
+      tags:
+      - Compare
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Compare/{recordId}:
+    delete:
+      description: Removes a specific record from the compare table by its record
+        ID.
+      operationId: RemoveItemFromCompareTable
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+          description: OK
+      summary: Remove an item from the compare table
+      tags:
+      - Compare
+      x-accepts:
+      - application/json
+      - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/CartService/Records/AddItem:
+    post:
+      description: Adds an item with the specified quantity to the given cart.
+      operationId: AddItemToCart
+      parameters:
+      - explode: true
+        in: query
+        name: cartId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: itemId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Add an item to a cart
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/{cartId}:
+    get:
+      description: Retrieves all item cart records for the specified cart.
+      operationId: GetItemsInCartAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoListEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get all items in a cart
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records:
+    delete:
+      description: Removes a product from the cart using cart ID and product ID query
+        parameters.
+      operationId: RemoveProductFromCartByParams
+      parameters:
+      - explode: true
+        in: query
+        name: cartId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: productId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove a product from a cart
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: "Adds a product to the cart using a request body with cart ID,\
+        \ product ID, and quantity."
+      operationId: AddProductToCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Add a product to a cart with tracking
+      tags:
+      - Records
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/IsInCart:
+    get:
+      description: Returns a boolean indicating whether the specified item is already
+        in the given cart.
+      operationId: IsItemAlreadyInCart
+      parameters:
+      - explode: true
+        in: query
+        name: itemID
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: cartID
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Check if an item is in a cart
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/ClearCart:
+    post:
+      description: Removes all item records from the specified cart.
+      operationId: ClearCartAsync
+      parameters:
+      - explode: true
+        in: query
+        name: cartID
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Clear all items from a cart
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/{recordId}/Details:
+    get:
+      description: Retrieves the details of a specific item cart record.
+      operationId: GetItemCartRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemCartRecordDtoEnvelope'
+          description: Unauthorized
+      summary: Get a cart record by ID
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/{recordId}:
+    delete:
+      description: Removes a specific item record from the cart by its record ID.
+      operationId: RemoveProductFromCartByRecordId
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Remove a product from a cart by record ID
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates the specified item cart record with the provided data.
+      operationId: UpdateItemCartRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemCartRecordUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a cart record
+      tags:
+      - Records
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/{recordId}/Increase:
+    put:
+      description: Increases the quantity of the specified item cart record by the
+        given amount.
+      operationId: IncreaseItemCartRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Increase cart record quantity
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/Records/{recordId}/Decrease:
+    put:
+      description: Decreases the quantity of the specified item cart record by the
+        given amount.
+      operationId: DecreaseItemCartRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Decrease cart record quantity
+      tags:
+      - Records
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/Contains:
+    get:
+      description: Returns a boolean indicating whether the specified product exists
+        in any wish list of the given cart.
+      operationId: IsProductInWishLists
+      parameters:
+      - explode: true
+        in: query
+        name: cartId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: productId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Check if a product is in any wish list
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/Exists:
+    get:
+      description: Returns a boolean indicating whether the specified wish list exists.
+      operationId: WishListExists
+      parameters:
+      - explode: true
+        in: query
+        name: wishListId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Check if a wish list exists
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+    head:
+      description: HEAD request to check whether the specified wish list exists without
+        returning a response body.
+      operationId: WishListExistsHeadAsync
+      parameters:
+      - explode: true
+        in: query
+        name: wishListId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Check if a wish list exists (HEAD)
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists:
+    post:
+      description: Creates a new wish list from the provided request data.
+      operationId: CreateWishList
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewWishListRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewWishListRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a wish list
+      tags:
+      - WishLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/{wishListId}:
+    delete:
+      description: Deletes the specified wish list.
+      operationId: DeleteWishList
+      parameters:
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a wish list
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates the specified wish list with the provided data.
+      operationId: UpdateProductToWishList
+      parameters:
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WishListUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WishListUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a wish list
+      tags:
+      - WishLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/{cartId}:
+    get:
+      description: Retrieves all wish lists associated with the specified cart.
+      operationId: GetWishListAsync
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListDto'
+                type: array
+          description: OK
+      summary: Get wish lists for a cart
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/{wishListId}/Records:
+    get:
+      description: Retrieves all item records in the specified wish list.
+      operationId: GetCartWishListItemsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WishListItemRecordDto'
+                type: array
+          description: OK
+      summary: Get wish list item records
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/{wishListId}/Details:
+    get:
+      description: Retrieves the full details of the specified wish list.
+      operationId: GetCartWishListDetailsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: wishListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WishListDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WishListDto'
+          description: OK
+      summary: Get wish list details
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/Records:
+    post:
+      description: Adds the specified product to the given wish list.
+      operationId: AddProductToWishList
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductToWishListRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProductToWishListRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Add a product to a wish list
+      tags:
+      - WishLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CartService/WishLists/Records/{recordId}:
+    delete:
+      description: Removes a specific item record from a wish list by its record ID.
+      operationId: DeleteWishListRecord
+      parameters:
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete a wish list record
+      tags:
+      - WishLists
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    AddProductToCompareRequest:
+      additionalProperties: false
+      example:
+        itemId: itemId
+        cartId: cartId
+        id: id
+      properties:
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+      type: object
+    BooleanEnvelope:
+      additionalProperties: false
+      example:
+        result: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          type: boolean
+      type: object
+    CartDto:
+      additionalProperties: false
+      example:
+        total: 0.8008281904610115
+        itemCartRecordsCount: 5
+        ip: ip
+        freight: 1.4658129805029452
+        itemToCompareRecordsCount: 2
+        taxes: 6.027456183070403
+        id: id
+        subTotal: 5.962133916683182
+        type: type
+        currencyId: currencyId
+        countryId: countryId
+      properties:
+        id:
+          nullable: true
+          type: string
+        ip:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        total:
+          format: double
+          type: number
+        taxes:
+          format: double
+          type: number
+        freight:
+          format: double
+          type: number
+        subTotal:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        itemCartRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+        itemToCompareRecordsCount:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    CartDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          total: 0.8008281904610115
+          itemCartRecordsCount: 5
+          ip: ip
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
+          id: id
+          subTotal: 5.962133916683182
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CartDto'
+      type: object
+    CartUpdateRequest:
+      additionalProperties: false
+      example:
+        currencyId: currencyId
+        countryId: countryId
+      properties:
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+      type: object
+    CountryDto:
+      additionalProperties: false
+      example:
+        nativeName: nativeName
+        name: name
+        id: id
+        iso2: iso2
+        flagUrl: flagUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        iso3: iso3
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        iso3:
+          nullable: true
+          type: string
+        iso2:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        nativeName:
+          nullable: true
+          type: string
+        flagUrl:
+          nullable: true
+          type: string
+      type: object
+    CountryDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CountryDto'
+      type: object
+    CountrySwitchRequest:
+      additionalProperties: false
+      example:
+        cartId: cartId
+        countryId: countryId
+      properties:
+        cartId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+      type: object
+    CurrencyDto:
+      additionalProperties: false
+      example:
+        symbol: symbol
+        country:
+          nativeName: nativeName
+          name: name
+          id: id
+          iso2: iso2
+          flagUrl: flagUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          iso3: iso3
+        code: code
+        name: name
+        id: id
+      properties:
+        id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        symbol:
+          nullable: true
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryDto'
+      type: object
+    CurrencyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          symbol: symbol
+          country:
+            nativeName: nativeName
+            name: name
+            id: id
+            iso2: iso2
+            flagUrl: flagUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            iso3: iso3
+          code: code
+          name: name
+          id: id
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CurrencyDto'
+      type: object
+    CurrencyId:
+      additionalProperties: false
+      example:
+        country: country
+        code: code
+        value: value
+      properties:
+        value:
+          nullable: true
+          readOnly: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+      type: object
+    CurrencySwitchRequest:
+      additionalProperties: false
+      example:
+        cartID: cartID
+        currencyID: currencyID
+      properties:
+        cartID:
+          nullable: true
+          type: string
+        currencyID:
+          nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ForexRates:
+      additionalProperties: false
+      example:
+        date: date
+        requestTimestamp: 2000-01-23T04:56:07.000+00:00
+        success: true
+        rates:
+          key: 1.4658129805029452
+        base: base
+        timestamp: 6
+      properties:
+        success:
+          type: boolean
+        date:
+          nullable: true
+          type: string
+        base:
+          nullable: true
+          type: string
+        timestamp:
+          format: int64
+          type: integer
+        requestTimestamp:
+          format: date-time
+          type: string
+        rates:
+          additionalProperties:
+            format: double
+            type: number
+          nullable: true
+          type: object
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    ItemCartRecordCreateDto:
+      additionalProperties: false
+      example:
+        quantity: 0.8008281904610115
+        productId: productId
+        cartId: cartId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        productId:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+      type: object
+    ItemCartRecordDto:
+      additionalProperties: false
+      example:
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        refundPolicyId: refundPolicyId
+        data8Label: data8Label
+        totalDetail: 9.369310271410669
+        totalShippingCost: 1.284659006116532
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+        totalProfitAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        id: id
+        currencyId: currencyId
+        priceListItemId: priceListItemId
+        customGlobalSurchargesAmount: 5.025004791520295
+        totalProfitInUsd: 2.3021358869347655
+        totalGlobalSurchargesInUsd: 4.965218492984954
+        cartId: cartId
+        dataLabel: dataLabel
+        shippingAddressID: shippingAddressID
+        costCalculationMethod: Automatic
+        itemId: itemId
+        totalShippingTax: 2.8841621266687802
+        unitGroupId: unitGroupId
+        returnPolicyId: returnPolicyId
+        forexRates:
+          date: date
+          requestTimestamp: 2000-01-23T04:56:07.000+00:00
+          success: true
+          rates:
+            key: 1.4658129805029452
+          base: base
+          timestamp: 6
+        totalReturnCostInUsd: 1.4894159098541704
+        freeReasonCode: freeReasonCode
+        data7Label: data7Label
+        totalDetailInUsd: 5.637376656633329
+        totalDetailAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        totalProfit: 8.762042012749001
+        totalGlobalDiscounts: 6.878052220127876
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+        totalSurchargesInUsd: 9.301444243932576
+        locationId: locationId
+        data5Label: data5Label
+        unitId: unitId
+        currency:
+          country: country
+          code: code
+          value: value
+        free: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        data4: data4
+        totalWithheldTax: 6.778324963048013
+        data3: data3
+        data2: data2
+        data1: data1
+        customGlobalDiscountsAmount: 9.965781217890562
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        totalGlobalDiscountsAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        shipmentPolicyId: shipmentPolicyId
+        tenantId: tenantId
+        closed: true
+        totalSurcharges: 6.438423552598547
+        totalShippingTaxAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        taxCalculationMethod: Included
+        totalGlobalDiscountsInUsd: 1.1730742509559433
+        totalGlobalSurcharges: 5.944895607614016
+        totalProfitCurrencyId: totalProfitCurrencyId
+        totalDiscountsInUsd: 7.061401241503109
+        totalShippingCostAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        data: data
+        itemPrimaryImageUrl: itemPrimaryImageUrl
+        totalInUsd: 7.457744773683766
+        totalGlobalSurchargesAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        quoteItemRecordId: quoteItemRecordId
+        businessProfileRecordId: businessProfileRecordId
+        totalTaxBaseInUsd: 3.616076749251911
+        totalTaxBase: 3.5571952270680973
+        totalWarrantyCostInUsd: 1.0246457001441578
+        itemShortDescription: itemShortDescription
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+        data2Label: data2Label
+        totalSurchargesAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        enrollmentId: enrollmentId
+        totalWithheldTaxesInUsd: 4.145608029883936
+        totalRefundCostInUsd: 6.84685269835264
+        parentBillingItemRecordId: parentBillingItemRecordId
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+        totalShippingTaxesInUsd: 1.2315135367772556
+        data1Label: data1Label
+        data4Label: data4Label
+        totalAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        forexRate: 5.962133916683182
+        totalTaxBaseAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        totalShippingCostInUsd: 7.386281948385884
+        warrantyPolicyId: warrantyPolicyId
+        shippingPolicyId: shippingPolicyId
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        freeReason: freeReason
+        itemTitle: itemTitle
+        totalDiscounts: 9.018348186070783
+        description: description
+        shippingLocationId: shippingLocationId
+        totalTaxesAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        itemID: itemID
+        total: 6.704019297950036
+        totalCurrencyId: totalCurrencyId
+        itemPriceId: itemPriceId
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
+        totalDiscountsAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        quantity: 0.8008281904610115
+        totalTaxes: 6.965117697638846
+        data9Label: data9Label
+        data3Label: data3Label
+        data6Label: data6Label
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalTaxesInUsd: 2.027123023002322
+        totalWithheldTaxAmount:
+          amount: 6.683562403749608
+          currency:
+            country: country
+            code: code
+            value: value
+        totalTaxesCurrencyId: totalTaxesCurrencyId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        itemId:
+          nullable: true
+          type: string
+        itemTitle:
+          nullable: true
+          type: string
+        itemShortDescription:
+          nullable: true
+          type: string
+        itemPrimaryImageUrl:
+          nullable: true
+          type: string
+        shippingPolicyId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        free:
+          type: boolean
+        freeReason:
+          nullable: true
+          type: string
+        freeReasonCode:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        itemPriceId:
+          nullable: true
+          type: string
+        priceListItemId:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
+          type: string
+        forexRates:
+          $ref: '#/components/schemas/ForexRates'
+        forexRate:
+          format: double
+          type: number
+        totalDetailInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalWithheldTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        totalWarrantyCostInUsd:
+          format: double
+          type: number
+        totalReturnCostInUsd:
+          format: double
+          type: number
+        totalRefundCostInUsd:
+          format: double
+          type: number
+        totalInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        customGlobalSurchargesAmount:
+          format: double
+          type: number
+        customGlobalDiscountsAmount:
+          format: double
+          type: number
+        returnPolicyId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
+        shipmentPolicyId:
+          nullable: true
+          type: string
+        shippingLocationId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        quoteItemRecordId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        parentBillingItemRecordId:
+          nullable: true
+          type: string
+        currency:
+          $ref: '#/components/schemas/CurrencyId'
+        totalDetail:
+          format: double
+          type: number
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalDetailAmount:
+          $ref: '#/components/schemas/Money'
+        totalProfit:
+          format: double
+          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
+        totalProfitAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscounts:
+          format: double
+          type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurcharges:
+          format: double
+          type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxesAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCostAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        total:
+          format: double
+          type: number
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+        cartId:
+          nullable: true
+          type: string
+        itemID:
+          nullable: true
+          type: string
+        shippingAddressID:
+          nullable: true
+          type: string
+      type: object
+    ItemCartRecordDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          refundPolicyId: refundPolicyId
+          data8Label: data8Label
+          totalDetail: 9.369310271410669
+          totalShippingCost: 1.284659006116532
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          totalProfitAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          id: id
+          currencyId: currencyId
+          priceListItemId: priceListItemId
+          customGlobalSurchargesAmount: 5.025004791520295
+          totalProfitInUsd: 2.3021358869347655
+          totalGlobalSurchargesInUsd: 4.965218492984954
+          cartId: cartId
+          dataLabel: dataLabel
+          shippingAddressID: shippingAddressID
+          costCalculationMethod: Automatic
+          itemId: itemId
+          totalShippingTax: 2.8841621266687802
+          unitGroupId: unitGroupId
+          returnPolicyId: returnPolicyId
+          forexRates:
+            date: date
+            requestTimestamp: 2000-01-23T04:56:07.000+00:00
+            success: true
+            rates:
+              key: 1.4658129805029452
+            base: base
+            timestamp: 6
+          totalReturnCostInUsd: 1.4894159098541704
+          freeReasonCode: freeReasonCode
+          data7Label: data7Label
+          totalDetailInUsd: 5.637376656633329
+          totalDetailAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalProfit: 8.762042012749001
+          totalGlobalDiscounts: 6.878052220127876
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+          totalSurchargesInUsd: 9.301444243932576
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          currency:
+            country: country
+            code: code
+            value: value
+          free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          data4: data4
+          totalWithheldTax: 6.778324963048013
+          data3: data3
+          data2: data2
+          data1: data1
+          customGlobalDiscountsAmount: 9.965781217890562
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalGlobalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          shipmentPolicyId: shipmentPolicyId
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 6.438423552598547
+          totalShippingTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          taxCalculationMethod: Included
+          totalGlobalDiscountsInUsd: 1.1730742509559433
+          totalGlobalSurcharges: 5.944895607614016
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalDiscountsInUsd: 7.061401241503109
+          totalShippingCostAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          data: data
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          totalInUsd: 7.457744773683766
+          totalGlobalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 3.616076749251911
+          totalTaxBase: 3.5571952270680973
+          totalWarrantyCostInUsd: 1.0246457001441578
+          itemShortDescription: itemShortDescription
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+          data2Label: data2Label
+          totalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          enrollmentId: enrollmentId
+          totalWithheldTaxesInUsd: 4.145608029883936
+          totalRefundCostInUsd: 6.84685269835264
+          parentBillingItemRecordId: parentBillingItemRecordId
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          data4Label: data4Label
+          totalAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          forexRate: 5.962133916683182
+          totalTaxBaseAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          shippingPolicyId: shippingPolicyId
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          totalDiscounts: 9.018348186070783
+          description: description
+          shippingLocationId: shippingLocationId
+          totalTaxesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          itemID: itemID
+          total: 6.704019297950036
+          totalCurrencyId: totalCurrencyId
+          itemPriceId: itemPriceId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          totalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quantity: 0.8008281904610115
+          totalTaxes: 6.965117697638846
+          data9Label: data9Label
+          data3Label: data3Label
+          data6Label: data6Label
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalTaxesInUsd: 2.027123023002322
+          totalWithheldTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemCartRecordDto'
+      type: object
+    ItemCartRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          refundPolicyId: refundPolicyId
+          data8Label: data8Label
+          totalDetail: 9.369310271410669
+          totalShippingCost: 1.284659006116532
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          totalProfitAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          id: id
+          currencyId: currencyId
+          priceListItemId: priceListItemId
+          customGlobalSurchargesAmount: 5.025004791520295
+          totalProfitInUsd: 2.3021358869347655
+          totalGlobalSurchargesInUsd: 4.965218492984954
+          cartId: cartId
+          dataLabel: dataLabel
+          shippingAddressID: shippingAddressID
+          costCalculationMethod: Automatic
+          itemId: itemId
+          totalShippingTax: 2.8841621266687802
+          unitGroupId: unitGroupId
+          returnPolicyId: returnPolicyId
+          forexRates:
+            date: date
+            requestTimestamp: 2000-01-23T04:56:07.000+00:00
+            success: true
+            rates:
+              key: 1.4658129805029452
+            base: base
+            timestamp: 6
+          totalReturnCostInUsd: 1.4894159098541704
+          freeReasonCode: freeReasonCode
+          data7Label: data7Label
+          totalDetailInUsd: 5.637376656633329
+          totalDetailAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalProfit: 8.762042012749001
+          totalGlobalDiscounts: 6.878052220127876
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+          totalSurchargesInUsd: 9.301444243932576
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          currency:
+            country: country
+            code: code
+            value: value
+          free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          data4: data4
+          totalWithheldTax: 6.778324963048013
+          data3: data3
+          data2: data2
+          data1: data1
+          customGlobalDiscountsAmount: 9.965781217890562
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalGlobalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          shipmentPolicyId: shipmentPolicyId
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 6.438423552598547
+          totalShippingTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          taxCalculationMethod: Included
+          totalGlobalDiscountsInUsd: 1.1730742509559433
+          totalGlobalSurcharges: 5.944895607614016
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalDiscountsInUsd: 7.061401241503109
+          totalShippingCostAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          data: data
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          totalInUsd: 7.457744773683766
+          totalGlobalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 3.616076749251911
+          totalTaxBase: 3.5571952270680973
+          totalWarrantyCostInUsd: 1.0246457001441578
+          itemShortDescription: itemShortDescription
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+          data2Label: data2Label
+          totalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          enrollmentId: enrollmentId
+          totalWithheldTaxesInUsd: 4.145608029883936
+          totalRefundCostInUsd: 6.84685269835264
+          parentBillingItemRecordId: parentBillingItemRecordId
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          data4Label: data4Label
+          totalAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          forexRate: 5.962133916683182
+          totalTaxBaseAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          shippingPolicyId: shippingPolicyId
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          totalDiscounts: 9.018348186070783
+          description: description
+          shippingLocationId: shippingLocationId
+          totalTaxesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          itemID: itemID
+          total: 6.704019297950036
+          totalCurrencyId: totalCurrencyId
+          itemPriceId: itemPriceId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          totalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quantity: 0.8008281904610115
+          totalTaxes: 6.965117697638846
+          data9Label: data9Label
+          data3Label: data3Label
+          data6Label: data6Label
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalTaxesInUsd: 2.027123023002322
+          totalWithheldTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        - totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          refundPolicyId: refundPolicyId
+          data8Label: data8Label
+          totalDetail: 9.369310271410669
+          totalShippingCost: 1.284659006116532
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          totalProfitAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          id: id
+          currencyId: currencyId
+          priceListItemId: priceListItemId
+          customGlobalSurchargesAmount: 5.025004791520295
+          totalProfitInUsd: 2.3021358869347655
+          totalGlobalSurchargesInUsd: 4.965218492984954
+          cartId: cartId
+          dataLabel: dataLabel
+          shippingAddressID: shippingAddressID
+          costCalculationMethod: Automatic
+          itemId: itemId
+          totalShippingTax: 2.8841621266687802
+          unitGroupId: unitGroupId
+          returnPolicyId: returnPolicyId
+          forexRates:
+            date: date
+            requestTimestamp: 2000-01-23T04:56:07.000+00:00
+            success: true
+            rates:
+              key: 1.4658129805029452
+            base: base
+            timestamp: 6
+          totalReturnCostInUsd: 1.4894159098541704
+          freeReasonCode: freeReasonCode
+          data7Label: data7Label
+          totalDetailInUsd: 5.637376656633329
+          totalDetailAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalProfit: 8.762042012749001
+          totalGlobalDiscounts: 6.878052220127876
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+          totalSurchargesInUsd: 9.301444243932576
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
+          currency:
+            country: country
+            code: code
+            value: value
+          free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          data4: data4
+          totalWithheldTax: 6.778324963048013
+          data3: data3
+          data2: data2
+          data1: data1
+          customGlobalDiscountsAmount: 9.965781217890562
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalGlobalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          shipmentPolicyId: shipmentPolicyId
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 6.438423552598547
+          totalShippingTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          taxCalculationMethod: Included
+          totalGlobalDiscountsInUsd: 1.1730742509559433
+          totalGlobalSurcharges: 5.944895607614016
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalDiscountsInUsd: 7.061401241503109
+          totalShippingCostAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          data: data
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          totalInUsd: 7.457744773683766
+          totalGlobalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quoteItemRecordId: quoteItemRecordId
+          businessProfileRecordId: businessProfileRecordId
+          totalTaxBaseInUsd: 3.616076749251911
+          totalTaxBase: 3.5571952270680973
+          totalWarrantyCostInUsd: 1.0246457001441578
+          itemShortDescription: itemShortDescription
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+          data2Label: data2Label
+          totalSurchargesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          enrollmentId: enrollmentId
+          totalWithheldTaxesInUsd: 4.145608029883936
+          totalRefundCostInUsd: 6.84685269835264
+          parentBillingItemRecordId: parentBillingItemRecordId
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          totalShippingTaxesInUsd: 1.2315135367772556
+          data1Label: data1Label
+          data4Label: data4Label
+          totalAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          forexRate: 5.962133916683182
+          totalTaxBaseAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalShippingCostInUsd: 7.386281948385884
+          warrantyPolicyId: warrantyPolicyId
+          shippingPolicyId: shippingPolicyId
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          freeReason: freeReason
+          itemTitle: itemTitle
+          totalDiscounts: 9.018348186070783
+          description: description
+          shippingLocationId: shippingLocationId
+          totalTaxesAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          itemID: itemID
+          total: 6.704019297950036
+          totalCurrencyId: totalCurrencyId
+          itemPriceId: itemPriceId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          totalDiscountsAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          quantity: 0.8008281904610115
+          totalTaxes: 6.965117697638846
+          data9Label: data9Label
+          data3Label: data3Label
+          data6Label: data6Label
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalTaxesInUsd: 2.027123023002322
+          totalWithheldTaxAmount:
+            amount: 6.683562403749608
+            currency:
+              country: country
+              code: code
+              value: value
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemCartRecordDto'
+          nullable: true
+          type: array
+      type: object
+    ItemCartRecordUpdateDto:
+      additionalProperties: false
+      example:
+        quantity: 0.8008281904610115
+      properties:
+        quantity:
+          format: double
+          type: number
+      type: object
+    ItemToCompareCartRecordDto:
+      additionalProperties: false
+      example:
+        brandName: brandName
+        itemTitle: itemTitle
+        itemPrimaryImageUrl: itemPrimaryImageUrl
+        cartId: cartId
+        googleCategoryId: googleCategoryId
+        shippingCountryId: shippingCountryId
+        categoryName: categoryName
+        itemId: itemId
+        googleCategoryName: googleCategoryName
+        totalTaxesInUsd: 0.8008281904610115
+        itemShortDescription: itemShortDescription
+        brandId: brandId
+        tenantId: tenantId
+        id: id
+        categoryId: categoryId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalPriceInUsd: 6.027456183070403
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        itemTitle:
+          nullable: true
+          type: string
+        itemShortDescription:
+          nullable: true
+          type: string
+        itemPrimaryImageUrl:
+          nullable: true
+          type: string
+        brandId:
+          nullable: true
+          type: string
+        brandName:
+          nullable: true
+          type: string
+        categoryName:
+          nullable: true
+          type: string
+        categoryId:
+          nullable: true
+          type: string
+        googleCategoryId:
+          nullable: true
+          type: string
+        googleCategoryName:
+          nullable: true
+          type: string
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalPriceInUsd:
+          format: double
+          type: number
+        shippingCountryId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    ItemToCompareCartRecordDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          brandName: brandName
+          itemTitle: itemTitle
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          cartId: cartId
+          googleCategoryId: googleCategoryId
+          shippingCountryId: shippingCountryId
+          categoryName: categoryName
+          itemId: itemId
+          googleCategoryName: googleCategoryName
+          totalTaxesInUsd: 0.8008281904610115
+          itemShortDescription: itemShortDescription
+          brandId: brandId
+          tenantId: tenantId
+          id: id
+          categoryId: categoryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalPriceInUsd: 6.027456183070403
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+      type: object
+    ItemToCompareCartRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - brandName: brandName
+          itemTitle: itemTitle
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          cartId: cartId
+          googleCategoryId: googleCategoryId
+          shippingCountryId: shippingCountryId
+          categoryName: categoryName
+          itemId: itemId
+          googleCategoryName: googleCategoryName
+          totalTaxesInUsd: 0.8008281904610115
+          itemShortDescription: itemShortDescription
+          brandId: brandId
+          tenantId: tenantId
+          id: id
+          categoryId: categoryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalPriceInUsd: 6.027456183070403
+        - brandName: brandName
+          itemTitle: itemTitle
+          itemPrimaryImageUrl: itemPrimaryImageUrl
+          cartId: cartId
+          googleCategoryId: googleCategoryId
+          shippingCountryId: shippingCountryId
+          categoryName: categoryName
+          itemId: itemId
+          googleCategoryName: googleCategoryName
+          totalTaxesInUsd: 0.8008281904610115
+          itemShortDescription: itemShortDescription
+          brandId: brandId
+          tenantId: tenantId
+          id: id
+          categoryId: categoryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalPriceInUsd: 6.027456183070403
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemToCompareCartRecordDto'
+          nullable: true
+          type: array
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    Money:
+      additionalProperties: false
+      example:
+        amount: 6.683562403749608
+        currency:
+          country: country
+          code: code
+          value: value
+      properties:
+        amount:
+          format: double
+          type: number
+        currency:
+          $ref: '#/components/schemas/CurrencyId'
+      type: object
+    NewWishListRequest:
+      additionalProperties: false
+      example:
+        public: true
+        cartID: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        cartID:
+          format: uuid
+          type: string
+        public:
+          type: boolean
+      type: object
+    ProductToWishListRequest:
+      additionalProperties: false
+      example:
+        itemId: itemId
+        wishListId: wishListId
+      properties:
+        wishListId:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    WishListDto:
+      additionalProperties: false
+      example:
+        public: true
+        cartId: cartId
+        description: description
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        public:
+          type: boolean
+      type: object
+    WishListDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          public: true
+          cartId: cartId
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WishListDto'
+      type: object
+    WishListItemRecordDto:
+      additionalProperties: false
+      example:
+        wishListId: wishListId
+        productId: productId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        wishListId:
+          nullable: true
+          type: string
+        productId:
+          nullable: true
+          type: string
+      type: object
+    WishListUpdateDto:
+      additionalProperties: false
+      example:
+        public: true
+        description: description
+        title: title
+      properties:
+        title:
+          minLength: 1
+          type: string
+        description:
+          nullable: true
+          type: string
+        public:
+          type: boolean
+      required:
+      - title
+      type: object
+

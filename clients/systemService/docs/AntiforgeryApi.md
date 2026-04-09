@@ -4,15 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SystemServiceAntiforgeryGetAndStoreTokensGet**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens |  |
-| [**apiV2SystemServiceAntiforgeryIsRequestValidGet**](AntiforgeryApi.md#apiV2SystemServiceAntiforgeryIsRequestValidGet) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid |  |
+| [**getAndStoreTokens**](AntiforgeryApi.md#getAndStoreTokens) | **GET** /api/v2/SystemService/Antiforgery/GetAndStoreTokens | Get and store antiforgery tokens |
+| [**isRequestValidAsync**](AntiforgeryApi.md#isRequestValidAsync) | **GET** /api/v2/SystemService/Antiforgery/IsRequestValid | Validate antiforgery request |
 
 
-<a id="apiV2SystemServiceAntiforgeryGetAndStoreTokensGet"></a>
-# **apiV2SystemServiceAntiforgeryGetAndStoreTokensGet**
-> apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion, xApiVersion)
+<a id="getAndStoreTokens"></a>
+# **getAndStoreTokens**
+> getAndStoreTokens(apiVersion, xApiVersion)
 
+Get and store antiforgery tokens
 
+Generates antiforgery tokens and stores them in the current HTTP context.
 
 ### Example
 ```java
@@ -20,7 +22,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AntiforgeryApi;
 
@@ -28,20 +29,14 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     AntiforgeryApi apiInstance = new AntiforgeryApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.apiV2SystemServiceAntiforgeryGetAndStoreTokensGet(apiVersion, xApiVersion);
+      apiInstance.getAndStoreTokens(apiVersion, xApiVersion);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AntiforgeryApi#apiV2SystemServiceAntiforgeryGetAndStoreTokensGet");
+      System.err.println("Exception when calling AntiforgeryApi#getAndStoreTokens");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -64,7 +59,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,11 +71,13 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-<a id="apiV2SystemServiceAntiforgeryIsRequestValidGet"></a>
-# **apiV2SystemServiceAntiforgeryIsRequestValidGet**
-> apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion, xApiVersion)
+<a id="isRequestValidAsync"></a>
+# **isRequestValidAsync**
+> isRequestValidAsync(apiVersion, xApiVersion)
 
+Validate antiforgery request
 
+Validates whether the current HTTP request contains a valid antiforgery token.
 
 ### Example
 ```java
@@ -88,7 +85,6 @@ null (empty response body)
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.AntiforgeryApi;
 
@@ -96,20 +92,14 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     AntiforgeryApi apiInstance = new AntiforgeryApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.apiV2SystemServiceAntiforgeryIsRequestValidGet(apiVersion, xApiVersion);
+      apiInstance.isRequestValidAsync(apiVersion, xApiVersion);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AntiforgeryApi#apiV2SystemServiceAntiforgeryIsRequestValidGet");
+      System.err.println("Exception when calling AntiforgeryApi#isRequestValidAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -132,7 +122,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

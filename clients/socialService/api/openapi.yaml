@@ -1,0 +1,6962 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: SocialService
+  version: 2.0.0.0
+servers:
+- url: /
+tags:
+- name: FenixAlliance.ABP.Web
+- name: SocialFeeds
+- name: SocialGroups
+- name: SocialPosts
+- name: SocialProfiles
+paths:
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/SocialService/SocialFeeds:
+    get:
+      description: Retrieves a list of social feeds for the specified social profile.
+      operationId: GetFeedNotifications
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedDtoListEnvelope'
+          description: OK
+      summary: Get social feeds
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialFeeds/Count:
+    get:
+      description: Returns the count of social feeds for the specified social profile.
+      operationId: GetNotificationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social feeds
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialFeeds/{socialFeedId}:
+    get:
+      description: Retrieves a specific social feed by its ID.
+      operationId: GetNotificationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedDtoEnvelope'
+          description: OK
+      summary: Get social feed by ID
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts:
+    get:
+      description: Retrieves a list of posts for a specific social feed.
+      operationId: GetFeedPostsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoListEnvelope'
+          description: OK
+      summary: Get social feed posts
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new post in a specific social feed.
+      operationId: CreateFeedPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+          description: Created
+      summary: Create a social feed post
+      tags:
+      - SocialFeeds
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/Count:
+    get:
+      description: Returns the count of posts for a specific social feed.
+      operationId: GetFeedPostsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social feed posts
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId}:
+    delete:
+      description: Deletes a post from a specific social feed.
+      operationId: DeleteFeedPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: feedPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete a social feed post
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific post from a social feed by its ID.
+      operationId: GetFeedPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: feedPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+          description: OK
+      summary: Get social feed post by ID
+      tags:
+      - SocialFeeds
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing post in a specific social feed.
+      operationId: UpdateFeedPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialFeedId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: feedPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialFeedPostUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialFeedPostDtoEnvelope'
+          description: OK
+      summary: Update a social feed post
+      tags:
+      - SocialFeeds
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialGroups:
+    get:
+      description: Retrieves all social groups for the specified tenant.
+      operationId: GetSocialGroupsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialGroupDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialGroupDtoListEnvelope'
+          description: OK
+      summary: Get social groups
+      tags:
+      - SocialGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new social group for the specified tenant.
+      operationId: CreateSocialGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialGroupCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialGroupCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a social group
+      tags:
+      - SocialGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialGroups/Count:
+    get:
+      description: Counts all social groups for the specified tenant.
+      operationId: CountSocialGroupsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social groups
+      tags:
+      - SocialGroups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialGroups/{socialGroupId}:
+    delete:
+      description: Deletes a social group for the specified tenant.
+      operationId: DeleteSocialGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social group
+      tags:
+      - SocialGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific social group by its ID.
+      operationId: GetSocialGroupByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialGroupDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialGroupDtoEnvelope'
+          description: OK
+      summary: Get social group by ID
+      tags:
+      - SocialGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing social group for the specified tenant.
+      operationId: UpdateSocialGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialGroupUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialGroupUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a social group
+      tags:
+      - SocialGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts:
+    get:
+      description: Retrieves a list of social posts for the specified social profile.
+      operationId: GetSocialPostsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoListEnvelope'
+          description: OK
+      summary: Get social posts
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new social post for the specified social profile.
+      operationId: CreateSocialPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoEnvelope'
+          description: Created
+      summary: Create a social post
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/Count:
+    get:
+      description: Returns the count of social posts for the specified social profile.
+      operationId: GetSocialPostsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social posts
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}:
+    delete:
+      description: Deletes a social post by its ID.
+      operationId: DeleteSocialPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social post
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific social post by its ID.
+      operationId: GetSocialPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostDtoEnvelope'
+          description: OK
+      summary: Get social post by ID
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing social post by its ID.
+      operationId: UpdateSocialPostAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a social post
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments:
+    get:
+      description: Retrieves a list of attachments for a specific social post.
+      operationId: GetSocialPostAttachmentsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoListEnvelope'
+          description: OK
+      summary: Get social post attachments
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new attachment for a specific social post.
+      operationId: CreateSocialPostAttachmentAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostAttachmentDtoEnvelope'
+          description: Created
+      summary: Create a social post attachment
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Count:
+    get:
+      description: Returns the count of attachments for a specific social post.
+      operationId: GetSocialPostAttachmentsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social post attachments
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId}:
+    delete:
+      description: Deletes an attachment from a specific social post.
+      operationId: DeleteSocialPostAttachmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social post attachment
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific attachment from a social post by its ID.
+      operationId: GetSocialPostAttachmentAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Get social post attachment by ID
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing attachment on a specific social post.
+      operationId: UpdateSocialPostAttachmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: attachmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostAttachmentUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a social post attachment
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions:
+    get:
+      description: Retrieves a list of reactions for a specific social post.
+      operationId: GetSocialPostReactionsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoListEnvelope'
+          description: OK
+      summary: Get social post reactions
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new reaction on a specific social post.
+      operationId: CreateSocialPostReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialReactionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialReactionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
+          description: Created
+      summary: Create a social post reaction
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/Count:
+    get:
+      description: Returns the count of reactions for a specific social post.
+      operationId: GetSocialPostReactionsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social post reactions
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId}:
+    delete:
+      description: Deletes a reaction from a specific social post.
+      operationId: DeleteSocialPostReactionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social post reaction
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific reaction from a social post by its ID.
+      operationId: GetSocialPostReactionAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialReactionDtoEnvelope'
+          description: OK
+      summary: Get social post reaction by ID
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing reaction on a specific social post.
+      operationId: UpdateSocialPostReactionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: reactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialReactionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialReactionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a social post reaction
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments:
+    get:
+      description: Retrieves a list of comments for a specific social post.
+      operationId: GetSocialPostCommentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostCommentDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostCommentDtoListEnvelope'
+          description: OK
+      summary: Get social post comments
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new comment on a specific social post.
+      operationId: CreateSocialPostCommentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a social post comment
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/Count:
+    get:
+      description: Returns the count of comments for a specific social post.
+      operationId: GetSocialPostCommentsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count social post comments
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}:
+    delete:
+      description: Deletes a comment from a specific social post.
+      operationId: DeleteSocialPostCommentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a social post comment
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific comment from a social post by its ID.
+      operationId: GetSocialPostCommentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialPostCommentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialPostCommentDtoEnvelope'
+          description: OK
+      summary: Get social post comment by ID
+      tags:
+      - SocialPosts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing comment on a specific social post.
+      operationId: UpdateSocialPostCommentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: socialPostId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SocialPostCommentUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a social post comment
+      tags:
+      - SocialPosts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles:
+    get:
+      description: Get a list of social profiles.
+      operationId: GetSocialProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+          description: OK
+      summary: Get Social Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/Count:
+    get:
+      description: Count social profiles.
+      operationId: CountSocialProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Social Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}:
+    get:
+      description: Get a social profile by ID.
+      operationId: GetSocialProfileAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoEnvelope'
+          description: OK
+      summary: Get Social Profile
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers:
+    get:
+      description: Get a list of followers for a social profile.
+      operationId: GetFollowersAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+          description: OK
+      summary: Get Followers
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Count:
+    get:
+      description: Count followers for a social profile.
+      operationId: CountFollowersAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Followers
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles:
+    get:
+      description: Get a list of follower profiles for a social profile.
+      operationId: GetFollowerProfilesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+          description: OK
+      summary: Get Follower Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers/Profiles/Count:
+    get:
+      description: Count follower profiles for a social profile.
+      operationId: CountFollowerProfilesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Follower Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows:
+    get:
+      description: Get a list of follows for a social profile.
+      operationId: GetFollowsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FollowRecordDtoListEnvelope'
+          description: OK
+      summary: Get Follows
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Count:
+    get:
+      description: Count follows for a social profile.
+      operationId: CountFollowsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Follows
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles:
+    get:
+      description: Get a list of followed profiles for a social profile.
+      operationId: GetFollowedProfilesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SocialProfileDtoListEnvelope'
+          description: OK
+      summary: Get Followed Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/Profiles/Count:
+    get:
+      description: Count followed profiles for a social profile.
+      operationId: CountFollowedProfilesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Followed Profiles
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId}:
+    delete:
+      description: Unfollow a social profile.
+      operationId: UnfollowAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: followedSocialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Unfollow
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Check if a follow record exists between two social profiles.
+      operationId: FollowExistsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: followedSocialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      summary: Check if Follow Exists
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Follow a social profile.
+      operationId: FollowAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: followedSocialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Follow
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications:
+    get:
+      description: Get a list of notifications for a social profile.
+      operationId: GetNotificationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NotificationDtoListEnvelope'
+          description: OK
+      summary: Get Notifications
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/Count:
+    get:
+      description: Count notifications for a social profile.
+      operationId: CountNotificationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Notifications
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations:
+    get:
+      description: Get a list of conversations for a social profile.
+      operationId: GetConversationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConversationDtoListEnvelope'
+          description: OK
+      summary: Get Conversations
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new conversation.
+      operationId: CreateConversationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConversationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create Conversation
+      tags:
+      - SocialProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Count:
+    get:
+      description: Count conversations for a social profile.
+      operationId: CountConversationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Conversations
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{conversationId}/Messages:
+    get:
+      description: Get a list of messages for a conversation.
+      operationId: GetMessagesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateMessageDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PrivateMessageDtoListEnvelope'
+          description: OK
+      summary: Get Messages
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new message.
+      operationId: CreateMessageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create Message
+      tags:
+      - SocialProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{conversationId}/Messages/Count:
+    get:
+      description: Count messages for a conversation.
+      operationId: CountMessagesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count Messages
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/SocialProfiles/{conversationId}/Messages/{messageId}:
+    delete:
+      description: Delete a message.
+      operationId: DeleteMessageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: messageId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete Message
+      tags:
+      - SocialProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a message.
+      operationId: UpdateMessageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: conversationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: messageId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PrivateMessageUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Message
+      tags:
+      - SocialProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    BooleanEnvelope:
+      additionalProperties: false
+      example:
+        result: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          type: boolean
+      type: object
+    ConversationCreateDto:
+      additionalProperties: false
+      example:
+        subject: subject
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        subject:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    ConversationDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        subject: subject
+        lastMessageTimestamp: 2000-01-23T04:56:07.000+00:00
+        lastMessage: lastMessage
+        id: id
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        startedTimestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        subject:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        startedTimestamp:
+          format: date-time
+          type: string
+        lastMessageTimestamp:
+          format: date-time
+          type: string
+        lastMessage:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+      type: object
+    ConversationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          subject: subject
+          lastMessageTimestamp: 2000-01-23T04:56:07.000+00:00
+          lastMessage: lastMessage
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          startedTimestamp: 2000-01-23T04:56:07.000+00:00
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          subject: subject
+          lastMessageTimestamp: 2000-01-23T04:56:07.000+00:00
+          lastMessage: lastMessage
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          startedTimestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ConversationDto'
+          nullable: true
+          type: array
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    FollowRecordDto:
+      additionalProperties: false
+      example:
+        alerts: true
+        id: id
+        type: type
+        followerId: followerId
+        followedId: followedId
+      properties:
+        id:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        followerId:
+          nullable: true
+          type: string
+        followedId:
+          nullable: true
+          type: string
+        alerts:
+          type: boolean
+      type: object
+    FollowRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - alerts: true
+          id: id
+          type: type
+          followerId: followerId
+          followedId: followedId
+        - alerts: true
+          id: id
+          type: type
+          followerId: followerId
+          followedId: followedId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/FollowRecordDto'
+          nullable: true
+          type: array
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    NotificationDto:
+      additionalProperties: false
+      example:
+        readTimestamp: 2000-01-23T04:56:07.000+00:00
+        read: true
+        redirectUrl: redirectUrl
+        icon: icon
+        issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+        id: id
+        message: message
+        socialProfileID: socialProfileID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        read:
+          type: boolean
+        icon:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        redirectUrl:
+          nullable: true
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+        readTimestamp:
+          format: date-time
+          type: string
+        issuedTimestamp:
+          format: date-time
+          type: string
+      type: object
+    NotificationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          redirectUrl: redirectUrl
+          icon: icon
+          issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+          id: id
+          message: message
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          redirectUrl: redirectUrl
+          icon: icon
+          issuedTimestamp: 2000-01-23T04:56:07.000+00:00
+          id: id
+          message: message
+          socialProfileID: socialProfileID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/NotificationDto'
+          nullable: true
+          type: array
+      type: object
+    PrivateMessageCreateDto:
+      additionalProperties: false
+      example:
+        conversationId: conversationId
+        senderSocialProfileId: senderSocialProfileId
+        receiverSocialProfileId: receiverSocialProfileId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        conversationId:
+          nullable: true
+          type: string
+        senderSocialProfileId:
+          nullable: true
+          type: string
+        receiverSocialProfileId:
+          nullable: true
+          type: string
+      type: object
+    PrivateMessageDto:
+      additionalProperties: false
+      example:
+        readTimestamp: 2000-01-23T04:56:07.000+00:00
+        read: true
+        receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+        conversationId: conversationId
+        sentTimestamp: 2000-01-23T04:56:07.000+00:00
+        senderSocialProfileId: senderSocialProfileId
+        receiverSocialProfileID: receiverSocialProfileID
+        id: id
+        title: title
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        read:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        conversationId:
+          nullable: true
+          type: string
+        senderSocialProfileId:
+          nullable: true
+          type: string
+        receiverSocialProfileID:
+          nullable: true
+          type: string
+        sentTimestamp:
+          format: date-time
+          type: string
+        readTimestamp:
+          format: date-time
+          type: string
+        receivedTimestamp:
+          format: date-time
+          type: string
+      type: object
+    PrivateMessageDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+          conversationId: conversationId
+          sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          senderSocialProfileId: senderSocialProfileId
+          receiverSocialProfileID: receiverSocialProfileID
+          id: id
+          title: title
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - readTimestamp: 2000-01-23T04:56:07.000+00:00
+          read: true
+          receivedTimestamp: 2000-01-23T04:56:07.000+00:00
+          conversationId: conversationId
+          sentTimestamp: 2000-01-23T04:56:07.000+00:00
+          senderSocialProfileId: senderSocialProfileId
+          receiverSocialProfileID: receiverSocialProfileID
+          id: id
+          title: title
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PrivateMessageDto'
+          nullable: true
+          type: array
+      type: object
+    PrivateMessageUpdateDto:
+      additionalProperties: false
+      example:
+        title: title
+        message: message
+      properties:
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    SocialFeedDto:
+      additionalProperties: false
+      example:
+        id: id
+        socialPostsCount: 0
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        socialPostsCount:
+          format: int32
+          type: integer
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    SocialFeedDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          id: id
+          socialPostsCount: 0
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialFeedDto'
+      type: object
+    SocialFeedDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - id: id
+          socialPostsCount: 0
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - id: id
+          socialPostsCount: 0
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialFeedDto'
+          nullable: true
+          type: array
+      type: object
+    SocialFeedPostCreateDto:
+      additionalProperties: false
+      example:
+        socialFeedId: socialFeedId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    SocialFeedPostDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionsCount: 6
+        socialFeedId: socialFeedId
+        commentsCount: 0
+        id: id
+        title: title
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        commentsCount:
+          format: int32
+          type: integer
+        reactionsCount:
+          format: int32
+          type: integer
+        socialFeedId:
+          nullable: true
+          type: string
+      type: object
+    SocialFeedPostDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          socialFeedId: socialFeedId
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialFeedPostDto'
+      type: object
+    SocialFeedPostDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          socialFeedId: socialFeedId
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          socialFeedId: socialFeedId
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialFeedPostDto'
+          nullable: true
+          type: array
+      type: object
+    SocialFeedPostUpdateDto:
+      additionalProperties: false
+      example:
+        title: title
+        message: message
+      properties:
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+      type: object
+    SocialGroupCreateDto:
+      additionalProperties: false
+      example:
+        avatarURL: avatarURL
+        name: name
+        title: title
+        socialProfileID: socialProfileID
+      properties:
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+      type: object
+    SocialGroupDto:
+      additionalProperties: false
+      example:
+        avatarURL: avatarURL
+        name: name
+        businessID: businessID
+        id: id
+        title: title
+        socialProfileID: socialProfileID
+        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+      type: object
+    SocialGroupDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          avatarURL: avatarURL
+          name: name
+          businessID: businessID
+          id: id
+          title: title
+          socialProfileID: socialProfileID
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialGroupDto'
+      type: object
+    SocialGroupDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - avatarURL: avatarURL
+          name: name
+          businessID: businessID
+          id: id
+          title: title
+          socialProfileID: socialProfileID
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - avatarURL: avatarURL
+          name: name
+          businessID: businessID
+          id: id
+          title: title
+          socialProfileID: socialProfileID
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialGroupDto'
+          nullable: true
+          type: array
+      type: object
+    SocialGroupUpdateDto:
+      additionalProperties: false
+      example:
+        avatarURL: avatarURL
+        name: name
+        title: title
+      properties:
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+      type: object
+    SocialPostAttachmentCreateDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        fileName: fileName
+        notes: notes
+        author: author
+        filePath: filePath
+        abstract: abstract
+        title: title
+        isFolder: true
+        parentFileUploadId: parentFileUploadId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        socialPostId: socialPostId
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadId:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostAttachmentDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        enrollmentId: enrollmentId
+        fileName: fileName
+        metadata: metadata
+        notes: notes
+        author: author
+        filePath: filePath
+        abstract: abstract
+        title: title
+        userId: userId
+        folderPath: folderPath
+        isFolder: true
+        parentFileId: parentFileId
+        tenantId: tenantId
+        fileUrl: fileUrl
+        id: id
+        socialProfileId: socialProfileId
+        contentType: contentType
+        hash: hash
+        fileLength: 0
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        socialPostId: socialPostId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        hash:
+          nullable: true
+          type: string
+        fileUrl:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        fileLength:
+          format: int64
+          type: integer
+        contentType:
+          nullable: true
+          type: string
+        parentFileId:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        folderPath:
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostAttachmentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialPostAttachmentDto'
+      type: object
+    SocialPostAttachmentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        - keyWords: keyWords
+          validResponse: true
+          enrollmentId: enrollmentId
+          fileName: fileName
+          metadata: metadata
+          notes: notes
+          author: author
+          filePath: filePath
+          abstract: abstract
+          title: title
+          userId: userId
+          folderPath: folderPath
+          isFolder: true
+          parentFileId: parentFileId
+          tenantId: tenantId
+          fileUrl: fileUrl
+          id: id
+          socialProfileId: socialProfileId
+          contentType: contentType
+          hash: hash
+          fileLength: 0
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialPostAttachmentDto'
+          nullable: true
+          type: array
+      type: object
+    SocialPostAttachmentUpdateDto:
+      additionalProperties: false
+      example:
+        keyWords: keyWords
+        validResponse: true
+        metadata: metadata
+        isFolder: true
+        fileName: fileName
+        parentFileUploadID: parentFileUploadID
+        notes: notes
+        author: author
+        filePath: filePath
+        abstract: abstract
+        title: title
+      properties:
+        notes:
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        isFolder:
+          type: boolean
+        fileName:
+          nullable: true
+          type: string
+        abstract:
+          nullable: true
+          type: string
+        keyWords:
+          nullable: true
+          type: string
+        validResponse:
+          type: boolean
+        parentFileUploadID:
+          nullable: true
+          type: string
+        filePath:
+          nullable: true
+          type: string
+      type: object
+    SocialPostCommentCreateDto:
+      additionalProperties: false
+      example:
+        socialFeedPostId: socialFeedPostId
+        parentCommentId: parentCommentId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        socialPostId: socialPostId
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        message:
+          maxLength: 280
+          minLength: 1
+          pattern: "^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$"
+          type: string
+        parentCommentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialFeedPostId:
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      required:
+      - message
+      type: object
+    SocialPostCommentDto:
+      additionalProperties: false
+      example:
+        socialFeedPostId: socialFeedPostId
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        parentCommentId: parentCommentId
+        id: id
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        socialPostId: socialPostId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        parentCommentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialFeedPostId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostCommentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialFeedPostId: socialFeedPostId
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          parentCommentId: parentCommentId
+          id: id
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialPostCommentDto'
+      type: object
+    SocialPostCommentDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialFeedPostId: socialFeedPostId
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          parentCommentId: parentCommentId
+          id: id
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        - socialFeedPostId: socialFeedPostId
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          parentCommentId: parentCommentId
+          id: id
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          socialPostId: socialPostId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialPostCommentDto'
+          nullable: true
+          type: array
+      type: object
+    SocialPostCommentUpdateDto:
+      additionalProperties: false
+      example:
+        message: message
+        socialPostId: socialPostId
+      properties:
+        message:
+          nullable: true
+          type: string
+        socialPostId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostCreateDto:
+      additionalProperties: false
+      example:
+        socialFeedId: socialFeedId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    SocialPostDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionsCount: 6
+        commentsCount: 0
+        id: id
+        title: title
+        message: message
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+        commentsCount:
+          format: int32
+          type: integer
+        reactionsCount:
+          format: int32
+          type: integer
+      type: object
+    SocialPostDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialPostDto'
+      type: object
+    SocialPostDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - socialProfileName: socialProfileName
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionsCount: 6
+          commentsCount: 0
+          id: id
+          title: title
+          message: message
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialPostDto'
+          nullable: true
+          type: array
+      type: object
+    SocialPostUpdateDto:
+      additionalProperties: false
+      example:
+        title: title
+        message: message
+      properties:
+        title:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+      type: object
+    SocialProfileDto:
+      additionalProperties: false
+      example:
+        githubURL: githubURL
+        notes: notes
+        twitterUrl: twitterUrl
+        about: about
+        unreadMessagesCount: 2
+        type: User
+        countryId: countryId
+        cover: cover
+        facebookURL: facebookURL
+        youtubeURL: youtubeURL
+        followsCount: 0
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        pinterestURL: pinterestURL
+        linkedInURL: linkedInURL
+        unreadNotificationsCount: 5
+        notificationsCount: 5
+        avatar: avatar
+        socialFeedId: socialFeedId
+        identityId: identityId
+        domain: domain
+        name: name
+        dribbleURL: dribbleURL
+        countryName: countryName
+        messagesCount: 6
+        followersCount: 1
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        cover:
+          nullable: true
+          type: string
+        avatar:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryName:
+          nullable: true
+          type: string
+        identityId:
+          nullable: true
+          type: string
+        followsCount:
+          format: int32
+          nullable: true
+          type: integer
+        messagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        followersCount:
+          format: int32
+          nullable: true
+          type: integer
+        notificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadNotificationsCount:
+          format: int32
+          nullable: true
+          type: integer
+        unreadMessagesCount:
+          format: int32
+          nullable: true
+          type: integer
+        type:
+          enum:
+          - User
+          - Tenant
+          - Contact
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookURL:
+          nullable: true
+          type: string
+        linkedInURL:
+          nullable: true
+          type: string
+        youtubeURL:
+          nullable: true
+          type: string
+        githubURL:
+          nullable: true
+          type: string
+        pinterestURL:
+          nullable: true
+          type: string
+        dribbleURL:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        notes:
+          nullable: true
+          type: string
+      type: object
+    SocialProfileDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 2
+          type: User
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 0
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 5
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 6
+          followersCount: 1
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialProfileDto'
+      type: object
+    SocialProfileDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 2
+          type: User
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 0
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 5
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 6
+          followersCount: 1
+        - githubURL: githubURL
+          notes: notes
+          twitterUrl: twitterUrl
+          about: about
+          unreadMessagesCount: 2
+          type: User
+          countryId: countryId
+          cover: cover
+          facebookURL: facebookURL
+          youtubeURL: youtubeURL
+          followsCount: 0
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          pinterestURL: pinterestURL
+          linkedInURL: linkedInURL
+          unreadNotificationsCount: 5
+          notificationsCount: 5
+          avatar: avatar
+          socialFeedId: socialFeedId
+          identityId: identityId
+          domain: domain
+          name: name
+          dribbleURL: dribbleURL
+          countryName: countryName
+          messagesCount: 6
+          followersCount: 1
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialProfileDto'
+          nullable: true
+          type: array
+      type: object
+    SocialReactionCreateDto:
+      additionalProperties: false
+      example:
+        reaction: Like
+        reactionValue: reactionValue
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
+        reactionValue:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    SocialReactionDto:
+      additionalProperties: false
+      example:
+        socialProfileName: socialProfileName
+        reaction: Like
+        socialProfileAvatarUrl: socialProfileAvatarUrl
+        reactionValue: reactionValue
+        id: id
+        socialProfileId: socialProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
+        reactionValue:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        socialProfileName:
+          nullable: true
+          type: string
+        socialProfileAvatarUrl:
+          nullable: true
+          type: string
+      type: object
+    SocialReactionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SocialReactionDto'
+      type: object
+    SocialReactionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - socialProfileName: socialProfileName
+          reaction: Like
+          socialProfileAvatarUrl: socialProfileAvatarUrl
+          reactionValue: reactionValue
+          id: id
+          socialProfileId: socialProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SocialReactionDto'
+          nullable: true
+          type: array
+      type: object
+    SocialReactionUpdateDto:
+      additionalProperties: false
+      example:
+        reaction: Like
+        reactionValue: reactionValue
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        reaction:
+          enum:
+          - Like
+          - Happy
+          - HaHa
+          - Love
+          - Sad
+          - Angry
+          - Wow
+          - Afraid
+          type: string
+        reactionValue:
+          nullable: true
+          type: string
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+

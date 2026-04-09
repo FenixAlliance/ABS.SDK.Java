@@ -4,96 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2PricingServicePriceListsCountGet**](PriceListsApi.md#apiV2PricingServicePriceListsCountGet) | **GET** /api/v2/PricingService/PriceLists/Count |  |
-| [**apiV2PricingServicePriceListsGet**](PriceListsApi.md#apiV2PricingServicePriceListsGet) | **GET** /api/v2/PricingService/PriceLists |  |
-| [**apiV2PricingServicePriceListsPost**](PriceListsApi.md#apiV2PricingServicePriceListsPost) | **POST** /api/v2/PricingService/PriceLists |  |
-| [**apiV2PricingServicePriceListsPriceListIdDelete**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPost**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPost) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**apiV2PricingServicePriceListsPriceListIdPut**](PriceListsApi.md#apiV2PricingServicePriceListsPriceListIdPut) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} |  |
-| [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} |  |
-| [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices |  |
+| [**createPriceListAsync**](PriceListsApi.md#createPriceListAsync) | **POST** /api/v2/PricingService/PriceLists | Creates a new price list |
+| [**createPriceListPricesAsync**](PriceListsApi.md#createPriceListPricesAsync) | **POST** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Creates a price list entry |
+| [**deletePriceListAsync**](PriceListsApi.md#deletePriceListAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId} | Deletes a price list |
+| [**deletePriceListPriceAsync**](PriceListsApi.md#deletePriceListPriceAsync) | **DELETE** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Deletes a price list entry |
+| [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID |
+| [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID |
+| [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
+| [**getPriceListsAsync**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
+| [**getPriceListsCountAsync**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
+| [**updatePriceListAsync**](PriceListsApi.md#updatePriceListAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId} | Updates a price list |
+| [**updatePriceListPriceAsync**](PriceListsApi.md#updatePriceListPriceAsync) | **PUT** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Updates a price list entry |
 
 
-<a id="apiV2PricingServicePriceListsCountGet"></a>
-# **apiV2PricingServicePriceListsCountGet**
-> Int32Envelope apiV2PricingServicePriceListsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createPriceListAsync"></a>
+# **createPriceListAsync**
+> EmptyEnvelope createPriceListAsync(tenantId, priceListCreateDto)
 
+Creates a new price list
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriceListsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2PricingServicePriceListsCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2PricingServicePriceListsGet"></a>
-# **apiV2PricingServicePriceListsGet**
-> PriceListDtoListEnvelope apiV2PricingServicePriceListsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new price list for the current tenant.
 
 ### Example
 ```java
@@ -101,7 +31,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -109,95 +38,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      PriceListDtoListEnvelope result = apiInstance.apiV2PricingServicePriceListsGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2PricingServicePriceListsPost"></a>
-# **apiV2PricingServicePriceListsPost**
-> EmptyEnvelope apiV2PricingServicePriceListsPost(tenantId, apiVersion, xApiVersion, priceListCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriceListsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     PriceListCreateDto priceListCreateDto = new PriceListCreateDto(); // PriceListCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPost(tenantId, apiVersion, xApiVersion, priceListCreateDto);
+      EmptyEnvelope result = apiInstance.createPriceListAsync(tenantId, priceListCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPost");
+      System.err.println("Exception when calling PriceListsApi#createPriceListAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -212,8 +61,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **priceListCreateDto** | [**PriceListCreateDto**](PriceListCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -222,7 +69,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,85 +82,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2PricingServicePriceListsPriceListIdDelete"></a>
-# **apiV2PricingServicePriceListsPriceListIdDelete**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdDelete(tenantId, priceListId, apiVersion, xApiVersion)
+<a id="createPriceListPricesAsync"></a>
+# **createPriceListPricesAsync**
+> EmptyEnvelope createPriceListPricesAsync(tenantId, priceListId, itemPriceCreateDto)
 
+Creates a price list entry
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriceListsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID priceListId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPriceListIdDelete(tenantId, priceListId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **priceListId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPost"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPost**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPost(tenantId, priceListId, apiVersion, xApiVersion, itemPriceCreateDto)
-
-
+Creates a new price entry in the specified price list.
 
 ### Example
 ```java
@@ -321,7 +96,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -329,24 +103,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     ItemPriceCreateDto itemPriceCreateDto = new ItemPriceCreateDto(); // ItemPriceCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPost(tenantId, priceListId, apiVersion, xApiVersion, itemPriceCreateDto);
+      EmptyEnvelope result = apiInstance.createPriceListPricesAsync(tenantId, priceListId, itemPriceCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPost");
+      System.err.println("Exception when calling PriceListsApi#createPriceListPricesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -362,8 +128,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **itemPriceCreateDto** | [**ItemPriceCreateDto**](ItemPriceCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -372,7 +136,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -385,11 +149,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(tenantId, priceListId, priceId, apiVersion, xApiVersion)
+<a id="deletePriceListAsync"></a>
+# **deletePriceListAsync**
+> EmptyEnvelope deletePriceListAsync(tenantId, priceListId)
 
+Deletes a price list
 
+Deletes the specified price list.
 
 ### Example
 ```java
@@ -397,7 +163,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -405,24 +170,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
-    UUID priceId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete(tenantId, priceListId, priceId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deletePriceListAsync(tenantId, priceListId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdDelete");
+      System.err.println("Exception when calling PriceListsApi#deletePriceListAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -438,9 +194,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
-| **priceId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -448,7 +201,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -461,11 +214,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut"></a>
-# **apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(tenantId, priceListId, priceId, apiVersion, xApiVersion, itemPriceUpdateDto)
+<a id="deletePriceListPriceAsync"></a>
+# **deletePriceListPriceAsync**
+> EmptyEnvelope deletePriceListPriceAsync(tenantId, priceListId, priceId)
 
+Deletes a price list entry
 
+Deletes the specified price entry from a price list.
 
 ### Example
 ```java
@@ -473,7 +228,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -481,25 +235,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID priceId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    ItemPriceUpdateDto itemPriceUpdateDto = new ItemPriceUpdateDto(); // ItemPriceUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut(tenantId, priceListId, priceId, apiVersion, xApiVersion, itemPriceUpdateDto);
+      EmptyEnvelope result = apiInstance.deletePriceListPriceAsync(tenantId, priceListId, priceId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPricesPriceIdPut");
+      System.err.println("Exception when calling PriceListsApi#deletePriceListPriceAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -516,9 +261,6 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
 | **priceId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -526,87 +268,11 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2PricingServicePriceListsPriceListIdPut"></a>
-# **apiV2PricingServicePriceListsPriceListIdPut**
-> EmptyEnvelope apiV2PricingServicePriceListsPriceListIdPut(tenantId, priceListId, apiVersion, xApiVersion, priceListUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.PriceListsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID priceListId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    PriceListUpdateDto priceListUpdateDto = new PriceListUpdateDto(); // PriceListUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2PricingServicePriceListsPriceListIdPut(tenantId, priceListId, apiVersion, xApiVersion, priceListUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PriceListsApi#apiV2PricingServicePriceListsPriceListIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **priceListId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -617,9 +283,11 @@ public class Example {
 
 <a id="getPriceListAsync"></a>
 # **getPriceListAsync**
-> PriceListDtoEnvelope getPriceListAsync(tenantId, priceListId, apiVersion, xApiVersion)
+> PriceListDtoEnvelope getPriceListAsync(tenantId, priceListId)
 
+Gets a price list by ID
 
+Retrieves the details of a price list using its unique identifier.
 
 ### Example
 ```java
@@ -627,7 +295,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -635,20 +302,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      PriceListDtoEnvelope result = apiInstance.getPriceListAsync(tenantId, priceListId, apiVersion, xApiVersion);
+      PriceListDtoEnvelope result = apiInstance.getPriceListAsync(tenantId, priceListId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListAsync");
@@ -667,8 +326,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -676,7 +333,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -691,9 +348,11 @@ public class Example {
 
 <a id="getPriceListPriceAsync"></a>
 # **getPriceListPriceAsync**
-> ItemPriceDtoEnvelope getPriceListPriceAsync(tenantId, priceListId, priceId, apiVersion, xApiVersion)
+> ItemPriceDtoEnvelope getPriceListPriceAsync(tenantId, priceListId, priceId)
 
+Gets a price list entry by ID
 
+Retrieves a specific price entry from a price list.
 
 ### Example
 ```java
@@ -701,7 +360,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -709,21 +367,13 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID priceId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemPriceDtoEnvelope result = apiInstance.getPriceListPriceAsync(tenantId, priceListId, priceId, apiVersion, xApiVersion);
+      ItemPriceDtoEnvelope result = apiInstance.getPriceListPriceAsync(tenantId, priceListId, priceId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListPriceAsync");
@@ -743,8 +393,6 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
 | **priceId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -752,7 +400,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -767,9 +415,11 @@ public class Example {
 
 <a id="getPriceListPricesAsync"></a>
 # **getPriceListPricesAsync**
-> ItemPriceDtoListEnvelope getPriceListPricesAsync(tenantId, priceListId, itemId, apiVersion, xApiVersion)
+> ItemPriceDtoListEnvelope getPriceListPricesAsync(tenantId, priceListId, itemId)
 
+Retrieves prices in a price list
 
+Gets all price entries for a specific price list with OData support.
 
 ### Example
 ```java
@@ -777,7 +427,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PriceListsApi;
 
@@ -785,21 +434,13 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemPriceDtoListEnvelope result = apiInstance.getPriceListPricesAsync(tenantId, priceListId, itemId, apiVersion, xApiVersion);
+      ItemPriceDtoListEnvelope result = apiInstance.getPriceListPricesAsync(tenantId, priceListId, itemId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PriceListsApi#getPriceListPricesAsync");
@@ -819,8 +460,6 @@ public class Example {
 | **tenantId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | |
 | **itemId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
@@ -828,11 +467,273 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getPriceListsAsync"></a>
+# **getPriceListsAsync**
+> PriceListDtoListEnvelope getPriceListsAsync(tenantId)
+
+Retrieves all price lists
+
+Gets all price lists for the current tenant with OData support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PriceListsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      PriceListDtoListEnvelope result = apiInstance.getPriceListsAsync(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PriceListsApi#getPriceListsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**PriceListDtoListEnvelope**](PriceListDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getPriceListsCountAsync"></a>
+# **getPriceListsCountAsync**
+> Int32Envelope getPriceListsCountAsync(tenantId)
+
+Counts price lists
+
+Gets the count of price lists for the current tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PriceListsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getPriceListsCountAsync(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PriceListsApi#getPriceListsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updatePriceListAsync"></a>
+# **updatePriceListAsync**
+> EmptyEnvelope updatePriceListAsync(tenantId, priceListId, priceListUpdateDto)
+
+Updates a price list
+
+Updates the specified price list.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PriceListsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID priceListId = UUID.randomUUID(); // UUID | 
+    PriceListUpdateDto priceListUpdateDto = new PriceListUpdateDto(); // PriceListUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updatePriceListAsync(tenantId, priceListId, priceListUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PriceListsApi#updatePriceListAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **priceListId** | **UUID**|  | |
+| **priceListUpdateDto** | [**PriceListUpdateDto**](PriceListUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updatePriceListPriceAsync"></a>
+# **updatePriceListPriceAsync**
+> EmptyEnvelope updatePriceListPriceAsync(tenantId, priceListId, priceId, itemPriceUpdateDto)
+
+Updates a price list entry
+
+Updates the specified price entry in a price list.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PriceListsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID priceListId = UUID.randomUUID(); // UUID | 
+    UUID priceId = UUID.randomUUID(); // UUID | 
+    ItemPriceUpdateDto itemPriceUpdateDto = new ItemPriceUpdateDto(); // ItemPriceUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updatePriceListPriceAsync(tenantId, priceListId, priceId, itemPriceUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PriceListsApi#updatePriceListPriceAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **priceListId** | **UUID**|  | |
+| **priceId** | **UUID**|  | |
+| **itemPriceUpdateDto** | [**ItemPriceUpdateDto**](ItemPriceUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

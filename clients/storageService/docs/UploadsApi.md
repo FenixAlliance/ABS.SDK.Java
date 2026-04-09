@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2StorageServiceUploadsPost**](UploadsApi.md#apiV2StorageServiceUploadsPost) | **POST** /api/v2/StorageService/Uploads |  |
+| [**saveFileAsync**](UploadsApi.md#saveFileAsync) | **POST** /api/v2/StorageService/Uploads | Upload a file |
 
 
-<a id="apiV2StorageServiceUploadsPost"></a>
-# **apiV2StorageServiceUploadsPost**
-> EmptyEnvelope apiV2StorageServiceUploadsPost(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, _file, iD, timestamp)
+<a id="saveFileAsync"></a>
+# **saveFileAsync**
+> EmptyEnvelope saveFileAsync(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp)
 
+Upload a file
 
+Uploads a file to tenant or user storage.
 
 ### Example
 ```java
@@ -19,7 +21,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.UploadsApi;
 
@@ -27,12 +28,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     UploadsApi apiInstance = new UploadsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -48,14 +43,28 @@ public class Example {
     Boolean validResponse = true; // Boolean | 
     String parentFileUploadId = "parentFileUploadId_example"; // String | 
     String filePath = "filePath_example"; // String | 
-    File _file = new File("/path/to/file"); // File | 
-    UUID iD = UUID.randomUUID(); // UUID | 
+    byte[] appFileContent = null; // byte[] | 
+    String appFileSha256 = "appFileSha256_example"; // String | 
+    OffsetDateTime appFileCreatedAtUtc = OffsetDateTime.now(); // OffsetDateTime | 
+    UUID appFileUserIdValue = UUID.randomUUID(); // UUID | 
+    UUID appFileTenantIdValue = UUID.randomUUID(); // UUID | 
+    UUID appFileEnrollmentIdValue = UUID.randomUUID(); // UUID | 
+    String appFileSource = "Unknown"; // String | 
+    Long appFileLength = 56L; // Long | 
+    String appFileName = "appFileName_example"; // String | 
+    String appFileFileName = "appFileFileName_example"; // String | 
+    OffsetDateTime appFileLastModified = OffsetDateTime.now(); // OffsetDateTime | 
+    Long appFileSize = 56L; // Long | 
+    String appFileContentType = "appFileContentType_example"; // String | 
+    String appFileContentDisposition = "appFileContentDisposition_example"; // String | 
+    Map<String, String> appFileHeaders = new HashMap(); // Map<String, String> | 
+    UUID id = UUID.randomUUID(); // UUID | 
     OffsetDateTime timestamp = OffsetDateTime.now(); // OffsetDateTime | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2StorageServiceUploadsPost(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, _file, iD, timestamp);
+      EmptyEnvelope result = apiInstance.saveFileAsync(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling UploadsApi#apiV2StorageServiceUploadsPost");
+      System.err.println("Exception when calling UploadsApi#saveFileAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -82,8 +91,22 @@ public class Example {
 | **validResponse** | **Boolean**|  | [optional] |
 | **parentFileUploadId** | **String**|  | [optional] |
 | **filePath** | **String**|  | [optional] |
-| **_file** | **File**|  | [optional] |
-| **iD** | **UUID**|  | [optional] |
+| **appFileContent** | **byte[]**|  | [optional] |
+| **appFileSha256** | **String**|  | [optional] |
+| **appFileCreatedAtUtc** | **OffsetDateTime**|  | [optional] |
+| **appFileUserIdValue** | **UUID**|  | [optional] |
+| **appFileTenantIdValue** | **UUID**|  | [optional] |
+| **appFileEnrollmentIdValue** | **UUID**|  | [optional] |
+| **appFileSource** | **String**|  | [optional] [enum: Unknown, HttpUpload, Integration, InternalProcess, ApiClient, WorkflowEngine] |
+| **appFileLength** | **Long**|  | [optional] |
+| **appFileName** | **String**|  | [optional] |
+| **appFileFileName** | **String**|  | [optional] |
+| **appFileLastModified** | **OffsetDateTime**|  | [optional] |
+| **appFileSize** | **Long**|  | [optional] |
+| **appFileContentType** | **String**|  | [optional] |
+| **appFileContentDisposition** | **String**|  | [optional] |
+| **appFileHeaders** | [**Map&lt;String, String&gt;**](Map.md)|  | [optional] |
+| **id** | **UUID**|  | [optional] |
 | **timestamp** | **OffsetDateTime**|  | [optional] |
 
 ### Return type
@@ -92,7 +115,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

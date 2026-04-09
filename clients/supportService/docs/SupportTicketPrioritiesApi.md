@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SupportServiceSupportTicketPrioritiesCountGet**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesCountGet) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count |  |
-| [**apiV2SupportServiceSupportTicketPrioritiesGet**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesGet) | **GET** /api/v2/SupportService/SupportTicketPriorities |  |
-| [**apiV2SupportServiceSupportTicketPrioritiesPost**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesPost) | **POST** /api/v2/SupportService/SupportTicketPriorities |  |
-| [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete) | **DELETE** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} |  |
-| [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} |  |
-| [**apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut**](SupportTicketPrioritiesApi.md#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} |  |
+| [**createSupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#createSupportTicketPriorityAsync) | **POST** /api/v2/SupportService/SupportTicketPriorities | Create a new support ticket priority |
+| [**deleteSupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#deleteSupportTicketPriorityAsync) | **DELETE** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Delete a support ticket priority |
+| [**getSupportTicketPrioritiesAsync**](SupportTicketPrioritiesApi.md#getSupportTicketPrioritiesAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities | Retrieve a list of support ticket priorities |
+| [**getSupportTicketPrioritiesCountAsync**](SupportTicketPrioritiesApi.md#getSupportTicketPrioritiesCountAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count | Get the count of support ticket priorities |
+| [**getSupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#getSupportTicketPriorityAsync) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Retrieve a support ticket priority by ID |
+| [**updateSupportTicketPriorityAsync**](SupportTicketPrioritiesApi.md#updateSupportTicketPriorityAsync) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Update a support ticket priority |
 
 
-<a id="apiV2SupportServiceSupportTicketPrioritiesCountGet"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesCountGet**
-> Int32Envelope apiV2SupportServiceSupportTicketPrioritiesCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSupportTicketPriorityAsync"></a>
+# **createSupportTicketPriorityAsync**
+> EmptyEnvelope createSupportTicketPriorityAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityCreateDto)
 
+Create a new support ticket priority
 
+Creates a new support ticket priority for the specified tenant.
 
 ### Example
 ```java
@@ -24,7 +26,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketPrioritiesApi;
 
@@ -32,169 +33,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportTicketPrioritiesGet"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesGet**
-> SupportTicketPriorityDtoListEnvelope apiV2SupportServiceSupportTicketPrioritiesGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportTicketPrioritiesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SupportTicketPriorityDtoListEnvelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SupportTicketPriorityDtoListEnvelope**](SupportTicketPriorityDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportTicketPrioritiesPost"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesPost**
-> EmptyEnvelope apiV2SupportServiceSupportTicketPrioritiesPost(supportTicketPriorityCreateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportTicketPrioritiesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
     SupportTicketPriorityCreateDto supportTicketPriorityCreateDto = new SupportTicketPriorityCreateDto(); // SupportTicketPriorityCreateDto | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesPost(supportTicketPriorityCreateDto, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createSupportTicketPriorityAsync(tenantId, apiVersion, xApiVersion, supportTicketPriorityCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesPost");
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#createSupportTicketPriorityAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -208,10 +57,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **supportTicketPriorityCreateDto** | [**SupportTicketPriorityCreateDto**](SupportTicketPriorityCreateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketPriorityCreateDto** | [**SupportTicketPriorityCreateDto**](SupportTicketPriorityCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -219,7 +68,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -231,13 +80,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete(supportTicketPriorityId, tenantId, apiVersion, xApiVersion)
+<a id="deleteSupportTicketPriorityAsync"></a>
+# **deleteSupportTicketPriorityAsync**
+> EmptyEnvelope deleteSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion)
 
+Delete a support ticket priority
 
+Deletes a support ticket priority by its unique identifier.
 
 ### Example
 ```java
@@ -245,7 +96,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketPrioritiesApi;
 
@@ -253,23 +103,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
-    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete(supportTicketPriorityId, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdDelete");
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#deleteSupportTicketPriorityAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -283,8 +127,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportTicketPriorityId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -294,7 +138,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -308,11 +152,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet**
-> SupportTicketPriorityDtoEnvelope apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet(supportTicketPriorityId, apiVersion, xApiVersion)
+<a id="getSupportTicketPrioritiesAsync"></a>
+# **getSupportTicketPrioritiesAsync**
+> SupportTicketPriorityDtoListEnvelope getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion)
 
+Retrieve a list of support ticket priorities
 
+Retrieves a list of support ticket priorities for the specified tenant with OData query support.
 
 ### Example
 ```java
@@ -320,7 +166,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketPrioritiesApi;
 
@@ -328,22 +173,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
-    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SupportTicketPriorityDtoEnvelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet(supportTicketPriorityId, apiVersion, xApiVersion);
+      SupportTicketPriorityDtoListEnvelope result = apiInstance.getSupportTicketPrioritiesAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdGet");
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#getSupportTicketPrioritiesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -357,6 +196,144 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SupportTicketPriorityDtoListEnvelope**](SupportTicketPriorityDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportTicketPrioritiesCountAsync"></a>
+# **getSupportTicketPrioritiesCountAsync**
+> Int32Envelope getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of support ticket priorities
+
+Returns the total count of support ticket priorities for the specified tenant with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportTicketPrioritiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getSupportTicketPrioritiesCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#getSupportTicketPrioritiesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportTicketPriorityAsync"></a>
+# **getSupportTicketPriorityAsync**
+> SupportTicketPriorityDtoEnvelope getSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion)
+
+Retrieve a support ticket priority by ID
+
+Retrieves a single support ticket priority by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportTicketPrioritiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SupportTicketPriorityDtoEnvelope result = apiInstance.getSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#getSupportTicketPriorityAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportTicketPriorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -367,7 +344,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -381,11 +358,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut"></a>
-# **apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut**
-> EmptyEnvelope apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut(supportTicketPriorityId, supportTicketPriorityUpdateDto, tenantId, apiVersion, xApiVersion)
+<a id="updateSupportTicketPriorityAsync"></a>
+# **updateSupportTicketPriorityAsync**
+> EmptyEnvelope updateSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, supportTicketPriorityUpdateDto)
 
+Update a support ticket priority
 
+Updates an existing support ticket priority by its unique identifier.
 
 ### Example
 ```java
@@ -393,7 +372,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketPrioritiesApi;
 
@@ -401,24 +379,18 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketPrioritiesApi apiInstance = new SupportTicketPrioritiesApi(defaultClient);
-    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
-    SupportTicketPriorityUpdateDto supportTicketPriorityUpdateDto = new SupportTicketPriorityUpdateDto(); // SupportTicketPriorityUpdateDto | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportTicketPriorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketPriorityUpdateDto supportTicketPriorityUpdateDto = new SupportTicketPriorityUpdateDto(); // SupportTicketPriorityUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut(supportTicketPriorityId, supportTicketPriorityUpdateDto, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.updateSupportTicketPriorityAsync(tenantId, supportTicketPriorityId, apiVersion, xApiVersion, supportTicketPriorityUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketPrioritiesApi#apiV2SupportServiceSupportTicketPrioritiesSupportTicketPriorityIdPut");
+      System.err.println("Exception when calling SupportTicketPrioritiesApi#updateSupportTicketPriorityAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -432,11 +404,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportTicketPriorityId** | **UUID**|  | |
-| **supportTicketPriorityUpdateDto** | [**SupportTicketPriorityUpdateDto**](SupportTicketPriorityUpdateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketPriorityUpdateDto** | [**SupportTicketPriorityUpdateDto**](SupportTicketPriorityUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -444,7 +416,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

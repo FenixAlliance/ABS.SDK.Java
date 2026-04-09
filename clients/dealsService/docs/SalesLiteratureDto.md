@@ -15,7 +15,7 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**expirationDate** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**salesLiteratureTypeId** | **String** |  |  [optional] |
 
 

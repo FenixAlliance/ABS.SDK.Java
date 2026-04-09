@@ -19,7 +19,7 @@
 |**unitGroupId** | **String** |  |  [optional] |
 |**partnerVisible** | **Boolean** |  |  [optional] |
 |**unitOfMeasureDependant** | **Boolean** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

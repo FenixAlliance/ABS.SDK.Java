@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,294 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: ProjectsService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: FenixAlliance.ABP.Web
+- name: Projects
+- name: TaskCategories
+- name: TaskTypes
 paths:
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/ProjectsService/Projects:
     get:
+      description: Gets all projects for the current tenant with OData support.
+      operationId: GetProjectsByTenantIdAsync
       parameters:
       - explode: true
         in: query
@@ -26,20 +306,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -68,12 +334,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectDtoListEnvelope'
           description: OK
+      summary: Retrieves all projects
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new project for the current tenant.
+      operationId: CreateProjectAsync
       parameters:
       - explode: true
         in: query
@@ -83,20 +352,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -133,6 +388,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Creates a new project
       tags:
       - Projects
       x-content-type: application/json
@@ -141,6 +397,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/Count:
     get:
+      description: Gets the count of projects for the current tenant.
+      operationId: GetProjectsCountByTenantIdAsync
       parameters:
       - explode: true
         in: query
@@ -150,20 +408,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -192,6 +436,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Counts projects
       tags:
       - Projects
       x-accepts:
@@ -199,6 +444,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}:
     delete:
+      description: Deletes the specified project.
+      operationId: DeleteProjectAsync
       parameters:
       - explode: false
         in: path
@@ -216,20 +463,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -258,12 +491,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Deletes a project
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a project using its unique identifier.
+      operationId: GetProjectByIdAsync
       parameters:
       - explode: false
         in: path
@@ -281,20 +517,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -323,12 +545,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectDtoEnvelope'
           description: OK
+      summary: Gets a project by ID
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified project.
+      operationId: UpdateProjectAsync
       parameters:
       - explode: false
         in: path
@@ -346,20 +571,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -396,6 +607,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Updates a project
       tags:
       - Projects
       x-content-type: application/json
@@ -404,6 +616,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/Periods:
     get:
+      description: Gets all periods for a specific project.
+      operationId: GetProjectPeriodsAsync
       parameters:
       - explode: false
         in: path
@@ -421,20 +635,60 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectPeriodDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectPeriodDtoListEnvelope'
+          description: OK
+      summary: Retrieves project periods
+      tags:
+      - Projects
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new period for the specified project.
+      operationId: CreateProjectPeriodAsync
+      parameters:
       - explode: false
-        in: header
-        name: x-api-version
-        required: false
+        in: path
+        name: projectId
+        required: true
         schema:
+          format: uuid
           type: string
         style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
@@ -471,6 +725,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Creates a project period
       tags:
       - Projects
       x-content-type: application/json
@@ -479,6 +734,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}:
     delete:
+      description: Deletes the specified period from a project.
+      operationId: DeleteProjectPeriodAsync
       parameters:
       - explode: false
         in: path
@@ -504,20 +761,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -546,12 +789,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Deletes a project period
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified period for a project.
+      operationId: UpdateProjectPeriodAsync
       parameters:
       - explode: false
         in: path
@@ -577,20 +823,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -627,6 +859,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Updates a project period
       tags:
       - Projects
       x-content-type: application/json
@@ -635,6 +868,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/TimeLogs:
     get:
+      description: Gets all time log entries for a specific project with OData support.
+      operationId: GetProjectTimeLogsAsync
       parameters:
       - explode: false
         in: path
@@ -652,20 +887,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -694,6 +915,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
           description: OK
+      summary: Retrieves project time logs
       tags:
       - Projects
       x-accepts:
@@ -701,6 +923,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count:
     get:
+      description: Gets the count of time log entries for a specific project.
+      operationId: GetProjectTimeLogsCountAsync
       parameters:
       - explode: false
         in: path
@@ -718,20 +942,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -760,6 +970,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Counts project time logs
       tags:
       - Projects
       x-accepts:
@@ -767,6 +978,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/Tasks:
     get:
+      description: Gets all tasks for a specific project with OData support.
+      operationId: GetProjectTasksAsync
       parameters:
       - explode: false
         in: path
@@ -784,20 +997,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -826,12 +1025,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTaskDtoListEnvelope'
           description: OK
+      summary: Retrieves project tasks
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new task for the specified project.
+      operationId: CreateProjectTaskAsync
       parameters:
       - explode: false
         in: path
@@ -849,20 +1051,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -899,6 +1087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Creates a project task
       tags:
       - Projects
       x-content-type: application/json
@@ -907,6 +1096,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count:
     get:
+      description: Gets the count of tasks for a specific project.
+      operationId: GetProjectTasksCountAsync
       parameters:
       - explode: false
         in: path
@@ -924,20 +1115,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -966,6 +1143,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Counts project tasks
       tags:
       - Projects
       x-accepts:
@@ -973,6 +1151,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}:
     delete:
+      description: Deletes the specified task from a project.
+      operationId: DeleteProjectTaskAsync
       parameters:
       - explode: true
         in: query
@@ -996,20 +1176,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       responses:
@@ -1040,12 +1206,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Deletes a project task
       tags:
       - Projects
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified task in a project.
+      operationId: UpdateProjectTaskAsync
       parameters:
       - explode: false
         in: path
@@ -1071,20 +1240,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1121,6 +1276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Updates a project task
       tags:
       - Projects
       x-content-type: application/json
@@ -1129,6 +1285,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/TaskCategories:
     get:
+      description: Gets all task categories for a specific project with OData support.
+      operationId: GetProjectTaskCategoriesAsync
       parameters:
       - explode: false
         in: path
@@ -1146,20 +1304,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1188,6 +1332,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDtoListEnvelope'
           description: OK
+      summary: Retrieves project task categories
       tags:
       - Projects
       x-accepts:
@@ -1195,6 +1340,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count:
     get:
+      description: Gets the count of task categories for a specific project.
+      operationId: GetProjectTaskCategoriesCountAsync
       parameters:
       - explode: false
         in: path
@@ -1212,20 +1359,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1254,6 +1387,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Counts project task categories
       tags:
       - Projects
       x-accepts:
@@ -1261,6 +1395,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/TaskCategories:
     get:
+      description: Gets all task categories for the current tenant with OData support.
+      operationId: GetTenantTaskCategoriesAsync
       parameters:
       - explode: true
         in: query
@@ -1270,20 +1406,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1312,12 +1434,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDtoListEnvelope'
           description: OK
+      summary: Retrieves all task categories
       tags:
       - TaskCategories
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new task category for the current tenant.
+      operationId: CreateTaskCategoryAsync
       parameters:
       - explode: true
         in: query
@@ -1327,20 +1452,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1377,14 +1488,64 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDto'
           description: OK
+      summary: Creates a new task category
       tags:
       - TaskCategories
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/ProjectsService/TaskCategories/Count:
+    get:
+      description: Gets the count of task categories for the current tenant.
+      operationId: CountTenantTaskCategoriesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Counts task categories
+      tags:
+      - TaskCategories
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/ProjectsService/TaskCategories/{taskCategoryId}:
     delete:
+      description: Deletes the specified task category.
+      operationId: DeleteTaskCategoryAsync
       parameters:
       - explode: false
         in: path
@@ -1402,20 +1563,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1444,12 +1591,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDto'
           description: OK
+      summary: Deletes a task category
       tags:
       - TaskCategories
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a task category using its unique identifier.
+      operationId: GetTaskCategoryByIdAsync
       parameters:
       - explode: false
         in: path
@@ -1467,20 +1617,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1509,12 +1645,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDto'
           description: OK
+      summary: Gets a task category by ID
       tags:
       - TaskCategories
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified task category.
+      operationId: UpdateTaskCategoryAsync
       parameters:
       - explode: false
         in: path
@@ -1532,20 +1671,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1582,6 +1707,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDto'
           description: OK
+      summary: Updates a task category
       tags:
       - TaskCategories
       x-content-type: application/json
@@ -1590,6 +1716,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types:
     get:
+      description: Gets all task types belonging to the specified task category.
+      operationId: GetTaskCategoryTaskTypesAsync
       parameters:
       - explode: false
         in: path
@@ -1607,20 +1735,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1649,6 +1763,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskCategoryDto'
           description: OK
+      summary: Retrieves task types for a category
       tags:
       - TaskCategories
       x-accepts:
@@ -1656,6 +1771,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/TaskTypes/{taskTypeId}:
     delete:
+      description: Deletes the specified task type.
+      operationId: DeleteTaskTypeAsync
       parameters:
       - explode: false
         in: path
@@ -1673,20 +1790,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1715,12 +1818,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskTypeDto'
           description: OK
+      summary: Deletes a task type
       tags:
       - TaskTypes
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a task type using its unique identifier.
+      operationId: GetTaskTypeByIdAsync
       parameters:
       - explode: false
         in: path
@@ -1738,20 +1844,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "403":
           content:
@@ -1780,12 +1872,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskTypeDto'
           description: OK
+      summary: Gets a task type by ID
       tags:
       - TaskTypes
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified task type.
+      operationId: UpdateTaskTypeAsync
       parameters:
       - explode: false
         in: path
@@ -1803,20 +1898,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1853,6 +1934,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskTypeDto'
           description: OK
+      summary: Updates a task type
       tags:
       - TaskTypes
       x-content-type: application/json
@@ -1861,6 +1943,8 @@ paths:
       - application/xml
   /api/v2/ProjectsService/TaskTypes:
     post:
+      description: Creates a new task type for the current tenant.
+      operationId: CreateTaskTypeAsync
       parameters:
       - explode: true
         in: query
@@ -1870,20 +1954,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1920,6 +1990,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskTypeDto'
           description: OK
+      summary: Creates a new task type
       tags:
       - TaskTypes
       x-content-type: application/json
@@ -1928,6 +1999,32 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     EmptyEnvelope:
       additionalProperties: false
       example:
@@ -1982,6 +2079,76 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
     Int32Envelope:
       additionalProperties: false
       example:
@@ -2013,6 +2180,30 @@ components:
           format: int32
           type: integer
       type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     ProjectCreateDto:
       additionalProperties: false
       example:
@@ -2025,11 +2216,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         title:
           nullable: true
@@ -2166,11 +2355,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         periodStartDate:
           format: date-time
@@ -2181,6 +2368,75 @@ components:
         projectID:
           nullable: true
           type: string
+      type: object
+    ProjectPeriodDto:
+      additionalProperties: false
+      example:
+        periodStartDate: 2000-01-23T04:56:07.000+00:00
+        id: id
+        projectID: projectID
+        periodEndDate: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        periodStartDate:
+          format: date-time
+          type: string
+        periodEndDate:
+          format: date-time
+          type: string
+        projectID:
+          nullable: true
+          type: string
+      type: object
+    ProjectPeriodDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - periodStartDate: 2000-01-23T04:56:07.000+00:00
+          id: id
+          projectID: projectID
+          periodEndDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - periodStartDate: 2000-01-23T04:56:07.000+00:00
+          id: id
+          projectID: projectID
+          periodEndDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ProjectPeriodDto'
+          nullable: true
+          type: array
       type: object
     ProjectPeriodUpdateDto:
       additionalProperties: false
@@ -2208,11 +2464,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         title:
           nullable: true
@@ -2323,13 +2577,12 @@ components:
       example:
         comments: comments
         logDate: 2000-01-23T04:56:07.000+00:00
-        recordType: 0
+        recordType: RegularHours
         type: type
         projectPeriodId: projectPeriodId
-        timeStamp: 2000-01-23T04:56:07.000+00:00
         projectTaskId: projectTaskId
         responsibleContactId: responsibleContactId
-        timeSpan: PT2H30M
+        timeSpan: timeSpan
         id: id
         taskCategoryId: taskCategoryId
         projectId: projectId
@@ -2363,16 +2616,12 @@ components:
           type: string
         recordType:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
-        timeStamp:
-          format: date-time
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
           type: string
         timeSpan:
-          example: PT2H30M
+          format: date-span
           type: string
         logDate:
           format: date-time
@@ -2390,13 +2639,12 @@ components:
         result:
         - comments: comments
           logDate: 2000-01-23T04:56:07.000+00:00
-          recordType: 0
+          recordType: RegularHours
           type: type
           projectPeriodId: projectPeriodId
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           projectTaskId: projectTaskId
           responsibleContactId: responsibleContactId
-          timeSpan: PT2H30M
+          timeSpan: timeSpan
           id: id
           taskCategoryId: taskCategoryId
           projectId: projectId
@@ -2404,13 +2652,12 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
         - comments: comments
           logDate: 2000-01-23T04:56:07.000+00:00
-          recordType: 0
+          recordType: RegularHours
           type: type
           projectPeriodId: projectPeriodId
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           projectTaskId: projectTaskId
           responsibleContactId: responsibleContactId
-          timeSpan: PT2H30M
+          timeSpan: timeSpan
           id: id
           taskCategoryId: taskCategoryId
           projectId: projectId
@@ -2466,6 +2713,65 @@ components:
           format: date-time
           type: string
       type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
     TaskCategoryCreateDto:
       additionalProperties: false
       example:
@@ -2475,11 +2781,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         title:
           nullable: true
@@ -2563,11 +2867,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         title:
           nullable: true
@@ -2623,12 +2925,58 @@ components:
         requiresDescription:
           type: boolean
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

@@ -12,6 +12,8 @@
 |**qualifiedName** | **String** |  |  [optional] [readonly] |
 |**tenantId** | **String** |  |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  [optional] |
+|**email** | **String** |  |  [optional] |
+|**phone** | **String** |  |  [optional] |
 |**publicName** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
@@ -22,21 +24,20 @@
 |**timezoneId** | **String** |  |  [optional] |
 |**languageId** | **String** |  |  [optional] |
 |**socialProfileId** | **String** |  |  [optional] |
-|**webUrl** | **String** |  |  [optional] |
-|**gitHubUrl** | **String** |  |  [optional] |
-|**twitchUrl** | **String** |  |  [optional] |
-|**redditUrl** | **String** |  |  [optional] |
-|**tikTokUrl** | **String** |  |  [optional] |
-|**websiteUrl** | **String** |  |  [optional] |
-|**twitterUrl** | **String** |  |  [optional] |
-|**facebookUrl** | **String** |  |  [optional] |
-|**youTubeUrl** | **String** |  |  [optional] |
-|**linkedInUrl** | **String** |  |  [optional] |
-|**instagramUrl** | **String** |  |  [optional] |
+|**webUrl** | **URI** |  |  [optional] |
+|**gitHubUrl** | **URI** |  |  [optional] |
+|**twitchUrl** | **URI** |  |  [optional] |
+|**redditUrl** | **URI** |  |  [optional] |
+|**tikTokUrl** | **URI** |  |  [optional] |
+|**websiteUrl** | **URI** |  |  [optional] |
+|**twitterUrl** | **URI** |  |  [optional] |
+|**facebookUrl** | **URI** |  |  [optional] |
+|**youTubeUrl** | **URI** |  |  [optional] |
+|**linkedInUrl** | **URI** |  |  [optional] |
+|**instagramUrl** | **URI** |  |  [optional] |
 |**githubUsername** | **String** |  |  [optional] |
 |**duns** | **String** |  |  [optional] |
 |**taxId** | **String** |  |  [optional] |
-|**email** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
 |**street** | **String** |  |  [optional] |
 |**cartId** | **String** |  |  [optional] |
@@ -72,8 +73,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| INDIVIDUAL | &quot;Individual&quot; |
+| ORGANIZATION | &quot;Organization&quot; |
 
 
 

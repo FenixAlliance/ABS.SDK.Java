@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,24 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SecurityService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Applications
+- name: FenixAlliance.ABP.Web
+- name: Logs
+- name: OAuthApplications
+- name: Permissions
+- name: Roles
+- name: SecurityCertificates
+- name: SecurityLogs
+- name: Webhooks
 paths:
-  /api/v2/SecurityService/Permissions:
+  /api/v2/SecurityService/Applications:
     get:
+      description: Retrieves all business applications for the specified tenant.
+      operationId: GetBusinessApplicationsAsync
       parameters:
       - explode: true
         in: query
@@ -63,17 +73,1484 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/BusinessApplicationDtoListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/BusinessApplicationDtoListEnvelope'
           description: OK
+      summary: Get all business applications
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new business application for the specified tenant.
+      operationId: CreateBusinessApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new business application
+      tags:
+      - Applications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Applications/Count:
+    get:
+      description: Retrieves the count of business applications for the specified
+        tenant.
+      operationId: GetBusinessApplicationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get business applications count
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Applications/{applicationId}:
+    delete:
+      description: Deletes an existing business application for the specified tenant.
+      operationId: DeleteBusinessApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete a business application
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific business application by its identifier.
+      operationId: GetBusinessApplicationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationDtoEnvelope'
+          description: OK
+      summary: Get business application by ID
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing business application for the specified tenant.
+      operationId: UpdateBusinessApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessApplicationUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an existing business application
+      tags:
+      - Applications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/SecurityService/Logs:
+    get:
+      description: Retrieves logs for the specified tenant.
+      operationId: GetLogsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LogDtoListEnvelope'
+          description: OK
+      summary: Get tenant logs
+      tags:
+      - Logs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Logs/Count:
+    get:
+      description: Retrieves the count of logs for the specified tenant.
+      operationId: GetLogsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get tenant logs count
+      tags:
+      - Logs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications:
+    get:
+      description: Retrieves all OAuth applications for the specified tenant.
+      operationId: GetOAuthApplicationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthApplicationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OAuthApplicationDtoListEnvelope'
+          description: OK
+      summary: Get all OAuth applications
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new OAuth application for the specified tenant.
+      operationId: CreateOAuthApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthApplicationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OAuthApplicationCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new OAuth application
+      tags:
+      - OAuthApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications/Count:
+    get:
+      description: Retrieves the count of OAuth applications for the specified tenant.
+      operationId: GetOAuthApplicationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get OAuth applications count
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications/{applicationId}:
+    delete:
+      description: Deletes an existing OAuth application.
+      operationId: DeleteOAuthApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete an OAuth application
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific OAuth application by its identifier.
+      operationId: GetOAuthApplicationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthApplicationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OAuthApplicationDtoEnvelope'
+          description: OK
+      summary: Get OAuth application by ID
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing OAuth application.
+      operationId: UpdateOAuthApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthApplicationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OAuthApplicationUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an existing OAuth application
+      tags:
+      - OAuthApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications/Authorizations:
+    get:
+      description: Retrieves all OAuth authorizations for the specified user.
+      operationId: GetOAuthAuthorizationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthAuthorizationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OAuthAuthorizationDtoListEnvelope'
+          description: OK
+      summary: Get all OAuth authorizations
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications/Authorizations/Count:
+    get:
+      description: Retrieves the count of OAuth authorizations for the specified user.
+      operationId: GetOAuthAuthorizationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get OAuth authorizations count
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/OAuthApplications/Authorizations/{authorizationId}:
+    get:
+      description: Retrieves a specific OAuth authorization by its identifier.
+      operationId: GetOAuthAuthorizationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: authorizationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthAuthorizationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OAuthAuthorizationDtoEnvelope'
+          description: OK
+      summary: Get OAuth authorization by ID
+      tags:
+      - OAuthApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Permissions:
+    get:
+      description: Retrieves all security permissions for the specified tenant.
+      operationId: GetPermissionsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityPermissionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SecurityPermissionDtoListEnvelope'
+          description: OK
+      summary: Get all permissions
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new security permission for the specified tenant.
+      operationId: CreatePermissionAsync
       parameters:
       - explode: true
         in: query
@@ -143,14 +1620,78 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a new permission
       tags:
       - Permissions
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SecurityService/Permissions/Count:
+    get:
+      description: Retrieves the count of security permissions for the specified tenant.
+      operationId: GetPermissionsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get permissions count
+      tags:
+      - Permissions
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SecurityService/Permissions/{securityPermissionId}:
     delete:
+      description: Deletes an existing security permission for the specified tenant.
+      operationId: DeletePermissionAsync
       parameters:
       - explode: true
         in: query
@@ -218,12 +1759,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: No Content
+      summary: Delete an existing permission
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific security permission by its ID.
+      operationId: GetPermissionAsync
       parameters:
       - explode: true
         in: query
@@ -277,17 +1821,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/SecurityPermissionDtoEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/SecurityPermissionDtoEnvelope'
           description: OK
+      summary: Get permission by ID
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing security permission for the specified tenant.
+      operationId: UpdatePermissionAsync
       parameters:
       - explode: true
         in: query
@@ -364,6 +1911,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an existing permission
       tags:
       - Permissions
       x-content-type: application/json
@@ -372,6 +1920,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId}:
     delete:
+      description: Revokes a security role from a security permission.
+      operationId: RevokeRoleFromPermissionAsync
       parameters:
       - explode: true
         in: query
@@ -446,12 +1996,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: No Content
+      summary: Revoke a role from a permission
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security role to a security permission.
+      operationId: AssignRoleToPermissionAsync
       parameters:
       - explode: true
         in: query
@@ -526,6 +2079,144 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Assign a role to a permission
+      tags:
+      - Permissions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles:
+    get:
+      description: Retrieves all security roles that have a specific permission granted.
+      operationId: GetRolesByPermissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: securityPermissionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+          description: OK
+      summary: Get roles by permission
+      tags:
+      - Permissions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications:
+    get:
+      description: Retrieves all business applications that have a specific permission
+        granted.
+      operationId: GetApplicationsByPermissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: securityPermissionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationSimpleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationSimpleDtoListEnvelope'
+          description: OK
+      summary: Get applications by permission
       tags:
       - Permissions
       x-accepts:
@@ -533,6 +2224,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments:
     get:
+      description: Retrieves all tenant enrollments that have a specific permission.
+      operationId: GetEnrollmentsByPermissionAsync
       parameters:
       - explode: true
         in: query
@@ -586,11 +2279,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+                $ref: '#/components/schemas/TenantEnrollmentDtoListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+                $ref: '#/components/schemas/TenantEnrollmentDtoListEnvelope'
           description: OK
+      summary: Get enrollments by permission
       tags:
       - Permissions
       x-accepts:
@@ -598,6 +2292,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId}:
     delete:
+      description: Revokes a security permission from a tenant enrollment.
+      operationId: RevokePermissionFromEnrollmentAsync
       parameters:
       - explode: true
         in: query
@@ -672,12 +2368,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: No Content
+      summary: Revoke a permission from an enrollment
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security permission to a tenant enrollment.
+      operationId: AssignPermissionToEnrollmentAsync
       parameters:
       - explode: true
         in: query
@@ -752,6 +2451,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Assign a permission to an enrollment
       tags:
       - Permissions
       x-accepts:
@@ -759,6 +2459,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId}:
     delete:
+      description: Revokes a security permission from a business application.
+      operationId: RevokePermissionFromBusinessApplicationAsync
       parameters:
       - explode: true
         in: query
@@ -833,12 +2535,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Revoke a permission from a business application
       tags:
       - Permissions
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security permission to a business application.
+      operationId: AssignPermissionToBusinessApplicationAsync
       parameters:
       - explode: true
         in: query
@@ -913,6 +2618,75 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Assign a permission to a business application
+      tags:
+      - Permissions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId}:
+    get:
+      description: Retrieves all security permissions granted to a specific enrollment.
+      operationId: GetPermissionsByEnrollmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: enrollmentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityPermissionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SecurityPermissionDtoListEnvelope'
+          description: OK
+      summary: Get permissions by enrollment
       tags:
       - Permissions
       x-accepts:
@@ -920,6 +2694,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles:
     get:
+      description: Retrieves all security roles for the specified tenant.
+      operationId: GetRolesAsync
       parameters:
       - explode: true
         in: query
@@ -971,12 +2747,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
           description: OK
+      summary: Get all roles
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new security role for the specified tenant.
+      operationId: CreateRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1008,6 +2787,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/SecurityRoleCreateDto'
+        required: true
       responses:
         "403":
           content:
@@ -1045,14 +2825,78 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a new role
       tags:
       - Roles
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SecurityService/Roles/Count:
+    get:
+      description: Retrieves the count of security roles for the specified tenant.
+      operationId: GetRolesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get roles count
+      tags:
+      - Roles
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}:
     delete:
+      description: Deletes an existing security role for the specified tenant.
+      operationId: DeleteRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1111,7 +2955,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "204":
           content:
             application/json:
               schema:
@@ -1119,13 +2963,16 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: No Content
+      summary: Delete an existing role
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific security role by its ID.
+      operationId: GetRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1179,17 +3026,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/SecurityRoleDtoEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+                $ref: '#/components/schemas/SecurityRoleDtoEnvelope'
           description: OK
+      summary: Get role by ID
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing security role for the specified tenant.
+      operationId: UpdateRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1228,6 +3078,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/SecurityRoleUpdateDto'
+        required: true
       responses:
         "403":
           content:
@@ -1265,6 +3116,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an existing role
       tags:
       - Roles
       x-content-type: application/json
@@ -1273,6 +3125,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}/Permissions:
     get:
+      description: Retrieves all security permissions assigned to a specific role.
+      operationId: GetRolePermissionsAsync
       parameters:
       - explode: true
         in: query
@@ -1331,6 +3185,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SecurityPermissionDtoListEnvelope'
           description: OK
+      summary: Get permissions by role
       tags:
       - Roles
       x-accepts:
@@ -1338,6 +3193,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId}:
     delete:
+      description: Revokes a security permission from a security role.
+      operationId: RevokePermissionFromRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1403,7 +3260,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "204":
           content:
             application/json:
               schema:
@@ -1411,13 +3268,16 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: No Content
+      summary: Revoke a permission from a role
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security permission to a security role.
+      operationId: AssignPermissionToRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1483,7 +3343,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -1491,7 +3351,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: Created
+      summary: Assign a permission to a role
       tags:
       - Roles
       x-accepts:
@@ -1499,6 +3360,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments:
     get:
+      description: Retrieves all tenant enrollments that have a specific role.
+      operationId: GetEnrollmentsByRoleAsync
       parameters:
       - explode: true
         in: query
@@ -1552,11 +3415,80 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+                $ref: '#/components/schemas/TenantEnrollmentDtoListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/TenantEnrolmentDtoListEnvelope'
+                $ref: '#/components/schemas/TenantEnrollmentDtoListEnvelope'
           description: OK
+      summary: Get enrollments by role
+      tags:
+      - Roles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Roles/{securityRoleId}/Applications:
+    get:
+      description: Retrieves all business applications that have a specific role granted.
+      operationId: GetApplicationsByRoleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: securityRoleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationSimpleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessApplicationSimpleDtoListEnvelope'
+          description: OK
+      summary: Get applications by role
       tags:
       - Roles
       x-accepts:
@@ -1564,6 +3496,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId}:
     delete:
+      description: Revokes a security role from a tenant enrollment.
+      operationId: RevokeRoleFromEnrollmentAsync
       parameters:
       - explode: true
         in: query
@@ -1629,7 +3563,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "204":
           content:
             application/json:
               schema:
@@ -1637,13 +3571,16 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: No Content
+      summary: Revoke a role from an enrollment
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security role to a tenant enrollment.
+      operationId: AssignRoleToEnrollmentAsync
       parameters:
       - explode: true
         in: query
@@ -1709,7 +3646,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -1717,7 +3654,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: Created
+      summary: Assign a role to an enrollment
       tags:
       - Roles
       x-accepts:
@@ -1725,6 +3663,8 @@ paths:
       - application/xml
   /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId}:
     delete:
+      description: Revokes a security role from a business application.
+      operationId: RevokeRoleFromBusinessApplicationAsync
       parameters:
       - explode: true
         in: query
@@ -1800,12 +3740,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Revoke a role from a business application
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Assigns a security role to a business application.
+      operationId: AssignRoleToBusinessApplicationAsync
       parameters:
       - explode: true
         in: query
@@ -1872,7 +3815,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -1880,14 +3823,1236 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: OK
+          description: Created
+      summary: Assign a role to a business application
       tags:
       - Roles
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId}:
+    get:
+      description: Retrieves all security roles granted to a specific enrollment.
+      operationId: GetRolesByEnrollmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: enrollmentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SecurityRoleDtoListEnvelope'
+          description: OK
+      summary: Get roles by enrollment
+      tags:
+      - Roles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/SecurityCertificates:
+    get:
+      description: Retrieves security certificates for the specified tenant.
+      operationId: GetSecurityCertificatesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityCertificateDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SecurityCertificateDtoListEnvelope'
+          description: OK
+      summary: Get security certificates
+      tags:
+      - SecurityCertificates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/SecurityCertificates/Count:
+    get:
+      description: Retrieves the count of security certificates for the specified
+        tenant.
+      operationId: GetSecurityCertificatesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get security certificates count
+      tags:
+      - SecurityCertificates
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/SecurityLogs:
+    get:
+      description: Retrieves security logs for the specified tenant.
+      operationId: GetSecurityLogsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessSecurityLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessSecurityLogDtoListEnvelope'
+          description: OK
+      summary: Get business security logs
+      tags:
+      - SecurityLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/SecurityLogs/Count:
+    get:
+      description: Retrieves the count of security logs for the specified tenant.
+      operationId: GetSecurityLogsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get business security logs count
+      tags:
+      - SecurityLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Webhooks:
+    get:
+      description: Retrieves all webhook requests for the specified tenant.
+      operationId: GetWebhookRequestsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebhookRequestDtoListEnvelope'
+          description: OK
+      summary: Get all webhook requests
+      tags:
+      - Webhooks
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SecurityService/Webhooks/Count:
+    get:
+      description: Retrieves the count of webhook requests for the specified tenant.
+      operationId: GetWebhookRequestsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get webhook requests count
+      tags:
+      - Webhooks
+      x-accepts:
+      - application/json
+      - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    BusinessApplicationCreateDto:
+      additionalProperties: false
+      example:
+        termsAndConditionsURL: termsAndConditionsURL
+        enableClientOauthLogin: true
+        isVerified: true
+        displayName: displayName
+        countryRestricted: true
+        spaStaticFilesRootPath: spaStaticFilesRootPath
+        enableEmbeddedBrowserOAuthLogin: true
+        spaRelativeOutputPath: spaRelativeOutputPath
+        useProxyToSpaDevelopmentServer: true
+        websiteUrl: websiteUrl
+        requireTwoFactorReauthorization: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDisabled: true
+        enableWebOAuthLogin: true
+        spaNpmPublishScript: spaNpmPublishScript
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        enableDeviceOAuthLogin: true
+        useStrictModeForRedirectURIs: true
+        avatarURL: avatarURL
+        contactEmail: contactEmail
+        isNativeOrDesktopApp: true
+        enableGitRepoManagement: true
+        businessID: businessID
+        spaUIEngine: spaUIEngine
+        isMultiTenant: true
+        privacyPolicyURL: privacyPolicyURL
+        businessProfileRecordID: businessProfileRecordID
+        spaNpmStartScript: spaNpmStartScript
+        requireAppSecret: true
+        allowAccessToSuiteSettings: true
+        spaRelativeAppPath: spaRelativeAppPath
+        requireHttps: true
+        spaDevelopmentServerUri: spaDevelopmentServerUri
+        gitRepoUrl: gitRepoUrl
+        name: name
+        namespace: namespace
+        isSinglePageApplication: true
+        spaRelativeSourcePath: spaRelativeSourcePath
+        requireWebOAuthReauthentication: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        isMultiTenant:
+          type: boolean
+        isVerified:
+          type: boolean
+        isDisabled:
+          type: boolean
+        isSinglePageApplication:
+          type: boolean
+        isNativeOrDesktopApp:
+          type: boolean
+        contactEmail:
+          nullable: true
+          type: string
+        privacyPolicyURL:
+          nullable: true
+          type: string
+        termsAndConditionsURL:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        requireHttps:
+          type: boolean
+        requireAppSecret:
+          type: boolean
+        enableClientOauthLogin:
+          type: boolean
+        enableWebOAuthLogin:
+          type: boolean
+        enableDeviceOAuthLogin:
+          type: boolean
+        allowAccessToSuiteSettings:
+          type: boolean
+        requireWebOAuthReauthentication:
+          type: boolean
+        requireTwoFactorReauthorization:
+          type: boolean
+        enableEmbeddedBrowserOAuthLogin:
+          type: boolean
+        useStrictModeForRedirectURIs:
+          type: boolean
+        countryRestricted:
+          type: boolean
+        spaUIEngine:
+          nullable: true
+          type: string
+        spaStaticFilesRootPath:
+          nullable: true
+          type: string
+        spaRelativeAppPath:
+          nullable: true
+          type: string
+        spaNpmStartScript:
+          nullable: true
+          type: string
+        spaNpmPublishScript:
+          nullable: true
+          type: string
+        spaRelativeSourcePath:
+          nullable: true
+          type: string
+        spaRelativeOutputPath:
+          nullable: true
+          type: string
+        useProxyToSpaDevelopmentServer:
+          type: boolean
+        spaDevelopmentServerUri:
+          nullable: true
+          type: string
+        enableGitRepoManagement:
+          type: boolean
+        gitRepoUrl:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    BusinessApplicationDto:
+      additionalProperties: false
+      example:
+        termsAndConditionsURL: termsAndConditionsURL
+        enableClientOauthLogin: true
+        isVerified: true
+        displayName: displayName
+        countryRestricted: true
+        spaStaticFilesRootPath: spaStaticFilesRootPath
+        enableEmbeddedBrowserOAuthLogin: true
+        spaRelativeOutputPath: spaRelativeOutputPath
+        useProxyToSpaDevelopmentServer: true
+        websiteUrl: websiteUrl
+        requireTwoFactorReauthorization: true
+        id: id
+        isDisabled: true
+        enableWebOAuthLogin: true
+        spaNpmPublishScript: spaNpmPublishScript
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        enableDeviceOAuthLogin: true
+        useStrictModeForRedirectURIs: true
+        avatarURL: avatarURL
+        contactEmail: contactEmail
+        isNativeOrDesktopApp: true
+        enableGitRepoManagement: true
+        businessID: businessID
+        spaUIEngine: spaUIEngine
+        isMultiTenant: true
+        privacyPolicyURL: privacyPolicyURL
+        businessProfileRecordID: businessProfileRecordID
+        spaNpmStartScript: spaNpmStartScript
+        requireAppSecret: true
+        allowAccessToSuiteSettings: true
+        spaRelativeAppPath: spaRelativeAppPath
+        requireHttps: true
+        spaDevelopmentServerUri: spaDevelopmentServerUri
+        gitRepoUrl: gitRepoUrl
+        name: name
+        namespace: namespace
+        isSinglePageApplication: true
+        markedForPublish: true
+        spaRelativeSourcePath: spaRelativeSourcePath
+        requireWebOAuthReauthentication: true
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        isMultiTenant:
+          type: boolean
+        isVerified:
+          type: boolean
+        isDisabled:
+          type: boolean
+        isSinglePageApplication:
+          type: boolean
+        isNativeOrDesktopApp:
+          type: boolean
+        contactEmail:
+          nullable: true
+          type: string
+        privacyPolicyURL:
+          nullable: true
+          type: string
+        termsAndConditionsURL:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        requireHttps:
+          type: boolean
+        requireAppSecret:
+          type: boolean
+        enableClientOauthLogin:
+          type: boolean
+        enableWebOAuthLogin:
+          type: boolean
+        enableDeviceOAuthLogin:
+          type: boolean
+        allowAccessToSuiteSettings:
+          type: boolean
+        requireWebOAuthReauthentication:
+          type: boolean
+        requireTwoFactorReauthorization:
+          type: boolean
+        enableEmbeddedBrowserOAuthLogin:
+          type: boolean
+        useStrictModeForRedirectURIs:
+          type: boolean
+        countryRestricted:
+          type: boolean
+        spaUIEngine:
+          nullable: true
+          type: string
+        spaStaticFilesRootPath:
+          nullable: true
+          type: string
+        spaRelativeAppPath:
+          nullable: true
+          type: string
+        spaNpmStartScript:
+          nullable: true
+          type: string
+        spaNpmPublishScript:
+          nullable: true
+          type: string
+        spaRelativeSourcePath:
+          nullable: true
+          type: string
+        spaRelativeOutputPath:
+          nullable: true
+          type: string
+        useProxyToSpaDevelopmentServer:
+          type: boolean
+        spaDevelopmentServerUri:
+          nullable: true
+          type: string
+        enableGitRepoManagement:
+          type: boolean
+        gitRepoUrl:
+          nullable: true
+          type: string
+        markedForPublish:
+          type: boolean
+      type: object
+    BusinessApplicationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          termsAndConditionsURL: termsAndConditionsURL
+          enableClientOauthLogin: true
+          isVerified: true
+          displayName: displayName
+          countryRestricted: true
+          spaStaticFilesRootPath: spaStaticFilesRootPath
+          enableEmbeddedBrowserOAuthLogin: true
+          spaRelativeOutputPath: spaRelativeOutputPath
+          useProxyToSpaDevelopmentServer: true
+          websiteUrl: websiteUrl
+          requireTwoFactorReauthorization: true
+          id: id
+          isDisabled: true
+          enableWebOAuthLogin: true
+          spaNpmPublishScript: spaNpmPublishScript
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enableDeviceOAuthLogin: true
+          useStrictModeForRedirectURIs: true
+          avatarURL: avatarURL
+          contactEmail: contactEmail
+          isNativeOrDesktopApp: true
+          enableGitRepoManagement: true
+          businessID: businessID
+          spaUIEngine: spaUIEngine
+          isMultiTenant: true
+          privacyPolicyURL: privacyPolicyURL
+          businessProfileRecordID: businessProfileRecordID
+          spaNpmStartScript: spaNpmStartScript
+          requireAppSecret: true
+          allowAccessToSuiteSettings: true
+          spaRelativeAppPath: spaRelativeAppPath
+          requireHttps: true
+          spaDevelopmentServerUri: spaDevelopmentServerUri
+          gitRepoUrl: gitRepoUrl
+          name: name
+          namespace: namespace
+          isSinglePageApplication: true
+          markedForPublish: true
+          spaRelativeSourcePath: spaRelativeSourcePath
+          requireWebOAuthReauthentication: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BusinessApplicationDto'
+      type: object
+    BusinessApplicationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - termsAndConditionsURL: termsAndConditionsURL
+          enableClientOauthLogin: true
+          isVerified: true
+          displayName: displayName
+          countryRestricted: true
+          spaStaticFilesRootPath: spaStaticFilesRootPath
+          enableEmbeddedBrowserOAuthLogin: true
+          spaRelativeOutputPath: spaRelativeOutputPath
+          useProxyToSpaDevelopmentServer: true
+          websiteUrl: websiteUrl
+          requireTwoFactorReauthorization: true
+          id: id
+          isDisabled: true
+          enableWebOAuthLogin: true
+          spaNpmPublishScript: spaNpmPublishScript
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enableDeviceOAuthLogin: true
+          useStrictModeForRedirectURIs: true
+          avatarURL: avatarURL
+          contactEmail: contactEmail
+          isNativeOrDesktopApp: true
+          enableGitRepoManagement: true
+          businessID: businessID
+          spaUIEngine: spaUIEngine
+          isMultiTenant: true
+          privacyPolicyURL: privacyPolicyURL
+          businessProfileRecordID: businessProfileRecordID
+          spaNpmStartScript: spaNpmStartScript
+          requireAppSecret: true
+          allowAccessToSuiteSettings: true
+          spaRelativeAppPath: spaRelativeAppPath
+          requireHttps: true
+          spaDevelopmentServerUri: spaDevelopmentServerUri
+          gitRepoUrl: gitRepoUrl
+          name: name
+          namespace: namespace
+          isSinglePageApplication: true
+          markedForPublish: true
+          spaRelativeSourcePath: spaRelativeSourcePath
+          requireWebOAuthReauthentication: true
+        - termsAndConditionsURL: termsAndConditionsURL
+          enableClientOauthLogin: true
+          isVerified: true
+          displayName: displayName
+          countryRestricted: true
+          spaStaticFilesRootPath: spaStaticFilesRootPath
+          enableEmbeddedBrowserOAuthLogin: true
+          spaRelativeOutputPath: spaRelativeOutputPath
+          useProxyToSpaDevelopmentServer: true
+          websiteUrl: websiteUrl
+          requireTwoFactorReauthorization: true
+          id: id
+          isDisabled: true
+          enableWebOAuthLogin: true
+          spaNpmPublishScript: spaNpmPublishScript
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enableDeviceOAuthLogin: true
+          useStrictModeForRedirectURIs: true
+          avatarURL: avatarURL
+          contactEmail: contactEmail
+          isNativeOrDesktopApp: true
+          enableGitRepoManagement: true
+          businessID: businessID
+          spaUIEngine: spaUIEngine
+          isMultiTenant: true
+          privacyPolicyURL: privacyPolicyURL
+          businessProfileRecordID: businessProfileRecordID
+          spaNpmStartScript: spaNpmStartScript
+          requireAppSecret: true
+          allowAccessToSuiteSettings: true
+          spaRelativeAppPath: spaRelativeAppPath
+          requireHttps: true
+          spaDevelopmentServerUri: spaDevelopmentServerUri
+          gitRepoUrl: gitRepoUrl
+          name: name
+          namespace: namespace
+          isSinglePageApplication: true
+          markedForPublish: true
+          spaRelativeSourcePath: spaRelativeSourcePath
+          requireWebOAuthReauthentication: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BusinessApplicationDto'
+          nullable: true
+          type: array
+      type: object
+    BusinessApplicationSimpleDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+      type: object
+    BusinessApplicationSimpleDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BusinessApplicationSimpleDto'
+          nullable: true
+          type: array
+      type: object
+    BusinessApplicationUpdateDto:
+      additionalProperties: false
+      example:
+        termsAndConditionsURL: termsAndConditionsURL
+        enableClientOauthLogin: true
+        isVerified: true
+        displayName: displayName
+        countryRestricted: true
+        spaStaticFilesRootPath: spaStaticFilesRootPath
+        enableEmbeddedBrowserOAuthLogin: true
+        spaRelativeOutputPath: spaRelativeOutputPath
+        useProxyToSpaDevelopmentServer: true
+        websiteUrl: websiteUrl
+        requireTwoFactorReauthorization: true
+        isDisabled: true
+        enableWebOAuthLogin: true
+        spaNpmPublishScript: spaNpmPublishScript
+        enableDeviceOAuthLogin: true
+        useStrictModeForRedirectURIs: true
+        avatarURL: avatarURL
+        contactEmail: contactEmail
+        isNativeOrDesktopApp: true
+        enableGitRepoManagement: true
+        spaUIEngine: spaUIEngine
+        isMultiTenant: true
+        privacyPolicyURL: privacyPolicyURL
+        spaNpmStartScript: spaNpmStartScript
+        requireAppSecret: true
+        allowAccessToSuiteSettings: true
+        spaRelativeAppPath: spaRelativeAppPath
+        requireHttps: true
+        spaDevelopmentServerUri: spaDevelopmentServerUri
+        gitRepoUrl: gitRepoUrl
+        name: name
+        namespace: namespace
+        isSinglePageApplication: true
+        markedForPublish: true
+        spaRelativeSourcePath: spaRelativeSourcePath
+        requireWebOAuthReauthentication: true
+      properties:
+        name:
+          nullable: true
+          type: string
+        namespace:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        avatarURL:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        isMultiTenant:
+          nullable: true
+          type: boolean
+        isVerified:
+          nullable: true
+          type: boolean
+        isDisabled:
+          nullable: true
+          type: boolean
+        isSinglePageApplication:
+          nullable: true
+          type: boolean
+        isNativeOrDesktopApp:
+          nullable: true
+          type: boolean
+        contactEmail:
+          nullable: true
+          type: string
+        privacyPolicyURL:
+          nullable: true
+          type: string
+        termsAndConditionsURL:
+          nullable: true
+          type: string
+        requireHttps:
+          nullable: true
+          type: boolean
+        requireAppSecret:
+          nullable: true
+          type: boolean
+        enableClientOauthLogin:
+          nullable: true
+          type: boolean
+        enableWebOAuthLogin:
+          nullable: true
+          type: boolean
+        enableDeviceOAuthLogin:
+          nullable: true
+          type: boolean
+        allowAccessToSuiteSettings:
+          nullable: true
+          type: boolean
+        requireWebOAuthReauthentication:
+          nullable: true
+          type: boolean
+        requireTwoFactorReauthorization:
+          nullable: true
+          type: boolean
+        enableEmbeddedBrowserOAuthLogin:
+          nullable: true
+          type: boolean
+        useStrictModeForRedirectURIs:
+          nullable: true
+          type: boolean
+        countryRestricted:
+          nullable: true
+          type: boolean
+        spaUIEngine:
+          nullable: true
+          type: string
+        spaStaticFilesRootPath:
+          nullable: true
+          type: string
+        spaRelativeAppPath:
+          nullable: true
+          type: string
+        spaNpmStartScript:
+          nullable: true
+          type: string
+        spaNpmPublishScript:
+          nullable: true
+          type: string
+        spaRelativeSourcePath:
+          nullable: true
+          type: string
+        spaRelativeOutputPath:
+          nullable: true
+          type: string
+        useProxyToSpaDevelopmentServer:
+          nullable: true
+          type: boolean
+        spaDevelopmentServerUri:
+          nullable: true
+          type: string
+        enableGitRepoManagement:
+          nullable: true
+          type: boolean
+        gitRepoUrl:
+          nullable: true
+          type: string
+        markedForPublish:
+          nullable: true
+          type: boolean
+      type: object
+    BusinessSecurityLogDto:
+      additionalProperties: false
+      example:
+        securityEvent: securityEvent
+        requiresAttention: true
+        businessID: businessID
+        id: id
+        type: type
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        securityEvent:
+          nullable: true
+          type: string
+        requiresAttention:
+          type: boolean
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    BusinessSecurityLogDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - securityEvent: securityEvent
+          requiresAttention: true
+          businessID: businessID
+          id: id
+          type: type
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - securityEvent: securityEvent
+          requiresAttention: true
+          businessID: businessID
+          id: id
+          type: type
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BusinessSecurityLogDto'
+          nullable: true
+          type: array
+      type: object
     EmptyEnvelope:
       additionalProperties: false
       example:
@@ -1942,6 +5107,846 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LogDto:
+      additionalProperties: false
+      example:
+        logType: Continue
+        businessID: businessID
+        id: id
+        type: type
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        logType:
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    LogDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - logType: Continue
+          businessID: businessID
+          id: id
+          type: type
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - logType: Continue
+          businessID: businessID
+          id: id
+          type: type
+          message: message
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LogDto'
+          nullable: true
+          type: array
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    OAuthApplicationCreateDto:
+      additionalProperties: false
+      example:
+        requirements: requirements
+        clientId: clientId
+        displayName: displayName
+        permissions: permissions
+        postLogoutRedirectUris: postLogoutRedirectUris
+        businessID: businessID
+        consentType: consentType
+        logo: logo
+        clientSecret: clientSecret
+        redirectUris: redirectUris
+        businessProfileRecordID: businessProfileRecordID
+      properties:
+        displayName:
+          minLength: 1
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        clientSecret:
+          nullable: true
+          type: string
+        consentType:
+          nullable: true
+          type: string
+        permissions:
+          nullable: true
+          type: string
+        requirements:
+          nullable: true
+          type: string
+        redirectUris:
+          nullable: true
+          type: string
+        postLogoutRedirectUris:
+          nullable: true
+          type: string
+        logo:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      required:
+      - displayName
+      type: object
+    OAuthApplicationDto:
+      additionalProperties: false
+      example:
+        authorizationsCount: 0
+        settings: settings
+        applicationType: applicationType
+        requirements: requirements
+        clientId: clientId
+        displayName: displayName
+        displayNames: displayNames
+        businessID: businessID
+        type: type
+        tokensCount: 6
+        redirectUris: redirectUris
+        businessProfileRecordID: businessProfileRecordID
+        businessApplicationID: businessApplicationID
+        permissions: permissions
+        postLogoutRedirectUris: postLogoutRedirectUris
+        consentType: consentType
+        logo: logo
+        id: id
+        concurrencyToken: concurrencyToken
+        properties: properties
+      properties:
+        id:
+          nullable: true
+          type: string
+        applicationType:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        concurrencyToken:
+          nullable: true
+          type: string
+        consentType:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        displayNames:
+          nullable: true
+          type: string
+        permissions:
+          nullable: true
+          type: string
+        postLogoutRedirectUris:
+          nullable: true
+          type: string
+        properties:
+          nullable: true
+          type: string
+        redirectUris:
+          nullable: true
+          type: string
+        requirements:
+          nullable: true
+          type: string
+        settings:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        logo:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+        businessApplicationID:
+          nullable: true
+          type: string
+        authorizationsCount:
+          format: int32
+          type: integer
+        tokensCount:
+          format: int32
+          type: integer
+      type: object
+    OAuthApplicationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          authorizationsCount: 0
+          settings: settings
+          applicationType: applicationType
+          requirements: requirements
+          clientId: clientId
+          displayName: displayName
+          displayNames: displayNames
+          businessID: businessID
+          type: type
+          tokensCount: 6
+          redirectUris: redirectUris
+          businessProfileRecordID: businessProfileRecordID
+          businessApplicationID: businessApplicationID
+          permissions: permissions
+          postLogoutRedirectUris: postLogoutRedirectUris
+          consentType: consentType
+          logo: logo
+          id: id
+          concurrencyToken: concurrencyToken
+          properties: properties
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OAuthApplicationDto'
+      type: object
+    OAuthApplicationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - authorizationsCount: 0
+          settings: settings
+          applicationType: applicationType
+          requirements: requirements
+          clientId: clientId
+          displayName: displayName
+          displayNames: displayNames
+          businessID: businessID
+          type: type
+          tokensCount: 6
+          redirectUris: redirectUris
+          businessProfileRecordID: businessProfileRecordID
+          businessApplicationID: businessApplicationID
+          permissions: permissions
+          postLogoutRedirectUris: postLogoutRedirectUris
+          consentType: consentType
+          logo: logo
+          id: id
+          concurrencyToken: concurrencyToken
+          properties: properties
+        - authorizationsCount: 0
+          settings: settings
+          applicationType: applicationType
+          requirements: requirements
+          clientId: clientId
+          displayName: displayName
+          displayNames: displayNames
+          businessID: businessID
+          type: type
+          tokensCount: 6
+          redirectUris: redirectUris
+          businessProfileRecordID: businessProfileRecordID
+          businessApplicationID: businessApplicationID
+          permissions: permissions
+          postLogoutRedirectUris: postLogoutRedirectUris
+          consentType: consentType
+          logo: logo
+          id: id
+          concurrencyToken: concurrencyToken
+          properties: properties
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/OAuthApplicationDto'
+          nullable: true
+          type: array
+      type: object
+    OAuthApplicationUpdateDto:
+      additionalProperties: false
+      example:
+        requirements: requirements
+        displayName: displayName
+        permissions: permissions
+        postLogoutRedirectUris: postLogoutRedirectUris
+        consentType: consentType
+        logo: logo
+        clientSecret: clientSecret
+        redirectUris: redirectUris
+      properties:
+        displayName:
+          nullable: true
+          type: string
+        clientSecret:
+          nullable: true
+          type: string
+        consentType:
+          nullable: true
+          type: string
+        permissions:
+          nullable: true
+          type: string
+        requirements:
+          nullable: true
+          type: string
+        redirectUris:
+          nullable: true
+          type: string
+        postLogoutRedirectUris:
+          nullable: true
+          type: string
+        logo:
+          nullable: true
+          type: string
+      type: object
+    OAuthAuthorizationDto:
+      additionalProperties: false
+      example:
+        subject: subject
+        id: id
+        scopes: scopes
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        type: type
+        applicationId: applicationId
+        tokensCount: 0
+        concurrencyToken: concurrencyToken
+        properties: properties
+        status: status
+      properties:
+        id:
+          nullable: true
+          type: string
+        concurrencyToken:
+          nullable: true
+          type: string
+        creationDate:
+          format: date-time
+          nullable: true
+          type: string
+        properties:
+          nullable: true
+          type: string
+        scopes:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        subject:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        applicationId:
+          nullable: true
+          type: string
+        tokensCount:
+          format: int32
+          type: integer
+      type: object
+    OAuthAuthorizationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          subject: subject
+          id: id
+          scopes: scopes
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          type: type
+          applicationId: applicationId
+          tokensCount: 0
+          concurrencyToken: concurrencyToken
+          properties: properties
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OAuthAuthorizationDto'
+      type: object
+    OAuthAuthorizationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - subject: subject
+          id: id
+          scopes: scopes
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          type: type
+          applicationId: applicationId
+          tokensCount: 0
+          concurrencyToken: concurrencyToken
+          properties: properties
+          status: status
+        - subject: subject
+          id: id
+          scopes: scopes
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          type: type
+          applicationId: applicationId
+          tokensCount: 0
+          concurrencyToken: concurrencyToken
+          properties: properties
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/OAuthAuthorizationDto'
+          nullable: true
+          type: array
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    SecurityCertificateDto:
+      additionalProperties: false
+      example:
+        expirePeriod: expirePeriod
+        expired: true
+        csr: csr
+        businessID: businessID
+        disabled: true
+        id: id
+        type: type
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        expirePeriod:
+          nullable: true
+          type: string
+        expired:
+          type: boolean
+        disabled:
+          type: boolean
+        businessID:
+          nullable: true
+          type: string
+        csr:
+          nullable: true
+          type: string
+      type: object
+    SecurityCertificateDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - expirePeriod: expirePeriod
+          expired: true
+          csr: csr
+          businessID: businessID
+          disabled: true
+          id: id
+          type: type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - expirePeriod: expirePeriod
+          expired: true
+          csr: csr
+          businessID: businessID
+          disabled: true
+          id: id
+          type: type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SecurityCertificateDto'
+          nullable: true
+          type: array
+      type: object
     SecurityPermissionCreateDto:
       additionalProperties: false
       example:
@@ -1953,11 +5958,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           minLength: 1
@@ -2001,6 +6004,42 @@ components:
           type: string
         isSystemPermission:
           type: boolean
+      type: object
+    SecurityPermissionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          isSystemPermission: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SecurityPermissionDto'
       type: object
     SecurityPermissionDtoListEnvelope:
       additionalProperties: false
@@ -2074,11 +6113,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           minLength: 1
@@ -2122,6 +6159,42 @@ components:
           type: string
         isSystemRole:
           type: boolean
+      type: object
+    SecurityRoleDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          isSystemRole: true
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SecurityRoleDto'
       type: object
     SecurityRoleDtoListEnvelope:
       additionalProperties: false
@@ -2184,7 +6257,7 @@ components:
       required:
       - name
       type: object
-    TenantEnrolmentDto:
+    TenantEnrollmentDto:
       additionalProperties: false
       example:
         isRoot: true
@@ -2218,7 +6291,7 @@ components:
         isDisabled:
           type: boolean
       type: object
-    TenantEnrolmentDtoListEnvelope:
+    TenantEnrollmentDtoListEnvelope:
       additionalProperties: false
       example:
         result:
@@ -2263,16 +6336,137 @@ components:
           type: string
         result:
           items:
-            $ref: '#/components/schemas/TenantEnrolmentDto'
+            $ref: '#/components/schemas/TenantEnrollmentDto'
           nullable: true
           type: array
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    WebhookRequestDto:
+      additionalProperties: false
+      example:
+        requestURL: requestURL
+        name: name
+        businessID: businessID
+        id: id
+        type: type
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        requestURL:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    WebhookRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - requestURL: requestURL
+          name: name
+          businessID: businessID
+          id: id
+          type: type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - requestURL: requestURL
+          name: name
+          businessID: businessID
+          id: id
+          type: type
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WebhookRequestDto'
+          nullable: true
+          type: array
+      type: object
 

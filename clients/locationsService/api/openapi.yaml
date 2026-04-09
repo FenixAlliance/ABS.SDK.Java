@@ -1,0 +1,1666 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: LocationsService
+  version: 2.0.0.0
+servers:
+- url: /
+tags:
+- name: FenixAlliance.ABP.Web
+- name: Locations
+paths:
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/LocationsService/Locations:
+    get:
+      description: Get all locations with OData query support.
+      operationId: GetLocationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoIReadOnlyListEnvelope'
+          description: OK
+      summary: Get Locations
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new location.
+      operationId: CreateLocationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Location
+      tags:
+      - Locations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LocationsService/Locations/count:
+    get:
+      description: Get the count of locations with OData query support.
+      operationId: GetLocationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Locations Count
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LocationsService/Locations/{locationId}:
+    delete:
+      description: Delete a specific location by ID.
+      operationId: DeleteLocationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete Location
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get details of a specific location by ID.
+      operationId: GetLocationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+          description: OK
+      summary: Get Location
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a specific location by ID.
+      operationId: UpdateLocationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Location
+      tags:
+      - Locations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LocationsService/Locations/wallet/{walletId}:
+    get:
+      description: Get locations for a specific wallet by ID.
+      operationId: GetWalletLocationsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoIReadOnlyListEnvelope'
+          description: OK
+      summary: Get Wallet Locations
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new location for a specific wallet.
+      operationId: CreateWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Location
+      tags:
+      - Locations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LocationsService/Locations/wallet/{walletId}/count:
+    get:
+      description: Get the count of locations for a specific wallet by ID.
+      operationId: GetWalletLocationsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Locations Count
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LocationsService/Locations/wallet/{walletId}/{locationId}:
+    delete:
+      description: Delete a specific location of a wallet.
+      operationId: DeleteWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete Wallet Location
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a specific location of a wallet by ID.
+      operationId: GetWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LocationDtoEnvelope'
+          description: OK
+      summary: Get Wallet Location
+      tags:
+      - Locations
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a specific location of a wallet.
+      operationId: UpdateWalletLocationAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: locationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LocationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Wallet Location
+      tags:
+      - Locations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LocationCreateDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        fax: fax
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: 0.8008281904610115
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    LocationDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        business: business
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        id: id
+        fax: fax
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        longitude: 0.8008281904610115
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        business:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    LocationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/LocationDto'
+      type: object
+    LocationDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        - isDefaultSuppingLocation: true
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          postalCode: postalCode
+          latitude: 6.027456183070403
+          isGlobalPrimary: true
+          isRoutable: true
+          cityId: cityId
+          title: title
+          isCountryPrimary: true
+          countryId: countryId
+          isDefaultSenderAddress: true
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          id: id
+          fax: fax
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          longitude: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LocationDto'
+          nullable: true
+          type: array
+      type: object
+    LocationUpdateDto:
+      additionalProperties: false
+      example:
+        isDefaultSuppingLocation: true
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        postalCode: postalCode
+        latitude: 6.027456183070403
+        isGlobalPrimary: true
+        isRoutable: true
+        cityId: cityId
+        title: title
+        isCountryPrimary: true
+        countryId: countryId
+        isDefaultSenderAddress: true
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
+        fax: fax
+        email: email
+        longitude: 0.8008281904610115
+      properties:
+        title:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        fax:
+          nullable: true
+          type: string
+        address1:
+          nullable: true
+          type: string
+        address2:
+          nullable: true
+          type: string
+        address3:
+          nullable: true
+          type: string
+        unit:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        longitude:
+          format: double
+          type: number
+        latitude:
+          format: double
+          type: number
+        isRoutable:
+          type: boolean
+        isGlobalPrimary:
+          type: boolean
+        isCountryPrimary:
+          type: boolean
+        canGenerateLabels:
+          type: boolean
+        isDefaultSenderAddress:
+          type: boolean
+        isDefaultReturnAddress:
+          type: boolean
+        isDefaultSuppingLocation:
+          type: boolean
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+

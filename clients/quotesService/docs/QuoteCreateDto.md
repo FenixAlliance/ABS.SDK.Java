@@ -7,20 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**closed** | **Boolean** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
-|**userId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**individualId** | **String** |  |  [optional] |
 |**paymentTermId** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**companyName** | **String** |  |  [optional] |
@@ -31,12 +26,59 @@
 |**countryId** | **String** |  |  [optional] |
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
+|**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalSurcharges** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**cartId** | **String** |  |  [optional] |
 |**dealUnitId** | **String** |  |  [optional] |
 |**receiverTenantId** | **String** |  |  [optional] |
 |**effectiveTo** | **OffsetDateTime** |  |  [optional] |
 |**effectiveFrom** | **OffsetDateTime** |  |  [optional] |
 |**quoteStatus** | [**QuoteStatusEnum**](#QuoteStatusEnum) |  |  [optional] |
+|**quoteLines** | [**List&lt;QuoteLineCreateDto&gt;**](QuoteLineCreateDto.md) |  |  [optional] |
+
+
+
+## Enum: CostCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
+
+
+
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
 
 
 
@@ -44,11 +86,11 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
+| DRAFT | &quot;Draft&quot; |
+| NEW | &quot;New&quot; |
+| ACCEPTED | &quot;Accepted&quot; |
+| DECLINED | &quot;Declined&quot; |
+| EXPIRED | &quot;Expired&quot; |
 
 
 

@@ -14,7 +14,7 @@
 |**dealUnitFlowId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**parentBusinessProcessStageId** | **String** |  |  [optional] |
 
 

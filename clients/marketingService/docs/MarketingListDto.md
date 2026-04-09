@@ -19,7 +19,7 @@
 |**lastUsedOn** | **OffsetDateTime** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**marketingListType** | [**MarketingListTypeEnum**](#MarketingListTypeEnum) |  |  [optional] |
 |**marketingListTarget** | [**MarketingListTargetEnum**](#MarketingListTargetEnum) |  |  [optional] |
 
@@ -29,8 +29,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| STATIC | &quot;Static&quot; |
+| DYNAMIC | &quot;Dynamic&quot; |
 
 
 
@@ -38,9 +38,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| INDIVIDUAL | &quot;Individual&quot; |
+| ORGANIZATION | &quot;Organization&quot; |
+| LEAD | &quot;Lead&quot; |
 
 
 

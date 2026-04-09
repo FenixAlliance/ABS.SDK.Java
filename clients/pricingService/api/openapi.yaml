@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,19 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: PricingService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: DiscountLists
+- name: FenixAlliance.ABP.Web
+- name: PriceLists
+- name: Prices
 paths:
   /api/v2/PricingService/DiscountLists:
     get:
+      description: Gets all discount lists for the current tenant with OData support.
+      operationId: GetDiscountLists
       parameters:
       - explode: true
         in: query
@@ -26,20 +31,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -77,12 +68,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Retrieves all discount lists
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new discount list for the current tenant.
+      operationId: CreateDiscountList
       parameters:
       - explode: true
         in: query
@@ -92,20 +86,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -151,6 +131,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Creates a new discount list
       tags:
       - DiscountLists
       x-content-type: application/json
@@ -159,6 +140,8 @@ paths:
       - application/xml
   /api/v2/PricingService/DiscountLists/Count:
     get:
+      description: Gets the count of discount lists for the current tenant.
+      operationId: GetDiscountListsCount
       parameters:
       - explode: true
         in: query
@@ -168,20 +151,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -219,6 +188,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Counts discount lists
       tags:
       - DiscountLists
       x-accepts:
@@ -226,6 +196,8 @@ paths:
       - application/xml
   /api/v2/PricingService/DiscountLists/{discountListId}:
     delete:
+      description: Deletes the specified discount list.
+      operationId: DeleteDiscountList
       parameters:
       - explode: true
         in: query
@@ -243,22 +215,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
-        "204":
+        "200":
           content:
             application/json:
               schema:
@@ -266,7 +224,7 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: No Content
+          description: OK
         "400":
           content:
             application/json:
@@ -294,12 +252,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Deletes a discount list
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a discount list using its unique identifier.
+      operationId: GetDiscountList
       parameters:
       - explode: true
         in: query
@@ -315,20 +276,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       responses:
@@ -368,12 +315,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Gets a discount list by ID
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified discount list.
+      operationId: UpdateDiscountList
       parameters:
       - explode: true
         in: query
@@ -389,20 +339,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       requestBody:
@@ -450,6 +386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Updates a discount list
       tags:
       - DiscountLists
       x-content-type: application/json
@@ -458,6 +395,9 @@ paths:
       - application/xml
   /api/v2/PricingService/DiscountLists/{discountListId}/Discounts:
     get:
+      description: Gets all discount entries for a specific discount list with OData
+        support.
+      operationId: GetDiscountListEntries
       parameters:
       - explode: true
         in: query
@@ -473,20 +413,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       responses:
@@ -526,12 +452,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Retrieves discounts in a discount list
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new discount entry in the specified discount list.
+      operationId: CreateDiscountListEntry
       parameters:
       - explode: true
         in: query
@@ -547,20 +476,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       requestBody:
@@ -608,6 +523,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Creates a discount list entry
       tags:
       - DiscountLists
       x-content-type: application/json
@@ -616,6 +532,8 @@ paths:
       - application/xml
   /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/Count:
     get:
+      description: Gets the count of discount entries for a specific discount list.
+      operationId: GetDiscountListEntriesCount
       parameters:
       - explode: true
         in: query
@@ -631,20 +549,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       responses:
@@ -684,6 +588,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Counts discounts in a discount list
       tags:
       - DiscountLists
       x-accepts:
@@ -691,6 +596,8 @@ paths:
       - application/xml
   /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId}:
     delete:
+      description: Deletes the specified discount entry from a discount list.
+      operationId: DeleteDiscountListEntry
       parameters:
       - explode: true
         in: query
@@ -716,22 +623,8 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
-        "204":
+        "200":
           content:
             application/json:
               schema:
@@ -739,7 +632,7 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
-          description: No Content
+          description: OK
         "400":
           content:
             application/json:
@@ -767,12 +660,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Deletes a discount list entry
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific discount entry from a discount list.
       operationId: GetDiscountListEntry
       parameters:
       - explode: true
@@ -799,20 +694,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -850,12 +731,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Gets a discount list entry by ID
       tags:
       - DiscountLists
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified discount entry in a discount list.
+      operationId: UpdateDiscountListEntry
       parameters:
       - explode: true
         in: query
@@ -881,20 +765,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -940,14 +810,292 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Updates a discount list entry
       tags:
       - DiscountLists
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/PricingService/PriceLists:
     get:
+      description: Gets all price lists for the current tenant with OData support.
+      operationId: GetPriceListsAsync
       parameters:
       - explode: true
         in: query
@@ -957,20 +1105,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -990,12 +1124,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/PriceListDtoListEnvelope'
           description: OK
+      summary: Retrieves all price lists
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new price list for the current tenant.
+      operationId: CreatePriceListAsync
       parameters:
       - explode: true
         in: query
@@ -1005,20 +1142,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1046,6 +1169,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Creates a new price list
       tags:
       - PriceLists
       x-content-type: application/json
@@ -1054,6 +1178,8 @@ paths:
       - application/xml
   /api/v2/PricingService/PriceLists/Count:
     get:
+      description: Gets the count of price lists for the current tenant.
+      operationId: GetPriceListsCountAsync
       parameters:
       - explode: true
         in: query
@@ -1063,20 +1189,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1096,6 +1208,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Counts price lists
       tags:
       - PriceLists
       x-accepts:
@@ -1103,6 +1216,8 @@ paths:
       - application/xml
   /api/v2/PricingService/PriceLists/{priceListId}:
     delete:
+      description: Deletes the specified price list.
+      operationId: DeletePriceListAsync
       parameters:
       - explode: true
         in: query
@@ -1120,20 +1235,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1153,12 +1254,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Deletes a price list
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a price list using its unique identifier.
       operationId: GetPriceListAsync
       parameters:
       - explode: true
@@ -1177,20 +1280,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1210,12 +1299,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/PriceListDtoEnvelope'
           description: OK
+      summary: Gets a price list by ID
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified price list.
+      operationId: UpdatePriceListAsync
       parameters:
       - explode: true
         in: query
@@ -1231,20 +1323,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       requestBody:
@@ -1274,6 +1352,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Updates a price list
       tags:
       - PriceLists
       x-content-type: application/json
@@ -1282,6 +1361,7 @@ paths:
       - application/xml
   /api/v2/PricingService/PriceLists/{priceListId}/Prices:
     get:
+      description: Gets all price entries for a specific price list with OData support.
       operationId: GetPriceListPricesAsync
       parameters:
       - explode: true
@@ -1308,20 +1388,6 @@ paths:
           format: uuid
           type: string
         style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1341,12 +1407,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ItemPriceDtoListEnvelope'
           description: OK
+      summary: Retrieves prices in a price list
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new price entry in the specified price list.
+      operationId: CreatePriceListPricesAsync
       parameters:
       - explode: true
         in: query
@@ -1362,20 +1431,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       requestBody:
@@ -1405,6 +1460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Creates a price list entry
       tags:
       - PriceLists
       x-content-type: application/json
@@ -1413,6 +1469,8 @@ paths:
       - application/xml
   /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId}:
     delete:
+      description: Deletes the specified price entry from a price list.
+      operationId: DeletePriceListPriceAsync
       parameters:
       - explode: true
         in: query
@@ -1438,20 +1496,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1471,12 +1515,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Deletes a price list entry
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a specific price entry from a price list.
       operationId: GetPriceListPriceAsync
       parameters:
       - explode: true
@@ -1503,20 +1549,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "404":
           content:
@@ -1536,12 +1568,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ItemPriceDtoEnvelope'
           description: OK
+      summary: Gets a price list entry by ID
       tags:
       - PriceLists
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates the specified price entry in a price list.
+      operationId: UpdatePriceListPriceAsync
       parameters:
       - explode: true
         in: query
@@ -1565,20 +1600,6 @@ paths:
         required: true
         schema:
           format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
           type: string
         style: simple
       requestBody:
@@ -1608,6 +1629,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Updates a price list entry
       tags:
       - PriceLists
       x-content-type: application/json
@@ -1616,6 +1638,9 @@ paths:
       - application/xml
   /api/v2/PricingService/Prices/{itemId}/Price:
     get:
+      description: "Calculates the price for an item considering price list, discount\
+        \ list, quantity, and currency."
+      operationId: GetPrice
       parameters:
       - explode: false
         in: path
@@ -1643,6 +1668,15 @@ paths:
         style: form
       - explode: true
         in: query
+        name: quantity
+        required: false
+        schema:
+          default: 1
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
         name: currencyId
         required: false
         schema:
@@ -1668,10 +1702,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PriceCalculationDtoEnvelope'
+                $ref: '#/components/schemas/ItemPriceCalculationEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/PriceCalculationDtoEnvelope'
+                $ref: '#/components/schemas/ItemPriceCalculationEnvelope'
           description: OK
         "404":
           content:
@@ -1682,6 +1716,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Not Found
+      summary: Gets the calculated price for an item
       tags:
       - Prices
       x-accepts:
@@ -1689,6 +1724,9 @@ paths:
       - application/xml
   /api/v2/PricingService/Prices/{itemId}/FinalPrice:
     get:
+      description: Gets the final price for an item after all discounts and taxes
+        in the specified currency.
+      operationId: GetFinalPrice
       parameters:
       - explode: false
         in: path
@@ -1739,6 +1777,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Not Found
+      summary: Gets the final price for an item
       tags:
       - Prices
       x-accepts:
@@ -1746,6 +1785,8 @@ paths:
       - application/xml
   /api/v2/PricingService/Prices/{itemId}/TotalTaxes:
     get:
+      description: Gets the total tax amount for an item in the specified currency.
+      operationId: GetTotalTaxesInUsd
       parameters:
       - explode: false
         in: path
@@ -1796,6 +1837,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Not Found
+      summary: Gets total taxes for an item
       tags:
       - Prices
       x-accepts:
@@ -1803,6 +1845,8 @@ paths:
       - application/xml
   /api/v2/PricingService/Prices/{itemId}/TotalSavings:
     get:
+      description: Gets the total savings amount for an item in the specified currency.
+      operationId: GetTotalSavingsInUsd
       parameters:
       - explode: false
         in: path
@@ -1853,6 +1897,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Not Found
+      summary: Gets total savings for an item
       tags:
       - Prices
       x-accepts:
@@ -1860,12 +1905,43 @@ paths:
       - application/xml
 components:
   schemas:
-    Currency:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    CurrencyId:
       additionalProperties: false
       example:
         country: country
         code: code
+        value: value
       properties:
+        value:
+          nullable: true
+          readOnly: true
+          type: string
         code:
           nullable: true
           type: string
@@ -1877,8 +1953,8 @@ components:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
+        enrollmentId: enrollmentId
         discountListId: discountListId
-        enrolmentId: enrolmentId
         beginQuantity: 0.8008281904610115
         tenantId: tenantId
         description: description
@@ -1889,11 +1965,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         description:
           nullable: true
@@ -1915,7 +1989,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -1930,9 +2004,9 @@ components:
       additionalProperties: false
       example:
         itemId: itemId
+        enrollmentId: enrollmentId
         endQuantity: 1.4658129805029452
         discountListId: discountListId
-        enrolmentId: enrolmentId
         tenantId: tenantId
         beginQuantity: 5.962133916683182
         description: description
@@ -1963,7 +2037,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         discountListId:
@@ -1981,9 +2055,9 @@ components:
       example:
         result:
           itemId: itemId
+          enrollmentId: enrollmentId
           endQuantity: 1.4658129805029452
           discountListId: discountListId
-          enrolmentId: enrolmentId
           tenantId: tenantId
           beginQuantity: 5.962133916683182
           description: description
@@ -2022,9 +2096,9 @@ components:
       example:
         result:
         - itemId: itemId
+          enrollmentId: enrollmentId
           endQuantity: 1.4658129805029452
           discountListId: discountListId
-          enrolmentId: enrolmentId
           tenantId: tenantId
           beginQuantity: 5.962133916683182
           description: description
@@ -2033,9 +2107,9 @@ components:
           percent: 6.027456183070403
           timestamp: 2000-01-23T04:56:07.000+00:00
         - itemId: itemId
+          enrollmentId: enrollmentId
           endQuantity: 1.4658129805029452
           discountListId: discountListId
-          enrolmentId: enrolmentId
           tenantId: tenantId
           beginQuantity: 5.962133916683182
           description: description
@@ -2075,7 +2149,7 @@ components:
     DiscountListCreateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -2084,11 +2158,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           maxLength: 50
@@ -2103,7 +2175,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -2112,7 +2184,7 @@ components:
     DiscountListDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         id: id
@@ -2135,7 +2207,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -2143,7 +2215,7 @@ components:
       additionalProperties: false
       example:
         result:
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
@@ -2179,13 +2251,13 @@ components:
       additionalProperties: false
       example:
         result:
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
@@ -2223,7 +2295,7 @@ components:
     DiscountListUpdateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         currencyId: currencyId
@@ -2241,7 +2313,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -2251,8 +2323,8 @@ components:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
+        enrollmentId: enrollmentId
         discountListId: discountListId
-        enrolmentId: enrolmentId
         beginQuantity: 0.8008281904610115
         tenantId: tenantId
         description: description
@@ -2279,7 +2351,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -2344,6 +2416,76 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
     Int32Envelope:
       additionalProperties: false
       example:
@@ -2375,6 +2517,287 @@ components:
           format: int32
           type: integer
       type: object
+    ItemPriceCalculation:
+      additionalProperties: false
+      example:
+        totalDetailAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        totalShippingCostAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        discountListId: discountListId
+        totalBaseAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        totalWTaxAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        unitId: unitId
+        totalProfitAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        currency:
+          country: country
+          code: code
+          value: value
+        currencyId: currencyId
+        totalDiscountsAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        roundingPolicyId: roundingPolicyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalSurchargesAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        enrollmentId: enrollmentId
+        item: item
+        quantity: 0.8008281904610115
+        priceListId: priceListId
+        effectiveDiscountPercent: 6.027456183070403
+        itemId: itemId
+        totalAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        unitGroupId: unitGroupId
+        tenantId: tenantId
+        totalTaxBaseAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        totalShippingTaxAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        priceId: priceId
+        discountId: discountId
+        totalTaxAmount:
+          amount: 5.962133916683182
+          currency:
+            country: country
+            code: code
+            value: value
+        effectiveTaxPercent: 1.4658129805029452
+      properties:
+        quantity:
+          format: double
+          type: number
+        itemId:
+          nullable: true
+          type: string
+        item:
+          nullable: true
+          type: string
+        unitId:
+          nullable: true
+          type: string
+        unitGroupId:
+          nullable: true
+          type: string
+        priceId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        discountId:
+          nullable: true
+          type: string
+        discountListId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        roundingPolicyId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        effectiveDiscountPercent:
+          format: double
+          readOnly: true
+          type: number
+        effectiveTaxPercent:
+          format: double
+          readOnly: true
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        currency:
+          $ref: '#/components/schemas/CurrencyId'
+        totalBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalProfitAmount:
+          $ref: '#/components/schemas/Money'
+        totalDetailAmount:
+          $ref: '#/components/schemas/Money'
+        totalDiscountsAmount:
+          $ref: '#/components/schemas/Money'
+        totalSurchargesAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxBaseAmount:
+          $ref: '#/components/schemas/Money'
+        totalTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalWTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingCostAmount:
+          $ref: '#/components/schemas/Money'
+        totalShippingTaxAmount:
+          $ref: '#/components/schemas/Money'
+        totalAmount:
+          $ref: '#/components/schemas/Money'
+      type: object
+    ItemPriceCalculationEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          totalDetailAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          totalShippingCostAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          discountListId: discountListId
+          totalBaseAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          totalWTaxAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          unitId: unitId
+          totalProfitAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          currency:
+            country: country
+            code: code
+            value: value
+          currencyId: currencyId
+          totalDiscountsAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          roundingPolicyId: roundingPolicyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalSurchargesAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          enrollmentId: enrollmentId
+          item: item
+          quantity: 0.8008281904610115
+          priceListId: priceListId
+          effectiveDiscountPercent: 6.027456183070403
+          itemId: itemId
+          totalAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          unitGroupId: unitGroupId
+          tenantId: tenantId
+          totalTaxBaseAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          totalShippingTaxAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          priceId: priceId
+          discountId: discountId
+          totalTaxAmount:
+            amount: 5.962133916683182
+            currency:
+              country: country
+              code: code
+              value: value
+          effectiveTaxPercent: 1.4658129805029452
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemPriceCalculation'
+      type: object
     ItemPriceCreateDto:
       additionalProperties: false
       example:
@@ -2394,11 +2817,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         itemId:
           minLength: 1
@@ -2640,28 +3061,54 @@ components:
           nullable: true
           type: string
       type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     Money:
       additionalProperties: false
       example:
-        amount: 6.027456183070403
+        amount: 5.962133916683182
         currency:
           country: country
           code: code
+          value: value
       properties:
         amount:
           format: double
           type: number
         currency:
-          $ref: '#/components/schemas/Currency'
+          $ref: '#/components/schemas/CurrencyId'
       type: object
     MoneyEnvelope:
       additionalProperties: false
       example:
         result:
-          amount: 6.027456183070403
+          amount: 5.962133916683182
           currency:
             country: country
             code: code
+            value: value
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -2687,196 +3134,6 @@ components:
           type: string
         result:
           $ref: '#/components/schemas/Money'
-      type: object
-    PriceCalculationDto:
-      additionalProperties: false
-      example:
-        enrollmentId: enrollmentId
-        discountListId: discountListId
-        priceListId: priceListId
-        effectiveDiscountPercent: 0.8008281904610115
-        totalShippingAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        itemId: itemId
-        totalAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        unitGroupId: unitGroupId
-        totalBaseAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        tenantId: tenantId
-        unitId: unitId
-        totalShippingTaxAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        id: id
-        priceId: priceId
-        discountId: discountId
-        currencyId: currencyId
-        totalTaxAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        totalDiscountsAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        roundingPolicyId: roundingPolicyId
-        totalSurchargesAmount:
-          amount: 6.027456183070403
-          currency:
-            country: country
-            code: code
-      properties:
-        id:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          nullable: true
-          type: string
-        itemId:
-          nullable: true
-          type: string
-        unitId:
-          nullable: true
-          type: string
-        unitGroupId:
-          nullable: true
-          type: string
-        priceId:
-          nullable: true
-          type: string
-        priceListId:
-          nullable: true
-          type: string
-        discountId:
-          nullable: true
-          type: string
-        discountListId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
-        roundingPolicyId:
-          nullable: true
-          type: string
-        effectiveDiscountPercent:
-          format: double
-          type: number
-        currencyId:
-          nullable: true
-          type: string
-        totalBaseAmount:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
-        totalShippingAmount:
-          $ref: '#/components/schemas/Money'
-        totalShippingTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-      type: object
-    PriceCalculationDtoEnvelope:
-      additionalProperties: false
-      example:
-        result:
-          enrollmentId: enrollmentId
-          discountListId: discountListId
-          priceListId: priceListId
-          effectiveDiscountPercent: 0.8008281904610115
-          totalShippingAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          itemId: itemId
-          totalAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          unitGroupId: unitGroupId
-          totalBaseAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          tenantId: tenantId
-          unitId: unitId
-          totalShippingTaxAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          id: id
-          priceId: priceId
-          discountId: discountId
-          currencyId: currencyId
-          totalTaxAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          totalDiscountsAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          roundingPolicyId: roundingPolicyId
-          totalSurchargesAmount:
-            amount: 6.027456183070403
-            currency:
-              country: country
-              code: code
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          $ref: '#/components/schemas/PriceCalculationDto'
       type: object
     PriceListCreateDto:
       additionalProperties: false
@@ -2895,11 +3152,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           maxLength: 100
@@ -2937,12 +3192,12 @@ components:
     PriceListDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         partnerVisible: true
         endDate: 2000-01-23T04:56:07.000+00:00
         description: description
         unitGroupId: unitGroupId
         unitOfMeasureDependant: true
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         unitId: unitId
@@ -2986,7 +3241,7 @@ components:
           type: boolean
         unitOfMeasureDependant:
           type: boolean
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -2994,12 +3249,12 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           partnerVisible: true
           endDate: 2000-01-23T04:56:07.000+00:00
           description: description
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           unitId: unitId
@@ -3037,12 +3292,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - partnerVisible: true
+        - enrollmentId: enrollmentId
+          partnerVisible: true
           endDate: 2000-01-23T04:56:07.000+00:00
           description: description
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           unitId: unitId
@@ -3050,12 +3305,12 @@ components:
           currencyId: currencyId
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - partnerVisible: true
+        - enrollmentId: enrollmentId
+          partnerVisible: true
           endDate: 2000-01-23T04:56:07.000+00:00
           description: description
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           unitId: unitId
@@ -3130,12 +3385,117 @@ components:
       required:
       - name
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

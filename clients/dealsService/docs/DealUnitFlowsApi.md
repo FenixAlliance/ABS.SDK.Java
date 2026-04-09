@@ -4,97 +4,27 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2DealsServiceDealUnitFlowsCountGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsCountGet) | **GET** /api/v2/DealsService/DealUnitFlows/Count |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages |  |
-| [**apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost) | **POST** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages |  |
-| [**apiV2DealsServiceDealUnitFlowsGet**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsGet) | **GET** /api/v2/DealsService/DealUnitFlows |  |
-| [**apiV2DealsServiceDealUnitFlowsPost**](DealUnitFlowsApi.md#apiV2DealsServiceDealUnitFlowsPost) | **POST** /api/v2/DealsService/DealUnitFlows |  |
+| [**createDealUnitFlowAsync**](DealUnitFlowsApi.md#createDealUnitFlowAsync) | **POST** /api/v2/DealsService/DealUnitFlows | Create a deal unit flow |
+| [**createDealUnitFlowStageAsync**](DealUnitFlowsApi.md#createDealUnitFlowStageAsync) | **POST** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Create a deal unit flow stage |
+| [**deleteDealUnitFlowAsync**](DealUnitFlowsApi.md#deleteDealUnitFlowAsync) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Delete a deal unit flow |
+| [**deleteDealUnitFlowStageAsync**](DealUnitFlowsApi.md#deleteDealUnitFlowStageAsync) | **DELETE** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Delete a deal unit flow stage |
+| [**getDealUnitFlowAsync**](DealUnitFlowsApi.md#getDealUnitFlowAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Get deal unit flow by ID |
+| [**getDealUnitFlowStageAsync**](DealUnitFlowsApi.md#getDealUnitFlowStageAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Get a deal unit flow stage by ID |
+| [**getDealUnitFlowStagesAsync**](DealUnitFlowsApi.md#getDealUnitFlowStagesAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages | Get stages for a deal unit flow |
+| [**getDealUnitFlowStagesCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowStagesCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/Count | Get stages count for a deal unit flow |
+| [**getDealUnitFlowsAsync**](DealUnitFlowsApi.md#getDealUnitFlowsAsync) | **GET** /api/v2/DealsService/DealUnitFlows | Get deal unit flows |
+| [**getDealUnitFlowsCountAsync**](DealUnitFlowsApi.md#getDealUnitFlowsCountAsync) | **GET** /api/v2/DealsService/DealUnitFlows/Count | Get deal unit flows count |
+| [**updateDealUnitFlowAsync**](DealUnitFlowsApi.md#updateDealUnitFlowAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId} | Update a deal unit flow |
+| [**updateDealUnitFlowStageAsync**](DealUnitFlowsApi.md#updateDealUnitFlowStageAsync) | **PUT** /api/v2/DealsService/DealUnitFlows/{dealUnitFlowId}/Stages/{dealUnitFlowStageId} | Update a deal unit flow stage |
 
 
-<a id="apiV2DealsServiceDealUnitFlowsCountGet"></a>
-# **apiV2DealsServiceDealUnitFlowsCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitFlowsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createDealUnitFlowAsync"></a>
+# **createDealUnitFlowAsync**
+> EmptyEnvelope createDealUnitFlowAsync(tenantId, dealUnitFlowCreateDto)
 
+Create a deal unit flow
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2DealsServiceDealUnitFlowsCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(tenantId, dealUnitFlowId, apiVersion, xApiVersion)
-
-
+Creates a new deal unit flow for the specified tenant.
 
 ### Example
 ```java
@@ -102,7 +32,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.DealUnitFlowsApi;
 
@@ -110,773 +39,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete(tenantId, dealUnitFlowId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet**
-> DealUnitFlowDtoEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      DealUnitFlowDtoEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(tenantId, dealUnitFlowId, apiVersion, xApiVersion, dealUnitFlowUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    DealUnitFlowUpdateDto dealUnitFlowUpdateDto = new DealUnitFlowUpdateDto(); // DealUnitFlowUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut(tenantId, dealUnitFlowId, apiVersion, xApiVersion, dealUnitFlowUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet**
-> Int32Envelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **dealUnitFlowStageId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet**
-> DealUnitFlowStageDtoEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      DealUnitFlowStageDtoEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **dealUnitFlowStageId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion, dealUnitFlowStageUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    DealUnitFlowStageUpdateDto dealUnitFlowStageUpdateDto = new DealUnitFlowStageUpdateDto(); // DealUnitFlowStageUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut(tenantId, dealUnitFlowId, dealUnitFlowStageId, apiVersion, xApiVersion, dealUnitFlowStageUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesDealUnitFlowStageIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **dealUnitFlowStageId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet**
-> DealUnitFlowStageDtoListEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      DealUnitFlowStageDtoListEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet(tenantId, dealUnitFlowId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost"></a>
-# **apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(tenantId, dealUnitFlowId, apiVersion, xApiVersion, dealUnitFlowStageCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    DealUnitFlowStageCreateDto dealUnitFlowStageCreateDto = new DealUnitFlowStageCreateDto(); // DealUnitFlowStageCreateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost(tenantId, dealUnitFlowId, apiVersion, xApiVersion, dealUnitFlowStageCreateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsDealUnitFlowIdStagesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **dealUnitFlowId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsGet"></a>
-# **apiV2DealsServiceDealUnitFlowsGet**
-> DealUnitFlowDtoListEnvelope apiV2DealsServiceDealUnitFlowsGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      DealUnitFlowDtoListEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2DealsServiceDealUnitFlowsPost"></a>
-# **apiV2DealsServiceDealUnitFlowsPost**
-> EmptyEnvelope apiV2DealsServiceDealUnitFlowsPost(tenantId, apiVersion, xApiVersion, dealUnitFlowCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DealUnitFlowsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     DealUnitFlowCreateDto dealUnitFlowCreateDto = new DealUnitFlowCreateDto(); // DealUnitFlowCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2DealsServiceDealUnitFlowsPost(tenantId, apiVersion, xApiVersion, dealUnitFlowCreateDto);
+      EmptyEnvelope result = apiInstance.createDealUnitFlowAsync(tenantId, dealUnitFlowCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DealUnitFlowsApi#apiV2DealsServiceDealUnitFlowsPost");
+      System.err.println("Exception when calling DealUnitFlowsApi#createDealUnitFlowAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -891,8 +62,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
 | **dealUnitFlowCreateDto** | [**DealUnitFlowCreateDto**](DealUnitFlowCreateDto.md)|  | [optional] |
 
 ### Return type
@@ -901,7 +70,730 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="createDealUnitFlowStageAsync"></a>
+# **createDealUnitFlowStageAsync**
+> EmptyEnvelope createDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageCreateDto)
+
+Create a deal unit flow stage
+
+Creates a new stage within a specific deal unit flow.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowStageCreateDto dealUnitFlowStageCreateDto = new DealUnitFlowStageCreateDto(); // DealUnitFlowStageCreateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.createDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#createDealUnitFlowStageAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageCreateDto** | [**DealUnitFlowStageCreateDto**](DealUnitFlowStageCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteDealUnitFlowAsync"></a>
+# **deleteDealUnitFlowAsync**
+> EmptyEnvelope deleteDealUnitFlowAsync(tenantId, dealUnitFlowId)
+
+Delete a deal unit flow
+
+Deletes an existing deal unit flow by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteDealUnitFlowAsync(tenantId, dealUnitFlowId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#deleteDealUnitFlowAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteDealUnitFlowStageAsync"></a>
+# **deleteDealUnitFlowStageAsync**
+> EmptyEnvelope deleteDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId)
+
+Delete a deal unit flow stage
+
+Deletes an existing stage from a specific deal unit flow.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#deleteDealUnitFlowStageAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageId** | **UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowAsync"></a>
+# **getDealUnitFlowAsync**
+> DealUnitFlowDtoEnvelope getDealUnitFlowAsync(tenantId, dealUnitFlowId)
+
+Get deal unit flow by ID
+
+Retrieves a single deal unit flow by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    try {
+      DealUnitFlowDtoEnvelope result = apiInstance.getDealUnitFlowAsync(tenantId, dealUnitFlowId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowDtoEnvelope**](DealUnitFlowDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowStageAsync"></a>
+# **getDealUnitFlowStageAsync**
+> DealUnitFlowStageDtoEnvelope getDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId)
+
+Get a deal unit flow stage by ID
+
+Retrieves a single stage for a specific deal unit flow by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
+    try {
+      DealUnitFlowStageDtoEnvelope result = apiInstance.getDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowStageAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageId** | **UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowStageDtoEnvelope**](DealUnitFlowStageDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowStagesAsync"></a>
+# **getDealUnitFlowStagesAsync**
+> DealUnitFlowStageDtoListEnvelope getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId)
+
+Get stages for a deal unit flow
+
+Retrieves a list of stages for a specific deal unit flow with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    try {
+      DealUnitFlowStageDtoListEnvelope result = apiInstance.getDealUnitFlowStagesAsync(tenantId, dealUnitFlowId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowStagesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowStageDtoListEnvelope**](DealUnitFlowStageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowStagesCountAsync"></a>
+# **getDealUnitFlowStagesCountAsync**
+> Int32Envelope getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId)
+
+Get stages count for a deal unit flow
+
+Returns the total count of stages for a specific deal unit flow with OData filter support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getDealUnitFlowStagesCountAsync(tenantId, dealUnitFlowId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowStagesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowsAsync"></a>
+# **getDealUnitFlowsAsync**
+> DealUnitFlowDtoListEnvelope getDealUnitFlowsAsync(tenantId)
+
+Get deal unit flows
+
+Retrieves a list of deal unit flows for the specified tenant with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      DealUnitFlowDtoListEnvelope result = apiInstance.getDealUnitFlowsAsync(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**DealUnitFlowDtoListEnvelope**](DealUnitFlowDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getDealUnitFlowsCountAsync"></a>
+# **getDealUnitFlowsCountAsync**
+> Int32Envelope getDealUnitFlowsCountAsync(tenantId)
+
+Get deal unit flows count
+
+Returns the total count of deal unit flows for the specified tenant with OData filter support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getDealUnitFlowsCountAsync(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#getDealUnitFlowsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updateDealUnitFlowAsync"></a>
+# **updateDealUnitFlowAsync**
+> EmptyEnvelope updateDealUnitFlowAsync(tenantId, dealUnitFlowId, dealUnitFlowUpdateDto)
+
+Update a deal unit flow
+
+Updates an existing deal unit flow by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowUpdateDto dealUnitFlowUpdateDto = new DealUnitFlowUpdateDto(); // DealUnitFlowUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateDealUnitFlowAsync(tenantId, dealUnitFlowId, dealUnitFlowUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#updateDealUnitFlowAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowUpdateDto** | [**DealUnitFlowUpdateDto**](DealUnitFlowUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updateDealUnitFlowStageAsync"></a>
+# **updateDealUnitFlowStageAsync**
+> EmptyEnvelope updateDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, dealUnitFlowStageUpdateDto)
+
+Update a deal unit flow stage
+
+Updates an existing stage within a specific deal unit flow.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DealUnitFlowsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    DealUnitFlowsApi apiInstance = new DealUnitFlowsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowId = UUID.randomUUID(); // UUID | 
+    UUID dealUnitFlowStageId = UUID.randomUUID(); // UUID | 
+    DealUnitFlowStageUpdateDto dealUnitFlowStageUpdateDto = new DealUnitFlowStageUpdateDto(); // DealUnitFlowStageUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateDealUnitFlowStageAsync(tenantId, dealUnitFlowId, dealUnitFlowStageId, dealUnitFlowStageUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DealUnitFlowsApi#updateDealUnitFlowStageAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **dealUnitFlowId** | **UUID**|  | |
+| **dealUnitFlowStageId** | **UUID**|  | |
+| **dealUnitFlowStageUpdateDto** | [**DealUnitFlowStageUpdateDto**](DealUnitFlowStageUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

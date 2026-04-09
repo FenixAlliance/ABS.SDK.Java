@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2InventoryServiceInventoryStockItemIdDetailsGet**](InventoryApi.md#apiV2InventoryServiceInventoryStockItemIdDetailsGet) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details |  |
+| [**getInventoryDetailsAsync**](InventoryApi.md#getInventoryDetailsAsync) | **GET** /api/v2/InventoryService/Inventory/{stockItemId}/Details | Get inventory details for a stock item |
 
 
-<a id="apiV2InventoryServiceInventoryStockItemIdDetailsGet"></a>
-# **apiV2InventoryServiceInventoryStockItemIdDetailsGet**
-> apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId, apiVersion, xApiVersion)
+<a id="getInventoryDetailsAsync"></a>
+# **getInventoryDetailsAsync**
+> getInventoryDetailsAsync(stockItemId, apiVersion, xApiVersion)
 
+Get inventory details for a stock item
 
+Retrieves the inventory details for a specific stock item by its ID.
 
 ### Example
 ```java
@@ -19,7 +21,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InventoryApi;
 
@@ -27,21 +28,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InventoryApi apiInstance = new InventoryApi(defaultClient);
     UUID stockItemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.apiV2InventoryServiceInventoryStockItemIdDetailsGet(stockItemId, apiVersion, xApiVersion);
+      apiInstance.getInventoryDetailsAsync(stockItemId, apiVersion, xApiVersion);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InventoryApi#apiV2InventoryServiceInventoryStockItemIdDetailsGet");
+      System.err.println("Exception when calling InventoryApi#getInventoryDetailsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -65,7 +60,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

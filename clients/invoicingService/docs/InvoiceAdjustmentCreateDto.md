@@ -7,12 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  [optional] [readonly] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] [readonly] |
-|**tenantId** | **String** |  |  [optional] |
-|**invoiceId** | **String** |  |  [optional] |
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**surchargePercent** | **Double** |  |  [optional] |
 |**surchargeAmount** | **Double** |  |  [optional] |
@@ -28,8 +25,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| DISCOUNT | &quot;Discount&quot; |
+| SURCHARGE | &quot;Surcharge&quot; |
 
 
 

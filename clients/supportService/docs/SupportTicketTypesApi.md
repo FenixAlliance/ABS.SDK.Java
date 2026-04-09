@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SupportServiceSupportTicketTypesCountGet**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesCountGet) | **GET** /api/v2/SupportService/SupportTicketTypes/Count |  |
-| [**apiV2SupportServiceSupportTicketTypesGet**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesGet) | **GET** /api/v2/SupportService/SupportTicketTypes |  |
-| [**apiV2SupportServiceSupportTicketTypesPost**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesPost) | **POST** /api/v2/SupportService/SupportTicketTypes |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
-| [**apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut**](SupportTicketTypesApi.md#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} |  |
+| [**createSupportTicketTypeAsync**](SupportTicketTypesApi.md#createSupportTicketTypeAsync) | **POST** /api/v2/SupportService/SupportTicketTypes | Create a new support ticket type |
+| [**deleteSupportTicketTypeAsync**](SupportTicketTypesApi.md#deleteSupportTicketTypeAsync) | **DELETE** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Delete a support ticket type |
+| [**getSupportTicketTypeAsync**](SupportTicketTypesApi.md#getSupportTicketTypeAsync) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Retrieve a support ticket type by ID |
+| [**getSupportTicketTypesAsync**](SupportTicketTypesApi.md#getSupportTicketTypesAsync) | **GET** /api/v2/SupportService/SupportTicketTypes | Retrieve a list of support ticket types |
+| [**getSupportTicketTypesCountAsync**](SupportTicketTypesApi.md#getSupportTicketTypesCountAsync) | **GET** /api/v2/SupportService/SupportTicketTypes/Count | Get the count of support ticket types |
+| [**updateSupportTicketTypeAsync**](SupportTicketTypesApi.md#updateSupportTicketTypeAsync) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Update a support ticket type |
 
 
-<a id="apiV2SupportServiceSupportTicketTypesCountGet"></a>
-# **apiV2SupportServiceSupportTicketTypesCountGet**
-> Int32Envelope apiV2SupportServiceSupportTicketTypesCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSupportTicketTypeAsync"></a>
+# **createSupportTicketTypeAsync**
+> EmptyEnvelope createSupportTicketTypeAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeCreateDto)
 
+Create a new support ticket type
 
+Creates a new support ticket type for the specified tenant.
 
 ### Example
 ```java
@@ -24,7 +26,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketTypesApi;
 
@@ -32,169 +33,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2SupportServiceSupportTicketTypesCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportTicketTypesGet"></a>
-# **apiV2SupportServiceSupportTicketTypesGet**
-> SupportTicketTypeDtoListEnvelope apiV2SupportServiceSupportTicketTypesGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportTicketTypesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SupportTicketTypeDtoListEnvelope result = apiInstance.apiV2SupportServiceSupportTicketTypesGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SupportTicketTypeDtoListEnvelope**](SupportTicketTypeDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportTicketTypesPost"></a>
-# **apiV2SupportServiceSupportTicketTypesPost**
-> EmptyEnvelope apiV2SupportServiceSupportTicketTypesPost(supportTicketTypeCreateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportTicketTypesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
     SupportTicketTypeCreateDto supportTicketTypeCreateDto = new SupportTicketTypeCreateDto(); // SupportTicketTypeCreateDto | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketTypesPost(supportTicketTypeCreateDto, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createSupportTicketTypeAsync(tenantId, apiVersion, xApiVersion, supportTicketTypeCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesPost");
+      System.err.println("Exception when calling SupportTicketTypesApi#createSupportTicketTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -208,10 +57,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **supportTicketTypeCreateDto** | [**SupportTicketTypeCreateDto**](SupportTicketTypeCreateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportTicketTypeCreateDto** | [**SupportTicketTypeCreateDto**](SupportTicketTypeCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -219,7 +68,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -231,13 +80,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete"></a>
-# **apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete(supportTicketTypeId, tenantId, apiVersion, xApiVersion)
+<a id="deleteSupportTicketTypeAsync"></a>
+# **deleteSupportTicketTypeAsync**
+> EmptyEnvelope deleteSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion)
 
+Delete a support ticket type
 
+Deletes a support ticket type by its unique identifier.
 
 ### Example
 ```java
@@ -245,7 +96,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketTypesApi;
 
@@ -253,23 +103,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
-    UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete(supportTicketTypeId, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdDelete");
+      System.err.println("Exception when calling SupportTicketTypesApi#deleteSupportTicketTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -283,8 +127,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportTicketTypeId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -294,7 +138,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -308,11 +152,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet"></a>
-# **apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet**
-> SupportTicketTypeDtoEnvelope apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet(supportTicketTypeId, apiVersion, xApiVersion)
+<a id="getSupportTicketTypeAsync"></a>
+# **getSupportTicketTypeAsync**
+> SupportTicketTypeDtoEnvelope getSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion)
 
+Retrieve a support ticket type by ID
 
+Retrieves a single support ticket type by its unique identifier.
 
 ### Example
 ```java
@@ -320,7 +166,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketTypesApi;
 
@@ -328,22 +173,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SupportTicketTypeDtoEnvelope result = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet(supportTicketTypeId, apiVersion, xApiVersion);
+      SupportTicketTypeDtoEnvelope result = apiInstance.getSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdGet");
+      System.err.println("Exception when calling SupportTicketTypesApi#getSupportTicketTypeAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -357,6 +197,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportTicketTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -367,7 +208,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -381,11 +222,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut"></a>
-# **apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut**
-> EmptyEnvelope apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut(supportTicketTypeId, supportTicketTypeUpdateDto, tenantId, apiVersion, xApiVersion)
+<a id="getSupportTicketTypesAsync"></a>
+# **getSupportTicketTypesAsync**
+> SupportTicketTypeDtoListEnvelope getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion)
 
+Retrieve a list of support ticket types
 
+Retrieves a list of support ticket types for the specified tenant with OData query support.
 
 ### Example
 ```java
@@ -393,7 +236,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportTicketTypesApi;
 
@@ -401,24 +243,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
-    UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
-    SupportTicketTypeUpdateDto supportTicketTypeUpdateDto = new SupportTicketTypeUpdateDto(); // SupportTicketTypeUpdateDto | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut(supportTicketTypeId, supportTicketTypeUpdateDto, tenantId, apiVersion, xApiVersion);
+      SupportTicketTypeDtoListEnvelope result = apiInstance.getSupportTicketTypesAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportTicketTypesApi#apiV2SupportServiceSupportTicketTypesSupportTicketTypeIdPut");
+      System.err.println("Exception when calling SupportTicketTypesApi#getSupportTicketTypesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -432,11 +266,149 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **supportTicketTypeId** | **UUID**|  | |
-| **supportTicketTypeUpdateDto** | [**SupportTicketTypeUpdateDto**](SupportTicketTypeUpdateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SupportTicketTypeDtoListEnvelope**](SupportTicketTypeDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportTicketTypesCountAsync"></a>
+# **getSupportTicketTypesCountAsync**
+> Int32Envelope getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of support ticket types
+
+Returns the total count of support ticket types for the specified tenant with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportTicketTypesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getSupportTicketTypesCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportTicketTypesApi#getSupportTicketTypesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateSupportTicketTypeAsync"></a>
+# **updateSupportTicketTypeAsync**
+> EmptyEnvelope updateSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, supportTicketTypeUpdateDto)
+
+Update a support ticket type
+
+Updates an existing support ticket type by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportTicketTypesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportTicketTypesApi apiInstance = new SupportTicketTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportTicketTypeId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SupportTicketTypeUpdateDto supportTicketTypeUpdateDto = new SupportTicketTypeUpdateDto(); // SupportTicketTypeUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateSupportTicketTypeAsync(tenantId, supportTicketTypeId, apiVersion, xApiVersion, supportTicketTypeUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportTicketTypesApi#updateSupportTicketTypeAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **supportTicketTypeId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **supportTicketTypeUpdateDto** | [**SupportTicketTypeUpdateDto**](SupportTicketTypeUpdateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -444,7 +416,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

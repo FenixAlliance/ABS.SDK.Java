@@ -27,8 +27,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| FILE | &quot;File&quot; |
+| FOLDER | &quot;Folder&quot; |
 
 
 

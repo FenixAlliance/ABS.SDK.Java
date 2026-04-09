@@ -4,24 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2SupportServiceSupportRequestsCountGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsCountGet) | **GET** /api/v2/SupportService/SupportRequests/Count |  |
-| [**apiV2SupportServiceSupportRequestsGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsGet) | **GET** /api/v2/SupportService/SupportRequests |  |
-| [**apiV2SupportServiceSupportRequestsPost**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsPost) | **POST** /api/v2/SupportService/SupportRequests |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost) | **POST** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdDelete**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdDelete) | **DELETE** /api/v2/SupportService/SupportRequests/{supportRequestId} |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdGet) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId} |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdPut**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdPut) | **PUT** /api/v2/SupportService/SupportRequests/{supportRequestId} |  |
-| [**apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet**](SupportRequestsApi.md#apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets |  |
+| [**createSupportRequestAsync**](SupportRequestsApi.md#createSupportRequestAsync) | **POST** /api/v2/SupportService/SupportRequests | Create a new support request |
+| [**deleteSupportRequestAsync**](SupportRequestsApi.md#deleteSupportRequestAsync) | **DELETE** /api/v2/SupportService/SupportRequests/{supportRequestId} | Delete a support request |
+| [**getSupportRequestAsync**](SupportRequestsApi.md#getSupportRequestAsync) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId} | Retrieve a support request by ID |
+| [**getSupportRequestAttachmentByRequest**](SupportRequestsApi.md#getSupportRequestAttachmentByRequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/{attachmentId} | Retrieve a specific attachment for a support request |
+| [**getSupportRequestAttachmentsByRequest**](SupportRequestsApi.md#getSupportRequestAttachmentsByRequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Retrieve attachments for a support request |
+| [**getSupportRequestAttachmentsCountByRequest**](SupportRequestsApi.md#getSupportRequestAttachmentsCountByRequest) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments/Count | Get the count of attachments for a support request |
+| [**getSupportRequestTicketsAsync**](SupportRequestsApi.md#getSupportRequestTicketsAsync) | **GET** /api/v2/SupportService/SupportRequests/{supportRequestId}/Tickets | Retrieve tickets for a support request |
+| [**getSupportRequestsAsync**](SupportRequestsApi.md#getSupportRequestsAsync) | **GET** /api/v2/SupportService/SupportRequests | Retrieve a list of support requests |
+| [**getSupportRequestsCountAsync**](SupportRequestsApi.md#getSupportRequestsCountAsync) | **GET** /api/v2/SupportService/SupportRequests/Count | Get the count of support requests |
+| [**relateSupportRequestToAttachmentAsync**](SupportRequestsApi.md#relateSupportRequestToAttachmentAsync) | **POST** /api/v2/SupportService/SupportRequests/{supportRequestId}/Attachments | Add an attachment to a support request |
+| [**updateSupportRequestAsync**](SupportRequestsApi.md#updateSupportRequestAsync) | **PUT** /api/v2/SupportService/SupportRequests/{supportRequestId} | Update a support request |
 
 
-<a id="apiV2SupportServiceSupportRequestsCountGet"></a>
-# **apiV2SupportServiceSupportRequestsCountGet**
-> Int32Envelope apiV2SupportServiceSupportRequestsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSupportRequestAsync"></a>
+# **createSupportRequestAsync**
+> EmptyEnvelope createSupportRequestAsync(tenantId, apiVersion, xApiVersion, supportRequestCreateDto)
 
+Create a new support request
 
+Creates a new support request for the specified tenant.
 
 ### Example
 ```java
@@ -29,7 +31,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportRequestsApi;
 
@@ -37,169 +38,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2SupportServiceSupportRequestsCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsGet"></a>
-# **apiV2SupportServiceSupportRequestsGet**
-> SupportRequestDtoListEnvelope apiV2SupportServiceSupportRequestsGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SupportRequestDtoListEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SupportRequestDtoListEnvelope**](SupportRequestDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsPost"></a>
-# **apiV2SupportServiceSupportRequestsPost**
-> EmptyEnvelope apiV2SupportServiceSupportRequestsPost(supportRequestCreateDto, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
     SupportRequestCreateDto supportRequestCreateDto = new SupportRequestCreateDto(); // SupportRequestCreateDto | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsPost(supportRequestCreateDto, tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createSupportRequestAsync(tenantId, apiVersion, xApiVersion, supportRequestCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsPost");
+      System.err.println("Exception when calling SupportRequestsApi#createSupportRequestAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -213,10 +62,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **supportRequestCreateDto** | [**SupportRequestCreateDto**](SupportRequestCreateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **supportRequestCreateDto** | [**SupportRequestCreateDto**](SupportRequestCreateDto.md)|  | [optional] |
 
 ### Return type
 
@@ -224,7 +73,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -236,13 +85,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet**
-> SupportRequestAttachmentDtoEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(supportRequestId, attachmentId, apiVersion, xApiVersion)
+<a id="deleteSupportRequestAsync"></a>
+# **deleteSupportRequestAsync**
+> EmptyEnvelope deleteSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion)
 
+Delete a support request
 
+Deletes a support request by its unique identifier.
 
 ### Example
 ```java
@@ -250,7 +101,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportRequestsApi;
 
@@ -258,23 +108,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    UUID attachmentId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SupportRequestAttachmentDtoEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet(supportRequestId, attachmentId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsAttachmentIdGet");
+      System.err.println("Exception when calling SupportRequestsApi#deleteSupportRequestAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -288,6 +132,148 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **supportRequestId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportRequestAsync"></a>
+# **getSupportRequestAsync**
+> SupportRequestDtoEnvelope getSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion)
+
+Retrieve a support request by ID
+
+Retrieves a single support request by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SupportRequestDtoEnvelope result = apiInstance.getSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **supportRequestId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SupportRequestDtoEnvelope**](SupportRequestDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportRequestAttachmentByRequest"></a>
+# **getSupportRequestAttachmentByRequest**
+> SupportRequestAttachmentDtoEnvelope getSupportRequestAttachmentByRequest(tenantId, supportRequestId, attachmentId, apiVersion, xApiVersion)
+
+Retrieve a specific attachment for a support request
+
+Retrieves a single attachment by its ID for a specific support request.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
+    UUID attachmentId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SupportRequestAttachmentDtoEnvelope result = apiInstance.getSupportRequestAttachmentByRequest(tenantId, supportRequestId, attachmentId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestAttachmentByRequest");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportRequestId** | **UUID**|  | |
 | **attachmentId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -299,7 +285,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -313,11 +299,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet**
-> Int32Envelope apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(supportRequestId, tenantId, apiVersion, xApiVersion)
+<a id="getSupportRequestAttachmentsByRequest"></a>
+# **getSupportRequestAttachmentsByRequest**
+> SupportRequestAttachmentDtoListEnvelope getSupportRequestAttachmentsByRequest(tenantId, supportRequestId, apiVersion, xApiVersion)
 
+Retrieve attachments for a support request
 
+Retrieves the list of attachments associated with a specific support request.
 
 ### Example
 ```java
@@ -325,7 +313,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportRequestsApi;
 
@@ -333,23 +320,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet(supportRequestId, tenantId, apiVersion, xApiVersion);
+      SupportRequestAttachmentDtoListEnvelope result = apiInstance.getSupportRequestAttachmentsByRequest(tenantId, supportRequestId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsCountGet");
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestAttachmentsByRequest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -363,83 +344,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportRequestId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet**
-> SupportRequestAttachmentDtoListEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(supportRequestId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SupportRequestAttachmentDtoListEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet(supportRequestId, tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **supportRequestId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -449,7 +355,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -463,86 +369,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost**
-> EmptyEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(supportRequestId, supportRequestAttachmentCreateDto, apiVersion, xApiVersion)
+<a id="getSupportRequestAttachmentsCountByRequest"></a>
+# **getSupportRequestAttachmentsCountByRequest**
+> Int32Envelope getSupportRequestAttachmentsCountByRequest(tenantId, supportRequestId, apiVersion, xApiVersion)
 
+Get the count of attachments for a support request
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    SupportRequestAttachmentCreateDto supportRequestAttachmentCreateDto = new SupportRequestAttachmentCreateDto(); // SupportRequestAttachmentCreateDto | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost(supportRequestId, supportRequestAttachmentCreateDto, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdAttachmentsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **supportRequestId** | **UUID**|  | |
-| **supportRequestAttachmentCreateDto** | [**SupportRequestAttachmentCreateDto**](SupportRequestAttachmentCreateDto.md)|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **201** | Created |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdDelete"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdDelete**
-> EmptyEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdDelete(supportRequestId, tenantId, apiVersion, xApiVersion)
-
-
+Returns the total count of attachments for a specific support request.
 
 ### Example
 ```java
@@ -550,7 +383,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportRequestsApi;
 
@@ -558,23 +390,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdDelete(supportRequestId, tenantId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getSupportRequestAttachmentsCountByRequest(tenantId, supportRequestId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdDelete");
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestAttachmentsCountByRequest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -588,18 +414,18 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportRequestId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -613,84 +439,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdGet"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdGet**
-> SupportRequestDtoEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdGet(supportRequestId, apiVersion, xApiVersion)
+<a id="getSupportRequestTicketsAsync"></a>
+# **getSupportRequestTicketsAsync**
+> SupportTicketDtoListEnvelope getSupportRequestTicketsAsync(tenantId, supportRequestId, apiVersion, xApiVersion)
 
+Retrieve tickets for a support request
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SupportRequestDtoEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdGet(supportRequestId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **supportRequestId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SupportRequestDtoEnvelope**](SupportRequestDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdPut"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdPut**
-> EmptyEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdPut(supportRequestId, supportRequestUpdateDto, tenantId, apiVersion, xApiVersion)
-
-
+Retrieves the list of support tickets associated with a specific support request.
 
 ### Example
 ```java
@@ -698,7 +453,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SupportRequestsApi;
 
@@ -706,100 +460,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
-    UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    SupportRequestUpdateDto supportRequestUpdateDto = new SupportRequestUpdateDto(); // SupportRequestUpdateDto | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdPut(supportRequestId, supportRequestUpdateDto, tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **supportRequestId** | **UUID**|  | |
-| **supportRequestUpdateDto** | [**SupportRequestUpdateDto**](SupportRequestUpdateDto.md)|  | |
-| **tenantId** | **UUID**|  | [optional] |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet"></a>
-# **apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet**
-> SupportTicketDtoListEnvelope apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(supportRequestId, tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SupportRequestsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
     UUID supportRequestId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SupportTicketDtoListEnvelope result = apiInstance.apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet(supportRequestId, tenantId, apiVersion, xApiVersion);
+      SupportTicketDtoListEnvelope result = apiInstance.getSupportRequestTicketsAsync(tenantId, supportRequestId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SupportRequestsApi#apiV2SupportServiceSupportRequestsSupportRequestIdTicketsGet");
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestTicketsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -813,8 +484,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **supportRequestId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -824,11 +495,291 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportRequestsAsync"></a>
+# **getSupportRequestsAsync**
+> SupportRequestDtoListEnvelope getSupportRequestsAsync(tenantId, apiVersion, xApiVersion)
+
+Retrieve a list of support requests
+
+Retrieves a list of support requests for the specified tenant with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SupportRequestDtoListEnvelope result = apiInstance.getSupportRequestsAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SupportRequestDtoListEnvelope**](SupportRequestDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getSupportRequestsCountAsync"></a>
+# **getSupportRequestsCountAsync**
+> Int32Envelope getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of support requests
+
+Returns the total count of support requests for the specified tenant with OData query support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getSupportRequestsCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#getSupportRequestsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="relateSupportRequestToAttachmentAsync"></a>
+# **relateSupportRequestToAttachmentAsync**
+> EmptyEnvelope relateSupportRequestToAttachmentAsync(tenantId, supportRequestId, apiVersion, xApiVersion, supportRequestAttachmentCreateDto)
+
+Add an attachment to a support request
+
+Creates a new attachment and associates it with the specified support request.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SupportRequestAttachmentCreateDto supportRequestAttachmentCreateDto = new SupportRequestAttachmentCreateDto(); // SupportRequestAttachmentCreateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.relateSupportRequestToAttachmentAsync(tenantId, supportRequestId, apiVersion, xApiVersion, supportRequestAttachmentCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#relateSupportRequestToAttachmentAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **supportRequestId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **supportRequestAttachmentCreateDto** | [**SupportRequestAttachmentCreateDto**](SupportRequestAttachmentCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateSupportRequestAsync"></a>
+# **updateSupportRequestAsync**
+> EmptyEnvelope updateSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion, supportRequestUpdateDto)
+
+Update a support request
+
+Updates an existing support request by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SupportRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SupportRequestsApi apiInstance = new SupportRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID supportRequestId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SupportRequestUpdateDto supportRequestUpdateDto = new SupportRequestUpdateDto(); // SupportRequestUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateSupportRequestAsync(tenantId, supportRequestId, apiVersion, xApiVersion, supportRequestUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SupportRequestsApi#updateSupportRequestAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **supportRequestId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **supportRequestUpdateDto** | [**SupportRequestUpdateDto**](SupportRequestUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

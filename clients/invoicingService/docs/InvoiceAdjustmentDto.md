@@ -28,8 +28,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| DISCOUNT | &quot;Discount&quot; |
+| SURCHARGE | &quot;Surcharge&quot; |
 
 
 

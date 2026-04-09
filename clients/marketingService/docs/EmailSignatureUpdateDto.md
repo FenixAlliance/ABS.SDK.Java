@@ -26,7 +26,7 @@
 |**facebookImage** | **String** |  |  [optional] |
 |**facebookTitle** | **String** |  |  [optional] |
 |**facebookDescription** | **String** |  |  [optional] |
-|**featuredImageURL** | **String** |  |  [optional] |
+|**featuredImageUrl** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] |
@@ -34,6 +34,7 @@
 |**generatedCode** | **String** |  |  [optional] |
 |**compilationPath** | **String** |  |  [optional] |
 |**htmlContent** | **String** |  |  [optional] |
+|**codeType** | [**CodeTypeEnum**](#CodeTypeEnum) |  |  [optional] |
 |**cSharpContent** | **String** |  |  [optional] |
 |**razorContent** | **String** |  |  [optional] |
 |**cssContent** | **String** |  |  [optional] |
@@ -60,6 +61,19 @@
 |**cornerstoneContent** | **Boolean** |  |  [optional] |
 |**isEssentialContent** | **Boolean** |  |  [optional] |
 |**allowSearchEngineIndexing** | **Boolean** |  |  [optional] |
+
+
+
+## Enum: CodeTypeEnum
+
+| Name | Value |
+|---- | -----|
+| RAZOR | &quot;Razor&quot; |
+| C_SHARP | &quot;CSharp&quot; |
+| CS_HTML | &quot;CSHtml&quot; |
+| LIQUID | &quot;Liquid&quot; |
+| HTML5 | &quot;Html5&quot; |
+| MARKDOWN | &quot;Markdown&quot; |
 
 
 

@@ -4,14 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2ShipmentsServiceShipmentsGet**](ShipmentsApi.md#apiV2ShipmentsServiceShipmentsGet) | **GET** /api/v2/ShipmentsService/Shipments |  |
+| [**getShipmentsAsync**](ShipmentsApi.md#getShipmentsAsync) | **GET** /api/v2/ShipmentsService/Shipments | Retrieve a list of shipments |
 
 
-<a id="apiV2ShipmentsServiceShipmentsGet"></a>
-# **apiV2ShipmentsServiceShipmentsGet**
-> ShipmentDtoListEnvelope apiV2ShipmentsServiceShipmentsGet(tenantId, apiVersion, xApiVersion)
+<a id="getShipmentsAsync"></a>
+# **getShipmentsAsync**
+> ShipmentDtoListEnvelope getShipmentsAsync(tenantId, apiVersion, xApiVersion)
 
+Retrieve a list of shipments
 
+Retrieves a list of shipments for the specified tenant.
 
 ### Example
 ```java
@@ -19,7 +21,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.ShipmentsApi;
 
@@ -27,22 +28,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     ShipmentsApi apiInstance = new ShipmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ShipmentDtoListEnvelope result = apiInstance.apiV2ShipmentsServiceShipmentsGet(tenantId, apiVersion, xApiVersion);
+      ShipmentDtoListEnvelope result = apiInstance.getShipmentsAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ShipmentsApi#apiV2ShipmentsServiceShipmentsGet");
+      System.err.println("Exception when calling ShipmentsApi#getShipmentsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -66,7 +61,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

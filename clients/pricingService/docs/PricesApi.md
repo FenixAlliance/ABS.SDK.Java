@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2PricingServicePricesItemIdFinalPriceGet**](PricesApi.md#apiV2PricingServicePricesItemIdFinalPriceGet) | **GET** /api/v2/PricingService/Prices/{itemId}/FinalPrice |  |
-| [**apiV2PricingServicePricesItemIdPriceGet**](PricesApi.md#apiV2PricingServicePricesItemIdPriceGet) | **GET** /api/v2/PricingService/Prices/{itemId}/Price |  |
-| [**apiV2PricingServicePricesItemIdTotalSavingsGet**](PricesApi.md#apiV2PricingServicePricesItemIdTotalSavingsGet) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalSavings |  |
-| [**apiV2PricingServicePricesItemIdTotalTaxesGet**](PricesApi.md#apiV2PricingServicePricesItemIdTotalTaxesGet) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalTaxes |  |
+| [**getFinalPrice**](PricesApi.md#getFinalPrice) | **GET** /api/v2/PricingService/Prices/{itemId}/FinalPrice | Gets the final price for an item |
+| [**getPrice**](PricesApi.md#getPrice) | **GET** /api/v2/PricingService/Prices/{itemId}/Price | Gets the calculated price for an item |
+| [**getTotalSavingsInUsd**](PricesApi.md#getTotalSavingsInUsd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalSavings | Gets total savings for an item |
+| [**getTotalTaxesInUsd**](PricesApi.md#getTotalTaxesInUsd) | **GET** /api/v2/PricingService/Prices/{itemId}/TotalTaxes | Gets total taxes for an item |
 
 
-<a id="apiV2PricingServicePricesItemIdFinalPriceGet"></a>
-# **apiV2PricingServicePricesItemIdFinalPriceGet**
-> MoneyEnvelope apiV2PricingServicePricesItemIdFinalPriceGet(itemId, currencyId, apiVersion, xApiVersion)
+<a id="getFinalPrice"></a>
+# **getFinalPrice**
+> MoneyEnvelope getFinalPrice(itemId, currencyId, apiVersion, xApiVersion)
 
+Gets the final price for an item
 
+Gets the final price for an item after all discounts and taxes in the specified currency.
 
 ### Example
 ```java
@@ -22,7 +24,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PricesApi;
 
@@ -30,12 +31,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PricesApi apiInstance = new PricesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -43,10 +38,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      MoneyEnvelope result = apiInstance.apiV2PricingServicePricesItemIdFinalPriceGet(itemId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getFinalPrice(itemId, currencyId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PricesApi#apiV2PricingServicePricesItemIdFinalPriceGet");
+      System.err.println("Exception when calling PricesApi#getFinalPrice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -71,7 +66,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -84,11 +79,13 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Not Found |  -  |
 
-<a id="apiV2PricingServicePricesItemIdPriceGet"></a>
-# **apiV2PricingServicePricesItemIdPriceGet**
-> PriceCalculationDtoEnvelope apiV2PricingServicePricesItemIdPriceGet(itemId, priceListId, discountsListId, currencyId, apiVersion, xApiVersion)
+<a id="getPrice"></a>
+# **getPrice**
+> ItemPriceCalculationEnvelope getPrice(itemId, priceListId, discountsListId, quantity, currencyId, apiVersion, xApiVersion)
 
+Gets the calculated price for an item
 
+Calculates the price for an item considering price list, discount list, quantity, and currency.
 
 ### Example
 ```java
@@ -96,7 +93,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PricesApi;
 
@@ -104,25 +100,20 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PricesApi apiInstance = new PricesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
     UUID priceListId = UUID.randomUUID(); // UUID | 
     UUID discountsListId = UUID.randomUUID(); // UUID | 
+    Double quantity = 1D; // Double | 
     String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      PriceCalculationDtoEnvelope result = apiInstance.apiV2PricingServicePricesItemIdPriceGet(itemId, priceListId, discountsListId, currencyId, apiVersion, xApiVersion);
+      ItemPriceCalculationEnvelope result = apiInstance.getPrice(itemId, priceListId, discountsListId, quantity, currencyId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PricesApi#apiV2PricingServicePricesItemIdPriceGet");
+      System.err.println("Exception when calling PricesApi#getPrice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -139,17 +130,18 @@ public class Example {
 | **itemId** | **UUID**|  | |
 | **priceListId** | **UUID**|  | [optional] |
 | **discountsListId** | **UUID**|  | [optional] |
+| **quantity** | **Double**|  | [optional] [default to 1] |
 | **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**PriceCalculationDtoEnvelope**](PriceCalculationDtoEnvelope.md)
+[**ItemPriceCalculationEnvelope**](ItemPriceCalculationEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -162,11 +154,13 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Not Found |  -  |
 
-<a id="apiV2PricingServicePricesItemIdTotalSavingsGet"></a>
-# **apiV2PricingServicePricesItemIdTotalSavingsGet**
-> MoneyEnvelope apiV2PricingServicePricesItemIdTotalSavingsGet(itemId, currencyId, apiVersion, xApiVersion)
+<a id="getTotalSavingsInUsd"></a>
+# **getTotalSavingsInUsd**
+> MoneyEnvelope getTotalSavingsInUsd(itemId, currencyId, apiVersion, xApiVersion)
 
+Gets total savings for an item
 
+Gets the total savings amount for an item in the specified currency.
 
 ### Example
 ```java
@@ -174,7 +168,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PricesApi;
 
@@ -182,12 +175,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PricesApi apiInstance = new PricesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -195,10 +182,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      MoneyEnvelope result = apiInstance.apiV2PricingServicePricesItemIdTotalSavingsGet(itemId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getTotalSavingsInUsd(itemId, currencyId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PricesApi#apiV2PricingServicePricesItemIdTotalSavingsGet");
+      System.err.println("Exception when calling PricesApi#getTotalSavingsInUsd");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -223,7 +210,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -236,11 +223,13 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Not Found |  -  |
 
-<a id="apiV2PricingServicePricesItemIdTotalTaxesGet"></a>
-# **apiV2PricingServicePricesItemIdTotalTaxesGet**
-> MoneyEnvelope apiV2PricingServicePricesItemIdTotalTaxesGet(itemId, currencyId, apiVersion, xApiVersion)
+<a id="getTotalTaxesInUsd"></a>
+# **getTotalTaxesInUsd**
+> MoneyEnvelope getTotalTaxesInUsd(itemId, currencyId, apiVersion, xApiVersion)
 
+Gets total taxes for an item
 
+Gets the total tax amount for an item in the specified currency.
 
 ### Example
 ```java
@@ -248,7 +237,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.PricesApi;
 
@@ -256,12 +244,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     PricesApi apiInstance = new PricesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -269,10 +251,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      MoneyEnvelope result = apiInstance.apiV2PricingServicePricesItemIdTotalTaxesGet(itemId, currencyId, apiVersion, xApiVersion);
+      MoneyEnvelope result = apiInstance.getTotalTaxesInUsd(itemId, currencyId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PricesApi#apiV2PricingServicePricesItemIdTotalTaxesGet");
+      System.err.println("Exception when calling PricesApi#getTotalTaxesInUsd");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -297,7 +279,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

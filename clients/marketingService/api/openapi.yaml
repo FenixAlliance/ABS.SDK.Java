@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,26 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: MarketingService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: EmailGroups
+- name: EmailSignatures
+- name: EmailTemplates
+- name: FenixAlliance.ABP.Web
+- name: MarketingCampaigns
+- name: MarketingLists
+- name: Newsletters
+- name: SocialMediaPosts
+- name: SocialPostBuckets
+- name: TrackingPixels
 paths:
   /api/v2/MarketingService/EmailGroups:
     get:
+      description: Retrieves a collection of email groups for the specified tenant
+        using OData query options.
+      operationId: GetEmailGroupsODataAsync
       parameters:
       - explode: true
         in: query
@@ -68,12 +80,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailGroupDtoListEnvelope'
           description: OK
+      summary: Get email groups
       tags:
       - EmailGroups
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new email group for the specified tenant.
+      operationId: CreateEmailGroupAsync
       parameters:
       - explode: true
         in: query
@@ -143,6 +158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create an email group
       tags:
       - EmailGroups
       x-content-type: application/json
@@ -151,6 +167,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailGroups/Count:
     get:
+      description: Returns the count of email groups for the specified tenant using
+        OData query options.
+      operationId: GetEmailGroupsCountAsync
       parameters:
       - explode: true
         in: query
@@ -211,6 +230,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get email groups count
       tags:
       - EmailGroups
       x-accepts:
@@ -218,6 +238,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailGroups/{emailgroupId}:
     delete:
+      description: Deletes an email group by its ID.
+      operationId: DeleteEmailGroupAsync
       parameters:
       - explode: true
         in: query
@@ -286,12 +308,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete an email group
       tags:
       - EmailGroups
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific email group by its ID.
+      operationId: GetEmailGroupDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -360,12 +385,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailGroupDtoEnvelope'
           description: OK
+      summary: Get email group by ID
       tags:
       - EmailGroups
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing email group by its ID.
+      operationId: UpdateEmailGroupAsync
       parameters:
       - explode: true
         in: query
@@ -443,6 +471,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an email group
       tags:
       - EmailGroups
       x-content-type: application/json
@@ -451,6 +480,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailSignatures:
     get:
+      description: Retrieves a collection of email signatures for the specified tenant
+        using OData query options.
+      operationId: GetEmailSignaturesODataAsync
       parameters:
       - explode: true
         in: query
@@ -502,12 +534,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailSignatureDtoListEnvelope'
           description: OK
+      summary: Get email signatures
       tags:
       - EmailSignatures
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new email signature for the specified tenant.
+      operationId: CreateEmailSignatureAsync
       parameters:
       - explode: true
         in: query
@@ -577,6 +612,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create an email signature
       tags:
       - EmailSignatures
       x-content-type: application/json
@@ -585,6 +621,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailSignatures/Count:
     get:
+      description: Returns the count of email signatures for the specified tenant
+        using OData query options.
+      operationId: GetEmailSignaturesCountAsync
       parameters:
       - explode: true
         in: query
@@ -645,6 +684,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get email signatures count
       tags:
       - EmailSignatures
       x-accepts:
@@ -652,6 +692,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailSignatures/{emailsignatureId}:
     delete:
+      description: Deletes an email signature by its ID.
+      operationId: DeleteEmailSignatureAsync
       parameters:
       - explode: true
         in: query
@@ -720,12 +762,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete an email signature
       tags:
       - EmailSignatures
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific email signature by its ID.
+      operationId: GetEmailSignatureDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -794,12 +839,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailSignatureDtoEnvelope'
           description: OK
+      summary: Get email signature by ID
       tags:
       - EmailSignatures
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing email signature by its ID.
+      operationId: UpdateEmailSignatureAsync
       parameters:
       - explode: true
         in: query
@@ -877,6 +925,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an email signature
       tags:
       - EmailSignatures
       x-content-type: application/json
@@ -885,6 +934,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailTemplates:
     get:
+      description: Retrieves a collection of email templates for the specified tenant
+        using OData query options.
+      operationId: GetEmailTemplatesODataAsync
       parameters:
       - explode: true
         in: query
@@ -936,12 +988,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailTemplateDtoListEnvelope'
           description: OK
+      summary: Get email templates
       tags:
       - EmailTemplates
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new email template for the specified tenant.
+      operationId: CreateEmailTemplateAsync
       parameters:
       - explode: true
         in: query
@@ -1011,6 +1066,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create an email template
       tags:
       - EmailTemplates
       x-content-type: application/json
@@ -1019,6 +1075,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailTemplates/Count:
     get:
+      description: Returns the count of email templates for the specified tenant using
+        OData query options.
+      operationId: GetEmailTemplatesCountAsync
       parameters:
       - explode: true
         in: query
@@ -1079,6 +1138,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get email templates count
       tags:
       - EmailTemplates
       x-accepts:
@@ -1086,6 +1146,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/EmailTemplates/{emailTemplateId}:
     delete:
+      description: Deletes an email template by its ID.
+      operationId: DeleteEmailTemplateAsync
       parameters:
       - explode: true
         in: query
@@ -1154,24 +1216,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete an email template
       tags:
       - EmailTemplates
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific email template by its ID.
+      operationId: GetEmailTemplateDetailsAsync
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: emailTemplatesId
         required: true
         schema:
           format: uuid
@@ -1182,6 +1239,7 @@ paths:
         name: emailTemplateId
         required: true
         schema:
+          format: uuid
           type: string
         style: simple
       - explode: true
@@ -1235,12 +1293,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailTemplateDtoEnvelope'
           description: OK
+      summary: Get email template by ID
       tags:
       - EmailTemplates
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing email template by its ID.
+      operationId: UpdateEmailTemplateAsync
       parameters:
       - explode: true
         in: query
@@ -1318,14 +1379,293 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update an email template
       tags:
       - EmailTemplates
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/MarketingService/MarketingCampaigns:
     get:
+      description: Retrieves a collection of marketing campaigns for the specified
+        tenant using OData query options.
+      operationId: GetMarketingCampaignODataAsync
       parameters:
       - explode: true
         in: query
@@ -1377,12 +1717,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+      summary: Get marketing campaigns
       tags:
       - MarketingCampaigns
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new marketing campaign for the specified tenant.
+      operationId: CreateMarketingCampaignAsync
       parameters:
       - explode: true
         in: query
@@ -1452,6 +1795,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a marketing campaign
       tags:
       - MarketingCampaigns
       x-content-type: application/json
@@ -1460,6 +1804,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/MarketingCampaigns/Count:
     get:
+      description: Returns the count of marketing campaigns for the specified tenant
+        using OData query options.
+      operationId: GetMarketingCampaignsCountAsync
       parameters:
       - explode: true
         in: query
@@ -1520,6 +1867,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get marketing campaigns count
       tags:
       - MarketingCampaigns
       x-accepts:
@@ -1527,6 +1875,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId}:
     delete:
+      description: Deletes a marketing campaign by its ID.
+      operationId: DeleteMarketingCampaignAsync
       parameters:
       - explode: true
         in: query
@@ -1595,12 +1945,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a marketing campaign
       tags:
       - MarketingCampaigns
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific marketing campaign by its ID.
+      operationId: GetMarketingCampaignDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -1669,12 +2022,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MarketingCampaignDtoEnvelope'
           description: OK
+      summary: Get marketing campaign by ID
       tags:
       - MarketingCampaigns
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing marketing campaign by its ID.
+      operationId: UpdateMarketingCampaignAsync
       parameters:
       - explode: true
         in: query
@@ -1752,6 +2108,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a marketing campaign
       tags:
       - MarketingCampaigns
       x-content-type: application/json
@@ -1760,6 +2117,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/MarketingLists:
     get:
+      description: Retrieves a collection of marketing lists for the specified tenant
+        using OData query options.
+      operationId: GetMarketingListODataAsync
       parameters:
       - explode: true
         in: query
@@ -1811,12 +2171,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MarketingListDtoListEnvelope'
           description: OK
+      summary: Get marketing lists
       tags:
       - MarketingLists
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new marketing list for the specified tenant.
+      operationId: CreateMarketingListAsync
       parameters:
       - explode: true
         in: query
@@ -1886,6 +2249,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a marketing list
       tags:
       - MarketingLists
       x-content-type: application/json
@@ -1894,6 +2258,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/MarketingLists/Count:
     get:
+      description: Returns the count of marketing lists for the specified tenant using
+        OData query options.
+      operationId: GetMarketingListsCountAsync
       parameters:
       - explode: true
         in: query
@@ -1954,6 +2321,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get marketing lists count
       tags:
       - MarketingLists
       x-accepts:
@@ -1961,6 +2329,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/MarketingLists/{marketinglistId}:
     delete:
+      description: Deletes a marketing list by its ID.
+      operationId: DeleteMarketingListAsync
       parameters:
       - explode: true
         in: query
@@ -2029,12 +2399,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a marketing list
       tags:
       - MarketingLists
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific marketing list by its ID.
+      operationId: GetMarketingListDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -2103,12 +2476,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MarketingListDtoEnvelope'
           description: OK
+      summary: Get marketing list by ID
       tags:
       - MarketingLists
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing marketing list by its ID.
+      operationId: UpdateMarketingListAsync
       parameters:
       - explode: true
         in: query
@@ -2186,6 +2562,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a marketing list
       tags:
       - MarketingLists
       x-content-type: application/json
@@ -2194,6 +2571,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/Newsletters:
     get:
+      description: Retrieves a collection of newsletters for the specified tenant
+        using OData query options.
+      operationId: GetNewsletterODataAsync
       parameters:
       - explode: true
         in: query
@@ -2245,12 +2625,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Bad Request
+      summary: Get newsletters
       tags:
       - Newsletters
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new newsletter for the specified tenant.
+      operationId: CreateNewsletterAsync
       parameters:
       - explode: true
         in: query
@@ -2320,6 +2703,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a newsletter
       tags:
       - Newsletters
       x-content-type: application/json
@@ -2328,6 +2712,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/Newsletters/Count:
     get:
+      description: Returns the count of newsletters for the specified tenant using
+        OData query options.
+      operationId: GetNewslettersCountAsync
       parameters:
       - explode: true
         in: query
@@ -2388,6 +2775,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get newsletters count
       tags:
       - Newsletters
       x-accepts:
@@ -2395,6 +2783,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/Newsletters/{newsletterId}:
     delete:
+      description: Deletes a newsletter by its ID.
+      operationId: DeleteNewsletterAsync
       parameters:
       - explode: true
         in: query
@@ -2463,12 +2853,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a newsletter
       tags:
       - Newsletters
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific newsletter by its ID.
+      operationId: GetNewsletterDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -2537,12 +2930,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/NewsletterDtoEnvelope'
           description: OK
+      summary: Get newsletter by ID
       tags:
       - Newsletters
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing newsletter by its ID.
+      operationId: UpdateNewsletterAsync
       parameters:
       - explode: true
         in: query
@@ -2620,6 +3016,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a newsletter
       tags:
       - Newsletters
       x-content-type: application/json
@@ -2628,6 +3025,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialMediaPosts:
     get:
+      description: Retrieves a collection of social media posts for the specified
+        tenant using OData query options.
+      operationId: GetSocialMediaPostsODataAsync
       parameters:
       - explode: true
         in: query
@@ -2679,12 +3079,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SocialMediaPostDtoListEnvelope'
           description: OK
+      summary: Get social media posts
       tags:
       - SocialMediaPosts
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new social media post for the specified tenant.
+      operationId: CreateSocialMediaPostAsync
       parameters:
       - explode: true
         in: query
@@ -2754,6 +3157,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a social media post
       tags:
       - SocialMediaPosts
       x-content-type: application/json
@@ -2762,6 +3166,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialMediaPosts/Count:
     get:
+      description: Returns the count of social media posts for the specified tenant
+        using OData query options.
+      operationId: GetSocialMediaPostsCountAsync
       parameters:
       - explode: true
         in: query
@@ -2822,6 +3229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get social media posts count
       tags:
       - SocialMediaPosts
       x-accepts:
@@ -2829,6 +3237,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId}:
     delete:
+      description: Deletes a social media post by its ID.
+      operationId: DeleteSocialMediaPostAsync
       parameters:
       - explode: true
         in: query
@@ -2897,12 +3307,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a social media post
       tags:
       - SocialMediaPosts
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific social media post by its ID.
+      operationId: GetSocialMediaPostDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -2971,12 +3384,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SocialMediaPostDtoEnvelope'
           description: OK
+      summary: Get social media post by ID
       tags:
       - SocialMediaPosts
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing social media post by its ID.
+      operationId: UpdateSocialMediaPostAsync
       parameters:
       - explode: true
         in: query
@@ -3054,6 +3470,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a social media post
       tags:
       - SocialMediaPosts
       x-content-type: application/json
@@ -3062,6 +3479,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialPostBuckets:
     get:
+      description: Retrieves a collection of social post buckets for the specified
+        tenant using OData query options.
+      operationId: GetSocialPostBucketsODataAsync
       parameters:
       - explode: true
         in: query
@@ -3113,12 +3533,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SocialPostBucketDtoListEnvelope'
           description: OK
+      summary: Get social post buckets
       tags:
       - SocialPostBuckets
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new social post bucket for the specified tenant.
+      operationId: CreateSocialPostBucketAsync
       parameters:
       - explode: true
         in: query
@@ -3188,6 +3611,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: Created
+      summary: Create a social post bucket
       tags:
       - SocialPostBuckets
       x-content-type: application/json
@@ -3196,6 +3620,9 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialPostBuckets/Count:
     get:
+      description: Returns the count of social post buckets for the specified tenant
+        using OData query options.
+      operationId: GetSocialPostBucketsCountAsync
       parameters:
       - explode: true
         in: query
@@ -3256,6 +3683,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Get social post buckets count
       tags:
       - SocialPostBuckets
       x-accepts:
@@ -3263,6 +3691,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/SocialPostBuckets/{socialpostbucketId}:
     delete:
+      description: Deletes a social post bucket by its ID.
+      operationId: DeleteSocialPostBucketAsync
       parameters:
       - explode: true
         in: query
@@ -3331,12 +3761,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Delete a social post bucket
       tags:
       - SocialPostBuckets
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves the details of a specific social post bucket by its ID.
+      operationId: GetSocialPostBucketDetailsAsync
       parameters:
       - explode: true
         in: query
@@ -3405,12 +3838,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/SocialPostBucketDtoEnvelope'
           description: OK
+      summary: Get social post bucket by ID
       tags:
       - SocialPostBuckets
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing social post bucket by its ID.
+      operationId: UpdateSocialPostBucketAsync
       parameters:
       - explode: true
         in: query
@@ -3488,6 +3924,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Update a social post bucket
       tags:
       - SocialPostBuckets
       x-content-type: application/json
@@ -3496,6 +3933,8 @@ paths:
       - application/xml
   /api/v2/MarketingService/TrackingPixels/{pixelId}:
     get:
+      description: Retrieves a tracking pixel by its ID.
+      operationId: GetTrackingPixelAsync
       parameters:
       - explode: false
         in: path
@@ -3529,6 +3968,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrderDtoEnvelope'
           description: OK
+      summary: Get a tracking pixel
       tags:
       - TrackingPixels
       x-accepts:
@@ -3536,23 +3976,36 @@ paths:
       - application/xml
 components:
   schemas:
-    Currency:
+    AccessTokenResponse:
       additionalProperties: false
       example:
-        country: country
-        code: code
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
       properties:
-        code:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
           nullable: true
           type: string
-        country:
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
           nullable: true
           type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
       type: object
     EmailGroupCreateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         description: description
@@ -3562,11 +4015,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           nullable: true
@@ -3579,14 +4030,14 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
     EmailGroupDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         tenantId: tenantId
         name: name
         description: description
@@ -3604,7 +4055,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -3620,7 +4071,7 @@ components:
       additionalProperties: false
       example:
         result:
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           tenantId: tenantId
           name: name
           description: description
@@ -3657,14 +4108,14 @@ components:
       additionalProperties: false
       example:
         result:
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           tenantId: tenantId
           name: name
           description: description
           id: id
           enabled: true
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           tenantId: tenantId
           name: name
           description: description
@@ -3703,7 +4154,7 @@ components:
     EmailGroupUpdateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         description: description
@@ -3720,7 +4171,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -3728,35 +4179,37 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
+        code: code
+        codeType: Razor
         tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        published: true
         title: title
-        authorId: authorId
         timestamp: 2000-01-23T04:56:07.000+00:00
         htmlContent: htmlContent
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         title:
           nullable: true
           type: string
-        authorId:
+        code:
           nullable: true
           type: string
+        published:
+          type: boolean
         description:
           nullable: true
           type: string
@@ -3766,12 +4219,23 @@ components:
         featuredImageUrl:
           nullable: true
           type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          nullable: true
+          type: string
       type: object
     EmailSignatureDto:
       additionalProperties: false
       example:
         enableComments: true
         twitterTitle: twitterTitle
+        codeType: Razor
         parentWebContentId: parentWebContentId
         metaDescription: metaDescription
         htmlContent: htmlContent
@@ -3788,6 +4252,7 @@ components:
         twitterImage: twitterImage
         systemLocked: true
         published: true
+        emitResult: ""
         seoKeyWords: seoKeyWords
         displaySocialBox: true
         jsFiles: jsFiles
@@ -3835,6 +4300,16 @@ components:
           format: date-time
           nullable: true
           type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          nullable: true
+          type: string
         order:
           format: int32
           type: integer
@@ -3862,6 +4337,8 @@ components:
         canonicalUrl:
           nullable: true
           type: string
+        emitResult:
+          nullable: true
         seoTitle:
           nullable: true
           type: string
@@ -3994,6 +4471,7 @@ components:
         result:
           enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4010,6 +4488,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4081,6 +4560,7 @@ components:
         result:
         - enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4097,6 +4577,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4138,6 +4619,7 @@ components:
           cssFiles: cssFiles
         - enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4154,6 +4636,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4227,9 +4710,10 @@ components:
       example:
         enableComments: true
         twitterTitle: twitterTitle
+        codeType: Razor
         metaDescription: metaDescription
         htmlContent: htmlContent
-        featuredImageURL: featuredImageURL
+        featuredImageUrl: featuredImageUrl
         password: password
         highlightImage: highlightImage
         enable: true
@@ -4336,7 +4820,7 @@ components:
         facebookDescription:
           nullable: true
           type: string
-        featuredImageURL:
+        featuredImageUrl:
           nullable: true
           type: string
         content:
@@ -4358,6 +4842,16 @@ components:
           nullable: true
           type: string
         htmlContent:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
           nullable: true
           type: string
         cSharpContent:
@@ -4430,36 +4924,38 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
+        enrollmentId: enrollmentId
+        code: code
+        codeType: Razor
         marketingCampaignId: marketingCampaignId
-        enrolmentId: enrolmentId
         tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        published: true
         title: title
-        authorId: authorId
         timestamp: 2000-01-23T04:56:07.000+00:00
         htmlContent: htmlContent
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         title:
           nullable: true
           type: string
-        authorId:
+        code:
           nullable: true
           type: string
+        published:
+          type: boolean
         description:
           nullable: true
           type: string
@@ -4467,6 +4963,16 @@ components:
           nullable: true
           type: string
         featuredImageUrl:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
           nullable: true
           type: string
         marketingCampaignId:
@@ -4480,6 +4986,7 @@ components:
       example:
         enableComments: true
         twitterTitle: twitterTitle
+        codeType: Razor
         parentWebContentId: parentWebContentId
         metaDescription: metaDescription
         htmlContent: htmlContent
@@ -4496,6 +5003,7 @@ components:
         twitterImage: twitterImage
         systemLocked: true
         published: true
+        emitResult: ""
         seoKeyWords: seoKeyWords
         displaySocialBox: true
         jsFiles: jsFiles
@@ -4545,6 +5053,16 @@ components:
           format: date-time
           nullable: true
           type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
+          nullable: true
+          type: string
         order:
           format: int32
           type: integer
@@ -4572,6 +5090,8 @@ components:
         canonicalUrl:
           nullable: true
           type: string
+        emitResult:
+          nullable: true
         seoTitle:
           nullable: true
           type: string
@@ -4710,6 +5230,7 @@ components:
         result:
           enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4726,6 +5247,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4799,6 +5321,7 @@ components:
         result:
         - enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4815,6 +5338,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4858,6 +5382,7 @@ components:
           cssFiles: cssFiles
         - enableComments: true
           twitterTitle: twitterTitle
+          codeType: Razor
           parentWebContentId: parentWebContentId
           metaDescription: metaDescription
           htmlContent: htmlContent
@@ -4874,6 +5399,7 @@ components:
           twitterImage: twitterImage
           systemLocked: true
           published: true
+          emitResult: ""
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
@@ -4949,9 +5475,10 @@ components:
       example:
         enableComments: true
         twitterTitle: twitterTitle
+        codeType: Razor
         metaDescription: metaDescription
         htmlContent: htmlContent
-        featuredImageURL: featuredImageURL
+        featuredImageUrl: featuredImageUrl
         password: password
         highlightImage: highlightImage
         enable: true
@@ -5059,7 +5586,7 @@ components:
         facebookDescription:
           nullable: true
           type: string
-        featuredImageURL:
+        featuredImageUrl:
           nullable: true
           type: string
         content:
@@ -5081,6 +5608,16 @@ components:
           nullable: true
           type: string
         htmlContent:
+          nullable: true
+          type: string
+        codeType:
+          enum:
+          - Razor
+          - CSharp
+          - CSHtml
+          - Liquid
+          - Html5
+          - Markdown
           nullable: true
           type: string
         cSharpContent:
@@ -5208,6 +5745,76 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
     Int32Envelope:
       additionalProperties: false
       example:
@@ -5239,10 +5846,35 @@ components:
           format: int32
           type: integer
       type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     MarketingCampaignCreateDto:
       additionalProperties: false
       example:
         expectedResponsePercent: 5.962133916683182
+        enrollmentId: enrollmentId
         allocatedBudget: 0.8008281904610115
         code: code
         miscCost: 1.4658129805029452
@@ -5253,7 +5885,6 @@ components:
         activityCost: 6.027456183070403
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5263,11 +5894,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           nullable: true
@@ -5313,7 +5942,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -5321,6 +5950,7 @@ components:
       additionalProperties: false
       example:
         expectedResponsePercent: 5.962133916683182
+        enrollmentId: enrollmentId
         allocatedBudget: 0.8008281904610115
         code: code
         miscCost: 1.4658129805029452
@@ -5331,7 +5961,6 @@ components:
         activityCost: 6.027456183070403
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: id
@@ -5390,7 +6019,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -5399,6 +6028,7 @@ components:
       example:
         result:
           expectedResponsePercent: 5.962133916683182
+          enrollmentId: enrollmentId
           allocatedBudget: 0.8008281904610115
           code: code
           miscCost: 1.4658129805029452
@@ -5409,7 +6039,6 @@ components:
           activityCost: 6.027456183070403
           proposedStart: 2000-01-23T04:56:07.000+00:00
           proposedEnd: 2000-01-23T04:56:07.000+00:00
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           id: id
@@ -5446,6 +6075,7 @@ components:
       additionalProperties: false
       example:
         expectedResponsePercent: 5.962133916683182
+        enrollmentId: enrollmentId
         allocatedBudget: 0.8008281904610115
         code: code
         miscCost: 1.4658129805029452
@@ -5456,7 +6086,6 @@ components:
         activityCost: 6.027456183070403
         proposedStart: 2000-01-23T04:56:07.000+00:00
         proposedEnd: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         currencyId: currencyId
@@ -5506,7 +6135,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -5514,28 +6143,26 @@ components:
       additionalProperties: false
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
         cost: 0.8008281904610115
         purpose: purpose
-        marketingListTarget: 1
+        marketingListTarget: Individual
         description: description
         source: source
         modifiedOn: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        marketingListType: 6
+        marketingListType: Static
         locked: true
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         locked:
           type: boolean
@@ -5566,38 +6193,36 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         marketingListType:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Static
+          - Dynamic
+          type: string
         marketingListTarget:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          - Lead
+          type: string
       type: object
     MarketingListDto:
       additionalProperties: false
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
         cost: 0.8008281904610115
         purpose: purpose
-        marketingListTarget: 1
+        marketingListTarget: Individual
         description: description
         source: source
         modifiedOn: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: id
-        marketingListType: 6
+        marketingListType: Static
         locked: true
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5638,39 +6263,37 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         marketingListType:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Static
+          - Dynamic
+          type: string
         marketingListTarget:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          - Lead
+          type: string
       type: object
     MarketingListDtoEnvelope:
       additionalProperties: false
       example:
         result:
           lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           cost: 0.8008281904610115
           purpose: purpose
-          marketingListTarget: 1
+          marketingListTarget: Individual
           description: description
           source: source
           modifiedOn: 2000-01-23T04:56:07.000+00:00
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           id: id
-          marketingListType: 6
+          marketingListType: Static
           locked: true
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5705,32 +6328,32 @@ components:
       example:
         result:
         - lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           cost: 0.8008281904610115
           purpose: purpose
-          marketingListTarget: 1
+          marketingListTarget: Individual
           description: description
           source: source
           modifiedOn: 2000-01-23T04:56:07.000+00:00
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           id: id
-          marketingListType: 6
+          marketingListType: Static
           locked: true
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - lastUsedOn: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           cost: 0.8008281904610115
           purpose: purpose
-          marketingListTarget: 1
+          marketingListTarget: Individual
           description: description
           source: source
           modifiedOn: 2000-01-23T04:56:07.000+00:00
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           id: id
-          marketingListType: 6
+          marketingListType: Static
           locked: true
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5767,16 +6390,16 @@ components:
       additionalProperties: false
       example:
         lastUsedOn: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
         cost: 0.8008281904610115
         purpose: purpose
-        marketingListTarget: 1
+        marketingListTarget: Individual
         description: description
         source: source
         modifiedOn: 2000-01-23T04:56:07.000+00:00
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
-        marketingListType: 6
+        marketingListType: Static
         locked: true
         currencyId: currencyId
       properties:
@@ -5809,42 +6432,26 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         marketingListType:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Static
+          - Dynamic
+          type: string
         marketingListTarget:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
-      type: object
-    Money:
-      additionalProperties: false
-      example:
-        amount: 9.965781217890562
-        currency:
-          country: country
-          code: code
-      properties:
-        amount:
-          format: double
-          type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+          - Individual
+          - Organization
+          - Lead
+          type: string
       type: object
     NewsletterCreateDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         code: code
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -5853,11 +6460,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           nullable: true
@@ -5871,26 +6476,26 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
     NewsletterDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         code: code
-        enrolmentId: enrolmentId
         name: name
         tenantId: tenantId
         id: id
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
-        timestamp:
-          format: date-time
+        id:
           nullable: true
           type: string
-        id:
+        timestamp:
+          format: date-time
           nullable: true
           type: string
         name:
@@ -5905,7 +6510,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -5913,8 +6518,8 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           code: code
-          enrolmentId: enrolmentId
           name: name
           tenantId: tenantId
           id: id
@@ -5949,8 +6554,8 @@ components:
     NewsletterUpdateDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         code: code
-        enrolmentId: enrolmentId
         tenantId: tenantId
         name: name
         title: title
@@ -5964,7 +6569,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -5974,146 +6579,91 @@ components:
     OrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 1.2315135367772556
-        totalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDiscountsInUsd: 6.84685269835264
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        totalInUsd: 9.018348186070783
         companyName: companyName
         postalCode: postalCode
-        freightTerms: 8
+        totalDetail: 6.027456183070403
+        totalShippingCost: 9.301444243932576
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+        freightTerms: FOB
         cityId: cityId
-        totalGlobalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         type: type
-        totalGlobalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxBaseInUsd: 7.386281948385884
-        totalGlobalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalTaxBaseInUsd: 1.1730742509559433
         organizationId: organizationId
-        totalTaxBase: 5.962133916683182
-        customDiscountsAmount: 2.8841621266687802
-        totalAmountInUsd: 2.027123023002322
+        totalTaxBase: 2.3021358869347655
+        customDiscountsAmount: 6.778324963048013
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
-        totalDetailAmountInUsd: 1.4894159098541704
-        totalTaxAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         id: id
         currencyId: currencyId
-        totalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTaxAmount: 6.438423552598547
+        customTaxAmount: 3.5571952270680973
         enrollmentId: enrollmentId
         walletId: walletId
-        totalProfitInUsd: 4.145608029883936
-        orderLinesCount: 9
-        totalGlobalSurchargesInUsd: 7.457744773683766
+        totalWithheldTaxesInUsd: 5.025004791520295
+        totalProfitInUsd: 1.4894159098541704
+        orderLinesCount: 6
+        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
-        costCalculationMethod: 6
-        totalShippingTaxesInUsd: 5.025004791520295
+        costCalculationMethod: Automatic
+        totalShippingTaxesInUsd: 9.369310271410669
         quoteId: quoteId
         firstName: firstName
-        totalAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalShippingTax: 3.616076749251911
         forexRate: 0.8008281904610115
-        customDetailAmount: 6.965117697638846
-        customSurchargesAmount: 6.778324963048013
+        customDetailAmount: 1.284659006116532
+        customSurchargesAmount: 6.878052220127876
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 5.944895607614016
-        totalTaxBaseAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalShippingCostInUsd: 4.965218492984954
-        totalTaxAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customWithholdingTaxAmount: 6.704019297950036
-        totalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        customShippingCostAmount: 6.704019297950036
+        totalShippingCostInUsd: 9.965781217890562
+        totalDetailInUsd: 1.0246457001441578
+        customWithholdingTaxAmount: 3.353193347011243
         billingLocationId: billingLocationId
         lastName: lastName
-        totalGlobalDiscounts: 7.061401241503109
-        totalDiscounts: 5.637376656633329
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        totalProfit: 1.4658129805029452
+        totalGlobalDiscounts: 4.145608029883936
+        totalDiscounts: 5.962133916683182
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
-        orderStatus: 9
+        orderStatus: New
         customerNotes: customerNotes
         shippingLocationId: shippingLocationId
         individualId: individualId
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 6.027456183070403
-        totalSurchargesInUsd: 1.0246457001441578
+        total: 1.2315135367772556
+        totalCurrencyId: totalCurrencyId
+        totalSurchargesInUsd: 7.457744773683766
         billingEmail: billingEmail
-        totalWithholdingTaxesInUsd: 1.1730742509559433
         parentOrderId: parentOrderId
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        currency:
-          country: country
-          code: code
-        totalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTotalAmount: 3.5571952270680973
+        customTotalAmount: 6.965117697638846
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
-        totalTaxes: 1.4658129805029452
+        totalTaxes: 7.061401241503109
+        totalWithheldTax: 2.027123023002322
         stateId: stateId
-        customShippingTaxAmount: 6.878052220127876
+        customShippingTaxAmount: 5.944895607614016
         priceListId: priceListId
         userId: userId
-        totalGlobalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxesInUsd: 3.616076749251911
-        totalTaxBaseAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customProfitAmount: 1.284659006116532
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        totalTaxesInUsd: 4.965218492984954
+        customProfitAmount: 2.8841621266687802
         tenantId: tenantId
         closed: true
-        totalSurcharges: 2.3021358869347655
-        totalGlobalSurcharges: 9.301444243932576
-        totalGlobalDiscountsInUsd: 6.84685269835264
+        totalSurcharges: 5.637376656633329
+        taxCalculationMethod: Included
+        totalGlobalSurcharges: 7.386281948385884
+        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalProfitCurrencyId: totalProfitCurrencyId
+        totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         id:
           nullable: true
@@ -6134,9 +6684,6 @@ components:
           nullable: true
           type: string
         tenantId:
-          nullable: true
-          type: string
-        currencyId:
           nullable: true
           type: string
         description:
@@ -6190,40 +6737,93 @@ components:
         customerNotes:
           nullable: true
           type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
         forexRate:
           format: double
           type: number
-        total:
+        currencyId:
+          nullable: true
+          type: string
+        totalDetail:
           format: double
           type: number
-        totalTaxes:
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalProfit:
           format: double
           type: number
-        totalTaxBase:
-          format: double
-          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
         totalDiscounts:
           format: double
           type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalSurcharges:
           format: double
           type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
         totalGlobalDiscounts:
           format: double
           type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalGlobalSurcharges:
           format: double
           type: number
-        totalTaxesInUsd:
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        total:
           format: double
           type: number
-        totalAmountInUsd:
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalDetailInUsd:
           format: double
           type: number
         totalProfitInUsd:
-          format: double
-          type: number
-        totalTaxBaseInUsd:
           format: double
           type: number
         totalDiscountsInUsd:
@@ -6232,16 +6832,13 @@ components:
         totalSurchargesInUsd:
           format: double
           type: number
-        totalDetailAmountInUsd:
+        totalTaxBaseInUsd:
           format: double
           type: number
-        totalGlobalDiscountsInUsd:
+        totalTaxesInUsd:
           format: double
           type: number
-        totalGlobalSurchargesInUsd:
-          format: double
-          type: number
-        totalWithholdingTaxesInUsd:
+        totalWithheldTaxesInUsd:
           format: double
           type: number
         totalShippingCostInUsd:
@@ -6250,36 +6847,15 @@ components:
         totalShippingTaxesInUsd:
           format: double
           type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
         totalInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmount:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
+          format: double
+          type: number
         orderLinesCount:
           format: int32
           type: integer
@@ -6309,30 +6885,27 @@ components:
           type: string
         costCalculationMethod:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Automatic
+          - Custom
+          type: string
         freightTerms:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - FOB
+          - NoCharge
+          type: string
         orderStatus:
           enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          format: int32
-          type: integer
+          - New
+          - Processing
+          - Accepted
+          - Declined
+          - Shipped
+          - Delivered
+          - OnHold
+          - Failed
+          - Fulfilled
+          - Cancelled
+          type: string
         requestedDeliveryDate:
           format: date-time
           type: string
@@ -6368,146 +6941,91 @@ components:
       additionalProperties: false
       example:
         result:
-          totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
-          freightTerms: 8
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          customDiscountsAmount: 2.8841621266687802
-          totalAmountInUsd: 2.027123023002322
+          totalTaxBase: 2.3021358869347655
+          customDiscountsAmount: 6.778324963048013
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTaxAmount: 6.438423552598547
+          customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
-          totalProfitInUsd: 4.145608029883936
-          orderLinesCount: 9
-          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          orderLinesCount: 6
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
-          costCalculationMethod: 6
-          totalShippingTaxesInUsd: 5.025004791520295
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           quoteId: quoteId
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          customDetailAmount: 6.965117697638846
-          customSurchargesAmount: 6.778324963048013
+          customDetailAmount: 1.284659006116532
+          customSurchargesAmount: 6.878052220127876
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 5.944895607614016
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customWithholdingTaxAmount: 6.704019297950036
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          customShippingCostAmount: 6.704019297950036
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          customWithholdingTaxAmount: 3.353193347011243
           billingLocationId: billingLocationId
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
-          orderStatus: 9
+          orderStatus: New
           customerNotes: customerNotes
           shippingLocationId: shippingLocationId
           individualId: individualId
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
           parentOrderId: parentOrderId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTotalAmount: 3.5571952270680973
+          customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           stateId: stateId
-          customShippingTaxAmount: 6.878052220127876
+          customShippingTaxAmount: 5.944895607614016
           priceListId: priceListId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customProfitAmount: 1.284659006116532
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
+          customProfitAmount: 2.8841621266687802
           tenantId: tenantId
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -6534,11 +7052,70 @@ components:
         result:
           $ref: '#/components/schemas/OrderDto'
       type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
     SocialMediaPostCreateDto:
       additionalProperties: false
       example:
         featuredImageUrl: https://openapi-generator.tech
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         tenantId: tenantId
         title: title
         socialPostBucketId: socialPostBucketId
@@ -6566,7 +7143,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -6576,7 +7153,7 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: featuredImageUrl
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         tenantId: tenantId
         id: id
         title: title
@@ -6606,7 +7183,7 @@ components:
         socialPostBucketId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -6615,7 +7192,7 @@ components:
       example:
         result:
           featuredImageUrl: featuredImageUrl
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
           title: title
@@ -6653,7 +7230,7 @@ components:
       example:
         result:
         - featuredImageUrl: featuredImageUrl
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
           title: title
@@ -6661,7 +7238,7 @@ components:
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
         - featuredImageUrl: featuredImageUrl
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
           title: title
@@ -6701,7 +7278,7 @@ components:
       additionalProperties: false
       example:
         featuredImageUrl: https://openapi-generator.tech
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         tenantId: tenantId
         title: title
         socialPostBucketId: socialPostBucketId
@@ -6729,7 +7306,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -6738,7 +7315,7 @@ components:
     SocialPostBucketCreateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -6746,11 +7323,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         name:
           maxLength: 99
@@ -6762,7 +7337,7 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -6771,7 +7346,7 @@ components:
     SocialPostBucketDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
         id: id
@@ -6790,7 +7365,7 @@ components:
         tenantId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -6798,7 +7373,7 @@ components:
       additionalProperties: false
       example:
         result:
-          enrolmentId: enrolmentId
+          enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
@@ -6833,12 +7408,12 @@ components:
       additionalProperties: false
       example:
         result:
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - enrolmentId: enrolmentId
+        - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
           id: id
@@ -6875,7 +7450,7 @@ components:
     SocialPostBucketUpdateDto:
       additionalProperties: false
       example:
-        enrolmentId: enrolmentId
+        enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
       properties:
@@ -6889,18 +7464,64 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

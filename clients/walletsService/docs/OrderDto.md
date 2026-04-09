@@ -14,7 +14,6 @@
 |**title** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
@@ -32,41 +31,45 @@
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
 |**customerNotes** | **String** |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
-|**total** | **Double** |  |  [optional] |
-|**totalTaxes** | **Double** |  |  [optional] |
-|**totalTaxBase** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
 |**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
 |**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
 |**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
 |**totalGlobalSurcharges** | **Double** |  |  [optional] |
-|**totalTaxesInUsd** | **Double** |  |  [optional] |
-|**totalAmountInUsd** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**totalDetailInUsd** | **Double** |  |  [optional] |
 |**totalProfitInUsd** | **Double** |  |  [optional] |
-|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
 |**totalDiscountsInUsd** | **Double** |  |  [optional] |
 |**totalSurchargesInUsd** | **Double** |  |  [optional] |
-|**totalDetailAmountInUsd** | **Double** |  |  [optional] |
-|**totalGlobalDiscountsInUsd** | **Double** |  |  [optional] |
-|**totalGlobalSurchargesInUsd** | **Double** |  |  [optional] |
-|**totalWithholdingTaxesInUsd** | **Double** |  |  [optional] |
+|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
+|**totalTaxesInUsd** | **Double** |  |  [optional] |
+|**totalWithheldTaxesInUsd** | **Double** |  |  [optional] |
 |**totalShippingCostInUsd** | **Double** |  |  [optional] |
 |**totalShippingTaxesInUsd** | **Double** |  |  [optional] |
-|**currency** | [**Currency**](Currency.md) |  |  [optional] |
-|**totalInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxBaseAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalGlobalDiscountsInUsd** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesInUsd** | **Double** |  |  [optional] |
+|**totalInUsd** | **Double** |  |  [optional] |
 |**orderLinesCount** | **Integer** |  |  [optional] |
 |**quoteId** | **String** |  |  [optional] |
 |**walletId** | **String** |  |  [optional] |
@@ -92,12 +95,21 @@
 
 
 
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
+
+
+
 ## Enum: CostCalculationMethodEnum
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
 
 
 
@@ -105,8 +117,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| FOB | &quot;FOB&quot; |
+| NO_CHARGE | &quot;NoCharge&quot; |
 
 
 
@@ -114,16 +126,16 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
-| NUMBER_5 | 5 |
-| NUMBER_6 | 6 |
-| NUMBER_7 | 7 |
-| NUMBER_8 | 8 |
-| NUMBER_9 | 9 |
-| NUMBER_10 | 10 |
+| NEW | &quot;New&quot; |
+| PROCESSING | &quot;Processing&quot; |
+| ACCEPTED | &quot;Accepted&quot; |
+| DECLINED | &quot;Declined&quot; |
+| SHIPPED | &quot;Shipped&quot; |
+| DELIVERED | &quot;Delivered&quot; |
+| ON_HOLD | &quot;OnHold&quot; |
+| FAILED | &quot;Failed&quot; |
+| FULFILLED | &quot;Fulfilled&quot; |
+| CANCELLED | &quot;Cancelled&quot; |
 
 
 

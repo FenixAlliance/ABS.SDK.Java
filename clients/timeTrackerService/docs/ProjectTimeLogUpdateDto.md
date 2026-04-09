@@ -20,9 +20,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| REGULAR_HOURS | &quot;RegularHours&quot; |
+| OVERTIME_TO_PAY | &quot;OvertimeToPay&quot; |
+| OVERTIME_TO_COMPENSATE | &quot;OvertimeToCompensate&quot; |
 
 
 

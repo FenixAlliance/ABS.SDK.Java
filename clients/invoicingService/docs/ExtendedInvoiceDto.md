@@ -14,7 +14,6 @@
 |**title** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
@@ -32,41 +31,46 @@
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
 |**customerNotes** | **String** |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
-|**total** | **Double** |  |  [optional] |
-|**totalTaxes** | **Double** |  |  [optional] |
-|**totalTaxBase** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
 |**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
 |**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
 |**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
 |**totalGlobalSurcharges** | **Double** |  |  [optional] |
-|**totalTaxesInUsd** | **Double** |  |  [optional] |
-|**totalAmountInUsd** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**totalDetailInUsd** | **Double** |  |  [optional] |
 |**totalProfitInUsd** | **Double** |  |  [optional] |
-|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
 |**totalDiscountsInUsd** | **Double** |  |  [optional] |
 |**totalSurchargesInUsd** | **Double** |  |  [optional] |
-|**totalDetailAmountInUsd** | **Double** |  |  [optional] |
-|**totalGlobalDiscountsInUsd** | **Double** |  |  [optional] |
-|**totalGlobalSurchargesInUsd** | **Double** |  |  [optional] |
-|**totalWithholdingTaxesInUsd** | **Double** |  |  [optional] |
+|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
+|**totalTaxesInUsd** | **Double** |  |  [optional] |
+|**totalWithheldTaxesInUsd** | **Double** |  |  [optional] |
 |**totalShippingCostInUsd** | **Double** |  |  [optional] |
 |**totalShippingTaxesInUsd** | **Double** |  |  [optional] |
-|**currency** | [**Currency**](Currency.md) |  |  [optional] |
-|**totalInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxBaseAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalDiscountsAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalSurchargesAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
-|**totalAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
-|**totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalGlobalDiscountsInUsd** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesInUsd** | **Double** |  |  [optional] |
+|**totalInUsd** | **Double** |  |  [optional] |
 |**paid** | **Boolean** |  |  [optional] |
 |**number** | **Long** |  |  [optional] |
 |**notes** | **String** |  |  [optional] |
@@ -87,7 +91,26 @@
 |**receiverTenant** | [**TenantDto**](TenantDto.md) |  |  [optional] |
 |**individual** | [**SimpleContactDto**](SimpleContactDto.md) |  |  [optional] |
 |**organization** | [**SimpleContactDto**](SimpleContactDto.md) |  |  [optional] |
-|**enrollment** | [**SimpleTenantEnrolmentDto**](SimpleTenantEnrolmentDto.md) |  |  [optional] |
+|**enrollment** | [**SimpleTenantEnrollmentDto**](SimpleTenantEnrollmentDto.md) |  |  [optional] |
+|**invoiceLines** | [**List&lt;InvoiceLineDto&gt;**](InvoiceLineDto.md) |  |  [optional] |
+
+
+
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
+
+
+
+## Enum: CostCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
 
 
 
@@ -95,8 +118,10 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| PURCHASE_INVOICE | &quot;PurchaseInvoice&quot; |
+| SALES_INVOICE | &quot;SalesInvoice&quot; |
+| CREDIT_NOTE | &quot;CreditNote&quot; |
+| DEBIT_NOTE | &quot;DebitNote&quot; |
 
 
 
@@ -104,9 +129,9 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
+| STANDARD | &quot;Standard&quot; |
+| DEBIT_NOTE | &quot;DebitNote&quot; |
+| CREDIT_NOTE | &quot;CreditNote&quot; |
 
 
 
@@ -114,11 +139,11 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
-| NUMBER_2 | 2 |
-| NUMBER_3 | 3 |
-| NUMBER_4 | 4 |
+| DRAFT | &quot;Draft&quot; |
+| CLOSED | &quot;Closed&quot; |
+| SIGNED | &quot;Signed&quot; |
+| EXPIRED | &quot;Expired&quot; |
+| PAID | &quot;Paid&quot; |
 
 
 

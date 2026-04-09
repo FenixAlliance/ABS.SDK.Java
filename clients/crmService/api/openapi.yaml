@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,11 +9,14 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: CrmService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Contacts
+- name: FenixAlliance.ABP.Web
+- name: Options
+- name: Sync
 paths:
   /api/v2/CrmService/Contacts:
     get:
@@ -83,7 +86,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -2041,8 +2044,1037 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Emails/Preview:
+    post:
+      description: This action is only available for global administrators (business_owner
+        role).
+      operationId: PreviewContactEmailTemplate
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "200":
+          description: OK
+      summary: Preview the rendered email for a contact.
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v2/CrmService/Contacts/{contactId}/Emails/Send:
+    post:
+      description: This action is only available for global administrators (business_owner
+        role).
+      operationId: SendContactEmail
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmailDispatchRequest'
+      responses:
+        "200":
+          description: OK
+      summary: Send an email to a contact.
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/CrmService/Contacts/{contactId}/Options:
+    get:
+      description: Retrieve a list of options for a contact
+      operationId: GetContactOptions
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of contact options
+      tags:
+      - Options
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new option for a contact
+      operationId: CreateContactOption
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new contact option
+      tags:
+      - Options
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Options/Count:
+    get:
+      description: Get the count of options for a contact
+      operationId: GetContactOptionsCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of contact options
+      tags:
+      - Options
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Options/{optionId}:
+    delete:
+      description: Delete a contact option
+      operationId: DeleteContactOption
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a contact option
+      tags:
+      - Options
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieve a single contact option by its ID
+      operationId: GetContactOptionById
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single contact option by its ID
+      tags:
+      - Options
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a contact option
+      operationId: UpdateContactOption
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a contact option
+      tags:
+      - Options
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key}:
+    get:
+      description: Retrieve a single contact option by its key
+      operationId: GetContactOptionByKey
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single contact option by its key
+      tags:
+      - Options
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key}:
+    put:
+      description: Create or update a contact option by key
+      operationId: UpsertContactOption
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create or update a contact option by key
+      tags:
+      - Options
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/CrmService/Sync:
     post:
+      description: Synchronizes the currently authenticated user into the current
+        tenant's CRM contact list.
+      operationId: SyncCurrentHolderToCurrentTenantCrm
       parameters:
       - explode: true
         in: query
@@ -2089,11 +3121,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
           description: OK
+      summary: Sync the current user into the current tenant's contact list
       tags:
       - Sync
       x-accepts:
@@ -2101,6 +3134,9 @@ paths:
       - application/xml
   /api/v2/CrmService/Sync/Me:
     post:
+      description: Synchronizes the currently authenticated user into the specified
+        tenant's CRM contact list.
+      operationId: SyncCurrentHolderToTenantCrm
       parameters:
       - explode: true
         in: query
@@ -2147,11 +3183,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
           description: OK
+      summary: Sync the current user into a tenant's contact list
       tags:
       - Sync
       x-accepts:
@@ -2159,6 +3196,8 @@ paths:
       - application/xml
   /api/v2/CrmService/Sync/User:
     post:
+      description: Synchronizes a specified user into the tenant's CRM contact list.
+      operationId: SyncHolderToTenantCrmAsync
       parameters:
       - explode: true
         in: query
@@ -2213,11 +3252,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ContactDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
           description: OK
+      summary: Sync a user into a tenant's contact list
       tags:
       - Sync
       x-accepts:
@@ -2225,6 +3265,8 @@ paths:
       - application/xml
   /api/v2/CrmService/Sync/Tenant:
     post:
+      description: Synchronizes a tenant into another tenant's CRM contact list.
+      operationId: SyncTenantToTenantCrm
       parameters:
       - explode: true
         in: query
@@ -2284,6 +3326,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmptyEnvelope'
           description: OK
+      summary: Sync a tenant into another tenant's contact list
       tags:
       - Sync
       x-accepts:
@@ -2291,17 +3334,43 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     CartDto:
       additionalProperties: false
       example:
-        total: 6.027456183070403
-        itemCartRecordsCount: 2
+        total: 0.8008281904610115
+        itemCartRecordsCount: 5
         ip: ip
-        freight: 5.962133916683182
-        itemToCompareRecordsCount: 7
-        taxes: 1.4658129805029452
+        freight: 1.4658129805029452
+        itemToCompareRecordsCount: 2
+        taxes: 6.027456183070403
         id: id
-        subTotal: 5.637376656633329
+        subTotal: 5.962133916683182
         type: type
         currencyId: currencyId
         countryId: countryId
@@ -2346,14 +3415,14 @@ components:
       additionalProperties: false
       example:
         result:
-          total: 6.027456183070403
-          itemCartRecordsCount: 2
+          total: 0.8008281904610115
+          itemCartRecordsCount: 5
           ip: ip
-          freight: 5.962133916683182
-          itemToCompareRecordsCount: 7
-          taxes: 1.4658129805029452
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
           id: id
-          subTotal: 5.637376656633329
+          subTotal: 5.962133916683182
           type: type
           currencyId: currencyId
           countryId: countryId
@@ -2396,56 +3465,54 @@ components:
         about: about
         tikTokUrl: tikTokUrl
         cityId: cityId
-        type: 0
+        type: Individual
         countryId: countryId
         redditUrl: redditUrl
-        stackOverflowUrl: ""
+        stackOverflowUrl: stackOverflowUrl
         facebookUrl: facebookUrl
-        stackExchangeUrl: ""
+        stackExchangeUrl: stackExchangeUrl
         websiteUrl: websiteUrl
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         email: email
         gitHubUrl: gitHubUrl
         timestamp: 2000-01-23T04:56:07.000+00:00
-        parentContactId: ""
+        parentContactId: parentContactId
         linkedInUrl: linkedInUrl
         qualifiedName: qualifiedName
         stateId: stateId
         languageId: languageId
         twitchUrl: twitchUrl
-        tikTokUsername: ""
+        tikTokUsername: tikTokUsername
         primaryContactId: primaryContactId
         firstName: firstName
         githubUsername: githubUsername
-        instagramUsername: ""
+        instagramUsername: instagramUsername
         mobilePhone: mobilePhone
         taxId: taxId
         webUrl: webUrl
         tenantId: tenantId
         duns: duns
         timezoneId: timezoneId
+        faxNumber: faxNumber
         instagramUrl: instagramUrl
         businessPhone: businessPhone
         youTubeUrl: youTubeUrl
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         tenantId:
           minLength: 1
           type: string
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
         firstName:
           maxLength: 50
           minLength: 1
@@ -2564,14 +3631,22 @@ components:
           type: string
         instagramUsername:
           nullable: true
+          type: string
         tikTokUsername:
           nullable: true
+          type: string
         stackExchangeUrl:
           nullable: true
+          type: string
         stackOverflowUrl:
           nullable: true
+          type: string
         parentContactId:
           nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
       required:
       - email
       - firstName
@@ -2585,45 +3660,46 @@ components:
         zipCode: zipCode
         streetLine1: streetLine1
         jobTitle: jobTitle
-        twitterUrl: twitterUrl
+        twitterUrl: https://openapi-generator.tech
         postalCode: postalCode
-        tikTokUrl: tikTokUrl
+        tikTokUrl: https://openapi-generator.tech
         about: about
         cityId: cityId
-        type: 0
+        type: Individual
         identityProvider: identityProvider
         publicName: publicName
         id: id
         currencyId: currencyId
-        gitHubUrl: gitHubUrl
+        gitHubUrl: https://openapi-generator.tech
         walletId: walletId
         enrollmentId: enrollmentId
         parentContactId: parentContactId
         activeDirectoryId: activeDirectoryId
-        linkedInUrl: linkedInUrl
+        linkedInUrl: https://openapi-generator.tech
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
         cartId: cartId
         relatedTenantId: relatedTenantId
-        twitchUrl: twitchUrl
+        twitchUrl: https://openapi-generator.tech
         ownerContactId: ownerContactId
         coverUrl: coverUrl
         firstName: firstName
         activityFeedId: activityFeedId
         mobilePhone: mobilePhone
-        webUrl: webUrl
+        phone: phone
+        webUrl: https://openapi-generator.tech
         taxId: taxId
         duns: duns
         businessPhone: businessPhone
-        youTubeUrl: youTubeUrl
+        youTubeUrl: https://openapi-generator.tech
         annualRevenue: annualRevenue
         birthday: 2000-01-23T04:56:07.000+00:00
         lastName: lastName
         relatedUserId: relatedUserId
         countryId: countryId
-        redditUrl: redditUrl
-        facebookUrl: facebookUrl
-        websiteUrl: websiteUrl
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
+        websiteUrl: https://openapi-generator.tech
         street: street
         territoryId: territoryId
         socialProfileId: socialProfileId
@@ -2638,7 +3714,7 @@ components:
         tenantId: tenantId
         timezoneId: timezoneId
         faxNumber: faxNumber
-        instagramUrl: instagramUrl
+        instagramUrl: https://openapi-generator.tech
       properties:
         id:
           nullable: true
@@ -2656,10 +3732,17 @@ components:
           type: string
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
         publicName:
           nullable: true
           type: string
@@ -2691,36 +3774,47 @@ components:
           nullable: true
           type: string
         webUrl:
+          format: uri
           nullable: true
           type: string
         gitHubUrl:
+          format: uri
           nullable: true
           type: string
         twitchUrl:
+          format: uri
           nullable: true
           type: string
         redditUrl:
+          format: uri
           nullable: true
           type: string
         tikTokUrl:
+          format: uri
           nullable: true
           type: string
         websiteUrl:
+          format: uri
           nullable: true
           type: string
         twitterUrl:
+          format: uri
           nullable: true
           type: string
         facebookUrl:
+          format: uri
           nullable: true
           type: string
         youTubeUrl:
+          format: uri
           nullable: true
           type: string
         linkedInUrl:
+          format: uri
           nullable: true
           type: string
         instagramUrl:
+          format: uri
           nullable: true
           type: string
         githubUsername:
@@ -2730,10 +3824,6 @@ components:
           nullable: true
           type: string
         taxId:
-          nullable: true
-          type: string
-        email:
-          format: email
           nullable: true
           type: string
         about:
@@ -2830,45 +3920,46 @@ components:
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfileId: socialProfileId
@@ -2883,7 +3974,7 @@ components:
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -2918,45 +4009,46 @@ components:
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfileId: socialProfileId
@@ -2971,50 +4063,51 @@ components:
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         - streetLine2: streetLine2
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfileId: socialProfileId
@@ -3029,7 +4122,7 @@ components:
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -3289,20 +4382,20 @@ components:
         streetLine2: streetLine2
         lastName: lastName
         streetLine1: streetLine1
-        githubUrl: githubUrl
         jobTitle: jobTitle
         postalCode: postalCode
         twitterUrl: twitterUrl
         about: about
         tikTokUrl: tikTokUrl
         cityId: cityId
-        type: 0
+        type: Individual
         countryId: countryId
         redditUrl: redditUrl
         stackOverflowUrl: stackOverflowUrl
         facebookUrl: facebookUrl
         stackExchangeUrl: stackExchangeUrl
-        websiteUrl: websiteUrl
+        addressLine1: addressLine1
+        addressLine2: addressLine2
         currencyId: currencyId
         email: email
         gitHubUrl: gitHubUrl
@@ -3320,18 +4413,19 @@ components:
         instagramUsername: instagramUsername
         mobilePhone: mobilePhone
         taxId: taxId
+        webUrl: webUrl
         duns: duns
         timezoneId: timezoneId
+        faxNumber: faxNumber
         instagramUrl: instagramUrl
         businessPhone: businessPhone
         youTubeUrl: youTubeUrl
       properties:
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
         birthday:
           format: date-time
           nullable: true
@@ -3391,13 +4485,19 @@ components:
         parentContactId:
           nullable: true
           type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
         stateId:
           nullable: true
           type: string
         cityId:
-          nullable: true
-          type: string
-        postalCode:
           nullable: true
           type: string
         streetLine1:
@@ -3424,6 +4524,9 @@ components:
         instagramUsername:
           nullable: true
           type: string
+        webUrl:
+          nullable: true
+          type: string
         twitchUrl:
           nullable: true
           type: string
@@ -3433,9 +4536,6 @@ components:
         gitHubUrl:
           nullable: true
           type: string
-        githubUrl:
-          nullable: true
-          type: string
         tikTokUrl:
           nullable: true
           type: string
@@ -3443,9 +4543,6 @@ components:
           nullable: true
           type: string
         youTubeUrl:
-          nullable: true
-          type: string
-        websiteUrl:
           nullable: true
           type: string
         facebookUrl:
@@ -3466,10 +4563,110 @@ components:
         stackOverflowUrl:
           nullable: true
           type: string
+        faxNumber:
+          nullable: true
+          type: string
       required:
       - email
       - firstName
       - type
+      type: object
+    EmailDispatchRequest:
+      additionalProperties: false
+      example:
+        buttonText: buttonText
+        alertMessage: alertMessage
+        alertType: None
+        uiCulture: uiCulture
+        title: title
+        message: message
+        contactIds:
+        - contactIds
+        - contactIds
+        templateUrl: https://openapi-generator.tech
+        culture: culture
+        recipients:
+        - recipients
+        - recipients
+        buttonLink: https://openapi-generator.tech
+        userIds:
+        - userIds
+        - userIds
+        emailTemplateId: emailTemplateId
+        tenantIds:
+        - tenantIds
+        - tenantIds
+      properties:
+        title:
+          maxLength: 150
+          minLength: 0
+          type: string
+        message:
+          minLength: 10
+          type: string
+        buttonLink:
+          format: uri
+          nullable: true
+          type: string
+        buttonText:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        alertMessage:
+          nullable: true
+          type: string
+        alertType:
+          enum:
+          - None
+          - Info
+          - Error
+          - Warning
+          - Success
+          - Action
+          - Alert
+          type: string
+        culture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        uiCulture:
+          minLength: 1
+          pattern: "^[a-z]{2}(-[A-Z]{2})?$"
+          type: string
+        recipients:
+          items:
+            type: string
+          minItems: 1
+          type: array
+        contactIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tenantIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        userIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        templateUrl:
+          format: uri
+          nullable: true
+          type: string
+        emailTemplateId:
+          nullable: true
+          type: string
+      required:
+      - culture
+      - message
+      - recipients
+      - title
+      - uiCulture
       type: object
     EmptyEnvelope:
       additionalProperties: false
@@ -3496,6 +4693,37 @@ components:
         activityId:
           nullable: true
           readOnly: true
+          type: string
+      type: object
+    Envelope:
+      additionalProperties: false
+      example:
+        result: result
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          nullable: true
           type: string
       type: object
     ErrorEnvelope:
@@ -3532,85 +4760,88 @@ components:
         zipCode: zipCode
         streetLine1: streetLine1
         jobTitle: jobTitle
-        twitterUrl: twitterUrl
+        twitterUrl: https://openapi-generator.tech
         postalCode: postalCode
-        tikTokUrl: tikTokUrl
+        tikTokUrl: https://openapi-generator.tech
         about: about
         cityId: cityId
-        type: 0
+        type: Individual
         identityProvider: identityProvider
         cart:
-          total: 6.027456183070403
-          itemCartRecordsCount: 2
+          total: 0.8008281904610115
+          itemCartRecordsCount: 5
           ip: ip
-          freight: 5.962133916683182
-          itemToCompareRecordsCount: 7
-          taxes: 1.4658129805029452
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
           id: id
-          subTotal: 5.637376656633329
+          subTotal: 5.962133916683182
           type: type
           currencyId: currencyId
           countryId: countryId
         publicName: publicName
         id: id
         currencyId: currencyId
-        gitHubUrl: gitHubUrl
+        gitHubUrl: https://openapi-generator.tech
         walletId: walletId
         enrollmentId: enrollmentId
         parentContactId: parentContactId
         activeDirectoryId: activeDirectoryId
-        linkedInUrl: linkedInUrl
+        linkedInUrl: https://openapi-generator.tech
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
         cartId: cartId
         relatedTenantId: relatedTenantId
-        twitchUrl: twitchUrl
+        twitchUrl: https://openapi-generator.tech
         ownerContactId: ownerContactId
         coverUrl: coverUrl
         firstName: firstName
         activityFeedId: activityFeedId
         mobilePhone: mobilePhone
-        webUrl: webUrl
+        phone: phone
+        webUrl: https://openapi-generator.tech
         taxId: taxId
         duns: duns
         businessPhone: businessPhone
-        youTubeUrl: youTubeUrl
+        youTubeUrl: https://openapi-generator.tech
         annualRevenue: annualRevenue
         birthday: 2000-01-23T04:56:07.000+00:00
         lastName: lastName
         parentContact:
           lastName: lastName
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
-          tikTokUrl: tikTokUrl
-          type: 9
+          twitterUrl: https://openapi-generator.tech
+          tikTokUrl: https://openapi-generator.tech
+          type: Individual
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
           publicName: publicName
-          websiteUrl: websiteUrl
+          websiteUrl: https://openapi-generator.tech
           id: id
           socialProfileId: socialProfileId
-          gitHubUrl: gitHubUrl
+          email: email
+          gitHubUrl: https://openapi-generator.tech
           timestamp: 2000-01-23T04:56:07.000+00:00
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           languageId: languageId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           coverUrl: coverUrl
           firstName: firstName
           githubUsername: githubUsername
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           tenantId: tenantId
           timezoneId: timezoneId
-          instagramUrl: instagramUrl
-          youTubeUrl: youTubeUrl
+          instagramUrl: https://openapi-generator.tech
+          youTubeUrl: https://openapi-generator.tech
         relatedUserId: relatedUserId
         countryId: countryId
-        redditUrl: redditUrl
-        facebookUrl: facebookUrl
-        websiteUrl: websiteUrl
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
+        websiteUrl: https://openapi-generator.tech
         street: street
         territoryId: territoryId
         socialProfile:
@@ -3618,8 +4849,8 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 4
-          type: 5
+          unreadMessagesCount: 1
+          type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
@@ -3629,8 +4860,8 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 1
-          notificationsCount: 7
+          unreadNotificationsCount: 7
+          notificationsCount: 6
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -3639,26 +4870,26 @@ components:
           dribbleURL: dribbleURL
           countryName: countryName
           messagesCount: 1
-          followersCount: 6
+          followersCount: 1
         socialProfileId: socialProfileId
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         partnerProfileId: partnerProfileId
         wallet:
           verified: true
-          balanceInUsd: 4.145608029883936
+          balanceInUsd: 2.027123023002322
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 9.301444243932576
-          forexRate: 2.027123023002322
+          balance: 7.061401241503109
+          forexRate: 3.616076749251911
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 1.2315135367772556
-          cryptoBalance: 3.616076749251911
-          mainNetEtherBalance: 7.386281948385884
+          rollingReservePercent: 7.386281948385884
+          cryptoBalance: 9.301444243932576
+          mainNetEtherBalance: 4.145608029883936
           timestamp: 2000-01-23T04:56:07.000+00:00
         stateId: stateId
         languageId: languageId
@@ -3668,35 +4899,37 @@ components:
         primaryContact:
           lastName: lastName
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
-          tikTokUrl: tikTokUrl
-          type: 9
+          twitterUrl: https://openapi-generator.tech
+          tikTokUrl: https://openapi-generator.tech
+          type: Individual
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
           publicName: publicName
-          websiteUrl: websiteUrl
+          websiteUrl: https://openapi-generator.tech
           id: id
           socialProfileId: socialProfileId
-          gitHubUrl: gitHubUrl
+          email: email
+          gitHubUrl: https://openapi-generator.tech
           timestamp: 2000-01-23T04:56:07.000+00:00
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           languageId: languageId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           coverUrl: coverUrl
           firstName: firstName
           githubUsername: githubUsername
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           tenantId: tenantId
           timezoneId: timezoneId
-          instagramUrl: instagramUrl
-          youTubeUrl: youTubeUrl
+          instagramUrl: https://openapi-generator.tech
+          youTubeUrl: https://openapi-generator.tech
         tenantId: tenantId
         timezoneId: timezoneId
         faxNumber: faxNumber
-        instagramUrl: instagramUrl
+        instagramUrl: https://openapi-generator.tech
       properties:
         id:
           nullable: true
@@ -3714,10 +4947,17 @@ components:
           type: string
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
         publicName:
           nullable: true
           type: string
@@ -3749,36 +4989,47 @@ components:
           nullable: true
           type: string
         webUrl:
+          format: uri
           nullable: true
           type: string
         gitHubUrl:
+          format: uri
           nullable: true
           type: string
         twitchUrl:
+          format: uri
           nullable: true
           type: string
         redditUrl:
+          format: uri
           nullable: true
           type: string
         tikTokUrl:
+          format: uri
           nullable: true
           type: string
         websiteUrl:
+          format: uri
           nullable: true
           type: string
         twitterUrl:
+          format: uri
           nullable: true
           type: string
         facebookUrl:
+          format: uri
           nullable: true
           type: string
         youTubeUrl:
+          format: uri
           nullable: true
           type: string
         linkedInUrl:
+          format: uri
           nullable: true
           type: string
         instagramUrl:
+          format: uri
           nullable: true
           type: string
         githubUsername:
@@ -3788,10 +5039,6 @@ components:
           nullable: true
           type: string
         taxId:
-          nullable: true
-          type: string
-        email:
-          format: email
           nullable: true
           type: string
         about:
@@ -3898,85 +5145,88 @@ components:
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           cart:
-            total: 6.027456183070403
-            itemCartRecordsCount: 2
+            total: 0.8008281904610115
+            itemCartRecordsCount: 5
             ip: ip
-            freight: 5.962133916683182
-            itemToCompareRecordsCount: 7
-            taxes: 1.4658129805029452
+            freight: 1.4658129805029452
+            itemToCompareRecordsCount: 2
+            taxes: 6.027456183070403
             id: id
-            subTotal: 5.637376656633329
+            subTotal: 5.962133916683182
             type: type
             currencyId: currencyId
             countryId: countryId
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           parentContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfile:
@@ -3984,8 +5234,8 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 4
-            type: 5
+            unreadMessagesCount: 1
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -3995,8 +5245,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 1
-            notificationsCount: 7
+            unreadNotificationsCount: 7
+            notificationsCount: 6
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -4005,26 +5255,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 6
+            followersCount: 1
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 4.145608029883936
+            balanceInUsd: 2.027123023002322
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 9.301444243932576
-            forexRate: 2.027123023002322
+            balance: 7.061401241503109
+            forexRate: 3.616076749251911
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 1.2315135367772556
-            cryptoBalance: 3.616076749251911
-            mainNetEtherBalance: 7.386281948385884
+            rollingReservePercent: 7.386281948385884
+            cryptoBalance: 9.301444243932576
+            mainNetEtherBalance: 4.145608029883936
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -4034,35 +5284,37 @@ components:
           primaryContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4097,85 +5349,88 @@ components:
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           cart:
-            total: 6.027456183070403
-            itemCartRecordsCount: 2
+            total: 0.8008281904610115
+            itemCartRecordsCount: 5
             ip: ip
-            freight: 5.962133916683182
-            itemToCompareRecordsCount: 7
-            taxes: 1.4658129805029452
+            freight: 1.4658129805029452
+            itemToCompareRecordsCount: 2
+            taxes: 6.027456183070403
             id: id
-            subTotal: 5.637376656633329
+            subTotal: 5.962133916683182
             type: type
             currencyId: currencyId
             countryId: countryId
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           parentContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfile:
@@ -4183,8 +5438,8 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 4
-            type: 5
+            unreadMessagesCount: 1
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -4194,8 +5449,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 1
-            notificationsCount: 7
+            unreadNotificationsCount: 7
+            notificationsCount: 6
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -4204,26 +5459,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 6
+            followersCount: 1
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 4.145608029883936
+            balanceInUsd: 2.027123023002322
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 9.301444243932576
-            forexRate: 2.027123023002322
+            balance: 7.061401241503109
+            forexRate: 3.616076749251911
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 1.2315135367772556
-            cryptoBalance: 3.616076749251911
-            mainNetEtherBalance: 7.386281948385884
+            rollingReservePercent: 7.386281948385884
+            cryptoBalance: 9.301444243932576
+            mainNetEtherBalance: 4.145608029883936
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -4233,118 +5488,123 @@ components:
           primaryContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         - streetLine2: streetLine2
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           cart:
-            total: 6.027456183070403
-            itemCartRecordsCount: 2
+            total: 0.8008281904610115
+            itemCartRecordsCount: 5
             ip: ip
-            freight: 5.962133916683182
-            itemToCompareRecordsCount: 7
-            taxes: 1.4658129805029452
+            freight: 1.4658129805029452
+            itemToCompareRecordsCount: 2
+            taxes: 6.027456183070403
             id: id
-            subTotal: 5.637376656633329
+            subTotal: 5.962133916683182
             type: type
             currencyId: currencyId
             countryId: countryId
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           parentContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfile:
@@ -4352,8 +5612,8 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 4
-            type: 5
+            unreadMessagesCount: 1
+            type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
@@ -4363,8 +5623,8 @@ components:
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 1
-            notificationsCount: 7
+            unreadNotificationsCount: 7
+            notificationsCount: 6
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -4373,26 +5633,26 @@ components:
             dribbleURL: dribbleURL
             countryName: countryName
             messagesCount: 1
-            followersCount: 6
+            followersCount: 1
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           partnerProfileId: partnerProfileId
           wallet:
             verified: true
-            balanceInUsd: 4.145608029883936
+            balanceInUsd: 2.027123023002322
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 9.301444243932576
-            forexRate: 2.027123023002322
+            balance: 7.061401241503109
+            forexRate: 3.616076749251911
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 1.2315135367772556
-            cryptoBalance: 3.616076749251911
-            mainNetEtherBalance: 7.386281948385884
+            rollingReservePercent: 7.386281948385884
+            cryptoBalance: 9.301444243932576
+            mainNetEtherBalance: 4.145608029883936
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           languageId: languageId
@@ -4402,35 +5662,37 @@ components:
           primaryContact:
             lastName: lastName
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
-            tikTokUrl: tikTokUrl
-            type: 9
+            twitterUrl: https://openapi-generator.tech
+            tikTokUrl: https://openapi-generator.tech
+            type: Individual
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
             publicName: publicName
-            websiteUrl: websiteUrl
+            websiteUrl: https://openapi-generator.tech
             id: id
             socialProfileId: socialProfileId
-            gitHubUrl: gitHubUrl
+            email: email
+            gitHubUrl: https://openapi-generator.tech
             timestamp: 2000-01-23T04:56:07.000+00:00
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             languageId: languageId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             coverUrl: coverUrl
             firstName: firstName
             githubUsername: githubUsername
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             tenantId: tenantId
             timezoneId: timezoneId
-            instagramUrl: instagramUrl
-            youTubeUrl: youTubeUrl
+            instagramUrl: https://openapi-generator.tech
+            youTubeUrl: https://openapi-generator.tech
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4460,27 +5722,151 @@ components:
           nullable: true
           type: array
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     Operation:
       additionalProperties: false
       example:
         path: path
         op: op
-        operationType: 0
+        operationType: Add
         from: from
         value: ""
       properties:
         operationType:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          format: int32
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
           readOnly: true
-          type: integer
+          type: string
         path:
           nullable: true
           type: string
@@ -4493,36 +5879,297 @@ components:
         value:
           nullable: true
       type: object
+    OptionCreateDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        key:
+          minLength: 1
+          type: string
+        value:
+          minLength: 1
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      required:
+      - key
+      - value
+      type: object
+    OptionDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        id: id
+        value: value
+        key: key
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      type: object
+    OptionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OptionDto'
+      type: object
+    OptionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - transient: true
+          portalId: portalId
+          frozen: true
+          autoload: true
+          expiration: 0
+          id: id
+          value: value
+          key: key
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/OptionDto'
+          nullable: true
+          type: array
+      type: object
+    OptionUpdateDto:
+      additionalProperties: false
+      example:
+        transient: true
+        portalId: portalId
+        frozen: true
+        autoload: true
+        expiration: 0
+        value: value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+        portalId:
+          nullable: true
+          type: string
+        frozen:
+          type: boolean
+        autoload:
+          type: boolean
+        transient:
+          type: boolean
+        expiration:
+          format: int32
+          type: integer
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
     SimpleContactDto:
       additionalProperties: false
       example:
         lastName: lastName
         jobTitle: jobTitle
-        twitterUrl: twitterUrl
-        tikTokUrl: tikTokUrl
-        type: 9
+        twitterUrl: https://openapi-generator.tech
+        tikTokUrl: https://openapi-generator.tech
+        type: Individual
         countryId: countryId
-        redditUrl: redditUrl
-        facebookUrl: facebookUrl
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
         publicName: publicName
-        websiteUrl: websiteUrl
+        websiteUrl: https://openapi-generator.tech
         id: id
         socialProfileId: socialProfileId
-        gitHubUrl: gitHubUrl
+        email: email
+        gitHubUrl: https://openapi-generator.tech
         timestamp: 2000-01-23T04:56:07.000+00:00
-        linkedInUrl: linkedInUrl
+        linkedInUrl: https://openapi-generator.tech
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
         languageId: languageId
-        twitchUrl: twitchUrl
+        twitchUrl: https://openapi-generator.tech
         coverUrl: coverUrl
         firstName: firstName
         githubUsername: githubUsername
-        webUrl: webUrl
+        phone: phone
+        webUrl: https://openapi-generator.tech
         tenantId: tenantId
         timezoneId: timezoneId
-        instagramUrl: instagramUrl
-        youTubeUrl: youTubeUrl
+        instagramUrl: https://openapi-generator.tech
+        youTubeUrl: https://openapi-generator.tech
       properties:
         id:
           nullable: true
@@ -4540,10 +6187,17 @@ components:
           type: string
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
         publicName:
           nullable: true
           type: string
@@ -4575,36 +6229,47 @@ components:
           nullable: true
           type: string
         webUrl:
+          format: uri
           nullable: true
           type: string
         gitHubUrl:
+          format: uri
           nullable: true
           type: string
         twitchUrl:
+          format: uri
           nullable: true
           type: string
         redditUrl:
+          format: uri
           nullable: true
           type: string
         tikTokUrl:
+          format: uri
           nullable: true
           type: string
         websiteUrl:
+          format: uri
           nullable: true
           type: string
         twitterUrl:
+          format: uri
           nullable: true
           type: string
         facebookUrl:
+          format: uri
           nullable: true
           type: string
         youTubeUrl:
+          format: uri
           nullable: true
           type: string
         linkedInUrl:
+          format: uri
           nullable: true
           type: string
         instagramUrl:
+          format: uri
           nullable: true
           type: string
         githubUsername:
@@ -4618,8 +6283,8 @@ components:
         notes: notes
         twitterUrl: twitterUrl
         about: about
-        unreadMessagesCount: 4
-        type: 5
+        unreadMessagesCount: 1
+        type: User
         countryId: countryId
         cover: cover
         facebookURL: facebookURL
@@ -4629,8 +6294,8 @@ components:
         timestamp: 2000-01-23T04:56:07.000+00:00
         pinterestURL: pinterestURL
         linkedInURL: linkedInURL
-        unreadNotificationsCount: 1
-        notificationsCount: 7
+        unreadNotificationsCount: 7
+        notificationsCount: 6
         avatar: avatar
         socialFeedId: socialFeedId
         identityId: identityId
@@ -4639,7 +6304,7 @@ components:
         dribbleURL: dribbleURL
         countryName: countryName
         messagesCount: 1
-        followersCount: 6
+        followersCount: 1
       properties:
         id:
           nullable: true
@@ -4695,12 +6360,11 @@ components:
           type: integer
         type:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - User
+          - Tenant
+          - Contact
           nullable: true
-          type: integer
+          type: string
         socialFeedId:
           nullable: true
           type: string
@@ -4740,8 +6404,8 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 4
-          type: 5
+          unreadMessagesCount: 1
+          type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
@@ -4751,8 +6415,8 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 1
-          notificationsCount: 7
+          unreadNotificationsCount: 7
+          notificationsCount: 6
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -4761,7 +6425,7 @@ components:
           dribbleURL: dribbleURL
           countryName: countryName
           messagesCount: 1
-          followersCount: 6
+          followersCount: 1
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4788,23 +6452,77 @@ components:
         result:
           $ref: '#/components/schemas/SocialProfileDto'
       type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
     WalletDto:
       additionalProperties: false
       example:
         verified: true
-        balanceInUsd: 4.145608029883936
+        balanceInUsd: 2.027123023002322
         type: type
         ethereumPrivateKey: ethereumPrivateKey
-        balance: 9.301444243932576
-        forexRate: 2.027123023002322
+        balance: 7.061401241503109
+        forexRate: 3.616076749251911
         ethereumAddress: ethereumAddress
         ethereumPublicKey: ethereumPublicKey
         testMode: true
         id: id
         currencyId: currencyId
-        rollingReservePercent: 1.2315135367772556
-        cryptoBalance: 3.616076749251911
-        mainNetEtherBalance: 7.386281948385884
+        rollingReservePercent: 7.386281948385884
+        cryptoBalance: 9.301444243932576
+        mainNetEtherBalance: 4.145608029883936
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -4856,19 +6574,19 @@ components:
       example:
         result:
           verified: true
-          balanceInUsd: 4.145608029883936
+          balanceInUsd: 2.027123023002322
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 9.301444243932576
-          forexRate: 2.027123023002322
+          balance: 7.061401241503109
+          forexRate: 3.616076749251911
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 1.2315135367772556
-          cryptoBalance: 3.616076749251911
-          mainNetEtherBalance: 7.386281948385884
+          rollingReservePercent: 7.386281948385884
+          cryptoBalance: 9.301444243932576
+          mainNetEtherBalance: 4.145608029883936
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -4902,12 +6620,4 @@ components:
           format: binary
           type: string
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
 

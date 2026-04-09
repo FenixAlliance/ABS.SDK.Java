@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,12 +9,288 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: WalletsService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: FenixAlliance.ABP.Web
+- name: Wallets
 paths:
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/WalletsService/Wallets/{walletId}:
     get:
       description: Get details of a specific wallet by ID.
@@ -1398,6 +1674,32 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     ContactDto:
       additionalProperties: false
       example:
@@ -1405,45 +1707,46 @@ components:
         zipCode: zipCode
         streetLine1: streetLine1
         jobTitle: jobTitle
-        twitterUrl: twitterUrl
+        twitterUrl: https://openapi-generator.tech
         postalCode: postalCode
-        tikTokUrl: tikTokUrl
+        tikTokUrl: https://openapi-generator.tech
         about: about
         cityId: cityId
-        type: 0
+        type: Individual
         identityProvider: identityProvider
         publicName: publicName
         id: id
         currencyId: currencyId
-        gitHubUrl: gitHubUrl
+        gitHubUrl: https://openapi-generator.tech
         walletId: walletId
         enrollmentId: enrollmentId
         parentContactId: parentContactId
         activeDirectoryId: activeDirectoryId
-        linkedInUrl: linkedInUrl
+        linkedInUrl: https://openapi-generator.tech
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
         cartId: cartId
         relatedTenantId: relatedTenantId
-        twitchUrl: twitchUrl
+        twitchUrl: https://openapi-generator.tech
         ownerContactId: ownerContactId
         coverUrl: coverUrl
         firstName: firstName
         activityFeedId: activityFeedId
         mobilePhone: mobilePhone
-        webUrl: webUrl
+        phone: phone
+        webUrl: https://openapi-generator.tech
         taxId: taxId
         duns: duns
         businessPhone: businessPhone
-        youTubeUrl: youTubeUrl
+        youTubeUrl: https://openapi-generator.tech
         annualRevenue: annualRevenue
         birthday: 2000-01-23T04:56:07.000+00:00
         lastName: lastName
         relatedUserId: relatedUserId
         countryId: countryId
-        redditUrl: redditUrl
-        facebookUrl: facebookUrl
-        websiteUrl: websiteUrl
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
+        websiteUrl: https://openapi-generator.tech
         street: street
         territoryId: territoryId
         socialProfileId: socialProfileId
@@ -1458,7 +1761,7 @@ components:
         tenantId: tenantId
         timezoneId: timezoneId
         faxNumber: faxNumber
-        instagramUrl: instagramUrl
+        instagramUrl: https://openapi-generator.tech
       properties:
         id:
           nullable: true
@@ -1476,10 +1779,17 @@ components:
           type: string
         type:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
         publicName:
           nullable: true
           type: string
@@ -1511,36 +1821,47 @@ components:
           nullable: true
           type: string
         webUrl:
+          format: uri
           nullable: true
           type: string
         gitHubUrl:
+          format: uri
           nullable: true
           type: string
         twitchUrl:
+          format: uri
           nullable: true
           type: string
         redditUrl:
+          format: uri
           nullable: true
           type: string
         tikTokUrl:
+          format: uri
           nullable: true
           type: string
         websiteUrl:
+          format: uri
           nullable: true
           type: string
         twitterUrl:
+          format: uri
           nullable: true
           type: string
         facebookUrl:
+          format: uri
           nullable: true
           type: string
         youTubeUrl:
+          format: uri
           nullable: true
           type: string
         linkedInUrl:
+          format: uri
           nullable: true
           type: string
         instagramUrl:
+          format: uri
           nullable: true
           type: string
         githubUsername:
@@ -1550,10 +1871,6 @@ components:
           nullable: true
           type: string
         taxId:
-          nullable: true
-          type: string
-        email:
-          format: email
           nullable: true
           type: string
         about:
@@ -1642,19 +1959,6 @@ components:
           nullable: true
           type: string
       type: object
-    Currency:
-      additionalProperties: false
-      example:
-        country: country
-        code: code
-      properties:
-        code:
-          nullable: true
-          type: string
-        country:
-          nullable: true
-          type: string
-      type: object
     EmptyEnvelope:
       additionalProperties: false
       example:
@@ -1712,50 +2016,24 @@ components:
     ExtendedOrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 1.2315135367772556
-        totalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDiscountsInUsd: 6.84685269835264
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        totalInUsd: 9.018348186070783
         companyName: companyName
         postalCode: postalCode
-        freightTerms: 6
+        totalDetail: 6.027456183070403
+        totalShippingCost: 9.301444243932576
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+        freightTerms: FOB
         cityId: cityId
-        totalGlobalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         type: type
-        totalGlobalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxBaseInUsd: 7.386281948385884
-        totalGlobalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalTaxBaseInUsd: 1.1730742509559433
         organizationId: organizationId
-        totalTaxBase: 5.962133916683182
-        customDiscountsAmount: 1.284659006116532
-        totalAmountInUsd: 2.027123023002322
+        totalTaxBase: 2.3021358869347655
+        customDiscountsAmount: 6.778324963048013
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
-        totalDetailAmountInUsd: 1.4894159098541704
-        totalTaxAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         id: id
         currencyId: currencyId
         tenant:
@@ -1797,60 +2075,57 @@ components:
           instagramUrl: instagramUrl
           slogan: slogan
           youTubeUrl: youTubeUrl
-        totalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTaxAmount: 9.018348186070783
+        customTaxAmount: 3.5571952270680973
         enrollmentId: enrollmentId
         walletId: walletId
-        totalProfitInUsd: 4.145608029883936
-        orderLinesCount: 9
+        totalWithheldTaxesInUsd: 5.025004791520295
+        totalProfitInUsd: 1.4894159098541704
+        orderLinesCount: 6
         individual:
           streetLine2: streetLine2
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfileId: socialProfileId
@@ -1865,79 +2140,56 @@ components:
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
-        totalGlobalSurchargesInUsd: 7.457744773683766
+          instagramUrl: https://openapi-generator.tech
+        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
-        costCalculationMethod: 9
-        totalShippingTaxesInUsd: 5.025004791520295
+        costCalculationMethod: Automatic
+        totalShippingTaxesInUsd: 9.369310271410669
         quoteId: quoteId
         firstName: firstName
-        totalAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalShippingTax: 3.616076749251911
         forexRate: 0.8008281904610115
-        customDetailAmount: 3.5571952270680973
-        customSurchargesAmount: 2.8841621266687802
+        customDetailAmount: 1.284659006116532
+        customSurchargesAmount: 6.878052220127876
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 6.878052220127876
-        totalTaxBaseAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalShippingCostInUsd: 4.965218492984954
-        totalTaxAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customWithholdingTaxAmount: 5.944895607614016
-        totalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        customShippingCostAmount: 6.704019297950036
+        totalShippingCostInUsd: 9.965781217890562
+        totalDetailInUsd: 1.0246457001441578
+        customWithholdingTaxAmount: 3.353193347011243
         billingLocationId: billingLocationId
         lastName: lastName
-        totalGlobalDiscounts: 7.061401241503109
-        totalDiscounts: 5.637376656633329
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        totalProfit: 1.4658129805029452
+        totalGlobalDiscounts: 4.145608029883936
+        totalDiscounts: 5.962133916683182
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
-        orderStatus: 8
+        orderStatus: New
         customerNotes: customerNotes
         shippingLocationId: shippingLocationId
         individualId: individualId
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 6.027456183070403
-        totalSurchargesInUsd: 1.0246457001441578
+        total: 1.2315135367772556
+        totalCurrencyId: totalCurrencyId
+        totalSurchargesInUsd: 7.457744773683766
         billingEmail: billingEmail
-        totalWithholdingTaxesInUsd: 1.1730742509559433
         parentOrderId: parentOrderId
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        currency:
-          country: country
-          code: code
-        totalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTotalAmount: 6.438423552598547
+        customTotalAmount: 6.965117697638846
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
-        totalTaxes: 1.4658129805029452
+        totalTaxes: 7.061401241503109
+        totalWithheldTax: 2.027123023002322
         stateId: stateId
-        customShippingTaxAmount: 6.778324963048013
+        customShippingTaxAmount: 5.944895607614016
         priceListId: priceListId
         userId: userId
-        totalGlobalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
         enrollment:
           isRoot: true
           isOwner: true
@@ -1947,57 +2199,53 @@ components:
           isDisabled: true
           userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        totalTaxesInUsd: 3.616076749251911
-        totalTaxBaseAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customProfitAmount: 6.965117697638846
+        totalTaxesInUsd: 4.965218492984954
+        customProfitAmount: 2.8841621266687802
         organization:
           streetLine2: streetLine2
           zipCode: zipCode
           streetLine1: streetLine1
           jobTitle: jobTitle
-          twitterUrl: twitterUrl
+          twitterUrl: https://openapi-generator.tech
           postalCode: postalCode
-          tikTokUrl: tikTokUrl
+          tikTokUrl: https://openapi-generator.tech
           about: about
           cityId: cityId
-          type: 0
+          type: Individual
           identityProvider: identityProvider
           publicName: publicName
           id: id
           currencyId: currencyId
-          gitHubUrl: gitHubUrl
+          gitHubUrl: https://openapi-generator.tech
           walletId: walletId
           enrollmentId: enrollmentId
           parentContactId: parentContactId
           activeDirectoryId: activeDirectoryId
-          linkedInUrl: linkedInUrl
+          linkedInUrl: https://openapi-generator.tech
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
           cartId: cartId
           relatedTenantId: relatedTenantId
-          twitchUrl: twitchUrl
+          twitchUrl: https://openapi-generator.tech
           ownerContactId: ownerContactId
           coverUrl: coverUrl
           firstName: firstName
           activityFeedId: activityFeedId
           mobilePhone: mobilePhone
-          webUrl: webUrl
+          phone: phone
+          webUrl: https://openapi-generator.tech
           taxId: taxId
           duns: duns
           businessPhone: businessPhone
-          youTubeUrl: youTubeUrl
+          youTubeUrl: https://openapi-generator.tech
           annualRevenue: annualRevenue
           birthday: 2000-01-23T04:56:07.000+00:00
           lastName: lastName
           relatedUserId: relatedUserId
           countryId: countryId
-          redditUrl: redditUrl
-          facebookUrl: facebookUrl
-          websiteUrl: websiteUrl
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
           street: street
           territoryId: territoryId
           socialProfileId: socialProfileId
@@ -2012,29 +2260,32 @@ components:
           tenantId: tenantId
           timezoneId: timezoneId
           faxNumber: faxNumber
-          instagramUrl: instagramUrl
+          instagramUrl: https://openapi-generator.tech
         tenantId: tenantId
         closed: true
-        totalSurcharges: 2.3021358869347655
-        totalGlobalSurcharges: 9.301444243932576
-        totalGlobalDiscountsInUsd: 6.84685269835264
+        totalSurcharges: 5.637376656633329
+        taxCalculationMethod: Included
+        totalGlobalSurcharges: 7.386281948385884
+        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalProfitCurrencyId: totalProfitCurrencyId
         user:
           birthday: 2000-01-23T04:56:07.000+00:00
+          handler: handler
           lastName: lastName
-          gender: 6
+          gender: Unknown
           emailConfirmed: true
           twitterUrl: twitterUrl
           jobTitle: jobTitle
           about: about
           currentEnrollmentId: currentEnrollmentId
           cityId: cityId
-          availability: 3
+          availability: DND
           countryId: countryId
           identityProvider: identityProvider
           phoneNumberConfirmed: true
           currentTenantId: currentTenantId
           facebookUrl: facebookUrl
-          siteTheme: 7
+          siteTheme: System
           publicName: publicName
           websiteUrl: websiteUrl
           id: id
@@ -2104,6 +2355,7 @@ components:
           instagramUrl: instagramUrl
           slogan: slogan
           youTubeUrl: youTubeUrl
+        totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         id:
           nullable: true
@@ -2124,9 +2376,6 @@ components:
           nullable: true
           type: string
         tenantId:
-          nullable: true
-          type: string
-        currencyId:
           nullable: true
           type: string
         description:
@@ -2180,40 +2429,93 @@ components:
         customerNotes:
           nullable: true
           type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
         forexRate:
           format: double
           type: number
-        total:
+        currencyId:
+          nullable: true
+          type: string
+        totalDetail:
           format: double
           type: number
-        totalTaxes:
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalProfit:
           format: double
           type: number
-        totalTaxBase:
-          format: double
-          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
         totalDiscounts:
           format: double
           type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalSurcharges:
           format: double
           type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
         totalGlobalDiscounts:
           format: double
           type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalGlobalSurcharges:
           format: double
           type: number
-        totalTaxesInUsd:
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        total:
           format: double
           type: number
-        totalAmountInUsd:
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalDetailInUsd:
           format: double
           type: number
         totalProfitInUsd:
-          format: double
-          type: number
-        totalTaxBaseInUsd:
           format: double
           type: number
         totalDiscountsInUsd:
@@ -2222,16 +2524,13 @@ components:
         totalSurchargesInUsd:
           format: double
           type: number
-        totalDetailAmountInUsd:
+        totalTaxBaseInUsd:
           format: double
           type: number
-        totalGlobalDiscountsInUsd:
+        totalTaxesInUsd:
           format: double
           type: number
-        totalGlobalSurchargesInUsd:
-          format: double
-          type: number
-        totalWithholdingTaxesInUsd:
+        totalWithheldTaxesInUsd:
           format: double
           type: number
         totalShippingCostInUsd:
@@ -2240,36 +2539,15 @@ components:
         totalShippingTaxesInUsd:
           format: double
           type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
         totalInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmount:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
+          format: double
+          type: number
         orderLinesCount:
           format: int32
           type: integer
@@ -2299,30 +2577,27 @@ components:
           type: string
         costCalculationMethod:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Automatic
+          - Custom
+          type: string
         freightTerms:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - FOB
+          - NoCharge
+          type: string
         orderStatus:
           enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          format: int32
-          type: integer
+          - New
+          - Processing
+          - Accepted
+          - Declined
+          - Shipped
+          - Delivered
+          - OnHold
+          - Failed
+          - Fulfilled
+          - Cancelled
+          type: string
         requestedDeliveryDate:
           format: date-time
           type: string
@@ -2364,56 +2639,30 @@ components:
         receiverTenant:
           $ref: '#/components/schemas/TenantDto'
         enrollment:
-          $ref: '#/components/schemas/TenantEnrolmentDto'
+          $ref: '#/components/schemas/TenantEnrollmentDto'
       type: object
     ExtendedOrderDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
-          freightTerms: 6
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          customDiscountsAmount: 1.284659006116532
-          totalAmountInUsd: 2.027123023002322
+          totalTaxBase: 2.3021358869347655
+          customDiscountsAmount: 6.778324963048013
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
           tenant:
@@ -2455,60 +2704,57 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTaxAmount: 9.018348186070783
+          customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
-          totalProfitInUsd: 4.145608029883936
-          orderLinesCount: 9
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          orderLinesCount: 6
           individual:
             streetLine2: streetLine2
             zipCode: zipCode
             streetLine1: streetLine1
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
+            twitterUrl: https://openapi-generator.tech
             postalCode: postalCode
-            tikTokUrl: tikTokUrl
+            tikTokUrl: https://openapi-generator.tech
             about: about
             cityId: cityId
-            type: 0
+            type: Individual
             identityProvider: identityProvider
             publicName: publicName
             id: id
             currencyId: currencyId
-            gitHubUrl: gitHubUrl
+            gitHubUrl: https://openapi-generator.tech
             walletId: walletId
             enrollmentId: enrollmentId
             parentContactId: parentContactId
             activeDirectoryId: activeDirectoryId
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             cartId: cartId
             relatedTenantId: relatedTenantId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             ownerContactId: ownerContactId
             coverUrl: coverUrl
             firstName: firstName
             activityFeedId: activityFeedId
             mobilePhone: mobilePhone
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             taxId: taxId
             duns: duns
             businessPhone: businessPhone
-            youTubeUrl: youTubeUrl
+            youTubeUrl: https://openapi-generator.tech
             annualRevenue: annualRevenue
             birthday: 2000-01-23T04:56:07.000+00:00
             lastName: lastName
             relatedUserId: relatedUserId
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
-            websiteUrl: websiteUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
             street: street
             territoryId: territoryId
             socialProfileId: socialProfileId
@@ -2523,79 +2769,56 @@ components:
             tenantId: tenantId
             timezoneId: timezoneId
             faxNumber: faxNumber
-            instagramUrl: instagramUrl
-          totalGlobalSurchargesInUsd: 7.457744773683766
+            instagramUrl: https://openapi-generator.tech
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
-          costCalculationMethod: 9
-          totalShippingTaxesInUsd: 5.025004791520295
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           quoteId: quoteId
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          customDetailAmount: 3.5571952270680973
-          customSurchargesAmount: 2.8841621266687802
+          customDetailAmount: 1.284659006116532
+          customSurchargesAmount: 6.878052220127876
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.878052220127876
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customWithholdingTaxAmount: 5.944895607614016
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          customShippingCostAmount: 6.704019297950036
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          customWithholdingTaxAmount: 3.353193347011243
           billingLocationId: billingLocationId
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
-          orderStatus: 8
+          orderStatus: New
           customerNotes: customerNotes
           shippingLocationId: shippingLocationId
           individualId: individualId
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
           parentOrderId: parentOrderId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTotalAmount: 6.438423552598547
+          customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           stateId: stateId
-          customShippingTaxAmount: 6.778324963048013
+          customShippingTaxAmount: 5.944895607614016
           priceListId: priceListId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
           enrollment:
             isRoot: true
             isOwner: true
@@ -2605,57 +2828,53 @@ components:
             isDisabled: true
             userId: userId
             timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customProfitAmount: 6.965117697638846
+          totalTaxesInUsd: 4.965218492984954
+          customProfitAmount: 2.8841621266687802
           organization:
             streetLine2: streetLine2
             zipCode: zipCode
             streetLine1: streetLine1
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
+            twitterUrl: https://openapi-generator.tech
             postalCode: postalCode
-            tikTokUrl: tikTokUrl
+            tikTokUrl: https://openapi-generator.tech
             about: about
             cityId: cityId
-            type: 0
+            type: Individual
             identityProvider: identityProvider
             publicName: publicName
             id: id
             currencyId: currencyId
-            gitHubUrl: gitHubUrl
+            gitHubUrl: https://openapi-generator.tech
             walletId: walletId
             enrollmentId: enrollmentId
             parentContactId: parentContactId
             activeDirectoryId: activeDirectoryId
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             cartId: cartId
             relatedTenantId: relatedTenantId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             ownerContactId: ownerContactId
             coverUrl: coverUrl
             firstName: firstName
             activityFeedId: activityFeedId
             mobilePhone: mobilePhone
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             taxId: taxId
             duns: duns
             businessPhone: businessPhone
-            youTubeUrl: youTubeUrl
+            youTubeUrl: https://openapi-generator.tech
             annualRevenue: annualRevenue
             birthday: 2000-01-23T04:56:07.000+00:00
             lastName: lastName
             relatedUserId: relatedUserId
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
-            websiteUrl: websiteUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
             street: street
             territoryId: territoryId
             socialProfileId: socialProfileId
@@ -2670,29 +2889,32 @@ components:
             tenantId: tenantId
             timezoneId: timezoneId
             faxNumber: faxNumber
-            instagramUrl: instagramUrl
+            instagramUrl: https://openapi-generator.tech
           tenantId: tenantId
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
           user:
             birthday: 2000-01-23T04:56:07.000+00:00
+            handler: handler
             lastName: lastName
-            gender: 6
+            gender: Unknown
             emailConfirmed: true
             twitterUrl: twitterUrl
             jobTitle: jobTitle
             about: about
             currentEnrollmentId: currentEnrollmentId
             cityId: cityId
-            availability: 3
+            availability: DND
             countryId: countryId
             identityProvider: identityProvider
             phoneNumberConfirmed: true
             currentTenantId: currentTenantId
             facebookUrl: facebookUrl
-            siteTheme: 7
+            siteTheme: System
             publicName: publicName
             websiteUrl: websiteUrl
             id: id
@@ -2762,50 +2984,25 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
-        - totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
-          freightTerms: 6
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          customDiscountsAmount: 1.284659006116532
-          totalAmountInUsd: 2.027123023002322
+          totalTaxBase: 2.3021358869347655
+          customDiscountsAmount: 6.778324963048013
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
           tenant:
@@ -2847,60 +3044,57 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTaxAmount: 9.018348186070783
+          customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
-          totalProfitInUsd: 4.145608029883936
-          orderLinesCount: 9
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          orderLinesCount: 6
           individual:
             streetLine2: streetLine2
             zipCode: zipCode
             streetLine1: streetLine1
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
+            twitterUrl: https://openapi-generator.tech
             postalCode: postalCode
-            tikTokUrl: tikTokUrl
+            tikTokUrl: https://openapi-generator.tech
             about: about
             cityId: cityId
-            type: 0
+            type: Individual
             identityProvider: identityProvider
             publicName: publicName
             id: id
             currencyId: currencyId
-            gitHubUrl: gitHubUrl
+            gitHubUrl: https://openapi-generator.tech
             walletId: walletId
             enrollmentId: enrollmentId
             parentContactId: parentContactId
             activeDirectoryId: activeDirectoryId
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             cartId: cartId
             relatedTenantId: relatedTenantId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             ownerContactId: ownerContactId
             coverUrl: coverUrl
             firstName: firstName
             activityFeedId: activityFeedId
             mobilePhone: mobilePhone
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             taxId: taxId
             duns: duns
             businessPhone: businessPhone
-            youTubeUrl: youTubeUrl
+            youTubeUrl: https://openapi-generator.tech
             annualRevenue: annualRevenue
             birthday: 2000-01-23T04:56:07.000+00:00
             lastName: lastName
             relatedUserId: relatedUserId
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
-            websiteUrl: websiteUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
             street: street
             territoryId: territoryId
             socialProfileId: socialProfileId
@@ -2915,79 +3109,56 @@ components:
             tenantId: tenantId
             timezoneId: timezoneId
             faxNumber: faxNumber
-            instagramUrl: instagramUrl
-          totalGlobalSurchargesInUsd: 7.457744773683766
+            instagramUrl: https://openapi-generator.tech
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
-          costCalculationMethod: 9
-          totalShippingTaxesInUsd: 5.025004791520295
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           quoteId: quoteId
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          customDetailAmount: 3.5571952270680973
-          customSurchargesAmount: 2.8841621266687802
+          customDetailAmount: 1.284659006116532
+          customSurchargesAmount: 6.878052220127876
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 6.878052220127876
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customWithholdingTaxAmount: 5.944895607614016
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          customShippingCostAmount: 6.704019297950036
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          customWithholdingTaxAmount: 3.353193347011243
           billingLocationId: billingLocationId
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
-          orderStatus: 8
+          orderStatus: New
           customerNotes: customerNotes
           shippingLocationId: shippingLocationId
           individualId: individualId
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
           parentOrderId: parentOrderId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTotalAmount: 6.438423552598547
+          customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           stateId: stateId
-          customShippingTaxAmount: 6.778324963048013
+          customShippingTaxAmount: 5.944895607614016
           priceListId: priceListId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
           enrollment:
             isRoot: true
             isOwner: true
@@ -2997,57 +3168,53 @@ components:
             isDisabled: true
             userId: userId
             timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customProfitAmount: 6.965117697638846
+          totalTaxesInUsd: 4.965218492984954
+          customProfitAmount: 2.8841621266687802
           organization:
             streetLine2: streetLine2
             zipCode: zipCode
             streetLine1: streetLine1
             jobTitle: jobTitle
-            twitterUrl: twitterUrl
+            twitterUrl: https://openapi-generator.tech
             postalCode: postalCode
-            tikTokUrl: tikTokUrl
+            tikTokUrl: https://openapi-generator.tech
             about: about
             cityId: cityId
-            type: 0
+            type: Individual
             identityProvider: identityProvider
             publicName: publicName
             id: id
             currencyId: currencyId
-            gitHubUrl: gitHubUrl
+            gitHubUrl: https://openapi-generator.tech
             walletId: walletId
             enrollmentId: enrollmentId
             parentContactId: parentContactId
             activeDirectoryId: activeDirectoryId
-            linkedInUrl: linkedInUrl
+            linkedInUrl: https://openapi-generator.tech
             avatarUrl: avatarUrl
             qualifiedName: qualifiedName
             cartId: cartId
             relatedTenantId: relatedTenantId
-            twitchUrl: twitchUrl
+            twitchUrl: https://openapi-generator.tech
             ownerContactId: ownerContactId
             coverUrl: coverUrl
             firstName: firstName
             activityFeedId: activityFeedId
             mobilePhone: mobilePhone
-            webUrl: webUrl
+            phone: phone
+            webUrl: https://openapi-generator.tech
             taxId: taxId
             duns: duns
             businessPhone: businessPhone
-            youTubeUrl: youTubeUrl
+            youTubeUrl: https://openapi-generator.tech
             annualRevenue: annualRevenue
             birthday: 2000-01-23T04:56:07.000+00:00
             lastName: lastName
             relatedUserId: relatedUserId
             countryId: countryId
-            redditUrl: redditUrl
-            facebookUrl: facebookUrl
-            websiteUrl: websiteUrl
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
             street: street
             territoryId: territoryId
             socialProfileId: socialProfileId
@@ -3062,29 +3229,32 @@ components:
             tenantId: tenantId
             timezoneId: timezoneId
             faxNumber: faxNumber
-            instagramUrl: instagramUrl
+            instagramUrl: https://openapi-generator.tech
           tenantId: tenantId
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
           user:
             birthday: 2000-01-23T04:56:07.000+00:00
+            handler: handler
             lastName: lastName
-            gender: 6
+            gender: Unknown
             emailConfirmed: true
             twitterUrl: twitterUrl
             jobTitle: jobTitle
             about: about
             currentEnrollmentId: currentEnrollmentId
             cityId: cityId
-            availability: 3
+            availability: DND
             countryId: countryId
             identityProvider: identityProvider
             phoneNumberConfirmed: true
             currentTenantId: currentTenantId
             facebookUrl: facebookUrl
-            siteTheme: 7
+            siteTheme: System
             publicName: publicName
             websiteUrl: websiteUrl
             id: id
@@ -3154,6 +3324,7 @@ components:
             instagramUrl: instagramUrl
             slogan: slogan
             youTubeUrl: youTubeUrl
+          totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -3182,6 +3353,76 @@ components:
             $ref: '#/components/schemas/ExtendedOrderDto'
           nullable: true
           type: array
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
       type: object
     Int32Envelope:
       additionalProperties: false
@@ -3218,138 +3459,84 @@ components:
       additionalProperties: false
       example:
         paymentModeId: paymentModeId
-        totalDiscountsInUsd: 1.2315135367772556
-        totalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDiscountsInUsd: 6.84685269835264
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
         notes: notes
         orderId: orderId
-        totalInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalInUsd: 9.018348186070783
         companyName: companyName
         postalCode: postalCode
+        totalDetail: 6.027456183070403
+        totalShippingCost: 9.301444243932576
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         cityId: cityId
-        totalGlobalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         type: type
-        totalGlobalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         enumerationRangeId: enumerationRangeId
-        totalTaxBaseInUsd: 7.386281948385884
-        totalGlobalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalTaxBaseInUsd: 1.1730742509559433
         organizationId: organizationId
-        totalTaxBase: 5.962133916683182
-        number: 9
+        totalTaxBase: 2.3021358869347655
+        number: 6
         emisorWalletAccountId: emisorWalletAccountId
-        totalAmountInUsd: 2.027123023002322
         receiverWalletAccountId: receiverWalletAccountId
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
-        invoiceType: 9
+        invoiceType: PurchaseInvoice
         addressLine2: addressLine2
-        totalDetailAmountInUsd: 1.4894159098541704
-        totalTaxAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         id: id
         currencyId: currencyId
         enumeration: enumeration
-        totalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         enrollmentId: enrollmentId
-        totalProfitInUsd: 4.145608029883936
-        totalGlobalSurchargesInUsd: 7.457744773683766
-        totalShippingTaxesInUsd: 5.025004791520295
+        totalWithheldTaxesInUsd: 5.025004791520295
+        totalProfitInUsd: 1.4894159098541704
+        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+        costCalculationMethod: Automatic
+        totalShippingTaxesInUsd: 9.369310271410669
         paymentDue: 2000-01-23T04:56:07.000+00:00
         firstName: firstName
-        totalAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalShippingTax: 3.616076749251911
         forexRate: 0.8008281904610115
-        totalTaxBaseAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalShippingCostInUsd: 4.965218492984954
-        totalTaxAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalShippingCostInUsd: 9.965781217890562
+        totalDetailInUsd: 1.0246457001441578
         lastName: lastName
-        totalGlobalDiscounts: 7.061401241503109
-        documentType: 6
-        totalDiscounts: 5.637376656633329
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        totalProfit: 1.4658129805029452
+        totalGlobalDiscounts: 4.145608029883936
+        documentType: Standard
+        totalDiscounts: 5.962133916683182
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         customerNotes: customerNotes
         individualId: individualId
         title: title
         countryId: countryId
-        total: 6.027456183070403
-        totalSurchargesInUsd: 1.0246457001441578
+        total: 1.2315135367772556
+        totalCurrencyId: totalCurrencyId
+        totalSurchargesInUsd: 7.457744773683766
         billingEmail: billingEmail
-        totalWithholdingTaxesInUsd: 1.1730742509559433
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        currency:
-          country: country
-          code: code
-        totalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         timestamp: 2000-01-23T04:56:07.000+00:00
-        totalTaxes: 1.4658129805029452
+        totalTaxes: 7.061401241503109
+        totalWithheldTax: 2.027123023002322
         emisorBillingProfileId: emisorBillingProfileId
         stateId: stateId
         priceListId: priceListId
         receiverBillingProfileId: receiverBillingProfileId
         userId: userId
-        totalGlobalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxesInUsd: 3.616076749251911
-        totalTaxBaseAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        totalTaxesInUsd: 4.965218492984954
         tenantId: tenantId
         paid: true
         closed: true
-        totalSurcharges: 2.3021358869347655
-        totalGlobalSurcharges: 9.301444243932576
-        totalGlobalDiscountsInUsd: 6.84685269835264
-        invoiceStatus: 8
+        totalSurcharges: 5.637376656633329
+        taxCalculationMethod: Included
+        totalGlobalSurcharges: 7.386281948385884
+        totalGlobalDiscountsInUsd: 6.683562403749608
+        invoiceStatus: Draft
+        totalProfitCurrencyId: totalProfitCurrencyId
+        totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         id:
           nullable: true
@@ -3370,9 +3557,6 @@ components:
           nullable: true
           type: string
         tenantId:
-          nullable: true
-          type: string
-        currencyId:
           nullable: true
           type: string
         description:
@@ -3426,40 +3610,98 @@ components:
         customerNotes:
           nullable: true
           type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
+          type: string
         forexRate:
           format: double
           type: number
-        total:
+        currencyId:
+          nullable: true
+          type: string
+        totalDetail:
           format: double
           type: number
-        totalTaxes:
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalProfit:
           format: double
           type: number
-        totalTaxBase:
-          format: double
-          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
         totalDiscounts:
           format: double
           type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalSurcharges:
           format: double
           type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
         totalGlobalDiscounts:
           format: double
           type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalGlobalSurcharges:
           format: double
           type: number
-        totalTaxesInUsd:
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        total:
           format: double
           type: number
-        totalAmountInUsd:
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalDetailInUsd:
           format: double
           type: number
         totalProfitInUsd:
-          format: double
-          type: number
-        totalTaxBaseInUsd:
           format: double
           type: number
         totalDiscountsInUsd:
@@ -3468,16 +3710,13 @@ components:
         totalSurchargesInUsd:
           format: double
           type: number
-        totalDetailAmountInUsd:
+        totalTaxBaseInUsd:
           format: double
           type: number
-        totalGlobalDiscountsInUsd:
+        totalTaxesInUsd:
           format: double
           type: number
-        totalGlobalSurchargesInUsd:
-          format: double
-          type: number
-        totalWithholdingTaxesInUsd:
+        totalWithheldTaxesInUsd:
           format: double
           type: number
         totalShippingCostInUsd:
@@ -3486,36 +3725,15 @@ components:
         totalShippingTaxesInUsd:
           format: double
           type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
         totalInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmount:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
+          format: double
+          type: number
         paid:
           type: boolean
         number:
@@ -3554,297 +3772,188 @@ components:
           type: string
         invoiceType:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - PurchaseInvoice
+          - SalesInvoice
+          - CreditNote
+          - DebitNote
+          type: string
         documentType:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - Standard
+          - DebitNote
+          - CreditNote
+          type: string
         invoiceStatus:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          format: int32
-          type: integer
+          - Draft
+          - Closed
+          - Signed
+          - Expired
+          - Paid
+          type: string
       type: object
     InvoiceDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - paymentModeId: paymentModeId
-          totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
           notes: notes
           orderId: orderId
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           enumerationRangeId: enumerationRangeId
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          number: 9
+          totalTaxBase: 2.3021358869347655
+          number: 6
           emisorWalletAccountId: emisorWalletAccountId
-          totalAmountInUsd: 2.027123023002322
           receiverWalletAccountId: receiverWalletAccountId
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
-          invoiceType: 9
+          invoiceType: PurchaseInvoice
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
           enumeration: enumeration
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           enrollmentId: enrollmentId
-          totalProfitInUsd: 4.145608029883936
-          totalGlobalSurchargesInUsd: 7.457744773683766
-          totalShippingTaxesInUsd: 5.025004791520295
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           paymentDue: 2000-01-23T04:56:07.000+00:00
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          documentType: 6
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          documentType: Standard
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
           individualId: individualId
           title: title
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           emisorBillingProfileId: emisorBillingProfileId
           stateId: stateId
           priceListId: priceListId
           receiverBillingProfileId: receiverBillingProfileId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
           tenantId: tenantId
           paid: true
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
-          invoiceStatus: 8
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          invoiceStatus: Draft
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalTaxesCurrencyId: totalTaxesCurrencyId
         - paymentModeId: paymentModeId
-          totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
           notes: notes
           orderId: orderId
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           enumerationRangeId: enumerationRangeId
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          number: 9
+          totalTaxBase: 2.3021358869347655
+          number: 6
           emisorWalletAccountId: emisorWalletAccountId
-          totalAmountInUsd: 2.027123023002322
           receiverWalletAccountId: receiverWalletAccountId
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
-          invoiceType: 9
+          invoiceType: PurchaseInvoice
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
           enumeration: enumeration
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           enrollmentId: enrollmentId
-          totalProfitInUsd: 4.145608029883936
-          totalGlobalSurchargesInUsd: 7.457744773683766
-          totalShippingTaxesInUsd: 5.025004791520295
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           paymentDue: 2000-01-23T04:56:07.000+00:00
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          documentType: 6
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          documentType: Standard
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           customerNotes: customerNotes
           individualId: individualId
           title: title
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           timestamp: 2000-01-23T04:56:07.000+00:00
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           emisorBillingProfileId: emisorBillingProfileId
           stateId: stateId
           priceListId: priceListId
           receiverBillingProfileId: receiverBillingProfileId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
           tenantId: tenantId
           paid: true
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
-          invoiceStatus: 8
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          invoiceStatus: Draft
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -3904,11 +4013,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         title:
           nullable: true
@@ -4286,163 +4393,118 @@ components:
         isDefaultSuppingLocation:
           type: boolean
       type: object
-    Money:
+    LoginRequest:
       additionalProperties: false
       example:
-        amount: 9.965781217890562
-        currency:
-          country: country
-          code: code
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
       properties:
-        amount:
-          format: double
-          type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
       type: object
     OrderDto:
       additionalProperties: false
       example:
-        totalDiscountsInUsd: 1.2315135367772556
-        totalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalDiscountsInUsd: 6.84685269835264
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        totalInUsd: 9.018348186070783
         companyName: companyName
         postalCode: postalCode
-        freightTerms: 8
+        totalDetail: 6.027456183070403
+        totalShippingCost: 9.301444243932576
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+        freightTerms: FOB
         cityId: cityId
-        totalGlobalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         type: type
-        totalGlobalDiscountsAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxBaseInUsd: 7.386281948385884
-        totalGlobalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalTaxBaseInUsd: 1.1730742509559433
         organizationId: organizationId
-        totalTaxBase: 5.962133916683182
-        customDiscountsAmount: 2.8841621266687802
-        totalAmountInUsd: 2.027123023002322
+        totalTaxBase: 2.3021358869347655
+        customDiscountsAmount: 6.778324963048013
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
-        totalDetailAmountInUsd: 1.4894159098541704
-        totalTaxAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
         id: id
         currencyId: currencyId
-        totalSurchargesAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTaxAmount: 6.438423552598547
+        customTaxAmount: 3.5571952270680973
         enrollmentId: enrollmentId
         walletId: walletId
-        totalProfitInUsd: 4.145608029883936
-        orderLinesCount: 9
-        totalGlobalSurchargesInUsd: 7.457744773683766
+        totalWithheldTaxesInUsd: 5.025004791520295
+        totalProfitInUsd: 1.4894159098541704
+        orderLinesCount: 6
+        totalGlobalSurchargesInUsd: 8.762042012749001
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
-        costCalculationMethod: 6
-        totalShippingTaxesInUsd: 5.025004791520295
+        costCalculationMethod: Automatic
+        totalShippingTaxesInUsd: 9.369310271410669
         quoteId: quoteId
         firstName: firstName
-        totalAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        totalShippingTax: 3.616076749251911
         forexRate: 0.8008281904610115
-        customDetailAmount: 6.965117697638846
-        customSurchargesAmount: 6.778324963048013
+        customDetailAmount: 1.284659006116532
+        customSurchargesAmount: 6.878052220127876
         requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        customShippingCostAmount: 5.944895607614016
-        totalTaxBaseAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalShippingCostInUsd: 4.965218492984954
-        totalTaxAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customWithholdingTaxAmount: 6.704019297950036
-        totalSurchargesAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
+        customShippingCostAmount: 6.704019297950036
+        totalShippingCostInUsd: 9.965781217890562
+        totalDetailInUsd: 1.0246457001441578
+        customWithholdingTaxAmount: 3.353193347011243
         billingLocationId: billingLocationId
         lastName: lastName
-        totalGlobalDiscounts: 7.061401241503109
-        totalDiscounts: 5.637376656633329
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        totalProfit: 1.4658129805029452
+        totalGlobalDiscounts: 4.145608029883936
+        totalDiscounts: 5.962133916683182
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
-        orderStatus: 9
+        orderStatus: New
         customerNotes: customerNotes
         shippingLocationId: shippingLocationId
         individualId: individualId
         title: title
         qualifiedIdentifier: qualifiedIdentifier
         countryId: countryId
-        total: 6.027456183070403
-        totalSurchargesInUsd: 1.0246457001441578
+        total: 1.2315135367772556
+        totalCurrencyId: totalCurrencyId
+        totalSurchargesInUsd: 7.457744773683766
         billingEmail: billingEmail
-        totalWithholdingTaxesInUsd: 1.1730742509559433
         parentOrderId: parentOrderId
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        currency:
-          country: country
-          code: code
-        totalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customTotalAmount: 3.5571952270680973
+        customTotalAmount: 6.965117697638846
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
-        totalTaxes: 1.4658129805029452
+        totalTaxes: 7.061401241503109
+        totalWithheldTax: 2.027123023002322
         stateId: stateId
-        customShippingTaxAmount: 6.878052220127876
+        customShippingTaxAmount: 5.944895607614016
         priceListId: priceListId
         userId: userId
-        totalGlobalDiscountsAmount:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        totalTaxesInUsd: 3.616076749251911
-        totalTaxBaseAmountInUsd:
-          amount: 9.965781217890562
-          currency:
-            country: country
-            code: code
-        customProfitAmount: 1.284659006116532
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        totalTaxesInUsd: 4.965218492984954
+        customProfitAmount: 2.8841621266687802
         tenantId: tenantId
         closed: true
-        totalSurcharges: 2.3021358869347655
-        totalGlobalSurcharges: 9.301444243932576
-        totalGlobalDiscountsInUsd: 6.84685269835264
+        totalSurcharges: 5.637376656633329
+        taxCalculationMethod: Included
+        totalGlobalSurcharges: 7.386281948385884
+        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalProfitCurrencyId: totalProfitCurrencyId
+        totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         id:
           nullable: true
@@ -4463,9 +4525,6 @@ components:
           nullable: true
           type: string
         tenantId:
-          nullable: true
-          type: string
-        currencyId:
           nullable: true
           type: string
         description:
@@ -4519,40 +4578,93 @@ components:
         customerNotes:
           nullable: true
           type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
         forexRate:
           format: double
           type: number
-        total:
+        currencyId:
+          nullable: true
+          type: string
+        totalDetail:
           format: double
           type: number
-        totalTaxes:
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalProfit:
           format: double
           type: number
-        totalTaxBase:
-          format: double
-          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
         totalDiscounts:
           format: double
           type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalSurcharges:
           format: double
           type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
         totalGlobalDiscounts:
           format: double
           type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
         totalGlobalSurcharges:
           format: double
           type: number
-        totalTaxesInUsd:
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        total:
           format: double
           type: number
-        totalAmountInUsd:
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalDetailInUsd:
           format: double
           type: number
         totalProfitInUsd:
-          format: double
-          type: number
-        totalTaxBaseInUsd:
           format: double
           type: number
         totalDiscountsInUsd:
@@ -4561,16 +4673,13 @@ components:
         totalSurchargesInUsd:
           format: double
           type: number
-        totalDetailAmountInUsd:
+        totalTaxBaseInUsd:
           format: double
           type: number
-        totalGlobalDiscountsInUsd:
+        totalTaxesInUsd:
           format: double
           type: number
-        totalGlobalSurchargesInUsd:
-          format: double
-          type: number
-        totalWithholdingTaxesInUsd:
+        totalWithheldTaxesInUsd:
           format: double
           type: number
         totalShippingCostInUsd:
@@ -4579,36 +4688,15 @@ components:
         totalShippingTaxesInUsd:
           format: double
           type: number
-        currency:
-          $ref: '#/components/schemas/Currency'
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
         totalInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        totalAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxAmount:
-          $ref: '#/components/schemas/Money'
-        totalTaxBaseAmount:
-          $ref: '#/components/schemas/Money'
-        totalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalDiscountsAmount:
-          $ref: '#/components/schemas/Money'
-        totalGlobalSurchargesAmount:
-          $ref: '#/components/schemas/Money'
+          format: double
+          type: number
         orderLinesCount:
           format: int32
           type: integer
@@ -4638,30 +4726,27 @@ components:
           type: string
         costCalculationMethod:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - Automatic
+          - Custom
+          type: string
         freightTerms:
           enum:
-          - 0
-          - 1
-          format: int32
-          type: integer
+          - FOB
+          - NoCharge
+          type: string
         orderStatus:
           enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          format: int32
-          type: integer
+          - New
+          - Processing
+          - Accepted
+          - Declined
+          - Shipped
+          - Delivered
+          - OnHold
+          - Failed
+          - Fulfilled
+          - Cancelled
+          type: string
         requestedDeliveryDate:
           format: date-time
           type: string
@@ -4697,286 +4782,176 @@ components:
       additionalProperties: false
       example:
         result:
-        - totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
-          freightTerms: 8
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          customDiscountsAmount: 2.8841621266687802
-          totalAmountInUsd: 2.027123023002322
+          totalTaxBase: 2.3021358869347655
+          customDiscountsAmount: 6.778324963048013
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTaxAmount: 6.438423552598547
+          customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
-          totalProfitInUsd: 4.145608029883936
-          orderLinesCount: 9
-          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          orderLinesCount: 6
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
-          costCalculationMethod: 6
-          totalShippingTaxesInUsd: 5.025004791520295
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           quoteId: quoteId
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          customDetailAmount: 6.965117697638846
-          customSurchargesAmount: 6.778324963048013
+          customDetailAmount: 1.284659006116532
+          customSurchargesAmount: 6.878052220127876
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 5.944895607614016
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customWithholdingTaxAmount: 6.704019297950036
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          customShippingCostAmount: 6.704019297950036
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          customWithholdingTaxAmount: 3.353193347011243
           billingLocationId: billingLocationId
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
-          orderStatus: 9
+          orderStatus: New
           customerNotes: customerNotes
           shippingLocationId: shippingLocationId
           individualId: individualId
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
           parentOrderId: parentOrderId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTotalAmount: 3.5571952270680973
+          customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           stateId: stateId
-          customShippingTaxAmount: 6.878052220127876
+          customShippingTaxAmount: 5.944895607614016
           priceListId: priceListId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customProfitAmount: 1.284659006116532
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
+          customProfitAmount: 2.8841621266687802
           tenantId: tenantId
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
-        - totalDiscountsInUsd: 1.2315135367772556
-          totalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
           companyName: companyName
           postalCode: postalCode
-          freightTerms: 8
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
           cityId: cityId
-          totalGlobalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           type: type
-          totalGlobalDiscountsAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxBaseInUsd: 7.386281948385884
-          totalGlobalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalTaxBaseInUsd: 1.1730742509559433
           organizationId: organizationId
-          totalTaxBase: 5.962133916683182
-          customDiscountsAmount: 2.8841621266687802
-          totalAmountInUsd: 2.027123023002322
+          totalTaxBase: 2.3021358869347655
+          customDiscountsAmount: 6.778324963048013
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           addressLine1: addressLine1
           addressLine2: addressLine2
-          totalDetailAmountInUsd: 1.4894159098541704
-          totalTaxAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
           id: id
           currencyId: currencyId
-          totalSurchargesAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTaxAmount: 6.438423552598547
+          customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
-          totalProfitInUsd: 4.145608029883936
-          orderLinesCount: 9
-          totalGlobalSurchargesInUsd: 7.457744773683766
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          orderLinesCount: 6
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
           shippingMethodId: shippingMethodId
-          costCalculationMethod: 6
-          totalShippingTaxesInUsd: 5.025004791520295
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
           quoteId: quoteId
           firstName: firstName
-          totalAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          totalShippingTax: 3.616076749251911
           forexRate: 0.8008281904610115
-          customDetailAmount: 6.965117697638846
-          customSurchargesAmount: 6.778324963048013
+          customDetailAmount: 1.284659006116532
+          customSurchargesAmount: 6.878052220127876
           requestedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          customShippingCostAmount: 5.944895607614016
-          totalTaxBaseAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalShippingCostInUsd: 4.965218492984954
-          totalTaxAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customWithholdingTaxAmount: 6.704019297950036
-          totalSurchargesAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
+          customShippingCostAmount: 6.704019297950036
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          customWithholdingTaxAmount: 3.353193347011243
           billingLocationId: billingLocationId
           lastName: lastName
-          totalGlobalDiscounts: 7.061401241503109
-          totalDiscounts: 5.637376656633329
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
-          orderStatus: 9
+          orderStatus: New
           customerNotes: customerNotes
           shippingLocationId: shippingLocationId
           individualId: individualId
           title: title
           qualifiedIdentifier: qualifiedIdentifier
           countryId: countryId
-          total: 6.027456183070403
-          totalSurchargesInUsd: 1.0246457001441578
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
-          totalWithholdingTaxesInUsd: 1.1730742509559433
           parentOrderId: parentOrderId
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
-          currency:
-            country: country
-            code: code
-          totalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customTotalAmount: 3.5571952270680973
+          customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
-          totalTaxes: 1.4658129805029452
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
           stateId: stateId
-          customShippingTaxAmount: 6.878052220127876
+          customShippingTaxAmount: 5.944895607614016
           priceListId: priceListId
           userId: userId
-          totalGlobalDiscountsAmount:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          totalTaxesInUsd: 3.616076749251911
-          totalTaxBaseAmountInUsd:
-            amount: 9.965781217890562
-            currency:
-              country: country
-              code: code
-          customProfitAmount: 1.284659006116532
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
+          customProfitAmount: 2.8841621266687802
           tenantId: tenantId
           closed: true
-          totalSurcharges: 2.3021358869347655
-          totalGlobalSurcharges: 9.301444243932576
-          totalGlobalDiscountsInUsd: 6.84685269835264
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
+          totalTaxesCurrencyId: totalTaxesCurrencyId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -5018,6 +4993,7 @@ components:
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         id: id
         currencyId: currencyId
+        enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
         correlationCode: correlationCode
         test: true
@@ -5025,7 +5001,7 @@ components:
         dataLabel: dataLabel
         emisorWalletId: emisorWalletId
         data1Label: data1Label
-        antiFraudScore: 9.301444243932576
+        antiFraudScore: 5.637376656633329
         bankId: bankId
         forexRate: 0.8008281904610115
         phone: phone
@@ -5040,27 +5016,25 @@ components:
         signature: signature
         city: city
         accountingEntryId: accountingEntryId
-        onBehalfOf: 5
+        onBehalfOf: Self
         entitlementId: entitlementId
         identificationBackPicture: identificationBackPicture
         payerPicture: payerPicture
         countryId: countryId
         identificationPicture: identificationPicture
-        paymentType: 5
+        paymentType: Paid
         locationId: locationId
-        enrolmentId: enrolmentId
         cellphone: cellphone
         department: department
-        paymentStatus: 2
+        paymentStatus: Unset
         timestamp: 2000-01-23T04:56:07.000+00:00
-        baseCost: 7.061401241503109
+        baseCost: 5.962133916683182
         totalTaxes: 1.4658129805029452
         identificationBackPictureTimestamp: identificationBackPictureTimestamp
         receiverWalletId: receiverWalletId
         data1: data1
         verified: true
         identificationPictureTimestamp: identificationPictureTimestamp
-        timeStamp: 2000-01-23T04:56:07.000+00:00
         paymentGatewayId: paymentGatewayId
         officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
         response: response
@@ -5076,9 +5050,6 @@ components:
         timestamp:
           format: date-time
           nullable: true
-          type: string
-        timeStamp:
-          format: date-time
           type: string
         test:
           type: boolean
@@ -5137,35 +5108,32 @@ components:
           type: string
         onBehalfOf:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          format: int32
-          type: integer
+          - Self
+          - Tenant
+          - Individual
+          - Organization
+          type: string
         paymentType:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - Paid
+          - Received
+          - Internal
+          type: string
         paymentStatus:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          format: int32
-          type: integer
+          - Unset
+          - Accepted
+          - Rejected
+          - OnHold
+          - Failed
+          - Reversed
+          - Retained
+          - Initialized
+          - Expired
+          - Abandoned
+          - Cancelled
+          - AcceptedRetained
+          type: string
         baseCost:
           format: double
           type: number
@@ -5257,7 +5225,7 @@ components:
         bankAccountId:
           nullable: true
           type: string
-        enrolmentId:
+        enrollmentId:
           nullable: true
           type: string
         bankId:
@@ -5280,6 +5248,7 @@ components:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           id: id
           currencyId: currencyId
+          enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
           correlationCode: correlationCode
           test: true
@@ -5287,7 +5256,7 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 9.301444243932576
+          antiFraudScore: 5.637376656633329
           bankId: bankId
           forexRate: 0.8008281904610115
           phone: phone
@@ -5302,27 +5271,25 @@ components:
           signature: signature
           city: city
           accountingEntryId: accountingEntryId
-          onBehalfOf: 5
+          onBehalfOf: Self
           entitlementId: entitlementId
           identificationBackPicture: identificationBackPicture
           payerPicture: payerPicture
           countryId: countryId
           identificationPicture: identificationPicture
-          paymentType: 5
+          paymentType: Paid
           locationId: locationId
-          enrolmentId: enrolmentId
           cellphone: cellphone
           department: department
-          paymentStatus: 2
+          paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 7.061401241503109
+          baseCost: 5.962133916683182
           totalTaxes: 1.4658129805029452
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
           verified: true
           identificationPictureTimestamp: identificationPictureTimestamp
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           paymentGatewayId: paymentGatewayId
           officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
           response: response
@@ -5340,6 +5307,7 @@ components:
           lastUpdated: 2000-01-23T04:56:07.000+00:00
           id: id
           currencyId: currencyId
+          enrollmentId: enrollmentId
           forexRatesSnapshot: forexRatesSnapshot
           correlationCode: correlationCode
           test: true
@@ -5347,7 +5315,7 @@ components:
           dataLabel: dataLabel
           emisorWalletId: emisorWalletId
           data1Label: data1Label
-          antiFraudScore: 9.301444243932576
+          antiFraudScore: 5.637376656633329
           bankId: bankId
           forexRate: 0.8008281904610115
           phone: phone
@@ -5362,27 +5330,25 @@ components:
           signature: signature
           city: city
           accountingEntryId: accountingEntryId
-          onBehalfOf: 5
+          onBehalfOf: Self
           entitlementId: entitlementId
           identificationBackPicture: identificationBackPicture
           payerPicture: payerPicture
           countryId: countryId
           identificationPicture: identificationPicture
-          paymentType: 5
+          paymentType: Paid
           locationId: locationId
-          enrolmentId: enrolmentId
           cellphone: cellphone
           department: department
-          paymentStatus: 2
+          paymentStatus: Unset
           timestamp: 2000-01-23T04:56:07.000+00:00
-          baseCost: 7.061401241503109
+          baseCost: 5.962133916683182
           totalTaxes: 1.4658129805029452
           identificationBackPictureTimestamp: identificationBackPictureTimestamp
           receiverWalletId: receiverWalletId
           data1: data1
           verified: true
           identificationPictureTimestamp: identificationPictureTimestamp
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           paymentGatewayId: paymentGatewayId
           officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
           response: response
@@ -5419,6 +5385,65 @@ components:
             $ref: '#/components/schemas/PaymentDto'
           nullable: true
           type: array
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
       type: object
     TenantDto:
       additionalProperties: false
@@ -5580,7 +5605,7 @@ components:
           nullable: true
           type: string
       type: object
-    TenantEnrolmentDto:
+    TenantEnrollmentDto:
       additionalProperties: false
       example:
         isRoot: true
@@ -5614,25 +5639,80 @@ components:
         isDisabled:
           type: boolean
       type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
     UserDto:
       additionalProperties: false
       example:
         birthday: 2000-01-23T04:56:07.000+00:00
+        handler: handler
         lastName: lastName
-        gender: 6
+        gender: Unknown
         emailConfirmed: true
         twitterUrl: twitterUrl
         jobTitle: jobTitle
         about: about
         currentEnrollmentId: currentEnrollmentId
         cityId: cityId
-        availability: 3
+        availability: DND
         countryId: countryId
         identityProvider: identityProvider
         phoneNumberConfirmed: true
         currentTenantId: currentTenantId
         facebookUrl: facebookUrl
-        siteTheme: 7
+        siteTheme: System
         publicName: publicName
         websiteUrl: websiteUrl
         id: id
@@ -5679,6 +5759,9 @@ components:
           nullable: true
           type: string
         publicName:
+          nullable: true
+          type: string
+        handler:
           nullable: true
           type: string
         lastName:
@@ -5735,12 +5818,12 @@ components:
           type: string
         gender:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
           nullable: true
-          type: integer
+          type: string
         cityId:
           nullable: true
           type: string
@@ -5795,14 +5878,13 @@ components:
           type: boolean
         availability:
           enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          format: int32
+          - DND
+          - Busy
+          - Away
+          - Offline
+          - Available
           nullable: true
-          type: integer
+          type: string
         lockoutEnabled:
           type: boolean
         lockoutEnd:
@@ -5815,12 +5897,11 @@ components:
           type: integer
         siteTheme:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
+          - System
+          - Light
+          - Dark
           nullable: true
-          type: integer
+          type: string
       type: object
     WalletDto:
       additionalProperties: false
@@ -5930,12 +6011,4 @@ components:
         result:
           $ref: '#/components/schemas/WalletDto'
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
 

@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2ForexServiceRatesHistoryCurrencyIdGet**](RatesApi.md#apiV2ForexServiceRatesHistoryCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/History/{currencyId} |  |
-| [**apiV2ForexServiceRatesHistoryGet**](RatesApi.md#apiV2ForexServiceRatesHistoryGet) | **GET** /api/v2/ForexService/Rates/History |  |
-| [**apiV2ForexServiceRatesLatestCurrencyIdGet**](RatesApi.md#apiV2ForexServiceRatesLatestCurrencyIdGet) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} |  |
-| [**apiV2ForexServiceRatesLatestGet**](RatesApi.md#apiV2ForexServiceRatesLatestGet) | **GET** /api/v2/ForexService/Rates/Latest |  |
+| [**getHistoricalCurrencyRateAsync**](RatesApi.md#getHistoricalCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/History/{currencyId} | Get historical rate for a currency |
+| [**getHistoricalCurrencyRatesAsync**](RatesApi.md#getHistoricalCurrencyRatesAsync) | **GET** /api/v2/ForexService/Rates/History | Get historical currency rates |
+| [**getLatestCurrencyRateAsync**](RatesApi.md#getLatestCurrencyRateAsync) | **GET** /api/v2/ForexService/Rates/Latest/{currencyId} | Get latest rate for a currency |
+| [**getLatestCurrencyRatesModelAsync**](RatesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ForexService/Rates/Latest | Get latest currency rates |
 
 
-<a id="apiV2ForexServiceRatesHistoryCurrencyIdGet"></a>
-# **apiV2ForexServiceRatesHistoryCurrencyIdGet**
-> ExchangeRateEnvelope apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId, date, apiVersion, xApiVersion)
+<a id="getHistoricalCurrencyRateAsync"></a>
+# **getHistoricalCurrencyRateAsync**
+> ExchangeRateEnvelope getHistoricalCurrencyRateAsync(currencyId, date, apiVersion, xApiVersion)
 
+Get historical rate for a currency
 
+Retrieves the exchange rate for a specific currency as of a specific historical date.
 
 ### Example
 ```java
@@ -22,7 +24,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RatesApi;
 
@@ -30,12 +31,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RatesApi apiInstance = new RatesApi(defaultClient);
     String currencyId = "currencyId_example"; // String | 
@@ -43,10 +38,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ExchangeRateEnvelope result = apiInstance.apiV2ForexServiceRatesHistoryCurrencyIdGet(currencyId, date, apiVersion, xApiVersion);
+      ExchangeRateEnvelope result = apiInstance.getHistoricalCurrencyRateAsync(currencyId, date, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RatesApi#apiV2ForexServiceRatesHistoryCurrencyIdGet");
+      System.err.println("Exception when calling RatesApi#getHistoricalCurrencyRateAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -71,7 +66,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,11 +80,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ForexServiceRatesHistoryGet"></a>
-# **apiV2ForexServiceRatesHistoryGet**
-> ForexRatesDtoEnvelope apiV2ForexServiceRatesHistoryGet(date, apiVersion, xApiVersion)
+<a id="getHistoricalCurrencyRatesAsync"></a>
+# **getHistoricalCurrencyRatesAsync**
+> ForexRatesDtoEnvelope getHistoricalCurrencyRatesAsync(date, apiVersion, xApiVersion)
 
+Get historical currency rates
 
+Retrieves exchange rates for all supported currencies as of a specific historical date.
 
 ### Example
 ```java
@@ -97,7 +94,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RatesApi;
 
@@ -105,22 +101,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RatesApi apiInstance = new RatesApi(defaultClient);
     OffsetDateTime date = OffsetDateTime.now(); // OffsetDateTime | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ForexRatesDtoEnvelope result = apiInstance.apiV2ForexServiceRatesHistoryGet(date, apiVersion, xApiVersion);
+      ForexRatesDtoEnvelope result = apiInstance.getHistoricalCurrencyRatesAsync(date, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RatesApi#apiV2ForexServiceRatesHistoryGet");
+      System.err.println("Exception when calling RatesApi#getHistoricalCurrencyRatesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -144,7 +134,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -158,11 +148,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ForexServiceRatesLatestCurrencyIdGet"></a>
-# **apiV2ForexServiceRatesLatestCurrencyIdGet**
-> ExchangeRateEnvelope apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId, apiVersion, xApiVersion)
+<a id="getLatestCurrencyRateAsync"></a>
+# **getLatestCurrencyRateAsync**
+> ExchangeRateEnvelope getLatestCurrencyRateAsync(currencyId, apiVersion, xApiVersion)
 
+Get latest rate for a currency
 
+Retrieves the latest exchange rate for a specific currency by its identifier.
 
 ### Example
 ```java
@@ -170,7 +162,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RatesApi;
 
@@ -178,22 +169,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RatesApi apiInstance = new RatesApi(defaultClient);
     String currencyId = "currencyId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ExchangeRateEnvelope result = apiInstance.apiV2ForexServiceRatesLatestCurrencyIdGet(currencyId, apiVersion, xApiVersion);
+      ExchangeRateEnvelope result = apiInstance.getLatestCurrencyRateAsync(currencyId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RatesApi#apiV2ForexServiceRatesLatestCurrencyIdGet");
+      System.err.println("Exception when calling RatesApi#getLatestCurrencyRateAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -217,7 +202,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -231,11 +216,13 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2ForexServiceRatesLatestGet"></a>
-# **apiV2ForexServiceRatesLatestGet**
-> ForexRatesDtoEnvelope apiV2ForexServiceRatesLatestGet(apiVersion, xApiVersion)
+<a id="getLatestCurrencyRatesModelAsync"></a>
+# **getLatestCurrencyRatesModelAsync**
+> ForexRatesDtoEnvelope getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
 
+Get latest currency rates
 
+Retrieves the latest exchange rates for all supported currencies.
 
 ### Example
 ```java
@@ -243,7 +230,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.RatesApi;
 
@@ -251,21 +237,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     RatesApi apiInstance = new RatesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ForexRatesDtoEnvelope result = apiInstance.apiV2ForexServiceRatesLatestGet(apiVersion, xApiVersion);
+      ForexRatesDtoEnvelope result = apiInstance.getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling RatesApi#apiV2ForexServiceRatesLatestGet");
+      System.err.println("Exception when calling RatesApi#getLatestCurrencyRatesModelAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -288,7 +268,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

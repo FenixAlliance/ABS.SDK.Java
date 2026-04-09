@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createEmployeeAsync**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees |  |
-| [**deleteEmployeeAsync**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeeByIdAsync**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} |  |
-| [**getEmployeesAsync**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees |  |
-| [**getEmployeesCountAsync**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count |  |
-| [**updateEmployeeAsync**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} |  |
+| [**createEmployeeAsync**](EmployeesApi.md#createEmployeeAsync) | **POST** /api/v2/HrmsService/Employees | Create an employee |
+| [**deleteEmployeeAsync**](EmployeesApi.md#deleteEmployeeAsync) | **DELETE** /api/v2/HrmsService/Employees/{employeeId} | Delete an employee |
+| [**getEmployeeByIdAsync**](EmployeesApi.md#getEmployeeByIdAsync) | **GET** /api/v2/HrmsService/Employees/{employeeId} | Get employee by ID |
+| [**getEmployeesAsync**](EmployeesApi.md#getEmployeesAsync) | **GET** /api/v2/HrmsService/Employees | Get employees |
+| [**getEmployeesCountAsync**](EmployeesApi.md#getEmployeesCountAsync) | **GET** /api/v2/HrmsService/Employees/Count | Count employees |
+| [**updateEmployeeAsync**](EmployeesApi.md#updateEmployeeAsync) | **PUT** /api/v2/HrmsService/Employees/{employeeId} | Update an employee |
 
 
 <a id="createEmployeeAsync"></a>
 # **createEmployeeAsync**
 > EmptyEnvelope createEmployeeAsync(tenantId, apiVersion, xApiVersion, employeeProfileCreateDto)
 
+Create an employee
 
+Creates a new employee for the specified tenant.
 
 ### Example
 ```java
@@ -24,7 +26,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -32,12 +33,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -73,7 +68,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -86,13 +81,15 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
-| **201** | Created |  -  |
+| **200** | OK |  -  |
 
 <a id="deleteEmployeeAsync"></a>
 # **deleteEmployeeAsync**
 > EmptyEnvelope deleteEmployeeAsync(tenantId, employeeId, apiVersion, xApiVersion)
 
+Delete an employee
 
+Deletes an employee for the specified tenant.
 
 ### Example
 ```java
@@ -100,7 +97,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -108,12 +104,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -149,7 +139,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -161,14 +151,16 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
-| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
 
 <a id="getEmployeeByIdAsync"></a>
 # **getEmployeeByIdAsync**
 > EmployeeProfileDtoEnvelope getEmployeeByIdAsync(tenantId, employeeId, apiVersion, xApiVersion)
 
+Get employee by ID
 
+Retrieves a specific employee by its identifier.
 
 ### Example
 ```java
@@ -176,7 +168,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -184,12 +175,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -225,7 +210,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -237,14 +222,15 @@ public class Example {
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
 <a id="getEmployeesAsync"></a>
 # **getEmployeesAsync**
 > EmployeeProfileDtoListEnvelope getEmployeesAsync(tenantId, apiVersion, xApiVersion)
 
+Get employees
 
+Retrieves employees for the specified tenant.
 
 ### Example
 ```java
@@ -252,7 +238,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -260,12 +245,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -299,7 +278,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -317,7 +296,9 @@ public class Example {
 # **getEmployeesCountAsync**
 > Int32Envelope getEmployeesCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count employees
 
+Counts employees for the specified tenant.
 
 ### Example
 ```java
@@ -325,7 +306,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -333,12 +313,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -372,7 +346,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -390,7 +364,9 @@ public class Example {
 # **updateEmployeeAsync**
 > EmptyEnvelope updateEmployeeAsync(tenantId, employeeId, apiVersion, xApiVersion, body)
 
+Update an employee
 
+Updates an existing employee for the specified tenant.
 
 ### Example
 ```java
@@ -398,7 +374,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmployeesApi;
 
@@ -406,12 +381,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -449,7 +418,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -462,6 +431,5 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 

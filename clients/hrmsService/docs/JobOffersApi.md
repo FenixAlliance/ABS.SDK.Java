@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createJobOfferAsync**](JobOffersApi.md#createJobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers |  |
-| [**deleteJobOfferAsync**](JobOffersApi.md#deleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
-| [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
-| [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers |  |
-| [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count |  |
-| [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} |  |
+| [**createJobOfferAsync**](JobOffersApi.md#createJobOfferAsync) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer |
+| [**deleteJobOfferAsync**](JobOffersApi.md#deleteJobOfferAsync) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer |
+| [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID |
+| [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers |
+| [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers |
+| [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer |
 
 
 <a id="createJobOfferAsync"></a>
 # **createJobOfferAsync**
-> createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
+> EmptyEnvelope createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto)
 
+Create a job offer
 
+Creates a new job offer for the specified tenant.
 
 ### Example
 ```java
@@ -24,7 +26,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -32,12 +33,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -45,7 +40,8 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     JobOfferCreateDto jobOfferCreateDto = new JobOfferCreateDto(); // JobOfferCreateDto | 
     try {
-      apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto);
+      EmptyEnvelope result = apiInstance.createJobOfferAsync(tenantId, apiVersion, xApiVersion, jobOfferCreateDto);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOffersApi#createJobOfferAsync");
       System.err.println("Status code: " + e.getCode());
@@ -68,11 +64,11 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -85,12 +81,15 @@ null (empty response body)
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
+| **200** | OK |  -  |
 
 <a id="deleteJobOfferAsync"></a>
 # **deleteJobOfferAsync**
-> deleteJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion)
 
+Delete a job offer
 
+Deletes a job offer for the specified tenant.
 
 ### Example
 ```java
@@ -98,7 +97,6 @@ null (empty response body)
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -106,12 +104,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -119,7 +111,8 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.deleteJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOffersApi#deleteJobOfferAsync");
       System.err.println("Status code: " + e.getCode());
@@ -142,11 +135,11 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -158,12 +151,16 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
 
 <a id="getJobOfferByIdAsync"></a>
 # **getJobOfferByIdAsync**
 > JobOfferDtoEnvelope getJobOfferByIdAsync(tenantId, jobOfferId, apiVersion, xApiVersion)
 
+Get job offer by ID
 
+Retrieves a specific job offer by its identifier.
 
 ### Example
 ```java
@@ -171,7 +168,6 @@ null (empty response body)
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -179,12 +175,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -220,7 +210,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -238,7 +228,9 @@ public class Example {
 # **getJobOffersAsync**
 > JobOfferDtoListEnvelope getJobOffersAsync(tenantId, apiVersion, xApiVersion)
 
+Get job offers
 
+Retrieves job offers for the specified tenant.
 
 ### Example
 ```java
@@ -246,7 +238,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -254,12 +245,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -293,7 +278,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,7 +296,9 @@ public class Example {
 # **getJobOffersCountAsync**
 > Int32Envelope getJobOffersCountAsync(tenantId, apiVersion, xApiVersion)
 
+Count job offers
 
+Counts job offers for the specified tenant.
 
 ### Example
 ```java
@@ -319,7 +306,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -327,12 +313,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -366,7 +346,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -382,9 +362,11 @@ public class Example {
 
 <a id="updateJobOfferAsync"></a>
 # **updateJobOfferAsync**
-> updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body)
 
+Update a job offer
 
+Updates an existing job offer for the specified tenant.
 
 ### Example
 ```java
@@ -392,7 +374,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.JobOffersApi;
 
@@ -400,12 +381,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     JobOffersApi apiInstance = new JobOffersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -414,7 +389,8 @@ public class Example {
     String xApiVersion = "xApiVersion_example"; // String | 
     Object body = null; // Object | 
     try {
-      apiInstance.updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body);
+      EmptyEnvelope result = apiInstance.updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOffersApi#updateJobOfferAsync");
       System.err.println("Status code: " + e.getCode());
@@ -438,11 +414,11 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -455,4 +431,5 @@ null (empty response body)
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
+| **200** | OK |  -  |
 

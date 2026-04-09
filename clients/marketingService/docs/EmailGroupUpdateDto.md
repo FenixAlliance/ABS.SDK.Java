@@ -11,7 +11,7 @@
 |**description** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**enrolmentId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

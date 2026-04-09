@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2MarketingServiceEmailSignaturesCountGet**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesCountGet) | **GET** /api/v2/MarketingService/EmailSignatures/Count |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete) | **DELETE** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet) | **GET** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut) | **PUT** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} |  |
-| [**apiV2MarketingServiceEmailSignaturesGet**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesGet) | **GET** /api/v2/MarketingService/EmailSignatures |  |
-| [**apiV2MarketingServiceEmailSignaturesPost**](EmailSignaturesApi.md#apiV2MarketingServiceEmailSignaturesPost) | **POST** /api/v2/MarketingService/EmailSignatures |  |
+| [**createEmailSignatureAsync**](EmailSignaturesApi.md#createEmailSignatureAsync) | **POST** /api/v2/MarketingService/EmailSignatures | Create an email signature |
+| [**deleteEmailSignatureAsync**](EmailSignaturesApi.md#deleteEmailSignatureAsync) | **DELETE** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Delete an email signature |
+| [**getEmailSignatureDetailsAsync**](EmailSignaturesApi.md#getEmailSignatureDetailsAsync) | **GET** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Get email signature by ID |
+| [**getEmailSignaturesCountAsync**](EmailSignaturesApi.md#getEmailSignaturesCountAsync) | **GET** /api/v2/MarketingService/EmailSignatures/Count | Get email signatures count |
+| [**getEmailSignaturesODataAsync**](EmailSignaturesApi.md#getEmailSignaturesODataAsync) | **GET** /api/v2/MarketingService/EmailSignatures | Get email signatures |
+| [**updateEmailSignatureAsync**](EmailSignaturesApi.md#updateEmailSignatureAsync) | **PUT** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Update an email signature |
 
 
-<a id="apiV2MarketingServiceEmailSignaturesCountGet"></a>
-# **apiV2MarketingServiceEmailSignaturesCountGet**
-> Int32Envelope apiV2MarketingServiceEmailSignaturesCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createEmailSignatureAsync"></a>
+# **createEmailSignatureAsync**
+> EmptyEnvelope createEmailSignatureAsync(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion)
 
+Create an email signature
 
+Creates a new email signature for the specified tenant.
 
 ### Example
 ```java
@@ -24,7 +26,6 @@ All URIs are relative to *http://localhost*
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmailSignaturesApi;
 
@@ -32,22 +33,17 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    EmailSignatureCreateDto emailSignatureCreateDto = new EmailSignatureCreateDto(); // EmailSignatureCreateDto | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.apiV2MarketingServiceEmailSignaturesCountGet(tenantId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createEmailSignatureAsync(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesCountGet");
+      System.err.println("Exception when calling EmailSignaturesApi#createEmailSignatureAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -62,20 +58,21 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **emailSignatureCreateDto** | [**EmailSignatureCreateDto**](EmailSignatureCreateDto.md)|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
@@ -84,13 +81,15 @@ public class Example {
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 
-<a id="apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete"></a>
-# **apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete**
-> EmptyEnvelope apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(tenantId, emailsignatureId, apiVersion, xApiVersion)
+<a id="deleteEmailSignatureAsync"></a>
+# **deleteEmailSignatureAsync**
+> EmptyEnvelope deleteEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion)
 
+Delete an email signature
 
+Deletes an email signature by its ID.
 
 ### Example
 ```java
@@ -98,7 +97,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmailSignaturesApi;
 
@@ -106,12 +104,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -119,10 +111,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete(tenantId, emailsignatureId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteEmailSignatureAsync(tenantId, emailsignatureId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesEmailsignatureIdDelete");
+      System.err.println("Exception when calling EmailSignaturesApi#deleteEmailSignatureAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -147,7 +139,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -162,11 +154,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet"></a>
-# **apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet**
-> EmailSignatureDtoEnvelope apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(tenantId, emailsignatureId, apiVersion, xApiVersion)
+<a id="getEmailSignatureDetailsAsync"></a>
+# **getEmailSignatureDetailsAsync**
+> EmailSignatureDtoEnvelope getEmailSignatureDetailsAsync(tenantId, emailsignatureId, apiVersion, xApiVersion)
 
+Get email signature by ID
 
+Retrieves the details of a specific email signature by its ID.
 
 ### Example
 ```java
@@ -174,7 +168,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmailSignaturesApi;
 
@@ -182,12 +175,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -195,10 +182,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmailSignatureDtoEnvelope result = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet(tenantId, emailsignatureId, apiVersion, xApiVersion);
+      EmailSignatureDtoEnvelope result = apiInstance.getEmailSignatureDetailsAsync(tenantId, emailsignatureId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesEmailsignatureIdGet");
+      System.err.println("Exception when calling EmailSignaturesApi#getEmailSignatureDetailsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -223,7 +210,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -238,11 +225,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut"></a>
-# **apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut**
-> EmptyEnvelope apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(tenantId, emailsignatureId, emailSignatureUpdateDto, apiVersion, xApiVersion)
+<a id="getEmailSignaturesCountAsync"></a>
+# **getEmailSignaturesCountAsync**
+> Int32Envelope getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion)
 
+Get email signatures count
 
+Returns the count of email signatures for the specified tenant using OData query options.
 
 ### Example
 ```java
@@ -250,7 +239,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.EmailSignaturesApi;
 
@@ -258,12 +246,143 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getEmailSignaturesCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EmailSignaturesApi#getEmailSignaturesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
+<a id="getEmailSignaturesODataAsync"></a>
+# **getEmailSignaturesODataAsync**
+> EmailSignatureDtoListEnvelope getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion)
+
+Get email signatures
+
+Retrieves a collection of email signatures for the specified tenant using OData query options.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.EmailSignaturesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmailSignatureDtoListEnvelope result = apiInstance.getEmailSignaturesODataAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EmailSignaturesApi#getEmailSignaturesODataAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmailSignatureDtoListEnvelope**](EmailSignatureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateEmailSignatureAsync"></a>
+# **updateEmailSignatureAsync**
+> EmptyEnvelope updateEmailSignatureAsync(tenantId, emailsignatureId, emailSignatureUpdateDto, apiVersion, xApiVersion)
+
+Update an email signature
+
+Updates an existing email signature by its ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.EmailSignaturesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -272,10 +391,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut(tenantId, emailsignatureId, emailSignatureUpdateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.updateEmailSignatureAsync(tenantId, emailsignatureId, emailSignatureUpdateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesEmailsignatureIdPut");
+      System.err.println("Exception when calling EmailSignaturesApi#updateEmailSignatureAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -301,7 +420,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -315,153 +434,4 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
-
-<a id="apiV2MarketingServiceEmailSignaturesGet"></a>
-# **apiV2MarketingServiceEmailSignaturesGet**
-> EmailSignatureDtoListEnvelope apiV2MarketingServiceEmailSignaturesGet(tenantId, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.EmailSignaturesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmailSignatureDtoListEnvelope result = apiInstance.apiV2MarketingServiceEmailSignaturesGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmailSignatureDtoListEnvelope**](EmailSignatureDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2MarketingServiceEmailSignaturesPost"></a>
-# **apiV2MarketingServiceEmailSignaturesPost**
-> EmptyEnvelope apiV2MarketingServiceEmailSignaturesPost(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.EmailSignaturesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    EmailSignaturesApi apiInstance = new EmailSignaturesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    EmailSignatureCreateDto emailSignatureCreateDto = new EmailSignatureCreateDto(); // EmailSignatureCreateDto | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceEmailSignaturesPost(tenantId, emailSignatureCreateDto, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EmailSignaturesApi#apiV2MarketingServiceEmailSignaturesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **emailSignatureCreateDto** | [**EmailSignatureCreateDto**](EmailSignatureCreateDto.md)|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **201** | Created |  -  |
 

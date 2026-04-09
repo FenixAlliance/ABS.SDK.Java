@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,21 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: GlobeService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: Countries
+- name: Currencies
+- name: FenixAlliance.ABP.Web
+- name: Languages
+- name: Timezones
 paths:
   /api/v2/GlobeService/Countries:
     get:
+      description: Retrieves a list of all countries with optional OData pagination
+        and filtering.
+      operationId: GetAllCountries
       parameters:
       - explode: true
         in: query
@@ -35,38 +42,75 @@ paths:
       responses:
         "403":
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
         "200":
           content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryDtoListEnvelope'
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryDtoListEnvelope'
           description: OK
+      summary: Get all countries
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
+  /api/v2/GlobeService/Countries/Count:
+    get:
+      description: "Returns the total number of countries, with optional OData filtering."
+      operationId: CountCountries
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count countries
+      tags:
+      - Countries
+      x-accepts:
+      - application/json
   /api/v2/GlobeService/Countries/Search:
     get:
+      description: Searches for countries whose name matches the specified search
+        term.
+      operationId: SearchCountriesByNameAsync
       parameters:
       - explode: true
         in: query
@@ -95,16 +139,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -113,17 +151,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryDtoListEnvelope'
           description: OK
+      summary: Search countries by name
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}:
     get:
+      description: Retrieves a single country by its unique identifier.
+      operationId: GetCountryById
       parameters:
       - explode: false
         in: path
@@ -152,16 +189,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -170,17 +201,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryDtoEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryDtoEnvelope'
           description: OK
+      summary: Get country by ID
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/States:
     get:
+      description: Retrieves the list of states or provinces belonging to the specified
+        country.
+      operationId: GetCountryStatesAsync
       parameters:
       - explode: false
         in: path
@@ -209,16 +240,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -227,17 +252,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryStateDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryStateDtoListEnvelope'
           description: OK
+      summary: Get states for a country
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}:
     get:
+      description: Retrieves a single state or province by its unique identifier within
+        a country.
+      operationId: GetCountryStateByIdAsync
       parameters:
       - explode: false
         in: path
@@ -273,16 +298,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -291,17 +310,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryStateDtoEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryStateDtoEnvelope'
           description: OK
+      summary: Get state by ID
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities:
     get:
+      description: Retrieves the list of cities belonging to the specified state or
+        province.
+      operationId: GetCitiesByCountryStateIdAsync
       parameters:
       - explode: false
         in: path
@@ -337,16 +356,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -355,17 +368,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CityDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CityDtoListEnvelope'
           description: OK
+      summary: Get cities for a state
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/Timezones:
     get:
+      description: Retrieves the list of timezones associated with the specified country.
+      operationId: GetTimeZonesByCountryIdAsync
       parameters:
       - explode: false
         in: path
@@ -394,16 +406,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -412,17 +418,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TimezoneDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/TimezoneDtoListEnvelope'
           description: OK
+      summary: Get timezones for a country
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/Currencies:
     get:
+      description: Retrieves the list of enabled currencies for the specified country.
+      operationId: GetEnabledCurrenciesByCountryIdAsync
       parameters:
       - explode: false
         in: path
@@ -451,16 +456,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -469,17 +468,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CurrencyDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CurrencyDtoListEnvelope'
           description: OK
+      summary: Get currencies for a country
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains:
     get:
+      description: Retrieves the list of internet top-level domains (TLDs) associated
+        with the specified country.
+      operationId: GetTopLevelDomainsByCountryIdAsync
       parameters:
       - explode: false
         in: path
@@ -508,16 +507,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -526,17 +519,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryTopLevelDomainDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryTopLevelDomainDtoListEnvelope'
           description: OK
+      summary: Get top-level domains for a country
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Countries/{countryId}/CallingCodes:
     get:
+      description: Retrieves the list of international telephone calling codes associated
+        with the specified country.
+      operationId: GetCallingCodesByCountryIdAsync
       parameters:
       - explode: false
         in: path
@@ -565,16 +558,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
@@ -583,17 +570,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountryCallingCodeDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CountryCallingCodeDtoListEnvelope'
           description: OK
+      summary: Get calling codes for a country
       tags:
       - Countries
       x-accepts:
       - application/json
-      - application/xml
   /api/v2/GlobeService/Currencies:
     get:
+      description: Retrieves the list of all enabled currencies with optional OData
+        pagination and filtering.
+      operationId: GetEnabledCurrenciesAsync
       parameters:
       - explode: true
         in: query
@@ -637,6 +624,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/CurrencyDtoListEnvelope'
           description: OK
+      summary: Get all currencies
+      tags:
+      - Currencies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Currencies/Count:
+    get:
+      description: "Returns the total number of enabled currencies, with optional\
+        \ OData filtering."
+      operationId: CountCurrenciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count currencies
       tags:
       - Currencies
       x-accepts:
@@ -644,6 +686,8 @@ paths:
       - application/xml
   /api/v2/GlobeService/Currencies/{currencyId}:
     get:
+      description: Retrieves a single currency by its unique identifier.
+      operationId: GetCurrencyByIdAsync
       parameters:
       - explode: false
         in: path
@@ -694,13 +738,292 @@ paths:
               schema:
                 $ref: '#/components/schemas/CurrencyDtoEnvelope'
           description: OK
+      summary: Get currency by ID
       tags:
       - Currencies
       x-accepts:
       - application/json
       - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/GlobeService/Languages:
     get:
+      description: Retrieves the list of all supported languages with optional OData
+        pagination and filtering.
+      operationId: GetLanguagesAsync
       parameters:
       - explode: true
         in: query
@@ -744,6 +1067,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/CountryLanguageDtoListEnvelope'
           description: OK
+      summary: Get all languages
+      tags:
+      - Languages
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Languages/Count:
+    get:
+      description: "Returns the total number of supported languages, with optional\
+        \ OData filtering."
+      operationId: CountLanguagesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count languages
       tags:
       - Languages
       x-accepts:
@@ -751,6 +1129,8 @@ paths:
       - application/xml
   /api/v2/GlobeService/Languages/{languageId}:
     get:
+      description: Retrieves a single language by its unique identifier.
+      operationId: GetLanguageByIdAsync
       parameters:
       - explode: false
         in: path
@@ -801,63 +1181,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/CountryLanguageDtoEnvelope'
           description: OK
+      summary: Get language by ID
       tags:
       - Languages
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/Global/System/Migrate:
-    post:
-      parameters:
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaymentResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/PaymentResponse'
-          description: OK
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResponseStatus'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ResponseStatus'
-          description: Internal Server Error
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResponseStatus'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ResponseStatus'
-          description: Unauthorized
-      tags:
-      - Migrations
-      x-accepts:
-      - application/json
-      - application/xml
   /api/v2/GlobeService/Timezones:
     get:
+      description: Retrieves the list of all supported timezones with optional OData
+        pagination and filtering.
+      operationId: GetTimeZonesAsync
       parameters:
       - explode: true
         in: query
@@ -901,6 +1235,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimezoneDtoListEnvelope'
           description: OK
+      summary: Get all timezones
+      tags:
+      - Timezones
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/GlobeService/Timezones/Count:
+    get:
+      description: "Returns the total number of supported timezones, with optional\
+        \ OData filtering."
+      operationId: CountTimezonesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count timezones
       tags:
       - Timezones
       x-accepts:
@@ -908,6 +1297,8 @@ paths:
       - application/xml
   /api/v2/GlobeService/Timezones/{timeZoneId}:
     get:
+      description: Retrieves a single timezone by its unique identifier.
+      operationId: GetTimeZoneByIdAsync
       parameters:
       - explode: false
         in: path
@@ -958,6 +1349,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TimezoneDtoEnvelope'
           description: OK
+      summary: Get timezone by ID
       tags:
       - Timezones
       x-accepts:
@@ -965,15 +1357,41 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     CityDto:
       additionalProperties: false
       example:
         imageUrl: imageUrl
-        stateID: stateID
+        stateId: stateId
         latitude: latitude
         name: name
         id: id
-        countryID: countryID
+        countryId: countryId
         timestamp: 2000-01-23T04:56:07.000+00:00
         longitude: longitude
       properties:
@@ -990,10 +1408,10 @@ components:
         imageUrl:
           nullable: true
           type: string
-        stateID:
+        stateId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
         latitude:
@@ -1008,19 +1426,19 @@ components:
       example:
         result:
         - imageUrl: imageUrl
-          stateID: stateID
+          stateId: stateId
           latitude: latitude
           name: name
           id: id
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: longitude
         - imageUrl: imageUrl
-          stateID: stateID
+          stateId: stateId
           latitude: latitude
           name: name
           id: id
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: longitude
         activityId: activityId
@@ -1352,11 +1770,11 @@ components:
         countryID: countryID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
-        id:
-          nullable: true
-          type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        id:
           nullable: true
           type: string
         name:
@@ -1633,23 +2051,6 @@ components:
           nullable: true
           type: array
       type: object
-    Error:
-      additionalProperties: false
-      example:
-        help: help
-        description: description
-        id: id
-      properties:
-        id:
-          nullable: true
-          type: string
-        description:
-          nullable: true
-          type: string
-        help:
-          nullable: true
-          type: string
-      type: object
     ErrorEnvelope:
       additionalProperties: false
       example:
@@ -1677,87 +2078,189 @@ components:
           readOnly: true
           type: string
       type: object
-    PaymentResponse:
+    ForgotPasswordRequest:
       additionalProperties: false
       example:
-        bank: bank
-        franchise: franchise
-        authCode: authCode
-        test: true
-        signature: signature
-        response: response
-        paymentID: paymentID
-        ip: ip
-        errors: ""
-        paymentStatus: 0
-        status: status
+        email: email
       properties:
-        test:
-          type: boolean
-        ip:
+        email:
           nullable: true
           type: string
-        bank:
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
           nullable: true
           type: string
         status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
           nullable: true
           type: string
         errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
           nullable: true
-        response:
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
           nullable: true
           type: string
-        authCode:
+        newPassword:
           nullable: true
           type: string
-        paymentID:
+        oldPassword:
           nullable: true
           type: string
-        franchise:
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
           nullable: true
           type: string
-        signature:
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
           nullable: true
           type: string
-        paymentStatus:
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
           format: int32
           type: integer
       type: object
-    ResponseStatus:
+    LoginRequest:
       additionalProperties: false
       example:
-        utcTimestamp: 2000-01-23T04:56:07.000+00:00
-        success: true
-        correlationID: correlationID
-        error:
-          help: help
-          description: description
-          id: id
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
       properties:
-        success:
-          type: boolean
-        error:
-          $ref: '#/components/schemas/Error'
-        correlationID:
+        email:
           nullable: true
           type: string
-        utcTimestamp:
-          format: date-time
+        password:
+          nullable: true
           type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
       type: object
     TimezoneDto:
       additionalProperties: false
@@ -1768,22 +2271,22 @@ components:
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
-        timestamp:
-          format: date-time
+        id:
           nullable: true
           type: string
-        id:
+        timestamp:
+          format: date-time
           nullable: true
           type: string
         name:
           nullable: true
           type: string
+        utcOffset:
+          nullable: true
+          type: string
         displayName:
           nullable: true
           readOnly: true
-          type: string
-        utcOffset:
-          nullable: true
           type: string
       type: object
     TimezoneDtoEnvelope:
@@ -1864,12 +2367,58 @@ components:
           nullable: true
           type: array
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
 

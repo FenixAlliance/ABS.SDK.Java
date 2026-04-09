@@ -49,37 +49,25 @@
 |**unitGroupId** | **String** |  |  [optional] |
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
-|**forexRatesSnapshot** | **String** |  |  [optional] |
+|**forexRates** | [**ForexRates**](ForexRates.md) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
-|**totalBaseAmountInUsd** | **Double** |  |  [optional] |
+|**totalDetailInUsd** | **Double** |  |  [optional] |
 |**totalProfitInUsd** | **Double** |  |  [optional] |
-|**totalDetailAmountInUsd** | **Double** |  |  [optional] |
-|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
 |**totalDiscountsInUsd** | **Double** |  |  [optional] |
+|**totalSurchargesInUsd** | **Double** |  |  [optional] |
+|**totalTaxBaseInUsd** | **Double** |  |  [optional] |
 |**totalTaxesInUsd** | **Double** |  |  [optional] |
-|**totalWithholdingTaxesInUsd** | **Double** |  |  [optional] |
+|**totalWithheldTaxesInUsd** | **Double** |  |  [optional] |
 |**totalShippingCostInUsd** | **Double** |  |  [optional] |
 |**totalShippingTaxesInUsd** | **Double** |  |  [optional] |
 |**totalWarrantyCostInUsd** | **Double** |  |  [optional] |
 |**totalReturnCostInUsd** | **Double** |  |  [optional] |
 |**totalRefundCostInUsd** | **Double** |  |  [optional] |
-|**totalSurchargesInUsd** | **Double** |  |  [optional] |
-|**totalAmountInUsd** | **Double** |  |  [optional] |
+|**totalInUsd** | **Double** |  |  [optional] |
 |**totalGlobalDiscountsInUsd** | **Double** |  |  [optional] |
 |**totalGlobalSurchargesInUsd** | **Double** |  |  [optional] |
 |**customGlobalSurchargesAmount** | **Double** |  |  [optional] |
 |**customGlobalDiscountsAmount** | **Double** |  |  [optional] |
-|**customBaseAmount** | **Double** |  |  [optional] |
-|**customDetailAmount** | **Double** |  |  [optional] |
-|**customDiscountsAmount** | **Double** |  |  [optional] |
-|**customTaxBase** | **Double** |  |  [optional] |
-|**customSurchargesAmount** | **Double** |  |  [optional] |
-|**customProfitAmount** | **Double** |  |  [optional] |
-|**customShippingCostAmount** | **Double** |  |  [optional] |
-|**customShippingTaxAmount** | **Double** |  |  [optional] |
-|**customTaxAmount** | **Double** |  |  [optional] |
-|**customWithholdingTaxAmount** | **Double** |  |  [optional] |
-|**customTotalAmount** | **Double** |  |  [optional] |
 |**returnPolicyId** | **String** |  |  [optional] |
 |**refundPolicyId** | **String** |  |  [optional] |
 |**warrantyPolicyId** | **String** |  |  [optional] |
@@ -89,6 +77,43 @@
 |**quoteItemRecordId** | **String** |  |  [optional] |
 |**businessProfileRecordId** | **String** |  |  [optional] |
 |**parentBillingItemRecordId** | **String** |  |  [optional] |
+|**currency** | [**CurrencyId**](CurrencyId.md) |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalDetailAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
+|**totalProfitAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBaseAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**totalTaxesAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCostAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTaxAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTaxAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalDiscountsAmount** | [**Money**](Money.md) |  |  [optional] |
+|**totalGlobalSurcharges** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalSurchargesAmount** | [**Money**](Money.md) |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**totalAmount** | [**Money**](Money.md) |  |  [optional] |
 |**orderId** | **String** |  |  [optional] |
 
 
@@ -97,8 +122,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
 
 
 
@@ -106,8 +131,8 @@
 
 | Name | Value |
 |---- | -----|
-| NUMBER_0 | 0 |
-| NUMBER_1 | 1 |
+| AUTOMATIC | &quot;Automatic&quot; |
+| CUSTOM | &quot;Custom&quot; |
 
 
 

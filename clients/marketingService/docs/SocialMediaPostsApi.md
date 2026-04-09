@@ -4,93 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2MarketingServiceSocialMediaPostsCountGet**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsCountGet) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count |  |
-| [**apiV2MarketingServiceSocialMediaPostsGet**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsGet) | **GET** /api/v2/MarketingService/SocialMediaPosts |  |
-| [**apiV2MarketingServiceSocialMediaPostsPost**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsPost) | **POST** /api/v2/MarketingService/SocialMediaPosts |  |
-| [**apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete) | **DELETE** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} |  |
-| [**apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} |  |
-| [**apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut**](SocialMediaPostsApi.md#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} |  |
+| [**createSocialMediaPostAsync**](SocialMediaPostsApi.md#createSocialMediaPostAsync) | **POST** /api/v2/MarketingService/SocialMediaPosts | Create a social media post |
+| [**deleteSocialMediaPostAsync**](SocialMediaPostsApi.md#deleteSocialMediaPostAsync) | **DELETE** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Delete a social media post |
+| [**getSocialMediaPostDetailsAsync**](SocialMediaPostsApi.md#getSocialMediaPostDetailsAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Get social media post by ID |
+| [**getSocialMediaPostsCountAsync**](SocialMediaPostsApi.md#getSocialMediaPostsCountAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count | Get social media posts count |
+| [**getSocialMediaPostsODataAsync**](SocialMediaPostsApi.md#getSocialMediaPostsODataAsync) | **GET** /api/v2/MarketingService/SocialMediaPosts | Get social media posts |
+| [**updateSocialMediaPostAsync**](SocialMediaPostsApi.md#updateSocialMediaPostAsync) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Update a social media post |
 
 
-<a id="apiV2MarketingServiceSocialMediaPostsCountGet"></a>
-# **apiV2MarketingServiceSocialMediaPostsCountGet**
-> Int32Envelope apiV2MarketingServiceSocialMediaPostsCountGet(tenantId, apiVersion, xApiVersion)
+<a id="createSocialMediaPostAsync"></a>
+# **createSocialMediaPostAsync**
+> EmptyEnvelope createSocialMediaPostAsync(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion)
 
+Create a social media post
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SocialMediaPostsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      Int32Envelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsCountGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **400** | Bad Request |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2MarketingServiceSocialMediaPostsGet"></a>
-# **apiV2MarketingServiceSocialMediaPostsGet**
-> SocialMediaPostDtoListEnvelope apiV2MarketingServiceSocialMediaPostsGet(tenantId, apiVersion, xApiVersion)
-
-
+Creates a new social media post for the specified tenant.
 
 ### Example
 ```java
@@ -98,7 +26,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SocialMediaPostsApi;
 
@@ -106,85 +33,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SocialMediaPostDtoListEnvelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsGet(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SocialMediaPostDtoListEnvelope**](SocialMediaPostDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2MarketingServiceSocialMediaPostsPost"></a>
-# **apiV2MarketingServiceSocialMediaPostsPost**
-> EmptyEnvelope apiV2MarketingServiceSocialMediaPostsPost(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.SocialMediaPostsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -192,10 +40,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsPost(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.createSocialMediaPostAsync(tenantId, socialMediaPostCreateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsPost");
+      System.err.println("Exception when calling SocialMediaPostsApi#createSocialMediaPostAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -220,7 +68,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,11 +83,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **201** | Created |  -  |
 
-<a id="apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete"></a>
-# **apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete**
-> EmptyEnvelope apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete(tenantId, socialmediapostId, apiVersion, xApiVersion)
+<a id="deleteSocialMediaPostAsync"></a>
+# **deleteSocialMediaPostAsync**
+> EmptyEnvelope deleteSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion)
 
+Delete a social media post
 
+Deletes a social media post by its ID.
 
 ### Example
 ```java
@@ -247,7 +97,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SocialMediaPostsApi;
 
@@ -255,12 +104,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -268,10 +111,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete(tenantId, socialmediapostId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteSocialMediaPostAsync(tenantId, socialmediapostId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdDelete");
+      System.err.println("Exception when calling SocialMediaPostsApi#deleteSocialMediaPostAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -296,7 +139,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,11 +154,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet"></a>
-# **apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet**
-> SocialMediaPostDtoEnvelope apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet(tenantId, socialmediapostId, apiVersion, xApiVersion)
+<a id="getSocialMediaPostDetailsAsync"></a>
+# **getSocialMediaPostDetailsAsync**
+> SocialMediaPostDtoEnvelope getSocialMediaPostDetailsAsync(tenantId, socialmediapostId, apiVersion, xApiVersion)
 
+Get social media post by ID
 
+Retrieves the details of a specific social media post by its ID.
 
 ### Example
 ```java
@@ -323,7 +168,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SocialMediaPostsApi;
 
@@ -331,12 +175,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -344,10 +182,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SocialMediaPostDtoEnvelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet(tenantId, socialmediapostId, apiVersion, xApiVersion);
+      SocialMediaPostDtoEnvelope result = apiInstance.getSocialMediaPostDetailsAsync(tenantId, socialmediapostId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdGet");
+      System.err.println("Exception when calling SocialMediaPostsApi#getSocialMediaPostDetailsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -372,7 +210,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -387,11 +225,13 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut"></a>
-# **apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut**
-> EmptyEnvelope apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut(tenantId, socialmediapostId, socialMediaPostUpdateDto, apiVersion, xApiVersion)
+<a id="getSocialMediaPostsCountAsync"></a>
+# **getSocialMediaPostsCountAsync**
+> Int32Envelope getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion)
 
+Get social media posts count
 
+Returns the count of social media posts for the specified tenant using OData query options.
 
 ### Example
 ```java
@@ -399,7 +239,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.SocialMediaPostsApi;
 
@@ -407,12 +246,143 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getSocialMediaPostsCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialMediaPostsApi#getSocialMediaPostsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
+<a id="getSocialMediaPostsODataAsync"></a>
+# **getSocialMediaPostsODataAsync**
+> SocialMediaPostDtoListEnvelope getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion)
+
+Get social media posts
+
+Retrieves a collection of social media posts for the specified tenant using OData query options.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialMediaPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SocialMediaPostDtoListEnvelope result = apiInstance.getSocialMediaPostsODataAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SocialMediaPostsApi#getSocialMediaPostsODataAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SocialMediaPostDtoListEnvelope**](SocialMediaPostDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="updateSocialMediaPostAsync"></a>
+# **updateSocialMediaPostAsync**
+> EmptyEnvelope updateSocialMediaPostAsync(tenantId, socialmediapostId, socialMediaPostUpdateDto, apiVersion, xApiVersion)
+
+Update a social media post
+
+Updates an existing social media post by its ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SocialMediaPostsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     SocialMediaPostsApi apiInstance = new SocialMediaPostsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -421,10 +391,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut(tenantId, socialmediapostId, socialMediaPostUpdateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.updateSocialMediaPostAsync(tenantId, socialmediapostId, socialMediaPostUpdateDto, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SocialMediaPostsApi#apiV2MarketingServiceSocialMediaPostsSocialmediapostIdPut");
+      System.err.println("Exception when calling SocialMediaPostsApi#updateSocialMediaPostAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -450,7 +420,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
-|**displayName** | **String** |  |  [optional] [readonly] |
 |**utcOffset** | **String** |  |  [optional] |
+|**displayName** | **String** |  |  [optional] [readonly] |
 
 
 

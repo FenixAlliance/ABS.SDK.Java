@@ -4,122 +4,58 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2InvoicingServiceInvoicesCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesCountGet) | **GET** /api/v2/InvoicingService/Invoices/Count |  |
-| [**apiV2InvoicingServiceInvoicesDiscountsAggregatePost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesDiscountsAggregatePost) | **POST** /api/v2/InvoicingService/Invoices/DiscountsAggregate |  |
-| [**apiV2InvoicingServiceInvoicesExtendedCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesExtendedCountGet) | **GET** /api/v2/InvoicingService/Invoices/Extended/Count |  |
-| [**apiV2InvoicingServiceInvoicesExtendedGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesExtendedGet) | **GET** /api/v2/InvoicingService/Invoices/Extended |  |
-| [**apiV2InvoicingServiceInvoicesGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesGet) | **GET** /api/v2/InvoicingService/Invoices |  |
-| [**apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost) | **POST** /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Calculate |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdDelete**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdDelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Extended |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Calculate |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdLinesPost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdLinesPost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdPut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdPut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} |  |
-| [**apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/References |  |
-| [**apiV2InvoicingServiceInvoicesPost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesPost) | **POST** /api/v2/InvoicingService/Invoices |  |
-| [**apiV2InvoicingServiceInvoicesTaxBasesAggregatePost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesTaxBasesAggregatePost) | **POST** /api/v2/InvoicingService/Invoices/TaxBasesAggregate |  |
-| [**apiV2InvoicingServiceInvoicesTaxesAggregatePost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesTaxesAggregatePost) | **POST** /api/v2/InvoicingService/Invoices/TaxesAggregate |  |
-| [**apiV2InvoicingServiceInvoicesTotalsAggregatePost**](InvoicesApi.md#apiV2InvoicingServiceInvoicesTotalsAggregatePost) | **POST** /api/v2/InvoicingService/Invoices/TotalsAggregate |  |
-| [**getInvoiceAsync**](InvoicesApi.md#getInvoiceAsync) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId} |  |
+| [**aggregateInvoiceDiscounts**](InvoicesApi.md#aggregateInvoiceDiscounts) | **POST** /api/v2/InvoicingService/Invoices/DiscountsAggregate | Aggregate invoice discounts. |
+| [**aggregateInvoiceGlobalSurcharges**](InvoicesApi.md#aggregateInvoiceGlobalSurcharges) | **POST** /api/v2/InvoicingService/Invoices/GlobalSurchargesAggregate | Aggregate invoice global surcharges. |
+| [**aggregateInvoiceTaxBases**](InvoicesApi.md#aggregateInvoiceTaxBases) | **POST** /api/v2/InvoicingService/Invoices/TaxBasesAggregate | Aggregate invoice tax bases. |
+| [**aggregateInvoiceTaxes**](InvoicesApi.md#aggregateInvoiceTaxes) | **POST** /api/v2/InvoicingService/Invoices/TaxesAggregate | Aggregate invoice taxes. |
+| [**aggregateInvoiceTotals**](InvoicesApi.md#aggregateInvoiceTotals) | **POST** /api/v2/InvoicingService/Invoices/TotalsAggregate | Aggregate invoice totals. |
+| [**calculateInvoice**](InvoicesApi.md#calculateInvoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Calculate | Calculate an invoice. |
+| [**calculateInvoiceLine**](InvoicesApi.md#calculateInvoiceLine) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Calculate | Calculate an invoice line. |
+| [**createInvoice**](InvoicesApi.md#createInvoice) | **POST** /api/v2/InvoicingService/Invoices | Create a new invoice. |
+| [**createInvoiceAdjustment**](InvoicesApi.md#createInvoiceAdjustment) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | Create a new invoice adjustment. |
+| [**createInvoiceLine**](InvoicesApi.md#createInvoiceLine) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | Create a new invoice line. |
+| [**createInvoiceLineTax**](InvoicesApi.md#createInvoiceLineTax) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | Create a new tax for an invoice line. |
+| [**createInvoiceReference**](InvoicesApi.md#createInvoiceReference) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/References | Create a new invoice reference. |
+| [**deleteInvoice**](InvoicesApi.md#deleteInvoice) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId} | Delete an invoice. |
+| [**deleteInvoiceAdjustment**](InvoicesApi.md#deleteInvoiceAdjustment) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Delete an invoice adjustment. |
+| [**deleteInvoiceLine**](InvoicesApi.md#deleteInvoiceLine) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Delete an invoice line. |
+| [**deleteInvoiceLineTax**](InvoicesApi.md#deleteInvoiceLineTax) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Delete a tax from an invoice line. |
+| [**deleteInvoiceReference**](InvoicesApi.md#deleteInvoiceReference) | **DELETE** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Delete an invoice reference. |
+| [**getExtendedInvoice**](InvoicesApi.md#getExtendedInvoice) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Extended | Get an extended invoice by ID. |
+| [**getExtendedInvoices**](InvoicesApi.md#getExtendedInvoices) | **GET** /api/v2/InvoicingService/Invoices/Extended | Get a list of extended invoices. |
+| [**getExtendedInvoicesCount**](InvoicesApi.md#getExtendedInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Extended/Count | Get the count of extended invoices. |
+| [**getInvoice**](InvoicesApi.md#getInvoice) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId} | Get an invoice by ID. |
+| [**getInvoiceAdjustment**](InvoicesApi.md#getInvoiceAdjustment) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Get an invoice adjustment by ID. |
+| [**getInvoiceAdjustments**](InvoicesApi.md#getInvoiceAdjustments) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments | Get invoice adjustments. |
+| [**getInvoiceAdjustmentsCount**](InvoicesApi.md#getInvoiceAdjustmentsCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/Count | Get the count of invoice adjustments. |
+| [**getInvoiceLine**](InvoicesApi.md#getInvoiceLine) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Get an invoice line by ID. |
+| [**getInvoiceLineTaxes**](InvoicesApi.md#getInvoiceLineTaxes) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes | Get taxes for an invoice line. |
+| [**getInvoiceLineTaxesCount**](InvoicesApi.md#getInvoiceLineTaxesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/Count | Get the count of taxes for an invoice line. |
+| [**getInvoiceLines**](InvoicesApi.md#getInvoiceLines) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines | Get invoice lines. |
+| [**getInvoiceLinesCount**](InvoicesApi.md#getInvoiceLinesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/Count | Get the count of invoice lines. |
+| [**getInvoicePayments**](InvoicesApi.md#getInvoicePayments) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments | Get payments for an invoice. |
+| [**getInvoicePaymentsCount**](InvoicesApi.md#getInvoicePaymentsCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/Payments/Count | Get the count of payments for an invoice. |
+| [**getInvoiceReference**](InvoicesApi.md#getInvoiceReference) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Get an invoice reference by ID. |
+| [**getInvoiceReferences**](InvoicesApi.md#getInvoiceReferences) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References | Get invoice references. |
+| [**getInvoiceReferencesCount**](InvoicesApi.md#getInvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references. |
+| [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices. |
+| [**getInvoicesCount**](InvoicesApi.md#getInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices. |
+| [**previewInvoiceEmail**](InvoicesApi.md#previewInvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Preview | Preview the rendered email for an invoice. |
+| [**sendInvoiceEmail**](InvoicesApi.md#sendInvoiceEmail) | **POST** /api/v2/InvoicingService/Invoices/{invoiceId}/Emails/Send | Send an invoice transactional email to recipients. |
+| [**updateInvoice**](InvoicesApi.md#updateInvoice) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId} | Update an invoice. |
+| [**updateInvoiceAdjustment**](InvoicesApi.md#updateInvoiceAdjustment) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Update an invoice adjustment. |
+| [**updateInvoiceLine**](InvoicesApi.md#updateInvoiceLine) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Update an invoice line. |
+| [**updateInvoiceLineTax**](InvoicesApi.md#updateInvoiceLineTax) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId}/Taxes/{invoiceLineTaxId} | Update a tax for an invoice line. |
+| [**updateInvoiceReference**](InvoicesApi.md#updateInvoiceReference) | **PUT** /api/v2/InvoicingService/Invoices/{invoiceId}/References/{invoiceReferenceId} | Update an invoice reference. |
 
 
-<a id="apiV2InvoicingServiceInvoicesCountGet"></a>
-# **apiV2InvoicingServiceInvoicesCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesCountGet(tenantId)
+<a id="aggregateInvoiceDiscounts"></a>
+# **aggregateInvoiceDiscounts**
+> MoneyEnvelope aggregateInvoiceDiscounts(UUID, currencyId)
 
+Aggregate invoice discounts.
 
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesCountGet(tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesDiscountsAggregatePost"></a>
-# **apiV2InvoicingServiceInvoicesDiscountsAggregatePost**
-> MoneyEnvelope apiV2InvoicingServiceInvoicesDiscountsAggregatePost(UUID, currencyId)
-
-
+Aggregates the discounts for the specified invoices.
 
 ### Example
 ```java
@@ -127,7 +63,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -135,21 +70,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     List<UUID> UUID = Arrays.asList(); // List<UUID> | 
     String currencyId = "currencyId_example"; // String | 
     try {
-      MoneyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesDiscountsAggregatePost(UUID, currencyId);
+      MoneyEnvelope result = apiInstance.aggregateInvoiceDiscounts(UUID, currencyId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesDiscountsAggregatePost");
+      System.err.println("Exception when calling InvoicesApi#aggregateInvoiceDiscounts");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -172,7 +101,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -182,15 +111,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesExtendedCountGet"></a>
-# **apiV2InvoicingServiceInvoicesExtendedCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesExtendedCountGet(tenantId)
+<a id="aggregateInvoiceGlobalSurcharges"></a>
+# **aggregateInvoiceGlobalSurcharges**
+> MoneyEnvelope aggregateInvoiceGlobalSurcharges(UUID, currencyId)
 
+Aggregate invoice global surcharges.
 
+Aggregates the global surcharges for the specified invoices.
 
 ### Example
 ```java
@@ -198,7 +127,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -206,225 +134,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesExtendedCountGet(tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesExtendedCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesExtendedGet"></a>
-# **apiV2InvoicingServiceInvoicesExtendedGet**
-> ExtendedInvoiceDtoListEnvelope apiV2InvoicingServiceInvoicesExtendedGet(tenantId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      ExtendedInvoiceDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesExtendedGet(tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesExtendedGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**ExtendedInvoiceDtoListEnvelope**](ExtendedInvoiceDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesGet"></a>
-# **apiV2InvoicingServiceInvoicesGet**
-> InvoiceDtoListEnvelope apiV2InvoicingServiceInvoicesGet(tenantId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesGet(tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceDtoListEnvelope**](InvoiceDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost"></a>
-# **apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost**
-> MoneyEnvelope apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost(UUID, currencyId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     List<UUID> UUID = Arrays.asList(); // List<UUID> | 
     String currencyId = "currencyId_example"; // String | 
     try {
-      MoneyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost(UUID, currencyId);
+      MoneyEnvelope result = apiInstance.aggregateInvoiceGlobalSurcharges(UUID, currencyId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesGlobalSurchargesAggregatePost");
+      System.err.println("Exception when calling InvoicesApi#aggregateInvoiceGlobalSurcharges");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -447,7 +165,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -457,15 +175,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet(tenantId, invoiceId)
+<a id="aggregateInvoiceTaxBases"></a>
+# **aggregateInvoiceTaxBases**
+> MoneyEnvelope aggregateInvoiceTaxBases(UUID, currencyId)
 
+Aggregate invoice tax bases.
 
+Aggregates the tax bases for the specified invoices.
 
 ### Example
 ```java
@@ -473,7 +191,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -481,21 +198,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    String currencyId = "currencyId_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet(tenantId, invoiceId);
+      MoneyEnvelope result = apiInstance.aggregateInvoiceTaxBases(UUID, currencyId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsCountGet");
+      System.err.println("Exception when calling InvoicesApi#aggregateInvoiceTaxBases");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -509,33 +220,34 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
+| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
+| **currencyId** | **String**|  | [optional] |
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet**
-> InvoiceAdjustmentDtoListEnvelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet(tenantId, invoiceId)
+<a id="aggregateInvoiceTaxes"></a>
+# **aggregateInvoiceTaxes**
+> MoneyEnvelope aggregateInvoiceTaxes(UUID, currencyId)
 
+Aggregate invoice taxes.
 
+Aggregates the taxes for the specified invoices.
 
 ### Example
 ```java
@@ -543,7 +255,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -551,21 +262,15 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    String currencyId = "currencyId_example"; // String | 
     try {
-      InvoiceAdjustmentDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet(tenantId, invoiceId);
+      MoneyEnvelope result = apiInstance.aggregateInvoiceTaxes(UUID, currencyId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsGet");
+      System.err.println("Exception when calling InvoicesApi#aggregateInvoiceTaxes");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -579,33 +284,34 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
+| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
+| **currencyId** | **String**|  | [optional] |
 
 ### Return type
 
-[**InvoiceAdjustmentDtoListEnvelope**](InvoiceAdjustmentDtoListEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete(tenantId, invoiceId, invoiceAdjustmentId)
+<a id="aggregateInvoiceTotals"></a>
+# **aggregateInvoiceTotals**
+> MoneyEnvelope aggregateInvoiceTotals(UUID, currencyId)
 
+Aggregate invoice totals.
 
+Aggregates the totals for the specified invoices.
 
 ### Example
 ```java
@@ -613,7 +319,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -621,22 +326,79 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
+    String currencyId = "currencyId_example"; // String | 
+    try {
+      MoneyEnvelope result = apiInstance.aggregateInvoiceTotals(UUID, currencyId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#aggregateInvoiceTotals");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
+| **currencyId** | **String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="calculateInvoice"></a>
+# **calculateInvoice**
+> EmptyEnvelope calculateInvoice(tenantId, invoiceId)
+
+Calculate an invoice.
+
+Calculates the totals and taxes for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete(tenantId, invoiceId, invoiceAdjustmentId);
+      EmptyEnvelope result = apiInstance.calculateInvoice(tenantId, invoiceId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdDelete");
+      System.err.println("Exception when calling InvoicesApi#calculateInvoice");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -652,7 +414,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
-| **invoiceAdjustmentId** | **UUID**|  | |
 
 ### Return type
 
@@ -660,7 +421,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -673,11 +434,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet**
-> InvoiceAdjustmentDtoEnvelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet(tenantId, invoiceId, invoiceAdjustmentId)
+<a id="calculateInvoiceLine"></a>
+# **calculateInvoiceLine**
+> EmptyEnvelope calculateInvoiceLine(tenantId, invoiceId, invoiceLineId)
 
+Calculate an invoice line.
 
+Calculates the totals and taxes for the specified invoice line.
 
 ### Example
 ```java
@@ -685,7 +448,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -693,22 +455,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
     try {
-      InvoiceAdjustmentDtoEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet(tenantId, invoiceId, invoiceAdjustmentId);
+      EmptyEnvelope result = apiInstance.calculateInvoiceLine(tenantId, invoiceId, invoiceLineId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdGet");
+      System.err.println("Exception when calling InvoicesApi#calculateInvoiceLine");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -724,81 +480,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
-| **invoiceAdjustmentId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceAdjustmentDtoEnvelope**](InvoiceAdjustmentDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut(tenantId, invoiceId, invoiceAdjustmentId, invoiceAdjustmentUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
-    InvoiceAdjustmentUpdateDto invoiceAdjustmentUpdateDto = new InvoiceAdjustmentUpdateDto(); // InvoiceAdjustmentUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut(tenantId, invoiceId, invoiceAdjustmentId, invoiceAdjustmentUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsInvoiceAdjustmentIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceAdjustmentId** | **UUID**|  | |
-| **invoiceAdjustmentUpdateDto** | [**InvoiceAdjustmentUpdateDto**](InvoiceAdjustmentUpdateDto.md)|  | [optional] |
+| **invoiceLineId** | **UUID**|  | |
 
 ### Return type
 
@@ -806,7 +488,71 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="createInvoice"></a>
+# **createInvoice**
+> EmptyEnvelope createInvoice(tenantId, invoiceCreateDto)
+
+Create a new invoice.
+
+Creates a new invoice for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    InvoiceCreateDto invoiceCreateDto = new InvoiceCreateDto(); // InvoiceCreateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.createInvoice(tenantId, invoiceCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#createInvoice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceCreateDto** | [**InvoiceCreateDto**](InvoiceCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -819,11 +565,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost(tenantId, invoiceId, invoiceAdjustmentCreateDto)
+<a id="createInvoiceAdjustment"></a>
+# **createInvoiceAdjustment**
+> EmptyEnvelope createInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentCreateDto)
 
+Create a new invoice adjustment.
 
+Creates a new adjustment for the specified invoice.
 
 ### Example
 ```java
@@ -831,7 +579,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -839,22 +586,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     InvoiceAdjustmentCreateDto invoiceAdjustmentCreateDto = new InvoiceAdjustmentCreateDto(); // InvoiceAdjustmentCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost(tenantId, invoiceId, invoiceAdjustmentCreateDto);
+      EmptyEnvelope result = apiInstance.createInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdAdjustmentsPost");
+      System.err.println("Exception when calling InvoicesApi#createInvoiceAdjustment");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -878,7 +619,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -888,14 +629,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut(tenantId, invoiceId)
+<a id="createInvoiceLine"></a>
+# **createInvoiceLine**
+> InvoiceLineDtoIReadOnlyListEnvelope createInvoiceLine(tenantId, invoiceId, invoiceLineCreateDto)
 
+Create a new invoice line.
 
+Creates a new invoice line for the specified invoice.
 
 ### Example
 ```java
@@ -903,7 +645,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -911,21 +652,16 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceLineCreateDto invoiceLineCreateDto = new InvoiceLineCreateDto(); // InvoiceLineCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut(tenantId, invoiceId);
+      InvoiceLineDtoIReadOnlyListEnvelope result = apiInstance.createInvoiceLine(tenantId, invoiceId, invoiceLineCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdCalculatePut");
+      System.err.println("Exception when calling InvoicesApi#createInvoiceLine");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -941,586 +677,15 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **invoiceId** | **UUID**|  | |
+| **invoiceLineCreateDto** | [**InvoiceLineCreateDto**](InvoiceLineCreateDto.md)|  | [optional] |
 
 ### Return type
 
-[**EmptyEnvelope**](EmptyEnvelope.md)
+[**InvoiceLineDtoIReadOnlyListEnvelope**](InvoiceLineDtoIReadOnlyListEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdDelete"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdDelete**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdDelete(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdDelete(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet**
-> InvoiceDtoEnvelope apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceDtoEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdExtendedGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceDtoEnvelope**](InvoiceDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesGet**
-> InvoiceLineDtoListEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesGet(tenantId, invoiceId, itemId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID itemId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceLineDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesGet(tenantId, invoiceId, itemId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **itemId** | **UUID**|  | [optional] |
-
-### Return type
-
-[**InvoiceLineDtoListEnvelope**](InvoiceLineDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut(tenantId, invoiceId, invoiceLineId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut(tenantId, invoiceId, invoiceLineId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdCalculatePut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete(tenantId, invoiceId, invoiceLineId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete(tenantId, invoiceId, invoiceLineId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet**
-> InvoiceLineDtoEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet(tenantId, invoiceId, invoiceLineId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceLineDtoEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet(tenantId, invoiceId, invoiceLineId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceLineDtoEnvelope**](InvoiceLineDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut(tenantId, invoiceId, invoiceLineId, invoiceLineUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    InvoiceLineUpdateDto invoiceLineUpdateDto = new InvoiceLineUpdateDto(); // InvoiceLineUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut(tenantId, invoiceId, invoiceLineId, invoiceLineUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-| **invoiceLineUpdateDto** | [**InvoiceLineUpdateDto**](InvoiceLineUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1530,14 +695,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet(tenantId, invoiceId, invoiceLineId)
+<a id="createInvoiceLineTax"></a>
+# **createInvoiceLineTax**
+> EmptyEnvelope createInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxCreateDto)
 
+Create a new tax for an invoice line.
 
+Creates a new tax entry for the specified invoice line.
 
 ### Example
 ```java
@@ -1545,7 +711,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -1553,22 +718,281 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    InvoiceLineAppliedTaxCreateDto invoiceLineAppliedTaxCreateDto = new InvoiceLineAppliedTaxCreateDto(); // InvoiceLineAppliedTaxCreateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.createInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#createInvoiceLineTax");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceLineId** | **UUID**|  | |
+| **invoiceLineAppliedTaxCreateDto** | [**InvoiceLineAppliedTaxCreateDto**](InvoiceLineAppliedTaxCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="createInvoiceReference"></a>
+# **createInvoiceReference**
+> EmptyEnvelope createInvoiceReference(tenantId, invoiceId, invoiceReferenceCreateDto)
+
+Create a new invoice reference.
+
+Creates a new reference for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceReferenceCreateDto invoiceReferenceCreateDto = new InvoiceReferenceCreateDto(); // InvoiceReferenceCreateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.createInvoiceReference(tenantId, invoiceId, invoiceReferenceCreateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#createInvoiceReference");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceReferenceCreateDto** | [**InvoiceReferenceCreateDto**](InvoiceReferenceCreateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="deleteInvoice"></a>
+# **deleteInvoice**
+> EmptyEnvelope deleteInvoice(tenantId, invoiceId)
+
+Delete an invoice.
+
+Deletes the specified invoice for the tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteInvoice(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#deleteInvoice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteInvoiceAdjustment"></a>
+# **deleteInvoiceAdjustment**
+> EmptyEnvelope deleteInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId)
+
+Delete an invoice adjustment.
+
+Deletes the specified adjustment from the invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#deleteInvoiceAdjustment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceAdjustmentId** | **UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="deleteInvoiceLine"></a>
+# **deleteInvoiceLine**
+> EmptyEnvelope deleteInvoiceLine(tenantId, invoiceId, invoiceLineId)
+
+Delete an invoice line.
+
+Deletes the specified invoice line.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID invoiceId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
     try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet(tenantId, invoiceId, invoiceLineId);
+      EmptyEnvelope result = apiInstance.deleteInvoiceLine(tenantId, invoiceId, invoiceLineId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesCountGet");
+      System.err.println("Exception when calling InvoicesApi#deleteInvoiceLine");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1588,11 +1012,11 @@ public class Example {
 
 ### Return type
 
-[**Int32Envelope**](Int32Envelope.md)
+[**EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1602,14 +1026,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet**
-> InvoiceLineAppliedTaxDtoListEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet(tenantId, invoiceId, invoiceLineId)
+<a id="deleteInvoiceLineTax"></a>
+# **deleteInvoiceLineTax**
+> EmptyEnvelope deleteInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId)
 
+Delete a tax from an invoice line.
 
+Deletes the specified tax entry from the invoice line.
 
 ### Example
 ```java
@@ -1617,7 +1042,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -1625,84 +1049,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceLineAppliedTaxDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet(tenantId, invoiceId, invoiceLineId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceLineAppliedTaxDtoListEnvelope**](InvoiceLineAppliedTaxDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1710,10 +1056,10 @@ public class Example {
     UUID invoiceLineId = UUID.randomUUID(); // UUID | 
     UUID invoiceLineTaxId = UUID.randomUUID(); // UUID | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId);
+      EmptyEnvelope result = apiInstance.deleteInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdDelete");
+      System.err.println("Exception when calling InvoicesApi#deleteInvoiceLineTax");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1738,7 +1084,137 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="deleteInvoiceReference"></a>
+# **deleteInvoiceReference**
+> EmptyEnvelope deleteInvoiceReference(tenantId, invoiceId, invoiceReferenceId)
+
+Delete an invoice reference.
+
+Deletes the specified reference from the invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
+    try {
+      EmptyEnvelope result = apiInstance.deleteInvoiceReference(tenantId, invoiceId, invoiceReferenceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#deleteInvoiceReference");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceReferenceId** | **UUID**|  | |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getExtendedInvoice"></a>
+# **getExtendedInvoice**
+> InvoiceDtoEnvelope getExtendedInvoice(tenantId, invoiceId)
+
+Get an extended invoice by ID.
+
+Retrieves the extended invoice details for the specified invoice ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceDtoEnvelope result = apiInstance.getExtendedInvoice(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getExtendedInvoice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceDtoEnvelope**](InvoiceDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1751,11 +1227,13 @@ public class Example {
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, invoiceLineAppliedTaxUpdateDto)
+<a id="getExtendedInvoices"></a>
+# **getExtendedInvoices**
+> ExtendedInvoiceDtoListEnvelope getExtendedInvoices(tenantId)
 
+Get a list of extended invoices.
 
+Retrieves a list of extended invoice details for the specified tenant.
 
 ### Example
 ```java
@@ -1763,7 +1241,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -1771,12 +1248,1497 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      ExtendedInvoiceDtoListEnvelope result = apiInstance.getExtendedInvoices(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getExtendedInvoices");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**ExtendedInvoiceDtoListEnvelope**](ExtendedInvoiceDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getExtendedInvoicesCount"></a>
+# **getExtendedInvoicesCount**
+> Int32Envelope getExtendedInvoicesCount(tenantId)
+
+Get the count of extended invoices.
+
+Retrieves the total count of extended invoices for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getExtendedInvoicesCount(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getExtendedInvoicesCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getInvoice"></a>
+# **getInvoice**
+> InvoiceDtoEnvelope getInvoice(tenantId, invoiceId)
+
+Get an invoice by ID.
+
+Retrieves the invoice details for the specified invoice ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceDtoEnvelope result = apiInstance.getInvoice(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceDtoEnvelope**](InvoiceDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getInvoiceAdjustment"></a>
+# **getInvoiceAdjustment**
+> InvoiceAdjustmentDtoEnvelope getInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId)
+
+Get an invoice adjustment by ID.
+
+Retrieves the adjustment details for the specified invoice adjustment ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceAdjustmentDtoEnvelope result = apiInstance.getInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceAdjustment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceAdjustmentId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceAdjustmentDtoEnvelope**](InvoiceAdjustmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceAdjustments"></a>
+# **getInvoiceAdjustments**
+> InvoiceAdjustmentDtoIReadOnlyListEnvelope getInvoiceAdjustments(tenantId, invoiceId)
+
+Get invoice adjustments.
+
+Retrieves the adjustments for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceAdjustmentDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceAdjustments(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceAdjustments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceAdjustmentDtoIReadOnlyListEnvelope**](InvoiceAdjustmentDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceAdjustmentsCount"></a>
+# **getInvoiceAdjustmentsCount**
+> Int32Envelope getInvoiceAdjustmentsCount(tenantId, invoiceId)
+
+Get the count of invoice adjustments.
+
+Retrieves the total count of adjustments for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoiceAdjustmentsCount(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceAdjustmentsCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceLine"></a>
+# **getInvoiceLine**
+> InvoiceLineDtoEnvelope getInvoiceLine(tenantId, invoiceId, invoiceLineId)
+
+Get an invoice line by ID.
+
+Retrieves the invoice line details for the specified invoice line ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceLineDtoEnvelope result = apiInstance.getInvoiceLine(tenantId, invoiceId, invoiceLineId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceLine");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceLineId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceLineDtoEnvelope**](InvoiceLineDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceLineTaxes"></a>
+# **getInvoiceLineTaxes**
+> InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId)
+
+Get taxes for an invoice line.
+
+Retrieves the taxes applied to the specified invoice line.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceLineTaxes(tenantId, invoiceId, invoiceLineId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceLineTaxes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceLineId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope**](InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceLineTaxesCount"></a>
+# **getInvoiceLineTaxesCount**
+> Int32Envelope getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId)
+
+Get the count of taxes for an invoice line.
+
+Retrieves the total count of taxes applied to the specified invoice line.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoiceLineTaxesCount(tenantId, invoiceId, invoiceLineId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceLineTaxesCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceLineId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceLines"></a>
+# **getInvoiceLines**
+> InvoiceLineDtoListEnvelope getInvoiceLines(tenantId, invoiceId, itemId)
+
+Get invoice lines.
+
+Retrieves the invoice lines for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID itemId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceLineDtoListEnvelope result = apiInstance.getInvoiceLines(tenantId, invoiceId, itemId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceLines");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **itemId** | **UUID**|  | [optional] |
+
+### Return type
+
+[**InvoiceLineDtoListEnvelope**](InvoiceLineDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceLinesCount"></a>
+# **getInvoiceLinesCount**
+> Int32Envelope getInvoiceLinesCount(tenantId, invoiceId)
+
+Get the count of invoice lines.
+
+Retrieves the total count of invoice lines for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoiceLinesCount(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceLinesCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoicePayments"></a>
+# **getInvoicePayments**
+> PaymentDtoIReadOnlyListEnvelope getInvoicePayments(invoiceId)
+
+Get payments for an invoice.
+
+Retrieves the list of payments related to the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      PaymentDtoIReadOnlyListEnvelope result = apiInstance.getInvoicePayments(invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoicePayments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**PaymentDtoIReadOnlyListEnvelope**](PaymentDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoicePaymentsCount"></a>
+# **getInvoicePaymentsCount**
+> Int32Envelope getInvoicePaymentsCount(invoiceId)
+
+Get the count of payments for an invoice.
+
+Retrieves the total count of payments for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoicePaymentsCount(invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoicePaymentsCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceReference"></a>
+# **getInvoiceReference**
+> InvoiceReferenceDtoEnvelope getInvoiceReference(tenantId, invoiceId, invoiceReferenceId)
+
+Get an invoice reference by ID.
+
+Retrieves the reference details for the specified invoice reference ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceReferenceDtoEnvelope result = apiInstance.getInvoiceReference(tenantId, invoiceId, invoiceReferenceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceReference");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceReferenceId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceReferenceDtoEnvelope**](InvoiceReferenceDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceReferences"></a>
+# **getInvoiceReferences**
+> InvoiceReferenceDtoIReadOnlyListEnvelope getInvoiceReferences(tenantId, invoiceId)
+
+Get invoice references.
+
+Retrieves the references for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceReferenceDtoIReadOnlyListEnvelope result = apiInstance.getInvoiceReferences(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceReferences");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceReferenceDtoIReadOnlyListEnvelope**](InvoiceReferenceDtoIReadOnlyListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoiceReferencesCount"></a>
+# **getInvoiceReferencesCount**
+> Int32Envelope getInvoiceReferencesCount(tenantId, invoiceId)
+
+Get the count of invoice references.
+
+Retrieves the total count of references for the specified invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoiceReferencesCount(tenantId, invoiceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoiceReferencesCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="getInvoices"></a>
+# **getInvoices**
+> InvoiceDtoListEnvelope getInvoices(tenantId)
+
+Get a list of invoices.
+
+Retrieves a list of invoices for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      InvoiceDtoListEnvelope result = apiInstance.getInvoices(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoices");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**InvoiceDtoListEnvelope**](InvoiceDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="getInvoicesCount"></a>
+# **getInvoicesCount**
+> Int32Envelope getInvoicesCount(tenantId)
+
+Get the count of invoices.
+
+Retrieves the total count of invoices for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getInvoicesCount(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getInvoicesCount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="previewInvoiceEmail"></a>
+# **previewInvoiceEmail**
+> previewInvoiceEmail(invoiceId, tenantId, emailDispatchRequest)
+
+Preview the rendered email for an invoice.
+
+This action is only available for users with the &#39;send_email&#39; permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    EmailDispatchRequest emailDispatchRequest = new EmailDispatchRequest(); // EmailDispatchRequest | 
+    try {
+      apiInstance.previewInvoiceEmail(invoiceId, tenantId, emailDispatchRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#previewInvoiceEmail");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **invoiceId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **emailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="sendInvoiceEmail"></a>
+# **sendInvoiceEmail**
+> Envelope sendInvoiceEmail(tenantId, invoiceId, emailDispatchRequest)
+
+Send an invoice transactional email to recipients.
+
+This action is only available for users with the &#39;send_email&#39; permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    EmailDispatchRequest emailDispatchRequest = new EmailDispatchRequest(); // EmailDispatchRequest | 
+    try {
+      Envelope result = apiInstance.sendInvoiceEmail(tenantId, invoiceId, emailDispatchRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#sendInvoiceEmail");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **emailDispatchRequest** | [**EmailDispatchRequest**](EmailDispatchRequest.md)|  | [optional] |
+
+### Return type
+
+[**Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="updateInvoice"></a>
+# **updateInvoice**
+> EmptyEnvelope updateInvoice(tenantId, invoiceId, invoiceUpdateDto)
+
+Update an invoice.
+
+Updates the specified invoice for the tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    InvoiceUpdateDto invoiceUpdateDto = new InvoiceUpdateDto(); // InvoiceUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateInvoice(tenantId, invoiceId, invoiceUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#updateInvoice");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceUpdateDto** | [**InvoiceUpdateDto**](InvoiceUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updateInvoiceAdjustment"></a>
+# **updateInvoiceAdjustment**
+> EmptyEnvelope updateInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, invoiceAdjustmentUpdateDto)
+
+Update an invoice adjustment.
+
+Updates the specified adjustment for the invoice.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceAdjustmentId = UUID.randomUUID(); // UUID | 
+    InvoiceAdjustmentUpdateDto invoiceAdjustmentUpdateDto = new InvoiceAdjustmentUpdateDto(); // InvoiceAdjustmentUpdateDto | 
+    try {
+      EmptyEnvelope result = apiInstance.updateInvoiceAdjustment(tenantId, invoiceId, invoiceAdjustmentId, invoiceAdjustmentUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#updateInvoiceAdjustment");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceAdjustmentId** | **UUID**|  | |
+| **invoiceAdjustmentUpdateDto** | [**InvoiceAdjustmentUpdateDto**](InvoiceAdjustmentUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="updateInvoiceLine"></a>
+# **updateInvoiceLine**
+> InvoiceLineDtoEnvelope updateInvoiceLine(tenantId, invoiceId, invoiceLineId, invoiceLineUpdateDto)
+
+Update an invoice line.
+
+Updates the specified invoice line.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID invoiceId = UUID.randomUUID(); // UUID | 
+    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
+    InvoiceLineUpdateDto invoiceLineUpdateDto = new InvoiceLineUpdateDto(); // InvoiceLineUpdateDto | 
+    try {
+      InvoiceLineDtoEnvelope result = apiInstance.updateInvoiceLine(tenantId, invoiceId, invoiceLineId, invoiceLineUpdateDto);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#updateInvoiceLine");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **invoiceId** | **UUID**|  | |
+| **invoiceLineId** | **UUID**|  | |
+| **invoiceLineUpdateDto** | [**InvoiceLineUpdateDto**](InvoiceLineUpdateDto.md)|  | [optional] |
+
+### Return type
+
+[**InvoiceLineDtoEnvelope**](InvoiceLineDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="updateInvoiceLineTax"></a>
+# **updateInvoiceLineTax**
+> EmptyEnvelope updateInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, invoiceLineAppliedTaxUpdateDto)
+
+Update a tax for an invoice line.
+
+Updates the specified tax entry for the invoice line.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1785,10 +2747,10 @@ public class Example {
     UUID invoiceLineTaxId = UUID.randomUUID(); // UUID | 
     InvoiceLineAppliedTaxUpdateDto invoiceLineAppliedTaxUpdateDto = new InvoiceLineAppliedTaxUpdateDto(); // InvoiceLineAppliedTaxUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, invoiceLineAppliedTaxUpdateDto);
+      EmptyEnvelope result = apiInstance.updateInvoiceLineTax(tenantId, invoiceId, invoiceLineId, invoiceLineTaxId, invoiceLineAppliedTaxUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesInvoiceLineTaxIdPut");
+      System.err.println("Exception when calling InvoicesApi#updateInvoiceLineTax");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1814,7 +2776,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1824,14 +2786,15 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxCreateDto)
+<a id="updateInvoiceReference"></a>
+# **updateInvoiceReference**
+> EmptyEnvelope updateInvoiceReference(tenantId, invoiceId, invoiceReferenceId, invoiceReferenceUpdateDto)
 
+Update an invoice reference.
 
+Updates the specified reference for the invoice.
 
 ### Example
 ```java
@@ -1839,7 +2802,6 @@ public class Example {
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.InvoicesApi;
 
@@ -1847,652 +2809,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceLineId = UUID.randomUUID(); // UUID | 
-    InvoiceLineAppliedTaxCreateDto invoiceLineAppliedTaxCreateDto = new InvoiceLineAppliedTaxCreateDto(); // InvoiceLineAppliedTaxCreateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost(tenantId, invoiceId, invoiceLineId, invoiceLineAppliedTaxCreateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesInvoiceLineIdTaxesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineId** | **UUID**|  | |
-| **invoiceLineAppliedTaxCreateDto** | [**InvoiceLineAppliedTaxCreateDto**](InvoiceLineAppliedTaxCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdLinesPost"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdLinesPost**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdLinesPost(tenantId, invoiceId, invoiceLineCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    InvoiceLineCreateDto invoiceLineCreateDto = new InvoiceLineCreateDto(); // InvoiceLineCreateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdLinesPost(tenantId, invoiceId, invoiceLineCreateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdLinesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceLineCreateDto** | [**InvoiceLineCreateDto**](InvoiceLineCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet(invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet(invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdPaymentsCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet**
-> InvoiceDtoListEnvelope apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet(invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet(invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdPaymentsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceDtoListEnvelope**](InvoiceDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdPut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdPut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdPut(tenantId, invoiceId, invoiceUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    InvoiceUpdateDto invoiceUpdateDto = new InvoiceUpdateDto(); // InvoiceUpdateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdPut(tenantId, invoiceId, invoiceUpdateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceUpdateDto** | [**InvoiceUpdateDto**](InvoiceUpdateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet**
-> Int32Envelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet**
-> InvoiceReferenceDtoListEnvelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceReferenceDtoListEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceReferenceDtoListEnvelope**](InvoiceReferenceDtoListEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete(tenantId, invoiceId, invoiceReferenceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete(tenantId, invoiceId, invoiceReferenceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceReferenceId** | **UUID**|  | |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet**
-> InvoiceReferenceDtoEnvelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet(tenantId, invoiceId, invoiceReferenceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceReferenceDtoEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet(tenantId, invoiceId, invoiceReferenceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceReferenceId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceReferenceDtoEnvelope**](InvoiceReferenceDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut(tenantId, invoiceId, invoiceReferenceId, invoiceReferenceUpdateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2500,10 +2816,10 @@ public class Example {
     UUID invoiceReferenceId = UUID.randomUUID(); // UUID | 
     InvoiceReferenceUpdateDto invoiceReferenceUpdateDto = new InvoiceReferenceUpdateDto(); // InvoiceReferenceUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut(tenantId, invoiceId, invoiceReferenceId, invoiceReferenceUpdateDto);
+      EmptyEnvelope result = apiInstance.updateInvoiceReference(tenantId, invoiceId, invoiceReferenceId, invoiceReferenceUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesInvoiceReferenceIdPut");
+      System.err.println("Exception when calling InvoicesApi#updateInvoiceReference");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2528,7 +2844,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -2538,431 +2854,5 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost"></a>
-# **apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost(tenantId, invoiceId, invoiceReferenceCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    InvoiceReferenceCreateDto invoiceReferenceCreateDto = new InvoiceReferenceCreateDto(); // InvoiceReferenceCreateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost(tenantId, invoiceId, invoiceReferenceCreateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesInvoiceIdReferencesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-| **invoiceReferenceCreateDto** | [**InvoiceReferenceCreateDto**](InvoiceReferenceCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesPost"></a>
-# **apiV2InvoicingServiceInvoicesPost**
-> EmptyEnvelope apiV2InvoicingServiceInvoicesPost(tenantId, invoiceCreateDto)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    InvoiceCreateDto invoiceCreateDto = new InvoiceCreateDto(); // InvoiceCreateDto | 
-    try {
-      EmptyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesPost(tenantId, invoiceCreateDto);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceCreateDto** | [**InvoiceCreateDto**](InvoiceCreateDto.md)|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesTaxBasesAggregatePost"></a>
-# **apiV2InvoicingServiceInvoicesTaxBasesAggregatePost**
-> MoneyEnvelope apiV2InvoicingServiceInvoicesTaxBasesAggregatePost(UUID, currencyId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
-    String currencyId = "currencyId_example"; // String | 
-    try {
-      MoneyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesTaxBasesAggregatePost(UUID, currencyId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesTaxBasesAggregatePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
-| **currencyId** | **String**|  | [optional] |
-
-### Return type
-
-[**MoneyEnvelope**](MoneyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesTaxesAggregatePost"></a>
-# **apiV2InvoicingServiceInvoicesTaxesAggregatePost**
-> MoneyEnvelope apiV2InvoicingServiceInvoicesTaxesAggregatePost(UUID, currencyId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
-    String currencyId = "currencyId_example"; // String | 
-    try {
-      MoneyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesTaxesAggregatePost(UUID, currencyId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesTaxesAggregatePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
-| **currencyId** | **String**|  | [optional] |
-
-### Return type
-
-[**MoneyEnvelope**](MoneyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="apiV2InvoicingServiceInvoicesTotalsAggregatePost"></a>
-# **apiV2InvoicingServiceInvoicesTotalsAggregatePost**
-> MoneyEnvelope apiV2InvoicingServiceInvoicesTotalsAggregatePost(UUID, currencyId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    List<UUID> UUID = Arrays.asList(); // List<UUID> | 
-    String currencyId = "currencyId_example"; // String | 
-    try {
-      MoneyEnvelope result = apiInstance.apiV2InvoicingServiceInvoicesTotalsAggregatePost(UUID, currencyId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#apiV2InvoicingServiceInvoicesTotalsAggregatePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | |
-| **currencyId** | **String**|  | [optional] |
-
-### Return type
-
-[**MoneyEnvelope**](MoneyEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="getInvoiceAsync"></a>
-# **getInvoiceAsync**
-> InvoiceDtoEnvelope getInvoiceAsync(tenantId, invoiceId)
-
-
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InvoicesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
-
-    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID invoiceId = UUID.randomUUID(); // UUID | 
-    try {
-      InvoiceDtoEnvelope result = apiInstance.getInvoiceAsync(tenantId, invoiceId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling InvoicesApi#getInvoiceAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **invoiceId** | **UUID**|  | |
-
-### Return type
-
-[**InvoiceDtoEnvelope**](InvoiceDtoEnvelope.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 

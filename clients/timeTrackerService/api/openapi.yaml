@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   contact:
     email: support@fenix-alliance.com
@@ -9,14 +9,294 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: TimeTrackerService
-  version: 2.0.1.4089
+  version: 2.0.0.0
 servers:
 - url: /
-security:
-- Bearer: []
+tags:
+- name: FenixAlliance.ABP.Web
+- name: ProjectTimeLogs
+- name: TimeLogApprovals
 paths:
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
   /api/v2/TimeTrackerService/ProjectTimeLogs:
     get:
+      description: Retrieves a list of time logs for a specific project period with
+        OData query support.
+      operationId: GetProjectPeriodTimeLogsAsync
       parameters:
       - explode: true
         in: query
@@ -76,12 +356,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
           description: OK
+      summary: Retrieve project period time logs
       tags:
       - ProjectTimeLogs
       x-accepts:
       - application/json
       - application/xml
     post:
+      description: Creates a new project time log entry.
+      operationId: CreateProjectTimeLogAsync
       parameters:
       - explode: true
         in: query
@@ -134,14 +417,88 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Create a new project time log
       tags:
       - ProjectTimeLogs
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/TimeTrackerService/ProjectTimeLogs/Count:
+    get:
+      description: Returns the total count of time logs for a specific project period
+        with OData query support.
+      operationId: CountProjectPeriodTimeLogsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: projectPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of project period time logs
+      tags:
+      - ProjectTimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/TimeTrackerService/ProjectTimeLogs/ByResponsibleContact:
     get:
+      description: Retrieves time logs where the specified contact is the responsible
+        party.
+      operationId: GetProjectTimeLogsByResponsibleContactAsync
       parameters:
       - explode: true
         in: query
@@ -201,6 +558,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
           description: OK
+      summary: Retrieve time logs by responsible contact
       tags:
       - ProjectTimeLogs
       x-accepts:
@@ -208,6 +566,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/ProjectTimeLogs/CreatedByContact:
     get:
+      description: Retrieves time logs that were created by the specified contact.
+      operationId: GetProjectTimeLogsCreatedByContactAsync
       parameters:
       - explode: true
         in: query
@@ -267,6 +627,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
           description: OK
+      summary: Retrieve time logs created by a contact
       tags:
       - ProjectTimeLogs
       x-accepts:
@@ -274,6 +635,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/ProjectTimeLogs/ForProject/{projectId}:
     get:
+      description: Retrieves all time logs associated with the specified project.
+      operationId: GetProjectTimeLogsAsync
       parameters:
       - explode: false
         in: path
@@ -333,6 +696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
           description: OK
+      summary: Retrieve time logs for a project
       tags:
       - ProjectTimeLogs
       x-accepts:
@@ -340,6 +704,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/ProjectTimeLogs/{timeLogId}:
     delete:
+      description: Deletes a project time log entry.
+      operationId: DeleteProjectTimeLogAsync
       parameters:
       - explode: true
         in: query
@@ -392,12 +758,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Delete a project time log
       tags:
       - ProjectTimeLogs
       x-accepts:
       - application/json
       - application/xml
     get:
+      description: Retrieves a single project time log by its unique identifier.
+      operationId: GetProjectTimeLogByIdAsync
       parameters:
       - explode: false
         in: path
@@ -457,12 +826,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectTimeLogDtoEnvelope'
           description: OK
+      summary: Retrieve a project time log by ID
       tags:
       - ProjectTimeLogs
       x-accepts:
       - application/json
       - application/xml
     put:
+      description: Updates an existing project time log entry.
+      operationId: UpdateProjectTimeLogAsync
       parameters:
       - explode: false
         in: path
@@ -523,6 +895,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
+      summary: Update a project time log
       tags:
       - ProjectTimeLogs
       x-content-type: application/json
@@ -531,6 +904,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/TimeLogApprovals:
     post:
+      description: Creates a new project hours approval request.
+      operationId: RequestProjectHoursApprovalAsync
       parameters:
       - explode: true
         in: query
@@ -583,6 +958,7 @@ paths:
           description: Unauthorized
         "200":
           description: OK
+      summary: Request project hours approval
       tags:
       - TimeLogApprovals
       x-content-type: application/json
@@ -591,6 +967,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Status:
     put:
+      description: Updates the status of an existing project hours approval.
+      operationId: UpdateProjectHoursApprovalStatusAsync
       parameters:
       - explode: true
         in: query
@@ -651,6 +1029,7 @@ paths:
           description: Unauthorized
         "200":
           description: OK
+      summary: Update approval status
       tags:
       - TimeLogApprovals
       x-content-type: application/json
@@ -659,6 +1038,8 @@ paths:
       - application/xml
   /api/v2/TimeTrackerService/TimeLogApprovals/{approvalId}/Approver:
     put:
+      description: Updates the approver of an existing project hours approval.
+      operationId: UpdateProjectHoursApprovalApproverAsync
       parameters:
       - explode: false
         in: path
@@ -719,6 +1100,7 @@ paths:
           description: Unauthorized
         "200":
           description: OK
+      summary: Update approval approver
       tags:
       - TimeLogApprovals
       x-content-type: application/json
@@ -727,6 +1109,32 @@ paths:
       - application/xml
 components:
   schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
     ErrorEnvelope:
       additionalProperties: false
       example:
@@ -754,6 +1162,131 @@ components:
           readOnly: true
           type: string
       type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
     ProjectHoursApprovalApproverUpdateDto:
       additionalProperties: false
       example:
@@ -775,11 +1308,9 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         requesterContactID:
           nullable: true
@@ -797,16 +1328,15 @@ components:
     ProjectHoursApprovalStatusUpdateDto:
       additionalProperties: false
       example:
-        approvalStatus: 0
+        approvalStatus: Pending
         comments: comments
       properties:
         approvalStatus:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - Pending
+          - Approved
+          - Rejected
+          type: string
         comments:
           nullable: true
           type: string
@@ -817,8 +1347,8 @@ components:
         projectTaskID: projectTaskID
         comments: comments
         logDate: 2000-01-23T04:56:07.000+00:00
-        projectTimeLogRecordType: 0
-        timeSpan: PT2H30M
+        projectTimeLogRecordType: RegularHours
+        timeSpan: timeSpan
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         projectID: projectID
         projectPeriodID: projectPeriodID
@@ -826,14 +1356,12 @@ components:
       properties:
         id:
           format: uuid
-          readOnly: true
           type: string
         timestamp:
           format: date-time
-          readOnly: true
           type: string
         timeSpan:
-          example: PT2H30M
+          format: date-span
           type: string
         logDate:
           format: date-time
@@ -849,11 +1377,10 @@ components:
           type: string
         projectTimeLogRecordType:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
+          type: string
         projectID:
           nullable: true
           type: string
@@ -866,13 +1393,12 @@ components:
       example:
         comments: comments
         logDate: 2000-01-23T04:56:07.000+00:00
-        recordType: 0
+        recordType: RegularHours
         type: type
         projectPeriodId: projectPeriodId
-        timeStamp: 2000-01-23T04:56:07.000+00:00
         projectTaskId: projectTaskId
         responsibleContactId: responsibleContactId
-        timeSpan: PT2H30M
+        timeSpan: timeSpan
         id: id
         taskCategoryId: taskCategoryId
         projectId: projectId
@@ -906,16 +1432,12 @@ components:
           type: string
         recordType:
           enum:
-          - 0
-          - 1
-          - 2
-          format: int32
-          type: integer
-        timeStamp:
-          format: date-time
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
           type: string
         timeSpan:
-          example: PT2H30M
+          format: date-span
           type: string
         logDate:
           format: date-time
@@ -933,13 +1455,12 @@ components:
         result:
           comments: comments
           logDate: 2000-01-23T04:56:07.000+00:00
-          recordType: 0
+          recordType: RegularHours
           type: type
           projectPeriodId: projectPeriodId
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           projectTaskId: projectTaskId
           responsibleContactId: responsibleContactId
-          timeSpan: PT2H30M
+          timeSpan: timeSpan
           id: id
           taskCategoryId: taskCategoryId
           projectId: projectId
@@ -977,13 +1498,12 @@ components:
         result:
         - comments: comments
           logDate: 2000-01-23T04:56:07.000+00:00
-          recordType: 0
+          recordType: RegularHours
           type: type
           projectPeriodId: projectPeriodId
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           projectTaskId: projectTaskId
           responsibleContactId: responsibleContactId
-          timeSpan: PT2H30M
+          timeSpan: timeSpan
           id: id
           taskCategoryId: taskCategoryId
           projectId: projectId
@@ -991,13 +1511,12 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
         - comments: comments
           logDate: 2000-01-23T04:56:07.000+00:00
-          recordType: 0
+          recordType: RegularHours
           type: type
           projectPeriodId: projectPeriodId
-          timeStamp: 2000-01-23T04:56:07.000+00:00
           projectTaskId: projectTaskId
           responsibleContactId: responsibleContactId
-          timeSpan: PT2H30M
+          timeSpan: timeSpan
           id: id
           taskCategoryId: taskCategoryId
           projectId: projectId
@@ -1038,15 +1557,15 @@ components:
         projectTaskID: projectTaskID
         comments: comments
         logDate: 2000-01-23T04:56:07.000+00:00
-        projectTimeLogRecordType: 0
-        timeSpan: PT2H30M
+        projectTimeLogRecordType: RegularHours
+        timeSpan: timeSpan
         projectPeriodID: projectPeriodID
       properties:
         logDate:
           format: date-time
           type: string
         timeSpan:
-          example: PT2H30M
+          format: date-span
           type: string
         comments:
           nullable: true
@@ -1059,18 +1578,122 @@ components:
           type: string
         projectTimeLogRecordType:
           enum:
-          - 0
-          - 1
-          - 2
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
+          type: string
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
           format: int32
           type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
       type: object
-  securitySchemes:
-    Bearer:
-      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter\
-        \ 'Bearer' [Single Space] and then your token in the text input below.\r\n\
-        \r\nExample: \"Bearer ey...cc\""
-      in: header
-      name: Authorization
-      type: apiKey
 

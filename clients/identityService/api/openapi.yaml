@@ -1,0 +1,2023 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: IdentityService
+  version: 2.0.0.0
+servers:
+- url: /
+tags:
+- name: Applications
+- name: Checker
+- name: FenixAlliance.ABP.Web
+- name: OAuth
+- name: Resource
+- name: UserInfo
+paths:
+  /api/v2/Applications/{appId}:
+    get:
+      description: Retrieves an application by its unique identifier.
+      operationId: GetApplication
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get application by ID
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+  /api/v2/Applications/{appId}/RequiredPermissions:
+    get:
+      description: Retrieves the list of permissions required by the specified application.
+      operationId: GetRequiredPermissions
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get required permissions for an application
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+  /api/v2/Applications/{appId}/GrantedPermissions:
+    get:
+      description: Retrieves the list of permissions granted to the specified application
+        within a tenant context.
+      operationId: GetGrantedTenantPermissions
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get granted tenant permissions for an application
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+  /api/v2/Applications/{appId}/GrantedRoles:
+    get:
+      description: Retrieves the list of security roles granted to the specified application
+        within a tenant context.
+      operationId: GetGrantedTenantRoles
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get granted tenant roles for an application
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+  /api/v2/Applications/{appId}/GrantedRoles/{securityRoleId}/GrantedPermissions:
+    get:
+      description: Retrieves the list of permissions granted through a specific security
+        role for the specified application.
+      operationId: GetGrantedEnrollmentPermissions
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: securityRoleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: enrollmentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get granted permissions for an application role
+      tags:
+      - Applications
+      x-accepts:
+      - application/json
+  /api/v2/Auth/Checker/IsAuthenticated:
+    get:
+      description: Returns whether the current user is authenticated.
+      operationId: IsAuthenticated
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: boolean
+            application/xml:
+              schema:
+                type: boolean
+          description: OK
+      summary: Check if user is authenticated
+      tags:
+      - Checker
+      x-accepts:
+      - application/json
+      - application/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.ABP.Web
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /api/v2/OAuth/WhoAmI:
+    get:
+      description: "Returns the authorization result for the authenticated user, including\
+        \ identity and tenant context."
+      operationId: Get
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizationResultEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthorizationResultEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user identity
+      tags:
+      - OAuth
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/OAuth/Token:
+    post:
+      description: Generates an OAuth token based on the provided credentials or grant
+        type.
+      operationId: Token
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthTokenRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OAuthTokenRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonWebTokenEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JsonWebTokenEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get OAuth token
+      tags:
+      - OAuth
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/OAuth/Permissions:
+    get:
+      description: Retrieves the list of permission identifiers for a specific user
+        within a tenant context.
+      operationId: GetPermissions
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StringListEnvelope'
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get user permissions
+      tags:
+      - OAuth
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/OAuth/SignIn:
+    get:
+      description: Verifies sign-in credentials and returns user details without creating
+        a session.
+      operationId: CheckPasswordSignInAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreateDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserCreateDtoEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Check password sign-in
+      tags:
+      - OAuth
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Authenticates a user using email and password credentials.
+      operationId: PasswordSignInAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SigninModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SigninModel'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonWebTokenEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JsonWebTokenEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Sign in with password
+      tags:
+      - OAuth
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/OAuth/{applicationId}/Keys:
+    get:
+      description: Retrieves the signing keys (JWKS) for a specific application.
+      operationId: GetJwKs
+      parameters:
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JsonWebKeySetEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JsonWebKeySetEnvelope'
+          description: OK
+      summary: Get JSON Web Key Set
+      tags:
+      - OAuth
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/OAuth/{tenantId}/{applicationId}/.Well-Known/OpenId-Configuration:
+    get:
+      description: Retrieves the OpenID Connect discovery document for a specific
+        application within a tenant.
+      operationId: GetOpenIdConfiguration
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenIdConfigurationEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OpenIdConfigurationEnvelope'
+          description: OK
+      summary: Get OpenID configuration
+      tags:
+      - OAuth
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/IdentityService/Resource/message:
+    get:
+      description: Returns a message confirming the authenticated user's identity.
+        Requires the 'abs_api' scope.
+      operationId: GetMessage
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Get authenticated resource message
+      tags:
+      - Resource
+      x-accepts:
+      - application/json
+  /connect/userinfo:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - UserInfo
+      x-accepts:
+      - application/json
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - UserInfo
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    AppId:
+      additionalProperties: false
+      format: uuid
+      type: object
+    AuthorizationResult:
+      additionalProperties: false
+      example:
+        enrollmentId: "{}"
+        portalId: "{}"
+        tenantId: "{}"
+        correlationId: correlationId
+        scopes:
+        - scopes
+        - scopes
+        applicationId: "{}"
+        error: error
+        userId: "{}"
+      properties:
+        userId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        tenantId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        portalId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        applicationId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        enrollmentId:
+          additionalProperties: false
+          format: uuid
+          type: object
+        correlationId:
+          nullable: true
+          type: string
+        scopes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        error:
+          nullable: true
+          type: string
+      type: object
+    AuthorizationResultEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: "{}"
+          portalId: "{}"
+          tenantId: "{}"
+          correlationId: correlationId
+          scopes:
+          - scopes
+          - scopes
+          applicationId: "{}"
+          error: error
+          userId: "{}"
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/AuthorizationResult'
+      type: object
+    EnrollmentId:
+      additionalProperties: false
+      format: uuid
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    JsonWebKey:
+      additionalProperties: false
+      example:
+        kty: kty
+        nbf: 0
+        e: e
+        use: use
+        kid: kid
+        "n": "n"
+      properties:
+        kid:
+          nullable: true
+          type: string
+        nbf:
+          format: int64
+          type: integer
+        use:
+          nullable: true
+          type: string
+        kty:
+          nullable: true
+          type: string
+        e:
+          nullable: true
+          type: string
+        "n":
+          nullable: true
+          type: string
+      type: object
+    JsonWebKeySet:
+      additionalProperties: false
+      example:
+        keys:
+        - kty: kty
+          nbf: 0
+          e: e
+          use: use
+          kid: kid
+          "n": "n"
+        - kty: kty
+          nbf: 0
+          e: e
+          use: use
+          kid: kid
+          "n": "n"
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/JsonWebKey'
+          nullable: true
+          type: array
+      type: object
+    JsonWebKeySetEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          keys:
+          - kty: kty
+            nbf: 0
+            e: e
+            use: use
+            kid: kid
+            "n": "n"
+          - kty: kty
+            nbf: 0
+            e: e
+            use: use
+            kid: kid
+            "n": "n"
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JsonWebKeySet'
+      type: object
+    JsonWebToken:
+      additionalProperties: false
+      example:
+        expiresIn: 5
+        payload:
+          aud: aud
+          sub: sub
+          act: act
+          nbf: 6
+          iss: iss
+          scopes:
+          - scopes
+          - scopes
+          exp: 1
+          aid: aid
+          iat: 0
+          cid: cid
+        signature: signature
+        header:
+          jku: jku
+          kid: kid
+          typ: typ
+          alg: alg
+        tokenType: tokenType
+        accessToken: accessToken
+      properties:
+        header:
+          $ref: '#/components/schemas/JsonWebTokenHeader'
+        payload:
+          $ref: '#/components/schemas/JsonWebTokenPayload'
+        signature:
+          nullable: true
+          type: string
+        tokenType:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        accessToken:
+          nullable: true
+          type: string
+      type: object
+    JsonWebTokenEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          expiresIn: 5
+          payload:
+            aud: aud
+            sub: sub
+            act: act
+            nbf: 6
+            iss: iss
+            scopes:
+            - scopes
+            - scopes
+            exp: 1
+            aid: aid
+            iat: 0
+            cid: cid
+          signature: signature
+          header:
+            jku: jku
+            kid: kid
+            typ: typ
+            alg: alg
+          tokenType: tokenType
+          accessToken: accessToken
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JsonWebToken'
+      type: object
+    JsonWebTokenHeader:
+      additionalProperties: false
+      example:
+        jku: jku
+        kid: kid
+        typ: typ
+        alg: alg
+      properties:
+        alg:
+          nullable: true
+          type: string
+        jku:
+          nullable: true
+          type: string
+        kid:
+          nullable: true
+          type: string
+        typ:
+          nullable: true
+          type: string
+      type: object
+    JsonWebTokenPayload:
+      additionalProperties: false
+      example:
+        aud: aud
+        sub: sub
+        act: act
+        nbf: 6
+        iss: iss
+        scopes:
+        - scopes
+        - scopes
+        exp: 1
+        aid: aid
+        iat: 0
+        cid: cid
+      properties:
+        aud:
+          nullable: true
+          type: string
+        cid:
+          nullable: true
+          type: string
+        iss:
+          nullable: true
+          type: string
+        aid:
+          nullable: true
+          type: string
+        sub:
+          nullable: true
+          type: string
+        act:
+          nullable: true
+          type: string
+        iat:
+          format: int64
+          type: integer
+        nbf:
+          format: int64
+          type: integer
+        exp:
+          format: int64
+          type: integer
+        scopes:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    OAuthTokenRequest:
+      additionalProperties: false
+      example:
+        requested_scopes: requested_scopes
+        grant_type: grant_type
+        requested_enrollment: requested_enrollment
+        client_secret: client_secret
+        client_id: client_id
+      properties:
+        client_id:
+          nullable: true
+          type: string
+        client_secret:
+          nullable: true
+          type: string
+        grant_type:
+          nullable: true
+          type: string
+        requested_scopes:
+          nullable: true
+          type: string
+        requested_enrollment:
+          nullable: true
+          type: string
+      type: object
+    OpenIdConfiguration:
+      additionalProperties: false
+      example:
+        tokenEndpoint: tokenEndpoint
+        subjectTypesSupported:
+        - subjectTypesSupported
+        - subjectTypesSupported
+        endSessionEndpoint: endSessionEndpoint
+        responseTypesSupported:
+        - responseTypesSupported
+        - responseTypesSupported
+        scopesSupported:
+        - scopesSupported
+        - scopesSupported
+        idTokenSigningAlgValuesSupported:
+        - idTokenSigningAlgValuesSupported
+        - idTokenSigningAlgValuesSupported
+        tokenEndpointAuthMethodsSupported:
+        - tokenEndpointAuthMethodsSupported
+        - tokenEndpointAuthMethodsSupported
+        claimsSupported:
+        - claimsSupported
+        - claimsSupported
+        jwksUri: jwksUri
+        authorizationEndpoint: authorizationEndpoint
+        issuer: issuer
+        responseModesSupported:
+        - responseModesSupported
+        - responseModesSupported
+      properties:
+        issuer:
+          nullable: true
+          type: string
+        authorizationEndpoint:
+          nullable: true
+          type: string
+        tokenEndpoint:
+          nullable: true
+          type: string
+        endSessionEndpoint:
+          nullable: true
+          type: string
+        jwksUri:
+          nullable: true
+          type: string
+        responseModesSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        responseTypesSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        scopesSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        subjectTypesSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        idTokenSigningAlgValuesSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        tokenEndpointAuthMethodsSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+        claimsSupported:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    OpenIdConfigurationEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          tokenEndpoint: tokenEndpoint
+          subjectTypesSupported:
+          - subjectTypesSupported
+          - subjectTypesSupported
+          endSessionEndpoint: endSessionEndpoint
+          responseTypesSupported:
+          - responseTypesSupported
+          - responseTypesSupported
+          scopesSupported:
+          - scopesSupported
+          - scopesSupported
+          idTokenSigningAlgValuesSupported:
+          - idTokenSigningAlgValuesSupported
+          - idTokenSigningAlgValuesSupported
+          tokenEndpointAuthMethodsSupported:
+          - tokenEndpointAuthMethodsSupported
+          - tokenEndpointAuthMethodsSupported
+          claimsSupported:
+          - claimsSupported
+          - claimsSupported
+          jwksUri: jwksUri
+          authorizationEndpoint: authorizationEndpoint
+          issuer: issuer
+          responseModesSupported:
+          - responseModesSupported
+          - responseModesSupported
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/OpenIdConfiguration'
+      type: object
+    PortalId:
+      additionalProperties: false
+      format: uuid
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    SigninModel:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      type: object
+    StringListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - result
+        - result
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    TenantId:
+      additionalProperties: false
+      format: uuid
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    UserCreateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        gender: Unknown
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        cityId: cityId
+        countryId: countryId
+        facebookUrl: facebookUrl
+        password: password
+        publicName: publicName
+        websiteUrl: websiteUrl
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        firstName: firstName
+        idProvider: idProvider
+        timezoneId: timezoneId
+        instagramUrl: instagramUrl
+        youTubeUrl: youTubeUrl
+        status: status
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        idProvider:
+          nullable: true
+          type: string
+        gender:
+          enum:
+          - Unknown
+          - Male
+          - Female
+          - PreferNotToSay
+          type: string
+        email:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      type: object
+    UserCreateDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          gender: Unknown
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          about: about
+          cityId: cityId
+          countryId: countryId
+          facebookUrl: facebookUrl
+          password: password
+          publicName: publicName
+          websiteUrl: websiteUrl
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          linkedInUrl: linkedInUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          languageId: languageId
+          firstName: firstName
+          idProvider: idProvider
+          timezoneId: timezoneId
+          instagramUrl: instagramUrl
+          youTubeUrl: youTubeUrl
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/UserCreateDto'
+      type: object
+    UserId:
+      additionalProperties: false
+      format: uuid
+      type: object
+
