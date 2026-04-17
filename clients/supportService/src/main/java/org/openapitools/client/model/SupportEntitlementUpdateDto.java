@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportEntitlementUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:17.254138400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:53.222116700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportEntitlementUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -204,10 +204,6 @@ public class SupportEntitlementUpdateDto {
   @SerializedName(SERIALIZED_NAME_DATA9_LABEL)
   private String data9Label;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_I_D = "accountHolderID";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_I_D)
-  private String accountHolderID;
-
   public static final String SERIALIZED_NAME_INDIVIDUAL_I_D = "individualID";
   @SerializedName(SERIALIZED_NAME_INDIVIDUAL_I_D)
   private String individualID;
@@ -219,14 +215,6 @@ public class SupportEntitlementUpdateDto {
   public static final String SERIALIZED_NAME_RECEIVER_BUSINESS_I_D = "receiverBusinessID";
   @SerializedName(SERIALIZED_NAME_RECEIVER_BUSINESS_I_D)
   private String receiverBusinessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_PAYMENT_TOKEN_I_D = "paymentTokenID";
   @SerializedName(SERIALIZED_NAME_PAYMENT_TOKEN_I_D)
@@ -965,25 +953,6 @@ public class SupportEntitlementUpdateDto {
   }
 
 
-  public SupportEntitlementUpdateDto accountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-    return this;
-  }
-
-  /**
-   * Get accountHolderID
-   * @return accountHolderID
-   */
-  @javax.annotation.Nullable
-  public String getAccountHolderID() {
-    return accountHolderID;
-  }
-
-  public void setAccountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-  }
-
-
   public SupportEntitlementUpdateDto individualID(String individualID) {
     this.individualID = individualID;
     return this;
@@ -1038,44 +1007,6 @@ public class SupportEntitlementUpdateDto {
 
   public void setReceiverBusinessID(String receiverBusinessID) {
     this.receiverBusinessID = receiverBusinessID;
-  }
-
-
-  public SupportEntitlementUpdateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public SupportEntitlementUpdateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -1184,12 +1115,9 @@ public class SupportEntitlementUpdateDto {
         Objects.equals(this.data8Label, supportEntitlementUpdateDto.data8Label) &&
         Objects.equals(this.data9, supportEntitlementUpdateDto.data9) &&
         Objects.equals(this.data9Label, supportEntitlementUpdateDto.data9Label) &&
-        Objects.equals(this.accountHolderID, supportEntitlementUpdateDto.accountHolderID) &&
         Objects.equals(this.individualID, supportEntitlementUpdateDto.individualID) &&
         Objects.equals(this.organizationID, supportEntitlementUpdateDto.organizationID) &&
         Objects.equals(this.receiverBusinessID, supportEntitlementUpdateDto.receiverBusinessID) &&
-        Objects.equals(this.businessID, supportEntitlementUpdateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, supportEntitlementUpdateDto.businessProfileRecordID) &&
         Objects.equals(this.paymentTokenID, supportEntitlementUpdateDto.paymentTokenID) &&
         Objects.equals(this.walletAccountID, supportEntitlementUpdateDto.walletAccountID) &&
         Objects.equals(this.securityCertificateID, supportEntitlementUpdateDto.securityCertificateID);
@@ -1201,7 +1129,7 @@ public class SupportEntitlementUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, endDateTime, nextInvoiceDateTime, code, signature, quantity, repetitions, chargeAttempts, freeTrialInDays, gracePeriodInDays, customRenewalPeriod, enableAutomaticRenew, enableProRateBilling, enableUsageThreshold, enableAutomaticDisable, enableAutomaticPayments, usageThreshold, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, accountHolderID, individualID, organizationID, receiverBusinessID, businessID, businessProfileRecordID, paymentTokenID, walletAccountID, securityCertificateID);
+    return Objects.hash(title, description, endDateTime, nextInvoiceDateTime, code, signature, quantity, repetitions, chargeAttempts, freeTrialInDays, gracePeriodInDays, customRenewalPeriod, enableAutomaticRenew, enableProRateBilling, enableUsageThreshold, enableAutomaticDisable, enableAutomaticPayments, usageThreshold, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, individualID, organizationID, receiverBusinessID, paymentTokenID, walletAccountID, securityCertificateID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1253,12 +1181,9 @@ public class SupportEntitlementUpdateDto {
     sb.append("    data8Label: ").append(toIndentedString(data8Label)).append("\n");
     sb.append("    data9: ").append(toIndentedString(data9)).append("\n");
     sb.append("    data9Label: ").append(toIndentedString(data9Label)).append("\n");
-    sb.append("    accountHolderID: ").append(toIndentedString(accountHolderID)).append("\n");
     sb.append("    individualID: ").append(toIndentedString(individualID)).append("\n");
     sb.append("    organizationID: ").append(toIndentedString(organizationID)).append("\n");
     sb.append("    receiverBusinessID: ").append(toIndentedString(receiverBusinessID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    paymentTokenID: ").append(toIndentedString(paymentTokenID)).append("\n");
     sb.append("    walletAccountID: ").append(toIndentedString(walletAccountID)).append("\n");
     sb.append("    securityCertificateID: ").append(toIndentedString(securityCertificateID)).append("\n");
@@ -1322,12 +1247,9 @@ public class SupportEntitlementUpdateDto {
     openapiFields.add("data8Label");
     openapiFields.add("data9");
     openapiFields.add("data9Label");
-    openapiFields.add("accountHolderID");
     openapiFields.add("individualID");
     openapiFields.add("organizationID");
     openapiFields.add("receiverBusinessID");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("paymentTokenID");
     openapiFields.add("walletAccountID");
     openapiFields.add("securityCertificateID");
@@ -1429,9 +1351,6 @@ public class SupportEntitlementUpdateDto {
       if ((jsonObj.get("data9Label") != null && !jsonObj.get("data9Label").isJsonNull()) && !jsonObj.get("data9Label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data9Label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data9Label").toString()));
       }
-      if ((jsonObj.get("accountHolderID") != null && !jsonObj.get("accountHolderID").isJsonNull()) && !jsonObj.get("accountHolderID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountHolderID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderID").toString()));
-      }
       if ((jsonObj.get("individualID") != null && !jsonObj.get("individualID").isJsonNull()) && !jsonObj.get("individualID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `individualID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("individualID").toString()));
       }
@@ -1440,12 +1359,6 @@ public class SupportEntitlementUpdateDto {
       }
       if ((jsonObj.get("receiverBusinessID") != null && !jsonObj.get("receiverBusinessID").isJsonNull()) && !jsonObj.get("receiverBusinessID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `receiverBusinessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiverBusinessID").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("paymentTokenID") != null && !jsonObj.get("paymentTokenID").isJsonNull()) && !jsonObj.get("paymentTokenID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentTokenID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentTokenID").toString()));

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * LocationUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:50.936095900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:34.922765200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LocationUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -98,10 +98,6 @@ public class LocationUpdateDto {
   public static final String SERIALIZED_NAME_COUNTRY_ID = "countryId";
   @SerializedName(SERIALIZED_NAME_COUNTRY_ID)
   private String countryId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
   @SerializedName(SERIALIZED_NAME_LONGITUDE)
@@ -370,25 +366,6 @@ public class LocationUpdateDto {
   }
 
 
-  public LocationUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public LocationUpdateDto longitude(Double longitude) {
     this.longitude = longitude;
     return this;
@@ -582,7 +559,6 @@ public class LocationUpdateDto {
         Objects.equals(this.stateId, locationUpdateDto.stateId) &&
         Objects.equals(this.postalCode, locationUpdateDto.postalCode) &&
         Objects.equals(this.countryId, locationUpdateDto.countryId) &&
-        Objects.equals(this.tenantId, locationUpdateDto.tenantId) &&
         Objects.equals(this.longitude, locationUpdateDto.longitude) &&
         Objects.equals(this.latitude, locationUpdateDto.latitude) &&
         Objects.equals(this.isRoutable, locationUpdateDto.isRoutable) &&
@@ -600,7 +576,7 @@ public class LocationUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, email, phone, fax, address1, address2, address3, unit, cityId, stateId, postalCode, countryId, tenantId, longitude, latitude, isRoutable, isGlobalPrimary, isCountryPrimary, canGenerateLabels, isDefaultSenderAddress, isDefaultReturnAddress, isDefaultSuppingLocation);
+    return Objects.hash(title, email, phone, fax, address1, address2, address3, unit, cityId, stateId, postalCode, countryId, longitude, latitude, isRoutable, isGlobalPrimary, isCountryPrimary, canGenerateLabels, isDefaultSenderAddress, isDefaultReturnAddress, isDefaultSuppingLocation);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -626,7 +602,6 @@ public class LocationUpdateDto {
     sb.append("    stateId: ").append(toIndentedString(stateId)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    countryId: ").append(toIndentedString(countryId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    isRoutable: ").append(toIndentedString(isRoutable)).append("\n");
@@ -670,7 +645,6 @@ public class LocationUpdateDto {
     openapiFields.add("stateId");
     openapiFields.add("postalCode");
     openapiFields.add("countryId");
-    openapiFields.add("tenantId");
     openapiFields.add("longitude");
     openapiFields.add("latitude");
     openapiFields.add("isRoutable");
@@ -741,9 +715,6 @@ public class LocationUpdateDto {
       }
       if ((jsonObj.get("countryId") != null && !jsonObj.get("countryId").isJsonNull()) && !jsonObj.get("countryId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
   }
 

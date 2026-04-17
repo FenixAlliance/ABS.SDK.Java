@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseUnitComponentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseUnitComponentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,10 +80,6 @@ public class CourseUnitComponentCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_COURSE_UNIT_I_D = "courseUnitID";
   @SerializedName(SERIALIZED_NAME_COURSE_UNIT_I_D)
@@ -225,25 +221,6 @@ public class CourseUnitComponentCreateDto {
   }
 
 
-  public CourseUnitComponentCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseUnitComponentCreateDto courseUnitID(String courseUnitID) {
     this.courseUnitID = courseUnitID;
     return this;
@@ -280,7 +257,6 @@ public class CourseUnitComponentCreateDto {
         Objects.equals(this.content, courseUnitComponentCreateDto.content) &&
         Objects.equals(this.order, courseUnitComponentCreateDto.order) &&
         Objects.equals(this.courseID, courseUnitComponentCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseUnitComponentCreateDto.businessID) &&
         Objects.equals(this.courseUnitID, courseUnitComponentCreateDto.courseUnitID);
   }
 
@@ -290,7 +266,7 @@ public class CourseUnitComponentCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, content, order, courseID, businessID, courseUnitID);
+    return Objects.hash(id, timestamp, title, description, content, order, courseID, courseUnitID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -311,7 +287,6 @@ public class CourseUnitComponentCreateDto {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    courseUnitID: ").append(toIndentedString(courseUnitID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -342,14 +317,12 @@ public class CourseUnitComponentCreateDto {
     openapiFields.add("content");
     openapiFields.add("order");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
     openapiFields.add("courseUnitID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -394,9 +367,6 @@ public class CourseUnitComponentCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if ((jsonObj.get("courseUnitID") != null && !jsonObj.get("courseUnitID").isJsonNull()) && !jsonObj.get("courseUnitID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseUnitID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseUnitID").toString()));

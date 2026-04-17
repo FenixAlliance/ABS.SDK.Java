@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * SendgridIntegrationsOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:44.259661900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:31.394645900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SendgridIntegrationsOptions {
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)

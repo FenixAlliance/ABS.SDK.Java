@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitFlowUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitFlowUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -62,10 +62,6 @@ public class DealUnitFlowUpdateDto {
   public static final String SERIALIZED_NAME_PARENT_BUSINESS_PROCESS_ID = "parentBusinessProcessId";
   @SerializedName(SERIALIZED_NAME_PARENT_BUSINESS_PROCESS_ID)
   private String parentBusinessProcessId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_TENANT_ENROLLMENT_ID = "tenantEnrollmentId";
   @SerializedName(SERIALIZED_NAME_TENANT_ENROLLMENT_ID)
@@ -131,25 +127,6 @@ public class DealUnitFlowUpdateDto {
   }
 
 
-  public DealUnitFlowUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public DealUnitFlowUpdateDto tenantEnrollmentId(String tenantEnrollmentId) {
     this.tenantEnrollmentId = tenantEnrollmentId;
     return this;
@@ -182,7 +159,6 @@ public class DealUnitFlowUpdateDto {
     return Objects.equals(this.name, dealUnitFlowUpdateDto.name) &&
         Objects.equals(this.description, dealUnitFlowUpdateDto.description) &&
         Objects.equals(this.parentBusinessProcessId, dealUnitFlowUpdateDto.parentBusinessProcessId) &&
-        Objects.equals(this.tenantId, dealUnitFlowUpdateDto.tenantId) &&
         Objects.equals(this.tenantEnrollmentId, dealUnitFlowUpdateDto.tenantEnrollmentId);
   }
 
@@ -192,7 +168,7 @@ public class DealUnitFlowUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, parentBusinessProcessId, tenantId, tenantEnrollmentId);
+    return Objects.hash(name, description, parentBusinessProcessId, tenantEnrollmentId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -209,7 +185,6 @@ public class DealUnitFlowUpdateDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    parentBusinessProcessId: ").append(toIndentedString(parentBusinessProcessId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    tenantEnrollmentId: ").append(toIndentedString(tenantEnrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -236,7 +211,6 @@ public class DealUnitFlowUpdateDto {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("parentBusinessProcessId");
-    openapiFields.add("tenantId");
     openapiFields.add("tenantEnrollmentId");
 
     // a set of required properties/fields (JSON key names)
@@ -272,9 +246,6 @@ public class DealUnitFlowUpdateDto {
       }
       if ((jsonObj.get("parentBusinessProcessId") != null && !jsonObj.get("parentBusinessProcessId").isJsonNull()) && !jsonObj.get("parentBusinessProcessId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentBusinessProcessId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentBusinessProcessId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("tenantEnrollmentId") != null && !jsonObj.get("tenantEnrollmentId").isJsonNull()) && !jsonObj.get("tenantEnrollmentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenantEnrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantEnrollmentId").toString()));

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseSectionCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseSectionCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,6 @@ public class CourseSectionCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_RELEASE_DATE_TIME = "releaseDateTime";
   @SerializedName(SERIALIZED_NAME_RELEASE_DATE_TIME)
@@ -206,25 +202,6 @@ public class CourseSectionCreateDto {
   }
 
 
-  public CourseSectionCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseSectionCreateDto releaseDateTime(OffsetDateTime releaseDateTime) {
     this.releaseDateTime = releaseDateTime;
     return this;
@@ -279,7 +256,6 @@ public class CourseSectionCreateDto {
         Objects.equals(this.icon, courseSectionCreateDto.icon) &&
         Objects.equals(this.description, courseSectionCreateDto.description) &&
         Objects.equals(this.courseID, courseSectionCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseSectionCreateDto.businessID) &&
         Objects.equals(this.releaseDateTime, courseSectionCreateDto.releaseDateTime) &&
         Objects.equals(this.hideFromStudents, courseSectionCreateDto.hideFromStudents);
   }
@@ -290,7 +266,7 @@ public class CourseSectionCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, icon, description, courseID, businessID, releaseDateTime, hideFromStudents);
+    return Objects.hash(id, timestamp, name, icon, description, courseID, releaseDateTime, hideFromStudents);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -310,7 +286,6 @@ public class CourseSectionCreateDto {
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    releaseDateTime: ").append(toIndentedString(releaseDateTime)).append("\n");
     sb.append("    hideFromStudents: ").append(toIndentedString(hideFromStudents)).append("\n");
     sb.append("}");
@@ -341,7 +316,6 @@ public class CourseSectionCreateDto {
     openapiFields.add("icon");
     openapiFields.add("description");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
     openapiFields.add("releaseDateTime");
     openapiFields.add("hideFromStudents");
 
@@ -349,7 +323,6 @@ public class CourseSectionCreateDto {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -394,9 +367,6 @@ public class CourseSectionCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

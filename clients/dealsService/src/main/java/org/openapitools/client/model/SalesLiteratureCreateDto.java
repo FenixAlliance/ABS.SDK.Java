@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SalesLiteratureCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SalesLiteratureCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,14 +80,6 @@ public class SalesLiteratureCreateDto {
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expirationDate";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   private OffsetDateTime expirationDate;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_SALES_LITERATURE_TYPE_ID = "salesLiteratureTypeId";
   @SerializedName(SERIALIZED_NAME_SALES_LITERATURE_TYPE_ID)
@@ -229,44 +221,6 @@ public class SalesLiteratureCreateDto {
   }
 
 
-  public SalesLiteratureCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public SalesLiteratureCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public SalesLiteratureCreateDto salesLiteratureTypeId(String salesLiteratureTypeId) {
     this.salesLiteratureTypeId = salesLiteratureTypeId;
     return this;
@@ -303,8 +257,6 @@ public class SalesLiteratureCreateDto {
         Objects.equals(this.description, salesLiteratureCreateDto.description) &&
         Objects.equals(this.modifiedDate, salesLiteratureCreateDto.modifiedDate) &&
         Objects.equals(this.expirationDate, salesLiteratureCreateDto.expirationDate) &&
-        Objects.equals(this.tenantId, salesLiteratureCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, salesLiteratureCreateDto.enrollmentId) &&
         Objects.equals(this.salesLiteratureTypeId, salesLiteratureCreateDto.salesLiteratureTypeId);
   }
 
@@ -314,7 +266,7 @@ public class SalesLiteratureCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, content, description, modifiedDate, expirationDate, tenantId, enrollmentId, salesLiteratureTypeId);
+    return Objects.hash(id, timestamp, title, content, description, modifiedDate, expirationDate, salesLiteratureTypeId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -335,8 +287,6 @@ public class SalesLiteratureCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    salesLiteratureTypeId: ").append(toIndentedString(salesLiteratureTypeId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -367,8 +317,6 @@ public class SalesLiteratureCreateDto {
     openapiFields.add("description");
     openapiFields.add("modifiedDate");
     openapiFields.add("expirationDate");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("salesLiteratureTypeId");
 
     // a set of required properties/fields (JSON key names)
@@ -407,12 +355,6 @@ public class SalesLiteratureCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("salesLiteratureTypeId") != null && !jsonObj.get("salesLiteratureTypeId").isJsonNull()) && !jsonObj.get("salesLiteratureTypeId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `salesLiteratureTypeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("salesLiteratureTypeId").toString()));

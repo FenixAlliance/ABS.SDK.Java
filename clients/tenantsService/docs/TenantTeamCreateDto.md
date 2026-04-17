@@ -9,8 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessID** | **String** |  |  |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**avatarURL** | **URI** |  |  [optional] |

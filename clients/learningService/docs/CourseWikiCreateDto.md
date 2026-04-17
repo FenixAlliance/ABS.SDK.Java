@@ -12,7 +12,6 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**courseUnitID** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 

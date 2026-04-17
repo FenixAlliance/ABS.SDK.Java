@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,8 +52,16 @@ import org.openapitools.client.JSON;
 /**
  * SocialMediaPostCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:00.552871-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:46.719298700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialMediaPostCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
@@ -64,20 +74,50 @@ public class SocialMediaPostCreateDto {
   @SerializedName(SERIALIZED_NAME_FEATURED_IMAGE_URL)
   private URI featuredImageUrl;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_SOCIAL_POST_BUCKET_ID = "socialPostBucketId";
   @SerializedName(SERIALIZED_NAME_SOCIAL_POST_BUCKET_ID)
   private String socialPostBucketId;
 
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public SocialMediaPostCreateDto() {
   }
+
+  public SocialMediaPostCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public SocialMediaPostCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
 
   public SocialMediaPostCreateDto title(String title) {
     this.title = title;
@@ -136,25 +176,6 @@ public class SocialMediaPostCreateDto {
   }
 
 
-  public SocialMediaPostCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public SocialMediaPostCreateDto socialPostBucketId(String socialPostBucketId) {
     this.socialPostBucketId = socialPostBucketId;
     return this;
@@ -174,25 +195,6 @@ public class SocialMediaPostCreateDto {
   }
 
 
-  public SocialMediaPostCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -203,12 +205,12 @@ public class SocialMediaPostCreateDto {
       return false;
     }
     SocialMediaPostCreateDto socialMediaPostCreateDto = (SocialMediaPostCreateDto) o;
-    return Objects.equals(this.title, socialMediaPostCreateDto.title) &&
+    return Objects.equals(this.id, socialMediaPostCreateDto.id) &&
+        Objects.equals(this.timestamp, socialMediaPostCreateDto.timestamp) &&
+        Objects.equals(this.title, socialMediaPostCreateDto.title) &&
         Objects.equals(this.content, socialMediaPostCreateDto.content) &&
         Objects.equals(this.featuredImageUrl, socialMediaPostCreateDto.featuredImageUrl) &&
-        Objects.equals(this.tenantId, socialMediaPostCreateDto.tenantId) &&
-        Objects.equals(this.socialPostBucketId, socialMediaPostCreateDto.socialPostBucketId) &&
-        Objects.equals(this.enrollmentId, socialMediaPostCreateDto.enrollmentId);
+        Objects.equals(this.socialPostBucketId, socialMediaPostCreateDto.socialPostBucketId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -217,7 +219,7 @@ public class SocialMediaPostCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, content, featuredImageUrl, tenantId, socialPostBucketId, enrollmentId);
+    return Objects.hash(id, timestamp, title, content, featuredImageUrl, socialPostBucketId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -231,12 +233,12 @@ public class SocialMediaPostCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SocialMediaPostCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    featuredImageUrl: ").append(toIndentedString(featuredImageUrl)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    socialPostBucketId: ").append(toIndentedString(socialPostBucketId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,12 +261,12 @@ public class SocialMediaPostCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("title");
     openapiFields.add("content");
     openapiFields.add("featuredImageUrl");
-    openapiFields.add("tenantId");
     openapiFields.add("socialPostBucketId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -291,6 +293,9 @@ public class SocialMediaPostCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
@@ -300,14 +305,8 @@ public class SocialMediaPostCreateDto {
       if ((jsonObj.get("featuredImageUrl") != null && !jsonObj.get("featuredImageUrl").isJsonNull()) && !jsonObj.get("featuredImageUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `featuredImageUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("featuredImageUrl").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("socialPostBucketId") != null && !jsonObj.get("socialPostBucketId").isJsonNull()) && !jsonObj.get("socialPostBucketId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialPostBucketId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialPostBucketId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * FinancialBookCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FinancialBookCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,10 +68,6 @@ public class FinancialBookCreateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_TENANT_I_D = "tenantID";
-  @SerializedName(SERIALIZED_NAME_TENANT_I_D)
-  private String tenantID;
 
   public FinancialBookCreateDto() {
   }
@@ -152,25 +148,6 @@ public class FinancialBookCreateDto {
   }
 
 
-  public FinancialBookCreateDto tenantID(String tenantID) {
-    this.tenantID = tenantID;
-    return this;
-  }
-
-  /**
-   * Get tenantID
-   * @return tenantID
-   */
-  @javax.annotation.Nullable
-  public String getTenantID() {
-    return tenantID;
-  }
-
-  public void setTenantID(String tenantID) {
-    this.tenantID = tenantID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -184,8 +161,7 @@ public class FinancialBookCreateDto {
     return Objects.equals(this.id, financialBookCreateDto.id) &&
         Objects.equals(this.timestamp, financialBookCreateDto.timestamp) &&
         Objects.equals(this.name, financialBookCreateDto.name) &&
-        Objects.equals(this.description, financialBookCreateDto.description) &&
-        Objects.equals(this.tenantID, financialBookCreateDto.tenantID);
+        Objects.equals(this.description, financialBookCreateDto.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +170,7 @@ public class FinancialBookCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, tenantID);
+    return Objects.hash(id, timestamp, name, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +188,6 @@ public class FinancialBookCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    tenantID: ").append(toIndentedString(tenantID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,7 +214,6 @@ public class FinancialBookCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("description");
-    openapiFields.add("tenantID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -282,9 +256,6 @@ public class FinancialBookCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("tenantID") != null && !jsonObj.get("tenantID").isJsonNull()) && !jsonObj.get("tenantID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantID").toString()));
       }
   }
 

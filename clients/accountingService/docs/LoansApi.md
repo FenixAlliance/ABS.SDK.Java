@@ -712,7 +712,7 @@ No authorization required
 
 <a id="updateLoanApplicationAsync"></a>
 # **updateLoanApplicationAsync**
-> EmptyEnvelope updateLoanApplicationAsync(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion)
+> EmptyEnvelope updateLoanApplicationAsync(tenantId, applicationId, body, apiVersion, xApiVersion)
 
 Updates a loan application
 
@@ -735,11 +735,11 @@ public class Example {
     LoansApi apiInstance = new LoansApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID applicationId = UUID.randomUUID(); // UUID | 
-    LoanApplicationUpdateDto loanApplicationUpdateDto = new LoanApplicationUpdateDto(); // LoanApplicationUpdateDto | 
+    Object body = null; // Object | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.updateLoanApplicationAsync(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.updateLoanApplicationAsync(tenantId, applicationId, body, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoansApi#updateLoanApplicationAsync");
@@ -758,7 +758,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **applicationId** | **UUID**|  | |
-| **loanApplicationUpdateDto** | [**LoanApplicationUpdateDto**](LoanApplicationUpdateDto.md)|  | |
+| **body** | **Object**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

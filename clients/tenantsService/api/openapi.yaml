@@ -12163,12 +12163,10 @@ components:
       additionalProperties: false
       example:
         parentDepartmentID: parentDepartmentID
-        businessID: businessID
         name: name
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         organizationProfileID: organizationProfileID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12177,12 +12175,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
           type: string
         name:
           nullable: true
@@ -12337,7 +12329,6 @@ components:
         name: name
         description: description
         disabled: true
-        businessProfileRecordID: businessProfileRecordID
         organizationProfileID: organizationProfileID
       properties:
         name:
@@ -12348,9 +12339,6 @@ components:
           type: string
         disabled:
           type: boolean
-        businessProfileRecordID:
-          nullable: true
-          type: string
         organizationProfileID:
           nullable: true
           type: string
@@ -12589,7 +12577,6 @@ components:
     TenantEnrollmentCreateDto:
       additionalProperties: false
       example:
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         userId: userId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -12599,9 +12586,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          nullable: true
           type: string
         userId:
           nullable: true
@@ -12745,7 +12729,6 @@ components:
         parentBusinessIndustryID: parentBusinessIndustryID
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12758,9 +12741,6 @@ components:
           nullable: true
           type: string
         parentBusinessIndustryID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -12873,7 +12853,6 @@ components:
       example:
         parentBusinessIndustryID: parentBusinessIndustryID
         name: name
-        businessProfileRecordID: businessProfileRecordID
       properties:
         name:
           nullable: true
@@ -12881,15 +12860,10 @@ components:
         parentBusinessIndustryID:
           nullable: true
           type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
       type: object
     TenantInvitationCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         userEmail: userEmail
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -12903,12 +12877,6 @@ components:
         userEmail:
           format: email
           minLength: 1
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
       required:
       - userEmail
@@ -13047,11 +13015,9 @@ components:
     TenantPositionCreateDto:
       additionalProperties: false
       example:
-        businessID: businessID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13059,12 +13025,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
           type: string
         title:
           nullable: true
@@ -13197,7 +13157,6 @@ components:
         description: description
         title: title
         type: type
-        businessProfileRecordID: businessProfileRecordID
       properties:
         title:
           nullable: true
@@ -13206,9 +13165,6 @@ components:
           nullable: true
           type: string
         type:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       type: object
@@ -13509,9 +13465,7 @@ components:
       example:
         businessTeamID: businessTeamID
         contactID: contactID
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13519,14 +13473,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
           type: string
         businessTeamID:
           maxLength: 36
@@ -13537,8 +13483,6 @@ components:
           minLength: 36
           type: string
       required:
-      - businessID
-      - businessProfileRecordID
       - businessTeamID
       - contactID
       type: object
@@ -13658,15 +13602,7 @@ components:
       example:
         businessTeamID: businessTeamID
         contactID: contactID
-        businessID: businessID
-        businessProfileRecordID: businessProfileRecordID
       properties:
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         businessTeamID:
           nullable: true
           type: string
@@ -13678,12 +13614,10 @@ components:
       additionalProperties: false
       example:
         avatarURL: https://openapi-generator.tech
-        businessID: businessID
         name: name
         description: description
         isPublic: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         organizationProfileID: organizationProfileID
         businessUnitID: businessUnitID
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -13693,15 +13627,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         name:
           maxLength: 255
@@ -13729,8 +13654,6 @@ components:
           minLength: 36
           nullable: true
           type: string
-      required:
-      - businessID
       type: object
     TenantTeamDto:
       additionalProperties: false
@@ -13874,10 +13797,8 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
         employeeProfileID: employeeProfileID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13885,14 +13806,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
           type: string
         businessTeamID:
           maxLength: 36
@@ -13903,8 +13816,6 @@ components:
           minLength: 36
           type: string
       required:
-      - businessID
-      - businessProfileRecordID
       - businessTeamID
       - employeeProfileID
       type: object
@@ -14023,16 +13934,8 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
         employeeProfileID: employeeProfileID
-        businessProfileRecordID: businessProfileRecordID
       properties:
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         businessTeamID:
           nullable: true
           type: string
@@ -14044,9 +13947,7 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         projectID: projectID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -14055,14 +13956,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
           type: string
         businessTeamID:
           maxLength: 36
@@ -14073,8 +13966,6 @@ components:
           minLength: 36
           type: string
       required:
-      - businessID
-      - businessProfileRecordID
       - businessTeamID
       - projectID
       type: object
@@ -14193,16 +14084,8 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
-        businessProfileRecordID: businessProfileRecordID
         projectID: projectID
       properties:
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         businessTeamID:
           nullable: true
           type: string
@@ -14214,9 +14097,7 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14225,21 +14106,11 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessID:
-          maxLength: 36
-          minLength: 36
-          type: string
-        businessProfileRecordID:
-          maxLength: 36
-          minLength: 36
-          type: string
         businessTeamID:
           maxLength: 36
           minLength: 36
           type: string
       required:
-      - businessID
-      - businessProfileRecordID
       - businessTeamID
       type: object
     TenantTeamRecordDto:
@@ -14350,15 +14221,7 @@ components:
       additionalProperties: false
       example:
         businessTeamID: businessTeamID
-        businessID: businessID
-        businessProfileRecordID: businessProfileRecordID
       properties:
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
         businessTeamID:
           nullable: true
           type: string
@@ -14367,12 +14230,10 @@ components:
       additionalProperties: false
       example:
         avatarURL: avatarURL
-        businessID: businessID
         name: name
         description: description
         isPublic: true
         id: id
-        businessProfileRecordID: businessProfileRecordID
         organizationProfileID: organizationProfileID
         businessUnitID: businessUnitID
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -14382,12 +14243,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         name:
@@ -14412,11 +14267,9 @@ components:
       additionalProperties: false
       example:
         parentTerritoryID: parentTerritoryID
-        businessID: businessID
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14424,12 +14277,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
           type: string
         name:
           nullable: true
@@ -14707,12 +14554,10 @@ components:
       additionalProperties: false
       example:
         parentBusinessUnitID: parentBusinessUnitID
-        businessID: businessID
         name: name
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         organizationProfileID: organizationProfileID
         businessUnitQualifiedName: businessUnitQualifiedName
         countryID: countryID
@@ -14723,12 +14568,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
           type: string
         name:
           nullable: true

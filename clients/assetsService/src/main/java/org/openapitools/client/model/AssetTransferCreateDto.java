@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,8 +51,16 @@ import org.openapitools.client.JSON;
 /**
  * AssetTransferCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:24.786928200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:14.351555800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AssetTransferCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_ASSET_ID = "assetId";
   @SerializedName(SERIALIZED_NAME_ASSET_ID)
   private String assetId;
@@ -101,6 +111,44 @@ public class AssetTransferCreateDto {
 
   public AssetTransferCreateDto() {
   }
+
+  public AssetTransferCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public AssetTransferCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
 
   public AssetTransferCreateDto assetId(String assetId) {
     this.assetId = assetId;
@@ -340,7 +388,9 @@ public class AssetTransferCreateDto {
       return false;
     }
     AssetTransferCreateDto assetTransferCreateDto = (AssetTransferCreateDto) o;
-    return Objects.equals(this.assetId, assetTransferCreateDto.assetId) &&
+    return Objects.equals(this.id, assetTransferCreateDto.id) &&
+        Objects.equals(this.timestamp, assetTransferCreateDto.timestamp) &&
+        Objects.equals(this.assetId, assetTransferCreateDto.assetId) &&
         Objects.equals(this.isRootTransfer, assetTransferCreateDto.isRootTransfer) &&
         Objects.equals(this.serialList, assetTransferCreateDto.serialList) &&
         Objects.equals(this.quantity, assetTransferCreateDto.quantity) &&
@@ -360,7 +410,7 @@ public class AssetTransferCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assetId, isRootTransfer, serialList, quantity, serial, previousAssetTransferId, sourceLocationId, destinationLocationId, sourceContactId, destinationContactId, sourceDepartmentId, destinationDepartmentId);
+    return Objects.hash(id, timestamp, assetId, isRootTransfer, serialList, quantity, serial, previousAssetTransferId, sourceLocationId, destinationLocationId, sourceContactId, destinationContactId, sourceDepartmentId, destinationDepartmentId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -374,6 +424,8 @@ public class AssetTransferCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssetTransferCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
     sb.append("    isRootTransfer: ").append(toIndentedString(isRootTransfer)).append("\n");
     sb.append("    serialList: ").append(toIndentedString(serialList)).append("\n");
@@ -408,6 +460,8 @@ public class AssetTransferCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("assetId");
     openapiFields.add("isRootTransfer");
     openapiFields.add("serialList");
@@ -446,6 +500,9 @@ public class AssetTransferCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("assetId") != null && !jsonObj.get("assetId").isJsonNull()) && !jsonObj.get("assetId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `assetId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("assetId").toString()));
       }

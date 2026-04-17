@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ShareTransferReasonCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ShareTransferReasonCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,14 +68,6 @@ public class ShareTransferReasonCreateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public ShareTransferReasonCreateDto() {
   }
@@ -156,44 +148,6 @@ public class ShareTransferReasonCreateDto {
   }
 
 
-  public ShareTransferReasonCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
-  public ShareTransferReasonCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -207,9 +161,7 @@ public class ShareTransferReasonCreateDto {
     return Objects.equals(this.id, shareTransferReasonCreateDto.id) &&
         Objects.equals(this.timestamp, shareTransferReasonCreateDto.timestamp) &&
         Objects.equals(this.name, shareTransferReasonCreateDto.name) &&
-        Objects.equals(this.description, shareTransferReasonCreateDto.description) &&
-        Objects.equals(this.enrollmentId, shareTransferReasonCreateDto.enrollmentId) &&
-        Objects.equals(this.tenantId, shareTransferReasonCreateDto.tenantId);
+        Objects.equals(this.description, shareTransferReasonCreateDto.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -218,7 +170,7 @@ public class ShareTransferReasonCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, enrollmentId, tenantId);
+    return Objects.hash(id, timestamp, name, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -236,8 +188,6 @@ public class ShareTransferReasonCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -264,8 +214,6 @@ public class ShareTransferReasonCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("description");
-    openapiFields.add("enrollmentId");
-    openapiFields.add("tenantId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -300,12 +248,6 @@ public class ShareTransferReasonCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
   }
 

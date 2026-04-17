@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * InvoiceLineAppliedTaxCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:37.959480200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:19.189053-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InvoiceLineAppliedTaxCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,10 +61,6 @@ public class InvoiceLineAppliedTaxCreateDto {
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_INVOICE_ID = "invoiceId";
   @SerializedName(SERIALIZED_NAME_INVOICE_ID)
   private String invoiceId;
@@ -72,10 +68,6 @@ public class InvoiceLineAppliedTaxCreateDto {
   public static final String SERIALIZED_NAME_TAX_POLICY_ID = "taxPolicyId";
   @SerializedName(SERIALIZED_NAME_TAX_POLICY_ID)
   private String taxPolicyId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public InvoiceLineAppliedTaxCreateDto() {
   }
@@ -118,25 +110,6 @@ public class InvoiceLineAppliedTaxCreateDto {
   }
 
 
-  public InvoiceLineAppliedTaxCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public InvoiceLineAppliedTaxCreateDto invoiceId(String invoiceId) {
     this.invoiceId = invoiceId;
     return this;
@@ -175,25 +148,6 @@ public class InvoiceLineAppliedTaxCreateDto {
   }
 
 
-  public InvoiceLineAppliedTaxCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -206,10 +160,8 @@ public class InvoiceLineAppliedTaxCreateDto {
     InvoiceLineAppliedTaxCreateDto invoiceLineAppliedTaxCreateDto = (InvoiceLineAppliedTaxCreateDto) o;
     return Objects.equals(this.id, invoiceLineAppliedTaxCreateDto.id) &&
         Objects.equals(this.timestamp, invoiceLineAppliedTaxCreateDto.timestamp) &&
-        Objects.equals(this.tenantId, invoiceLineAppliedTaxCreateDto.tenantId) &&
         Objects.equals(this.invoiceId, invoiceLineAppliedTaxCreateDto.invoiceId) &&
-        Objects.equals(this.taxPolicyId, invoiceLineAppliedTaxCreateDto.taxPolicyId) &&
-        Objects.equals(this.enrollmentId, invoiceLineAppliedTaxCreateDto.enrollmentId);
+        Objects.equals(this.taxPolicyId, invoiceLineAppliedTaxCreateDto.taxPolicyId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -218,7 +170,7 @@ public class InvoiceLineAppliedTaxCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, tenantId, invoiceId, taxPolicyId, enrollmentId);
+    return Objects.hash(id, timestamp, invoiceId, taxPolicyId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,10 +186,8 @@ public class InvoiceLineAppliedTaxCreateDto {
     sb.append("class InvoiceLineAppliedTaxCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("    taxPolicyId: ").append(toIndentedString(taxPolicyId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -262,10 +212,8 @@ public class InvoiceLineAppliedTaxCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("tenantId");
     openapiFields.add("invoiceId");
     openapiFields.add("taxPolicyId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -295,17 +243,11 @@ public class InvoiceLineAppliedTaxCreateDto {
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("invoiceId") != null && !jsonObj.get("invoiceId").isJsonNull()) && !jsonObj.get("invoiceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `invoiceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invoiceId").toString()));
       }
       if ((jsonObj.get("taxPolicyId") != null && !jsonObj.get("taxPolicyId").isJsonNull()) && !jsonObj.get("taxPolicyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `taxPolicyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxPolicyId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

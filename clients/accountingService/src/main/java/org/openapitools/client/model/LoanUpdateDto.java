@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * LoanUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LoanUpdateDto {
   public static final String SERIALIZED_NAME_LOAN_TIMESTAMP = "loanTimestamp";
   @SerializedName(SERIALIZED_NAME_LOAN_TIMESTAMP)
@@ -79,10 +79,6 @@ public class LoanUpdateDto {
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
   private String currencyId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public LoanUpdateDto() {
   }
@@ -220,25 +216,6 @@ public class LoanUpdateDto {
   }
 
 
-  public LoanUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -255,8 +232,7 @@ public class LoanUpdateDto {
         Objects.equals(this.interestRate, loanUpdateDto.interestRate) &&
         Objects.equals(this.isCompundInterestRate, loanUpdateDto.isCompundInterestRate) &&
         Objects.equals(this.loanTypeId, loanUpdateDto.loanTypeId) &&
-        Objects.equals(this.currencyId, loanUpdateDto.currencyId) &&
-        Objects.equals(this.enrollmentId, loanUpdateDto.enrollmentId);
+        Objects.equals(this.currencyId, loanUpdateDto.currencyId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -265,7 +241,7 @@ public class LoanUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanTimestamp, paymentDeadline, value, interestRate, isCompundInterestRate, loanTypeId, currencyId, enrollmentId);
+    return Objects.hash(loanTimestamp, paymentDeadline, value, interestRate, isCompundInterestRate, loanTypeId, currencyId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -286,7 +262,6 @@ public class LoanUpdateDto {
     sb.append("    isCompundInterestRate: ").append(toIndentedString(isCompundInterestRate)).append("\n");
     sb.append("    loanTypeId: ").append(toIndentedString(loanTypeId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -316,7 +291,6 @@ public class LoanUpdateDto {
     openapiFields.add("isCompundInterestRate");
     openapiFields.add("loanTypeId");
     openapiFields.add("currencyId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -348,9 +322,6 @@ public class LoanUpdateDto {
       }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

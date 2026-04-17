@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PaymentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:16.522719600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:01.984252200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PaymentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,10 +64,6 @@ public class PaymentCreateDto {
   public static final String SERIALIZED_NAME_INVOICE_ID = "invoiceId";
   @SerializedName(SERIALIZED_NAME_INVOICE_ID)
   private String invoiceId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_EMISOR_WALLET_ID = "emisorWalletId";
   @SerializedName(SERIALIZED_NAME_EMISOR_WALLET_ID)
@@ -455,10 +451,6 @@ public class PaymentCreateDto {
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_ID)
   private String bankAccountId;
 
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public static final String SERIALIZED_NAME_BANK_ID = "bankId";
   @SerializedName(SERIALIZED_NAME_BANK_ID)
   private String bankId;
@@ -532,25 +524,6 @@ public class PaymentCreateDto {
 
   public void setInvoiceId(String invoiceId) {
     this.invoiceId = invoiceId;
-  }
-
-
-  public PaymentCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
   }
 
 
@@ -1523,25 +1496,6 @@ public class PaymentCreateDto {
   }
 
 
-  public PaymentCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public PaymentCreateDto bankId(String bankId) {
     this.bankId = bankId;
     return this;
@@ -1631,7 +1585,6 @@ public class PaymentCreateDto {
     return Objects.equals(this.id, paymentCreateDto.id) &&
         Objects.equals(this.timestamp, paymentCreateDto.timestamp) &&
         Objects.equals(this.invoiceId, paymentCreateDto.invoiceId) &&
-        Objects.equals(this.tenantId, paymentCreateDto.tenantId) &&
         Objects.equals(this.emisorWalletId, paymentCreateDto.emisorWalletId) &&
         Objects.equals(this.receiverWalletId, paymentCreateDto.receiverWalletId) &&
         Objects.equals(this.currencyId, paymentCreateDto.currencyId) &&
@@ -1683,7 +1636,6 @@ public class PaymentCreateDto {
         Objects.equals(this.accountingEntryId, paymentCreateDto.accountingEntryId) &&
         Objects.equals(this.paymentGatewayId, paymentCreateDto.paymentGatewayId) &&
         Objects.equals(this.bankAccountId, paymentCreateDto.bankAccountId) &&
-        Objects.equals(this.enrollmentId, paymentCreateDto.enrollmentId) &&
         Objects.equals(this.bankId, paymentCreateDto.bankId) &&
         Objects.equals(this.paymentTokenId, paymentCreateDto.paymentTokenId) &&
         Objects.equals(this.emisorWalletAccountId, paymentCreateDto.emisorWalletAccountId) &&
@@ -1696,7 +1648,7 @@ public class PaymentCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, invoiceId, tenantId, emisorWalletId, receiverWalletId, currencyId, forexRate, totalCost, totalTaxes, closed, data, dataLabel, data1, data1Label, response, authorization, referenceCode, correlationCode, lastUpdated, onBehalfOf, paymentType, paymentStatus, baseCost, signature, signatureMismatch, isExternal, markedForRevision, forexRatesSnapshot, officialId, officialIdExpeditionDate, fiscalIdentificationTypeId, billingAddress, phone, cellphone, department, city, countryId, locationId, entitlementId, antiFraudScore, callRecordURL, called, verified, payerPictureTimestamp, payerPicture, identificationPictureTimestamp, identificationPicture, identificationBackPicture, identificationBackPictureTimestamp, ipLookupId, orderId, accountingEntryId, paymentGatewayId, bankAccountId, enrollmentId, bankId, paymentTokenId, emisorWalletAccountId, receiverWalletAccountId);
+    return Objects.hash(id, timestamp, invoiceId, emisorWalletId, receiverWalletId, currencyId, forexRate, totalCost, totalTaxes, closed, data, dataLabel, data1, data1Label, response, authorization, referenceCode, correlationCode, lastUpdated, onBehalfOf, paymentType, paymentStatus, baseCost, signature, signatureMismatch, isExternal, markedForRevision, forexRatesSnapshot, officialId, officialIdExpeditionDate, fiscalIdentificationTypeId, billingAddress, phone, cellphone, department, city, countryId, locationId, entitlementId, antiFraudScore, callRecordURL, called, verified, payerPictureTimestamp, payerPicture, identificationPictureTimestamp, identificationPicture, identificationBackPicture, identificationBackPictureTimestamp, ipLookupId, orderId, accountingEntryId, paymentGatewayId, bankAccountId, bankId, paymentTokenId, emisorWalletAccountId, receiverWalletAccountId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1713,7 +1665,6 @@ public class PaymentCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    emisorWalletId: ").append(toIndentedString(emisorWalletId)).append("\n");
     sb.append("    receiverWalletId: ").append(toIndentedString(receiverWalletId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
@@ -1765,7 +1716,6 @@ public class PaymentCreateDto {
     sb.append("    accountingEntryId: ").append(toIndentedString(accountingEntryId)).append("\n");
     sb.append("    paymentGatewayId: ").append(toIndentedString(paymentGatewayId)).append("\n");
     sb.append("    bankAccountId: ").append(toIndentedString(bankAccountId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    bankId: ").append(toIndentedString(bankId)).append("\n");
     sb.append("    paymentTokenId: ").append(toIndentedString(paymentTokenId)).append("\n");
     sb.append("    emisorWalletAccountId: ").append(toIndentedString(emisorWalletAccountId)).append("\n");
@@ -1795,7 +1745,6 @@ public class PaymentCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("invoiceId");
-    openapiFields.add("tenantId");
     openapiFields.add("emisorWalletId");
     openapiFields.add("receiverWalletId");
     openapiFields.add("currencyId");
@@ -1847,7 +1796,6 @@ public class PaymentCreateDto {
     openapiFields.add("accountingEntryId");
     openapiFields.add("paymentGatewayId");
     openapiFields.add("bankAccountId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("bankId");
     openapiFields.add("paymentTokenId");
     openapiFields.add("emisorWalletAccountId");
@@ -1883,9 +1831,6 @@ public class PaymentCreateDto {
       }
       if ((jsonObj.get("invoiceId") != null && !jsonObj.get("invoiceId").isJsonNull()) && !jsonObj.get("invoiceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `invoiceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invoiceId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("emisorWalletId") != null && !jsonObj.get("emisorWalletId").isJsonNull()) && !jsonObj.get("emisorWalletId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `emisorWalletId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emisorWalletId").toString()));
@@ -2012,9 +1957,6 @@ public class PaymentCreateDto {
       }
       if ((jsonObj.get("bankAccountId") != null && !jsonObj.get("bankAccountId").isJsonNull()) && !jsonObj.get("bankAccountId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankAccountId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("bankId") != null && !jsonObj.get("bankId").isJsonNull()) && !jsonObj.get("bankId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankId").toString()));

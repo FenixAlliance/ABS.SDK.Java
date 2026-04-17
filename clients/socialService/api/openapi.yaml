@@ -5611,9 +5611,17 @@ components:
       example:
         avatarURL: avatarURL
         name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         socialProfileID: socialProfileID
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         name:
           nullable: true
           type: string

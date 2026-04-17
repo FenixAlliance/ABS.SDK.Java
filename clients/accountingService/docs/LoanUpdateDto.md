@@ -14,7 +14,6 @@
 |**isCompundInterestRate** | **Boolean** |  |  [optional] |
 |**loanTypeId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

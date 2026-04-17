@@ -10,7 +10,6 @@
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 
 
 

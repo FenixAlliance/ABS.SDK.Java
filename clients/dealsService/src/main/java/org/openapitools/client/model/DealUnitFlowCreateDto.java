@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitFlowCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitFlowCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,14 +72,6 @@ public class DealUnitFlowCreateDto {
   public static final String SERIALIZED_NAME_PARENT_BUSINESS_PROCESS_ID = "parentBusinessProcessId";
   @SerializedName(SERIALIZED_NAME_PARENT_BUSINESS_PROCESS_ID)
   private String parentBusinessProcessId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_TENANT_ENROLLMENT_ID = "tenantEnrollmentId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ENROLLMENT_ID)
-  private String tenantEnrollmentId;
 
   public DealUnitFlowCreateDto() {
   }
@@ -179,44 +171,6 @@ public class DealUnitFlowCreateDto {
   }
 
 
-  public DealUnitFlowCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public DealUnitFlowCreateDto tenantEnrollmentId(String tenantEnrollmentId) {
-    this.tenantEnrollmentId = tenantEnrollmentId;
-    return this;
-  }
-
-  /**
-   * Get tenantEnrollmentId
-   * @return tenantEnrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getTenantEnrollmentId() {
-    return tenantEnrollmentId;
-  }
-
-  public void setTenantEnrollmentId(String tenantEnrollmentId) {
-    this.tenantEnrollmentId = tenantEnrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -231,9 +185,7 @@ public class DealUnitFlowCreateDto {
         Objects.equals(this.timestamp, dealUnitFlowCreateDto.timestamp) &&
         Objects.equals(this.name, dealUnitFlowCreateDto.name) &&
         Objects.equals(this.description, dealUnitFlowCreateDto.description) &&
-        Objects.equals(this.parentBusinessProcessId, dealUnitFlowCreateDto.parentBusinessProcessId) &&
-        Objects.equals(this.tenantId, dealUnitFlowCreateDto.tenantId) &&
-        Objects.equals(this.tenantEnrollmentId, dealUnitFlowCreateDto.tenantEnrollmentId);
+        Objects.equals(this.parentBusinessProcessId, dealUnitFlowCreateDto.parentBusinessProcessId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +194,7 @@ public class DealUnitFlowCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, parentBusinessProcessId, tenantId, tenantEnrollmentId);
+    return Objects.hash(id, timestamp, name, description, parentBusinessProcessId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -261,8 +213,6 @@ public class DealUnitFlowCreateDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    parentBusinessProcessId: ").append(toIndentedString(parentBusinessProcessId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    tenantEnrollmentId: ").append(toIndentedString(tenantEnrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -290,8 +240,6 @@ public class DealUnitFlowCreateDto {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("parentBusinessProcessId");
-    openapiFields.add("tenantId");
-    openapiFields.add("tenantEnrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -329,12 +277,6 @@ public class DealUnitFlowCreateDto {
       }
       if ((jsonObj.get("parentBusinessProcessId") != null && !jsonObj.get("parentBusinessProcessId").isJsonNull()) && !jsonObj.get("parentBusinessProcessId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentBusinessProcessId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentBusinessProcessId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("tenantEnrollmentId") != null && !jsonObj.get("tenantEnrollmentId").isJsonNull()) && !jsonObj.get("tenantEnrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantEnrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantEnrollmentId").toString()));
       }
   }
 

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemBrandCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemBrandCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -85,10 +85,6 @@ public class ItemBrandCreateDto {
   public static final String SERIALIZED_NAME_TRENDING = "trending";
   @SerializedName(SERIALIZED_NAME_TRENDING)
   private Boolean trending;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public ItemBrandCreateDto() {
   }
@@ -245,25 +241,6 @@ public class ItemBrandCreateDto {
   }
 
 
-  public ItemBrandCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -281,8 +258,7 @@ public class ItemBrandCreateDto {
         Objects.equals(this.description, itemBrandCreateDto.description) &&
         Objects.equals(this.websiteURL, itemBrandCreateDto.websiteURL) &&
         Objects.equals(this.featured, itemBrandCreateDto.featured) &&
-        Objects.equals(this.trending, itemBrandCreateDto.trending) &&
-        Objects.equals(this.businessID, itemBrandCreateDto.businessID);
+        Objects.equals(this.trending, itemBrandCreateDto.trending);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -291,7 +267,7 @@ public class ItemBrandCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, code, name, description, websiteURL, featured, trending, businessID);
+    return Objects.hash(id, timestamp, code, name, description, websiteURL, featured, trending);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -313,7 +289,6 @@ public class ItemBrandCreateDto {
     sb.append("    websiteURL: ").append(toIndentedString(websiteURL)).append("\n");
     sb.append("    featured: ").append(toIndentedString(featured)).append("\n");
     sb.append("    trending: ").append(toIndentedString(trending)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -344,12 +319,10 @@ public class ItemBrandCreateDto {
     openapiFields.add("websiteURL");
     openapiFields.add("featured");
     openapiFields.add("trending");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -394,9 +367,6 @@ public class ItemBrandCreateDto {
       }
       if ((jsonObj.get("websiteURL") != null && !jsonObj.get("websiteURL").isJsonNull()) && !jsonObj.get("websiteURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `websiteURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websiteURL").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

@@ -33,7 +33,6 @@ import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.LoanApplicationCreateDto;
 import org.openapitools.client.model.LoanApplicationDtoEnvelope;
 import org.openapitools.client.model.LoanApplicationDtoIReadOnlyListEnvelope;
-import org.openapitools.client.model.LoanApplicationUpdateDto;
 import org.openapitools.client.model.LoanCreateDto;
 import org.openapitools.client.model.LoanDtoEnvelope;
 import org.openapitools.client.model.LoanDtoIReadOnlyListEnvelope;
@@ -1659,7 +1658,7 @@ public class LoansApi {
      * Build call for updateLoanApplicationAsync
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param loanApplicationUpdateDto  (required)
+     * @param body  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -1673,7 +1672,7 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoanApplicationAsyncCall(UUID tenantId, UUID applicationId, LoanApplicationUpdateDto loanApplicationUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLoanApplicationAsyncCall(UUID tenantId, UUID applicationId, Object body, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1687,7 +1686,7 @@ public class LoansApi {
             basePath = null;
         }
 
-        Object localVarPostBody = loanApplicationUpdateDto;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Loans/Applications/{applicationId}"
@@ -1734,7 +1733,7 @@ public class LoansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLoanApplicationAsyncValidateBeforeCall(UUID tenantId, UUID applicationId, LoanApplicationUpdateDto loanApplicationUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateLoanApplicationAsyncValidateBeforeCall(UUID tenantId, UUID applicationId, Object body, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateLoanApplicationAsync(Async)");
@@ -1745,12 +1744,12 @@ public class LoansApi {
             throw new ApiException("Missing the required parameter 'applicationId' when calling updateLoanApplicationAsync(Async)");
         }
 
-        // verify the required parameter 'loanApplicationUpdateDto' is set
-        if (loanApplicationUpdateDto == null) {
-            throw new ApiException("Missing the required parameter 'loanApplicationUpdateDto' when calling updateLoanApplicationAsync(Async)");
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateLoanApplicationAsync(Async)");
         }
 
-        return updateLoanApplicationAsyncCall(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion, _callback);
+        return updateLoanApplicationAsyncCall(tenantId, applicationId, body, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -1759,7 +1758,7 @@ public class LoansApi {
      * Updates the specified loan application.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param loanApplicationUpdateDto  (required)
+     * @param body  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return EmptyEnvelope
@@ -1772,8 +1771,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope updateLoanApplicationAsync(UUID tenantId, UUID applicationId, LoanApplicationUpdateDto loanApplicationUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = updateLoanApplicationAsyncWithHttpInfo(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion);
+    public EmptyEnvelope updateLoanApplicationAsync(UUID tenantId, UUID applicationId, Object body, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateLoanApplicationAsyncWithHttpInfo(tenantId, applicationId, body, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -1782,7 +1781,7 @@ public class LoansApi {
      * Updates the specified loan application.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param loanApplicationUpdateDto  (required)
+     * @param body  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
@@ -1795,8 +1794,8 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> updateLoanApplicationAsyncWithHttpInfo(UUID tenantId, UUID applicationId, LoanApplicationUpdateDto loanApplicationUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = updateLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion, null);
+    public ApiResponse<EmptyEnvelope> updateLoanApplicationAsyncWithHttpInfo(UUID tenantId, UUID applicationId, Object body, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = updateLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, body, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1806,7 +1805,7 @@ public class LoansApi {
      * Updates the specified loan application.
      * @param tenantId  (required)
      * @param applicationId  (required)
-     * @param loanApplicationUpdateDto  (required)
+     * @param body  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1820,9 +1819,9 @@ public class LoansApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLoanApplicationAsyncAsync(UUID tenantId, UUID applicationId, LoanApplicationUpdateDto loanApplicationUpdateDto, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call updateLoanApplicationAsyncAsync(UUID tenantId, UUID applicationId, Object body, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, loanApplicationUpdateDto, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = updateLoanApplicationAsyncValidateBeforeCall(tenantId, applicationId, body, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

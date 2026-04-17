@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseCategoryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseCategoryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,6 @@ public class CourseCategoryCreateDto {
   public static final String SERIALIZED_NAME_IS_FEATURED = "isFeatured";
   @SerializedName(SERIALIZED_NAME_IS_FEATURED)
   private Boolean isFeatured;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public CourseCategoryCreateDto() {
   }
@@ -198,25 +194,6 @@ public class CourseCategoryCreateDto {
   }
 
 
-  public CourseCategoryCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -232,8 +209,7 @@ public class CourseCategoryCreateDto {
         Objects.equals(this.title, courseCategoryCreateDto.title) &&
         Objects.equals(this.description, courseCategoryCreateDto.description) &&
         Objects.equals(this.imageURL, courseCategoryCreateDto.imageURL) &&
-        Objects.equals(this.isFeatured, courseCategoryCreateDto.isFeatured) &&
-        Objects.equals(this.businessID, courseCategoryCreateDto.businessID);
+        Objects.equals(this.isFeatured, courseCategoryCreateDto.isFeatured);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +218,7 @@ public class CourseCategoryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, imageURL, isFeatured, businessID);
+    return Objects.hash(id, timestamp, title, description, imageURL, isFeatured);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -262,7 +238,6 @@ public class CourseCategoryCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageURL: ").append(toIndentedString(imageURL)).append("\n");
     sb.append("    isFeatured: ").append(toIndentedString(isFeatured)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -291,12 +266,10 @@ public class CourseCategoryCreateDto {
     openapiFields.add("description");
     openapiFields.add("imageURL");
     openapiFields.add("isFeatured");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -338,9 +311,6 @@ public class CourseCategoryCreateDto {
       }
       if ((jsonObj.get("imageURL") != null && !jsonObj.get("imageURL").isJsonNull()) && !jsonObj.get("imageURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageURL").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

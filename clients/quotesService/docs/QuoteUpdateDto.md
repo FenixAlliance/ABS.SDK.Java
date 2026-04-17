@@ -10,10 +10,8 @@
 |**closed** | **Boolean** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**priceListId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**individualId** | **String** |  |  [optional] |
 |**paymentTermId** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * CatalogItemUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CatalogItemUpdateDto {
   public static final String SERIALIZED_NAME_HOT = "hot";
   @SerializedName(SERIALIZED_NAME_HOT)
@@ -258,10 +258,6 @@ public class CatalogItemUpdateDto {
   @SerializedName(SERIALIZED_NAME_TOTAL_TAX)
   private Double totalTax;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_PERMALINK = "permalink";
   @SerializedName(SERIALIZED_NAME_PERMALINK)
   private String permalink;
@@ -357,10 +353,6 @@ public class CatalogItemUpdateDto {
   public static final String SERIALIZED_NAME_QUESTIONS_COUNT = "questionsCount";
   @SerializedName(SERIALIZED_NAME_QUESTIONS_COUNT)
   private Integer questionsCount;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_SUPPLIER_CODE = "supplierCode";
   @SerializedName(SERIALIZED_NAME_SUPPLIER_CODE)
@@ -1714,25 +1706,6 @@ public class CatalogItemUpdateDto {
   }
 
 
-  public CatalogItemUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public CatalogItemUpdateDto permalink(String permalink) {
     this.permalink = permalink;
     return this;
@@ -2186,25 +2159,6 @@ public class CatalogItemUpdateDto {
 
   public void setQuestionsCount(Integer questionsCount) {
     this.questionsCount = questionsCount;
-  }
-
-
-  public CatalogItemUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -4214,7 +4168,6 @@ public class CatalogItemUpdateDto {
         Objects.equals(this.material, catalogItemUpdateDto.material) &&
         Objects.equals(this.onDiscount, catalogItemUpdateDto.onDiscount) &&
         Objects.equals(this.totalTax, catalogItemUpdateDto.totalTax) &&
-        Objects.equals(this.tenantId, catalogItemUpdateDto.tenantId) &&
         Objects.equals(this.permalink, catalogItemUpdateDto.permalink) &&
         Objects.equals(this.brandName, catalogItemUpdateDto.brandName) &&
         Objects.equals(this.reviewsCount, catalogItemUpdateDto.reviewsCount) &&
@@ -4239,7 +4192,6 @@ public class CatalogItemUpdateDto {
         Objects.equals(this.customTaxValue, catalogItemUpdateDto.customTaxValue) &&
         Objects.equals(this.hasVariations, catalogItemUpdateDto.hasVariations) &&
         Objects.equals(this.questionsCount, catalogItemUpdateDto.questionsCount) &&
-        Objects.equals(this.enrollmentId, catalogItemUpdateDto.enrollmentId) &&
         Objects.equals(this.supplierCode, catalogItemUpdateDto.supplierCode) &&
         Objects.equals(this.auctionEnd, catalogItemUpdateDto.auctionEnd) &&
         Objects.equals(this.purchaseNote, catalogItemUpdateDto.purchaseNote) &&
@@ -4343,7 +4295,7 @@ public class CatalogItemUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hot, sku, upc, ean, mpn, skUs, isbn, upCs, eaNs, asin, gtin, mpNs, part, name, onSale, isbNs, asiNs, gtiNs, width, model, auction, title, color, deleted, digital, preSale, taxable, inStock, isbN13, unspsc, weight, length, height, unitId, series, featured, brands, trending, lowStock, barcode, unspsCs, pattern, published, byRequest, summary, brandId, viewsCount, features, material, onDiscount, totalTax, tenantId, permalink, brandName, reviewsCount, isDailyDeal, languageId, categories, finalPrice, itemTypeId, categoryId, currencyId, reviewsAvg, isNewArrival, isWeeklyDeal, isBestSeller, unitGroupId, description, ingredients, releaseDate, isMonthlyDeal, recurrency, paymentCost, customTaxValue, hasVariations, questionsCount, enrollmentId, supplierCode, auctionEnd, purchaseNote, shipsToRules, regularPrice, images, shippingCost, parentItemId, itemTypeName, cartRecordId, variations, tariffHeading, packagedQuantity, isFixedDiscount, discountPrice, isDealersChoice, currentStock, manageInventory, auctionStart, nutritionFacts, mozaicCoverUrl, packageContent, discountAmount, youtubeVideoId, inCartQuantity, isOfficialChoice, publishedDate, primaryImageUrl, validPrimaryImage, customTaxAmount, longDescription, compareRecordId, measurementUnit, shortDescription, googleCategories, isDeadlineDiscount, displayShowcaseTab, taxIncludedInPrice, isProductOfTheWeek, supplierProfileId, shippingCountryId, isProductOfTheMonth, systemRequirements, isPorcentualDiscount, discountPercentage, discountDeadLine, displayOnGlobalMozaic, displayOnBrandsMozaic, customTaxPercentage, estimatedTaxesInUsd, customTaxDescription, disableDefaultPolicies, estimatedProfitInUsd, displayOnCategoryMozaic, officialDescriptionUrl, energyEfficiencyRating, pageCoverBackgroundUrl, estimatedBasePriceInUsd, estimatedDiscountsInUsd, operatingSystemSupported, estimatedSurchargesInUsd, deadlineDiscountDueDate, deadlineDiscountFromDate, estimatedRegularPriceInUsd, estimatedTaxBasePriceInUsd, displayOnBannerMarketingRotation, lastFixedPricesUpdateDateTime, estimatedWitholdingTaxesInUsd, estimatedPaymentCostInUsd, estimatedPaymentTaxInUsd, estimatedDefaultShippingCostInUsd, estimatedDefaultShippingTaxInUsd, estimatedTotalPriceInUsd, recentlyViewedRecordId, displayDescriptionEditor, primaryGoogleCategoryId, supportedOperatingSystem, estimatedDealSavingsInUsd, primaryGoogleCategoryName, displayShortDescriptionEditor, estimatedWithholdingTaxesInUsd, selectedTags, selectedTypes, selectedBrands, selectedCategories, selectedTaxPolicies, selectedPricingRules, selectedRefundPolicies, selectedReturnPolicies, selectedPricingPolicies, selectedGoogleCategories, selectedWarrantyPolicies, selectedShipmentPolicies, selectedAttributesOptions, selectedSellingMarginPolicies);
+    return Objects.hash(hot, sku, upc, ean, mpn, skUs, isbn, upCs, eaNs, asin, gtin, mpNs, part, name, onSale, isbNs, asiNs, gtiNs, width, model, auction, title, color, deleted, digital, preSale, taxable, inStock, isbN13, unspsc, weight, length, height, unitId, series, featured, brands, trending, lowStock, barcode, unspsCs, pattern, published, byRequest, summary, brandId, viewsCount, features, material, onDiscount, totalTax, permalink, brandName, reviewsCount, isDailyDeal, languageId, categories, finalPrice, itemTypeId, categoryId, currencyId, reviewsAvg, isNewArrival, isWeeklyDeal, isBestSeller, unitGroupId, description, ingredients, releaseDate, isMonthlyDeal, recurrency, paymentCost, customTaxValue, hasVariations, questionsCount, supplierCode, auctionEnd, purchaseNote, shipsToRules, regularPrice, images, shippingCost, parentItemId, itemTypeName, cartRecordId, variations, tariffHeading, packagedQuantity, isFixedDiscount, discountPrice, isDealersChoice, currentStock, manageInventory, auctionStart, nutritionFacts, mozaicCoverUrl, packageContent, discountAmount, youtubeVideoId, inCartQuantity, isOfficialChoice, publishedDate, primaryImageUrl, validPrimaryImage, customTaxAmount, longDescription, compareRecordId, measurementUnit, shortDescription, googleCategories, isDeadlineDiscount, displayShowcaseTab, taxIncludedInPrice, isProductOfTheWeek, supplierProfileId, shippingCountryId, isProductOfTheMonth, systemRequirements, isPorcentualDiscount, discountPercentage, discountDeadLine, displayOnGlobalMozaic, displayOnBrandsMozaic, customTaxPercentage, estimatedTaxesInUsd, customTaxDescription, disableDefaultPolicies, estimatedProfitInUsd, displayOnCategoryMozaic, officialDescriptionUrl, energyEfficiencyRating, pageCoverBackgroundUrl, estimatedBasePriceInUsd, estimatedDiscountsInUsd, operatingSystemSupported, estimatedSurchargesInUsd, deadlineDiscountDueDate, deadlineDiscountFromDate, estimatedRegularPriceInUsd, estimatedTaxBasePriceInUsd, displayOnBannerMarketingRotation, lastFixedPricesUpdateDateTime, estimatedWitholdingTaxesInUsd, estimatedPaymentCostInUsd, estimatedPaymentTaxInUsd, estimatedDefaultShippingCostInUsd, estimatedDefaultShippingTaxInUsd, estimatedTotalPriceInUsd, recentlyViewedRecordId, displayDescriptionEditor, primaryGoogleCategoryId, supportedOperatingSystem, estimatedDealSavingsInUsd, primaryGoogleCategoryName, displayShortDescriptionEditor, estimatedWithholdingTaxesInUsd, selectedTags, selectedTypes, selectedBrands, selectedCategories, selectedTaxPolicies, selectedPricingRules, selectedRefundPolicies, selectedReturnPolicies, selectedPricingPolicies, selectedGoogleCategories, selectedWarrantyPolicies, selectedShipmentPolicies, selectedAttributesOptions, selectedSellingMarginPolicies);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -4408,7 +4360,6 @@ public class CatalogItemUpdateDto {
     sb.append("    material: ").append(toIndentedString(material)).append("\n");
     sb.append("    onDiscount: ").append(toIndentedString(onDiscount)).append("\n");
     sb.append("    totalTax: ").append(toIndentedString(totalTax)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    permalink: ").append(toIndentedString(permalink)).append("\n");
     sb.append("    brandName: ").append(toIndentedString(brandName)).append("\n");
     sb.append("    reviewsCount: ").append(toIndentedString(reviewsCount)).append("\n");
@@ -4433,7 +4384,6 @@ public class CatalogItemUpdateDto {
     sb.append("    customTaxValue: ").append(toIndentedString(customTaxValue)).append("\n");
     sb.append("    hasVariations: ").append(toIndentedString(hasVariations)).append("\n");
     sb.append("    questionsCount: ").append(toIndentedString(questionsCount)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    supplierCode: ").append(toIndentedString(supplierCode)).append("\n");
     sb.append("    auctionEnd: ").append(toIndentedString(auctionEnd)).append("\n");
     sb.append("    purchaseNote: ").append(toIndentedString(purchaseNote)).append("\n");
@@ -4602,7 +4552,6 @@ public class CatalogItemUpdateDto {
     openapiFields.add("material");
     openapiFields.add("onDiscount");
     openapiFields.add("totalTax");
-    openapiFields.add("tenantId");
     openapiFields.add("permalink");
     openapiFields.add("brandName");
     openapiFields.add("reviewsCount");
@@ -4627,7 +4576,6 @@ public class CatalogItemUpdateDto {
     openapiFields.add("customTaxValue");
     openapiFields.add("hasVariations");
     openapiFields.add("questionsCount");
-    openapiFields.add("enrollmentId");
     openapiFields.add("supplierCode");
     openapiFields.add("auctionEnd");
     openapiFields.add("purchaseNote");
@@ -4842,9 +4790,6 @@ public class CatalogItemUpdateDto {
       if ((jsonObj.get("material") != null && !jsonObj.get("material").isJsonNull()) && !jsonObj.get("material").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `material` to be a primitive type in the JSON string but got `%s`", jsonObj.get("material").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("permalink") != null && !jsonObj.get("permalink").isJsonNull()) && !jsonObj.get("permalink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `permalink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permalink").toString()));
       }
@@ -4877,9 +4822,6 @@ public class CatalogItemUpdateDto {
       }
       if ((jsonObj.get("releaseDate") != null && !jsonObj.get("releaseDate").isJsonNull()) && !jsonObj.get("releaseDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `releaseDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("releaseDate").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("supplierCode") != null && !jsonObj.get("supplierCode").isJsonNull()) && !jsonObj.get("supplierCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `supplierCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplierCode").toString()));

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseHandoutCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseHandoutCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -88,10 +88,6 @@ public class CourseHandoutCreateDto {
   public static final String SERIALIZED_NAME_COURSE_UNIT_I_D = "courseUnitID";
   @SerializedName(SERIALIZED_NAME_COURSE_UNIT_I_D)
   private String courseUnitID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public CourseHandoutCreateDto() {
   }
@@ -267,25 +263,6 @@ public class CourseHandoutCreateDto {
   }
 
 
-  public CourseHandoutCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -304,8 +281,7 @@ public class CourseHandoutCreateDto {
         Objects.equals(this.url, courseHandoutCreateDto.url) &&
         Objects.equals(this.releaseDateTime, courseHandoutCreateDto.releaseDateTime) &&
         Objects.equals(this.courseID, courseHandoutCreateDto.courseID) &&
-        Objects.equals(this.courseUnitID, courseHandoutCreateDto.courseUnitID) &&
-        Objects.equals(this.businessID, courseHandoutCreateDto.businessID);
+        Objects.equals(this.courseUnitID, courseHandoutCreateDto.courseUnitID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -314,7 +290,7 @@ public class CourseHandoutCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, content, url, releaseDateTime, courseID, courseUnitID, businessID);
+    return Objects.hash(id, timestamp, name, description, content, url, releaseDateTime, courseID, courseUnitID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -337,7 +313,6 @@ public class CourseHandoutCreateDto {
     sb.append("    releaseDateTime: ").append(toIndentedString(releaseDateTime)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
     sb.append("    courseUnitID: ").append(toIndentedString(courseUnitID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -369,13 +344,11 @@ public class CourseHandoutCreateDto {
     openapiFields.add("releaseDateTime");
     openapiFields.add("courseID");
     openapiFields.add("courseUnitID");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -426,9 +399,6 @@ public class CourseHandoutCreateDto {
       }
       if ((jsonObj.get("courseUnitID") != null && !jsonObj.get("courseUnitID").isJsonNull()) && !jsonObj.get("courseUnitID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseUnitID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseUnitID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

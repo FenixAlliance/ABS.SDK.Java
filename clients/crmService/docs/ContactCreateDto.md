@@ -9,7 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**tenantId** | **String** |  |  |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  |
 |**firstName** | **String** |  |  |
 |**lastName** | **String** |  |  [optional] |

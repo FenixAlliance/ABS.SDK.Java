@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * DownloadablesOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:44.259661900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:31.394645900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DownloadablesOptions {
   public static final String SERIALIZED_NAME_MASK_FILE_NAMES = "maskFileNames";
   @SerializedName(SERIALIZED_NAME_MASK_FILE_NAMES)

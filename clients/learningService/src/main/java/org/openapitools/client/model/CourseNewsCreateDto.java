@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseNewsCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseNewsCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,6 @@ public class CourseNewsCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public CourseNewsCreateDto() {
   }
@@ -198,25 +194,6 @@ public class CourseNewsCreateDto {
   }
 
 
-  public CourseNewsCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -232,8 +209,7 @@ public class CourseNewsCreateDto {
         Objects.equals(this.title, courseNewsCreateDto.title) &&
         Objects.equals(this.description, courseNewsCreateDto.description) &&
         Objects.equals(this.content, courseNewsCreateDto.content) &&
-        Objects.equals(this.courseID, courseNewsCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseNewsCreateDto.businessID);
+        Objects.equals(this.courseID, courseNewsCreateDto.courseID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +218,7 @@ public class CourseNewsCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, content, courseID, businessID);
+    return Objects.hash(id, timestamp, title, description, content, courseID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -262,7 +238,6 @@ public class CourseNewsCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -291,13 +266,11 @@ public class CourseNewsCreateDto {
     openapiFields.add("description");
     openapiFields.add("content");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -342,9 +315,6 @@ public class CourseNewsCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

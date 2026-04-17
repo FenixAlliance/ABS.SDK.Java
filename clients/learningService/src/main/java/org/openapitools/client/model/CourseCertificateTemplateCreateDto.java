@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseCertificateTemplateCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseCertificateTemplateCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -65,10 +65,6 @@ public class CourseCertificateTemplateCreateDto {
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
 
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
   public static final String SERIALIZED_NAME_WEB_PORTAL_I_D = "webPortalID";
   @SerializedName(SERIALIZED_NAME_WEB_PORTAL_I_D)
   private String webPortalID;
@@ -76,10 +72,6 @@ public class CourseCertificateTemplateCreateDto {
   public static final String SERIALIZED_NAME_WEBSITE_THEME_I_D = "websiteThemeID";
   @SerializedName(SERIALIZED_NAME_WEBSITE_THEME_I_D)
   private String websiteThemeID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_SOCIAL_PROFILE_I_D = "socialProfileID";
   @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_I_D)
@@ -153,25 +145,6 @@ public class CourseCertificateTemplateCreateDto {
   }
 
 
-  public CourseCertificateTemplateCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseCertificateTemplateCreateDto webPortalID(String webPortalID) {
     this.webPortalID = webPortalID;
     return this;
@@ -207,25 +180,6 @@ public class CourseCertificateTemplateCreateDto {
 
   public void setWebsiteThemeID(String websiteThemeID) {
     this.websiteThemeID = websiteThemeID;
-  }
-
-
-  public CourseCertificateTemplateCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -299,10 +253,8 @@ public class CourseCertificateTemplateCreateDto {
     return Objects.equals(this.id, courseCertificateTemplateCreateDto.id) &&
         Objects.equals(this.timestamp, courseCertificateTemplateCreateDto.timestamp) &&
         Objects.equals(this.courseID, courseCertificateTemplateCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseCertificateTemplateCreateDto.businessID) &&
         Objects.equals(this.webPortalID, courseCertificateTemplateCreateDto.webPortalID) &&
         Objects.equals(this.websiteThemeID, courseCertificateTemplateCreateDto.websiteThemeID) &&
-        Objects.equals(this.businessProfileRecordID, courseCertificateTemplateCreateDto.businessProfileRecordID) &&
         Objects.equals(this.socialProfileID, courseCertificateTemplateCreateDto.socialProfileID) &&
         Objects.equals(this.parentWebContentID, courseCertificateTemplateCreateDto.parentWebContentID) &&
         Objects.equals(this.parentWebContentVersionID, courseCertificateTemplateCreateDto.parentWebContentVersionID);
@@ -314,7 +266,7 @@ public class CourseCertificateTemplateCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, courseID, businessID, webPortalID, websiteThemeID, businessProfileRecordID, socialProfileID, parentWebContentID, parentWebContentVersionID);
+    return Objects.hash(id, timestamp, courseID, webPortalID, websiteThemeID, socialProfileID, parentWebContentID, parentWebContentVersionID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -331,10 +283,8 @@ public class CourseCertificateTemplateCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    webPortalID: ").append(toIndentedString(webPortalID)).append("\n");
     sb.append("    websiteThemeID: ").append(toIndentedString(websiteThemeID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    socialProfileID: ").append(toIndentedString(socialProfileID)).append("\n");
     sb.append("    parentWebContentID: ").append(toIndentedString(parentWebContentID)).append("\n");
     sb.append("    parentWebContentVersionID: ").append(toIndentedString(parentWebContentVersionID)).append("\n");
@@ -363,10 +313,8 @@ public class CourseCertificateTemplateCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
     openapiFields.add("webPortalID");
     openapiFields.add("websiteThemeID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("socialProfileID");
     openapiFields.add("parentWebContentID");
     openapiFields.add("parentWebContentVersionID");
@@ -374,7 +322,6 @@ public class CourseCertificateTemplateCreateDto {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -411,17 +358,11 @@ public class CourseCertificateTemplateCreateDto {
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
       }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
       if ((jsonObj.get("webPortalID") != null && !jsonObj.get("webPortalID").isJsonNull()) && !jsonObj.get("webPortalID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `webPortalID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webPortalID").toString()));
       }
       if ((jsonObj.get("websiteThemeID") != null && !jsonObj.get("websiteThemeID").isJsonNull()) && !jsonObj.get("websiteThemeID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `websiteThemeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websiteThemeID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("socialProfileID") != null && !jsonObj.get("socialProfileID").isJsonNull()) && !jsonObj.get("socialProfileID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileID").toString()));

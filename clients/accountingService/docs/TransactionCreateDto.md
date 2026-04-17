@@ -20,8 +20,6 @@
 |**unitId** | **String** |  |  [optional] |
 |**transactionCategoryId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

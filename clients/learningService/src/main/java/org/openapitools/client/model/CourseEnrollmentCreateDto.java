@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseEnrollmentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseEnrollmentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,10 +72,6 @@ public class CourseEnrollmentCreateDto {
   public static final String SERIALIZED_NAME_STUDENT_PROFILE_I_D = "studentProfileID";
   @SerializedName(SERIALIZED_NAME_STUDENT_PROFILE_I_D)
   private String studentProfileID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_COURSE_COMPLETION_CERTIFICATE_I_D = "courseCompletionCertificateID";
   @SerializedName(SERIALIZED_NAME_COURSE_COMPLETION_CERTIFICATE_I_D)
@@ -179,25 +175,6 @@ public class CourseEnrollmentCreateDto {
   }
 
 
-  public CourseEnrollmentCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
   public CourseEnrollmentCreateDto courseCompletionCertificateID(String courseCompletionCertificateID) {
     this.courseCompletionCertificateID = courseCompletionCertificateID;
     return this;
@@ -232,7 +209,6 @@ public class CourseEnrollmentCreateDto {
         Objects.equals(this.courseID, courseEnrollmentCreateDto.courseID) &&
         Objects.equals(this.courseCohortID, courseEnrollmentCreateDto.courseCohortID) &&
         Objects.equals(this.studentProfileID, courseEnrollmentCreateDto.studentProfileID) &&
-        Objects.equals(this.businessProfileRecordID, courseEnrollmentCreateDto.businessProfileRecordID) &&
         Objects.equals(this.courseCompletionCertificateID, courseEnrollmentCreateDto.courseCompletionCertificateID);
   }
 
@@ -242,7 +218,7 @@ public class CourseEnrollmentCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, courseID, courseCohortID, studentProfileID, businessProfileRecordID, courseCompletionCertificateID);
+    return Objects.hash(id, timestamp, courseID, courseCohortID, studentProfileID, courseCompletionCertificateID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -261,7 +237,6 @@ public class CourseEnrollmentCreateDto {
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
     sb.append("    courseCohortID: ").append(toIndentedString(courseCohortID)).append("\n");
     sb.append("    studentProfileID: ").append(toIndentedString(studentProfileID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    courseCompletionCertificateID: ").append(toIndentedString(courseCompletionCertificateID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -290,7 +265,6 @@ public class CourseEnrollmentCreateDto {
     openapiFields.add("courseID");
     openapiFields.add("courseCohortID");
     openapiFields.add("studentProfileID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("courseCompletionCertificateID");
 
     // a set of required properties/fields (JSON key names)
@@ -329,9 +303,6 @@ public class CourseEnrollmentCreateDto {
       }
       if ((jsonObj.get("studentProfileID") != null && !jsonObj.get("studentProfileID").isJsonNull()) && !jsonObj.get("studentProfileID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `studentProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("studentProfileID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("courseCompletionCertificateID") != null && !jsonObj.get("courseCompletionCertificateID").isJsonNull()) && !jsonObj.get("courseCompletionCertificateID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseCompletionCertificateID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseCompletionCertificateID").toString()));

@@ -12,7 +12,6 @@
 |**courseID** | **String** |  |  [optional] |
 |**courseCohortID** | **String** |  |  [optional] |
 |**studentProfileID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**courseCompletionCertificateID** | **String** |  |  [optional] |
 
 

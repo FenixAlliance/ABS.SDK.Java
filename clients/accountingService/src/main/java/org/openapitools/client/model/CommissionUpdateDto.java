@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * CommissionUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CommissionUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -74,14 +74,6 @@ public class CommissionUpdateDto {
   public static final String SERIALIZED_NAME_TAX_COMISSION = "taxComission";
   @SerializedName(SERIALIZED_NAME_TAX_COMISSION)
   private Double taxComission;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_SALARY_ID = "salaryId";
   @SerializedName(SERIALIZED_NAME_SALARY_ID)
@@ -220,44 +212,6 @@ public class CommissionUpdateDto {
   }
 
 
-  public CommissionUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public CommissionUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public CommissionUpdateDto salaryId(String salaryId) {
     this.salaryId = salaryId;
     return this;
@@ -369,8 +323,6 @@ public class CommissionUpdateDto {
         Objects.equals(this.addedPercent, commissionUpdateDto.addedPercent) &&
         Objects.equals(this.addedAmount, commissionUpdateDto.addedAmount) &&
         Objects.equals(this.taxComission, commissionUpdateDto.taxComission) &&
-        Objects.equals(this.tenantId, commissionUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, commissionUpdateDto.enrollmentId) &&
         Objects.equals(this.salaryId, commissionUpdateDto.salaryId) &&
         Objects.equals(this.emisorWalletAccountId, commissionUpdateDto.emisorWalletAccountId) &&
         Objects.equals(this.receiverWalletAccountId, commissionUpdateDto.receiverWalletAccountId) &&
@@ -384,7 +336,7 @@ public class CommissionUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, baseAmount, addedPercent, addedAmount, taxComission, tenantId, enrollmentId, salaryId, emisorWalletAccountId, receiverWalletAccountId, emisorContactId, receiverContactId);
+    return Objects.hash(title, description, baseAmount, addedPercent, addedAmount, taxComission, salaryId, emisorWalletAccountId, receiverWalletAccountId, emisorContactId, receiverContactId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -404,8 +356,6 @@ public class CommissionUpdateDto {
     sb.append("    addedPercent: ").append(toIndentedString(addedPercent)).append("\n");
     sb.append("    addedAmount: ").append(toIndentedString(addedAmount)).append("\n");
     sb.append("    taxComission: ").append(toIndentedString(taxComission)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    salaryId: ").append(toIndentedString(salaryId)).append("\n");
     sb.append("    emisorWalletAccountId: ").append(toIndentedString(emisorWalletAccountId)).append("\n");
     sb.append("    receiverWalletAccountId: ").append(toIndentedString(receiverWalletAccountId)).append("\n");
@@ -439,8 +389,6 @@ public class CommissionUpdateDto {
     openapiFields.add("addedPercent");
     openapiFields.add("addedAmount");
     openapiFields.add("taxComission");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("salaryId");
     openapiFields.add("emisorWalletAccountId");
     openapiFields.add("receiverWalletAccountId");
@@ -477,12 +425,6 @@ public class CommissionUpdateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("salaryId") != null && !jsonObj.get("salaryId").isJsonNull()) && !jsonObj.get("salaryId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `salaryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("salaryId").toString()));

@@ -22,8 +22,6 @@
 |**contactEmail** | **String** |  |  [optional] |
 |**privacyPolicyURL** | **String** |  |  [optional] |
 |**termsAndConditionsURL** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**requireHttps** | **Boolean** |  |  [optional] |
 |**requireAppSecret** | **Boolean** |  |  [optional] |
 |**enableClientOauthLogin** | **Boolean** |  |  [optional] |

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * TaxPolicyUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TaxPolicyUpdateDto {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -134,14 +134,6 @@ public class TaxPolicyUpdateDto {
   public static final String SERIALIZED_NAME_CITY_ID = "cityId";
   @SerializedName(SERIALIZED_NAME_CITY_ID)
   private String cityId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_ZERO = "zero";
   @SerializedName(SERIALIZED_NAME_ZERO)
@@ -561,44 +553,6 @@ public class TaxPolicyUpdateDto {
   }
 
 
-  public TaxPolicyUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
-  public TaxPolicyUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public TaxPolicyUpdateDto zero(Boolean zero) {
     this.zero = zero;
     return this;
@@ -706,8 +660,6 @@ public class TaxPolicyUpdateDto {
         Objects.equals(this.customState, taxPolicyUpdateDto.customState) &&
         Objects.equals(this.customCity, taxPolicyUpdateDto.customCity) &&
         Objects.equals(this.cityId, taxPolicyUpdateDto.cityId) &&
-        Objects.equals(this.enrollmentId, taxPolicyUpdateDto.enrollmentId) &&
-        Objects.equals(this.tenantId, taxPolicyUpdateDto.tenantId) &&
         Objects.equals(this.zero, taxPolicyUpdateDto.zero) &&
         Objects.equals(this.reduced, taxPolicyUpdateDto.reduced) &&
         Objects.equals(this.withholding, taxPolicyUpdateDto.withholding) &&
@@ -720,7 +672,7 @@ public class TaxPolicyUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, title, description, isFree, reduce, isEnabled, isDefault, allowInternational, hours, days, weeks, months, years, value, percentage, currencyId, countryId, countryStateId, customState, customCity, cityId, enrollmentId, tenantId, zero, reduced, withholding, fiscalAuthorityId);
+    return Objects.hash(code, title, description, isFree, reduce, isEnabled, isDefault, allowInternational, hours, days, weeks, months, years, value, percentage, currencyId, countryId, countryStateId, customState, customCity, cityId, zero, reduced, withholding, fiscalAuthorityId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -755,8 +707,6 @@ public class TaxPolicyUpdateDto {
     sb.append("    customState: ").append(toIndentedString(customState)).append("\n");
     sb.append("    customCity: ").append(toIndentedString(customCity)).append("\n");
     sb.append("    cityId: ").append(toIndentedString(cityId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    zero: ").append(toIndentedString(zero)).append("\n");
     sb.append("    reduced: ").append(toIndentedString(reduced)).append("\n");
     sb.append("    withholding: ").append(toIndentedString(withholding)).append("\n");
@@ -804,8 +754,6 @@ public class TaxPolicyUpdateDto {
     openapiFields.add("customState");
     openapiFields.add("customCity");
     openapiFields.add("cityId");
-    openapiFields.add("enrollmentId");
-    openapiFields.add("tenantId");
     openapiFields.add("zero");
     openapiFields.add("reduced");
     openapiFields.add("withholding");
@@ -862,12 +810,6 @@ public class TaxPolicyUpdateDto {
       }
       if ((jsonObj.get("cityId") != null && !jsonObj.get("cityId").isJsonNull()) && !jsonObj.get("cityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cityId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("fiscalAuthorityId") != null && !jsonObj.get("fiscalAuthorityId").isJsonNull()) && !jsonObj.get("fiscalAuthorityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalAuthorityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalAuthorityId").toString()));

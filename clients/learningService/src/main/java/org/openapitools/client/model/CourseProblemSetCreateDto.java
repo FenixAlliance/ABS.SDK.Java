@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseProblemSetCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseProblemSetCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,6 @@ public class CourseProblemSetCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_COURSE_UNIT_I_D = "courseUnitID";
   @SerializedName(SERIALIZED_NAME_COURSE_UNIT_I_D)
@@ -210,25 +206,6 @@ public class CourseProblemSetCreateDto {
   }
 
 
-  public CourseProblemSetCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseProblemSetCreateDto courseUnitID(String courseUnitID) {
     this.courseUnitID = courseUnitID;
     return this;
@@ -302,7 +279,6 @@ public class CourseProblemSetCreateDto {
         Objects.equals(this.description, courseProblemSetCreateDto.description) &&
         Objects.equals(this.overallScore, courseProblemSetCreateDto.overallScore) &&
         Objects.equals(this.courseID, courseProblemSetCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseProblemSetCreateDto.businessID) &&
         Objects.equals(this.courseUnitID, courseProblemSetCreateDto.courseUnitID) &&
         Objects.equals(this.courseGradingRubricID, courseProblemSetCreateDto.courseGradingRubricID) &&
         Objects.equals(this.releaseDateTime, courseProblemSetCreateDto.releaseDateTime);
@@ -314,7 +290,7 @@ public class CourseProblemSetCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, overallScore, courseID, businessID, courseUnitID, courseGradingRubricID, releaseDateTime);
+    return Objects.hash(id, timestamp, title, description, overallScore, courseID, courseUnitID, courseGradingRubricID, releaseDateTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -334,7 +310,6 @@ public class CourseProblemSetCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    overallScore: ").append(toIndentedString(overallScore)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    courseUnitID: ").append(toIndentedString(courseUnitID)).append("\n");
     sb.append("    courseGradingRubricID: ").append(toIndentedString(courseGradingRubricID)).append("\n");
     sb.append("    releaseDateTime: ").append(toIndentedString(releaseDateTime)).append("\n");
@@ -366,7 +341,6 @@ public class CourseProblemSetCreateDto {
     openapiFields.add("description");
     openapiFields.add("overallScore");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
     openapiFields.add("courseUnitID");
     openapiFields.add("courseGradingRubricID");
     openapiFields.add("releaseDateTime");
@@ -375,7 +349,6 @@ public class CourseProblemSetCreateDto {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -417,9 +390,6 @@ public class CourseProblemSetCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if ((jsonObj.get("courseUnitID") != null && !jsonObj.get("courseUnitID").isJsonNull()) && !jsonObj.get("courseUnitID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseUnitID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseUnitID").toString()));

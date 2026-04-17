@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * HeaderOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:44.259661900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:31.394645900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class HeaderOptions {
   public static final String SERIALIZED_NAME_HEADER_PADDING = "headerPadding";
   @SerializedName(SERIALIZED_NAME_HEADER_PADDING)

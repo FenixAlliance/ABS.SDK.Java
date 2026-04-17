@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * AccountRelationCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AccountRelationCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,14 +64,6 @@ public class AccountRelationCreateDto {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
   private String accountId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public AccountRelationCreateDto() {
   }
@@ -133,44 +125,6 @@ public class AccountRelationCreateDto {
   }
 
 
-  public AccountRelationCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public AccountRelationCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -183,9 +137,7 @@ public class AccountRelationCreateDto {
     AccountRelationCreateDto accountRelationCreateDto = (AccountRelationCreateDto) o;
     return Objects.equals(this.id, accountRelationCreateDto.id) &&
         Objects.equals(this.timestamp, accountRelationCreateDto.timestamp) &&
-        Objects.equals(this.accountId, accountRelationCreateDto.accountId) &&
-        Objects.equals(this.tenantId, accountRelationCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, accountRelationCreateDto.enrollmentId);
+        Objects.equals(this.accountId, accountRelationCreateDto.accountId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +146,7 @@ public class AccountRelationCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, accountId, tenantId, enrollmentId);
+    return Objects.hash(id, timestamp, accountId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -211,8 +163,6 @@ public class AccountRelationCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,8 +188,6 @@ public class AccountRelationCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("accountId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -271,12 +219,6 @@ public class AccountRelationCreateDto {
       }
       if ((jsonObj.get("accountId") != null && !jsonObj.get("accountId").isJsonNull()) && !jsonObj.get("accountId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

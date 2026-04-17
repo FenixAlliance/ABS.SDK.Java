@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * LedgerTypeCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LedgerTypeCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -130,14 +129,6 @@ public class LedgerTypeCreateDto {
   public static final String SERIALIZED_NAME_LEDGER_CLASS = "ledgerClass";
   @SerializedName(SERIALIZED_NAME_LEDGER_CLASS)
   private LedgerClassEnum ledgerClass;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public LedgerTypeCreateDto() {
   }
@@ -218,44 +209,6 @@ public class LedgerTypeCreateDto {
   }
 
 
-  public LedgerTypeCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public LedgerTypeCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -269,25 +222,12 @@ public class LedgerTypeCreateDto {
     return Objects.equals(this.id, ledgerTypeCreateDto.id) &&
         Objects.equals(this.timestamp, ledgerTypeCreateDto.timestamp) &&
         Objects.equals(this.name, ledgerTypeCreateDto.name) &&
-        Objects.equals(this.ledgerClass, ledgerTypeCreateDto.ledgerClass) &&
-        Objects.equals(this.tenantId, ledgerTypeCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, ledgerTypeCreateDto.enrollmentId);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.ledgerClass, ledgerTypeCreateDto.ledgerClass);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, ledgerClass, tenantId, enrollmentId);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, timestamp, name, ledgerClass);
   }
 
   @Override
@@ -298,8 +238,6 @@ public class LedgerTypeCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ledgerClass: ").append(toIndentedString(ledgerClass)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -326,8 +264,6 @@ public class LedgerTypeCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("ledgerClass");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -374,12 +310,6 @@ public class LedgerTypeCreateDto {
       // validate the optional field `ledgerClass`
       if (jsonObj.get("ledgerClass") != null && !jsonObj.get("ledgerClass").isJsonNull()) {
         LedgerClassEnum.validateJsonElement(jsonObj.get("ledgerClass"));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

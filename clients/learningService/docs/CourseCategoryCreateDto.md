@@ -13,7 +13,6 @@
 |**description** | **String** |  |  [optional] |
 |**imageURL** | **String** |  |  [optional] |
 |**isFeatured** | **Boolean** |  |  [optional] |
-|**businessID** | **String** |  |  |
 
 
 

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PriceListCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:21.875044800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:06.616482700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PriceListCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -88,14 +88,6 @@ public class PriceListCreateDto {
   public static final String SERIALIZED_NAME_UNIT_GROUP_ID = "unitGroupId";
   @SerializedName(SERIALIZED_NAME_UNIT_GROUP_ID)
   private String unitGroupId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public PriceListCreateDto() {
   }
@@ -271,44 +263,6 @@ public class PriceListCreateDto {
   }
 
 
-  public PriceListCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public PriceListCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -327,9 +281,7 @@ public class PriceListCreateDto {
         Objects.equals(this.endDate, priceListCreateDto.endDate) &&
         Objects.equals(this.currencyId, priceListCreateDto.currencyId) &&
         Objects.equals(this.unitId, priceListCreateDto.unitId) &&
-        Objects.equals(this.unitGroupId, priceListCreateDto.unitGroupId) &&
-        Objects.equals(this.tenantId, priceListCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, priceListCreateDto.enrollmentId);
+        Objects.equals(this.unitGroupId, priceListCreateDto.unitGroupId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -338,7 +290,7 @@ public class PriceListCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, startDate, endDate, currencyId, unitId, unitGroupId, tenantId, enrollmentId);
+    return Objects.hash(id, timestamp, name, description, startDate, endDate, currencyId, unitId, unitGroupId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -361,8 +313,6 @@ public class PriceListCreateDto {
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    unitId: ").append(toIndentedString(unitId)).append("\n");
     sb.append("    unitGroupId: ").append(toIndentedString(unitGroupId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -394,8 +344,6 @@ public class PriceListCreateDto {
     openapiFields.add("currencyId");
     openapiFields.add("unitId");
     openapiFields.add("unitGroupId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -447,12 +395,6 @@ public class PriceListCreateDto {
       }
       if ((jsonObj.get("unitGroupId") != null && !jsonObj.get("unitGroupId").isJsonNull()) && !jsonObj.get("unitGroupId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unitGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unitGroupId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

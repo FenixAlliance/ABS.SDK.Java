@@ -13,7 +13,6 @@
 |**needsRevision** | **Boolean** |  |  |
 |**question** | **String** |  |  |
 |**socialProfileID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  |
 
 
 

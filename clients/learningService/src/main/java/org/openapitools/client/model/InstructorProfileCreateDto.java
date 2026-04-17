@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * InstructorProfileCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InstructorProfileCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -169,17 +169,9 @@ public class InstructorProfileCreateDto {
   @SerializedName(SERIALIZED_NAME_DATA9_LABEL)
   private String data9Label;
 
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
   public static final String SERIALIZED_NAME_CONTACT_I_D = "contactID";
   @SerializedName(SERIALIZED_NAME_CONTACT_I_D)
   private String contactID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public InstructorProfileCreateDto() {
   }
@@ -735,25 +727,6 @@ public class InstructorProfileCreateDto {
   }
 
 
-  public InstructorProfileCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public InstructorProfileCreateDto contactID(String contactID) {
     this.contactID = contactID;
     return this;
@@ -770,25 +743,6 @@ public class InstructorProfileCreateDto {
 
   public void setContactID(String contactID) {
     this.contactID = contactID;
-  }
-
-
-  public InstructorProfileCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -831,9 +785,7 @@ public class InstructorProfileCreateDto {
         Objects.equals(this.data8Label, instructorProfileCreateDto.data8Label) &&
         Objects.equals(this.data9, instructorProfileCreateDto.data9) &&
         Objects.equals(this.data9Label, instructorProfileCreateDto.data9Label) &&
-        Objects.equals(this.businessID, instructorProfileCreateDto.businessID) &&
-        Objects.equals(this.contactID, instructorProfileCreateDto.contactID) &&
-        Objects.equals(this.businessProfileRecordID, instructorProfileCreateDto.businessProfileRecordID);
+        Objects.equals(this.contactID, instructorProfileCreateDto.contactID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -842,7 +794,7 @@ public class InstructorProfileCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, authorized, about, verified, submitted, avatarUrl, qualifiedName, verificationTimestamp, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, businessID, contactID, businessProfileRecordID);
+    return Objects.hash(id, timestamp, authorized, about, verified, submitted, avatarUrl, qualifiedName, verificationTimestamp, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, contactID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -885,9 +837,7 @@ public class InstructorProfileCreateDto {
     sb.append("    data8Label: ").append(toIndentedString(data8Label)).append("\n");
     sb.append("    data9: ").append(toIndentedString(data9)).append("\n");
     sb.append("    data9Label: ").append(toIndentedString(data9Label)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    contactID: ").append(toIndentedString(contactID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -939,9 +889,7 @@ public class InstructorProfileCreateDto {
     openapiFields.add("data8Label");
     openapiFields.add("data9");
     openapiFields.add("data9Label");
-    openapiFields.add("businessID");
     openapiFields.add("contactID");
-    openapiFields.add("businessProfileRecordID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1040,14 +988,8 @@ public class InstructorProfileCreateDto {
       if ((jsonObj.get("data9Label") != null && !jsonObj.get("data9Label").isJsonNull()) && !jsonObj.get("data9Label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data9Label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data9Label").toString()));
       }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
       if ((jsonObj.get("contactID") != null && !jsonObj.get("contactID").isJsonNull()) && !jsonObj.get("contactID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
   }
 

@@ -9,8 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**fiscalResponsibilityId** | **String** |  |  [optional] |
 |**billingProfileId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

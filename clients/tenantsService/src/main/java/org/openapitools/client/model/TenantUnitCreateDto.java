@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantUnitCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantUnitCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,14 +60,6 @@ public class TenantUnitCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -135,44 +127,6 @@ public class TenantUnitCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public TenantUnitCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public TenantUnitCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -321,8 +275,6 @@ public class TenantUnitCreateDto {
     TenantUnitCreateDto tenantUnitCreateDto = (TenantUnitCreateDto) o;
     return Objects.equals(this.id, tenantUnitCreateDto.id) &&
         Objects.equals(this.timestamp, tenantUnitCreateDto.timestamp) &&
-        Objects.equals(this.businessID, tenantUnitCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, tenantUnitCreateDto.businessProfileRecordID) &&
         Objects.equals(this.name, tenantUnitCreateDto.name) &&
         Objects.equals(this.description, tenantUnitCreateDto.description) &&
         Objects.equals(this.disabled, tenantUnitCreateDto.disabled) &&
@@ -338,7 +290,7 @@ public class TenantUnitCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, businessID, businessProfileRecordID, name, description, disabled, businessUnitQualifiedName, countryID, organizationProfileID, parentBusinessUnitID);
+    return Objects.hash(id, timestamp, name, description, disabled, businessUnitQualifiedName, countryID, organizationProfileID, parentBusinessUnitID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -354,8 +306,6 @@ public class TenantUnitCreateDto {
     sb.append("class TenantUnitCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
@@ -387,8 +337,6 @@ public class TenantUnitCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("disabled");
@@ -424,12 +372,6 @@ public class TenantUnitCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

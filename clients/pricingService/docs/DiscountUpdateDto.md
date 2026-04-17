@@ -12,8 +12,6 @@
 |**endQuantity** | **Double** |  |  [optional] |
 |**percent** | **Double** |  |  [optional] |
 |**value** | **Double** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**discountListId** | **String** |  |  [optional] |
 
 

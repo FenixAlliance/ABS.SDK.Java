@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BankGuaranteeCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BankGuaranteeCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -96,10 +96,6 @@ public class BankGuaranteeCreateDto {
   public static final String SERIALIZED_NAME_VALIDITY_IN_DAYS = "validityInDays";
   @SerializedName(SERIALIZED_NAME_VALIDITY_IN_DAYS)
   private Integer validityInDays;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   /**
    * Gets or Sets bankGuaranteeType
@@ -156,10 +152,6 @@ public class BankGuaranteeCreateDto {
   public static final String SERIALIZED_NAME_BANK_GUARANTEE_TYPE = "bankGuaranteeType";
   @SerializedName(SERIALIZED_NAME_BANK_GUARANTEE_TYPE)
   private BankGuaranteeTypeEnum bankGuaranteeType;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_CONTACT_ID = "contactId";
   @SerializedName(SERIALIZED_NAME_CONTACT_ID)
@@ -397,25 +389,6 @@ public class BankGuaranteeCreateDto {
   }
 
 
-  public BankGuaranteeCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public BankGuaranteeCreateDto bankGuaranteeType(BankGuaranteeTypeEnum bankGuaranteeType) {
     this.bankGuaranteeType = bankGuaranteeType;
     return this;
@@ -432,25 +405,6 @@ public class BankGuaranteeCreateDto {
 
   public void setBankGuaranteeType(BankGuaranteeTypeEnum bankGuaranteeType) {
     this.bankGuaranteeType = bankGuaranteeType;
-  }
-
-
-  public BankGuaranteeCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -589,9 +543,7 @@ public class BankGuaranteeCreateDto {
         Objects.equals(this.startDate, bankGuaranteeCreateDto.startDate) &&
         Objects.equals(this.endDate, bankGuaranteeCreateDto.endDate) &&
         Objects.equals(this.validityInDays, bankGuaranteeCreateDto.validityInDays) &&
-        Objects.equals(this.tenantId, bankGuaranteeCreateDto.tenantId) &&
         Objects.equals(this.bankGuaranteeType, bankGuaranteeCreateDto.bankGuaranteeType) &&
-        Objects.equals(this.enrollmentId, bankGuaranteeCreateDto.enrollmentId) &&
         Objects.equals(this.contactId, bankGuaranteeCreateDto.contactId) &&
         Objects.equals(this.projectId, bankGuaranteeCreateDto.projectId) &&
         Objects.equals(this.orderId, bankGuaranteeCreateDto.orderId) &&
@@ -606,7 +558,7 @@ public class BankGuaranteeCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, margin, charges, beneficiaryName, guaranteeNumber, guaranteeConditions, fixedDepositNumber, startDate, endDate, validityInDays, tenantId, bankGuaranteeType, enrollmentId, contactId, projectId, orderId, bankProfileId, bankAccountId, currencyId);
+    return Objects.hash(id, timestamp, margin, charges, beneficiaryName, guaranteeNumber, guaranteeConditions, fixedDepositNumber, startDate, endDate, validityInDays, bankGuaranteeType, contactId, projectId, orderId, bankProfileId, bankAccountId, currencyId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -631,9 +583,7 @@ public class BankGuaranteeCreateDto {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    validityInDays: ").append(toIndentedString(validityInDays)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    bankGuaranteeType: ").append(toIndentedString(bankGuaranteeType)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
@@ -673,9 +623,7 @@ public class BankGuaranteeCreateDto {
     openapiFields.add("startDate");
     openapiFields.add("endDate");
     openapiFields.add("validityInDays");
-    openapiFields.add("tenantId");
     openapiFields.add("bankGuaranteeType");
-    openapiFields.add("enrollmentId");
     openapiFields.add("contactId");
     openapiFields.add("projectId");
     openapiFields.add("orderId");
@@ -720,18 +668,12 @@ public class BankGuaranteeCreateDto {
       if ((jsonObj.get("guaranteeConditions") != null && !jsonObj.get("guaranteeConditions").isJsonNull()) && !jsonObj.get("guaranteeConditions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `guaranteeConditions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guaranteeConditions").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("bankGuaranteeType") != null && !jsonObj.get("bankGuaranteeType").isJsonNull()) && !jsonObj.get("bankGuaranteeType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankGuaranteeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankGuaranteeType").toString()));
       }
       // validate the optional field `bankGuaranteeType`
       if (jsonObj.get("bankGuaranteeType") != null && !jsonObj.get("bankGuaranteeType").isJsonNull()) {
         BankGuaranteeTypeEnum.validateJsonElement(jsonObj.get("bankGuaranteeType"));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("contactId") != null && !jsonObj.get("contactId").isJsonNull()) && !jsonObj.get("contactId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactId").toString()));

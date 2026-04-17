@@ -15,7 +15,6 @@
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 
 
 

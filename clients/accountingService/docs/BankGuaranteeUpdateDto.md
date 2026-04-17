@@ -16,9 +16,7 @@
 |**startDate** | **OffsetDateTime** |  |  [optional] |
 |**endDate** | **OffsetDateTime** |  |  [optional] |
 |**validityInDays** | **Integer** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**bankGuaranteeType** | [**BankGuaranteeTypeEnum**](#BankGuaranteeTypeEnum) |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**contactId** | **String** |  |  [optional] |
 |**projectId** | **String** |  |  [optional] |
 |**orderId** | **String** |  |  [optional] |

@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -67,20 +66,3 @@ src/main/java/org/openapitools/client/model/ShipmentDto.java
 src/main/java/org/openapitools/client/model/ShipmentDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/FenixAllianceAbpWebApiTest.java
-src/test/java/org/openapitools/client/api/ShipmentsApiTest.java
-src/test/java/org/openapitools/client/model/AccessTokenResponseTest.java
-src/test/java/org/openapitools/client/model/ErrorEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ForgotPasswordRequestTest.java
-src/test/java/org/openapitools/client/model/HttpValidationProblemDetailsTest.java
-src/test/java/org/openapitools/client/model/InfoRequestTest.java
-src/test/java/org/openapitools/client/model/InfoResponseTest.java
-src/test/java/org/openapitools/client/model/LoginRequestTest.java
-src/test/java/org/openapitools/client/model/RefreshRequestTest.java
-src/test/java/org/openapitools/client/model/RegisterRequestTest.java
-src/test/java/org/openapitools/client/model/ResendConfirmationEmailRequestTest.java
-src/test/java/org/openapitools/client/model/ResetPasswordRequestTest.java
-src/test/java/org/openapitools/client/model/ShipmentDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ShipmentDtoTest.java
-src/test/java/org/openapitools/client/model/TwoFactorRequestTest.java
-src/test/java/org/openapitools/client/model/TwoFactorResponseTest.java

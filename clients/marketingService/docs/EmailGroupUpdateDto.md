@@ -10,8 +10,6 @@
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**enabled** | **Boolean** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

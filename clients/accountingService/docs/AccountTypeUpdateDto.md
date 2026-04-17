@@ -9,8 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

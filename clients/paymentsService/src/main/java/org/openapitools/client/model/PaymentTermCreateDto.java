@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PaymentTermCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:16.522719600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:01.984252200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PaymentTermCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -96,14 +96,6 @@ public class PaymentTermCreateDto {
   public static final String SERIALIZED_NAME_PAYMENT_MODE_I_D = "paymentModeID";
   @SerializedName(SERIALIZED_NAME_PAYMENT_MODE_I_D)
   private String paymentModeID;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public PaymentTermCreateDto() {
   }
@@ -317,44 +309,6 @@ public class PaymentTermCreateDto {
   }
 
 
-  public PaymentTermCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public PaymentTermCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -375,9 +329,7 @@ public class PaymentTermCreateDto {
         Objects.equals(this.creditWeeks, paymentTermCreateDto.creditWeeks) &&
         Objects.equals(this.creditMonths, paymentTermCreateDto.creditMonths) &&
         Objects.equals(this.creditYears, paymentTermCreateDto.creditYears) &&
-        Objects.equals(this.paymentModeID, paymentTermCreateDto.paymentModeID) &&
-        Objects.equals(this.tenantId, paymentTermCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, paymentTermCreateDto.enrollmentId);
+        Objects.equals(this.paymentModeID, paymentTermCreateDto.paymentModeID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -386,7 +338,7 @@ public class PaymentTermCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, isTemplate, percentage, creditDays, creditWeeks, creditMonths, creditYears, paymentModeID, tenantId, enrollmentId);
+    return Objects.hash(id, timestamp, name, description, isTemplate, percentage, creditDays, creditWeeks, creditMonths, creditYears, paymentModeID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -411,8 +363,6 @@ public class PaymentTermCreateDto {
     sb.append("    creditMonths: ").append(toIndentedString(creditMonths)).append("\n");
     sb.append("    creditYears: ").append(toIndentedString(creditYears)).append("\n");
     sb.append("    paymentModeID: ").append(toIndentedString(paymentModeID)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -446,8 +396,6 @@ public class PaymentTermCreateDto {
     openapiFields.add("creditMonths");
     openapiFields.add("creditYears");
     openapiFields.add("paymentModeID");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -493,12 +441,6 @@ public class PaymentTermCreateDto {
       }
       if ((jsonObj.get("paymentModeID") != null && !jsonObj.get("paymentModeID").isJsonNull()) && !jsonObj.get("paymentModeID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentModeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentModeID").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

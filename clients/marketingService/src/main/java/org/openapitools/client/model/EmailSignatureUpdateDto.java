@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * EmailSignatureUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:00.552871-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:46.719298700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class EmailSignatureUpdateDto {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)

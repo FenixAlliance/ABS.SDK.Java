@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseUnitCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseUnitCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,10 +80,6 @@ public class CourseUnitCreateDto {
   public static final String SERIALIZED_NAME_COURSE_SECTION_I_D = "courseSectionID";
   @SerializedName(SERIALIZED_NAME_COURSE_SECTION_I_D)
   private String courseSectionID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_COURSE_CONTENT_GROUP_I_D = "courseContentGroupID";
   @SerializedName(SERIALIZED_NAME_COURSE_CONTENT_GROUP_I_D)
@@ -229,25 +225,6 @@ public class CourseUnitCreateDto {
   }
 
 
-  public CourseUnitCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseUnitCreateDto courseContentGroupID(String courseContentGroupID) {
     this.courseContentGroupID = courseContentGroupID;
     return this;
@@ -303,7 +280,6 @@ public class CourseUnitCreateDto {
         Objects.equals(this.content, courseUnitCreateDto.content) &&
         Objects.equals(this.courseID, courseUnitCreateDto.courseID) &&
         Objects.equals(this.courseSectionID, courseUnitCreateDto.courseSectionID) &&
-        Objects.equals(this.businessID, courseUnitCreateDto.businessID) &&
         Objects.equals(this.courseContentGroupID, courseUnitCreateDto.courseContentGroupID) &&
         Objects.equals(this.releaseDateTime, courseUnitCreateDto.releaseDateTime);
   }
@@ -314,7 +290,7 @@ public class CourseUnitCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, content, courseID, courseSectionID, businessID, courseContentGroupID, releaseDateTime);
+    return Objects.hash(id, timestamp, title, description, content, courseID, courseSectionID, courseContentGroupID, releaseDateTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -335,7 +311,6 @@ public class CourseUnitCreateDto {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
     sb.append("    courseSectionID: ").append(toIndentedString(courseSectionID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    courseContentGroupID: ").append(toIndentedString(courseContentGroupID)).append("\n");
     sb.append("    releaseDateTime: ").append(toIndentedString(releaseDateTime)).append("\n");
     sb.append("}");
@@ -367,7 +342,6 @@ public class CourseUnitCreateDto {
     openapiFields.add("content");
     openapiFields.add("courseID");
     openapiFields.add("courseSectionID");
-    openapiFields.add("businessID");
     openapiFields.add("courseContentGroupID");
     openapiFields.add("releaseDateTime");
 
@@ -376,7 +350,6 @@ public class CourseUnitCreateDto {
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("courseID");
     openapiRequiredFields.add("courseSectionID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -424,9 +397,6 @@ public class CourseUnitCreateDto {
       }
       if (!jsonObj.get("courseSectionID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseSectionID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseSectionID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if ((jsonObj.get("courseContentGroupID") != null && !jsonObj.get("courseContentGroupID").isJsonNull()) && !jsonObj.get("courseContentGroupID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseContentGroupID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseContentGroupID").toString()));

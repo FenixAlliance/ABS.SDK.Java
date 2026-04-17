@@ -58,7 +58,6 @@
 |**material** | **String** |  |  [optional] |
 |**onDiscount** | **Boolean** |  |  [optional] |
 |**totalTax** | **Double** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**permalink** | **String** |  |  [optional] |
 |**brandName** | **String** |  |  [optional] |
 |**reviewsCount** | **Integer** |  |  [optional] |
@@ -83,7 +82,6 @@
 |**customTaxValue** | **Double** |  |  [optional] |
 |**hasVariations** | **Boolean** |  |  [optional] |
 |**questionsCount** | **Integer** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**supplierCode** | **String** |  |  [optional] |
 |**auctionEnd** | **OffsetDateTime** |  |  [optional] |
 |**purchaseNote** | **String** |  |  [optional] |

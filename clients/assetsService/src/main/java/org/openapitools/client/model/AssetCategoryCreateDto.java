@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * AssetCategoryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:24.786928200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:14.351555800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AssetCategoryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,14 +60,6 @@ public class AssetCategoryCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_ID = "businessId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_ID)
-  private String businessId;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID = "businessProfileRecordId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID)
-  private String businessProfileRecordId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -115,44 +107,6 @@ public class AssetCategoryCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public AssetCategoryCreateDto businessId(String businessId) {
-    this.businessId = businessId;
-    return this;
-  }
-
-  /**
-   * Get businessId
-   * @return businessId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessId() {
-    return businessId;
-  }
-
-  public void setBusinessId(String businessId) {
-    this.businessId = businessId;
-  }
-
-
-  public AssetCategoryCreateDto businessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordId
-   * @return businessProfileRecordId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordId() {
-    return businessProfileRecordId;
-  }
-
-  public void setBusinessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
   }
 
 
@@ -206,8 +160,6 @@ public class AssetCategoryCreateDto {
     AssetCategoryCreateDto assetCategoryCreateDto = (AssetCategoryCreateDto) o;
     return Objects.equals(this.id, assetCategoryCreateDto.id) &&
         Objects.equals(this.timestamp, assetCategoryCreateDto.timestamp) &&
-        Objects.equals(this.businessId, assetCategoryCreateDto.businessId) &&
-        Objects.equals(this.businessProfileRecordId, assetCategoryCreateDto.businessProfileRecordId) &&
         Objects.equals(this.name, assetCategoryCreateDto.name) &&
         Objects.equals(this.description, assetCategoryCreateDto.description);
   }
@@ -218,7 +170,7 @@ public class AssetCategoryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, businessId, businessProfileRecordId, name, description);
+    return Objects.hash(id, timestamp, name, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,8 +186,6 @@ public class AssetCategoryCreateDto {
     sb.append("class AssetCategoryCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    businessId: ").append(toIndentedString(businessId)).append("\n");
-    sb.append("    businessProfileRecordId: ").append(toIndentedString(businessProfileRecordId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
@@ -262,8 +212,6 @@ public class AssetCategoryCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("businessId");
-    openapiFields.add("businessProfileRecordId");
     openapiFields.add("name");
     openapiFields.add("description");
 
@@ -294,12 +242,6 @@ public class AssetCategoryCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("businessId") != null && !jsonObj.get("businessId").isJsonNull()) && !jsonObj.get("businessId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessId").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordId") != null && !jsonObj.get("businessProfileRecordId").isJsonNull()) && !jsonObj.get("businessProfileRecordId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordId").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

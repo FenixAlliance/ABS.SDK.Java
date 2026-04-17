@@ -14,7 +14,6 @@
 |**instructions** | **String** |  |  [optional] |
 |**points** | **Double** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**courseUnitID** | **String** |  |  [optional] |
 |**courseCohortID** | **String** |  |  [optional] |
 |**courseAssignmentTypeID** | **String** |  |  [optional] |

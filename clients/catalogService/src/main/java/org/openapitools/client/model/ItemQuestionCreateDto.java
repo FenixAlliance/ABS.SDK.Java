@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemQuestionCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemQuestionCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,10 +76,6 @@ public class ItemQuestionCreateDto {
   public static final String SERIALIZED_NAME_SOCIAL_PROFILE_I_D = "socialProfileID";
   @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILE_I_D)
   private String socialProfileID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_ITEM_I_D = "itemID";
   @SerializedName(SERIALIZED_NAME_ITEM_I_D)
@@ -202,25 +198,6 @@ public class ItemQuestionCreateDto {
   }
 
 
-  public ItemQuestionCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public ItemQuestionCreateDto itemID(String itemID) {
     this.itemID = itemID;
     return this;
@@ -256,7 +233,6 @@ public class ItemQuestionCreateDto {
         Objects.equals(this.needsRevision, itemQuestionCreateDto.needsRevision) &&
         Objects.equals(this.question, itemQuestionCreateDto.question) &&
         Objects.equals(this.socialProfileID, itemQuestionCreateDto.socialProfileID) &&
-        Objects.equals(this.businessID, itemQuestionCreateDto.businessID) &&
         Objects.equals(this.itemID, itemQuestionCreateDto.itemID);
   }
 
@@ -266,7 +242,7 @@ public class ItemQuestionCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, needsRevision, question, socialProfileID, businessID, itemID);
+    return Objects.hash(id, timestamp, title, needsRevision, question, socialProfileID, itemID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -286,7 +262,6 @@ public class ItemQuestionCreateDto {
     sb.append("    needsRevision: ").append(toIndentedString(needsRevision)).append("\n");
     sb.append("    question: ").append(toIndentedString(question)).append("\n");
     sb.append("    socialProfileID: ").append(toIndentedString(socialProfileID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -316,7 +291,6 @@ public class ItemQuestionCreateDto {
     openapiFields.add("needsRevision");
     openapiFields.add("question");
     openapiFields.add("socialProfileID");
-    openapiFields.add("businessID");
     openapiFields.add("itemID");
 
     // a set of required properties/fields (JSON key names)
@@ -324,7 +298,6 @@ public class ItemQuestionCreateDto {
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("needsRevision");
     openapiRequiredFields.add("question");
-    openapiRequiredFields.add("businessID");
     openapiRequiredFields.add("itemID");
   }
 
@@ -367,9 +340,6 @@ public class ItemQuestionCreateDto {
       }
       if ((jsonObj.get("socialProfileID") != null && !jsonObj.get("socialProfileID").isJsonNull()) && !jsonObj.get("socialProfileID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialProfileID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if (!jsonObj.get("itemID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemID").toString()));

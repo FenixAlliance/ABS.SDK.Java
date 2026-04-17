@@ -14,7 +14,6 @@
 |**description** | **String** |  |  [optional] |
 |**websiteThemeID** | **String** |  |  [optional] |
 |**businessDomainID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**businessPortalApplicationID** | **String** |  |  [optional] |
 
 

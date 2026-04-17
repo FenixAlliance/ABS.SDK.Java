@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ShareTransferUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ShareTransferUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -70,14 +70,6 @@ public class ShareTransferUpdateDto {
   public static final String SERIALIZED_NAME_SHARE_TRANSFER_REASON_ID = "shareTransferReasonId";
   @SerializedName(SERIALIZED_NAME_SHARE_TRANSFER_REASON_ID)
   private String shareTransferReasonId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public ShareTransferUpdateDto() {
   }
@@ -177,44 +169,6 @@ public class ShareTransferUpdateDto {
   }
 
 
-  public ShareTransferUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
-  public ShareTransferUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -229,9 +183,7 @@ public class ShareTransferUpdateDto {
         Objects.equals(this.value, shareTransferUpdateDto.value) &&
         Objects.equals(this.newShareHolderId, shareTransferUpdateDto.newShareHolderId) &&
         Objects.equals(this.formerShareHolderId, shareTransferUpdateDto.formerShareHolderId) &&
-        Objects.equals(this.shareTransferReasonId, shareTransferUpdateDto.shareTransferReasonId) &&
-        Objects.equals(this.enrollmentId, shareTransferUpdateDto.enrollmentId) &&
-        Objects.equals(this.tenantId, shareTransferUpdateDto.tenantId);
+        Objects.equals(this.shareTransferReasonId, shareTransferUpdateDto.shareTransferReasonId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -240,7 +192,7 @@ public class ShareTransferUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, value, newShareHolderId, formerShareHolderId, shareTransferReasonId, enrollmentId, tenantId);
+    return Objects.hash(description, value, newShareHolderId, formerShareHolderId, shareTransferReasonId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -259,8 +211,6 @@ public class ShareTransferUpdateDto {
     sb.append("    newShareHolderId: ").append(toIndentedString(newShareHolderId)).append("\n");
     sb.append("    formerShareHolderId: ").append(toIndentedString(formerShareHolderId)).append("\n");
     sb.append("    shareTransferReasonId: ").append(toIndentedString(shareTransferReasonId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -288,8 +238,6 @@ public class ShareTransferUpdateDto {
     openapiFields.add("newShareHolderId");
     openapiFields.add("formerShareHolderId");
     openapiFields.add("shareTransferReasonId");
-    openapiFields.add("enrollmentId");
-    openapiFields.add("tenantId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -327,12 +275,6 @@ public class ShareTransferUpdateDto {
       }
       if ((jsonObj.get("shareTransferReasonId") != null && !jsonObj.get("shareTransferReasonId").isJsonNull()) && !jsonObj.get("shareTransferReasonId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shareTransferReasonId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shareTransferReasonId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
   }
 

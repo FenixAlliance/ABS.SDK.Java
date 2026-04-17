@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportTicketCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:17.254138400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:53.222116700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportTicketCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -65,21 +65,9 @@ public class SupportTicketCreateDto {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_I_D = "accountHolderID";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_I_D)
-  private String accountHolderID;
-
   public static final String SERIALIZED_NAME_CONTACT_I_D = "contactID";
   @SerializedName(SERIALIZED_NAME_CONTACT_I_D)
   private String contactID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_SUPPORT_TICKET_TYPE_I_D = "supportTicketTypeID";
   @SerializedName(SERIALIZED_NAME_SUPPORT_TICKET_TYPE_I_D)
@@ -153,25 +141,6 @@ public class SupportTicketCreateDto {
   }
 
 
-  public SupportTicketCreateDto accountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-    return this;
-  }
-
-  /**
-   * Get accountHolderID
-   * @return accountHolderID
-   */
-  @javax.annotation.Nullable
-  public String getAccountHolderID() {
-    return accountHolderID;
-  }
-
-  public void setAccountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-  }
-
-
   public SupportTicketCreateDto contactID(String contactID) {
     this.contactID = contactID;
     return this;
@@ -188,44 +157,6 @@ public class SupportTicketCreateDto {
 
   public void setContactID(String contactID) {
     this.contactID = contactID;
-  }
-
-
-  public SupportTicketCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public SupportTicketCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -299,10 +230,7 @@ public class SupportTicketCreateDto {
     return Objects.equals(this.id, supportTicketCreateDto.id) &&
         Objects.equals(this.timestamp, supportTicketCreateDto.timestamp) &&
         Objects.equals(this.description, supportTicketCreateDto.description) &&
-        Objects.equals(this.accountHolderID, supportTicketCreateDto.accountHolderID) &&
         Objects.equals(this.contactID, supportTicketCreateDto.contactID) &&
-        Objects.equals(this.businessID, supportTicketCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, supportTicketCreateDto.businessProfileRecordID) &&
         Objects.equals(this.supportTicketTypeID, supportTicketCreateDto.supportTicketTypeID) &&
         Objects.equals(this.supportEntitlementID, supportTicketCreateDto.supportEntitlementID) &&
         Objects.equals(this.supportPriorityID, supportTicketCreateDto.supportPriorityID);
@@ -314,7 +242,7 @@ public class SupportTicketCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, description, accountHolderID, contactID, businessID, businessProfileRecordID, supportTicketTypeID, supportEntitlementID, supportPriorityID);
+    return Objects.hash(id, timestamp, description, contactID, supportTicketTypeID, supportEntitlementID, supportPriorityID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -331,10 +259,7 @@ public class SupportTicketCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    accountHolderID: ").append(toIndentedString(accountHolderID)).append("\n");
     sb.append("    contactID: ").append(toIndentedString(contactID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    supportTicketTypeID: ").append(toIndentedString(supportTicketTypeID)).append("\n");
     sb.append("    supportEntitlementID: ").append(toIndentedString(supportEntitlementID)).append("\n");
     sb.append("    supportPriorityID: ").append(toIndentedString(supportPriorityID)).append("\n");
@@ -363,10 +288,7 @@ public class SupportTicketCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("description");
-    openapiFields.add("accountHolderID");
     openapiFields.add("contactID");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("supportTicketTypeID");
     openapiFields.add("supportEntitlementID");
     openapiFields.add("supportPriorityID");
@@ -402,17 +324,8 @@ public class SupportTicketCreateDto {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("accountHolderID") != null && !jsonObj.get("accountHolderID").isJsonNull()) && !jsonObj.get("accountHolderID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountHolderID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderID").toString()));
-      }
       if ((jsonObj.get("contactID") != null && !jsonObj.get("contactID").isJsonNull()) && !jsonObj.get("contactID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactID").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("supportTicketTypeID") != null && !jsonObj.get("supportTicketTypeID").isJsonNull()) && !jsonObj.get("supportTicketTypeID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `supportTicketTypeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportTicketTypeID").toString()));

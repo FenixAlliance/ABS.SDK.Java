@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * JournalCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JournalCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,14 +72,6 @@ public class JournalCreateDto {
   public static final String SERIALIZED_NAME_DATE_TIME = "dateTime";
   @SerializedName(SERIALIZED_NAME_DATE_TIME)
   private OffsetDateTime dateTime;
-
-  public static final String SERIALIZED_NAME_TENANT_I_D = "tenantID";
-  @SerializedName(SERIALIZED_NAME_TENANT_I_D)
-  private String tenantID;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_I_D = "enrollmentID";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_I_D)
-  private String enrollmentID;
 
   public static final String SERIALIZED_NAME_PARENT_JOURNAL_I_D = "parentJournalID";
   @SerializedName(SERIALIZED_NAME_PARENT_JOURNAL_I_D)
@@ -191,44 +183,6 @@ public class JournalCreateDto {
   }
 
 
-  public JournalCreateDto tenantID(String tenantID) {
-    this.tenantID = tenantID;
-    return this;
-  }
-
-  /**
-   * Get tenantID
-   * @return tenantID
-   */
-  @javax.annotation.Nullable
-  public String getTenantID() {
-    return tenantID;
-  }
-
-  public void setTenantID(String tenantID) {
-    this.tenantID = tenantID;
-  }
-
-
-  public JournalCreateDto enrollmentID(String enrollmentID) {
-    this.enrollmentID = enrollmentID;
-    return this;
-  }
-
-  /**
-   * Get enrollmentID
-   * @return enrollmentID
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentID() {
-    return enrollmentID;
-  }
-
-  public void setEnrollmentID(String enrollmentID) {
-    this.enrollmentID = enrollmentID;
-  }
-
-
   public JournalCreateDto parentJournalID(String parentJournalID) {
     this.parentJournalID = parentJournalID;
     return this;
@@ -301,8 +255,6 @@ public class JournalCreateDto {
         Objects.equals(this.name, journalCreateDto.name) &&
         Objects.equals(this.description, journalCreateDto.description) &&
         Objects.equals(this.dateTime, journalCreateDto.dateTime) &&
-        Objects.equals(this.tenantID, journalCreateDto.tenantID) &&
-        Objects.equals(this.enrollmentID, journalCreateDto.enrollmentID) &&
         Objects.equals(this.parentJournalID, journalCreateDto.parentJournalID) &&
         Objects.equals(this.journalTypeID, journalCreateDto.journalTypeID) &&
         Objects.equals(this.ledgerID, journalCreateDto.ledgerID);
@@ -314,7 +266,7 @@ public class JournalCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, description, dateTime, tenantID, enrollmentID, parentJournalID, journalTypeID, ledgerID);
+    return Objects.hash(id, timestamp, name, description, dateTime, parentJournalID, journalTypeID, ledgerID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -333,8 +285,6 @@ public class JournalCreateDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
-    sb.append("    tenantID: ").append(toIndentedString(tenantID)).append("\n");
-    sb.append("    enrollmentID: ").append(toIndentedString(enrollmentID)).append("\n");
     sb.append("    parentJournalID: ").append(toIndentedString(parentJournalID)).append("\n");
     sb.append("    journalTypeID: ").append(toIndentedString(journalTypeID)).append("\n");
     sb.append("    ledgerID: ").append(toIndentedString(ledgerID)).append("\n");
@@ -365,8 +315,6 @@ public class JournalCreateDto {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("dateTime");
-    openapiFields.add("tenantID");
-    openapiFields.add("enrollmentID");
     openapiFields.add("parentJournalID");
     openapiFields.add("journalTypeID");
     openapiFields.add("ledgerID");
@@ -412,12 +360,6 @@ public class JournalCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("tenantID") != null && !jsonObj.get("tenantID").isJsonNull()) && !jsonObj.get("tenantID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantID").toString()));
-      }
-      if ((jsonObj.get("enrollmentID") != null && !jsonObj.get("enrollmentID").isJsonNull()) && !jsonObj.get("enrollmentID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentID").toString()));
       }
       if ((jsonObj.get("parentJournalID") != null && !jsonObj.get("parentJournalID").isJsonNull()) && !jsonObj.get("parentJournalID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentJournalID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentJournalID").toString()));

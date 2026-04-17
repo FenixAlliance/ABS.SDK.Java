@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PricingRuleCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PricingRuleCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -144,14 +144,6 @@ public class PricingRuleCreateDto {
   public static final String SERIALIZED_NAME_CITY_I_D = "cityID";
   @SerializedName(SERIALIZED_NAME_CITY_I_D)
   private String cityID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public PricingRuleCreateDto() {
   }
@@ -593,44 +585,6 @@ public class PricingRuleCreateDto {
   }
 
 
-  public PricingRuleCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public PricingRuleCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -663,9 +617,7 @@ public class PricingRuleCreateDto {
         Objects.equals(this.countryStateID, pricingRuleCreateDto.countryStateID) &&
         Objects.equals(this.customState, pricingRuleCreateDto.customState) &&
         Objects.equals(this.customCity, pricingRuleCreateDto.customCity) &&
-        Objects.equals(this.cityID, pricingRuleCreateDto.cityID) &&
-        Objects.equals(this.businessID, pricingRuleCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, pricingRuleCreateDto.businessProfileRecordID);
+        Objects.equals(this.cityID, pricingRuleCreateDto.cityID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -674,7 +626,7 @@ public class PricingRuleCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, code, title, description, isFree, reduce, isEnabled, isDefault, allowInternational, hours, days, weeks, months, years, value, percentage, currencyID, countryID, countryStateID, customState, customCity, cityID, businessID, businessProfileRecordID);
+    return Objects.hash(id, timestamp, code, title, description, isFree, reduce, isEnabled, isDefault, allowInternational, hours, days, weeks, months, years, value, percentage, currencyID, countryID, countryStateID, customState, customCity, cityID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -711,8 +663,6 @@ public class PricingRuleCreateDto {
     sb.append("    customState: ").append(toIndentedString(customState)).append("\n");
     sb.append("    customCity: ").append(toIndentedString(customCity)).append("\n");
     sb.append("    cityID: ").append(toIndentedString(cityID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -758,8 +708,6 @@ public class PricingRuleCreateDto {
     openapiFields.add("customState");
     openapiFields.add("customCity");
     openapiFields.add("cityID");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -815,12 +763,6 @@ public class PricingRuleCreateDto {
       }
       if ((jsonObj.get("cityID") != null && !jsonObj.get("cityID").isJsonNull()) && !jsonObj.get("cityID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cityID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cityID").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
   }
 

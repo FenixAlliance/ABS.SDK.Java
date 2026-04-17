@@ -50,16 +50,8 @@ import org.openapitools.client.JSON;
 /**
  * BudgetAccountEntryUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BudgetAccountEntryUpdateDto {
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -152,44 +144,6 @@ public class BudgetAccountEntryUpdateDto {
 
   public BudgetAccountEntryUpdateDto() {
   }
-
-  public BudgetAccountEntryUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public BudgetAccountEntryUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
 
   public BudgetAccountEntryUpdateDto description(String description) {
     this.description = description;
@@ -374,9 +328,7 @@ public class BudgetAccountEntryUpdateDto {
       return false;
     }
     BudgetAccountEntryUpdateDto budgetAccountEntryUpdateDto = (BudgetAccountEntryUpdateDto) o;
-    return Objects.equals(this.tenantId, budgetAccountEntryUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, budgetAccountEntryUpdateDto.enrollmentId) &&
-        Objects.equals(this.description, budgetAccountEntryUpdateDto.description) &&
+    return Objects.equals(this.description, budgetAccountEntryUpdateDto.description) &&
         Objects.equals(this.amount, budgetAccountEntryUpdateDto.amount) &&
         Objects.equals(this.date, budgetAccountEntryUpdateDto.date) &&
         Objects.equals(this.currencyId, budgetAccountEntryUpdateDto.currencyId) &&
@@ -393,7 +345,7 @@ public class BudgetAccountEntryUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, enrollmentId, description, amount, date, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType, budgetId);
+    return Objects.hash(description, amount, date, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType, budgetId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -407,8 +359,6 @@ public class BudgetAccountEntryUpdateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetAccountEntryUpdateDto {\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
@@ -440,8 +390,6 @@ public class BudgetAccountEntryUpdateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("description");
     openapiFields.add("amount");
     openapiFields.add("date");
@@ -477,12 +425,6 @@ public class BudgetAccountEntryUpdateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
-      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

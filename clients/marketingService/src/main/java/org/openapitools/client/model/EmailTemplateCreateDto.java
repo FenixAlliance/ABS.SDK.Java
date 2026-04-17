@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * EmailTemplateCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:00.552871-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:46.719298700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class EmailTemplateCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,14 +60,6 @@ public class EmailTemplateCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -199,44 +191,6 @@ public class EmailTemplateCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public EmailTemplateCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public EmailTemplateCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -404,8 +358,6 @@ public class EmailTemplateCreateDto {
     EmailTemplateCreateDto emailTemplateCreateDto = (EmailTemplateCreateDto) o;
     return Objects.equals(this.id, emailTemplateCreateDto.id) &&
         Objects.equals(this.timestamp, emailTemplateCreateDto.timestamp) &&
-        Objects.equals(this.tenantId, emailTemplateCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, emailTemplateCreateDto.enrollmentId) &&
         Objects.equals(this.title, emailTemplateCreateDto.title) &&
         Objects.equals(this.code, emailTemplateCreateDto.code) &&
         Objects.equals(this.published, emailTemplateCreateDto.published) &&
@@ -422,7 +374,7 @@ public class EmailTemplateCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, tenantId, enrollmentId, title, code, published, description, htmlContent, featuredImageUrl, codeType, marketingCampaignId);
+    return Objects.hash(id, timestamp, title, code, published, description, htmlContent, featuredImageUrl, codeType, marketingCampaignId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -438,8 +390,6 @@ public class EmailTemplateCreateDto {
     sb.append("class EmailTemplateCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
@@ -472,8 +422,6 @@ public class EmailTemplateCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("title");
     openapiFields.add("code");
     openapiFields.add("published");
@@ -510,12 +458,6 @@ public class EmailTemplateCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));

@@ -31,7 +31,6 @@ import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.GrantCreateDto;
 import org.openapitools.client.model.GrantDtoEnvelope;
 import org.openapitools.client.model.GrantDtoIReadOnlyListEnvelope;
-import org.openapitools.client.model.GrantUpdateDto;
 import org.openapitools.client.model.Int32Envelope;
 import java.util.UUID;
 
@@ -825,7 +824,7 @@ public class GrantsApi {
      * @param grantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -835,7 +834,7 @@ public class GrantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGrantAsyncCall(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, GrantUpdateDto grantUpdateDto, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateGrantAsyncCall(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -849,7 +848,7 @@ public class GrantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = grantUpdateDto;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/v2/AccountingService/Grants/{grantId}"
@@ -896,7 +895,7 @@ public class GrantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateGrantAsyncValidateBeforeCall(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, GrantUpdateDto grantUpdateDto, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateGrantAsyncValidateBeforeCall(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateGrantAsync(Async)");
@@ -907,7 +906,7 @@ public class GrantsApi {
             throw new ApiException("Missing the required parameter 'grantId' when calling updateGrantAsync(Async)");
         }
 
-        return updateGrantAsyncCall(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto, _callback);
+        return updateGrantAsyncCall(tenantId, grantId, apiVersion, xApiVersion, body, _callback);
 
     }
 
@@ -918,7 +917,7 @@ public class GrantsApi {
      * @param grantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @return EmptyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -927,8 +926,8 @@ public class GrantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public EmptyEnvelope updateGrantAsync(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, GrantUpdateDto grantUpdateDto) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = updateGrantAsyncWithHttpInfo(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto);
+    public EmptyEnvelope updateGrantAsync(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, Object body) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateGrantAsyncWithHttpInfo(tenantId, grantId, apiVersion, xApiVersion, body);
         return localVarResp.getData();
     }
 
@@ -939,7 +938,7 @@ public class GrantsApi {
      * @param grantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @return ApiResponse&lt;EmptyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -948,8 +947,8 @@ public class GrantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmptyEnvelope> updateGrantAsyncWithHttpInfo(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, GrantUpdateDto grantUpdateDto) throws ApiException {
-        okhttp3.Call localVarCall = updateGrantAsyncValidateBeforeCall(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto, null);
+    public ApiResponse<EmptyEnvelope> updateGrantAsyncWithHttpInfo(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, Object body) throws ApiException {
+        okhttp3.Call localVarCall = updateGrantAsyncValidateBeforeCall(tenantId, grantId, apiVersion, xApiVersion, body, null);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -961,7 +960,7 @@ public class GrantsApi {
      * @param grantId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @param grantUpdateDto  (optional)
+     * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -971,9 +970,9 @@ public class GrantsApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGrantAsyncAsync(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, GrantUpdateDto grantUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+    public okhttp3.Call updateGrantAsyncAsync(UUID tenantId, UUID grantId, String apiVersion, String xApiVersion, Object body, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateGrantAsyncValidateBeforeCall(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto, _callback);
+        okhttp3.Call localVarCall = updateGrantAsyncValidateBeforeCall(tenantId, grantId, apiVersion, xApiVersion, body, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

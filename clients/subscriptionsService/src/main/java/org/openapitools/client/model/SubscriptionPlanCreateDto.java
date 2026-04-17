@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * SubscriptionPlanCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:11.786720800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:48.545449100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SubscriptionPlanCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -182,10 +182,6 @@ public class SubscriptionPlanCreateDto {
   public static final String SERIALIZED_NAME_MATERIAL = "material";
   @SerializedName(SERIALIZED_NAME_MATERIAL)
   private String material;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_PERMALINK = "permalink";
   @SerializedName(SERIALIZED_NAME_PERMALINK)
@@ -1323,25 +1319,6 @@ public class SubscriptionPlanCreateDto {
 
   public void setMaterial(String material) {
     this.material = material;
-  }
-
-
-  public SubscriptionPlanCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
   }
 
 
@@ -4007,7 +3984,6 @@ public class SubscriptionPlanCreateDto {
         Objects.equals(this.pattern, subscriptionPlanCreateDto.pattern) &&
         Objects.equals(this.features, subscriptionPlanCreateDto.features) &&
         Objects.equals(this.material, subscriptionPlanCreateDto.material) &&
-        Objects.equals(this.tenantId, subscriptionPlanCreateDto.tenantId) &&
         Objects.equals(this.permalink, subscriptionPlanCreateDto.permalink) &&
         Objects.equals(this.brandName, subscriptionPlanCreateDto.brandName) &&
         Objects.equals(this.variations, subscriptionPlanCreateDto.variations) &&
@@ -4148,7 +4124,7 @@ public class SubscriptionPlanCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, sku, upc, ean, mpn, isbn, asin, gtin, skUs, upCs, eaNs, part, name, type, mpNs, isbNs, asiNs, gtiNs, model, title, color, unspsc, unitId, series, barcode, unspsCs, summary, brandId, pattern, features, material, tenantId, permalink, brandName, variations, categories, languageId, itemTypeId, categoryId, currencyId, unitGroupId, description, ingredients, supplierCode, shipsToRules, parentItemId, purchaseNote, tariffHeading, mozaicCoverURL, youtubeVideoId, nutritionFacts, packageContent, primaryImageUrl, googleCategories, shortDescription, supplierProfileId, shippingCountryId, systemRequirements, customTaxDescription, pageCoverBackgroundUrl, officialDescriptionUrl, recentlyViewedRecordId, primaryGoogleCategoryId, supportedOperatingSystem, primaryGoogleCategoryName, hot, onSale, auction, deleted, digital, preSale, taxable, inStock, trending, featured, lowStock, published, byRequest, onDiscount, isDailyDeal, isNewArrival, isWeeklyDeal, isBestSeller, isMonthlyDeal, hasVariations, isFixedDiscount, manageInventory, isDealersChoice, isOfficialChoice, validPrimaryImage, isDeadlineDiscount, taxIncludedInPrice, displayShowcaseTab, isProductOfTheWeek, isProductOfTheMonth, isPercentageDiscount, displayOnGlobalMozaic, displayOnBrandsMozaic, disableDefaultPolicies, displayOnCategoryMozaic, displayDescriptionEditor, displayShortDescriptionEditor, displayOnBannerMarketingRotation, viewsCount, reviewsCount, packagedQuantity, recurrency, currentStock, customTaxValue, width, weight, length, height, totalTax, finalPrice, reviewsAvg, paymentCost, regularPrice, discountPrice, discountAmount, discountPercentage, estimatedTaxesInUsd, customTaxPercentage, estimatedProfitInUsd, estimatedBasePriceInUsd, estimatedDiscountsInUsd, estimatedSurchargesInUsd, estimatedPaymentTaxInUsd, estimatedTotalPriceInUsd, estimatedPaymentCostInUsd, estimatedDealSavingsInUsd, estimatedRegularPriceInUsd, estimatedTaxBasePriceInUsd, estimatedWitholdingTaxesInUsd, estimatedWithholdingTaxesInUsd, estimatedDefaultShippingTaxInUsd, estimatedDefaultShippingCostInUsd, auctionEnd, releaseDate, auctionStart, publishedDate, discountDeadLine, deadlineDiscountDueDate, deadlineDiscountFromDate, lastFixedPricesUpdateDateTime, selectedTags, selectedTypes, selectedBrands, selectedCategories, selectedTaxPolicies, selectedPricingRules, selectedRefundPolicies, selectedReturnPolicies, selectedPricingPolicies, selectedWarrantyPolicies, selectedShipmentPolicies, selectedGoogleCategories, selectedAttributesOptions, selectedSellingMarginPolicies, allowSubscriptionTrials, isPerpetualSubscription, trialSubscriptionRelativeExpirationInDays, standardSubscriptionRelativeExpirationInDays, subscriptionsCertificateId);
+    return Objects.hash(id, timestamp, sku, upc, ean, mpn, isbn, asin, gtin, skUs, upCs, eaNs, part, name, type, mpNs, isbNs, asiNs, gtiNs, model, title, color, unspsc, unitId, series, barcode, unspsCs, summary, brandId, pattern, features, material, permalink, brandName, variations, categories, languageId, itemTypeId, categoryId, currencyId, unitGroupId, description, ingredients, supplierCode, shipsToRules, parentItemId, purchaseNote, tariffHeading, mozaicCoverURL, youtubeVideoId, nutritionFacts, packageContent, primaryImageUrl, googleCategories, shortDescription, supplierProfileId, shippingCountryId, systemRequirements, customTaxDescription, pageCoverBackgroundUrl, officialDescriptionUrl, recentlyViewedRecordId, primaryGoogleCategoryId, supportedOperatingSystem, primaryGoogleCategoryName, hot, onSale, auction, deleted, digital, preSale, taxable, inStock, trending, featured, lowStock, published, byRequest, onDiscount, isDailyDeal, isNewArrival, isWeeklyDeal, isBestSeller, isMonthlyDeal, hasVariations, isFixedDiscount, manageInventory, isDealersChoice, isOfficialChoice, validPrimaryImage, isDeadlineDiscount, taxIncludedInPrice, displayShowcaseTab, isProductOfTheWeek, isProductOfTheMonth, isPercentageDiscount, displayOnGlobalMozaic, displayOnBrandsMozaic, disableDefaultPolicies, displayOnCategoryMozaic, displayDescriptionEditor, displayShortDescriptionEditor, displayOnBannerMarketingRotation, viewsCount, reviewsCount, packagedQuantity, recurrency, currentStock, customTaxValue, width, weight, length, height, totalTax, finalPrice, reviewsAvg, paymentCost, regularPrice, discountPrice, discountAmount, discountPercentage, estimatedTaxesInUsd, customTaxPercentage, estimatedProfitInUsd, estimatedBasePriceInUsd, estimatedDiscountsInUsd, estimatedSurchargesInUsd, estimatedPaymentTaxInUsd, estimatedTotalPriceInUsd, estimatedPaymentCostInUsd, estimatedDealSavingsInUsd, estimatedRegularPriceInUsd, estimatedTaxBasePriceInUsd, estimatedWitholdingTaxesInUsd, estimatedWithholdingTaxesInUsd, estimatedDefaultShippingTaxInUsd, estimatedDefaultShippingCostInUsd, auctionEnd, releaseDate, auctionStart, publishedDate, discountDeadLine, deadlineDiscountDueDate, deadlineDiscountFromDate, lastFixedPricesUpdateDateTime, selectedTags, selectedTypes, selectedBrands, selectedCategories, selectedTaxPolicies, selectedPricingRules, selectedRefundPolicies, selectedReturnPolicies, selectedPricingPolicies, selectedWarrantyPolicies, selectedShipmentPolicies, selectedGoogleCategories, selectedAttributesOptions, selectedSellingMarginPolicies, allowSubscriptionTrials, isPerpetualSubscription, trialSubscriptionRelativeExpirationInDays, standardSubscriptionRelativeExpirationInDays, subscriptionsCertificateId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -4194,7 +4170,6 @@ public class SubscriptionPlanCreateDto {
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    material: ").append(toIndentedString(material)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    permalink: ").append(toIndentedString(permalink)).append("\n");
     sb.append("    brandName: ").append(toIndentedString(brandName)).append("\n");
     sb.append("    variations: ").append(toIndentedString(variations)).append("\n");
@@ -4381,7 +4356,6 @@ public class SubscriptionPlanCreateDto {
     openapiFields.add("pattern");
     openapiFields.add("features");
     openapiFields.add("material");
-    openapiFields.add("tenantId");
     openapiFields.add("permalink");
     openapiFields.add("brandName");
     openapiFields.add("variations");
@@ -4632,9 +4606,6 @@ public class SubscriptionPlanCreateDto {
       }
       if ((jsonObj.get("material") != null && !jsonObj.get("material").isJsonNull()) && !jsonObj.get("material").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `material` to be a primitive type in the JSON string but got `%s`", jsonObj.get("material").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("permalink") != null && !jsonObj.get("permalink").isJsonNull()) && !jsonObj.get("permalink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `permalink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permalink").toString()));

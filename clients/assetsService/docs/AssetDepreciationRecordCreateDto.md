@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**assetId** | **String** |  |  [optional] |
 |**assetDepreciationPolicyId** | **String** |  |  [optional] |
 |**depreciationAmount** | **Double** |  |  [optional] |

@@ -17,8 +17,6 @@
 |**validFrom** | **OffsetDateTime** |  |  [optional] |
 |**validTo** | **OffsetDateTime** |  |  [optional] |
 |**fiscalAuthorityId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**documentType** | [**DocumentTypeEnum**](#DocumentTypeEnum) |  |  [optional] |
 
 

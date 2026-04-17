@@ -28,8 +28,6 @@
 |**customState** | **String** |  |  [optional] |
 |**customCity** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**zero** | **Boolean** |  |  [optional] |
 |**reduced** | **Boolean** |  |  [optional] |
 |**withholding** | **Boolean** |  |  [optional] |

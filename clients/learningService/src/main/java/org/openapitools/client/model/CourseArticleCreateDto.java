@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseArticleCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseArticleCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,10 +80,6 @@ public class CourseArticleCreateDto {
   public static final String SERIALIZED_NAME_COURSE_WIKI_I_D = "courseWikiID";
   @SerializedName(SERIALIZED_NAME_COURSE_WIKI_I_D)
   private String courseWikiID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public CourseArticleCreateDto() {
   }
@@ -221,25 +217,6 @@ public class CourseArticleCreateDto {
   }
 
 
-  public CourseArticleCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -256,8 +233,7 @@ public class CourseArticleCreateDto {
         Objects.equals(this.description, courseArticleCreateDto.description) &&
         Objects.equals(this.content, courseArticleCreateDto.content) &&
         Objects.equals(this.courseID, courseArticleCreateDto.courseID) &&
-        Objects.equals(this.courseWikiID, courseArticleCreateDto.courseWikiID) &&
-        Objects.equals(this.businessID, courseArticleCreateDto.businessID);
+        Objects.equals(this.courseWikiID, courseArticleCreateDto.courseWikiID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -266,7 +242,7 @@ public class CourseArticleCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, content, courseID, courseWikiID, businessID);
+    return Objects.hash(id, timestamp, title, description, content, courseID, courseWikiID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -287,7 +263,6 @@ public class CourseArticleCreateDto {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
     sb.append("    courseWikiID: ").append(toIndentedString(courseWikiID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -317,14 +292,12 @@ public class CourseArticleCreateDto {
     openapiFields.add("content");
     openapiFields.add("courseID");
     openapiFields.add("courseWikiID");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
     openapiRequiredFields.add("courseID");
     openapiRequiredFields.add("courseWikiID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -372,9 +345,6 @@ public class CourseArticleCreateDto {
       }
       if (!jsonObj.get("courseWikiID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseWikiID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseWikiID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

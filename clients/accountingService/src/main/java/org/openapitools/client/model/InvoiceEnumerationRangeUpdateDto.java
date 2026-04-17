@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * InvoiceEnumerationRangeUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InvoiceEnumerationRangeUpdateDto {
   public static final String SERIALIZED_NAME_PREFIX = "prefix";
   @SerializedName(SERIALIZED_NAME_PREFIX)
@@ -91,14 +91,6 @@ public class InvoiceEnumerationRangeUpdateDto {
   public static final String SERIALIZED_NAME_FISCAL_AUTHORITY_ID = "fiscalAuthorityId";
   @SerializedName(SERIALIZED_NAME_FISCAL_AUTHORITY_ID)
   private String fiscalAuthorityId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   /**
    * Gets or Sets documentType
@@ -351,44 +343,6 @@ public class InvoiceEnumerationRangeUpdateDto {
   }
 
 
-  public InvoiceEnumerationRangeUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public InvoiceEnumerationRangeUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public InvoiceEnumerationRangeUpdateDto documentType(DocumentTypeEnum documentType) {
     this.documentType = documentType;
     return this;
@@ -428,8 +382,6 @@ public class InvoiceEnumerationRangeUpdateDto {
         Objects.equals(this.validFrom, invoiceEnumerationRangeUpdateDto.validFrom) &&
         Objects.equals(this.validTo, invoiceEnumerationRangeUpdateDto.validTo) &&
         Objects.equals(this.fiscalAuthorityId, invoiceEnumerationRangeUpdateDto.fiscalAuthorityId) &&
-        Objects.equals(this.tenantId, invoiceEnumerationRangeUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, invoiceEnumerationRangeUpdateDto.enrollmentId) &&
         Objects.equals(this.documentType, invoiceEnumerationRangeUpdateDto.documentType);
   }
 
@@ -439,7 +391,7 @@ public class InvoiceEnumerationRangeUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(prefix, suffix, identifier, qualifiedName, currentNumeration, numerationFrom, numerationTo, validFrom, validTo, fiscalAuthorityId, tenantId, enrollmentId, documentType);
+    return Objects.hash(prefix, suffix, identifier, qualifiedName, currentNumeration, numerationFrom, numerationTo, validFrom, validTo, fiscalAuthorityId, documentType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -463,8 +415,6 @@ public class InvoiceEnumerationRangeUpdateDto {
     sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
     sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");
     sb.append("    fiscalAuthorityId: ").append(toIndentedString(fiscalAuthorityId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -498,8 +448,6 @@ public class InvoiceEnumerationRangeUpdateDto {
     openapiFields.add("validFrom");
     openapiFields.add("validTo");
     openapiFields.add("fiscalAuthorityId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("documentType");
 
     // a set of required properties/fields (JSON key names)
@@ -541,12 +489,6 @@ public class InvoiceEnumerationRangeUpdateDto {
       }
       if ((jsonObj.get("fiscalAuthorityId") != null && !jsonObj.get("fiscalAuthorityId").isJsonNull()) && !jsonObj.get("fiscalAuthorityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalAuthorityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalAuthorityId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("documentType") != null && !jsonObj.get("documentType").isJsonNull()) && !jsonObj.get("documentType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentType").toString()));

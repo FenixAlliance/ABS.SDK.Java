@@ -14,7 +14,6 @@
 |**content** | **String** |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**courseUnitID** | **String** |  |  [optional] |
 
 

@@ -3308,64 +3308,16 @@ components:
       example:
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
         quoteLines:
-        - totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        - totalDiscountsInUsd: 5.025004791520295
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          data: data
           refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
           data8Label: data8Label
           totalDetail: 6.704019297950036
           totalShippingCost: 7.058770351582356
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          currencyId: currencyId
-          priceListItemId: priceListItemId
-          forexRatesSnapshot: forexRatesSnapshot
-          customGlobalSurchargesAmount: 6.878052220127876
-          totalProfitInUsd: 7.457744773683766
-          totalGlobalSurchargesInUsd: 6.778324963048013
-          dataLabel: dataLabel
-          costCalculationMethod: Automatic
-          quoteId: quoteId
-          itemId: itemId
-          totalShippingTax: 6.519180951018382
-          unitGroupId: unitGroupId
-          returnPolicyId: returnPolicyId
-          totalReturnCostInUsd: 6.438423552598547
-          customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
-          freeReasonCode: freeReasonCode
-          data7Label: data7Label
-          totalProfit: 0.8851374739011653
-          totalGlobalDiscounts: 8.969578798196912
-          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
-          totalSurchargesInUsd: 6.965117697638846
-          locationId: locationId
-          data5Label: data5Label
-          unitId: unitId
-          free: true
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          data9: data9
-          data8: data8
-          data7: data7
-          data6: data6
-          data5: data5
-          data4: data4
-          totalWithheldTax: 4.652396432933246
-          data3: data3
-          data2: data2
-          data1: data1
-          customGlobalDiscountsAmount: 5.944895607614016
-          totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          shipmentPolicyId: shipmentPolicyId
-          tenantId: tenantId
-          closed: true
-          totalSurcharges: 7.143538047012306
-          taxCalculationMethod: Included
-          totalGlobalDiscountsInUsd: 2.8841621266687802
-          totalGlobalSurcharges: 7.740351818741173
-          totalProfitCurrencyId: totalProfitCurrencyId
-          totalDiscountsInUsd: 5.025004791520295
-          data: data
-          itemPrimaryImageUrl: itemPrimaryImageUrl
           quoteItemRecordId: quoteItemRecordId
-          businessProfileRecordId: businessProfileRecordId
           totalTaxBaseInUsd: 4.965218492984954
           totalTaxBase: 3.0937452626664474
           totalWarrantyCostInUsd: 9.018348186070783
@@ -3373,97 +3325,94 @@ components:
           itemShortDescription: itemShortDescription
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           totalDetailAmountInUsd: 1.1730742509559433
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
           data2Label: data2Label
-          enrollmentId: enrollmentId
+          priceListItemId: priceListItemId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 9.369310271410669
+          customGlobalSurchargesAmount: 6.878052220127876
+          totalProfitInUsd: 7.457744773683766
           totalRefundCostInUsd: 3.5571952270680973
+          totalGlobalSurchargesInUsd: 6.778324963048013
           parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
           totalShippingTaxesInUsd: 8.762042012749001
+          quoteId: quoteId
           data1Label: data1Label
+          itemId: itemId
           data4Label: data4Label
+          totalShippingTax: 6.519180951018382
+          unitGroupId: unitGroupId
           forexRate: 1.4894159098541704
+          returnPolicyId: returnPolicyId
+          totalReturnCostInUsd: 6.438423552598547
+          customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
+          freeReasonCode: freeReasonCode
           totalShippingCostInUsd: 6.683562403749608
           warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
           shippingPolicyId: shippingPolicyId
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
           freeReason: freeReason
+          totalProfit: 0.8851374739011653
+          totalGlobalDiscounts: 8.969578798196912
           itemTitle: itemTitle
           totalDiscounts: 3.353193347011243
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 6.965117697638846
           total: 3.0205796992916243
           totalCurrencyId: totalCurrencyId
           itemPriceId: itemPriceId
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
           quantity: 1.0246457001441578
+          data6: data6
+          data5: data5
           totalTaxes: 0.10263654006109402
+          data4: data4
+          totalWithheldTax: 4.652396432933246
+          data3: data3
           data9Label: data9Label
+          data2: data2
+          data1: data1
+          customGlobalDiscountsAmount: 5.944895607614016
           data3Label: data3Label
           data6Label: data6Label
           totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          shipmentPolicyId: shipmentPolicyId
           totalBaseAmountInUsd: 6.84685269835264
           totalTaxesInUsd: 9.965781217890562
+          closed: true
+          totalSurcharges: 7.143538047012306
+          taxCalculationMethod: Included
+          totalGlobalDiscountsInUsd: 2.8841621266687802
           customGlobalSurchargesAmountCurrencyId: customGlobalSurchargesAmountCurrencyId
+          totalGlobalSurcharges: 7.740351818741173
+          totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
-        - totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        - totalDiscountsInUsd: 5.025004791520295
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          data: data
           refundPolicyId: refundPolicyId
+          itemPrimaryImageUrl: itemPrimaryImageUrl
           data8Label: data8Label
           totalDetail: 6.704019297950036
           totalShippingCost: 7.058770351582356
           totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          currencyId: currencyId
-          priceListItemId: priceListItemId
-          forexRatesSnapshot: forexRatesSnapshot
-          customGlobalSurchargesAmount: 6.878052220127876
-          totalProfitInUsd: 7.457744773683766
-          totalGlobalSurchargesInUsd: 6.778324963048013
-          dataLabel: dataLabel
-          costCalculationMethod: Automatic
-          quoteId: quoteId
-          itemId: itemId
-          totalShippingTax: 6.519180951018382
-          unitGroupId: unitGroupId
-          returnPolicyId: returnPolicyId
-          totalReturnCostInUsd: 6.438423552598547
-          customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
-          freeReasonCode: freeReasonCode
-          data7Label: data7Label
-          totalProfit: 0.8851374739011653
-          totalGlobalDiscounts: 8.969578798196912
-          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
-          totalSurchargesInUsd: 6.965117697638846
-          locationId: locationId
-          data5Label: data5Label
-          unitId: unitId
-          free: true
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          data9: data9
-          data8: data8
-          data7: data7
-          data6: data6
-          data5: data5
-          data4: data4
-          totalWithheldTax: 4.652396432933246
-          data3: data3
-          data2: data2
-          data1: data1
-          customGlobalDiscountsAmount: 5.944895607614016
-          totalSurchargesCurrencyId: totalSurchargesCurrencyId
-          shipmentPolicyId: shipmentPolicyId
-          tenantId: tenantId
-          closed: true
-          totalSurcharges: 7.143538047012306
-          taxCalculationMethod: Included
-          totalGlobalDiscountsInUsd: 2.8841621266687802
-          totalGlobalSurcharges: 7.740351818741173
-          totalProfitCurrencyId: totalProfitCurrencyId
-          totalDiscountsInUsd: 5.025004791520295
-          data: data
-          itemPrimaryImageUrl: itemPrimaryImageUrl
           quoteItemRecordId: quoteItemRecordId
-          businessProfileRecordId: businessProfileRecordId
           totalTaxBaseInUsd: 4.965218492984954
           totalTaxBase: 3.0937452626664474
           totalWarrantyCostInUsd: 9.018348186070783
@@ -3471,38 +3420,83 @@ components:
           itemShortDescription: itemShortDescription
           totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
           totalDetailAmountInUsd: 1.1730742509559433
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
           data2Label: data2Label
-          enrollmentId: enrollmentId
+          priceListItemId: priceListItemId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 9.369310271410669
+          customGlobalSurchargesAmount: 6.878052220127876
+          totalProfitInUsd: 7.457744773683766
           totalRefundCostInUsd: 3.5571952270680973
+          totalGlobalSurchargesInUsd: 6.778324963048013
           parentBillingItemRecordId: parentBillingItemRecordId
+          dataLabel: dataLabel
           totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
           totalShippingTaxesInUsd: 8.762042012749001
+          quoteId: quoteId
           data1Label: data1Label
+          itemId: itemId
           data4Label: data4Label
+          totalShippingTax: 6.519180951018382
+          unitGroupId: unitGroupId
           forexRate: 1.4894159098541704
+          returnPolicyId: returnPolicyId
+          totalReturnCostInUsd: 6.438423552598547
+          customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
+          freeReasonCode: freeReasonCode
           totalShippingCostInUsd: 6.683562403749608
           warrantyPolicyId: warrantyPolicyId
+          data7Label: data7Label
           shippingPolicyId: shippingPolicyId
           totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
           freeReason: freeReason
+          totalProfit: 0.8851374739011653
+          totalGlobalDiscounts: 8.969578798196912
           itemTitle: itemTitle
           totalDiscounts: 3.353193347011243
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
           description: description
           shippingLocationId: shippingLocationId
+          totalSurchargesInUsd: 6.965117697638846
           total: 3.0205796992916243
           totalCurrencyId: totalCurrencyId
           itemPriceId: itemPriceId
+          locationId: locationId
+          data5Label: data5Label
+          unitId: unitId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          free: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          data8: data8
+          data7: data7
           quantity: 1.0246457001441578
+          data6: data6
+          data5: data5
           totalTaxes: 0.10263654006109402
+          data4: data4
+          totalWithheldTax: 4.652396432933246
+          data3: data3
           data9Label: data9Label
+          data2: data2
+          data1: data1
+          customGlobalDiscountsAmount: 5.944895607614016
           data3Label: data3Label
           data6Label: data6Label
           totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          shipmentPolicyId: shipmentPolicyId
           totalBaseAmountInUsd: 6.84685269835264
           totalTaxesInUsd: 9.965781217890562
+          closed: true
+          totalSurcharges: 7.143538047012306
+          taxCalculationMethod: Included
+          totalGlobalDiscountsInUsd: 2.8841621266687802
           customGlobalSurchargesAmountCurrencyId: customGlobalSurchargesAmountCurrencyId
+          totalGlobalSurcharges: 7.740351818741173
+          totalProfitCurrencyId: totalProfitCurrencyId
           totalTaxesCurrencyId: totalTaxesCurrencyId
         companyName: companyName
         postalCode: postalCode
@@ -4313,64 +4307,16 @@ components:
     QuoteLineCreateDto:
       additionalProperties: false
       example:
+        totalDiscountsInUsd: 5.025004791520295
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        data: data
         refundPolicyId: refundPolicyId
+        itemPrimaryImageUrl: itemPrimaryImageUrl
         data8Label: data8Label
         totalDetail: 6.704019297950036
         totalShippingCost: 7.058770351582356
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyId: currencyId
-        priceListItemId: priceListItemId
-        forexRatesSnapshot: forexRatesSnapshot
-        customGlobalSurchargesAmount: 6.878052220127876
-        totalProfitInUsd: 7.457744773683766
-        totalGlobalSurchargesInUsd: 6.778324963048013
-        dataLabel: dataLabel
-        costCalculationMethod: Automatic
-        quoteId: quoteId
-        itemId: itemId
-        totalShippingTax: 6.519180951018382
-        unitGroupId: unitGroupId
-        returnPolicyId: returnPolicyId
-        totalReturnCostInUsd: 6.438423552598547
-        customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
-        freeReasonCode: freeReasonCode
-        data7Label: data7Label
-        totalProfit: 0.8851374739011653
-        totalGlobalDiscounts: 8.969578798196912
-        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
-        totalSurchargesInUsd: 6.965117697638846
-        locationId: locationId
-        data5Label: data5Label
-        unitId: unitId
-        free: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-        data9: data9
-        data8: data8
-        data7: data7
-        data6: data6
-        data5: data5
-        data4: data4
-        totalWithheldTax: 4.652396432933246
-        data3: data3
-        data2: data2
-        data1: data1
-        customGlobalDiscountsAmount: 5.944895607614016
-        totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        shipmentPolicyId: shipmentPolicyId
-        tenantId: tenantId
-        closed: true
-        totalSurcharges: 7.143538047012306
-        taxCalculationMethod: Included
-        totalGlobalDiscountsInUsd: 2.8841621266687802
-        totalGlobalSurcharges: 7.740351818741173
-        totalProfitCurrencyId: totalProfitCurrencyId
-        totalDiscountsInUsd: 5.025004791520295
-        data: data
-        itemPrimaryImageUrl: itemPrimaryImageUrl
         quoteItemRecordId: quoteItemRecordId
-        businessProfileRecordId: businessProfileRecordId
         totalTaxBaseInUsd: 4.965218492984954
         totalTaxBase: 3.0937452626664474
         totalWarrantyCostInUsd: 9.018348186070783
@@ -4378,38 +4324,83 @@ components:
         itemShortDescription: itemShortDescription
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         totalDetailAmountInUsd: 1.1730742509559433
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
         data2Label: data2Label
-        enrollmentId: enrollmentId
+        priceListItemId: priceListItemId
+        forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 9.369310271410669
+        customGlobalSurchargesAmount: 6.878052220127876
+        totalProfitInUsd: 7.457744773683766
         totalRefundCostInUsd: 3.5571952270680973
+        totalGlobalSurchargesInUsd: 6.778324963048013
         parentBillingItemRecordId: parentBillingItemRecordId
+        dataLabel: dataLabel
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+        costCalculationMethod: Automatic
         totalShippingTaxesInUsd: 8.762042012749001
+        quoteId: quoteId
         data1Label: data1Label
+        itemId: itemId
         data4Label: data4Label
+        totalShippingTax: 6.519180951018382
+        unitGroupId: unitGroupId
         forexRate: 1.4894159098541704
+        returnPolicyId: returnPolicyId
+        totalReturnCostInUsd: 6.438423552598547
+        customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
+        freeReasonCode: freeReasonCode
         totalShippingCostInUsd: 6.683562403749608
         warrantyPolicyId: warrantyPolicyId
+        data7Label: data7Label
         shippingPolicyId: shippingPolicyId
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         freeReason: freeReason
+        totalProfit: 0.8851374739011653
+        totalGlobalDiscounts: 8.969578798196912
         itemTitle: itemTitle
         totalDiscounts: 3.353193347011243
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         shippingLocationId: shippingLocationId
+        totalSurchargesInUsd: 6.965117697638846
         total: 3.0205796992916243
         totalCurrencyId: totalCurrencyId
         itemPriceId: itemPriceId
+        locationId: locationId
+        data5Label: data5Label
+        unitId: unitId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
+        free: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
         quantity: 1.0246457001441578
+        data6: data6
+        data5: data5
         totalTaxes: 0.10263654006109402
+        data4: data4
+        totalWithheldTax: 4.652396432933246
+        data3: data3
         data9Label: data9Label
+        data2: data2
+        data1: data1
+        customGlobalDiscountsAmount: 5.944895607614016
         data3Label: data3Label
         data6Label: data6Label
         totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        shipmentPolicyId: shipmentPolicyId
         totalBaseAmountInUsd: 6.84685269835264
         totalTaxesInUsd: 9.965781217890562
+        closed: true
+        totalSurcharges: 7.143538047012306
+        taxCalculationMethod: Included
+        totalGlobalDiscountsInUsd: 2.8841621266687802
         customGlobalSurchargesAmountCurrencyId: customGlobalSurchargesAmountCurrencyId
+        totalGlobalSurcharges: 7.740351818741173
+        totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         id:
@@ -4433,12 +4424,6 @@ components:
           nullable: true
           type: string
         shippingPolicyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         currencyId:
@@ -4697,9 +4682,6 @@ components:
           nullable: true
           type: string
         quoteItemRecordId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
           nullable: true
           type: string
         parentBillingItemRecordId:
@@ -5815,7 +5797,6 @@ components:
         totalShippingCost: 6.438423552598547
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         quoteItemRecordId: quoteItemRecordId
-        businessProfileRecordId: businessProfileRecordId
         totalTaxBaseInUsd: 2.3021358869347655
         totalTaxBase: 9.018348186070783
         totalWarrantyCostInUsd: 7.386281948385884
@@ -5826,7 +5807,6 @@ components:
         currencyId: currencyId
         data2Label: data2Label
         priceListItemId: priceListItemId
-        enrollmentId: enrollmentId
         forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 3.616076749251911
         customGlobalSurchargesAmount: 4.965218492984954
@@ -5891,7 +5871,6 @@ components:
         shipmentPolicyId: shipmentPolicyId
         totalBaseAmountInUsd: 1.4658129805029452
         totalTaxesInUsd: 9.301444243932576
-        tenantId: tenantId
         closed: true
         totalSurcharges: 8.762042012749001
         taxCalculationMethod: Included
@@ -5916,12 +5895,6 @@ components:
           nullable: true
           type: string
         shippingPolicyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         currencyId:
@@ -6180,9 +6153,6 @@ components:
           nullable: true
           type: string
         quoteItemRecordId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
           nullable: true
           type: string
         parentBillingItemRecordId:
@@ -6192,63 +6162,16 @@ components:
     QuoteLineUpsertDto:
       additionalProperties: false
       example:
+        totalDiscountsInUsd: 7.061401241503109
         totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        data: data
         refundPolicyId: refundPolicyId
+        itemPrimaryImageUrl: itemPrimaryImageUrl
         data8Label: data8Label
         totalDetail: 9.965781217890562
         totalShippingCost: 6.438423552598547
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
-        id: id
-        currencyId: currencyId
-        priceListItemId: priceListItemId
-        forexRatesSnapshot: forexRatesSnapshot
-        customGlobalSurchargesAmount: 4.965218492984954
-        totalProfitInUsd: 5.962133916683182
-        totalGlobalSurchargesInUsd: 1.1730742509559433
-        dataLabel: dataLabel
-        costCalculationMethod: Automatic
-        quoteId: quoteId
-        itemId: itemId
-        totalShippingTax: 3.5571952270680973
-        unitGroupId: unitGroupId
-        returnPolicyId: returnPolicyId
-        totalReturnCostInUsd: 1.2315135367772556
-        customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
-        freeReasonCode: freeReasonCode
-        data7Label: data7Label
-        totalProfit: 9.369310271410669
-        totalGlobalDiscounts: 2.8841621266687802
-        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
-        totalSurchargesInUsd: 1.4894159098541704
-        locationId: locationId
-        data5Label: data5Label
-        unitId: unitId
-        free: true
-        data9: data9
-        data8: data8
-        data7: data7
-        data6: data6
-        data5: data5
-        data4: data4
-        totalWithheldTax: 1.284659006116532
-        data3: data3
-        data2: data2
-        data1: data1
-        customGlobalDiscountsAmount: 5.025004791520295
-        totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        shipmentPolicyId: shipmentPolicyId
-        tenantId: tenantId
-        closed: true
-        totalSurcharges: 8.762042012749001
-        taxCalculationMethod: Included
-        totalGlobalDiscountsInUsd: 7.457744773683766
-        totalGlobalSurcharges: 6.778324963048013
-        totalProfitCurrencyId: totalProfitCurrencyId
-        totalDiscountsInUsd: 7.061401241503109
-        data: data
-        itemPrimaryImageUrl: itemPrimaryImageUrl
         quoteItemRecordId: quoteItemRecordId
-        businessProfileRecordId: businessProfileRecordId
         totalTaxBaseInUsd: 2.3021358869347655
         totalTaxBase: 9.018348186070783
         totalWarrantyCostInUsd: 7.386281948385884
@@ -6256,38 +6179,82 @@ components:
         itemShortDescription: itemShortDescription
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         totalDetailAmountInUsd: 5.637376656633329
+        id: id
+        currencyId: currencyId
         data2Label: data2Label
-        enrollmentId: enrollmentId
+        priceListItemId: priceListItemId
+        forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 3.616076749251911
+        customGlobalSurchargesAmount: 4.965218492984954
+        totalProfitInUsd: 5.962133916683182
         totalRefundCostInUsd: 1.0246457001441578
+        totalGlobalSurchargesInUsd: 1.1730742509559433
         parentBillingItemRecordId: parentBillingItemRecordId
+        dataLabel: dataLabel
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+        costCalculationMethod: Automatic
         totalShippingTaxesInUsd: 4.145608029883936
+        quoteId: quoteId
         data1Label: data1Label
+        itemId: itemId
         data4Label: data4Label
+        totalShippingTax: 3.5571952270680973
+        unitGroupId: unitGroupId
         forexRate: 6.027456183070403
+        returnPolicyId: returnPolicyId
+        totalReturnCostInUsd: 1.2315135367772556
+        customGlobalDiscountsAmountCurrencyId: customGlobalDiscountsAmountCurrencyId
+        freeReasonCode: freeReasonCode
         totalShippingCostInUsd: 2.027123023002322
         warrantyPolicyId: warrantyPolicyId
+        data7Label: data7Label
         shippingPolicyId: shippingPolicyId
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         freeReason: freeReason
+        totalProfit: 9.369310271410669
+        totalGlobalDiscounts: 2.8841621266687802
         itemTitle: itemTitle
         totalDiscounts: 6.683562403749608
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
         shippingLocationId: shippingLocationId
+        totalSurchargesInUsd: 1.4894159098541704
         total: 6.878052220127876
         totalCurrencyId: totalCurrencyId
         itemPriceId: itemPriceId
+        locationId: locationId
+        data5Label: data5Label
+        unitId: unitId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
+        free: true
+        data9: data9
+        data8: data8
+        data7: data7
         quantity: 0.8008281904610115
+        data6: data6
+        data5: data5
         totalTaxes: 6.965117697638846
+        data4: data4
+        totalWithheldTax: 1.284659006116532
+        data3: data3
         data9Label: data9Label
+        data2: data2
+        data1: data1
+        customGlobalDiscountsAmount: 5.025004791520295
         data3Label: data3Label
         data6Label: data6Label
         totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        shipmentPolicyId: shipmentPolicyId
         totalBaseAmountInUsd: 1.4658129805029452
         totalTaxesInUsd: 9.301444243932576
+        closed: true
+        totalSurcharges: 8.762042012749001
+        taxCalculationMethod: Included
+        totalGlobalDiscountsInUsd: 7.457744773683766
         customGlobalSurchargesAmountCurrencyId: customGlobalSurchargesAmountCurrencyId
+        totalGlobalSurcharges: 6.778324963048013
+        totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
         closed:
@@ -6305,12 +6272,6 @@ components:
           nullable: true
           type: string
         shippingPolicyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         currencyId:
@@ -6569,9 +6530,6 @@ components:
           nullable: true
           type: string
         quoteItemRecordId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
           nullable: true
           type: string
         parentBillingItemRecordId:
@@ -6604,7 +6562,6 @@ components:
         addressLine2: addressLine2
         currencyId: currencyId
         customTaxAmount: 1.0246457001441578
-        enrollmentId: enrollmentId
         cartId: cartId
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
         shippingMethodId: shippingMethodId
@@ -6645,7 +6602,6 @@ components:
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
         customProfitAmount: 7.457744773683766
-        tenantId: tenantId
         closed: true
         totalSurcharges: 5.637376656633329
         totalGlobalSurcharges: 3.616076749251911
@@ -6662,16 +6618,10 @@ components:
         userId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         priceListId:
           nullable: true
           type: string
         description:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         individualId:

@@ -23,12 +23,10 @@
 |**cumulativeTransactionThreshold** | **Double** |  |  [optional] |
 |**fiscalAuthorityId** | **String** |  |  [optional] |
 |**fiscalYearId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**countryId** | **String** |  |  [optional] |
 |**taxClassId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**taxPolicyId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

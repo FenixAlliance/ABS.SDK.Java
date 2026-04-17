@@ -19,8 +19,6 @@
 |**validResponse** | **Boolean** |  |  [optional] |
 |**parentFileUploadId** | **String** |  |  [optional] |
 |**filePath** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
 |**supportRequestID** | **String** |  |  [optional] |
 

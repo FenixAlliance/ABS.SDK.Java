@@ -55,7 +55,7 @@ import org.openapitools.client.JSON;
 /**
  * InvoiceUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:37.959480200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:19.189053-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InvoiceUpdateDto {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -69,10 +69,6 @@ public class InvoiceUpdateDto {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_PRICE_LIST_ID = "priceListId";
   @SerializedName(SERIALIZED_NAME_PRICE_LIST_ID)
   private String priceListId;
@@ -80,10 +76,6 @@ public class InvoiceUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_INDIVIDUAL_ID = "individualId";
   @SerializedName(SERIALIZED_NAME_INDIVIDUAL_ID)
@@ -681,25 +673,6 @@ public class InvoiceUpdateDto {
   }
 
 
-  public InvoiceUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public InvoiceUpdateDto priceListId(String priceListId) {
     this.priceListId = priceListId;
     return this;
@@ -735,25 +708,6 @@ public class InvoiceUpdateDto {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public InvoiceUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -2048,10 +2002,8 @@ public class InvoiceUpdateDto {
     return Objects.equals(this.closed, invoiceUpdateDto.closed) &&
         Objects.equals(this.title, invoiceUpdateDto.title) &&
         Objects.equals(this.userId, invoiceUpdateDto.userId) &&
-        Objects.equals(this.tenantId, invoiceUpdateDto.tenantId) &&
         Objects.equals(this.priceListId, invoiceUpdateDto.priceListId) &&
         Objects.equals(this.description, invoiceUpdateDto.description) &&
-        Objects.equals(this.enrollmentId, invoiceUpdateDto.enrollmentId) &&
         Objects.equals(this.individualId, invoiceUpdateDto.individualId) &&
         Objects.equals(this.paymentTermId, invoiceUpdateDto.paymentTermId) &&
         Objects.equals(this.organizationId, invoiceUpdateDto.organizationId) &&
@@ -2126,7 +2078,7 @@ public class InvoiceUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, title, userId, tenantId, priceListId, description, enrollmentId, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paid, number, notes, orderId, enumeration, paymentModeId, enumerationRangeId, emisorBillingProfileId, receiverBillingProfileId, emisorWalletAccountId, receiverWalletAccountId, customerNotes, invoiceType, documentType, invoiceStatus, paymentDue, validFrom, validTo, invoiceLines, invoiceReferences, invoiceAdjustments);
+    return Objects.hash(closed, title, userId, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, forexRate, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paid, number, notes, orderId, enumeration, paymentModeId, enumerationRangeId, emisorBillingProfileId, receiverBillingProfileId, emisorWalletAccountId, receiverWalletAccountId, customerNotes, invoiceType, documentType, invoiceStatus, paymentDue, validFrom, validTo, invoiceLines, invoiceReferences, invoiceAdjustments);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2143,10 +2095,8 @@ public class InvoiceUpdateDto {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    priceListId: ").append(toIndentedString(priceListId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
     sb.append("    paymentTermId: ").append(toIndentedString(paymentTermId)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
@@ -2238,10 +2188,8 @@ public class InvoiceUpdateDto {
     openapiFields.add("closed");
     openapiFields.add("title");
     openapiFields.add("userId");
-    openapiFields.add("tenantId");
     openapiFields.add("priceListId");
     openapiFields.add("description");
-    openapiFields.add("enrollmentId");
     openapiFields.add("individualId");
     openapiFields.add("paymentTermId");
     openapiFields.add("organizationId");
@@ -2340,17 +2288,11 @@ public class InvoiceUpdateDto {
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("priceListId") != null && !jsonObj.get("priceListId").isJsonNull()) && !jsonObj.get("priceListId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `priceListId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priceListId").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("individualId") != null && !jsonObj.get("individualId").isJsonNull()) && !jsonObj.get("individualId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `individualId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("individualId").toString()));

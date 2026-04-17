@@ -12,6 +12,7 @@
 |**closed** | **Boolean** |  |  [optional] |
 |**endDate** | **OffsetDateTime** |  |  [optional] |
 |**startDate** | **OffsetDateTime** |  |  [optional] |
+|**fiscalAuthorityId** | **String** |  |  [optional] |
 
 
 

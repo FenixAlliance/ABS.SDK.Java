@@ -12,8 +12,6 @@
 |**newShareHolderId** | **String** |  |  [optional] |
 |**formerShareHolderId** | **String** |  |  [optional] |
 |**shareTransferReasonId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 
 
 

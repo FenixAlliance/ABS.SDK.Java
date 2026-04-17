@@ -3756,7 +3756,6 @@ components:
         mozaicCoverURL: mozaicCoverURL
         deleted: true
         series: series
-        tenantId: tenantId
         width: 7.061401241503109
         publishedDate: 2000-01-23T04:56:07.000+00:00
         servicePlanId: servicePlanId
@@ -3954,9 +3953,6 @@ components:
           nullable: true
           type: string
         material:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         permalink:
@@ -5950,7 +5946,6 @@ components:
         mozaicCoverURL: mozaicCoverURL
         deleted: true
         series: series
-        tenantId: tenantId
         width: 7.061401241503109
         publishedDate: 2000-01-23T04:56:07.000+00:00
         tariffHeading: tariffHeading
@@ -6147,9 +6142,6 @@ components:
           nullable: true
           type: string
         material:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         permalink:
@@ -7994,7 +7986,6 @@ components:
         mozaicCoverUrl: mozaicCoverUrl
         series: series
         width: 0.8008281904610115
-        tenantId: tenantId
         publishedDate: 2000-01-23T04:56:07.000+00:00
         tariffHeading: tariffHeading
         primaryGoogleCategoryId: primaryGoogleCategoryId
@@ -8025,7 +8016,6 @@ components:
         - selectedPricingPolicies
         isbNs: isbNs
         customTaxAmount: 9.965781217890562
-        enrollmentId: enrollmentId
         brandName: brandName
         shippingCost: 1.4894159098541704
         selectedTaxPolicies:
@@ -8245,9 +8235,6 @@ components:
         totalTax:
           format: double
           type: number
-        tenantId:
-          nullable: true
-          type: string
         permalink:
           nullable: true
           type: string
@@ -8314,9 +8301,6 @@ components:
         questionsCount:
           format: int32
           type: integer
-        enrollmentId:
-          nullable: true
-          type: string
         supplierCode:
           nullable: true
           type: string
@@ -8848,7 +8832,6 @@ components:
         mozaicCoverUrl: mozaicCoverUrl
         series: series
         width: 0.8008281904610115
-        tenantId: tenantId
         publishedDate: 2000-01-23T04:56:07.000+00:00
         servicePlanId: servicePlanId
         tariffHeading: tariffHeading
@@ -8880,7 +8863,6 @@ components:
         - selectedPricingPolicies
         isbNs: isbNs
         customTaxAmount: 9.965781217890562
-        enrollmentId: enrollmentId
         brandName: brandName
         shippingCost: 1.4894159098541704
         selectedTaxPolicies:
@@ -9100,9 +9082,6 @@ components:
         totalTax:
           format: double
           type: number
-        tenantId:
-          nullable: true
-          type: string
         permalink:
           nullable: true
           type: string
@@ -9169,9 +9148,6 @@ components:
         questionsCount:
           format: int32
           type: integer
-        enrollmentId:
-          nullable: true
-          type: string
         supplierCode:
           nullable: true
           type: string

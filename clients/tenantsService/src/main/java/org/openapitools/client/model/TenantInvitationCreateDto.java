@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantInvitationCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantInvitationCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,14 +63,6 @@ public class TenantInvitationCreateDto {
   public static final String SERIALIZED_NAME_USER_EMAIL = "userEmail";
   @SerializedName(SERIALIZED_NAME_USER_EMAIL)
   private String userEmail;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public TenantInvitationCreateDto() {
   }
@@ -133,44 +124,6 @@ public class TenantInvitationCreateDto {
   }
 
 
-  public TenantInvitationCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public TenantInvitationCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -183,25 +136,12 @@ public class TenantInvitationCreateDto {
     TenantInvitationCreateDto tenantInvitationCreateDto = (TenantInvitationCreateDto) o;
     return Objects.equals(this.id, tenantInvitationCreateDto.id) &&
         Objects.equals(this.timestamp, tenantInvitationCreateDto.timestamp) &&
-        Objects.equals(this.userEmail, tenantInvitationCreateDto.userEmail) &&
-        Objects.equals(this.tenantId, tenantInvitationCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, tenantInvitationCreateDto.enrollmentId);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.userEmail, tenantInvitationCreateDto.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, userEmail, tenantId, enrollmentId);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, timestamp, userEmail);
   }
 
   @Override
@@ -211,8 +151,6 @@ public class TenantInvitationCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,8 +176,6 @@ public class TenantInvitationCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("userEmail");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -279,12 +215,6 @@ public class TenantInvitationCreateDto {
       }
       if (!jsonObj.get("userEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userEmail").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

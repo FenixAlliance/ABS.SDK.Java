@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * TwoFactorRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:06.523735100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:52.809682400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TwoFactorRequest {
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)

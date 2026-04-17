@@ -12,8 +12,6 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**imageURL** | **URI** |  |  [optional] |
-|**businessID** | **String** |  |  |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**parentItemCategoryID** | **String** |  |  [optional] |
 
 

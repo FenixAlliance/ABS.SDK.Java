@@ -11,7 +11,6 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**startDateTime** | **OffsetDateTime** |  |  [optional] |
 |**endDateTime** | **OffsetDateTime** |  |  [optional] |
 |**expectedStartDateTime** | **OffsetDateTime** |  |  [optional] |

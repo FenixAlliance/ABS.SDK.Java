@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BudgetAccountEntryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BudgetAccountEntryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,14 +60,6 @@ public class BudgetAccountEntryCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -197,44 +189,6 @@ public class BudgetAccountEntryCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public BudgetAccountEntryCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public BudgetAccountEntryCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -421,8 +375,6 @@ public class BudgetAccountEntryCreateDto {
     BudgetAccountEntryCreateDto budgetAccountEntryCreateDto = (BudgetAccountEntryCreateDto) o;
     return Objects.equals(this.id, budgetAccountEntryCreateDto.id) &&
         Objects.equals(this.timestamp, budgetAccountEntryCreateDto.timestamp) &&
-        Objects.equals(this.tenantId, budgetAccountEntryCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, budgetAccountEntryCreateDto.enrollmentId) &&
         Objects.equals(this.description, budgetAccountEntryCreateDto.description) &&
         Objects.equals(this.date, budgetAccountEntryCreateDto.date) &&
         Objects.equals(this.amount, budgetAccountEntryCreateDto.amount) &&
@@ -440,7 +392,7 @@ public class BudgetAccountEntryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, tenantId, enrollmentId, description, date, amount, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType, budgetId);
+    return Objects.hash(id, timestamp, description, date, amount, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType, budgetId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -456,8 +408,6 @@ public class BudgetAccountEntryCreateDto {
     sb.append("class BudgetAccountEntryCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -491,8 +441,6 @@ public class BudgetAccountEntryCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("description");
     openapiFields.add("date");
     openapiFields.add("amount");
@@ -539,12 +487,6 @@ public class BudgetAccountEntryCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

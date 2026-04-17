@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * MarketingCampaignUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:00.552871-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:46.719298700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class MarketingCampaignUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -107,14 +107,6 @@ public class MarketingCampaignUpdateDto {
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
   private String currencyId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public MarketingCampaignUpdateDto() {
   }
@@ -385,44 +377,6 @@ public class MarketingCampaignUpdateDto {
   }
 
 
-  public MarketingCampaignUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public MarketingCampaignUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -446,9 +400,7 @@ public class MarketingCampaignUpdateDto {
         Objects.equals(this.miscCost, marketingCampaignUpdateDto.miscCost) &&
         Objects.equals(this.expectedResponsePercent, marketingCampaignUpdateDto.expectedResponsePercent) &&
         Objects.equals(this.marketingAreaId, marketingCampaignUpdateDto.marketingAreaId) &&
-        Objects.equals(this.currencyId, marketingCampaignUpdateDto.currencyId) &&
-        Objects.equals(this.tenantId, marketingCampaignUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, marketingCampaignUpdateDto.enrollmentId);
+        Objects.equals(this.currencyId, marketingCampaignUpdateDto.currencyId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -457,7 +409,7 @@ public class MarketingCampaignUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, offer, active, proposedStart, proposedEnd, actualStart, actualEnd, code, allocatedBudget, activityCost, miscCost, expectedResponsePercent, marketingAreaId, currencyId, tenantId, enrollmentId);
+    return Objects.hash(name, offer, active, proposedStart, proposedEnd, actualStart, actualEnd, code, allocatedBudget, activityCost, miscCost, expectedResponsePercent, marketingAreaId, currencyId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -485,8 +437,6 @@ public class MarketingCampaignUpdateDto {
     sb.append("    expectedResponsePercent: ").append(toIndentedString(expectedResponsePercent)).append("\n");
     sb.append("    marketingAreaId: ").append(toIndentedString(marketingAreaId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -523,8 +473,6 @@ public class MarketingCampaignUpdateDto {
     openapiFields.add("expectedResponsePercent");
     openapiFields.add("marketingAreaId");
     openapiFields.add("currencyId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -565,12 +513,6 @@ public class MarketingCampaignUpdateDto {
       }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

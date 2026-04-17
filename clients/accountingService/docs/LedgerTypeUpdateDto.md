@@ -9,8 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**ledgerClass** | [**LedgerClassEnum**](#LedgerClassEnum) |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

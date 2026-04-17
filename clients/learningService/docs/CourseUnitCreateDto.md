@@ -14,7 +14,6 @@
 |**content** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
 |**courseSectionID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**courseContentGroupID** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 

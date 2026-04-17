@@ -14,7 +14,6 @@
 |**content** | **String** |  |  [optional] |
 |**slug** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 
 
 

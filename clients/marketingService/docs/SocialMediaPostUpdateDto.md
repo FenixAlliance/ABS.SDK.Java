@@ -10,9 +10,7 @@
 |**title** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**featuredImageUrl** | **URI** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**socialPostBucketId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

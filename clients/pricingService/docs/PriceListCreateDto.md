@@ -16,8 +16,6 @@
 |**currencyId** | **String** |  |  [optional] |
 |**unitId** | **String** |  |  [optional] |
 |**unitGroupId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

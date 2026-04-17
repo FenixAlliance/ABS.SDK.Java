@@ -350,7 +350,7 @@ No authorization required
 
 <a id="updateGrantAsync"></a>
 # **updateGrantAsync**
-> EmptyEnvelope updateGrantAsync(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto)
+> EmptyEnvelope updateGrantAsync(tenantId, grantId, apiVersion, xApiVersion, body)
 
 Update grant
 
@@ -375,9 +375,9 @@ public class Example {
     UUID grantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    GrantUpdateDto grantUpdateDto = new GrantUpdateDto(); // GrantUpdateDto | 
+    Object body = null; // Object | 
     try {
-      EmptyEnvelope result = apiInstance.updateGrantAsync(tenantId, grantId, apiVersion, xApiVersion, grantUpdateDto);
+      EmptyEnvelope result = apiInstance.updateGrantAsync(tenantId, grantId, apiVersion, xApiVersion, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GrantsApi#updateGrantAsync");
@@ -398,7 +398,7 @@ public class Example {
 | **grantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **grantUpdateDto** | [**GrantUpdateDto**](GrantUpdateDto.md)|  | [optional] |
+| **body** | **Object**|  | [optional] |
 
 ### Return type
 

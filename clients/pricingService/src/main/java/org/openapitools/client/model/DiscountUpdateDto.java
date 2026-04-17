@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DiscountUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:21.875044800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:06.616482700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DiscountUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -70,14 +70,6 @@ public class DiscountUpdateDto {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Double value;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_DISCOUNT_LIST_ID = "discountListId";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_LIST_ID)
@@ -181,44 +173,6 @@ public class DiscountUpdateDto {
   }
 
 
-  public DiscountUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public DiscountUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public DiscountUpdateDto discountListId(String discountListId) {
     this.discountListId = discountListId;
     return this;
@@ -253,8 +207,6 @@ public class DiscountUpdateDto {
         Objects.equals(this.endQuantity, discountUpdateDto.endQuantity) &&
         Objects.equals(this.percent, discountUpdateDto.percent) &&
         Objects.equals(this.value, discountUpdateDto.value) &&
-        Objects.equals(this.tenantId, discountUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, discountUpdateDto.enrollmentId) &&
         Objects.equals(this.discountListId, discountUpdateDto.discountListId);
   }
 
@@ -264,7 +216,7 @@ public class DiscountUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, beginQuantity, endQuantity, percent, value, tenantId, enrollmentId, discountListId);
+    return Objects.hash(description, beginQuantity, endQuantity, percent, value, discountListId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -283,8 +235,6 @@ public class DiscountUpdateDto {
     sb.append("    endQuantity: ").append(toIndentedString(endQuantity)).append("\n");
     sb.append("    percent: ").append(toIndentedString(percent)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    discountListId: ").append(toIndentedString(discountListId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -313,8 +263,6 @@ public class DiscountUpdateDto {
     openapiFields.add("endQuantity");
     openapiFields.add("percent");
     openapiFields.add("value");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("discountListId");
 
     // a set of required properties/fields (JSON key names)
@@ -344,12 +292,6 @@ public class DiscountUpdateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("discountListId") != null && !jsonObj.get("discountListId").isJsonNull()) && !jsonObj.get("discountListId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `discountListId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("discountListId").toString()));

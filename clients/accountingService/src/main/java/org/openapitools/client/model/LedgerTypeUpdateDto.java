@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * LedgerTypeUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LedgerTypeUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -121,14 +121,6 @@ public class LedgerTypeUpdateDto {
   @SerializedName(SERIALIZED_NAME_LEDGER_CLASS)
   private LedgerClassEnum ledgerClass;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public LedgerTypeUpdateDto() {
   }
 
@@ -170,44 +162,6 @@ public class LedgerTypeUpdateDto {
   }
 
 
-  public LedgerTypeUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public LedgerTypeUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -219,9 +173,7 @@ public class LedgerTypeUpdateDto {
     }
     LedgerTypeUpdateDto ledgerTypeUpdateDto = (LedgerTypeUpdateDto) o;
     return Objects.equals(this.name, ledgerTypeUpdateDto.name) &&
-        Objects.equals(this.ledgerClass, ledgerTypeUpdateDto.ledgerClass) &&
-        Objects.equals(this.tenantId, ledgerTypeUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, ledgerTypeUpdateDto.enrollmentId);
+        Objects.equals(this.ledgerClass, ledgerTypeUpdateDto.ledgerClass);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -230,7 +182,7 @@ public class LedgerTypeUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, ledgerClass, tenantId, enrollmentId);
+    return Objects.hash(name, ledgerClass);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -246,8 +198,6 @@ public class LedgerTypeUpdateDto {
     sb.append("class LedgerTypeUpdateDto {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ledgerClass: ").append(toIndentedString(ledgerClass)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -272,8 +222,6 @@ public class LedgerTypeUpdateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("ledgerClass");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -309,12 +257,6 @@ public class LedgerTypeUpdateDto {
       // validate the optional field `ledgerClass`
       if (jsonObj.get("ledgerClass") != null && !jsonObj.get("ledgerClass").isJsonNull()) {
         LedgerClassEnum.validateJsonElement(jsonObj.get("ledgerClass"));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

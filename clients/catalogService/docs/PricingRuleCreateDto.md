@@ -30,8 +30,6 @@
 |**customState** | **String** |  |  [optional] |
 |**customCity** | **String** |  |  [optional] |
 |**cityID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 
 
 

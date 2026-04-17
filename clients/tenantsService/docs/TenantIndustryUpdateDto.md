@@ -9,7 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**parentBusinessIndustryID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 
 
 

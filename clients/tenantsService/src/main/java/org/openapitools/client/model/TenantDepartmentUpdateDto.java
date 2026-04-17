@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantDepartmentUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantDepartmentUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -62,10 +62,6 @@ public class TenantDepartmentUpdateDto {
   public static final String SERIALIZED_NAME_DISABLED = "disabled";
   @SerializedName(SERIALIZED_NAME_DISABLED)
   private Boolean disabled;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_ORGANIZATION_PROFILE_I_D = "organizationProfileID";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_PROFILE_I_D)
@@ -135,25 +131,6 @@ public class TenantDepartmentUpdateDto {
   }
 
 
-  public TenantDepartmentUpdateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
   public TenantDepartmentUpdateDto organizationProfileID(String organizationProfileID) {
     this.organizationProfileID = organizationProfileID;
     return this;
@@ -205,7 +182,6 @@ public class TenantDepartmentUpdateDto {
     return Objects.equals(this.name, tenantDepartmentUpdateDto.name) &&
         Objects.equals(this.description, tenantDepartmentUpdateDto.description) &&
         Objects.equals(this.disabled, tenantDepartmentUpdateDto.disabled) &&
-        Objects.equals(this.businessProfileRecordID, tenantDepartmentUpdateDto.businessProfileRecordID) &&
         Objects.equals(this.organizationProfileID, tenantDepartmentUpdateDto.organizationProfileID) &&
         Objects.equals(this.parentDepartmentID, tenantDepartmentUpdateDto.parentDepartmentID);
   }
@@ -216,7 +192,7 @@ public class TenantDepartmentUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, disabled, businessProfileRecordID, organizationProfileID, parentDepartmentID);
+    return Objects.hash(name, description, disabled, organizationProfileID, parentDepartmentID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,7 +209,6 @@ public class TenantDepartmentUpdateDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    organizationProfileID: ").append(toIndentedString(organizationProfileID)).append("\n");
     sb.append("    parentDepartmentID: ").append(toIndentedString(parentDepartmentID)).append("\n");
     sb.append("}");
@@ -261,7 +236,6 @@ public class TenantDepartmentUpdateDto {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("disabled");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("organizationProfileID");
     openapiFields.add("parentDepartmentID");
 
@@ -295,9 +269,6 @@ public class TenantDepartmentUpdateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("organizationProfileID") != null && !jsonObj.get("organizationProfileID").isJsonNull()) && !jsonObj.get("organizationProfileID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `organizationProfileID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organizationProfileID").toString()));

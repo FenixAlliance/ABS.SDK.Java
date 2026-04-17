@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemTypeCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemTypeCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -81,10 +81,6 @@ public class ItemTypeCreateDto {
   public static final String SERIALIZED_NAME_GOOGLE_CATEGORY_TAXONOMY = "googleCategoryTaxonomy";
   @SerializedName(SERIALIZED_NAME_GOOGLE_CATEGORY_TAXONOMY)
   private String googleCategoryTaxonomy;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_ITEM_CATEGORY_I_D = "itemCategoryID";
   @SerializedName(SERIALIZED_NAME_ITEM_CATEGORY_I_D)
@@ -230,25 +226,6 @@ public class ItemTypeCreateDto {
   }
 
 
-  public ItemTypeCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public ItemTypeCreateDto itemCategoryID(String itemCategoryID) {
     this.itemCategoryID = itemCategoryID;
     return this;
@@ -304,7 +281,6 @@ public class ItemTypeCreateDto {
         Objects.equals(this.description, itemTypeCreateDto.description) &&
         Objects.equals(this.imageURL, itemTypeCreateDto.imageURL) &&
         Objects.equals(this.googleCategoryTaxonomy, itemTypeCreateDto.googleCategoryTaxonomy) &&
-        Objects.equals(this.businessID, itemTypeCreateDto.businessID) &&
         Objects.equals(this.itemCategoryID, itemTypeCreateDto.itemCategoryID) &&
         Objects.equals(this.itemGoogleCategoryID, itemTypeCreateDto.itemGoogleCategoryID);
   }
@@ -315,7 +291,7 @@ public class ItemTypeCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, pluralTitle, singularTitle, description, imageURL, googleCategoryTaxonomy, businessID, itemCategoryID, itemGoogleCategoryID);
+    return Objects.hash(id, timestamp, pluralTitle, singularTitle, description, imageURL, googleCategoryTaxonomy, itemCategoryID, itemGoogleCategoryID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -336,7 +312,6 @@ public class ItemTypeCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageURL: ").append(toIndentedString(imageURL)).append("\n");
     sb.append("    googleCategoryTaxonomy: ").append(toIndentedString(googleCategoryTaxonomy)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    itemCategoryID: ").append(toIndentedString(itemCategoryID)).append("\n");
     sb.append("    itemGoogleCategoryID: ").append(toIndentedString(itemGoogleCategoryID)).append("\n");
     sb.append("}");
@@ -368,13 +343,11 @@ public class ItemTypeCreateDto {
     openapiFields.add("description");
     openapiFields.add("imageURL");
     openapiFields.add("googleCategoryTaxonomy");
-    openapiFields.add("businessID");
     openapiFields.add("itemCategoryID");
     openapiFields.add("itemGoogleCategoryID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("businessID");
     openapiRequiredFields.add("itemCategoryID");
   }
 
@@ -423,9 +396,6 @@ public class ItemTypeCreateDto {
       }
       if ((jsonObj.get("googleCategoryTaxonomy") != null && !jsonObj.get("googleCategoryTaxonomy").isJsonNull()) && !jsonObj.get("googleCategoryTaxonomy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `googleCategoryTaxonomy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("googleCategoryTaxonomy").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if (!jsonObj.get("itemCategoryID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemCategoryID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemCategoryID").toString()));

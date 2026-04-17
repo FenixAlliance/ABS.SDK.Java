@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,8 +51,16 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitLineCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitLineCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
   private Boolean closed;
@@ -74,14 +84,6 @@ public class DealUnitLineCreateDto {
   public static final String SERIALIZED_NAME_SHIPPING_POLICY_ID = "shippingPolicyId";
   @SerializedName(SERIALIZED_NAME_SHIPPING_POLICY_ID)
   private String shippingPolicyId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
@@ -411,14 +413,6 @@ public class DealUnitLineCreateDto {
   @SerializedName(SERIALIZED_NAME_TOTAL_DETAIL_CURRENCY_ID)
   private String totalDetailCurrencyId;
 
-  public static final String SERIALIZED_NAME_TOTAL_PROFIT = "totalProfit";
-  @SerializedName(SERIALIZED_NAME_TOTAL_PROFIT)
-  private Double totalProfit;
-
-  public static final String SERIALIZED_NAME_TOTAL_PROFIT_CURRENCY_ID = "totalProfitCurrencyId";
-  @SerializedName(SERIALIZED_NAME_TOTAL_PROFIT_CURRENCY_ID)
-  private String totalProfitCurrencyId;
-
   public static final String SERIALIZED_NAME_TOTAL_DISCOUNTS = "totalDiscounts";
   @SerializedName(SERIALIZED_NAME_TOTAL_DISCOUNTS)
   private Double totalDiscounts;
@@ -426,6 +420,14 @@ public class DealUnitLineCreateDto {
   public static final String SERIALIZED_NAME_TOTAL_DISCOUNTS_CURRENCY_ID = "totalDiscountsCurrencyId";
   @SerializedName(SERIALIZED_NAME_TOTAL_DISCOUNTS_CURRENCY_ID)
   private String totalDiscountsCurrencyId;
+
+  public static final String SERIALIZED_NAME_TOTAL_TAX_BASE = "totalTaxBase";
+  @SerializedName(SERIALIZED_NAME_TOTAL_TAX_BASE)
+  private Double totalTaxBase;
+
+  public static final String SERIALIZED_NAME_TOTAL_TAX_BASE_CURRENCY_ID = "totalTaxBaseCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TOTAL_TAX_BASE_CURRENCY_ID)
+  private String totalTaxBaseCurrencyId;
 
   public static final String SERIALIZED_NAME_TOTAL_SURCHARGES = "totalSurcharges";
   @SerializedName(SERIALIZED_NAME_TOTAL_SURCHARGES)
@@ -435,13 +437,13 @@ public class DealUnitLineCreateDto {
   @SerializedName(SERIALIZED_NAME_TOTAL_SURCHARGES_CURRENCY_ID)
   private String totalSurchargesCurrencyId;
 
-  public static final String SERIALIZED_NAME_TOTAL_TAX_BASE = "totalTaxBase";
-  @SerializedName(SERIALIZED_NAME_TOTAL_TAX_BASE)
-  private Double totalTaxBase;
+  public static final String SERIALIZED_NAME_TOTAL_PROFIT = "totalProfit";
+  @SerializedName(SERIALIZED_NAME_TOTAL_PROFIT)
+  private Double totalProfit;
 
-  public static final String SERIALIZED_NAME_TOTAL_TAX_BASE_CURRENCY_ID = "totalTaxBaseCurrencyId";
-  @SerializedName(SERIALIZED_NAME_TOTAL_TAX_BASE_CURRENCY_ID)
-  private String totalTaxBaseCurrencyId;
+  public static final String SERIALIZED_NAME_TOTAL_PROFIT_CURRENCY_ID = "totalProfitCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TOTAL_PROFIT_CURRENCY_ID)
+  private String totalProfitCurrencyId;
 
   public static final String SERIALIZED_NAME_TOTAL_SHIPPING_COST = "totalShippingCost";
   @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_COST)
@@ -527,10 +529,6 @@ public class DealUnitLineCreateDto {
   @SerializedName(SERIALIZED_NAME_QUOTE_ITEM_RECORD_ID)
   private String quoteItemRecordId;
 
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID = "businessProfileRecordId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID)
-  private String businessProfileRecordId;
-
   public static final String SERIALIZED_NAME_PARENT_BILLING_ITEM_RECORD_ID = "parentBillingItemRecordId";
   @SerializedName(SERIALIZED_NAME_PARENT_BILLING_ITEM_RECORD_ID)
   private String parentBillingItemRecordId;
@@ -541,6 +539,44 @@ public class DealUnitLineCreateDto {
 
   public DealUnitLineCreateDto() {
   }
+
+  public DealUnitLineCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public DealUnitLineCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
 
   public DealUnitLineCreateDto closed(Boolean closed) {
     this.closed = closed;
@@ -653,44 +689,6 @@ public class DealUnitLineCreateDto {
 
   public void setShippingPolicyId(String shippingPolicyId) {
     this.shippingPolicyId = shippingPolicyId;
-  }
-
-
-  public DealUnitLineCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public DealUnitLineCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -1758,44 +1756,6 @@ public class DealUnitLineCreateDto {
   }
 
 
-  public DealUnitLineCreateDto totalProfit(Double totalProfit) {
-    this.totalProfit = totalProfit;
-    return this;
-  }
-
-  /**
-   * Get totalProfit
-   * @return totalProfit
-   */
-  @javax.annotation.Nullable
-  public Double getTotalProfit() {
-    return totalProfit;
-  }
-
-  public void setTotalProfit(Double totalProfit) {
-    this.totalProfit = totalProfit;
-  }
-
-
-  public DealUnitLineCreateDto totalProfitCurrencyId(String totalProfitCurrencyId) {
-    this.totalProfitCurrencyId = totalProfitCurrencyId;
-    return this;
-  }
-
-  /**
-   * Get totalProfitCurrencyId
-   * @return totalProfitCurrencyId
-   */
-  @javax.annotation.Nullable
-  public String getTotalProfitCurrencyId() {
-    return totalProfitCurrencyId;
-  }
-
-  public void setTotalProfitCurrencyId(String totalProfitCurrencyId) {
-    this.totalProfitCurrencyId = totalProfitCurrencyId;
-  }
-
-
   public DealUnitLineCreateDto totalDiscounts(Double totalDiscounts) {
     this.totalDiscounts = totalDiscounts;
     return this;
@@ -1831,6 +1791,44 @@ public class DealUnitLineCreateDto {
 
   public void setTotalDiscountsCurrencyId(String totalDiscountsCurrencyId) {
     this.totalDiscountsCurrencyId = totalDiscountsCurrencyId;
+  }
+
+
+  public DealUnitLineCreateDto totalTaxBase(Double totalTaxBase) {
+    this.totalTaxBase = totalTaxBase;
+    return this;
+  }
+
+  /**
+   * Get totalTaxBase
+   * @return totalTaxBase
+   */
+  @javax.annotation.Nullable
+  public Double getTotalTaxBase() {
+    return totalTaxBase;
+  }
+
+  public void setTotalTaxBase(Double totalTaxBase) {
+    this.totalTaxBase = totalTaxBase;
+  }
+
+
+  public DealUnitLineCreateDto totalTaxBaseCurrencyId(String totalTaxBaseCurrencyId) {
+    this.totalTaxBaseCurrencyId = totalTaxBaseCurrencyId;
+    return this;
+  }
+
+  /**
+   * Get totalTaxBaseCurrencyId
+   * @return totalTaxBaseCurrencyId
+   */
+  @javax.annotation.Nullable
+  public String getTotalTaxBaseCurrencyId() {
+    return totalTaxBaseCurrencyId;
+  }
+
+  public void setTotalTaxBaseCurrencyId(String totalTaxBaseCurrencyId) {
+    this.totalTaxBaseCurrencyId = totalTaxBaseCurrencyId;
   }
 
 
@@ -1872,41 +1870,41 @@ public class DealUnitLineCreateDto {
   }
 
 
-  public DealUnitLineCreateDto totalTaxBase(Double totalTaxBase) {
-    this.totalTaxBase = totalTaxBase;
+  public DealUnitLineCreateDto totalProfit(Double totalProfit) {
+    this.totalProfit = totalProfit;
     return this;
   }
 
   /**
-   * Get totalTaxBase
-   * @return totalTaxBase
+   * Get totalProfit
+   * @return totalProfit
    */
   @javax.annotation.Nullable
-  public Double getTotalTaxBase() {
-    return totalTaxBase;
+  public Double getTotalProfit() {
+    return totalProfit;
   }
 
-  public void setTotalTaxBase(Double totalTaxBase) {
-    this.totalTaxBase = totalTaxBase;
+  public void setTotalProfit(Double totalProfit) {
+    this.totalProfit = totalProfit;
   }
 
 
-  public DealUnitLineCreateDto totalTaxBaseCurrencyId(String totalTaxBaseCurrencyId) {
-    this.totalTaxBaseCurrencyId = totalTaxBaseCurrencyId;
+  public DealUnitLineCreateDto totalProfitCurrencyId(String totalProfitCurrencyId) {
+    this.totalProfitCurrencyId = totalProfitCurrencyId;
     return this;
   }
 
   /**
-   * Get totalTaxBaseCurrencyId
-   * @return totalTaxBaseCurrencyId
+   * Get totalProfitCurrencyId
+   * @return totalProfitCurrencyId
    */
   @javax.annotation.Nullable
-  public String getTotalTaxBaseCurrencyId() {
-    return totalTaxBaseCurrencyId;
+  public String getTotalProfitCurrencyId() {
+    return totalProfitCurrencyId;
   }
 
-  public void setTotalTaxBaseCurrencyId(String totalTaxBaseCurrencyId) {
-    this.totalTaxBaseCurrencyId = totalTaxBaseCurrencyId;
+  public void setTotalProfitCurrencyId(String totalProfitCurrencyId) {
+    this.totalProfitCurrencyId = totalProfitCurrencyId;
   }
 
 
@@ -2309,25 +2307,6 @@ public class DealUnitLineCreateDto {
   }
 
 
-  public DealUnitLineCreateDto businessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordId
-   * @return businessProfileRecordId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordId() {
-    return businessProfileRecordId;
-  }
-
-  public void setBusinessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-  }
-
-
   public DealUnitLineCreateDto parentBillingItemRecordId(String parentBillingItemRecordId) {
     this.parentBillingItemRecordId = parentBillingItemRecordId;
     return this;
@@ -2376,14 +2355,14 @@ public class DealUnitLineCreateDto {
       return false;
     }
     DealUnitLineCreateDto dealUnitLineCreateDto = (DealUnitLineCreateDto) o;
-    return Objects.equals(this.closed, dealUnitLineCreateDto.closed) &&
+    return Objects.equals(this.id, dealUnitLineCreateDto.id) &&
+        Objects.equals(this.timestamp, dealUnitLineCreateDto.timestamp) &&
+        Objects.equals(this.closed, dealUnitLineCreateDto.closed) &&
         Objects.equals(this.itemId, dealUnitLineCreateDto.itemId) &&
         Objects.equals(this.itemTitle, dealUnitLineCreateDto.itemTitle) &&
         Objects.equals(this.itemShortDescription, dealUnitLineCreateDto.itemShortDescription) &&
         Objects.equals(this.itemPrimaryImageUrl, dealUnitLineCreateDto.itemPrimaryImageUrl) &&
         Objects.equals(this.shippingPolicyId, dealUnitLineCreateDto.shippingPolicyId) &&
-        Objects.equals(this.tenantId, dealUnitLineCreateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, dealUnitLineCreateDto.enrollmentId) &&
         Objects.equals(this.currencyId, dealUnitLineCreateDto.currencyId) &&
         Objects.equals(this.description, dealUnitLineCreateDto.description) &&
         Objects.equals(this.quantity, dealUnitLineCreateDto.quantity) &&
@@ -2440,14 +2419,14 @@ public class DealUnitLineCreateDto {
         Objects.equals(this.customGlobalDiscountsAmountCurrencyId, dealUnitLineCreateDto.customGlobalDiscountsAmountCurrencyId) &&
         Objects.equals(this.totalDetail, dealUnitLineCreateDto.totalDetail) &&
         Objects.equals(this.totalDetailCurrencyId, dealUnitLineCreateDto.totalDetailCurrencyId) &&
-        Objects.equals(this.totalProfit, dealUnitLineCreateDto.totalProfit) &&
-        Objects.equals(this.totalProfitCurrencyId, dealUnitLineCreateDto.totalProfitCurrencyId) &&
         Objects.equals(this.totalDiscounts, dealUnitLineCreateDto.totalDiscounts) &&
         Objects.equals(this.totalDiscountsCurrencyId, dealUnitLineCreateDto.totalDiscountsCurrencyId) &&
-        Objects.equals(this.totalSurcharges, dealUnitLineCreateDto.totalSurcharges) &&
-        Objects.equals(this.totalSurchargesCurrencyId, dealUnitLineCreateDto.totalSurchargesCurrencyId) &&
         Objects.equals(this.totalTaxBase, dealUnitLineCreateDto.totalTaxBase) &&
         Objects.equals(this.totalTaxBaseCurrencyId, dealUnitLineCreateDto.totalTaxBaseCurrencyId) &&
+        Objects.equals(this.totalSurcharges, dealUnitLineCreateDto.totalSurcharges) &&
+        Objects.equals(this.totalSurchargesCurrencyId, dealUnitLineCreateDto.totalSurchargesCurrencyId) &&
+        Objects.equals(this.totalProfit, dealUnitLineCreateDto.totalProfit) &&
+        Objects.equals(this.totalProfitCurrencyId, dealUnitLineCreateDto.totalProfitCurrencyId) &&
         Objects.equals(this.totalShippingCost, dealUnitLineCreateDto.totalShippingCost) &&
         Objects.equals(this.totalShippingCostCurrencyId, dealUnitLineCreateDto.totalShippingCostCurrencyId) &&
         Objects.equals(this.totalShippingTax, dealUnitLineCreateDto.totalShippingTax) &&
@@ -2469,7 +2448,6 @@ public class DealUnitLineCreateDto {
         Objects.equals(this.shippingLocationId, dealUnitLineCreateDto.shippingLocationId) &&
         Objects.equals(this.locationId, dealUnitLineCreateDto.locationId) &&
         Objects.equals(this.quoteItemRecordId, dealUnitLineCreateDto.quoteItemRecordId) &&
-        Objects.equals(this.businessProfileRecordId, dealUnitLineCreateDto.businessProfileRecordId) &&
         Objects.equals(this.parentBillingItemRecordId, dealUnitLineCreateDto.parentBillingItemRecordId) &&
         Objects.equals(this.dealUnitId, dealUnitLineCreateDto.dealUnitId);
   }
@@ -2480,7 +2458,7 @@ public class DealUnitLineCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, tenantId, enrollmentId, currencyId, description, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, taxCalculationMethod, costCalculationMethod, forexRatesSnapshot, forexRate, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalTaxes, totalTaxesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, shippingLocationId, locationId, quoteItemRecordId, businessProfileRecordId, parentBillingItemRecordId, dealUnitId);
+    return Objects.hash(id, timestamp, closed, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, currencyId, description, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, taxCalculationMethod, costCalculationMethod, forexRatesSnapshot, forexRate, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, totalDetail, totalDetailCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalProfit, totalProfitCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalTaxes, totalTaxesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, shippingLocationId, locationId, quoteItemRecordId, parentBillingItemRecordId, dealUnitId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2494,14 +2472,14 @@ public class DealUnitLineCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DealUnitLineCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemTitle: ").append(toIndentedString(itemTitle)).append("\n");
     sb.append("    itemShortDescription: ").append(toIndentedString(itemShortDescription)).append("\n");
     sb.append("    itemPrimaryImageUrl: ").append(toIndentedString(itemPrimaryImageUrl)).append("\n");
     sb.append("    shippingPolicyId: ").append(toIndentedString(shippingPolicyId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
@@ -2558,14 +2536,14 @@ public class DealUnitLineCreateDto {
     sb.append("    customGlobalDiscountsAmountCurrencyId: ").append(toIndentedString(customGlobalDiscountsAmountCurrencyId)).append("\n");
     sb.append("    totalDetail: ").append(toIndentedString(totalDetail)).append("\n");
     sb.append("    totalDetailCurrencyId: ").append(toIndentedString(totalDetailCurrencyId)).append("\n");
-    sb.append("    totalProfit: ").append(toIndentedString(totalProfit)).append("\n");
-    sb.append("    totalProfitCurrencyId: ").append(toIndentedString(totalProfitCurrencyId)).append("\n");
     sb.append("    totalDiscounts: ").append(toIndentedString(totalDiscounts)).append("\n");
     sb.append("    totalDiscountsCurrencyId: ").append(toIndentedString(totalDiscountsCurrencyId)).append("\n");
-    sb.append("    totalSurcharges: ").append(toIndentedString(totalSurcharges)).append("\n");
-    sb.append("    totalSurchargesCurrencyId: ").append(toIndentedString(totalSurchargesCurrencyId)).append("\n");
     sb.append("    totalTaxBase: ").append(toIndentedString(totalTaxBase)).append("\n");
     sb.append("    totalTaxBaseCurrencyId: ").append(toIndentedString(totalTaxBaseCurrencyId)).append("\n");
+    sb.append("    totalSurcharges: ").append(toIndentedString(totalSurcharges)).append("\n");
+    sb.append("    totalSurchargesCurrencyId: ").append(toIndentedString(totalSurchargesCurrencyId)).append("\n");
+    sb.append("    totalProfit: ").append(toIndentedString(totalProfit)).append("\n");
+    sb.append("    totalProfitCurrencyId: ").append(toIndentedString(totalProfitCurrencyId)).append("\n");
     sb.append("    totalShippingCost: ").append(toIndentedString(totalShippingCost)).append("\n");
     sb.append("    totalShippingCostCurrencyId: ").append(toIndentedString(totalShippingCostCurrencyId)).append("\n");
     sb.append("    totalShippingTax: ").append(toIndentedString(totalShippingTax)).append("\n");
@@ -2587,7 +2565,6 @@ public class DealUnitLineCreateDto {
     sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    quoteItemRecordId: ").append(toIndentedString(quoteItemRecordId)).append("\n");
-    sb.append("    businessProfileRecordId: ").append(toIndentedString(businessProfileRecordId)).append("\n");
     sb.append("    parentBillingItemRecordId: ").append(toIndentedString(parentBillingItemRecordId)).append("\n");
     sb.append("    dealUnitId: ").append(toIndentedString(dealUnitId)).append("\n");
     sb.append("}");
@@ -2612,14 +2589,14 @@ public class DealUnitLineCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("closed");
     openapiFields.add("itemId");
     openapiFields.add("itemTitle");
     openapiFields.add("itemShortDescription");
     openapiFields.add("itemPrimaryImageUrl");
     openapiFields.add("shippingPolicyId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("currencyId");
     openapiFields.add("description");
     openapiFields.add("quantity");
@@ -2676,14 +2653,14 @@ public class DealUnitLineCreateDto {
     openapiFields.add("customGlobalDiscountsAmountCurrencyId");
     openapiFields.add("totalDetail");
     openapiFields.add("totalDetailCurrencyId");
-    openapiFields.add("totalProfit");
-    openapiFields.add("totalProfitCurrencyId");
     openapiFields.add("totalDiscounts");
     openapiFields.add("totalDiscountsCurrencyId");
-    openapiFields.add("totalSurcharges");
-    openapiFields.add("totalSurchargesCurrencyId");
     openapiFields.add("totalTaxBase");
     openapiFields.add("totalTaxBaseCurrencyId");
+    openapiFields.add("totalSurcharges");
+    openapiFields.add("totalSurchargesCurrencyId");
+    openapiFields.add("totalProfit");
+    openapiFields.add("totalProfitCurrencyId");
     openapiFields.add("totalShippingCost");
     openapiFields.add("totalShippingCostCurrencyId");
     openapiFields.add("totalShippingTax");
@@ -2705,7 +2682,6 @@ public class DealUnitLineCreateDto {
     openapiFields.add("shippingLocationId");
     openapiFields.add("locationId");
     openapiFields.add("quoteItemRecordId");
-    openapiFields.add("businessProfileRecordId");
     openapiFields.add("parentBillingItemRecordId");
     openapiFields.add("dealUnitId");
 
@@ -2734,6 +2710,9 @@ public class DealUnitLineCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("itemId") != null && !jsonObj.get("itemId").isJsonNull()) && !jsonObj.get("itemId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemId").toString()));
       }
@@ -2748,12 +2727,6 @@ public class DealUnitLineCreateDto {
       }
       if ((jsonObj.get("shippingPolicyId") != null && !jsonObj.get("shippingPolicyId").isJsonNull()) && !jsonObj.get("shippingPolicyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shippingPolicyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingPolicyId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
@@ -2865,17 +2838,17 @@ public class DealUnitLineCreateDto {
       if ((jsonObj.get("totalDetailCurrencyId") != null && !jsonObj.get("totalDetailCurrencyId").isJsonNull()) && !jsonObj.get("totalDetailCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalDetailCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalDetailCurrencyId").toString()));
       }
-      if ((jsonObj.get("totalProfitCurrencyId") != null && !jsonObj.get("totalProfitCurrencyId").isJsonNull()) && !jsonObj.get("totalProfitCurrencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalProfitCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalProfitCurrencyId").toString()));
-      }
       if ((jsonObj.get("totalDiscountsCurrencyId") != null && !jsonObj.get("totalDiscountsCurrencyId").isJsonNull()) && !jsonObj.get("totalDiscountsCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalDiscountsCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalDiscountsCurrencyId").toString()));
+      }
+      if ((jsonObj.get("totalTaxBaseCurrencyId") != null && !jsonObj.get("totalTaxBaseCurrencyId").isJsonNull()) && !jsonObj.get("totalTaxBaseCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `totalTaxBaseCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalTaxBaseCurrencyId").toString()));
       }
       if ((jsonObj.get("totalSurchargesCurrencyId") != null && !jsonObj.get("totalSurchargesCurrencyId").isJsonNull()) && !jsonObj.get("totalSurchargesCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalSurchargesCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalSurchargesCurrencyId").toString()));
       }
-      if ((jsonObj.get("totalTaxBaseCurrencyId") != null && !jsonObj.get("totalTaxBaseCurrencyId").isJsonNull()) && !jsonObj.get("totalTaxBaseCurrencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalTaxBaseCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalTaxBaseCurrencyId").toString()));
+      if ((jsonObj.get("totalProfitCurrencyId") != null && !jsonObj.get("totalProfitCurrencyId").isJsonNull()) && !jsonObj.get("totalProfitCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `totalProfitCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalProfitCurrencyId").toString()));
       }
       if ((jsonObj.get("totalShippingCostCurrencyId") != null && !jsonObj.get("totalShippingCostCurrencyId").isJsonNull()) && !jsonObj.get("totalShippingCostCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalShippingCostCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalShippingCostCurrencyId").toString()));
@@ -2918,9 +2891,6 @@ public class DealUnitLineCreateDto {
       }
       if ((jsonObj.get("quoteItemRecordId") != null && !jsonObj.get("quoteItemRecordId").isJsonNull()) && !jsonObj.get("quoteItemRecordId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quoteItemRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quoteItemRecordId").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordId") != null && !jsonObj.get("businessProfileRecordId").isJsonNull()) && !jsonObj.get("businessProfileRecordId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordId").toString()));
       }
       if ((jsonObj.get("parentBillingItemRecordId") != null && !jsonObj.get("parentBillingItemRecordId").isJsonNull()) && !jsonObj.get("parentBillingItemRecordId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentBillingItemRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentBillingItemRecordId").toString()));

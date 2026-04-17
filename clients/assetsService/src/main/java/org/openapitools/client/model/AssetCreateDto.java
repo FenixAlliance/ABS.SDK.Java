@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * AssetCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:24.786928200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:14.351555800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AssetCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,14 +60,6 @@ public class AssetCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_ID = "businessId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_ID)
-  private String businessId;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID = "businessProfileRecordId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID)
-  private String businessProfileRecordId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -287,44 +279,6 @@ public class AssetCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public AssetCreateDto businessId(String businessId) {
-    this.businessId = businessId;
-    return this;
-  }
-
-  /**
-   * Get businessId
-   * @return businessId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessId() {
-    return businessId;
-  }
-
-  public void setBusinessId(String businessId) {
-    this.businessId = businessId;
-  }
-
-
-  public AssetCreateDto businessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordId
-   * @return businessProfileRecordId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordId() {
-    return businessProfileRecordId;
-  }
-
-  public void setBusinessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
   }
 
 
@@ -682,8 +636,6 @@ public class AssetCreateDto {
     AssetCreateDto assetCreateDto = (AssetCreateDto) o;
     return Objects.equals(this.id, assetCreateDto.id) &&
         Objects.equals(this.timestamp, assetCreateDto.timestamp) &&
-        Objects.equals(this.businessId, assetCreateDto.businessId) &&
-        Objects.equals(this.businessProfileRecordId, assetCreateDto.businessProfileRecordId) &&
         Objects.equals(this.name, assetCreateDto.name) &&
         Objects.equals(this.description, assetCreateDto.description) &&
         Objects.equals(this.assetClass, assetCreateDto.assetClass) &&
@@ -710,7 +662,7 @@ public class AssetCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, businessId, businessProfileRecordId, name, description, assetClass, assetOwner, isExistingAsset, calculateDepreciation, allowMonthlyDepreciation, openingDepreciation, purchaseDate, purchasePrice, currencyId, itemId, assetCategoryId, purchaseInvoiceId, purchaseReceiptId, assetLocationId, contactId, organizationDepartmentId);
+    return Objects.hash(id, timestamp, name, description, assetClass, assetOwner, isExistingAsset, calculateDepreciation, allowMonthlyDepreciation, openingDepreciation, purchaseDate, purchasePrice, currencyId, itemId, assetCategoryId, purchaseInvoiceId, purchaseReceiptId, assetLocationId, contactId, organizationDepartmentId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -726,8 +678,6 @@ public class AssetCreateDto {
     sb.append("class AssetCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    businessId: ").append(toIndentedString(businessId)).append("\n");
-    sb.append("    businessProfileRecordId: ").append(toIndentedString(businessProfileRecordId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    assetClass: ").append(toIndentedString(assetClass)).append("\n");
@@ -770,8 +720,6 @@ public class AssetCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("businessId");
-    openapiFields.add("businessProfileRecordId");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("assetClass");
@@ -818,12 +766,6 @@ public class AssetCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("businessId") != null && !jsonObj.get("businessId").isJsonNull()) && !jsonObj.get("businessId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessId").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordId") != null && !jsonObj.get("businessProfileRecordId").isJsonNull()) && !jsonObj.get("businessProfileRecordId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordId").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

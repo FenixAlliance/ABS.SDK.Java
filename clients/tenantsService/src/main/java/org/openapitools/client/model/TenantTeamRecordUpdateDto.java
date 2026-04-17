@@ -49,60 +49,14 @@ import org.openapitools.client.JSON;
 /**
  * TenantTeamRecordUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantTeamRecordUpdateDto {
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
-
   public static final String SERIALIZED_NAME_BUSINESS_TEAM_I_D = "businessTeamID";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TEAM_I_D)
   private String businessTeamID;
 
   public TenantTeamRecordUpdateDto() {
   }
-
-  public TenantTeamRecordUpdateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public TenantTeamRecordUpdateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
 
   public TenantTeamRecordUpdateDto businessTeamID(String businessTeamID) {
     this.businessTeamID = businessTeamID;
@@ -133,9 +87,7 @@ public class TenantTeamRecordUpdateDto {
       return false;
     }
     TenantTeamRecordUpdateDto tenantTeamRecordUpdateDto = (TenantTeamRecordUpdateDto) o;
-    return Objects.equals(this.businessID, tenantTeamRecordUpdateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, tenantTeamRecordUpdateDto.businessProfileRecordID) &&
-        Objects.equals(this.businessTeamID, tenantTeamRecordUpdateDto.businessTeamID);
+    return Objects.equals(this.businessTeamID, tenantTeamRecordUpdateDto.businessTeamID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +96,7 @@ public class TenantTeamRecordUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessID, businessProfileRecordID, businessTeamID);
+    return Objects.hash(businessTeamID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -158,8 +110,6 @@ public class TenantTeamRecordUpdateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantTeamRecordUpdateDto {\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    businessTeamID: ").append(toIndentedString(businessTeamID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,8 +133,6 @@ public class TenantTeamRecordUpdateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("businessTeamID");
 
     // a set of required properties/fields (JSON key names)
@@ -212,12 +160,6 @@ public class TenantTeamRecordUpdateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
-      }
       if ((jsonObj.get("businessTeamID") != null && !jsonObj.get("businessTeamID").isJsonNull()) && !jsonObj.get("businessTeamID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessTeamID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessTeamID").toString()));
       }

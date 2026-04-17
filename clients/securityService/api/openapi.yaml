@@ -4318,11 +4318,9 @@ components:
         contactEmail: contactEmail
         isNativeOrDesktopApp: true
         enableGitRepoManagement: true
-        businessID: businessID
         spaUIEngine: spaUIEngine
         isMultiTenant: true
         privacyPolicyURL: privacyPolicyURL
-        businessProfileRecordID: businessProfileRecordID
         spaNpmStartScript: spaNpmStartScript
         requireAppSecret: true
         allowAccessToSuiteSettings: true
@@ -4374,12 +4372,6 @@ components:
           nullable: true
           type: string
         termsAndConditionsURL:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
         requireHttps:
@@ -5376,13 +5368,19 @@ components:
         displayName: displayName
         permissions: permissions
         postLogoutRedirectUris: postLogoutRedirectUris
-        businessID: businessID
         consentType: consentType
         logo: logo
         clientSecret: clientSecret
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         redirectUris: redirectUris
-        businessProfileRecordID: businessProfileRecordID
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         displayName:
           minLength: 1
           type: string
@@ -5408,12 +5406,6 @@ components:
           nullable: true
           type: string
         logo:
-          nullable: true
-          type: string
-        businessID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
           nullable: true
           type: string
       required:
@@ -5951,7 +5943,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5965,16 +5956,12 @@ components:
         name:
           minLength: 1
           type: string
-        tenantId:
-          minLength: 1
-          type: string
         description:
           maxLength: 500
           nullable: true
           type: string
       required:
       - name
-      - tenantId
       type: object
     SecurityPermissionDto:
       additionalProperties: false
@@ -6106,7 +6093,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6120,16 +6106,12 @@ components:
         name:
           minLength: 1
           type: string
-        tenantId:
-          format: uuid
-          type: string
         description:
           maxLength: 500
           nullable: true
           type: string
       required:
       - name
-      - tenantId
       type: object
     SecurityRoleDto:
       additionalProperties: false

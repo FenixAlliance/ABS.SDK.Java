@@ -10,7 +10,6 @@
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**contactId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**taxId** | **String** |  |  |
 |**phone** | **String** |  |  |
 |**email** | **String** |  |  |

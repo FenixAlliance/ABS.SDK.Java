@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,15 +51,19 @@ import org.openapitools.client.JSON;
 /**
  * ReceiptCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ReceiptCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
-
-  public static final String SERIALIZED_NAME_USER_ID = "userId";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  private String userId;
 
   public static final String SERIALIZED_NAME_PRICE_LIST_ID = "priceListId";
   @SerializedName(SERIALIZED_NAME_PRICE_LIST_ID)
@@ -123,18 +129,6 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_CITY_ID)
   private String cityId;
 
-  public static final String SERIALIZED_NAME_BILLING_LOCATION_ID = "billingLocationId";
-  @SerializedName(SERIALIZED_NAME_BILLING_LOCATION_ID)
-  private String billingLocationId;
-
-  public static final String SERIALIZED_NAME_SHIPPING_LOCATION_ID = "shippingLocationId";
-  @SerializedName(SERIALIZED_NAME_SHIPPING_LOCATION_ID)
-  private String shippingLocationId;
-
-  public static final String SERIALIZED_NAME_SHIPPING_METHOD_ID = "shippingMethodId";
-  @SerializedName(SERIALIZED_NAME_SHIPPING_METHOD_ID)
-  private String shippingMethodId;
-
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
   private String currencyId;
@@ -171,14 +165,6 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_TOTAL_SURCHARGES_CURRENCY_ID)
   private String totalSurchargesCurrencyId;
 
-  public static final String SERIALIZED_NAME_TOTAL_SHIPPING_TAX = "totalShippingTax";
-  @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_TAX)
-  private Double totalShippingTax;
-
-  public static final String SERIALIZED_NAME_TOTAL_SHIPPING_TAX_CURRENCY_ID = "totalShippingTaxCurrencyId";
-  @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_TAX_CURRENCY_ID)
-  private String totalShippingTaxCurrencyId;
-
   public static final String SERIALIZED_NAME_TOTAL_SHIPPING_COST = "totalShippingCost";
   @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_COST)
   private Double totalShippingCost;
@@ -187,21 +173,13 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_COST_CURRENCY_ID)
   private String totalShippingCostCurrencyId;
 
-  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS = "totalGlobalDiscounts";
-  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS)
-  private Double totalGlobalDiscounts;
+  public static final String SERIALIZED_NAME_TOTAL_SHIPPING_TAX = "totalShippingTax";
+  @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_TAX)
+  private Double totalShippingTax;
 
-  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS_CURRENCY_ID = "totalGlobalDiscountsCurrencyId";
-  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS_CURRENCY_ID)
-  private String totalGlobalDiscountsCurrencyId;
-
-  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES = "totalGlobalSurcharges";
-  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES)
-  private Double totalGlobalSurcharges;
-
-  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES_CURRENCY_ID = "totalGlobalSurchargesCurrencyId";
-  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES_CURRENCY_ID)
-  private String totalGlobalSurchargesCurrencyId;
+  public static final String SERIALIZED_NAME_TOTAL_SHIPPING_TAX_CURRENCY_ID = "totalShippingTaxCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TOTAL_SHIPPING_TAX_CURRENCY_ID)
+  private String totalShippingTaxCurrencyId;
 
   public static final String SERIALIZED_NAME_TOTAL_WITHHELD_TAX = "totalWithheldTax";
   @SerializedName(SERIALIZED_NAME_TOTAL_WITHHELD_TAX)
@@ -226,6 +204,22 @@ public class ReceiptCreateDto {
   public static final String SERIALIZED_NAME_TOTAL_TAXES_CURRENCY_ID = "totalTaxesCurrencyId";
   @SerializedName(SERIALIZED_NAME_TOTAL_TAXES_CURRENCY_ID)
   private String totalTaxesCurrencyId;
+
+  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES = "totalGlobalSurcharges";
+  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES)
+  private Double totalGlobalSurcharges;
+
+  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES_CURRENCY_ID = "totalGlobalSurchargesCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_SURCHARGES_CURRENCY_ID)
+  private String totalGlobalSurchargesCurrencyId;
+
+  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS = "totalGlobalDiscounts";
+  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS)
+  private Double totalGlobalDiscounts;
+
+  public static final String SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS_CURRENCY_ID = "totalGlobalDiscountsCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TOTAL_GLOBAL_DISCOUNTS_CURRENCY_ID)
+  private String totalGlobalDiscountsCurrencyId;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -351,10 +345,6 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
   private String paymentId;
 
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_FOREX_RATE = "forexRate";
   @SerializedName(SERIALIZED_NAME_FOREX_RATE)
   private Double forexRate;
@@ -371,17 +361,9 @@ public class ReceiptCreateDto {
   @SerializedName(SERIALIZED_NAME_CLOSED)
   private Boolean closed;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_ID = "accountHolderId";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_ID)
-  private String accountHolderId;
-
   public static final String SERIALIZED_NAME_CONTACT_ID = "contactId";
   @SerializedName(SERIALIZED_NAME_CONTACT_ID)
   private String contactId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   /**
    * Gets or Sets receiptType
@@ -450,6 +432,44 @@ public class ReceiptCreateDto {
   public ReceiptCreateDto() {
   }
 
+  public ReceiptCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public ReceiptCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
+
   public ReceiptCreateDto title(String title) {
     this.title = title;
     return this;
@@ -466,25 +486,6 @@ public class ReceiptCreateDto {
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-
-  public ReceiptCreateDto userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Get userId
-   * @return userId
-   */
-  @javax.annotation.Nullable
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
   }
 
 
@@ -792,63 +793,6 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto billingLocationId(String billingLocationId) {
-    this.billingLocationId = billingLocationId;
-    return this;
-  }
-
-  /**
-   * Get billingLocationId
-   * @return billingLocationId
-   */
-  @javax.annotation.Nullable
-  public String getBillingLocationId() {
-    return billingLocationId;
-  }
-
-  public void setBillingLocationId(String billingLocationId) {
-    this.billingLocationId = billingLocationId;
-  }
-
-
-  public ReceiptCreateDto shippingLocationId(String shippingLocationId) {
-    this.shippingLocationId = shippingLocationId;
-    return this;
-  }
-
-  /**
-   * Get shippingLocationId
-   * @return shippingLocationId
-   */
-  @javax.annotation.Nullable
-  public String getShippingLocationId() {
-    return shippingLocationId;
-  }
-
-  public void setShippingLocationId(String shippingLocationId) {
-    this.shippingLocationId = shippingLocationId;
-  }
-
-
-  public ReceiptCreateDto shippingMethodId(String shippingMethodId) {
-    this.shippingMethodId = shippingMethodId;
-    return this;
-  }
-
-  /**
-   * Get shippingMethodId
-   * @return shippingMethodId
-   */
-  @javax.annotation.Nullable
-  public String getShippingMethodId() {
-    return shippingMethodId;
-  }
-
-  public void setShippingMethodId(String shippingMethodId) {
-    this.shippingMethodId = shippingMethodId;
-  }
-
-
   public ReceiptCreateDto currencyId(String currencyId) {
     this.currencyId = currencyId;
     return this;
@@ -1020,44 +964,6 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto totalShippingTax(Double totalShippingTax) {
-    this.totalShippingTax = totalShippingTax;
-    return this;
-  }
-
-  /**
-   * Get totalShippingTax
-   * @return totalShippingTax
-   */
-  @javax.annotation.Nullable
-  public Double getTotalShippingTax() {
-    return totalShippingTax;
-  }
-
-  public void setTotalShippingTax(Double totalShippingTax) {
-    this.totalShippingTax = totalShippingTax;
-  }
-
-
-  public ReceiptCreateDto totalShippingTaxCurrencyId(String totalShippingTaxCurrencyId) {
-    this.totalShippingTaxCurrencyId = totalShippingTaxCurrencyId;
-    return this;
-  }
-
-  /**
-   * Get totalShippingTaxCurrencyId
-   * @return totalShippingTaxCurrencyId
-   */
-  @javax.annotation.Nullable
-  public String getTotalShippingTaxCurrencyId() {
-    return totalShippingTaxCurrencyId;
-  }
-
-  public void setTotalShippingTaxCurrencyId(String totalShippingTaxCurrencyId) {
-    this.totalShippingTaxCurrencyId = totalShippingTaxCurrencyId;
-  }
-
-
   public ReceiptCreateDto totalShippingCost(Double totalShippingCost) {
     this.totalShippingCost = totalShippingCost;
     return this;
@@ -1096,79 +1002,41 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto totalGlobalDiscounts(Double totalGlobalDiscounts) {
-    this.totalGlobalDiscounts = totalGlobalDiscounts;
+  public ReceiptCreateDto totalShippingTax(Double totalShippingTax) {
+    this.totalShippingTax = totalShippingTax;
     return this;
   }
 
   /**
-   * Get totalGlobalDiscounts
-   * @return totalGlobalDiscounts
+   * Get totalShippingTax
+   * @return totalShippingTax
    */
   @javax.annotation.Nullable
-  public Double getTotalGlobalDiscounts() {
-    return totalGlobalDiscounts;
+  public Double getTotalShippingTax() {
+    return totalShippingTax;
   }
 
-  public void setTotalGlobalDiscounts(Double totalGlobalDiscounts) {
-    this.totalGlobalDiscounts = totalGlobalDiscounts;
+  public void setTotalShippingTax(Double totalShippingTax) {
+    this.totalShippingTax = totalShippingTax;
   }
 
 
-  public ReceiptCreateDto totalGlobalDiscountsCurrencyId(String totalGlobalDiscountsCurrencyId) {
-    this.totalGlobalDiscountsCurrencyId = totalGlobalDiscountsCurrencyId;
+  public ReceiptCreateDto totalShippingTaxCurrencyId(String totalShippingTaxCurrencyId) {
+    this.totalShippingTaxCurrencyId = totalShippingTaxCurrencyId;
     return this;
   }
 
   /**
-   * Get totalGlobalDiscountsCurrencyId
-   * @return totalGlobalDiscountsCurrencyId
+   * Get totalShippingTaxCurrencyId
+   * @return totalShippingTaxCurrencyId
    */
   @javax.annotation.Nullable
-  public String getTotalGlobalDiscountsCurrencyId() {
-    return totalGlobalDiscountsCurrencyId;
+  public String getTotalShippingTaxCurrencyId() {
+    return totalShippingTaxCurrencyId;
   }
 
-  public void setTotalGlobalDiscountsCurrencyId(String totalGlobalDiscountsCurrencyId) {
-    this.totalGlobalDiscountsCurrencyId = totalGlobalDiscountsCurrencyId;
-  }
-
-
-  public ReceiptCreateDto totalGlobalSurcharges(Double totalGlobalSurcharges) {
-    this.totalGlobalSurcharges = totalGlobalSurcharges;
-    return this;
-  }
-
-  /**
-   * Get totalGlobalSurcharges
-   * @return totalGlobalSurcharges
-   */
-  @javax.annotation.Nullable
-  public Double getTotalGlobalSurcharges() {
-    return totalGlobalSurcharges;
-  }
-
-  public void setTotalGlobalSurcharges(Double totalGlobalSurcharges) {
-    this.totalGlobalSurcharges = totalGlobalSurcharges;
-  }
-
-
-  public ReceiptCreateDto totalGlobalSurchargesCurrencyId(String totalGlobalSurchargesCurrencyId) {
-    this.totalGlobalSurchargesCurrencyId = totalGlobalSurchargesCurrencyId;
-    return this;
-  }
-
-  /**
-   * Get totalGlobalSurchargesCurrencyId
-   * @return totalGlobalSurchargesCurrencyId
-   */
-  @javax.annotation.Nullable
-  public String getTotalGlobalSurchargesCurrencyId() {
-    return totalGlobalSurchargesCurrencyId;
-  }
-
-  public void setTotalGlobalSurchargesCurrencyId(String totalGlobalSurchargesCurrencyId) {
-    this.totalGlobalSurchargesCurrencyId = totalGlobalSurchargesCurrencyId;
+  public void setTotalShippingTaxCurrencyId(String totalShippingTaxCurrencyId) {
+    this.totalShippingTaxCurrencyId = totalShippingTaxCurrencyId;
   }
 
 
@@ -1286,6 +1154,82 @@ public class ReceiptCreateDto {
   }
 
 
+  public ReceiptCreateDto totalGlobalSurcharges(Double totalGlobalSurcharges) {
+    this.totalGlobalSurcharges = totalGlobalSurcharges;
+    return this;
+  }
+
+  /**
+   * Get totalGlobalSurcharges
+   * @return totalGlobalSurcharges
+   */
+  @javax.annotation.Nullable
+  public Double getTotalGlobalSurcharges() {
+    return totalGlobalSurcharges;
+  }
+
+  public void setTotalGlobalSurcharges(Double totalGlobalSurcharges) {
+    this.totalGlobalSurcharges = totalGlobalSurcharges;
+  }
+
+
+  public ReceiptCreateDto totalGlobalSurchargesCurrencyId(String totalGlobalSurchargesCurrencyId) {
+    this.totalGlobalSurchargesCurrencyId = totalGlobalSurchargesCurrencyId;
+    return this;
+  }
+
+  /**
+   * Get totalGlobalSurchargesCurrencyId
+   * @return totalGlobalSurchargesCurrencyId
+   */
+  @javax.annotation.Nullable
+  public String getTotalGlobalSurchargesCurrencyId() {
+    return totalGlobalSurchargesCurrencyId;
+  }
+
+  public void setTotalGlobalSurchargesCurrencyId(String totalGlobalSurchargesCurrencyId) {
+    this.totalGlobalSurchargesCurrencyId = totalGlobalSurchargesCurrencyId;
+  }
+
+
+  public ReceiptCreateDto totalGlobalDiscounts(Double totalGlobalDiscounts) {
+    this.totalGlobalDiscounts = totalGlobalDiscounts;
+    return this;
+  }
+
+  /**
+   * Get totalGlobalDiscounts
+   * @return totalGlobalDiscounts
+   */
+  @javax.annotation.Nullable
+  public Double getTotalGlobalDiscounts() {
+    return totalGlobalDiscounts;
+  }
+
+  public void setTotalGlobalDiscounts(Double totalGlobalDiscounts) {
+    this.totalGlobalDiscounts = totalGlobalDiscounts;
+  }
+
+
+  public ReceiptCreateDto totalGlobalDiscountsCurrencyId(String totalGlobalDiscountsCurrencyId) {
+    this.totalGlobalDiscountsCurrencyId = totalGlobalDiscountsCurrencyId;
+    return this;
+  }
+
+  /**
+   * Get totalGlobalDiscountsCurrencyId
+   * @return totalGlobalDiscountsCurrencyId
+   */
+  @javax.annotation.Nullable
+  public String getTotalGlobalDiscountsCurrencyId() {
+    return totalGlobalDiscountsCurrencyId;
+  }
+
+  public void setTotalGlobalDiscountsCurrencyId(String totalGlobalDiscountsCurrencyId) {
+    this.totalGlobalDiscountsCurrencyId = totalGlobalDiscountsCurrencyId;
+  }
+
+
   public ReceiptCreateDto total(Double total) {
     this.total = total;
     return this;
@@ -1381,25 +1325,6 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public ReceiptCreateDto forexRate(Double forexRate) {
     this.forexRate = forexRate;
     return this;
@@ -1476,25 +1401,6 @@ public class ReceiptCreateDto {
   }
 
 
-  public ReceiptCreateDto accountHolderId(String accountHolderId) {
-    this.accountHolderId = accountHolderId;
-    return this;
-  }
-
-  /**
-   * Get accountHolderId
-   * @return accountHolderId
-   */
-  @javax.annotation.Nullable
-  public String getAccountHolderId() {
-    return accountHolderId;
-  }
-
-  public void setAccountHolderId(String accountHolderId) {
-    this.accountHolderId = accountHolderId;
-  }
-
-
   public ReceiptCreateDto contactId(String contactId) {
     this.contactId = contactId;
     return this;
@@ -1511,25 +1417,6 @@ public class ReceiptCreateDto {
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
-  }
-
-
-  public ReceiptCreateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -1600,8 +1487,9 @@ public class ReceiptCreateDto {
       return false;
     }
     ReceiptCreateDto receiptCreateDto = (ReceiptCreateDto) o;
-    return Objects.equals(this.title, receiptCreateDto.title) &&
-        Objects.equals(this.userId, receiptCreateDto.userId) &&
+    return Objects.equals(this.id, receiptCreateDto.id) &&
+        Objects.equals(this.timestamp, receiptCreateDto.timestamp) &&
+        Objects.equals(this.title, receiptCreateDto.title) &&
         Objects.equals(this.priceListId, receiptCreateDto.priceListId) &&
         Objects.equals(this.description, receiptCreateDto.description) &&
         Objects.equals(this.individualId, receiptCreateDto.individualId) &&
@@ -1618,9 +1506,6 @@ public class ReceiptCreateDto {
         Objects.equals(this.countryId, receiptCreateDto.countryId) &&
         Objects.equals(this.stateId, receiptCreateDto.stateId) &&
         Objects.equals(this.cityId, receiptCreateDto.cityId) &&
-        Objects.equals(this.billingLocationId, receiptCreateDto.billingLocationId) &&
-        Objects.equals(this.shippingLocationId, receiptCreateDto.shippingLocationId) &&
-        Objects.equals(this.shippingMethodId, receiptCreateDto.shippingMethodId) &&
         Objects.equals(this.currencyId, receiptCreateDto.currencyId) &&
         Objects.equals(this.totalDetail, receiptCreateDto.totalDetail) &&
         Objects.equals(this.totalDetailCurrencyId, receiptCreateDto.totalDetailCurrencyId) &&
@@ -1630,33 +1515,30 @@ public class ReceiptCreateDto {
         Objects.equals(this.totalDiscountsCurrencyId, receiptCreateDto.totalDiscountsCurrencyId) &&
         Objects.equals(this.totalSurcharges, receiptCreateDto.totalSurcharges) &&
         Objects.equals(this.totalSurchargesCurrencyId, receiptCreateDto.totalSurchargesCurrencyId) &&
-        Objects.equals(this.totalShippingTax, receiptCreateDto.totalShippingTax) &&
-        Objects.equals(this.totalShippingTaxCurrencyId, receiptCreateDto.totalShippingTaxCurrencyId) &&
         Objects.equals(this.totalShippingCost, receiptCreateDto.totalShippingCost) &&
         Objects.equals(this.totalShippingCostCurrencyId, receiptCreateDto.totalShippingCostCurrencyId) &&
-        Objects.equals(this.totalGlobalDiscounts, receiptCreateDto.totalGlobalDiscounts) &&
-        Objects.equals(this.totalGlobalDiscountsCurrencyId, receiptCreateDto.totalGlobalDiscountsCurrencyId) &&
-        Objects.equals(this.totalGlobalSurcharges, receiptCreateDto.totalGlobalSurcharges) &&
-        Objects.equals(this.totalGlobalSurchargesCurrencyId, receiptCreateDto.totalGlobalSurchargesCurrencyId) &&
+        Objects.equals(this.totalShippingTax, receiptCreateDto.totalShippingTax) &&
+        Objects.equals(this.totalShippingTaxCurrencyId, receiptCreateDto.totalShippingTaxCurrencyId) &&
         Objects.equals(this.totalWithheldTax, receiptCreateDto.totalWithheldTax) &&
         Objects.equals(this.totalWithheldTaxCurrencyId, receiptCreateDto.totalWithheldTaxCurrencyId) &&
         Objects.equals(this.totalTaxBase, receiptCreateDto.totalTaxBase) &&
         Objects.equals(this.totalTaxBaseCurrencyId, receiptCreateDto.totalTaxBaseCurrencyId) &&
         Objects.equals(this.totalTaxes, receiptCreateDto.totalTaxes) &&
         Objects.equals(this.totalTaxesCurrencyId, receiptCreateDto.totalTaxesCurrencyId) &&
+        Objects.equals(this.totalGlobalSurcharges, receiptCreateDto.totalGlobalSurcharges) &&
+        Objects.equals(this.totalGlobalSurchargesCurrencyId, receiptCreateDto.totalGlobalSurchargesCurrencyId) &&
+        Objects.equals(this.totalGlobalDiscounts, receiptCreateDto.totalGlobalDiscounts) &&
+        Objects.equals(this.totalGlobalDiscountsCurrencyId, receiptCreateDto.totalGlobalDiscountsCurrencyId) &&
         Objects.equals(this.total, receiptCreateDto.total) &&
         Objects.equals(this.totalCurrencyId, receiptCreateDto.totalCurrencyId) &&
         Objects.equals(this.costCalculationMethod, receiptCreateDto.costCalculationMethod) &&
         Objects.equals(this.taxCalculationMethod, receiptCreateDto.taxCalculationMethod) &&
         Objects.equals(this.paymentId, receiptCreateDto.paymentId) &&
-        Objects.equals(this.tenantId, receiptCreateDto.tenantId) &&
         Objects.equals(this.forexRate, receiptCreateDto.forexRate) &&
         Objects.equals(this.totalAmount, receiptCreateDto.totalAmount) &&
         Objects.equals(this.totalAmountInUSD, receiptCreateDto.totalAmountInUSD) &&
         Objects.equals(this.closed, receiptCreateDto.closed) &&
-        Objects.equals(this.accountHolderId, receiptCreateDto.accountHolderId) &&
         Objects.equals(this.contactId, receiptCreateDto.contactId) &&
-        Objects.equals(this.enrollmentId, receiptCreateDto.enrollmentId) &&
         Objects.equals(this.receiptType, receiptCreateDto.receiptType) &&
         Objects.equals(this.orderId, receiptCreateDto.orderId) &&
         Objects.equals(this.invoiceId, receiptCreateDto.invoiceId);
@@ -1668,7 +1550,7 @@ public class ReceiptCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, userId, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paymentId, tenantId, forexRate, totalAmount, totalAmountInUSD, closed, accountHolderId, contactId, enrollmentId, receiptType, orderId, invoiceId);
+    return Objects.hash(id, timestamp, title, priceListId, description, individualId, paymentTermId, organizationId, receiverTenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, currencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, paymentId, forexRate, totalAmount, totalAmountInUSD, closed, contactId, receiptType, orderId, invoiceId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1682,8 +1564,9 @@ public class ReceiptCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReceiptCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    priceListId: ").append(toIndentedString(priceListId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
@@ -1700,9 +1583,6 @@ public class ReceiptCreateDto {
     sb.append("    countryId: ").append(toIndentedString(countryId)).append("\n");
     sb.append("    stateId: ").append(toIndentedString(stateId)).append("\n");
     sb.append("    cityId: ").append(toIndentedString(cityId)).append("\n");
-    sb.append("    billingLocationId: ").append(toIndentedString(billingLocationId)).append("\n");
-    sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
-    sb.append("    shippingMethodId: ").append(toIndentedString(shippingMethodId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    totalDetail: ").append(toIndentedString(totalDetail)).append("\n");
     sb.append("    totalDetailCurrencyId: ").append(toIndentedString(totalDetailCurrencyId)).append("\n");
@@ -1712,33 +1592,30 @@ public class ReceiptCreateDto {
     sb.append("    totalDiscountsCurrencyId: ").append(toIndentedString(totalDiscountsCurrencyId)).append("\n");
     sb.append("    totalSurcharges: ").append(toIndentedString(totalSurcharges)).append("\n");
     sb.append("    totalSurchargesCurrencyId: ").append(toIndentedString(totalSurchargesCurrencyId)).append("\n");
-    sb.append("    totalShippingTax: ").append(toIndentedString(totalShippingTax)).append("\n");
-    sb.append("    totalShippingTaxCurrencyId: ").append(toIndentedString(totalShippingTaxCurrencyId)).append("\n");
     sb.append("    totalShippingCost: ").append(toIndentedString(totalShippingCost)).append("\n");
     sb.append("    totalShippingCostCurrencyId: ").append(toIndentedString(totalShippingCostCurrencyId)).append("\n");
-    sb.append("    totalGlobalDiscounts: ").append(toIndentedString(totalGlobalDiscounts)).append("\n");
-    sb.append("    totalGlobalDiscountsCurrencyId: ").append(toIndentedString(totalGlobalDiscountsCurrencyId)).append("\n");
-    sb.append("    totalGlobalSurcharges: ").append(toIndentedString(totalGlobalSurcharges)).append("\n");
-    sb.append("    totalGlobalSurchargesCurrencyId: ").append(toIndentedString(totalGlobalSurchargesCurrencyId)).append("\n");
+    sb.append("    totalShippingTax: ").append(toIndentedString(totalShippingTax)).append("\n");
+    sb.append("    totalShippingTaxCurrencyId: ").append(toIndentedString(totalShippingTaxCurrencyId)).append("\n");
     sb.append("    totalWithheldTax: ").append(toIndentedString(totalWithheldTax)).append("\n");
     sb.append("    totalWithheldTaxCurrencyId: ").append(toIndentedString(totalWithheldTaxCurrencyId)).append("\n");
     sb.append("    totalTaxBase: ").append(toIndentedString(totalTaxBase)).append("\n");
     sb.append("    totalTaxBaseCurrencyId: ").append(toIndentedString(totalTaxBaseCurrencyId)).append("\n");
     sb.append("    totalTaxes: ").append(toIndentedString(totalTaxes)).append("\n");
     sb.append("    totalTaxesCurrencyId: ").append(toIndentedString(totalTaxesCurrencyId)).append("\n");
+    sb.append("    totalGlobalSurcharges: ").append(toIndentedString(totalGlobalSurcharges)).append("\n");
+    sb.append("    totalGlobalSurchargesCurrencyId: ").append(toIndentedString(totalGlobalSurchargesCurrencyId)).append("\n");
+    sb.append("    totalGlobalDiscounts: ").append(toIndentedString(totalGlobalDiscounts)).append("\n");
+    sb.append("    totalGlobalDiscountsCurrencyId: ").append(toIndentedString(totalGlobalDiscountsCurrencyId)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    totalCurrencyId: ").append(toIndentedString(totalCurrencyId)).append("\n");
     sb.append("    costCalculationMethod: ").append(toIndentedString(costCalculationMethod)).append("\n");
     sb.append("    taxCalculationMethod: ").append(toIndentedString(taxCalculationMethod)).append("\n");
     sb.append("    paymentId: ").append(toIndentedString(paymentId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    totalAmountInUSD: ").append(toIndentedString(totalAmountInUSD)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
-    sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    receiptType: ").append(toIndentedString(receiptType)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
@@ -1764,8 +1641,9 @@ public class ReceiptCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("title");
-    openapiFields.add("userId");
     openapiFields.add("priceListId");
     openapiFields.add("description");
     openapiFields.add("individualId");
@@ -1782,9 +1660,6 @@ public class ReceiptCreateDto {
     openapiFields.add("countryId");
     openapiFields.add("stateId");
     openapiFields.add("cityId");
-    openapiFields.add("billingLocationId");
-    openapiFields.add("shippingLocationId");
-    openapiFields.add("shippingMethodId");
     openapiFields.add("currencyId");
     openapiFields.add("totalDetail");
     openapiFields.add("totalDetailCurrencyId");
@@ -1794,33 +1669,30 @@ public class ReceiptCreateDto {
     openapiFields.add("totalDiscountsCurrencyId");
     openapiFields.add("totalSurcharges");
     openapiFields.add("totalSurchargesCurrencyId");
-    openapiFields.add("totalShippingTax");
-    openapiFields.add("totalShippingTaxCurrencyId");
     openapiFields.add("totalShippingCost");
     openapiFields.add("totalShippingCostCurrencyId");
-    openapiFields.add("totalGlobalDiscounts");
-    openapiFields.add("totalGlobalDiscountsCurrencyId");
-    openapiFields.add("totalGlobalSurcharges");
-    openapiFields.add("totalGlobalSurchargesCurrencyId");
+    openapiFields.add("totalShippingTax");
+    openapiFields.add("totalShippingTaxCurrencyId");
     openapiFields.add("totalWithheldTax");
     openapiFields.add("totalWithheldTaxCurrencyId");
     openapiFields.add("totalTaxBase");
     openapiFields.add("totalTaxBaseCurrencyId");
     openapiFields.add("totalTaxes");
     openapiFields.add("totalTaxesCurrencyId");
+    openapiFields.add("totalGlobalSurcharges");
+    openapiFields.add("totalGlobalSurchargesCurrencyId");
+    openapiFields.add("totalGlobalDiscounts");
+    openapiFields.add("totalGlobalDiscountsCurrencyId");
     openapiFields.add("total");
     openapiFields.add("totalCurrencyId");
     openapiFields.add("costCalculationMethod");
     openapiFields.add("taxCalculationMethod");
     openapiFields.add("paymentId");
-    openapiFields.add("tenantId");
     openapiFields.add("forexRate");
     openapiFields.add("totalAmount");
     openapiFields.add("totalAmountInUSD");
     openapiFields.add("closed");
-    openapiFields.add("accountHolderId");
     openapiFields.add("contactId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("receiptType");
     openapiFields.add("orderId");
     openapiFields.add("invoiceId");
@@ -1850,11 +1722,11 @@ public class ReceiptCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if ((jsonObj.get("priceListId") != null && !jsonObj.get("priceListId").isJsonNull()) && !jsonObj.get("priceListId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `priceListId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priceListId").toString()));
@@ -1904,15 +1776,6 @@ public class ReceiptCreateDto {
       if ((jsonObj.get("cityId") != null && !jsonObj.get("cityId").isJsonNull()) && !jsonObj.get("cityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cityId").toString()));
       }
-      if ((jsonObj.get("billingLocationId") != null && !jsonObj.get("billingLocationId").isJsonNull()) && !jsonObj.get("billingLocationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingLocationId").toString()));
-      }
-      if ((jsonObj.get("shippingLocationId") != null && !jsonObj.get("shippingLocationId").isJsonNull()) && !jsonObj.get("shippingLocationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shippingLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingLocationId").toString()));
-      }
-      if ((jsonObj.get("shippingMethodId") != null && !jsonObj.get("shippingMethodId").isJsonNull()) && !jsonObj.get("shippingMethodId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shippingMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingMethodId").toString()));
-      }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
       }
@@ -1928,17 +1791,11 @@ public class ReceiptCreateDto {
       if ((jsonObj.get("totalSurchargesCurrencyId") != null && !jsonObj.get("totalSurchargesCurrencyId").isJsonNull()) && !jsonObj.get("totalSurchargesCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalSurchargesCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalSurchargesCurrencyId").toString()));
       }
-      if ((jsonObj.get("totalShippingTaxCurrencyId") != null && !jsonObj.get("totalShippingTaxCurrencyId").isJsonNull()) && !jsonObj.get("totalShippingTaxCurrencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalShippingTaxCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalShippingTaxCurrencyId").toString()));
-      }
       if ((jsonObj.get("totalShippingCostCurrencyId") != null && !jsonObj.get("totalShippingCostCurrencyId").isJsonNull()) && !jsonObj.get("totalShippingCostCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalShippingCostCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalShippingCostCurrencyId").toString()));
       }
-      if ((jsonObj.get("totalGlobalDiscountsCurrencyId") != null && !jsonObj.get("totalGlobalDiscountsCurrencyId").isJsonNull()) && !jsonObj.get("totalGlobalDiscountsCurrencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalGlobalDiscountsCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalGlobalDiscountsCurrencyId").toString()));
-      }
-      if ((jsonObj.get("totalGlobalSurchargesCurrencyId") != null && !jsonObj.get("totalGlobalSurchargesCurrencyId").isJsonNull()) && !jsonObj.get("totalGlobalSurchargesCurrencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `totalGlobalSurchargesCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalGlobalSurchargesCurrencyId").toString()));
+      if ((jsonObj.get("totalShippingTaxCurrencyId") != null && !jsonObj.get("totalShippingTaxCurrencyId").isJsonNull()) && !jsonObj.get("totalShippingTaxCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `totalShippingTaxCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalShippingTaxCurrencyId").toString()));
       }
       if ((jsonObj.get("totalWithheldTaxCurrencyId") != null && !jsonObj.get("totalWithheldTaxCurrencyId").isJsonNull()) && !jsonObj.get("totalWithheldTaxCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalWithheldTaxCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalWithheldTaxCurrencyId").toString()));
@@ -1948,6 +1805,12 @@ public class ReceiptCreateDto {
       }
       if ((jsonObj.get("totalTaxesCurrencyId") != null && !jsonObj.get("totalTaxesCurrencyId").isJsonNull()) && !jsonObj.get("totalTaxesCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalTaxesCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalTaxesCurrencyId").toString()));
+      }
+      if ((jsonObj.get("totalGlobalSurchargesCurrencyId") != null && !jsonObj.get("totalGlobalSurchargesCurrencyId").isJsonNull()) && !jsonObj.get("totalGlobalSurchargesCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `totalGlobalSurchargesCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalGlobalSurchargesCurrencyId").toString()));
+      }
+      if ((jsonObj.get("totalGlobalDiscountsCurrencyId") != null && !jsonObj.get("totalGlobalDiscountsCurrencyId").isJsonNull()) && !jsonObj.get("totalGlobalDiscountsCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `totalGlobalDiscountsCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalGlobalDiscountsCurrencyId").toString()));
       }
       if ((jsonObj.get("totalCurrencyId") != null && !jsonObj.get("totalCurrencyId").isJsonNull()) && !jsonObj.get("totalCurrencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalCurrencyId").toString()));
@@ -1969,17 +1832,8 @@ public class ReceiptCreateDto {
       if ((jsonObj.get("paymentId") != null && !jsonObj.get("paymentId").isJsonNull()) && !jsonObj.get("paymentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentId").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("accountHolderId") != null && !jsonObj.get("accountHolderId").isJsonNull()) && !jsonObj.get("accountHolderId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountHolderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderId").toString()));
-      }
       if ((jsonObj.get("contactId") != null && !jsonObj.get("contactId").isJsonNull()) && !jsonObj.get("contactId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("receiptType") != null && !jsonObj.get("receiptType").isJsonNull()) && !jsonObj.get("receiptType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `receiptType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("receiptType").toString()));

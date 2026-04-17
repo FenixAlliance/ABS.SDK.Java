@@ -3568,11 +3568,9 @@ components:
     AssetCategoryCreateDto:
       additionalProperties: false
       example:
-        businessId: businessId
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordId: businessProfileRecordId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -3580,12 +3578,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
-          nullable: true
           type: string
         name:
           nullable: true
@@ -3740,11 +3732,9 @@ components:
         purchaseDate: 2000-01-23T04:56:07.000+00:00
         purchaseReceiptId: purchaseReceiptId
         contactId: contactId
-        businessId: businessId
         description: description
         assetClass: Fixed
         purchasePrice: 6.027456183070403
-        businessProfileRecordId: businessProfileRecordId
         assetLocationId: assetLocationId
         itemId: itemId
         assetOwner: Business
@@ -3762,12 +3752,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
-          nullable: true
           type: string
         name:
           nullable: true
@@ -3836,9 +3820,17 @@ components:
         year: 5
         assetId: assetId
         depreciationAmount: 0.8008281904610115
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         depreciationDate: 2000-01-23T04:56:07.000+00:00
         accumulatedDepreciation: 6.027456183070403
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         assetId:
           nullable: true
           type: string
@@ -4683,18 +4675,26 @@ components:
       additionalProperties: false
       example:
         quantity: quantity
+        destinationLocationId: destinationLocationId
+        isRootTransfer: true
+        sourceLocationId: sourceLocationId
         sourceContactId: sourceContactId
         sourceDepartmentId: sourceDepartmentId
         serial: serial
-        destinationLocationId: destinationLocationId
         assetId: assetId
-        isRootTransfer: true
         destinationContactId: destinationContactId
         previousAssetTransferId: previousAssetTransferId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         destinationDepartmentId: destinationDepartmentId
         serialList: serialList
-        sourceLocationId: sourceLocationId
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
         assetId:
           nullable: true
           type: string
@@ -4991,11 +4991,9 @@ components:
     AssetTypeCreateDto:
       additionalProperties: false
       example:
-        businessId: businessId
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordId: businessProfileRecordId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -5003,12 +5001,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        businessId:
-          nullable: true
-          type: string
-        businessProfileRecordId:
-          nullable: true
           type: string
         name:
           nullable: true

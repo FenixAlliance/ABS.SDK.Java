@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * FiscalPeriodUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FiscalPeriodUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -63,14 +63,6 @@ public class FiscalPeriodUpdateDto {
   public static final String SERIALIZED_NAME_TO_DATE = "toDate";
   @SerializedName(SERIALIZED_NAME_TO_DATE)
   private OffsetDateTime toDate;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_FISCAL_YEAR_ID = "fiscalYearId";
   @SerializedName(SERIALIZED_NAME_FISCAL_YEAR_ID)
@@ -136,44 +128,6 @@ public class FiscalPeriodUpdateDto {
   }
 
 
-  public FiscalPeriodUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public FiscalPeriodUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public FiscalPeriodUpdateDto fiscalYearId(String fiscalYearId) {
     this.fiscalYearId = fiscalYearId;
     return this;
@@ -206,8 +160,6 @@ public class FiscalPeriodUpdateDto {
     return Objects.equals(this.name, fiscalPeriodUpdateDto.name) &&
         Objects.equals(this.fromDate, fiscalPeriodUpdateDto.fromDate) &&
         Objects.equals(this.toDate, fiscalPeriodUpdateDto.toDate) &&
-        Objects.equals(this.tenantId, fiscalPeriodUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, fiscalPeriodUpdateDto.enrollmentId) &&
         Objects.equals(this.fiscalYearId, fiscalPeriodUpdateDto.fiscalYearId);
   }
 
@@ -217,7 +169,7 @@ public class FiscalPeriodUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, fromDate, toDate, tenantId, enrollmentId, fiscalYearId);
+    return Objects.hash(name, fromDate, toDate, fiscalYearId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,8 +186,6 @@ public class FiscalPeriodUpdateDto {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    fromDate: ").append(toIndentedString(fromDate)).append("\n");
     sb.append("    toDate: ").append(toIndentedString(toDate)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    fiscalYearId: ").append(toIndentedString(fiscalYearId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -262,8 +212,6 @@ public class FiscalPeriodUpdateDto {
     openapiFields.add("name");
     openapiFields.add("fromDate");
     openapiFields.add("toDate");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("fiscalYearId");
 
     // a set of required properties/fields (JSON key names)
@@ -293,12 +241,6 @@ public class FiscalPeriodUpdateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("fiscalYearId") != null && !jsonObj.get("fiscalYearId").isJsonNull()) && !jsonObj.get("fiscalYearId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalYearId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalYearId").toString()));

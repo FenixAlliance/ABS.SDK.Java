@@ -14,8 +14,6 @@
 |**description** | **String** |  |  [optional] |
 |**forexRates** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

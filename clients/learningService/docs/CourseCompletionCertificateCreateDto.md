@@ -11,8 +11,6 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**studentProfileID** | **String** |  |  |
 |**courseEnrollmentID** | **String** |  |  |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**courseCompletionCertificateTemplateID** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  [optional] |
 

@@ -20848,16 +20848,14 @@ components:
     AccountCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        code: code
-        accountCategory: Assets
-        prefix: prefix
-        frozen: true
         parentAccountId: parentAccountId
         path: path
+        code: code
         accountTypeId: accountTypeId
+        accountCategory: Assets
+        prefix: prefix
         name: name
-        tenantId: tenantId
+        frozen: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -20885,14 +20883,8 @@ components:
         prefix:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         currencyId:
           minLength: 1
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         accountTypeId:
           nullable: true
@@ -21213,9 +21205,7 @@ components:
     AccountGroupCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         parentAccountGroupId: parentAccountGroupId
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
@@ -21238,16 +21228,6 @@ components:
           nullable: true
           type: string
         parentAccountGroupId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -21374,9 +21354,7 @@ components:
     AccountGroupUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         parentAccountGroupId: parentAccountGroupId
-        tenantId: tenantId
         description: description
         title: title
       properties:
@@ -21395,23 +21373,11 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     AccountRelationCreateDto:
       additionalProperties: false
       example:
         accountId: accountId
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -21422,16 +21388,6 @@ components:
           format: date-time
           type: string
         accountId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -21510,20 +21466,8 @@ components:
       additionalProperties: false
       example:
         accountId: accountId
-        enrollmentId: enrollmentId
-        tenantId: tenantId
       properties:
         accountId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -21532,9 +21476,7 @@ components:
     AccountTypeCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -21552,16 +21494,6 @@ components:
           type: string
         description:
           maxLength: 250
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -21644,9 +21576,7 @@ components:
     AccountTypeUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
       properties:
         name:
@@ -21656,16 +21586,6 @@ components:
           type: string
         description:
           maxLength: 250
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -21725,10 +21645,8 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         amount: 0.8008281904610115
         journalEntryId: journalEntryId
-        tenantId: tenantId
         description: description
         debitAccountId: debitAccountId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21742,16 +21660,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         description:
           maxLength: 300
@@ -22034,26 +21942,14 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         amount: 14396433401959713000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
         journalEntryId: journalEntryId
-        tenantId: tenantId
         description: description
         debitAccountId: debitAccountId
         creditAccountId: creditAccountId
         currencyId: currencyId
         accountingEntryType: None
       properties:
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
         description:
           maxLength: 1000
           minLength: 1
@@ -22094,10 +21990,8 @@ components:
     AccountingPeriodCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         dateStart: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         dateEnd: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -22110,16 +22004,6 @@ components:
           type: string
         name:
           maxLength: 50
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -22251,24 +22135,12 @@ components:
     AccountingPeriodUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         dateStart: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         dateEnd: 2000-01-23T04:56:07.000+00:00
       properties:
         name:
           maxLength: 50
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -22283,11 +22155,9 @@ components:
       additionalProperties: false
       example:
         taxAmountInUSD: 0.8008281904610115
-        enrollmentId: enrollmentId
         itemId: itemId
         taxPolicyId: taxPolicyId
         taxBaseAmountInUSD: 6.027456183070403
-        tenantId: tenantId
         invoiceId: invoiceId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -22297,16 +22167,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         taxPolicyId:
           maxLength: 36
@@ -22466,23 +22326,11 @@ components:
       additionalProperties: false
       example:
         taxAmountInUSD: 0.8008281904610115
-        enrollmentId: enrollmentId
         itemId: itemId
         taxPolicyId: taxPolicyId
         taxBaseAmountInUSD: 6.027456183070403
-        tenantId: tenantId
         invoiceId: invoiceId
       properties:
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         taxPolicyId:
           maxLength: 36
           minLength: 0
@@ -22508,7 +22356,6 @@ components:
     BankAccountCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         accountCategory: Assets
         prefix: prefix
@@ -22521,7 +22368,6 @@ components:
         accountTypeId: accountTypeId
         iban: iban
         name: name
-        tenantId: tenantId
         bankAccountNumber: bankAccountNumber
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
@@ -22552,14 +22398,8 @@ components:
         prefix:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         currencyId:
           minLength: 1
-          type: string
-        enrollmentId:
-          nullable: true
           type: string
         accountTypeId:
           nullable: true
@@ -23165,7 +23005,6 @@ components:
       example:
         fixedDepositNumber: 1.4658129805029452
         guaranteeConditions: guaranteeConditions
-        enrollmentId: enrollmentId
         margin: 0.8008281904610115
         endDate: 2000-01-23T04:56:07.000+00:00
         contactId: contactId
@@ -23174,7 +23013,6 @@ components:
         validityInDays: 5
         beneficiaryName: beneficiaryName
         bankAccountId: bankAccountId
-        tenantId: tenantId
         guaranteeNumber: guaranteeNumber
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         bankGuaranteeType: Receiving
@@ -23217,20 +23055,10 @@ components:
         validityInDays:
           format: int32
           type: integer
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         bankGuaranteeType:
           enum:
           - Receiving
           - Providing
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         contactId:
           maxLength: 36
@@ -23477,7 +23305,6 @@ components:
       example:
         fixedDepositNumber: 1.4658129805029452
         guaranteeConditions: guaranteeConditions
-        enrollmentId: enrollmentId
         margin: 0.8008281904610115
         endDate: 2000-01-23T04:56:07.000+00:00
         contactId: contactId
@@ -23486,7 +23313,6 @@ components:
         validityInDays: 5
         beneficiaryName: beneficiaryName
         bankAccountId: bankAccountId
-        tenantId: tenantId
         guaranteeNumber: guaranteeNumber
         bankGuaranteeType: Receiving
         bankProfileId: bankProfileId
@@ -23521,20 +23347,10 @@ components:
         validityInDays:
           format: int32
           type: integer
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         bankGuaranteeType:
           enum:
           - Receiving
           - Providing
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         contactId:
           maxLength: 36
@@ -23781,7 +23597,6 @@ components:
     BankTransactionUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         quantity: 6.027456183070403
         description: description
         externalDescription: externalDescription
@@ -23790,7 +23605,6 @@ components:
         basisAmount: 5.962133916683182
         price: 0.8008281904610115
         bankAccountId: bankAccountId
-        tenantId: tenantId
         unitId: unitId
         transactionCategoryId: transactionCategoryId
         currencyId: currencyId
@@ -23838,16 +23652,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
         bankProfileId:
@@ -23901,7 +23705,6 @@ components:
         countryId: countryId
         phone: phone
         taxId: taxId
-        tenantId: tenantId
         duns: duns
         isPublicCompany: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23916,9 +23719,6 @@ components:
           format: date-time
           type: string
         contactId:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         taxId:
@@ -24459,16 +24259,12 @@ components:
         countryId: countryId
         phone: phone
         taxId: taxId
-        tenantId: tenantId
         duns: duns
         isPublicCompany: true
         email: email
         commercialName: commercialName
       properties:
         contactId:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         taxId:
@@ -24531,15 +24327,13 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         amount: 0.8008281904610115
+        journalEntryId: journalEntryId
         description: description
         debitAccountId: debitAccountId
-        budgetId: budgetId
-        journalEntryId: journalEntryId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         creditAccountId: creditAccountId
+        budgetId: budgetId
         currencyId: currencyId
         accountingEntryType: None
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -24549,16 +24343,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
           type: string
         description:
           maxLength: 300
@@ -24853,10 +24637,8 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         amount: 14396433401959713000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
         journalEntryId: journalEntryId
-        tenantId: tenantId
         description: description
         debitAccountId: debitAccountId
         creditAccountId: creditAccountId
@@ -24864,16 +24646,6 @@ components:
         currencyId: currencyId
         accountingEntryType: None
       properties:
-        tenantId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
         description:
           maxLength: 1000
           minLength: 1
@@ -24920,7 +24692,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
         fiscalYearId: fiscalYearId
@@ -24932,9 +24703,6 @@ components:
           format: date-time
           type: string
         name:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         fiscalYearId:
@@ -25062,7 +24830,6 @@ components:
       additionalProperties: false
       example:
         addedAmount: 1.4658129805029452
-        enrollmentId: enrollmentId
         receiverContactId: receiverContactId
         taxComission: 5.962133916683182
         description: description
@@ -25071,7 +24838,6 @@ components:
         addedPercent: 6.027456183070403
         emisorWalletAccountId: emisorWalletAccountId
         receiverWalletAccountId: receiverWalletAccountId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         salaryId: salaryId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -25105,16 +24871,6 @@ components:
         taxComission:
           format: double
           type: number
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         salaryId:
           maxLength: 36
           minLength: 0
@@ -25319,16 +25075,14 @@ components:
       additionalProperties: false
       example:
         addedAmount: 1.4658129805029452
-        enrollmentId: enrollmentId
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
         receiverContactId: receiverContactId
         taxComission: 5.962133916683182
         description: description
         title: title
         baseAmount: 0.8008281904610115
         addedPercent: 6.027456183070403
-        emisorWalletAccountId: emisorWalletAccountId
-        receiverWalletAccountId: receiverWalletAccountId
-        tenantId: tenantId
         salaryId: salaryId
         emisorContactId: emisorContactId
       properties:
@@ -25354,16 +25108,6 @@ components:
         taxComission:
           format: double
           type: number
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         salaryId:
           maxLength: 36
           minLength: 0
@@ -25394,7 +25138,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         costCentreId: costCentreId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -25407,9 +25150,6 @@ components:
           format: date-time
           type: string
         name:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         fiscalYearId:
@@ -25557,7 +25297,6 @@ components:
         costCentresGroupId: costCentresGroupId
         parentCostCentreId: parentCostCentreId
         name: name
-        tenantId: tenantId
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -25586,11 +25325,6 @@ components:
           enum:
           - Service
           - Production
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         costCentresGroupId:
           maxLength: 36
@@ -25741,7 +25475,6 @@ components:
       example:
         parentCostCentresGroupId: parentCostCentresGroupId
         name: name
-        tenantId: tenantId
         description: description
         disabled: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -25765,11 +25498,6 @@ components:
           type: string
         disabled:
           type: boolean
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         parentCostCentresGroupId:
           maxLength: 36
           minLength: 0
@@ -25898,7 +25626,6 @@ components:
       example:
         parentCostCentresGroupId: parentCostCentresGroupId
         name: name
-        tenantId: tenantId
         description: description
         disabled: true
       properties:
@@ -25914,11 +25641,6 @@ components:
           type: string
         disabled:
           type: boolean
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         parentCostCentresGroupId:
           maxLength: 36
           minLength: 0
@@ -25931,7 +25653,6 @@ components:
         costCentresGroupId: costCentresGroupId
         parentCostCentreId: parentCostCentreId
         name: name
-        tenantId: tenantId
         description: description
         disabled: true
         costCentreType: Service
@@ -25952,11 +25673,6 @@ components:
           enum:
           - Service
           - Production
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         costCentresGroupId:
           maxLength: 36
@@ -26092,7 +25808,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantID: tenantID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -26109,11 +25824,6 @@ components:
           type: string
         description:
           maxLength: 255
-          minLength: 0
-          nullable: true
-          type: string
-        tenantID:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -26228,7 +25938,6 @@ components:
       additionalProperties: false
       example:
         name: name
-        tenantId: tenantId
         description: description
       properties:
         name:
@@ -26238,11 +25947,6 @@ components:
           type: string
         description:
           maxLength: 255
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -26440,11 +26144,9 @@ components:
     FiscalIdentificationTypeCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -26463,16 +26165,6 @@ components:
           nullable: true
           type: string
         fiscalAuthorityId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -26599,11 +26291,9 @@ components:
     FiscalIdentificationTypeUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
       properties:
         code:
           nullable: true
@@ -26618,25 +26308,13 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     FiscalPeriodCreateDto:
       additionalProperties: false
       example:
         fromDate: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         toDate: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
         fiscalYearId: fiscalYearId
@@ -26657,16 +26335,6 @@ components:
           type: string
         toDate:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         fiscalYearId:
           maxLength: 36
@@ -26803,10 +26471,8 @@ components:
       additionalProperties: false
       example:
         fromDate: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         toDate: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         fiscalYearId: fiscalYearId
       properties:
         name:
@@ -26820,16 +26486,6 @@ components:
         toDate:
           format: date-time
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         fiscalYearId:
           maxLength: 36
           minLength: 0
@@ -26839,11 +26495,9 @@ components:
     FiscalRegimeCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -26862,16 +26516,6 @@ components:
           nullable: true
           type: string
         fiscalAuthorityId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -26998,11 +26642,9 @@ components:
     FiscalRegimeUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
       properties:
         code:
           nullable: true
@@ -27017,25 +26659,13 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     FiscalResponsibilityCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -27054,16 +26684,6 @@ components:
           nullable: true
           type: string
         fiscalAuthorityId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -27190,9 +26810,7 @@ components:
     FiscalResponsibilityRecordCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         fiscalResponsibilityId: fiscalResponsibilityId
-        tenantId: tenantId
         billingProfileId: billingProfileId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -27209,16 +26827,6 @@ components:
           nullable: true
           type: string
         billingProfileId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -27338,9 +26946,7 @@ components:
     FiscalResponsibilityRecordUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         fiscalResponsibilityId: fiscalResponsibilityId
-        tenantId: tenantId
         billingProfileId: billingProfileId
       properties:
         fiscalResponsibilityId:
@@ -27353,25 +26959,13 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     FiscalResponsibilityUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         code: code
         name: name
         fiscalAuthorityId: fiscalAuthorityId
-        tenantId: tenantId
       properties:
         code:
           nullable: true
@@ -27386,24 +26980,13 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     FiscalYearCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         endDate: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
+        fiscalAuthorityId: fiscalAuthorityId
         description: description
         closed: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27424,17 +27007,14 @@ components:
           type: string
         closed:
           type: boolean
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
         endDate:
           format: date-time
           type: string
         startDate:
           format: date-time
+          type: string
+        fiscalAuthorityId:
+          nullable: true
           type: string
       type: object
     FiscalYearDto:
@@ -27633,6 +27213,7 @@ components:
       example:
         endDate: 2000-01-23T04:56:07.000+00:00
         name: name
+        fiscalAuthorityId: fiscalAuthorityId
         description: description
         closed: true
         startDate: 2000-01-23T04:56:07.000+00:00
@@ -27651,6 +27232,9 @@ components:
         startDate:
           format: date-time
           type: string
+        fiscalAuthorityId:
+          nullable: true
+          type: string
       type: object
     ForgotPasswordRequest:
       additionalProperties: false
@@ -27666,8 +27250,6 @@ components:
     GrantCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -27676,16 +27258,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
       type: object
     GrantDto:
@@ -27787,20 +27359,6 @@ components:
       type: object
     GrantUpdateDto:
       additionalProperties: false
-      example:
-        enrollmentId: enrollmentId
-        tenantId: tenantId
-      properties:
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     HttpValidationProblemDetails:
       additionalProperties: {}
@@ -27896,7 +27454,6 @@ components:
       additionalProperties: false
       example:
         identifier: identifier
-        enrollmentId: enrollmentId
         documentType: Standard
         prefix: prefix
         qualifiedName: qualifiedName
@@ -27906,7 +27463,6 @@ components:
         numerationTo: 1
         numerationFrom: 6
         currentNumeration: 0
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
         validTo: 2000-01-23T04:56:07.000+00:00
@@ -27945,12 +27501,6 @@ components:
           format: date-time
           type: string
         fiscalAuthorityId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         documentType:
@@ -28144,7 +27694,8 @@ components:
       additionalProperties: false
       example:
         identifier: identifier
-        enrollmentId: enrollmentId
+        numerationFrom: 6
+        currentNumeration: 0
         documentType: Standard
         prefix: prefix
         qualifiedName: qualifiedName
@@ -28152,9 +27703,6 @@ components:
         validFrom: 2000-01-23T04:56:07.000+00:00
         suffix: suffix
         numerationTo: 1
-        numerationFrom: 6
-        currentNumeration: 0
-        tenantId: tenantId
         validTo: 2000-01-23T04:56:07.000+00:00
       properties:
         prefix:
@@ -28185,12 +27733,6 @@ components:
           format: date-time
           type: string
         fiscalAuthorityId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         documentType:
@@ -28371,10 +27913,8 @@ components:
       example:
         dateTime: 2000-01-23T04:56:07.000+00:00
         ledgerID: ledgerID
-        enrollmentID: enrollmentID
         parentJournalID: parentJournalID
         name: name
-        tenantID: tenantID
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         journalTypeID: journalTypeID
@@ -28397,16 +27937,6 @@ components:
           type: string
         dateTime:
           format: date-time
-          type: string
-        tenantID:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentID:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         parentJournalID:
           maxLength: 36
@@ -28902,9 +28432,7 @@ components:
     JournalTypeCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -28915,12 +28443,6 @@ components:
           format: date-time
           type: string
         name:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -29031,17 +28553,9 @@ components:
     JournalTypeUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
       properties:
         name:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -29212,10 +28726,8 @@ components:
     LedgerTypeCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         ledgerClass: Assets
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -29238,16 +28750,6 @@ components:
           - Revenue
           - Expenses
           - Liabilities
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
       required:
       - name
@@ -29373,10 +28875,8 @@ components:
     LedgerTypeUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         ledgerClass: Assets
         name: name
-        tenantId: tenantId
       properties:
         name:
           maxLength: 50
@@ -29394,22 +28894,10 @@ components:
           - Liabilities
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     LoanApplicationCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -29418,16 +28906,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
       type: object
     LoanApplicationDto:
@@ -29529,27 +29007,11 @@ components:
       type: object
     LoanApplicationUpdateDto:
       additionalProperties: false
-      example:
-        enrollmentId: enrollmentId
-        tenantId: tenantId
-      properties:
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     LoanCreateDto:
       additionalProperties: false
       example:
         interestRate: 6.027456183070403
-        enrollmentId: enrollmentId
-        tenantId: tenantId
         loanTimestamp: 2000-01-23T04:56:07.000+00:00
         paymentDeadline: 2000-01-23T04:56:07.000+00:00
         isCompundInterestRate: true
@@ -29583,12 +29045,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -29741,7 +29197,6 @@ components:
       additionalProperties: false
       example:
         interestRate: 6.027456183070403
-        enrollmentId: enrollmentId
         loanTimestamp: 2000-01-23T04:56:07.000+00:00
         paymentDeadline: 2000-01-23T04:56:07.000+00:00
         isCompundInterestRate: true
@@ -29767,9 +29222,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -30048,17 +29500,15 @@ components:
       additionalProperties: false
       example:
         addedAmount: 1.4658129805029452
-        enrollmentId: enrollmentId
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
+        paymentId: paymentId
         receiverContactId: receiverContactId
         taxComission: 5.962133916683182
         description: description
         title: title
         baseAmount: 0.8008281904610115
         addedPercent: 6.027456183070403
-        emisorWalletAccountId: emisorWalletAccountId
-        receiverWalletAccountId: receiverWalletAccountId
-        paymentId: paymentId
-        tenantId: tenantId
         salaryId: salaryId
         emisorContactId: emisorContactId
       properties:
@@ -30084,16 +29534,6 @@ components:
         taxComission:
           format: double
           type: number
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         salaryId:
           maxLength: 36
           minLength: 0
@@ -30133,36 +29573,33 @@ components:
         companyName: companyName
         postalCode: postalCode
         totalDetail: 0.8008281904610115
-        totalShippingCost: 2.3021358869347655
+        totalShippingCost: 5.637376656633329
         totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
         cityId: cityId
         organizationId: organizationId
-        totalTaxBase: 2.027123023002322
+        totalTaxBase: 9.301444243932576
         totalAmountInUSD: 1.4894159098541704
         paymentId: paymentId
         totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
         addressLine1: addressLine1
         addressLine2: addressLine2
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
-        enrollmentId: enrollmentId
         receiptType: PaymentReceipt
         contactId: contactId
         totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
-        shippingMethodId: shippingMethodId
         costCalculationMethod: Automatic
         firstName: firstName
-        totalShippingTax: 5.637376656633329
+        totalShippingTax: 2.3021358869347655
         totalAmount: 1.0246457001441578
         forexRate: 1.2315135367772556
-        billingLocationId: billingLocationId
         lastName: lastName
         totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
         totalProfit: 6.027456183070403
-        totalGlobalDiscounts: 7.061401241503109
+        totalGlobalDiscounts: 4.145608029883936
         totalDiscounts: 1.4658129805029452
         totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
         description: description
-        shippingLocationId: shippingLocationId
         individualId: individualId
         title: title
         countryId: countryId
@@ -30171,28 +29608,29 @@ components:
         billingEmail: billingEmail
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
-        accountHolderId: accountHolderId
+        timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
-        totalTaxes: 4.145608029883936
-        totalWithheldTax: 3.616076749251911
+        totalTaxes: 3.616076749251911
+        totalWithheldTax: 7.061401241503109
         stateId: stateId
         priceListId: priceListId
-        userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        tenantId: tenantId
         totalSurcharges: 5.962133916683182
         closed: true
-        totalGlobalSurcharges: 9.301444243932576
+        totalGlobalSurcharges: 2.027123023002322
         taxCalculationMethod: Included
         invoiceId: invoiceId
         totalProfitCurrencyId: totalProfitCurrencyId
         totalTaxesCurrencyId: totalTaxesCurrencyId
       properties:
-        title:
-          nullable: true
+        id:
+          format: uuid
           type: string
-        userId:
+        timestamp:
+          format: date-time
+          type: string
+        title:
           nullable: true
           type: string
         priceListId:
@@ -30243,15 +29681,6 @@ components:
         cityId:
           nullable: true
           type: string
-        billingLocationId:
-          nullable: true
-          type: string
-        shippingLocationId:
-          nullable: true
-          type: string
-        shippingMethodId:
-          nullable: true
-          type: string
         currencyId:
           nullable: true
           type: string
@@ -30279,28 +29708,16 @@ components:
         totalSurchargesCurrencyId:
           nullable: true
           type: string
-        totalShippingTax:
-          format: double
-          type: number
-        totalShippingTaxCurrencyId:
-          nullable: true
-          type: string
         totalShippingCost:
           format: double
           type: number
         totalShippingCostCurrencyId:
           nullable: true
           type: string
-        totalGlobalDiscounts:
+        totalShippingTax:
           format: double
           type: number
-        totalGlobalDiscountsCurrencyId:
-          nullable: true
-          type: string
-        totalGlobalSurcharges:
-          format: double
-          type: number
-        totalGlobalSurchargesCurrencyId:
+        totalShippingTaxCurrencyId:
           nullable: true
           type: string
         totalWithheldTax:
@@ -30319,6 +29736,18 @@ components:
           format: double
           type: number
         totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalDiscountsCurrencyId:
           nullable: true
           type: string
         total:
@@ -30340,9 +29769,6 @@ components:
         paymentId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         forexRate:
           format: double
           type: number
@@ -30354,13 +29780,7 @@ components:
           type: number
         closed:
           type: boolean
-        accountHolderId:
-          nullable: true
-          type: string
         contactId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         receiptType:
@@ -30526,22 +29946,16 @@ components:
       additionalProperties: false
       example:
         totalAmount: 6.027456183070403
-        accountHolderId: accountHolderId
-        enrollmentId: enrollmentId
         totalAmountInUsd: 1.4658129805029452
         forexRate: 0.8008281904610115
         contactId: contactId
         orderId: orderId
         paymentId: paymentId
-        tenantId: tenantId
         closed: true
         invoiceId: invoiceId
         currencyId: currencyId
       properties:
         paymentId:
-          nullable: true
-          type: string
-        tenantId:
           nullable: true
           type: string
         forexRate:
@@ -30558,13 +29972,7 @@ components:
         currencyId:
           nullable: true
           type: string
-        accountHolderId:
-          nullable: true
-          type: string
         contactId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         orderId:
@@ -30636,10 +30044,8 @@ components:
     ShareClassCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         forexRates: forexRates
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
@@ -30668,16 +30074,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
       type: object
@@ -30815,10 +30211,8 @@ components:
     ShareClassUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         forexRates: forexRates
         name: name
-        tenantId: tenantId
         description: description
         currencyId: currencyId
         value: true
@@ -30841,24 +30235,12 @@ components:
         currencyId:
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     ShareIssuanceCreateDto:
       additionalProperties: false
       example:
         unitPrice: 0
-        enrollmentId: enrollmentId
         quantity: 1294386359
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -30868,16 +30250,6 @@ components:
           type: string
         timestamp:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         unitPrice:
           format: int32
@@ -31013,21 +30385,9 @@ components:
       additionalProperties: false
       example:
         unitPrice: 0
-        enrollmentId: enrollmentId
         quantity: 1294386359
-        tenantId: tenantId
         currencyId: currencyId
       properties:
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         unitPrice:
           format: int32
           type: integer
@@ -31043,9 +30403,7 @@ components:
     ShareTransferCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         shareTransferReasonId: shareTransferReasonId
-        tenantId: tenantId
         description: description
         formerShareHolderId: formerShareHolderId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31078,16 +30436,6 @@ components:
           nullable: true
           type: string
         shareTransferReasonId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -31228,9 +30576,7 @@ components:
     ShareTransferReasonCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -31248,16 +30594,6 @@ components:
           type: string
         description:
           maxLength: 150
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -31376,9 +30712,7 @@ components:
     ShareTransferReasonUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
       properties:
         name:
@@ -31391,23 +30725,11 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     ShareTransferUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         shareTransferReasonId: shareTransferReasonId
-        tenantId: tenantId
         description: description
         formerShareHolderId: formerShareHolderId
         newShareHolderId: newShareHolderId
@@ -31436,16 +30758,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     TaxPolicyCreateDto:
       additionalProperties: false
@@ -31470,14 +30782,12 @@ components:
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
         reduce: true
-        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
         reduced: true
         isDefault: true
         isEnabled: true
-        tenantId: tenantId
         days: 6
       properties:
         id:
@@ -31548,16 +30858,6 @@ components:
           nullable: true
           type: string
         cityId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -31859,14 +31159,12 @@ components:
         currencyId: currencyId
         value: 2.3021358869347655
         reduce: true
-        enrollmentId: enrollmentId
         allowInternational: true
         hours: 0
         months: 5
         reduced: true
         isDefault: true
         isEnabled: true
-        tenantId: tenantId
         days: 6
       properties:
         code:
@@ -31935,16 +31233,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         zero:
           type: boolean
         reduced:
@@ -31961,7 +31249,6 @@ components:
       additionalProperties: false
       example:
         withholding: true
-        enrollmentId: enrollmentId
         taxPolicyId: taxPolicyId
         fiscalAuthorityId: fiscalAuthorityId
         priority: 1
@@ -31975,7 +31262,6 @@ components:
         rate: 0.8008281904610115
         name: name
         um: um
-        tenantId: tenantId
         unitId: unitId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
@@ -32038,11 +31324,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         countryId:
           nullable: true
           type: string
@@ -32055,11 +31336,6 @@ components:
           nullable: true
           type: string
         taxPolicyId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -32289,7 +31565,6 @@ components:
       additionalProperties: false
       example:
         withholding: true
-        enrollmentId: enrollmentId
         taxPolicyId: taxPolicyId
         fiscalAuthorityId: fiscalAuthorityId
         priority: 1
@@ -32303,7 +31578,6 @@ components:
         rate: 0.8008281904610115
         name: name
         um: um
-        tenantId: tenantId
         unitId: unitId
         currencyId: currencyId
         value: 6.027456183070403
@@ -32358,11 +31632,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         countryId:
           nullable: true
           type: string
@@ -32379,11 +31648,6 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     TenantId:
       additionalProperties: false
@@ -32392,9 +31656,7 @@ components:
     TransactionCategoryCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -32412,16 +31674,6 @@ components:
           type: string
         description:
           maxLength: 150
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string
@@ -32540,9 +31792,7 @@ components:
     TransactionCategoryUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         description: description
       properties:
         name:
@@ -32555,21 +31805,10 @@ components:
           minLength: 0
           nullable: true
           type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     TransactionCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         quantity: 6.027456183070403
         description: description
         externalDescription: externalDescription
@@ -32577,7 +31816,6 @@ components:
         unitGroupId: unitGroupId
         basisAmount: 5.962133916683182
         price: 0.8008281904610115
-        tenantId: tenantId
         unitId: unitId
         transactionCategoryId: transactionCategoryId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -32632,16 +31870,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
       type: object
@@ -32822,19 +32050,17 @@ components:
     TransactionUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        quantity: 6.027456183070403
-        description: description
-        externalDescription: externalDescription
-        percent: 5.637376656633329
         unitGroupId: unitGroupId
+        quantity: 6.027456183070403
         basisAmount: 5.962133916683182
         price: 0.8008281904610115
-        tenantId: tenantId
+        description: description
+        externalDescription: externalDescription
         unitId: unitId
         transactionCategoryId: transactionCategoryId
         currencyId: currencyId
         basisQuantity: 1.4658129805029452
+        percent: 5.637376656633329
       properties:
         description:
           maxLength: 150
@@ -32877,16 +32103,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
       type: object

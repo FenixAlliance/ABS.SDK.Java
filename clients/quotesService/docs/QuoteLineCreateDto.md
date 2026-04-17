@@ -15,8 +15,6 @@
 |**itemShortDescription** | **String** |  |  [optional] |
 |**itemPrimaryImageUrl** | **String** |  |  [optional] |
 |**shippingPolicyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**quantity** | **Double** |  |  [optional] |
@@ -102,7 +100,6 @@
 |**shippingLocationId** | **String** |  |  [optional] |
 |**locationId** | **String** |  |  [optional] |
 |**quoteItemRecordId** | **String** |  |  [optional] |
-|**businessProfileRecordId** | **String** |  |  [optional] |
 |**parentBillingItemRecordId** | **String** |  |  [optional] |
 |**quoteId** | **String** |  |  [optional] |
 

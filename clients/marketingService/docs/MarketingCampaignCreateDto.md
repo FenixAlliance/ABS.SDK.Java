@@ -23,8 +23,6 @@
 |**expectedResponsePercent** | **Double** |  |  [optional] |
 |**marketingAreaId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

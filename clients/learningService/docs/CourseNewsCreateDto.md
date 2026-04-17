@@ -13,7 +13,6 @@
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 
 
 

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CostCentreCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CostCentreCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -128,10 +128,6 @@ public class CostCentreCreateDto {
   public static final String SERIALIZED_NAME_COST_CENTRE_TYPE = "costCentreType";
   @SerializedName(SERIALIZED_NAME_COST_CENTRE_TYPE)
   private CostCentreTypeEnum costCentreType;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_COST_CENTRES_GROUP_ID = "costCentresGroupId";
   @SerializedName(SERIALIZED_NAME_COST_CENTRES_GROUP_ID)
@@ -258,25 +254,6 @@ public class CostCentreCreateDto {
   }
 
 
-  public CostCentreCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public CostCentreCreateDto costCentresGroupId(String costCentresGroupId) {
     this.costCentresGroupId = costCentresGroupId;
     return this;
@@ -331,7 +308,6 @@ public class CostCentreCreateDto {
         Objects.equals(this.disabled, costCentreCreateDto.disabled) &&
         Objects.equals(this.description, costCentreCreateDto.description) &&
         Objects.equals(this.costCentreType, costCentreCreateDto.costCentreType) &&
-        Objects.equals(this.tenantId, costCentreCreateDto.tenantId) &&
         Objects.equals(this.costCentresGroupId, costCentreCreateDto.costCentresGroupId) &&
         Objects.equals(this.parentCostCentreId, costCentreCreateDto.parentCostCentreId);
   }
@@ -342,7 +318,7 @@ public class CostCentreCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, disabled, description, costCentreType, tenantId, costCentresGroupId, parentCostCentreId);
+    return Objects.hash(id, timestamp, name, disabled, description, costCentreType, costCentresGroupId, parentCostCentreId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -362,7 +338,6 @@ public class CostCentreCreateDto {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    costCentreType: ").append(toIndentedString(costCentreType)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    costCentresGroupId: ").append(toIndentedString(costCentresGroupId)).append("\n");
     sb.append("    parentCostCentreId: ").append(toIndentedString(parentCostCentreId)).append("\n");
     sb.append("}");
@@ -393,7 +368,6 @@ public class CostCentreCreateDto {
     openapiFields.add("disabled");
     openapiFields.add("description");
     openapiFields.add("costCentreType");
-    openapiFields.add("tenantId");
     openapiFields.add("costCentresGroupId");
     openapiFields.add("parentCostCentreId");
 
@@ -437,9 +411,6 @@ public class CostCentreCreateDto {
       // validate the optional field `costCentreType`
       if (jsonObj.get("costCentreType") != null && !jsonObj.get("costCentreType").isJsonNull()) {
         CostCentreTypeEnum.validateJsonElement(jsonObj.get("costCentreType"));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("costCentresGroupId") != null && !jsonObj.get("costCentresGroupId").isJsonNull()) && !jsonObj.get("costCentresGroupId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `costCentresGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("costCentresGroupId").toString()));

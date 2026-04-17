@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BlogPostCategoryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:44.259661900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:31.394645900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BlogPostCategoryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -112,14 +112,6 @@ public class BlogPostCategoryCreateDto {
   public static final String SERIALIZED_NAME_WEB_PORTAL_I_D = "webPortalID";
   @SerializedName(SERIALIZED_NAME_WEB_PORTAL_I_D)
   private String webPortalID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public BlogPostCategoryCreateDto() {
   }
@@ -409,44 +401,6 @@ public class BlogPostCategoryCreateDto {
   }
 
 
-  public BlogPostCategoryCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public BlogPostCategoryCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -471,9 +425,7 @@ public class BlogPostCategoryCreateDto {
         Objects.equals(this.canonicalUrl, blogPostCategoryCreateDto.canonicalUrl) &&
         Objects.equals(this.imageURL, blogPostCategoryCreateDto.imageURL) &&
         Objects.equals(this.image, blogPostCategoryCreateDto.image) &&
-        Objects.equals(this.webPortalID, blogPostCategoryCreateDto.webPortalID) &&
-        Objects.equals(this.businessID, blogPostCategoryCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, blogPostCategoryCreateDto.businessProfileRecordID);
+        Objects.equals(this.webPortalID, blogPostCategoryCreateDto.webPortalID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -482,7 +434,7 @@ public class BlogPostCategoryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, slug, type, title, description, seoTitle, metaDescription, cornerstoneContent, allowSerachEngines, seoKeyPhrases, canonicalUrl, imageURL, image, webPortalID, businessID, businessProfileRecordID);
+    return Objects.hash(id, timestamp, slug, type, title, description, seoTitle, metaDescription, cornerstoneContent, allowSerachEngines, seoKeyPhrases, canonicalUrl, imageURL, image, webPortalID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -511,8 +463,6 @@ public class BlogPostCategoryCreateDto {
     sb.append("    imageURL: ").append(toIndentedString(imageURL)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    webPortalID: ").append(toIndentedString(webPortalID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -550,8 +500,6 @@ public class BlogPostCategoryCreateDto {
     openapiFields.add("imageURL");
     openapiFields.add("image");
     openapiFields.add("webPortalID");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -613,12 +561,6 @@ public class BlogPostCategoryCreateDto {
       }
       if ((jsonObj.get("webPortalID") != null && !jsonObj.get("webPortalID").isJsonNull()) && !jsonObj.get("webPortalID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `webPortalID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webPortalID").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
   }
 

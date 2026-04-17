@@ -15,9 +15,7 @@
 |**code** | **String** |  |  [optional] |
 |**path** | **String** |  |  [optional] |
 |**prefix** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  |
-|**enrollmentId** | **String** |  |  [optional] |
 |**accountTypeId** | **String** |  |  [optional] |
 |**parentAccountId** | **String** |  |  [optional] |
 |**accountCategory** | [**AccountCategoryEnum**](#AccountCategoryEnum) |  |  |

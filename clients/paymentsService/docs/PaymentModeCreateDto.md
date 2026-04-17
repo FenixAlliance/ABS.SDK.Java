@@ -11,8 +11,6 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -49,15 +49,11 @@ import org.openapitools.client.JSON;
 /**
  * ReceiptUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ReceiptUpdateDto {
   public static final String SERIALIZED_NAME_PAYMENT_ID = "paymentId";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ID)
   private String paymentId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_FOREX_RATE = "forexRate";
   @SerializedName(SERIALIZED_NAME_FOREX_RATE)
@@ -79,17 +75,9 @@ public class ReceiptUpdateDto {
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
   private String currencyId;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_ID = "accountHolderId";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_ID)
-  private String accountHolderId;
-
   public static final String SERIALIZED_NAME_CONTACT_ID = "contactId";
   @SerializedName(SERIALIZED_NAME_CONTACT_ID)
   private String contactId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_ORDER_ID = "orderId";
   @SerializedName(SERIALIZED_NAME_ORDER_ID)
@@ -118,25 +106,6 @@ public class ReceiptUpdateDto {
 
   public void setPaymentId(String paymentId) {
     this.paymentId = paymentId;
-  }
-
-
-  public ReceiptUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
   }
 
 
@@ -235,25 +204,6 @@ public class ReceiptUpdateDto {
   }
 
 
-  public ReceiptUpdateDto accountHolderId(String accountHolderId) {
-    this.accountHolderId = accountHolderId;
-    return this;
-  }
-
-  /**
-   * Get accountHolderId
-   * @return accountHolderId
-   */
-  @javax.annotation.Nullable
-  public String getAccountHolderId() {
-    return accountHolderId;
-  }
-
-  public void setAccountHolderId(String accountHolderId) {
-    this.accountHolderId = accountHolderId;
-  }
-
-
   public ReceiptUpdateDto contactId(String contactId) {
     this.contactId = contactId;
     return this;
@@ -270,25 +220,6 @@ public class ReceiptUpdateDto {
 
   public void setContactId(String contactId) {
     this.contactId = contactId;
-  }
-
-
-  public ReceiptUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -341,15 +272,12 @@ public class ReceiptUpdateDto {
     }
     ReceiptUpdateDto receiptUpdateDto = (ReceiptUpdateDto) o;
     return Objects.equals(this.paymentId, receiptUpdateDto.paymentId) &&
-        Objects.equals(this.tenantId, receiptUpdateDto.tenantId) &&
         Objects.equals(this.forexRate, receiptUpdateDto.forexRate) &&
         Objects.equals(this.totalAmount, receiptUpdateDto.totalAmount) &&
         Objects.equals(this.totalAmountInUsd, receiptUpdateDto.totalAmountInUsd) &&
         Objects.equals(this.closed, receiptUpdateDto.closed) &&
         Objects.equals(this.currencyId, receiptUpdateDto.currencyId) &&
-        Objects.equals(this.accountHolderId, receiptUpdateDto.accountHolderId) &&
         Objects.equals(this.contactId, receiptUpdateDto.contactId) &&
-        Objects.equals(this.enrollmentId, receiptUpdateDto.enrollmentId) &&
         Objects.equals(this.orderId, receiptUpdateDto.orderId) &&
         Objects.equals(this.invoiceId, receiptUpdateDto.invoiceId);
   }
@@ -360,7 +288,7 @@ public class ReceiptUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentId, tenantId, forexRate, totalAmount, totalAmountInUsd, closed, currencyId, accountHolderId, contactId, enrollmentId, orderId, invoiceId);
+    return Objects.hash(paymentId, forexRate, totalAmount, totalAmountInUsd, closed, currencyId, contactId, orderId, invoiceId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -375,15 +303,12 @@ public class ReceiptUpdateDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReceiptUpdateDto {\n");
     sb.append("    paymentId: ").append(toIndentedString(paymentId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    totalAmountInUsd: ").append(toIndentedString(totalAmountInUsd)).append("\n");
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
-    sb.append("    accountHolderId: ").append(toIndentedString(accountHolderId)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("}");
@@ -409,15 +334,12 @@ public class ReceiptUpdateDto {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("paymentId");
-    openapiFields.add("tenantId");
     openapiFields.add("forexRate");
     openapiFields.add("totalAmount");
     openapiFields.add("totalAmountInUsd");
     openapiFields.add("closed");
     openapiFields.add("currencyId");
-    openapiFields.add("accountHolderId");
     openapiFields.add("contactId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("orderId");
     openapiFields.add("invoiceId");
 
@@ -449,20 +371,11 @@ public class ReceiptUpdateDto {
       if ((jsonObj.get("paymentId") != null && !jsonObj.get("paymentId").isJsonNull()) && !jsonObj.get("paymentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentId").toString()));
       }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
       }
-      if ((jsonObj.get("accountHolderId") != null && !jsonObj.get("accountHolderId").isJsonNull()) && !jsonObj.get("accountHolderId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountHolderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderId").toString()));
-      }
       if ((jsonObj.get("contactId") != null && !jsonObj.get("contactId").isJsonNull()) && !jsonObj.get("contactId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contactId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("orderId") != null && !jsonObj.get("orderId").isJsonNull()) && !jsonObj.get("orderId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderId").toString()));

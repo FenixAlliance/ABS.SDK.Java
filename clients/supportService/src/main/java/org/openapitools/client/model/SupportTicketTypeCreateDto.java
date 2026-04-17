@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportTicketTypeCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:17.254138400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:53.222116700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportTicketTypeCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,10 +68,6 @@ public class SupportTicketTypeCreateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public SupportTicketTypeCreateDto() {
   }
@@ -152,25 +148,6 @@ public class SupportTicketTypeCreateDto {
   }
 
 
-  public SupportTicketTypeCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -184,8 +161,7 @@ public class SupportTicketTypeCreateDto {
     return Objects.equals(this.id, supportTicketTypeCreateDto.id) &&
         Objects.equals(this.timestamp, supportTicketTypeCreateDto.timestamp) &&
         Objects.equals(this.title, supportTicketTypeCreateDto.title) &&
-        Objects.equals(this.description, supportTicketTypeCreateDto.description) &&
-        Objects.equals(this.businessID, supportTicketTypeCreateDto.businessID);
+        Objects.equals(this.description, supportTicketTypeCreateDto.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +170,7 @@ public class SupportTicketTypeCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, businessID);
+    return Objects.hash(id, timestamp, title, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +188,6 @@ public class SupportTicketTypeCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,7 +214,6 @@ public class SupportTicketTypeCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("title");
     openapiFields.add("description");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -274,9 +248,6 @@ public class SupportTicketTypeCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

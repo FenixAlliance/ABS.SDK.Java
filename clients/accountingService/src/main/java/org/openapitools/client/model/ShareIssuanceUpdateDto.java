@@ -49,16 +49,8 @@ import org.openapitools.client.JSON;
 /**
  * ShareIssuanceUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ShareIssuanceUpdateDto {
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public static final String SERIALIZED_NAME_UNIT_PRICE = "unitPrice";
   @SerializedName(SERIALIZED_NAME_UNIT_PRICE)
   private Integer unitPrice;
@@ -73,44 +65,6 @@ public class ShareIssuanceUpdateDto {
 
   public ShareIssuanceUpdateDto() {
   }
-
-  public ShareIssuanceUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public ShareIssuanceUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
 
   public ShareIssuanceUpdateDto unitPrice(Integer unitPrice) {
     this.unitPrice = unitPrice;
@@ -181,9 +135,7 @@ public class ShareIssuanceUpdateDto {
       return false;
     }
     ShareIssuanceUpdateDto shareIssuanceUpdateDto = (ShareIssuanceUpdateDto) o;
-    return Objects.equals(this.tenantId, shareIssuanceUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, shareIssuanceUpdateDto.enrollmentId) &&
-        Objects.equals(this.unitPrice, shareIssuanceUpdateDto.unitPrice) &&
+    return Objects.equals(this.unitPrice, shareIssuanceUpdateDto.unitPrice) &&
         Objects.equals(this.quantity, shareIssuanceUpdateDto.quantity) &&
         Objects.equals(this.currencyId, shareIssuanceUpdateDto.currencyId);
   }
@@ -194,7 +146,7 @@ public class ShareIssuanceUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, enrollmentId, unitPrice, quantity, currencyId);
+    return Objects.hash(unitPrice, quantity, currencyId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -208,8 +160,6 @@ public class ShareIssuanceUpdateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShareIssuanceUpdateDto {\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
@@ -235,8 +185,6 @@ public class ShareIssuanceUpdateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("unitPrice");
     openapiFields.add("quantity");
     openapiFields.add("currencyId");
@@ -266,12 +214,6 @@ public class ShareIssuanceUpdateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
-      }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
       }

@@ -18,8 +18,6 @@
 |**unitId** | **String** |  |  [optional] |
 |**transactionCategoryId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**bankProfileId** | **String** |  |  [optional] |
 |**bankAccountId** | **String** |  |  [optional] |
 

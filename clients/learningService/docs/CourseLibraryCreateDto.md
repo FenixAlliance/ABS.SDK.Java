@@ -13,7 +13,6 @@
 |**description** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
 |**courseUnitID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

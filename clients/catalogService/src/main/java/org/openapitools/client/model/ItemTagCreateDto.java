@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemTagCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemTagCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,10 +68,6 @@ public class ItemTagCreateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public ItemTagCreateDto() {
   }
@@ -152,25 +148,6 @@ public class ItemTagCreateDto {
   }
 
 
-  public ItemTagCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -184,8 +161,7 @@ public class ItemTagCreateDto {
     return Objects.equals(this.id, itemTagCreateDto.id) &&
         Objects.equals(this.timestamp, itemTagCreateDto.timestamp) &&
         Objects.equals(this.title, itemTagCreateDto.title) &&
-        Objects.equals(this.description, itemTagCreateDto.description) &&
-        Objects.equals(this.businessID, itemTagCreateDto.businessID);
+        Objects.equals(this.description, itemTagCreateDto.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +170,7 @@ public class ItemTagCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, businessID);
+    return Objects.hash(id, timestamp, title, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +188,6 @@ public class ItemTagCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,12 +214,10 @@ public class ItemTagCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("title");
     openapiFields.add("description");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -283,9 +256,6 @@ public class ItemTagCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

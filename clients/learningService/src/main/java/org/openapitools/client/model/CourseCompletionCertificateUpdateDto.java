@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseCompletionCertificateUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseCompletionCertificateUpdateDto {
   public static final String SERIALIZED_NAME_STUDENT_PROFILE_I_D = "studentProfileID";
   @SerializedName(SERIALIZED_NAME_STUDENT_PROFILE_I_D)
@@ -58,14 +58,6 @@ public class CourseCompletionCertificateUpdateDto {
   public static final String SERIALIZED_NAME_COURSE_ENROLLMENT_I_D = "courseEnrollmentID";
   @SerializedName(SERIALIZED_NAME_COURSE_ENROLLMENT_I_D)
   private String courseEnrollmentID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_COURSE_COMPLETION_CERTIFICATE_TEMPLATE_I_D = "courseCompletionCertificateTemplateID";
   @SerializedName(SERIALIZED_NAME_COURSE_COMPLETION_CERTIFICATE_TEMPLATE_I_D)
@@ -113,44 +105,6 @@ public class CourseCompletionCertificateUpdateDto {
 
   public void setCourseEnrollmentID(String courseEnrollmentID) {
     this.courseEnrollmentID = courseEnrollmentID;
-  }
-
-
-  public CourseCompletionCertificateUpdateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public CourseCompletionCertificateUpdateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -204,8 +158,6 @@ public class CourseCompletionCertificateUpdateDto {
     CourseCompletionCertificateUpdateDto courseCompletionCertificateUpdateDto = (CourseCompletionCertificateUpdateDto) o;
     return Objects.equals(this.studentProfileID, courseCompletionCertificateUpdateDto.studentProfileID) &&
         Objects.equals(this.courseEnrollmentID, courseCompletionCertificateUpdateDto.courseEnrollmentID) &&
-        Objects.equals(this.businessID, courseCompletionCertificateUpdateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, courseCompletionCertificateUpdateDto.businessProfileRecordID) &&
         Objects.equals(this.courseCompletionCertificateTemplateID, courseCompletionCertificateUpdateDto.courseCompletionCertificateTemplateID) &&
         Objects.equals(this.courseID, courseCompletionCertificateUpdateDto.courseID);
   }
@@ -216,7 +168,7 @@ public class CourseCompletionCertificateUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(studentProfileID, courseEnrollmentID, businessID, businessProfileRecordID, courseCompletionCertificateTemplateID, courseID);
+    return Objects.hash(studentProfileID, courseEnrollmentID, courseCompletionCertificateTemplateID, courseID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -232,8 +184,6 @@ public class CourseCompletionCertificateUpdateDto {
     sb.append("class CourseCompletionCertificateUpdateDto {\n");
     sb.append("    studentProfileID: ").append(toIndentedString(studentProfileID)).append("\n");
     sb.append("    courseEnrollmentID: ").append(toIndentedString(courseEnrollmentID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    courseCompletionCertificateTemplateID: ").append(toIndentedString(courseCompletionCertificateTemplateID)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
     sb.append("}");
@@ -260,8 +210,6 @@ public class CourseCompletionCertificateUpdateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("studentProfileID");
     openapiFields.add("courseEnrollmentID");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("courseCompletionCertificateTemplateID");
     openapiFields.add("courseID");
 
@@ -295,12 +243,6 @@ public class CourseCompletionCertificateUpdateDto {
       }
       if ((jsonObj.get("courseEnrollmentID") != null && !jsonObj.get("courseEnrollmentID").isJsonNull()) && !jsonObj.get("courseEnrollmentID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseEnrollmentID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseEnrollmentID").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("courseCompletionCertificateTemplateID") != null && !jsonObj.get("courseCompletionCertificateTemplateID").isJsonNull()) && !jsonObj.get("courseCompletionCertificateTemplateID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseCompletionCertificateTemplateID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseCompletionCertificateTemplateID").toString()));

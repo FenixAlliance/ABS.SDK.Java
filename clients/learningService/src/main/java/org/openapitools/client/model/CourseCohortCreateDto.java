@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseCohortCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseCohortCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,10 +68,6 @@ public class CourseCohortCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public static final String SERIALIZED_NAME_START_DATE_TIME = "startDateTime";
   @SerializedName(SERIALIZED_NAME_START_DATE_TIME)
@@ -168,25 +164,6 @@ public class CourseCohortCreateDto {
   }
 
 
-  public CourseCohortCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public CourseCohortCreateDto startDateTime(OffsetDateTime startDateTime) {
     this.startDateTime = startDateTime;
     return this;
@@ -277,7 +254,6 @@ public class CourseCohortCreateDto {
         Objects.equals(this.timestamp, courseCohortCreateDto.timestamp) &&
         Objects.equals(this.name, courseCohortCreateDto.name) &&
         Objects.equals(this.courseID, courseCohortCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseCohortCreateDto.businessID) &&
         Objects.equals(this.startDateTime, courseCohortCreateDto.startDateTime) &&
         Objects.equals(this.endDateTime, courseCohortCreateDto.endDateTime) &&
         Objects.equals(this.expectedStartDateTime, courseCohortCreateDto.expectedStartDateTime) &&
@@ -290,7 +266,7 @@ public class CourseCohortCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, courseID, businessID, startDateTime, endDateTime, expectedStartDateTime, expectedEndDateTime);
+    return Objects.hash(id, timestamp, name, courseID, startDateTime, endDateTime, expectedStartDateTime, expectedEndDateTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -308,7 +284,6 @@ public class CourseCohortCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    startDateTime: ").append(toIndentedString(startDateTime)).append("\n");
     sb.append("    endDateTime: ").append(toIndentedString(endDateTime)).append("\n");
     sb.append("    expectedStartDateTime: ").append(toIndentedString(expectedStartDateTime)).append("\n");
@@ -339,7 +314,6 @@ public class CourseCohortCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
     openapiFields.add("startDateTime");
     openapiFields.add("endDateTime");
     openapiFields.add("expectedStartDateTime");
@@ -349,7 +323,6 @@ public class CourseCohortCreateDto {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -388,9 +361,6 @@ public class CourseCohortCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

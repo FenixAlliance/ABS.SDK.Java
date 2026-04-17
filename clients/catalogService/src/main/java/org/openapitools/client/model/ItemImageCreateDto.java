@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemImageCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemImageCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,14 +61,6 @@ public class ItemImageCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_ITEM_I_D = "itemID";
   @SerializedName(SERIALIZED_NAME_ITEM_I_D)
@@ -134,10 +126,6 @@ public class ItemImageCreateDto {
   @SerializedName(SERIALIZED_NAME_PARENT_FILE_UPLOAD_I_D)
   private String parentFileUploadID;
 
-  public static final String SERIALIZED_NAME_ACCOUNT_HOLDER_I_D = "accountHolderID";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_HOLDER_I_D)
-  private String accountHolderID;
-
   public ItemImageCreateDto() {
   }
 
@@ -176,44 +164,6 @@ public class ItemImageCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public ItemImageCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public ItemImageCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -523,25 +473,6 @@ public class ItemImageCreateDto {
   }
 
 
-  public ItemImageCreateDto accountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-    return this;
-  }
-
-  /**
-   * Get accountHolderID
-   * @return accountHolderID
-   */
-  @javax.annotation.Nullable
-  public String getAccountHolderID() {
-    return accountHolderID;
-  }
-
-  public void setAccountHolderID(String accountHolderID) {
-    this.accountHolderID = accountHolderID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -554,8 +485,6 @@ public class ItemImageCreateDto {
     ItemImageCreateDto itemImageCreateDto = (ItemImageCreateDto) o;
     return Objects.equals(this.id, itemImageCreateDto.id) &&
         Objects.equals(this.timestamp, itemImageCreateDto.timestamp) &&
-        Objects.equals(this.businessID, itemImageCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, itemImageCreateDto.businessProfileRecordID) &&
         Objects.equals(this.itemID, itemImageCreateDto.itemID) &&
         Objects.equals(this.isItemMozaicBG, itemImageCreateDto.isItemMozaicBG) &&
         Objects.equals(this.mD5Hash, itemImageCreateDto.mD5Hash) &&
@@ -571,8 +500,7 @@ public class ItemImageCreateDto {
         Objects.equals(this.fileLength, itemImageCreateDto.fileLength) &&
         Objects.equals(this.validResponse, itemImageCreateDto.validResponse) &&
         Objects.equals(this.socialProfileID, itemImageCreateDto.socialProfileID) &&
-        Objects.equals(this.parentFileUploadID, itemImageCreateDto.parentFileUploadID) &&
-        Objects.equals(this.accountHolderID, itemImageCreateDto.accountHolderID);
+        Objects.equals(this.parentFileUploadID, itemImageCreateDto.parentFileUploadID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -581,7 +509,7 @@ public class ItemImageCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, businessID, businessProfileRecordID, itemID, isItemMozaicBG, mD5Hash, metadata, fileUploadURL, fileName, title, _abstract, author, keyWords, notes, contentType, fileLength, validResponse, socialProfileID, parentFileUploadID, accountHolderID);
+    return Objects.hash(id, timestamp, itemID, isItemMozaicBG, mD5Hash, metadata, fileUploadURL, fileName, title, _abstract, author, keyWords, notes, contentType, fileLength, validResponse, socialProfileID, parentFileUploadID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -597,8 +525,6 @@ public class ItemImageCreateDto {
     sb.append("class ItemImageCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
     sb.append("    isItemMozaicBG: ").append(toIndentedString(isItemMozaicBG)).append("\n");
     sb.append("    mD5Hash: ").append(toIndentedString(mD5Hash)).append("\n");
@@ -615,7 +541,6 @@ public class ItemImageCreateDto {
     sb.append("    validResponse: ").append(toIndentedString(validResponse)).append("\n");
     sb.append("    socialProfileID: ").append(toIndentedString(socialProfileID)).append("\n");
     sb.append("    parentFileUploadID: ").append(toIndentedString(parentFileUploadID)).append("\n");
-    sb.append("    accountHolderID: ").append(toIndentedString(accountHolderID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -640,8 +565,6 @@ public class ItemImageCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("itemID");
     openapiFields.add("isItemMozaicBG");
     openapiFields.add("mD5Hash");
@@ -658,11 +581,9 @@ public class ItemImageCreateDto {
     openapiFields.add("validResponse");
     openapiFields.add("socialProfileID");
     openapiFields.add("parentFileUploadID");
-    openapiFields.add("accountHolderID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("businessID");
     openapiRequiredFields.add("fileName");
   }
 
@@ -696,12 +617,6 @@ public class ItemImageCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("itemID") != null && !jsonObj.get("itemID").isJsonNull()) && !jsonObj.get("itemID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemID").toString()));
@@ -741,9 +656,6 @@ public class ItemImageCreateDto {
       }
       if ((jsonObj.get("parentFileUploadID") != null && !jsonObj.get("parentFileUploadID").isJsonNull()) && !jsonObj.get("parentFileUploadID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentFileUploadID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentFileUploadID").toString()));
-      }
-      if ((jsonObj.get("accountHolderID") != null && !jsonObj.get("accountHolderID").isJsonNull()) && !jsonObj.get("accountHolderID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountHolderID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountHolderID").toString()));
       }
   }
 

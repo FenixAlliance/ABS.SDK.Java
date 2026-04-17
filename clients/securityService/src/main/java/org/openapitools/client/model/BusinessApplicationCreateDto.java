@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BusinessApplicationCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:42.895204700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:24.707179800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BusinessApplicationCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -112,14 +112,6 @@ public class BusinessApplicationCreateDto {
   public static final String SERIALIZED_NAME_TERMS_AND_CONDITIONS_U_R_L = "termsAndConditionsURL";
   @SerializedName(SERIALIZED_NAME_TERMS_AND_CONDITIONS_U_R_L)
   private String termsAndConditionsURL;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_REQUIRE_HTTPS = "requireHttps";
   @SerializedName(SERIALIZED_NAME_REQUIRE_HTTPS)
@@ -494,44 +486,6 @@ public class BusinessApplicationCreateDto {
 
   public void setTermsAndConditionsURL(String termsAndConditionsURL) {
     this.termsAndConditionsURL = termsAndConditionsURL;
-  }
-
-
-  public BusinessApplicationCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public BusinessApplicationCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -978,8 +932,6 @@ public class BusinessApplicationCreateDto {
         Objects.equals(this.contactEmail, businessApplicationCreateDto.contactEmail) &&
         Objects.equals(this.privacyPolicyURL, businessApplicationCreateDto.privacyPolicyURL) &&
         Objects.equals(this.termsAndConditionsURL, businessApplicationCreateDto.termsAndConditionsURL) &&
-        Objects.equals(this.businessID, businessApplicationCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, businessApplicationCreateDto.businessProfileRecordID) &&
         Objects.equals(this.requireHttps, businessApplicationCreateDto.requireHttps) &&
         Objects.equals(this.requireAppSecret, businessApplicationCreateDto.requireAppSecret) &&
         Objects.equals(this.enableClientOauthLogin, businessApplicationCreateDto.enableClientOauthLogin) &&
@@ -1010,7 +962,7 @@ public class BusinessApplicationCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, namespace, displayName, avatarURL, websiteUrl, isMultiTenant, isVerified, isDisabled, isSinglePageApplication, isNativeOrDesktopApp, contactEmail, privacyPolicyURL, termsAndConditionsURL, businessID, businessProfileRecordID, requireHttps, requireAppSecret, enableClientOauthLogin, enableWebOAuthLogin, enableDeviceOAuthLogin, allowAccessToSuiteSettings, requireWebOAuthReauthentication, requireTwoFactorReauthorization, enableEmbeddedBrowserOAuthLogin, useStrictModeForRedirectURIs, countryRestricted, spaUIEngine, spaStaticFilesRootPath, spaRelativeAppPath, spaNpmStartScript, spaNpmPublishScript, spaRelativeSourcePath, spaRelativeOutputPath, useProxyToSpaDevelopmentServer, spaDevelopmentServerUri, enableGitRepoManagement, gitRepoUrl);
+    return Objects.hash(id, timestamp, name, namespace, displayName, avatarURL, websiteUrl, isMultiTenant, isVerified, isDisabled, isSinglePageApplication, isNativeOrDesktopApp, contactEmail, privacyPolicyURL, termsAndConditionsURL, requireHttps, requireAppSecret, enableClientOauthLogin, enableWebOAuthLogin, enableDeviceOAuthLogin, allowAccessToSuiteSettings, requireWebOAuthReauthentication, requireTwoFactorReauthorization, enableEmbeddedBrowserOAuthLogin, useStrictModeForRedirectURIs, countryRestricted, spaUIEngine, spaStaticFilesRootPath, spaRelativeAppPath, spaNpmStartScript, spaNpmPublishScript, spaRelativeSourcePath, spaRelativeOutputPath, useProxyToSpaDevelopmentServer, spaDevelopmentServerUri, enableGitRepoManagement, gitRepoUrl);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1039,8 +991,6 @@ public class BusinessApplicationCreateDto {
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
     sb.append("    privacyPolicyURL: ").append(toIndentedString(privacyPolicyURL)).append("\n");
     sb.append("    termsAndConditionsURL: ").append(toIndentedString(termsAndConditionsURL)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    requireHttps: ").append(toIndentedString(requireHttps)).append("\n");
     sb.append("    requireAppSecret: ").append(toIndentedString(requireAppSecret)).append("\n");
     sb.append("    enableClientOauthLogin: ").append(toIndentedString(enableClientOauthLogin)).append("\n");
@@ -1100,8 +1050,6 @@ public class BusinessApplicationCreateDto {
     openapiFields.add("contactEmail");
     openapiFields.add("privacyPolicyURL");
     openapiFields.add("termsAndConditionsURL");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("requireHttps");
     openapiFields.add("requireAppSecret");
     openapiFields.add("enableClientOauthLogin");
@@ -1184,12 +1132,6 @@ public class BusinessApplicationCreateDto {
       }
       if ((jsonObj.get("termsAndConditionsURL") != null && !jsonObj.get("termsAndConditionsURL").isJsonNull()) && !jsonObj.get("termsAndConditionsURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `termsAndConditionsURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("termsAndConditionsURL").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("spaUIEngine") != null && !jsonObj.get("spaUIEngine").isJsonNull()) && !jsonObj.get("spaUIEngine").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `spaUIEngine` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spaUIEngine").toString()));

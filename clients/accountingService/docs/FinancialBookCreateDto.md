@@ -11,7 +11,6 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
-|**tenantID** | **String** |  |  [optional] |
 
 
 

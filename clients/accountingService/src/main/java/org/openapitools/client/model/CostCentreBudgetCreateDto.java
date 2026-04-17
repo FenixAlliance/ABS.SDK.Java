@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CostCentreBudgetCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CostCentreBudgetCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,10 +64,6 @@ public class CostCentreBudgetCreateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
 
   public static final String SERIALIZED_NAME_FISCAL_YEAR_ID = "fiscalYearId";
   @SerializedName(SERIALIZED_NAME_FISCAL_YEAR_ID)
@@ -137,25 +133,6 @@ public class CostCentreBudgetCreateDto {
   }
 
 
-  public CostCentreBudgetCreateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
   public CostCentreBudgetCreateDto fiscalYearId(String fiscalYearId) {
     this.fiscalYearId = fiscalYearId;
     return this;
@@ -207,7 +184,6 @@ public class CostCentreBudgetCreateDto {
     return Objects.equals(this.id, costCentreBudgetCreateDto.id) &&
         Objects.equals(this.timestamp, costCentreBudgetCreateDto.timestamp) &&
         Objects.equals(this.name, costCentreBudgetCreateDto.name) &&
-        Objects.equals(this.tenantId, costCentreBudgetCreateDto.tenantId) &&
         Objects.equals(this.fiscalYearId, costCentreBudgetCreateDto.fiscalYearId) &&
         Objects.equals(this.costCentreId, costCentreBudgetCreateDto.costCentreId);
   }
@@ -218,7 +194,7 @@ public class CostCentreBudgetCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, tenantId, fiscalYearId, costCentreId);
+    return Objects.hash(id, timestamp, name, fiscalYearId, costCentreId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -235,7 +211,6 @@ public class CostCentreBudgetCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    fiscalYearId: ").append(toIndentedString(fiscalYearId)).append("\n");
     sb.append("    costCentreId: ").append(toIndentedString(costCentreId)).append("\n");
     sb.append("}");
@@ -263,7 +238,6 @@ public class CostCentreBudgetCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("name");
-    openapiFields.add("tenantId");
     openapiFields.add("fiscalYearId");
     openapiFields.add("costCentreId");
 
@@ -297,9 +271,6 @@ public class CostCentreBudgetCreateDto {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("fiscalYearId") != null && !jsonObj.get("fiscalYearId").isJsonNull()) && !jsonObj.get("fiscalYearId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalYearId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalYearId").toString()));

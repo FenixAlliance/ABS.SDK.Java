@@ -9,8 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

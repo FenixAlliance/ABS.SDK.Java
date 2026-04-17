@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportRequestAttachmentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:17.254138400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:53.222116700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportRequestAttachmentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -100,14 +100,6 @@ public class SupportRequestAttachmentCreateDto {
   public static final String SERIALIZED_NAME_FILE_PATH = "filePath";
   @SerializedName(SERIALIZED_NAME_FILE_PATH)
   private String filePath;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -348,44 +340,6 @@ public class SupportRequestAttachmentCreateDto {
   }
 
 
-  public SupportRequestAttachmentCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public SupportRequestAttachmentCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
   public SupportRequestAttachmentCreateDto metadata(String metadata) {
     this.metadata = metadata;
     return this;
@@ -446,8 +400,6 @@ public class SupportRequestAttachmentCreateDto {
         Objects.equals(this.validResponse, supportRequestAttachmentCreateDto.validResponse) &&
         Objects.equals(this.parentFileUploadId, supportRequestAttachmentCreateDto.parentFileUploadId) &&
         Objects.equals(this.filePath, supportRequestAttachmentCreateDto.filePath) &&
-        Objects.equals(this.businessID, supportRequestAttachmentCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, supportRequestAttachmentCreateDto.businessProfileRecordID) &&
         Objects.equals(this.metadata, supportRequestAttachmentCreateDto.metadata) &&
         Objects.equals(this.supportRequestID, supportRequestAttachmentCreateDto.supportRequestID);
   }
@@ -458,7 +410,7 @@ public class SupportRequestAttachmentCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, businessID, businessProfileRecordID, metadata, supportRequestID);
+    return Objects.hash(id, timestamp, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, metadata, supportRequestID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -484,8 +436,6 @@ public class SupportRequestAttachmentCreateDto {
     sb.append("    validResponse: ").append(toIndentedString(validResponse)).append("\n");
     sb.append("    parentFileUploadId: ").append(toIndentedString(parentFileUploadId)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    supportRequestID: ").append(toIndentedString(supportRequestID)).append("\n");
     sb.append("}");
@@ -522,8 +472,6 @@ public class SupportRequestAttachmentCreateDto {
     openapiFields.add("validResponse");
     openapiFields.add("parentFileUploadId");
     openapiFields.add("filePath");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("metadata");
     openapiFields.add("supportRequestID");
 
@@ -578,12 +526,6 @@ public class SupportRequestAttachmentCreateDto {
       }
       if ((jsonObj.get("filePath") != null && !jsonObj.get("filePath").isJsonNull()) && !jsonObj.get("filePath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filePath").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));

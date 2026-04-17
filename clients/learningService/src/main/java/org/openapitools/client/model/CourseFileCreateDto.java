@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseFileCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:22:44.552402800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:27.000120300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseFileCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,10 +84,6 @@ public class CourseFileCreateDto {
   public static final String SERIALIZED_NAME_COURSE_I_D = "courseID";
   @SerializedName(SERIALIZED_NAME_COURSE_I_D)
   private String courseID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
 
   public CourseFileCreateDto() {
   }
@@ -244,25 +240,6 @@ public class CourseFileCreateDto {
   }
 
 
-  public CourseFileCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -280,8 +257,7 @@ public class CourseFileCreateDto {
         Objects.equals(this.fileUploadURL, courseFileCreateDto.fileUploadURL) &&
         Objects.equals(this.contentType, courseFileCreateDto.contentType) &&
         Objects.equals(this.fileLength, courseFileCreateDto.fileLength) &&
-        Objects.equals(this.courseID, courseFileCreateDto.courseID) &&
-        Objects.equals(this.businessID, courseFileCreateDto.businessID);
+        Objects.equals(this.courseID, courseFileCreateDto.courseID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -290,7 +266,7 @@ public class CourseFileCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, fileName, fileUploadURL, contentType, fileLength, courseID, businessID);
+    return Objects.hash(id, timestamp, title, fileName, fileUploadURL, contentType, fileLength, courseID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,7 +288,6 @@ public class CourseFileCreateDto {
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
     sb.append("    fileLength: ").append(toIndentedString(fileLength)).append("\n");
     sb.append("    courseID: ").append(toIndentedString(courseID)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -343,7 +318,6 @@ public class CourseFileCreateDto {
     openapiFields.add("contentType");
     openapiFields.add("fileLength");
     openapiFields.add("courseID");
-    openapiFields.add("businessID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -351,7 +325,6 @@ public class CourseFileCreateDto {
     openapiRequiredFields.add("fileName");
     openapiRequiredFields.add("fileUploadURL");
     openapiRequiredFields.add("courseID");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -399,9 +372,6 @@ public class CourseFileCreateDto {
       }
       if (!jsonObj.get("courseID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `courseID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("courseID").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
   }
 

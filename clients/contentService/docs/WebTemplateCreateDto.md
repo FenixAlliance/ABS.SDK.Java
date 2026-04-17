@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  [optional] |
+|**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**slug** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |

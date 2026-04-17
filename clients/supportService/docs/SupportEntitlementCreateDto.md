@@ -48,12 +48,9 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
-|**accountHolderID** | **String** |  |  [optional] |
 |**individualID** | **String** |  |  [optional] |
 |**organizationID** | **String** |  |  [optional] |
 |**receiverBusinessID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 |**paymentTokenID** | **String** |  |  [optional] |
 |**walletAccountID** | **String** |  |  [optional] |
 |**securityCertificateID** | **String** |  |  [optional] |

@@ -16,8 +16,6 @@
 |**modifiedOn** | **OffsetDateTime** |  |  [optional] |
 |**lastUsedOn** | **OffsetDateTime** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**marketingListType** | [**MarketingListTypeEnum**](#MarketingListTypeEnum) |  |  [optional] |
 |**marketingListTarget** | [**MarketingListTargetEnum**](#MarketingListTargetEnum) |  |  [optional] |
 

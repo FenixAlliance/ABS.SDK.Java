@@ -1953,10 +1953,8 @@ components:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
-        enrollmentId: enrollmentId
         discountListId: discountListId
         beginQuantity: 0.8008281904610115
-        tenantId: tenantId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         percent: 1.4658129805029452
@@ -1984,16 +1982,6 @@ components:
         value:
           format: double
           type: number
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         discountListId:
           maxLength: 36
           minLength: 0
@@ -2149,9 +2137,7 @@ components:
     DiscountListCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -2168,16 +2154,6 @@ components:
           nullable: true
           type: string
         currencyId:
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
       type: object
@@ -2295,9 +2271,7 @@ components:
     DiscountListUpdateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         currencyId: currencyId
       properties:
         name:
@@ -2308,25 +2282,13 @@ components:
         currencyId:
           nullable: true
           type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
       type: object
     DiscountUpdateDto:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
-        enrollmentId: enrollmentId
         discountListId: discountListId
         beginQuantity: 0.8008281904610115
-        tenantId: tenantId
         description: description
         percent: 1.4658129805029452
         value: 5.962133916683182
@@ -2346,16 +2308,6 @@ components:
         value:
           format: double
           type: number
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
         discountListId:
           maxLength: 36
           minLength: 0
@@ -2801,17 +2753,15 @@ components:
     ItemPriceCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
-        discountListId: discountListId
-        priceListId: priceListId
-        percent: 6.027456183070403
         itemId: itemId
         unitGroupId: unitGroupId
+        discountListId: discountListId
         price: 0.8008281904610115
-        tenantId: tenantId
         unitId: unitId
+        priceListId: priceListId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
+        percent: 6.027456183070403
         timestamp: 2000-01-23T04:56:07.000+00:00
         roundingPolicyId: roundingPolicyId
       properties:
@@ -2827,9 +2777,6 @@ components:
         unitId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         currencyId:
           nullable: true
           type: string
@@ -2837,9 +2784,6 @@ components:
           nullable: true
           type: string
         unitGroupId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         discountListId:
@@ -3138,11 +3082,9 @@ components:
     PriceListCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         unitGroupId: unitGroupId
         endDate: 2000-01-23T04:56:07.000+00:00
         name: name
-        tenantId: tenantId
         description: description
         unitId: unitId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -3178,12 +3120,6 @@ components:
           nullable: true
           type: string
         unitGroupId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       required:

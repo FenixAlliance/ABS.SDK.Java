@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitLineUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitLineUpdateDto {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)
@@ -74,14 +74,6 @@ public class DealUnitLineUpdateDto {
   public static final String SERIALIZED_NAME_SHIPPING_POLICY_ID = "shippingPolicyId";
   @SerializedName(SERIALIZED_NAME_SHIPPING_POLICY_ID)
   private String shippingPolicyId;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
@@ -527,10 +519,6 @@ public class DealUnitLineUpdateDto {
   @SerializedName(SERIALIZED_NAME_QUOTE_ITEM_RECORD_ID)
   private String quoteItemRecordId;
 
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID = "businessProfileRecordId";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_ID)
-  private String businessProfileRecordId;
-
   public static final String SERIALIZED_NAME_PARENT_BILLING_ITEM_RECORD_ID = "parentBillingItemRecordId";
   @SerializedName(SERIALIZED_NAME_PARENT_BILLING_ITEM_RECORD_ID)
   private String parentBillingItemRecordId;
@@ -649,44 +637,6 @@ public class DealUnitLineUpdateDto {
 
   public void setShippingPolicyId(String shippingPolicyId) {
     this.shippingPolicyId = shippingPolicyId;
-  }
-
-
-  public DealUnitLineUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public DealUnitLineUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
   }
 
 
@@ -2305,25 +2255,6 @@ public class DealUnitLineUpdateDto {
   }
 
 
-  public DealUnitLineUpdateDto businessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordId
-   * @return businessProfileRecordId
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordId() {
-    return businessProfileRecordId;
-  }
-
-  public void setBusinessProfileRecordId(String businessProfileRecordId) {
-    this.businessProfileRecordId = businessProfileRecordId;
-  }
-
-
   public DealUnitLineUpdateDto parentBillingItemRecordId(String parentBillingItemRecordId) {
     this.parentBillingItemRecordId = parentBillingItemRecordId;
     return this;
@@ -2359,8 +2290,6 @@ public class DealUnitLineUpdateDto {
         Objects.equals(this.itemShortDescription, dealUnitLineUpdateDto.itemShortDescription) &&
         Objects.equals(this.itemPrimaryImageUrl, dealUnitLineUpdateDto.itemPrimaryImageUrl) &&
         Objects.equals(this.shippingPolicyId, dealUnitLineUpdateDto.shippingPolicyId) &&
-        Objects.equals(this.tenantId, dealUnitLineUpdateDto.tenantId) &&
-        Objects.equals(this.enrollmentId, dealUnitLineUpdateDto.enrollmentId) &&
         Objects.equals(this.currencyId, dealUnitLineUpdateDto.currencyId) &&
         Objects.equals(this.description, dealUnitLineUpdateDto.description) &&
         Objects.equals(this.quantity, dealUnitLineUpdateDto.quantity) &&
@@ -2446,7 +2375,6 @@ public class DealUnitLineUpdateDto {
         Objects.equals(this.shippingLocationId, dealUnitLineUpdateDto.shippingLocationId) &&
         Objects.equals(this.locationId, dealUnitLineUpdateDto.locationId) &&
         Objects.equals(this.quoteItemRecordId, dealUnitLineUpdateDto.quoteItemRecordId) &&
-        Objects.equals(this.businessProfileRecordId, dealUnitLineUpdateDto.businessProfileRecordId) &&
         Objects.equals(this.parentBillingItemRecordId, dealUnitLineUpdateDto.parentBillingItemRecordId);
   }
 
@@ -2456,7 +2384,7 @@ public class DealUnitLineUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(closed, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, tenantId, enrollmentId, currencyId, description, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, taxCalculationMethod, costCalculationMethod, forexRatesSnapshot, forexRate, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalTaxes, totalTaxesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, shippingLocationId, locationId, quoteItemRecordId, businessProfileRecordId, parentBillingItemRecordId);
+    return Objects.hash(closed, itemId, itemTitle, itemShortDescription, itemPrimaryImageUrl, shippingPolicyId, currencyId, description, quantity, free, freeReason, freeReasonCode, data, dataLabel, data1, data1Label, data2, data2Label, data3, data3Label, data4, data4Label, data5, data5Label, data6, data6Label, data7, data7Label, data8, data8Label, data9, data9Label, itemPriceId, priceListItemId, unitId, unitGroupId, taxCalculationMethod, costCalculationMethod, forexRatesSnapshot, forexRate, totalBaseAmountInUsd, totalProfitInUsd, totalDetailAmountInUsd, totalTaxBaseInUsd, totalDiscountsInUsd, totalTaxesInUsd, totalWithheldTaxesInUsd, totalShippingCostInUsd, totalShippingTaxesInUsd, totalWarrantyCostInUsd, totalReturnCostInUsd, totalRefundCostInUsd, totalSurchargesInUsd, totalAmountInUsd, totalGlobalDiscountsInUsd, totalGlobalSurchargesInUsd, customGlobalSurchargesAmount, customGlobalSurchargesAmountCurrencyId, customGlobalDiscountsAmount, customGlobalDiscountsAmountCurrencyId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalTaxes, totalTaxesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, total, totalCurrencyId, returnPolicyId, refundPolicyId, warrantyPolicyId, shipmentPolicyId, shippingLocationId, locationId, quoteItemRecordId, parentBillingItemRecordId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -2476,8 +2404,6 @@ public class DealUnitLineUpdateDto {
     sb.append("    itemShortDescription: ").append(toIndentedString(itemShortDescription)).append("\n");
     sb.append("    itemPrimaryImageUrl: ").append(toIndentedString(itemPrimaryImageUrl)).append("\n");
     sb.append("    shippingPolicyId: ").append(toIndentedString(shippingPolicyId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
@@ -2563,7 +2489,6 @@ public class DealUnitLineUpdateDto {
     sb.append("    shippingLocationId: ").append(toIndentedString(shippingLocationId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    quoteItemRecordId: ").append(toIndentedString(quoteItemRecordId)).append("\n");
-    sb.append("    businessProfileRecordId: ").append(toIndentedString(businessProfileRecordId)).append("\n");
     sb.append("    parentBillingItemRecordId: ").append(toIndentedString(parentBillingItemRecordId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -2593,8 +2518,6 @@ public class DealUnitLineUpdateDto {
     openapiFields.add("itemShortDescription");
     openapiFields.add("itemPrimaryImageUrl");
     openapiFields.add("shippingPolicyId");
-    openapiFields.add("tenantId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("currencyId");
     openapiFields.add("description");
     openapiFields.add("quantity");
@@ -2680,7 +2603,6 @@ public class DealUnitLineUpdateDto {
     openapiFields.add("shippingLocationId");
     openapiFields.add("locationId");
     openapiFields.add("quoteItemRecordId");
-    openapiFields.add("businessProfileRecordId");
     openapiFields.add("parentBillingItemRecordId");
 
     // a set of required properties/fields (JSON key names)
@@ -2722,12 +2644,6 @@ public class DealUnitLineUpdateDto {
       }
       if ((jsonObj.get("shippingPolicyId") != null && !jsonObj.get("shippingPolicyId").isJsonNull()) && !jsonObj.get("shippingPolicyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shippingPolicyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shippingPolicyId").toString()));
-      }
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
@@ -2892,9 +2808,6 @@ public class DealUnitLineUpdateDto {
       }
       if ((jsonObj.get("quoteItemRecordId") != null && !jsonObj.get("quoteItemRecordId").isJsonNull()) && !jsonObj.get("quoteItemRecordId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quoteItemRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quoteItemRecordId").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordId") != null && !jsonObj.get("businessProfileRecordId").isJsonNull()) && !jsonObj.get("businessProfileRecordId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordId").toString()));
       }
       if ((jsonObj.get("parentBillingItemRecordId") != null && !jsonObj.get("parentBillingItemRecordId").isJsonNull()) && !jsonObj.get("parentBillingItemRecordId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentBillingItemRecordId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentBillingItemRecordId").toString()));

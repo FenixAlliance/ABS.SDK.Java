@@ -18,8 +18,6 @@
 |**creditMonths** | **Double** |  |  [optional] |
 |**creditYears** | **Double** |  |  [optional] |
 |**paymentModeID** | **String** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -50,12 +50,8 @@ import org.openapitools.client.JSON;
 /**
  * OrderUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:23:10.988594600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:57.178029-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class OrderUpdateDto {
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
-
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -332,10 +328,6 @@ public class OrderUpdateDto {
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
   private String currencyId;
 
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
-
   public static final String SERIALIZED_NAME_INDIVIDUAL_ID = "individualId";
   @SerializedName(SERIALIZED_NAME_INDIVIDUAL_ID)
   private String individualId;
@@ -390,25 +382,6 @@ public class OrderUpdateDto {
 
   public OrderUpdateDto() {
   }
-
-  public OrderUpdateDto tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nullable
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
 
   public OrderUpdateDto firstName(String firstName) {
     this.firstName = firstName;
@@ -1227,25 +1200,6 @@ public class OrderUpdateDto {
   }
 
 
-  public OrderUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public OrderUpdateDto individualId(String individualId) {
     this.individualId = individualId;
     return this;
@@ -1503,8 +1457,7 @@ public class OrderUpdateDto {
       return false;
     }
     OrderUpdateDto orderUpdateDto = (OrderUpdateDto) o;
-    return Objects.equals(this.tenantId, orderUpdateDto.tenantId) &&
-        Objects.equals(this.firstName, orderUpdateDto.firstName) &&
+    return Objects.equals(this.firstName, orderUpdateDto.firstName) &&
         Objects.equals(this.lastName, orderUpdateDto.lastName) &&
         Objects.equals(this.companyName, orderUpdateDto.companyName) &&
         Objects.equals(this.billingEmail, orderUpdateDto.billingEmail) &&
@@ -1547,7 +1500,6 @@ public class OrderUpdateDto {
         Objects.equals(this.userId, orderUpdateDto.userId) &&
         Objects.equals(this.forexRate, orderUpdateDto.forexRate) &&
         Objects.equals(this.currencyId, orderUpdateDto.currencyId) &&
-        Objects.equals(this.enrollmentId, orderUpdateDto.enrollmentId) &&
         Objects.equals(this.individualId, orderUpdateDto.individualId) &&
         Objects.equals(this.organizationId, orderUpdateDto.organizationId) &&
         Objects.equals(this.totalAmountInUsd, orderUpdateDto.totalAmountInUsd) &&
@@ -1569,7 +1521,7 @@ public class OrderUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, userId, forexRate, currencyId, enrollmentId, individualId, organizationId, totalAmountInUsd, totalTaxesInUsd, receiverTenantId, closed, priceListId, paymentTermId, quoteStatus, effectiveTo, effectiveFrom, description, title);
+    return Objects.hash(firstName, lastName, companyName, billingEmail, addressLine1, addressLine2, postalCode, countryId, stateId, cityId, billingLocationId, shippingLocationId, shippingMethodId, totalDetail, totalDetailCurrencyId, totalProfit, totalProfitCurrencyId, totalDiscounts, totalDiscountsCurrencyId, totalSurcharges, totalSurchargesCurrencyId, totalShippingTax, totalShippingTaxCurrencyId, totalShippingCost, totalShippingCostCurrencyId, totalGlobalDiscounts, totalGlobalDiscountsCurrencyId, totalGlobalSurcharges, totalGlobalSurchargesCurrencyId, totalWithheldTax, totalWithheldTaxCurrencyId, totalTaxBase, totalTaxBaseCurrencyId, totalTaxes, totalTaxesCurrencyId, total, totalCurrencyId, costCalculationMethod, taxCalculationMethod, cartId, userId, forexRate, currencyId, individualId, organizationId, totalAmountInUsd, totalTaxesInUsd, receiverTenantId, closed, priceListId, paymentTermId, quoteStatus, effectiveTo, effectiveFrom, description, title);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1583,7 +1535,6 @@ public class OrderUpdateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderUpdateDto {\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
@@ -1627,7 +1578,6 @@ public class OrderUpdateDto {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    forexRate: ").append(toIndentedString(forexRate)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    totalAmountInUsd: ").append(toIndentedString(totalAmountInUsd)).append("\n");
@@ -1663,7 +1613,6 @@ public class OrderUpdateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tenantId");
     openapiFields.add("firstName");
     openapiFields.add("lastName");
     openapiFields.add("companyName");
@@ -1707,7 +1656,6 @@ public class OrderUpdateDto {
     openapiFields.add("userId");
     openapiFields.add("forexRate");
     openapiFields.add("currencyId");
-    openapiFields.add("enrollmentId");
     openapiFields.add("individualId");
     openapiFields.add("organizationId");
     openapiFields.add("totalAmountInUsd");
@@ -1747,9 +1695,6 @@ public class OrderUpdateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
       if ((jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonNull()) && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
       }
@@ -1847,9 +1792,6 @@ public class OrderUpdateDto {
       }
       if ((jsonObj.get("currencyId") != null && !jsonObj.get("currencyId").isJsonNull()) && !jsonObj.get("currencyId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("individualId") != null && !jsonObj.get("individualId").isJsonNull()) && !jsonObj.get("individualId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `individualId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("individualId").toString()));

@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,8 +51,16 @@ import org.openapitools.client.JSON;
 /**
  * SupportTicketPriorityCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:17.254138400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:53.222116700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportTicketPriorityCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
@@ -59,16 +69,50 @@ public class SupportTicketPriorityCreateDto {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
   public static final String SERIALIZED_NAME_SUPPORT_ENTITLEMENT_I_D = "supportEntitlementID";
   @SerializedName(SERIALIZED_NAME_SUPPORT_ENTITLEMENT_I_D)
   private String supportEntitlementID;
 
   public SupportTicketPriorityCreateDto() {
   }
+
+  public SupportTicketPriorityCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public SupportTicketPriorityCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
 
   public SupportTicketPriorityCreateDto title(String title) {
     this.title = title;
@@ -108,25 +152,6 @@ public class SupportTicketPriorityCreateDto {
   }
 
 
-  public SupportTicketPriorityCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
   public SupportTicketPriorityCreateDto supportEntitlementID(String supportEntitlementID) {
     this.supportEntitlementID = supportEntitlementID;
     return this;
@@ -156,9 +181,10 @@ public class SupportTicketPriorityCreateDto {
       return false;
     }
     SupportTicketPriorityCreateDto supportTicketPriorityCreateDto = (SupportTicketPriorityCreateDto) o;
-    return Objects.equals(this.title, supportTicketPriorityCreateDto.title) &&
+    return Objects.equals(this.id, supportTicketPriorityCreateDto.id) &&
+        Objects.equals(this.timestamp, supportTicketPriorityCreateDto.timestamp) &&
+        Objects.equals(this.title, supportTicketPriorityCreateDto.title) &&
         Objects.equals(this.description, supportTicketPriorityCreateDto.description) &&
-        Objects.equals(this.businessID, supportTicketPriorityCreateDto.businessID) &&
         Objects.equals(this.supportEntitlementID, supportTicketPriorityCreateDto.supportEntitlementID);
   }
 
@@ -168,7 +194,7 @@ public class SupportTicketPriorityCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, businessID, supportEntitlementID);
+    return Objects.hash(id, timestamp, title, description, supportEntitlementID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -182,9 +208,10 @@ public class SupportTicketPriorityCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SupportTicketPriorityCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
     sb.append("    supportEntitlementID: ").append(toIndentedString(supportEntitlementID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -208,9 +235,10 @@ public class SupportTicketPriorityCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("title");
     openapiFields.add("description");
-    openapiFields.add("businessID");
     openapiFields.add("supportEntitlementID");
 
     // a set of required properties/fields (JSON key names)
@@ -238,14 +266,14 @@ public class SupportTicketPriorityCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("businessID") != null && !jsonObj.get("businessID").isJsonNull()) && !jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
       }
       if ((jsonObj.get("supportEntitlementID") != null && !jsonObj.get("supportEntitlementID").isJsonNull()) && !jsonObj.get("supportEntitlementID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `supportEntitlementID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supportEntitlementID").toString()));

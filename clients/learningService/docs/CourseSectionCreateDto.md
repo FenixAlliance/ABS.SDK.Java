@@ -13,7 +13,6 @@
 |**icon** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**courseID** | **String** |  |  |
-|**businessID** | **String** |  |  |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 |**hideFromStudents** | **Boolean** |  |  [optional] |
 

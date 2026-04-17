@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * FiscalYearUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:15.510440700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:05.165139800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FiscalYearUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -71,6 +71,10 @@ public class FiscalYearUpdateDto {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
+
+  public static final String SERIALIZED_NAME_FISCAL_AUTHORITY_ID = "fiscalAuthorityId";
+  @SerializedName(SERIALIZED_NAME_FISCAL_AUTHORITY_ID)
+  private String fiscalAuthorityId;
 
   public FiscalYearUpdateDto() {
   }
@@ -170,6 +174,25 @@ public class FiscalYearUpdateDto {
   }
 
 
+  public FiscalYearUpdateDto fiscalAuthorityId(String fiscalAuthorityId) {
+    this.fiscalAuthorityId = fiscalAuthorityId;
+    return this;
+  }
+
+  /**
+   * Get fiscalAuthorityId
+   * @return fiscalAuthorityId
+   */
+  @javax.annotation.Nullable
+  public String getFiscalAuthorityId() {
+    return fiscalAuthorityId;
+  }
+
+  public void setFiscalAuthorityId(String fiscalAuthorityId) {
+    this.fiscalAuthorityId = fiscalAuthorityId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -184,7 +207,8 @@ public class FiscalYearUpdateDto {
         Objects.equals(this.description, fiscalYearUpdateDto.description) &&
         Objects.equals(this.closed, fiscalYearUpdateDto.closed) &&
         Objects.equals(this.endDate, fiscalYearUpdateDto.endDate) &&
-        Objects.equals(this.startDate, fiscalYearUpdateDto.startDate);
+        Objects.equals(this.startDate, fiscalYearUpdateDto.startDate) &&
+        Objects.equals(this.fiscalAuthorityId, fiscalYearUpdateDto.fiscalAuthorityId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -193,7 +217,7 @@ public class FiscalYearUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, closed, endDate, startDate);
+    return Objects.hash(name, description, closed, endDate, startDate, fiscalAuthorityId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,6 +236,7 @@ public class FiscalYearUpdateDto {
     sb.append("    closed: ").append(toIndentedString(closed)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    fiscalAuthorityId: ").append(toIndentedString(fiscalAuthorityId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,6 +264,7 @@ public class FiscalYearUpdateDto {
     openapiFields.add("closed");
     openapiFields.add("endDate");
     openapiFields.add("startDate");
+    openapiFields.add("fiscalAuthorityId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -270,6 +296,9 @@ public class FiscalYearUpdateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("fiscalAuthorityId") != null && !jsonObj.get("fiscalAuthorityId").isJsonNull()) && !jsonObj.get("fiscalAuthorityId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fiscalAuthorityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalAuthorityId").toString()));
       }
   }
 

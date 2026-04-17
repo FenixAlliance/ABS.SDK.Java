@@ -5996,9 +5996,7 @@ components:
     InvoiceLineAppliedTaxCreateDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         taxPolicyId: taxPolicyId
-        tenantId: tenantId
         invoiceId: invoiceId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6009,16 +6007,10 @@ components:
         timestamp:
           format: date-time
           type: string
-        tenantId:
-          nullable: true
-          type: string
         invoiceId:
           nullable: true
           type: string
         taxPolicyId:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -8171,7 +8163,6 @@ components:
         addressLine2: addressLine2
         currencyId: currencyId
         enumeration: enumeration
-        enrollmentId: enrollmentId
         invoiceReferences:
         - referencedInvoiceId: referencedInvoiceId
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8239,7 +8230,6 @@ components:
         userId: userId
         totalDetailCurrencyId: totalDetailCurrencyId
         totalSurchargesCurrencyId: totalSurchargesCurrencyId
-        tenantId: tenantId
         paid: true
         closed: true
         totalSurcharges: 5.637376656633329
@@ -8257,16 +8247,10 @@ components:
         userId:
           nullable: true
           type: string
-        tenantId:
-          nullable: true
-          type: string
         priceListId:
           nullable: true
           type: string
         description:
-          nullable: true
-          type: string
-        enrollmentId:
           nullable: true
           type: string
         individualId:

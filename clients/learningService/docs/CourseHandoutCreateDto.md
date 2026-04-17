@@ -16,7 +16,6 @@
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 |**courseID** | **String** |  |  |
 |**courseUnitID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  |
 
 
 

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitFlowStageUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:57.537376100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:42.922414-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitFlowStageUpdateDto {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -62,10 +62,6 @@ public class DealUnitFlowStageUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
-  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
-  private String enrollmentId;
 
   public static final String SERIALIZED_NAME_DEAL_UNIT_FLOW_ID = "dealUnitFlowId";
   @SerializedName(SERIALIZED_NAME_DEAL_UNIT_FLOW_ID)
@@ -135,25 +131,6 @@ public class DealUnitFlowStageUpdateDto {
   }
 
 
-  public DealUnitFlowStageUpdateDto enrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-    return this;
-  }
-
-  /**
-   * Get enrollmentId
-   * @return enrollmentId
-   */
-  @javax.annotation.Nullable
-  public String getEnrollmentId() {
-    return enrollmentId;
-  }
-
-  public void setEnrollmentId(String enrollmentId) {
-    this.enrollmentId = enrollmentId;
-  }
-
-
   public DealUnitFlowStageUpdateDto dealUnitFlowId(String dealUnitFlowId) {
     this.dealUnitFlowId = dealUnitFlowId;
     return this;
@@ -205,7 +182,6 @@ public class DealUnitFlowStageUpdateDto {
     return Objects.equals(this.order, dealUnitFlowStageUpdateDto.order) &&
         Objects.equals(this.name, dealUnitFlowStageUpdateDto.name) &&
         Objects.equals(this.description, dealUnitFlowStageUpdateDto.description) &&
-        Objects.equals(this.enrollmentId, dealUnitFlowStageUpdateDto.enrollmentId) &&
         Objects.equals(this.dealUnitFlowId, dealUnitFlowStageUpdateDto.dealUnitFlowId) &&
         Objects.equals(this.parentBusinessProcessStageId, dealUnitFlowStageUpdateDto.parentBusinessProcessStageId);
   }
@@ -216,7 +192,7 @@ public class DealUnitFlowStageUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, name, description, enrollmentId, dealUnitFlowId, parentBusinessProcessStageId);
+    return Objects.hash(order, name, description, dealUnitFlowId, parentBusinessProcessStageId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,7 +209,6 @@ public class DealUnitFlowStageUpdateDto {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("    dealUnitFlowId: ").append(toIndentedString(dealUnitFlowId)).append("\n");
     sb.append("    parentBusinessProcessStageId: ").append(toIndentedString(parentBusinessProcessStageId)).append("\n");
     sb.append("}");
@@ -261,7 +236,6 @@ public class DealUnitFlowStageUpdateDto {
     openapiFields.add("order");
     openapiFields.add("name");
     openapiFields.add("description");
-    openapiFields.add("enrollmentId");
     openapiFields.add("dealUnitFlowId");
     openapiFields.add("parentBusinessProcessStageId");
 
@@ -295,9 +269,6 @@ public class DealUnitFlowStageUpdateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
       if ((jsonObj.get("dealUnitFlowId") != null && !jsonObj.get("dealUnitFlowId").isJsonNull()) && !jsonObj.get("dealUnitFlowId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dealUnitFlowId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dealUnitFlowId").toString()));

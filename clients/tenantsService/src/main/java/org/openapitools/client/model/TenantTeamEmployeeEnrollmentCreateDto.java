@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantTeamEmployeeEnrollmentCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantTeamEmployeeEnrollmentCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -59,14 +59,6 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_BUSINESS_TEAM_I_D = "businessTeamID";
   @SerializedName(SERIALIZED_NAME_BUSINESS_TEAM_I_D)
@@ -114,44 +106,6 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
-  }
-
-
-  public TenantTeamEmployeeEnrollmentCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public TenantTeamEmployeeEnrollmentCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
   }
 
 
@@ -205,15 +159,13 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
     TenantTeamEmployeeEnrollmentCreateDto tenantTeamEmployeeEnrollmentCreateDto = (TenantTeamEmployeeEnrollmentCreateDto) o;
     return Objects.equals(this.id, tenantTeamEmployeeEnrollmentCreateDto.id) &&
         Objects.equals(this.timestamp, tenantTeamEmployeeEnrollmentCreateDto.timestamp) &&
-        Objects.equals(this.businessID, tenantTeamEmployeeEnrollmentCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, tenantTeamEmployeeEnrollmentCreateDto.businessProfileRecordID) &&
         Objects.equals(this.businessTeamID, tenantTeamEmployeeEnrollmentCreateDto.businessTeamID) &&
         Objects.equals(this.employeeProfileID, tenantTeamEmployeeEnrollmentCreateDto.employeeProfileID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, businessID, businessProfileRecordID, businessTeamID, employeeProfileID);
+    return Objects.hash(id, timestamp, businessTeamID, employeeProfileID);
   }
 
   @Override
@@ -222,8 +174,6 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
     sb.append("class TenantTeamEmployeeEnrollmentCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    businessTeamID: ").append(toIndentedString(businessTeamID)).append("\n");
     sb.append("    employeeProfileID: ").append(toIndentedString(employeeProfileID)).append("\n");
     sb.append("}");
@@ -250,15 +200,11 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("businessTeamID");
     openapiFields.add("employeeProfileID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("businessID");
-    openapiRequiredFields.add("businessProfileRecordID");
     openapiRequiredFields.add("businessTeamID");
     openapiRequiredFields.add("employeeProfileID");
   }
@@ -293,12 +239,6 @@ public class TenantTeamEmployeeEnrollmentCreateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if (!jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if (!jsonObj.get("businessTeamID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessTeamID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessTeamID").toString()));

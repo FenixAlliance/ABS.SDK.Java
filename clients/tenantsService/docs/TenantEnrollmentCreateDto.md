@@ -9,7 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 
 

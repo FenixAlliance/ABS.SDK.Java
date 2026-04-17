@@ -12,8 +12,6 @@
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**dateTime** | **OffsetDateTime** |  |  [optional] |
-|**tenantID** | **String** |  |  [optional] |
-|**enrollmentID** | **String** |  |  [optional] |
 |**parentJournalID** | **String** |  |  [optional] |
 |**journalTypeID** | **String** |  |  [optional] |
 |**ledgerID** | **String** |  |  [optional] |

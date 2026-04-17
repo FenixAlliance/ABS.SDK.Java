@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **UUID** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**assetId** | **String** |  |  [optional] |
 |**isRootTransfer** | **Boolean** |  |  [optional] |
 |**serialList** | **String** |  |  [optional] |

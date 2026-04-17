@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,8 +51,16 @@ import org.openapitools.client.JSON;
 /**
  * SocialGroupCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:05.261497100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:43.207733600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialGroupCreateDto {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+  private OffsetDateTime timestamp;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -69,6 +79,44 @@ public class SocialGroupCreateDto {
 
   public SocialGroupCreateDto() {
   }
+
+  public SocialGroupCreateDto id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public SocialGroupCreateDto timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * Get timestamp
+   * @return timestamp
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
 
   public SocialGroupCreateDto name(String name) {
     this.name = name;
@@ -156,7 +204,9 @@ public class SocialGroupCreateDto {
       return false;
     }
     SocialGroupCreateDto socialGroupCreateDto = (SocialGroupCreateDto) o;
-    return Objects.equals(this.name, socialGroupCreateDto.name) &&
+    return Objects.equals(this.id, socialGroupCreateDto.id) &&
+        Objects.equals(this.timestamp, socialGroupCreateDto.timestamp) &&
+        Objects.equals(this.name, socialGroupCreateDto.name) &&
         Objects.equals(this.title, socialGroupCreateDto.title) &&
         Objects.equals(this.avatarURL, socialGroupCreateDto.avatarURL) &&
         Objects.equals(this.socialProfileID, socialGroupCreateDto.socialProfileID);
@@ -168,7 +218,7 @@ public class SocialGroupCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, title, avatarURL, socialProfileID);
+    return Objects.hash(id, timestamp, name, title, avatarURL, socialProfileID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -182,6 +232,8 @@ public class SocialGroupCreateDto {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SocialGroupCreateDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    avatarURL: ").append(toIndentedString(avatarURL)).append("\n");
@@ -208,6 +260,8 @@ public class SocialGroupCreateDto {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("title");
     openapiFields.add("avatarURL");
@@ -238,6 +292,9 @@ public class SocialGroupCreateDto {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

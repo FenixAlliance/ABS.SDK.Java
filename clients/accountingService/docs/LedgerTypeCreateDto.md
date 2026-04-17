@@ -11,8 +11,6 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**ledgerClass** | [**LedgerClassEnum**](#LedgerClassEnum) |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 
 
 

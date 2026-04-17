@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemCategoryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:21:36.926346200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:25.064219400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemCategoryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -73,14 +73,6 @@ public class ItemCategoryCreateDto {
   public static final String SERIALIZED_NAME_IMAGE_U_R_L = "imageURL";
   @SerializedName(SERIALIZED_NAME_IMAGE_U_R_L)
   private URI imageURL;
-
-  public static final String SERIALIZED_NAME_BUSINESS_I_D = "businessID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_I_D)
-  private String businessID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public static final String SERIALIZED_NAME_PARENT_ITEM_CATEGORY_I_D = "parentItemCategoryID";
   @SerializedName(SERIALIZED_NAME_PARENT_ITEM_CATEGORY_I_D)
@@ -184,44 +176,6 @@ public class ItemCategoryCreateDto {
   }
 
 
-  public ItemCategoryCreateDto businessID(String businessID) {
-    this.businessID = businessID;
-    return this;
-  }
-
-  /**
-   * Get businessID
-   * @return businessID
-   */
-  @javax.annotation.Nonnull
-  public String getBusinessID() {
-    return businessID;
-  }
-
-  public void setBusinessID(String businessID) {
-    this.businessID = businessID;
-  }
-
-
-  public ItemCategoryCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
   public ItemCategoryCreateDto parentItemCategoryID(String parentItemCategoryID) {
     this.parentItemCategoryID = parentItemCategoryID;
     return this;
@@ -256,8 +210,6 @@ public class ItemCategoryCreateDto {
         Objects.equals(this.title, itemCategoryCreateDto.title) &&
         Objects.equals(this.description, itemCategoryCreateDto.description) &&
         Objects.equals(this.imageURL, itemCategoryCreateDto.imageURL) &&
-        Objects.equals(this.businessID, itemCategoryCreateDto.businessID) &&
-        Objects.equals(this.businessProfileRecordID, itemCategoryCreateDto.businessProfileRecordID) &&
         Objects.equals(this.parentItemCategoryID, itemCategoryCreateDto.parentItemCategoryID);
   }
 
@@ -267,7 +219,7 @@ public class ItemCategoryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, imageURL, businessID, businessProfileRecordID, parentItemCategoryID);
+    return Objects.hash(id, timestamp, title, description, imageURL, parentItemCategoryID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -286,8 +238,6 @@ public class ItemCategoryCreateDto {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageURL: ").append(toIndentedString(imageURL)).append("\n");
-    sb.append("    businessID: ").append(toIndentedString(businessID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("    parentItemCategoryID: ").append(toIndentedString(parentItemCategoryID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -316,14 +266,11 @@ public class ItemCategoryCreateDto {
     openapiFields.add("title");
     openapiFields.add("description");
     openapiFields.add("imageURL");
-    openapiFields.add("businessID");
-    openapiFields.add("businessProfileRecordID");
     openapiFields.add("parentItemCategoryID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
-    openapiRequiredFields.add("businessID");
   }
 
   /**
@@ -365,12 +312,6 @@ public class ItemCategoryCreateDto {
       }
       if ((jsonObj.get("imageURL") != null && !jsonObj.get("imageURL").isJsonNull()) && !jsonObj.get("imageURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageURL").toString()));
-      }
-      if (!jsonObj.get("businessID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
       if ((jsonObj.get("parentItemCategoryID") != null && !jsonObj.get("parentItemCategoryID").isJsonNull()) && !jsonObj.get("parentItemCategoryID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentItemCategoryID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentItemCategoryID").toString()));

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantIndustryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T16:24:30.421472300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantIndustryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,10 +68,6 @@ public class TenantIndustryCreateDto {
   public static final String SERIALIZED_NAME_PARENT_BUSINESS_INDUSTRY_I_D = "parentBusinessIndustryID";
   @SerializedName(SERIALIZED_NAME_PARENT_BUSINESS_INDUSTRY_I_D)
   private String parentBusinessIndustryID;
-
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
 
   public TenantIndustryCreateDto() {
   }
@@ -152,25 +148,6 @@ public class TenantIndustryCreateDto {
   }
 
 
-  public TenantIndustryCreateDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-    return this;
-  }
-
-  /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
-   */
-  @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
-  }
-
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -184,8 +161,7 @@ public class TenantIndustryCreateDto {
     return Objects.equals(this.id, tenantIndustryCreateDto.id) &&
         Objects.equals(this.timestamp, tenantIndustryCreateDto.timestamp) &&
         Objects.equals(this.name, tenantIndustryCreateDto.name) &&
-        Objects.equals(this.parentBusinessIndustryID, tenantIndustryCreateDto.parentBusinessIndustryID) &&
-        Objects.equals(this.businessProfileRecordID, tenantIndustryCreateDto.businessProfileRecordID);
+        Objects.equals(this.parentBusinessIndustryID, tenantIndustryCreateDto.parentBusinessIndustryID);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +170,7 @@ public class TenantIndustryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, name, parentBusinessIndustryID, businessProfileRecordID);
+    return Objects.hash(id, timestamp, name, parentBusinessIndustryID);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +188,6 @@ public class TenantIndustryCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentBusinessIndustryID: ").append(toIndentedString(parentBusinessIndustryID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,7 +214,6 @@ public class TenantIndustryCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("name");
     openapiFields.add("parentBusinessIndustryID");
-    openapiFields.add("businessProfileRecordID");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -274,9 +248,6 @@ public class TenantIndustryCreateDto {
       }
       if ((jsonObj.get("parentBusinessIndustryID") != null && !jsonObj.get("parentBusinessIndustryID").isJsonNull()) && !jsonObj.get("parentBusinessIndustryID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentBusinessIndustryID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentBusinessIndustryID").toString()));
-      }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
       }
   }
 
