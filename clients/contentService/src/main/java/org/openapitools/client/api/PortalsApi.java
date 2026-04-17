@@ -29,12 +29,14 @@ import java.io.IOException;
 
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.Operation;
 import org.openapitools.client.model.PortalOptionsEnvelope;
 import org.openapitools.client.model.PortalSettingsEnvelope;
 import java.util.UUID;
 import org.openapitools.client.model.WebPortalCreateDto;
 import org.openapitools.client.model.WebPortalDtoEnvelope;
+import org.openapitools.client.model.WebPortalDtoListEnvelope;
 import org.openapitools.client.model.WebPortalUpdateDto;
 
 import java.lang.reflect.Type;
@@ -80,6 +82,157 @@ public class PortalsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for countPortalsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countPortalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/ContentService/Portals/Count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call countPortalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling countPortalsAsync(Async)");
+        }
+
+        return countPortalsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Count portals
+     * Counts all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope countPortalsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countPortalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Count portals
+     * Counts all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> countPortalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = countPortalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Count portals (asynchronously)
+     * Counts all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countPortalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = countPortalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createWebPortalAsync
      * @param tenantId  (required)
@@ -671,6 +824,157 @@ public class PortalsApi {
 
         okhttp3.Call localVarCall = getCurrentWebPortalOptionsAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<PortalOptionsEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getPortalsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPortalsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/ContentService/Portals";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPortalsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getPortalsAsync(Async)");
+        }
+
+        return getPortalsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get portals
+     * Retrieves all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return WebPortalDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public WebPortalDtoListEnvelope getPortalsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<WebPortalDtoListEnvelope> localVarResp = getPortalsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get portals
+     * Retrieves all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;WebPortalDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<WebPortalDtoListEnvelope> getPortalsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getPortalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<WebPortalDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get portals (asynchronously)
+     * Retrieves all portals for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPortalsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebPortalDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getPortalsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<WebPortalDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

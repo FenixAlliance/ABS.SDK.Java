@@ -33,6 +33,7 @@ import org.openapitools.client.model.BlogPostTagDtoListEnvelope;
 import org.openapitools.client.model.BlogPostTagUpdateDto;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
+import org.openapitools.client.model.Int32Envelope;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -78,6 +79,157 @@ public class BlogPostTagsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for countBlogPostTagsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countBlogPostTagsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/ContentService/BlogPostTags/Count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call countBlogPostTagsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling countBlogPostTagsAsync(Async)");
+        }
+
+        return countBlogPostTagsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Count blog post tags
+     * Counts all blog post tags for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope countBlogPostTagsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = countBlogPostTagsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Count blog post tags
+     * Counts all blog post tags for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> countBlogPostTagsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = countBlogPostTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Count blog post tags (asynchronously)
+     * Counts all blog post tags for the specified tenant.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call countBlogPostTagsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = countBlogPostTagsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createBlogPostTagAsync
      * @param tenantId  (required)

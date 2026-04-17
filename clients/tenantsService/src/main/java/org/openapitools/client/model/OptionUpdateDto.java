@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * OptionUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:05.207354-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:12:59.673754200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class OptionUpdateDto {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * UserSettingsUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:59.880293100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:11:15.369097900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class UserSettingsUpdateDto {
   public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)

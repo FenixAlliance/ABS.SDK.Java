@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * Blob
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:55:38.711282300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:12:36.307538-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class Blob {
   /**
    * Gets or Sets kind

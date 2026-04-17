@@ -158,6 +158,7 @@ docs/WebPagesApi.md
 docs/WebPortalCreateDto.md
 docs/WebPortalDto.md
 docs/WebPortalDtoEnvelope.md
+docs/WebPortalDtoListEnvelope.md
 docs/WebPortalUpdateDto.md
 docs/WebTemplateCreateDto.md
 docs/WebTemplateDto.md
@@ -346,9 +347,11 @@ src/main/java/org/openapitools/client/model/WebPageUpdateDto.java
 src/main/java/org/openapitools/client/model/WebPortalCreateDto.java
 src/main/java/org/openapitools/client/model/WebPortalDto.java
 src/main/java/org/openapitools/client/model/WebPortalDtoEnvelope.java
+src/main/java/org/openapitools/client/model/WebPortalDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/WebPortalUpdateDto.java
 src/main/java/org/openapitools/client/model/WebTemplateCreateDto.java
 src/main/java/org/openapitools/client/model/WebTemplateDto.java
 src/main/java/org/openapitools/client/model/WebTemplateDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WebTemplateDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/WebTemplateUpdateDto.java
+src/test/java/org/openapitools/client/model/WebPortalDtoListEnvelopeTest.java

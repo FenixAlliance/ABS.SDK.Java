@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * OrderLineCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:54:57.178029-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:11:57.502740800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class OrderLineCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

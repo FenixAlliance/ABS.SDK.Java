@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectHoursApprovalCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:56:11.712872500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:13:05.192380600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectHoursApprovalCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

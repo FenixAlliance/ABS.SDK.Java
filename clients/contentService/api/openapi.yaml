@@ -1855,6 +1855,67 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/ContentService/BlogPostTags/Count:
+    get:
+      description: Counts all blog post tags for the specified tenant.
+      operationId: CountBlogPostTagsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count blog post tags
+      tags:
+      - BlogPostTags
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/ContentService/BlogPostTags/{blogPostTagId}:
     delete:
       description: Deletes a blog post tag for the specified tenant.
@@ -2535,6 +2596,197 @@ paths:
       x-accepts:
       - application/json
       - application/problem+json
+  /api/v2/ContentService/Portals:
+    get:
+      description: Retrieves all portals for the specified tenant.
+      operationId: GetPortalsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoListEnvelope'
+          description: OK
+      summary: Get portals
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new web portal
+      operationId: CreateWebPortalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebPortalCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebPortalCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new web portal
+      tags:
+      - Portals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ContentService/Portals/Count:
+    get:
+      description: Counts all portals for the specified tenant.
+      operationId: CountPortalsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count portals
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/ContentService/Portals/Root:
     get:
       description: Get the root portal of the this server instance
@@ -3216,76 +3468,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/ContentService/Portals:
-    post:
-      description: Create a new web portal
-      operationId: CreateWebPortalAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/WebPortalCreateDto'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/WebPortalCreateDto'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/EmptyEnvelope'
-          description: Created
-      summary: Create a new web portal
-      tags:
-      - Portals
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-      - application/xml
   /api/v2/ContentService/Themes/Update:
     get:
       description: Triggers an update of the base web content themes.
@@ -3862,6 +4044,67 @@ paths:
       tags:
       - WebPageCategories
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ContentService/WebPageCategories/Count:
+    get:
+      description: Counts all web page categories for the specified tenant.
+      operationId: CountWebPageCategoriesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count web page categories
+      tags:
+      - WebPageCategories
       x-accepts:
       - application/json
       - application/xml
@@ -5004,6 +5247,67 @@ paths:
       tags:
       - WebPageTags
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ContentService/WebPageTags/Count:
+    get:
+      description: Counts all web page tags for the specified tenant.
+      operationId: CountWebPageTagsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count web page tags
+      tags:
+      - WebPageTags
       x-accepts:
       - application/json
       - application/xml
@@ -16702,6 +17006,63 @@ components:
           type: string
         result:
           $ref: '#/components/schemas/WebPortalDto'
+      type: object
+    WebPortalDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - root: true
+          domain: domain
+          tenantId: tenantId
+          description: description
+          businessPortalApplicationID: businessPortalApplicationID
+          disabled: true
+          businessDomainID: businessDomainID
+          id: id
+          title: title
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          websiteThemeID: websiteThemeID
+        - root: true
+          domain: domain
+          tenantId: tenantId
+          description: description
+          businessPortalApplicationID: businessPortalApplicationID
+          disabled: true
+          businessDomainID: businessDomainID
+          id: id
+          title: title
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          websiteThemeID: websiteThemeID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WebPortalDto'
+          nullable: true
+          type: array
       type: object
     WebPortalUpdateDto:
       additionalProperties: false

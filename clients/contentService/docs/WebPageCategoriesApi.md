@@ -4,12 +4,81 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**countWebPageCategoriesAsync**](WebPageCategoriesApi.md#countWebPageCategoriesAsync) | **GET** /api/v2/ContentService/WebPageCategories/Count | Count web page categories |
 | [**createWebPageCategoryAsync**](WebPageCategoriesApi.md#createWebPageCategoryAsync) | **POST** /api/v2/ContentService/WebPageCategories | Create a web page category |
 | [**deleteWebPageCategoryAsync**](WebPageCategoriesApi.md#deleteWebPageCategoryAsync) | **DELETE** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Delete a web page category |
 | [**getWebPageCategoriesAsync**](WebPageCategoriesApi.md#getWebPageCategoriesAsync) | **GET** /api/v2/ContentService/WebPageCategories | Get web page categories |
 | [**getWebPageCategoryByIdAsync**](WebPageCategoriesApi.md#getWebPageCategoryByIdAsync) | **GET** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Get web page category by ID |
 | [**updateWebPageCategoryAsync**](WebPageCategoriesApi.md#updateWebPageCategoryAsync) | **PUT** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Update a web page category |
 
+
+<a id="countWebPageCategoriesAsync"></a>
+# **countWebPageCategoriesAsync**
+> Int32Envelope countWebPageCategoriesAsync(tenantId, apiVersion, xApiVersion)
+
+Count web page categories
+
+Counts all web page categories for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.WebPageCategoriesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    WebPageCategoriesApi apiInstance = new WebPageCategoriesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.countWebPageCategoriesAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WebPageCategoriesApi#countWebPageCategoriesAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
 
 <a id="createWebPageCategoryAsync"></a>
 # **createWebPageCategoryAsync**

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * InventoryOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T20:53:31.394645900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:48.820635200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InventoryOptions {
   public static final String SERIALIZED_NAME_ENABLE_STOCK_MANAGEMENT = "enableStockManagement";
   @SerializedName(SERIALIZED_NAME_ENABLE_STOCK_MANAGEMENT)
