@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectHoursApprovalApproverUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:13:05.192380600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:27:32.358743600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectHoursApprovalApproverUpdateDto {
   public static final String SERIALIZED_NAME_APPROVER_CONTACT_I_D = "approverContactID";
   @SerializedName(SERIALIZED_NAME_APPROVER_CONTACT_I_D)

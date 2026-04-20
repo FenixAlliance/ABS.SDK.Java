@@ -11,7 +11,17 @@ info:
   title: TenantsService
   version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: Departments
 - name: EmployeeEnrollments
@@ -15725,18 +15735,18 @@ components:
     WebPortalDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         root: true
         domain: domain
         tenantId: tenantId
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         id: id
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           nullable: true
@@ -15761,16 +15771,16 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        enrollmentId:
           nullable: true
           type: string
-        businessDomainID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object
@@ -15778,30 +15788,30 @@ components:
       additionalProperties: false
       example:
         result:
-        - root: true
+        - enrollmentId: enrollmentId
+          root: true
           domain: domain
           tenantId: tenantId
           description: description
-          businessPortalApplicationID: businessPortalApplicationID
+          businessPortalApplicationId: businessPortalApplicationId
           disabled: true
-          businessDomainID: businessDomainID
+          businessDomainId: businessDomainId
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-          websiteThemeID: websiteThemeID
-        - root: true
+          websiteThemeId: websiteThemeId
+        - enrollmentId: enrollmentId
+          root: true
           domain: domain
           tenantId: tenantId
           description: description
-          businessPortalApplicationID: businessPortalApplicationID
+          businessPortalApplicationId: businessPortalApplicationId
           disabled: true
-          businessDomainID: businessDomainID
+          businessDomainId: businessDomainId
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-          websiteThemeID: websiteThemeID
+          websiteThemeId: websiteThemeId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId

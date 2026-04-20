@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * CatalogItemUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:42.956312400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:02.227593800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CatalogItemUpdateDto {
   public static final String SERIALIZED_NAME_HOT = "hot";
   @SerializedName(SERIALIZED_NAME_HOT)
@@ -3459,7 +3459,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedWitholdingTaxesInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedWitholdingTaxesInUsd
    */
   @javax.annotation.Nullable
@@ -3480,7 +3480,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedPaymentCostInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedPaymentCostInUsd
    */
   @javax.annotation.Nullable
@@ -3501,7 +3501,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedPaymentTaxInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedPaymentTaxInUsd
    */
   @javax.annotation.Nullable
@@ -3522,7 +3522,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedDefaultShippingCostInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedDefaultShippingCostInUsd
    */
   @javax.annotation.Nullable
@@ -3543,7 +3543,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedDefaultShippingTaxInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedDefaultShippingTaxInUsd
    */
   @javax.annotation.Nullable
@@ -3564,7 +3564,7 @@ public class CatalogItemUpdateDto {
   /**
    * Get estimatedTotalPriceInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedTotalPriceInUsd
    */
   @javax.annotation.Nullable

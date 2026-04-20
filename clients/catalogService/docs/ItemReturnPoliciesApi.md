@@ -1,6 +1,6 @@
 # ItemReturnPoliciesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -99,7 +99,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -167,7 +167,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID itemReturnPolicyId = UUID.randomUUID(); // UUID | 
@@ -237,7 +237,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +308,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

@@ -1,6 +1,6 @@
 # CompareApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -30,7 +30,7 @@ import org.openapitools.client.api.CompareApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CompareApi apiInstance = new CompareApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -97,7 +97,7 @@ import org.openapitools.client.api.CompareApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CompareApi apiInstance = new CompareApi(defaultClient);
     UUID recordId = UUID.randomUUID(); // UUID | 
@@ -164,7 +164,7 @@ import org.openapitools.client.api.CompareApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CompareApi apiInstance = new CompareApi(defaultClient);
     UUID cartId = UUID.randomUUID(); // UUID | 
@@ -232,7 +232,7 @@ import org.openapitools.client.api.CompareApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CompareApi apiInstance = new CompareApi(defaultClient);
     UUID recordId = UUID.randomUUID(); // UUID | 

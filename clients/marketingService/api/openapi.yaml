@@ -11,7 +11,17 @@ info:
   title: MarketingService
   version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: EmailGroups
 - name: EmailSignatures
@@ -4164,13 +4174,13 @@ components:
       example:
         featuredImageUrl: featuredImageUrl
         code: code
+        markup: markup
         codeType: Razor
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        htmlContent: htmlContent
       properties:
         id:
           format: uuid
@@ -4179,17 +4189,18 @@ components:
           format: date-time
           type: string
         title:
-          nullable: true
-          type: string
-        code:
-          nullable: true
+          maxLength: 100
+          minLength: 3
           type: string
         published:
           type: boolean
         description:
           nullable: true
           type: string
-        htmlContent:
+        code:
+          nullable: true
+          type: string
+        markup:
           nullable: true
           type: string
         featuredImageUrl:
@@ -4203,8 +4214,11 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
+      required:
+      - title
       type: object
     EmailSignatureDto:
       additionalProperties: false
@@ -4284,6 +4298,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         order:
@@ -4828,6 +4843,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         cSharpContent:
@@ -4901,6 +4917,7 @@ components:
       example:
         featuredImageUrl: featuredImageUrl
         code: code
+        markup: markup
         codeType: Razor
         marketingCampaignId: marketingCampaignId
         description: description
@@ -4908,7 +4925,6 @@ components:
         published: true
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        htmlContent: htmlContent
       properties:
         id:
           format: uuid
@@ -4917,17 +4933,18 @@ components:
           format: date-time
           type: string
         title:
-          nullable: true
-          type: string
-        code:
-          nullable: true
+          maxLength: 100
+          minLength: 3
           type: string
         published:
           type: boolean
         description:
           nullable: true
           type: string
-        htmlContent:
+        code:
+          nullable: true
+          type: string
+        markup:
           nullable: true
           type: string
         featuredImageUrl:
@@ -4941,6 +4958,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         marketingCampaignId:
@@ -4948,6 +4966,8 @@ components:
           minLength: 0
           nullable: true
           type: string
+      required:
+      - title
       type: object
     EmailTemplateDto:
       additionalProperties: false
@@ -5029,6 +5049,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         order:
@@ -5586,6 +5607,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         cSharpContent:

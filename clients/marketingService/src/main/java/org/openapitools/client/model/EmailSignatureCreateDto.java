@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * EmailSignatureCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:11:49.243873100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:26:12.659880600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class EmailSignatureCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -65,10 +65,6 @@ public class EmailSignatureCreateDto {
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-
   public static final String SERIALIZED_NAME_PUBLISHED = "published";
   @SerializedName(SERIALIZED_NAME_PUBLISHED)
   private Boolean published;
@@ -77,9 +73,13 @@ public class EmailSignatureCreateDto {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_HTML_CONTENT = "htmlContent";
-  @SerializedName(SERIALIZED_NAME_HTML_CONTENT)
-  private String htmlContent;
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
+  public static final String SERIALIZED_NAME_MARKUP = "markup";
+  @SerializedName(SERIALIZED_NAME_MARKUP)
+  private String markup;
 
   public static final String SERIALIZED_NAME_FEATURED_IMAGE_URL = "featuredImageUrl";
   @SerializedName(SERIALIZED_NAME_FEATURED_IMAGE_URL)
@@ -100,7 +100,9 @@ public class EmailSignatureCreateDto {
     
     HTML5("Html5"),
     
-    MARKDOWN("Markdown");
+    MARKDOWN("Markdown"),
+    
+    MARKUP("Markup");
 
     private String value;
 
@@ -199,32 +201,13 @@ public class EmailSignatureCreateDto {
    * Get title
    * @return title
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTitle() {
     return title;
   }
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-
-  public EmailSignatureCreateDto code(String code) {
-    this.code = code;
-    return this;
-  }
-
-  /**
-   * Get code
-   * @return code
-   */
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
   }
 
 
@@ -266,22 +249,41 @@ public class EmailSignatureCreateDto {
   }
 
 
-  public EmailSignatureCreateDto htmlContent(String htmlContent) {
-    this.htmlContent = htmlContent;
+  public EmailSignatureCreateDto code(String code) {
+    this.code = code;
     return this;
   }
 
   /**
-   * Get htmlContent
-   * @return htmlContent
+   * Get code
+   * @return code
    */
   @javax.annotation.Nullable
-  public String getHtmlContent() {
-    return htmlContent;
+  public String getCode() {
+    return code;
   }
 
-  public void setHtmlContent(String htmlContent) {
-    this.htmlContent = htmlContent;
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
+  public EmailSignatureCreateDto markup(String markup) {
+    this.markup = markup;
+    return this;
+  }
+
+  /**
+   * Get markup
+   * @return markup
+   */
+  @javax.annotation.Nullable
+  public String getMarkup() {
+    return markup;
+  }
+
+  public void setMarkup(String markup) {
+    this.markup = markup;
   }
 
 
@@ -336,10 +338,10 @@ public class EmailSignatureCreateDto {
     return Objects.equals(this.id, emailSignatureCreateDto.id) &&
         Objects.equals(this.timestamp, emailSignatureCreateDto.timestamp) &&
         Objects.equals(this.title, emailSignatureCreateDto.title) &&
-        Objects.equals(this.code, emailSignatureCreateDto.code) &&
         Objects.equals(this.published, emailSignatureCreateDto.published) &&
         Objects.equals(this.description, emailSignatureCreateDto.description) &&
-        Objects.equals(this.htmlContent, emailSignatureCreateDto.htmlContent) &&
+        Objects.equals(this.code, emailSignatureCreateDto.code) &&
+        Objects.equals(this.markup, emailSignatureCreateDto.markup) &&
         Objects.equals(this.featuredImageUrl, emailSignatureCreateDto.featuredImageUrl) &&
         Objects.equals(this.codeType, emailSignatureCreateDto.codeType);
   }
@@ -350,7 +352,7 @@ public class EmailSignatureCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, code, published, description, htmlContent, featuredImageUrl, codeType);
+    return Objects.hash(id, timestamp, title, published, description, code, markup, featuredImageUrl, codeType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -367,10 +369,10 @@ public class EmailSignatureCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    htmlContent: ").append(toIndentedString(htmlContent)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    markup: ").append(toIndentedString(markup)).append("\n");
     sb.append("    featuredImageUrl: ").append(toIndentedString(featuredImageUrl)).append("\n");
     sb.append("    codeType: ").append(toIndentedString(codeType)).append("\n");
     sb.append("}");
@@ -398,15 +400,16 @@ public class EmailSignatureCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("title");
-    openapiFields.add("code");
     openapiFields.add("published");
     openapiFields.add("description");
-    openapiFields.add("htmlContent");
+    openapiFields.add("code");
+    openapiFields.add("markup");
     openapiFields.add("featuredImageUrl");
     openapiFields.add("codeType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("title");
   }
 
   /**
@@ -429,21 +432,28 @@ public class EmailSignatureCreateDto {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailSignatureCreateDto` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : EmailSignatureCreateDto.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+      if (!jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("htmlContent") != null && !jsonObj.get("htmlContent").isJsonNull()) && !jsonObj.get("htmlContent").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `htmlContent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("htmlContent").toString()));
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      }
+      if ((jsonObj.get("markup") != null && !jsonObj.get("markup").isJsonNull()) && !jsonObj.get("markup").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `markup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("markup").toString()));
       }
       if ((jsonObj.get("featuredImageUrl") != null && !jsonObj.get("featuredImageUrl").isJsonNull()) && !jsonObj.get("featuredImageUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `featuredImageUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("featuredImageUrl").toString()));

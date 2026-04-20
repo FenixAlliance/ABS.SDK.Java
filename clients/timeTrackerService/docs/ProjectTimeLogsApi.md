@@ -1,6 +1,6 @@
 # ProjectTimeLogsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -35,7 +35,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -105,7 +105,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -174,7 +174,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -243,7 +243,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -313,7 +313,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID timeLogId = UUID.randomUUID(); // UUID | 
@@ -383,7 +383,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID projectId = UUID.randomUUID(); // UUID | 
@@ -453,7 +453,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID contactId = UUID.randomUUID(); // UUID | 
@@ -523,7 +523,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID contactId = UUID.randomUUID(); // UUID | 
@@ -593,7 +593,7 @@ import org.openapitools.client.api.ProjectTimeLogsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProjectTimeLogsApi apiInstance = new ProjectTimeLogsApi(defaultClient);
     UUID timeLogId = UUID.randomUUID(); // UUID | 

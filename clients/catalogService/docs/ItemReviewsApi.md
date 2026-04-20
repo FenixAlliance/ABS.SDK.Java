@@ -1,6 +1,6 @@
 # ItemReviewsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -101,7 +101,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -170,7 +170,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID itemReviewId = UUID.randomUUID(); // UUID | 
@@ -238,7 +238,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -306,7 +306,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

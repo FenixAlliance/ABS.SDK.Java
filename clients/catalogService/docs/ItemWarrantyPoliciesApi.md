@@ -1,6 +1,6 @@
 # ItemWarrantyPoliciesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -99,7 +99,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -167,7 +167,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID itemWarrantyPolicyId = UUID.randomUUID(); // UUID | 
@@ -237,7 +237,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +308,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

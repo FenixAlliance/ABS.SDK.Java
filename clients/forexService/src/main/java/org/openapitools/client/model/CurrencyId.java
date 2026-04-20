@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * CurrencyId
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:11:07.379526200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:28.441408900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CurrencyId {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)

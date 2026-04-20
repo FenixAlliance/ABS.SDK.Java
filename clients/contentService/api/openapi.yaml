@@ -11,7 +11,17 @@ info:
   title: ContentService
   version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: BlogPostAuthors
 - name: BlogPostCategories
@@ -6933,15 +6943,15 @@ components:
       example:
         featuredImageUrl: featuredImageUrl
         code: code
+        markup: markup
         codeType: Razor
-        blogPostCategoryID: blogPostCategoryID
+        blogPostCategoryId: blogPostCategoryId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        htmlContent: htmlContent
-        webTemplateID: webTemplateID
+        webTemplateId: webTemplateId
       properties:
         id:
           format: uuid
@@ -6950,17 +6960,18 @@ components:
           format: date-time
           type: string
         title:
-          nullable: true
-          type: string
-        code:
-          nullable: true
+          maxLength: 100
+          minLength: 3
           type: string
         published:
           type: boolean
         description:
           nullable: true
           type: string
-        htmlContent:
+        code:
+          nullable: true
+          type: string
+        markup:
           nullable: true
           type: string
         featuredImageUrl:
@@ -6974,14 +6985,17 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
-        blogPostCategoryID:
+        blogPostCategoryId:
           nullable: true
           type: string
-        webTemplateID:
+        webTemplateId:
           nullable: true
           type: string
+      required:
+      - title
       type: object
     BlogPostDto:
       additionalProperties: false
@@ -6994,6 +7008,7 @@ components:
         htmlContent: htmlContent
         featuredImageUrl: featuredImageUrl
         password: password
+        blogPostCategoryId: blogPostCategoryId
         highlightImage: highlightImage
         enable: true
         id: id
@@ -7001,7 +7016,6 @@ components:
         allowPingBacks: true
         slug: slug
         order: 0
-        webTemplateID: webTemplateID
         enrollmentId: enrollmentId
         twitterImage: twitterImage
         systemLocked: true
@@ -7010,12 +7024,12 @@ components:
         seoKeyWords: seoKeyWords
         displaySocialBox: true
         jsFiles: jsFiles
-        blogPostCategoryID: blogPostCategoryID
         twitterDescription: twitterDescription
         cornerstoneContent: true
         name: name
         generatedCode: generatedCode
         excerpt: excerpt
+        webTemplateId: webTemplateId
         template: true
         code: code
         inTrashCan: true
@@ -7063,6 +7077,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         order:
@@ -7219,10 +7234,10 @@ components:
         parentWebContentVersionId:
           nullable: true
           type: string
-        blogPostCategoryID:
+        blogPostCategoryId:
           nullable: true
           type: string
-        webTemplateID:
+        webTemplateId:
           nullable: true
           type: string
       type: object
@@ -7238,6 +7253,7 @@ components:
           htmlContent: htmlContent
           featuredImageUrl: featuredImageUrl
           password: password
+          blogPostCategoryId: blogPostCategoryId
           highlightImage: highlightImage
           enable: true
           id: id
@@ -7245,7 +7261,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7254,12 +7269,12 @@ components:
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
-          blogPostCategoryID: blogPostCategoryID
           twitterDescription: twitterDescription
           cornerstoneContent: true
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           code: code
           inTrashCan: true
@@ -7329,6 +7344,7 @@ components:
           htmlContent: htmlContent
           featuredImageUrl: featuredImageUrl
           password: password
+          blogPostCategoryId: blogPostCategoryId
           highlightImage: highlightImage
           enable: true
           id: id
@@ -7336,7 +7352,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7345,12 +7360,12 @@ components:
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
-          blogPostCategoryID: blogPostCategoryID
           twitterDescription: twitterDescription
           cornerstoneContent: true
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           code: code
           inTrashCan: true
@@ -7390,6 +7405,7 @@ components:
           htmlContent: htmlContent
           featuredImageUrl: featuredImageUrl
           password: password
+          blogPostCategoryId: blogPostCategoryId
           highlightImage: highlightImage
           enable: true
           id: id
@@ -7397,7 +7413,6 @@ components:
           allowPingBacks: true
           slug: slug
           order: 0
-          webTemplateID: webTemplateID
           enrollmentId: enrollmentId
           twitterImage: twitterImage
           systemLocked: true
@@ -7406,12 +7421,12 @@ components:
           seoKeyWords: seoKeyWords
           displaySocialBox: true
           jsFiles: jsFiles
-          blogPostCategoryID: blogPostCategoryID
           twitterDescription: twitterDescription
           cornerstoneContent: true
           name: name
           generatedCode: generatedCode
           excerpt: excerpt
+          webTemplateId: webTemplateId
           template: true
           code: code
           inTrashCan: true
@@ -7779,6 +7794,7 @@ components:
         htmlContent: htmlContent
         featuredImageUrl: featuredImageUrl
         password: password
+        blogPostCategoryId: blogPostCategoryId
         highlightImage: highlightImage
         enable: true
         precompiledViewSize: 5
@@ -7800,6 +7816,7 @@ components:
         excerpt: excerpt
         precompiledLogicSizeLong: 1
         precompiledLogicSize: 6
+        webTemplateId: webTemplateId
         template: true
         code: code
         inTrashCan: true
@@ -7916,6 +7933,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         cSharpContent:
@@ -7983,6 +8001,12 @@ components:
           type: boolean
         allowSearchEngineIndexing:
           type: boolean
+        blogPostCategoryId:
+          nullable: true
+          type: string
+        webTemplateId:
+          nullable: true
+          type: string
       type: object
     BrandingOptions:
       additionalProperties: false
@@ -14730,13 +14754,13 @@ components:
       example:
         featuredImageUrl: featuredImageUrl
         code: code
+        markup: markup
         codeType: Razor
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        htmlContent: htmlContent
       properties:
         id:
           format: uuid
@@ -14745,17 +14769,18 @@ components:
           format: date-time
           type: string
         title:
-          nullable: true
-          type: string
-        code:
-          nullable: true
+          maxLength: 100
+          minLength: 3
           type: string
         published:
           type: boolean
         description:
           nullable: true
           type: string
-        htmlContent:
+        code:
+          nullable: true
+          type: string
+        markup:
           nullable: true
           type: string
         featuredImageUrl:
@@ -14769,8 +14794,11 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
+      required:
+      - title
       type: object
     WebContentDto:
       additionalProperties: false
@@ -14850,6 +14878,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         order:
@@ -15394,6 +15423,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         cSharpContent:
@@ -15752,13 +15782,13 @@ components:
       example:
         featuredImageUrl: featuredImageUrl
         code: code
+        markup: markup
         codeType: Razor
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         published: true
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
-        htmlContent: htmlContent
         webTemplateID: webTemplateID
       properties:
         id:
@@ -15768,17 +15798,18 @@ components:
           format: date-time
           type: string
         title:
-          nullable: true
-          type: string
-        code:
-          nullable: true
+          maxLength: 100
+          minLength: 3
           type: string
         published:
           type: boolean
         description:
           nullable: true
           type: string
-        htmlContent:
+        code:
+          nullable: true
+          type: string
+        markup:
           nullable: true
           type: string
         featuredImageUrl:
@@ -15792,11 +15823,14 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         webTemplateID:
           nullable: true
           type: string
+      required:
+      - title
       type: object
     WebPageDto:
       additionalProperties: false
@@ -15887,6 +15921,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         order:
@@ -16782,6 +16817,7 @@ components:
           - Liquid
           - Html5
           - Markdown
+          - Markup
           nullable: true
           type: string
         cSharpContent:
@@ -16916,18 +16952,18 @@ components:
     WebPortalDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         root: true
         domain: domain
         tenantId: tenantId
         description: description
-        businessPortalApplicationID: businessPortalApplicationID
+        businessPortalApplicationId: businessPortalApplicationId
         disabled: true
-        businessDomainID: businessDomainID
+        businessDomainId: businessDomainId
         id: id
         title: title
-        businessProfileRecordID: businessProfileRecordID
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           nullable: true
@@ -16952,16 +16988,16 @@ components:
         description:
           nullable: true
           type: string
-        websiteThemeID:
+        enrollmentId:
           nullable: true
           type: string
-        businessDomainID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        businessDomainId:
           nullable: true
           type: string
-        businessPortalApplicationID:
+        businessPortalApplicationId:
           nullable: true
           type: string
       type: object
@@ -16969,18 +17005,18 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           root: true
           domain: domain
           tenantId: tenantId
           description: description
-          businessPortalApplicationID: businessPortalApplicationID
+          businessPortalApplicationId: businessPortalApplicationId
           disabled: true
-          businessDomainID: businessDomainID
+          businessDomainId: businessDomainId
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-          websiteThemeID: websiteThemeID
+          websiteThemeId: websiteThemeId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17011,30 +17047,30 @@ components:
       additionalProperties: false
       example:
         result:
-        - root: true
+        - enrollmentId: enrollmentId
+          root: true
           domain: domain
           tenantId: tenantId
           description: description
-          businessPortalApplicationID: businessPortalApplicationID
+          businessPortalApplicationId: businessPortalApplicationId
           disabled: true
-          businessDomainID: businessDomainID
+          businessDomainId: businessDomainId
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-          websiteThemeID: websiteThemeID
-        - root: true
+          websiteThemeId: websiteThemeId
+        - enrollmentId: enrollmentId
+          root: true
           domain: domain
           tenantId: tenantId
           description: description
-          businessPortalApplicationID: businessPortalApplicationID
+          businessPortalApplicationId: businessPortalApplicationId
           disabled: true
-          businessDomainID: businessDomainID
+          businessDomainId: businessDomainId
           id: id
           title: title
-          businessProfileRecordID: businessProfileRecordID
           timestamp: 2000-01-23T04:56:07.000+00:00
-          websiteThemeID: websiteThemeID
+          websiteThemeId: websiteThemeId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId

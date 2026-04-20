@@ -1,6 +1,6 @@
 # RadzenEditorApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.RadzenEditorApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     RadzenEditorApi apiInstance = new RadzenEditorApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -98,7 +98,7 @@ import org.openapitools.client.api.RadzenEditorApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     RadzenEditorApi apiInstance = new RadzenEditorApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -165,7 +165,7 @@ import org.openapitools.client.api.RadzenEditorApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     RadzenEditorApi apiInstance = new RadzenEditorApi(defaultClient);
     Integer id = 56; // Integer | 
@@ -234,7 +234,7 @@ import org.openapitools.client.api.RadzenEditorApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     RadzenEditorApi apiInstance = new RadzenEditorApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -301,7 +301,7 @@ import org.openapitools.client.api.RadzenEditorApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     RadzenEditorApi apiInstance = new RadzenEditorApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

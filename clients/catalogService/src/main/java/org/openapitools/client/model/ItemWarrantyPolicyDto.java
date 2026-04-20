@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemWarrantyPolicyDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:42.956312400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:02.227593800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemWarrantyPolicyDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -481,7 +481,7 @@ public class ItemWarrantyPolicyDto {
   /**
    * Get value
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return value
    */
   @javax.annotation.Nullable

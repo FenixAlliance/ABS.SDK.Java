@@ -354,4 +354,3 @@ src/main/java/org/openapitools/client/model/WebTemplateDto.java
 src/main/java/org/openapitools/client/model/WebTemplateDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WebTemplateDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/WebTemplateUpdateDto.java
-src/test/java/org/openapitools/client/model/WebPortalDtoListEnvelopeTest.java

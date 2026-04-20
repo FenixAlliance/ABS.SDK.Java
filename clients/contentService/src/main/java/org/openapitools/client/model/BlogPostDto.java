@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * BlogPostDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:48.820635200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:08.778629700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BlogPostDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -75,7 +75,9 @@ public class BlogPostDto {
     
     HTML5("Html5"),
     
-    MARKDOWN("Markdown");
+    MARKDOWN("Markdown"),
+    
+    MARKUP("Markup");
 
     private String value;
 
@@ -348,13 +350,13 @@ public class BlogPostDto {
   @SerializedName(SERIALIZED_NAME_PARENT_WEB_CONTENT_VERSION_ID)
   private String parentWebContentVersionId;
 
-  public static final String SERIALIZED_NAME_BLOG_POST_CATEGORY_I_D = "blogPostCategoryID";
-  @SerializedName(SERIALIZED_NAME_BLOG_POST_CATEGORY_I_D)
-  private String blogPostCategoryID;
+  public static final String SERIALIZED_NAME_BLOG_POST_CATEGORY_ID = "blogPostCategoryId";
+  @SerializedName(SERIALIZED_NAME_BLOG_POST_CATEGORY_ID)
+  private String blogPostCategoryId;
 
-  public static final String SERIALIZED_NAME_WEB_TEMPLATE_I_D = "webTemplateID";
-  @SerializedName(SERIALIZED_NAME_WEB_TEMPLATE_I_D)
-  private String webTemplateID;
+  public static final String SERIALIZED_NAME_WEB_TEMPLATE_ID = "webTemplateId";
+  @SerializedName(SERIALIZED_NAME_WEB_TEMPLATE_ID)
+  private String webTemplateId;
 
   public BlogPostDto() {
   }
@@ -1480,41 +1482,41 @@ public class BlogPostDto {
   }
 
 
-  public BlogPostDto blogPostCategoryID(String blogPostCategoryID) {
-    this.blogPostCategoryID = blogPostCategoryID;
+  public BlogPostDto blogPostCategoryId(String blogPostCategoryId) {
+    this.blogPostCategoryId = blogPostCategoryId;
     return this;
   }
 
   /**
-   * Get blogPostCategoryID
-   * @return blogPostCategoryID
+   * Get blogPostCategoryId
+   * @return blogPostCategoryId
    */
   @javax.annotation.Nullable
-  public String getBlogPostCategoryID() {
-    return blogPostCategoryID;
+  public String getBlogPostCategoryId() {
+    return blogPostCategoryId;
   }
 
-  public void setBlogPostCategoryID(String blogPostCategoryID) {
-    this.blogPostCategoryID = blogPostCategoryID;
+  public void setBlogPostCategoryId(String blogPostCategoryId) {
+    this.blogPostCategoryId = blogPostCategoryId;
   }
 
 
-  public BlogPostDto webTemplateID(String webTemplateID) {
-    this.webTemplateID = webTemplateID;
+  public BlogPostDto webTemplateId(String webTemplateId) {
+    this.webTemplateId = webTemplateId;
     return this;
   }
 
   /**
-   * Get webTemplateID
-   * @return webTemplateID
+   * Get webTemplateId
+   * @return webTemplateId
    */
   @javax.annotation.Nullable
-  public String getWebTemplateID() {
-    return webTemplateID;
+  public String getWebTemplateId() {
+    return webTemplateId;
   }
 
-  public void setWebTemplateID(String webTemplateID) {
-    this.webTemplateID = webTemplateID;
+  public void setWebTemplateId(String webTemplateId) {
+    this.webTemplateId = webTemplateId;
   }
 
 
@@ -1587,8 +1589,8 @@ public class BlogPostDto {
         Objects.equals(this.socialProfileId, blogPostDto.socialProfileId) &&
         Objects.equals(this.parentWebContentId, blogPostDto.parentWebContentId) &&
         Objects.equals(this.parentWebContentVersionId, blogPostDto.parentWebContentVersionId) &&
-        Objects.equals(this.blogPostCategoryID, blogPostDto.blogPostCategoryID) &&
-        Objects.equals(this.webTemplateID, blogPostDto.webTemplateID);
+        Objects.equals(this.blogPostCategoryId, blogPostDto.blogPostCategoryId) &&
+        Objects.equals(this.webTemplateId, blogPostDto.webTemplateId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1597,7 +1599,7 @@ public class BlogPostDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, codeType, order, slug, name, title, excerpt, password, description, highlightImage, canonicalUrl, emitResult, seoTitle, seoKeyWords, seoKeyPhrases, metaDescription, twitterImage, twitterTitle, twitterDescription, facebookImage, facebookTitle, facebookDescription, featuredImageUrl, content, code, namespace, typeName, generatedCode, compilationPath, htmlContent, cSharpContent, razorContent, cssContent, jsContent, cssFiles, jsFiles, razorGeneratedCode, cSharpGeneratedCode, template, _default, enable, enableComments, displaySocialBox, published, inTrashCan, systemLocked, allowPingBacks, allowTrackbacks, cornerstoneContent, isEssentialContent, allowSearchEngineIndexing, tenantId, webPortalId, websiteThemeId, enrollmentId, socialProfileId, parentWebContentId, parentWebContentVersionId, blogPostCategoryID, webTemplateID);
+    return Objects.hash(id, timestamp, codeType, order, slug, name, title, excerpt, password, description, highlightImage, canonicalUrl, emitResult, seoTitle, seoKeyWords, seoKeyPhrases, metaDescription, twitterImage, twitterTitle, twitterDescription, facebookImage, facebookTitle, facebookDescription, featuredImageUrl, content, code, namespace, typeName, generatedCode, compilationPath, htmlContent, cSharpContent, razorContent, cssContent, jsContent, cssFiles, jsFiles, razorGeneratedCode, cSharpGeneratedCode, template, _default, enable, enableComments, displaySocialBox, published, inTrashCan, systemLocked, allowPingBacks, allowTrackbacks, cornerstoneContent, isEssentialContent, allowSearchEngineIndexing, tenantId, webPortalId, websiteThemeId, enrollmentId, socialProfileId, parentWebContentId, parentWebContentVersionId, blogPostCategoryId, webTemplateId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1670,8 +1672,8 @@ public class BlogPostDto {
     sb.append("    socialProfileId: ").append(toIndentedString(socialProfileId)).append("\n");
     sb.append("    parentWebContentId: ").append(toIndentedString(parentWebContentId)).append("\n");
     sb.append("    parentWebContentVersionId: ").append(toIndentedString(parentWebContentVersionId)).append("\n");
-    sb.append("    blogPostCategoryID: ").append(toIndentedString(blogPostCategoryID)).append("\n");
-    sb.append("    webTemplateID: ").append(toIndentedString(webTemplateID)).append("\n");
+    sb.append("    blogPostCategoryId: ").append(toIndentedString(blogPostCategoryId)).append("\n");
+    sb.append("    webTemplateId: ").append(toIndentedString(webTemplateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1753,8 +1755,8 @@ public class BlogPostDto {
     openapiFields.add("socialProfileId");
     openapiFields.add("parentWebContentId");
     openapiFields.add("parentWebContentVersionId");
-    openapiFields.add("blogPostCategoryID");
-    openapiFields.add("webTemplateID");
+    openapiFields.add("blogPostCategoryId");
+    openapiFields.add("webTemplateId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1914,11 +1916,11 @@ public class BlogPostDto {
       if ((jsonObj.get("parentWebContentVersionId") != null && !jsonObj.get("parentWebContentVersionId").isJsonNull()) && !jsonObj.get("parentWebContentVersionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentWebContentVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentWebContentVersionId").toString()));
       }
-      if ((jsonObj.get("blogPostCategoryID") != null && !jsonObj.get("blogPostCategoryID").isJsonNull()) && !jsonObj.get("blogPostCategoryID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `blogPostCategoryID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blogPostCategoryID").toString()));
+      if ((jsonObj.get("blogPostCategoryId") != null && !jsonObj.get("blogPostCategoryId").isJsonNull()) && !jsonObj.get("blogPostCategoryId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `blogPostCategoryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blogPostCategoryId").toString()));
       }
-      if ((jsonObj.get("webTemplateID") != null && !jsonObj.get("webTemplateID").isJsonNull()) && !jsonObj.get("webTemplateID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webTemplateID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webTemplateID").toString()));
+      if ((jsonObj.get("webTemplateId") != null && !jsonObj.get("webTemplateId").isJsonNull()) && !jsonObj.get("webTemplateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `webTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webTemplateId").toString()));
       }
   }
 

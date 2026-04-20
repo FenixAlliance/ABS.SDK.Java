@@ -15,10 +15,10 @@
 |**disabled** | **Boolean** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**websiteThemeID** | **String** |  |  [optional] |
-|**businessDomainID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**businessPortalApplicationID** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**websiteThemeId** | **String** |  |  [optional] |
+|**businessDomainId** | **String** |  |  [optional] |
+|**businessPortalApplicationId** | **String** |  |  [optional] |
 
 
 

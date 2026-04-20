@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * AccountingEntryUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:25.891756500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:24:43.221250200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AccountingEntryUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -168,7 +168,7 @@ public class AccountingEntryUpdateDto {
   /**
    * Get amount
    * minimum: 0.01
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return amount
    */
   @javax.annotation.Nullable

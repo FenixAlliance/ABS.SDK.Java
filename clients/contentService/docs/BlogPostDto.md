@@ -66,8 +66,8 @@
 |**socialProfileId** | **String** |  |  [optional] |
 |**parentWebContentId** | **String** |  |  [optional] |
 |**parentWebContentVersionId** | **String** |  |  [optional] |
-|**blogPostCategoryID** | **String** |  |  [optional] |
-|**webTemplateID** | **String** |  |  [optional] |
+|**blogPostCategoryId** | **String** |  |  [optional] |
+|**webTemplateId** | **String** |  |  [optional] |
 
 
 
@@ -81,6 +81,7 @@
 | LIQUID | &quot;Liquid&quot; |
 | HTML5 | &quot;Html5&quot; |
 | MARKDOWN | &quot;Markdown&quot; |
+| MARKUP | &quot;Markup&quot; |
 
 
 

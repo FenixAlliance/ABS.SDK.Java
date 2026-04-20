@@ -1,6 +1,6 @@
 # EmailGroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -103,7 +103,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -174,7 +174,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -245,7 +245,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -314,7 +314,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -382,7 +382,7 @@ import org.openapitools.client.api.EmailGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     EmailGroupsApi apiInstance = new EmailGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

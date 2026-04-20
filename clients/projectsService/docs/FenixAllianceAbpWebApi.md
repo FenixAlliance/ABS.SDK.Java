@@ -1,6 +1,6 @@
 # FenixAllianceAbpWebApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -37,7 +37,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest(); // ForgotPasswordRequest | 
@@ -97,7 +97,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     try {
@@ -152,7 +152,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     try {
@@ -207,7 +207,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     LoginRequest loginRequest = new LoginRequest(); // LoginRequest | 
@@ -271,7 +271,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     TwoFactorRequest twoFactorRequest = new TwoFactorRequest(); // TwoFactorRequest | 
@@ -333,7 +333,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     try {
@@ -391,7 +391,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     InfoRequest infoRequest = new InfoRequest(); // InfoRequest | 
@@ -453,7 +453,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     String userId = "userId_example"; // String | 
@@ -516,7 +516,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     RefreshRequest refreshRequest = new RefreshRequest(); // RefreshRequest | 
@@ -576,7 +576,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     RegisterRequest registerRequest = new RegisterRequest(); // RegisterRequest | 
@@ -636,7 +636,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     ResendConfirmationEmailRequest resendConfirmationEmailRequest = new ResendConfirmationEmailRequest(); // ResendConfirmationEmailRequest | 
@@ -695,7 +695,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     ResetPasswordRequest resetPasswordRequest = new ResetPasswordRequest(); // ResetPasswordRequest | 
@@ -755,7 +755,7 @@ import org.openapitools.client.api.FenixAllianceAbpWebApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FenixAllianceAbpWebApi apiInstance = new FenixAllianceAbpWebApi(defaultClient);
     try {

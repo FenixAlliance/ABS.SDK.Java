@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * InstructorProfileCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:11:36.618403400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:59.331860600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InstructorProfileCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

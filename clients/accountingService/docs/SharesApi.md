@@ -1,6 +1,6 @@
 # SharesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -50,7 +50,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -121,7 +121,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -192,7 +192,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -263,7 +263,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -334,7 +334,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -403,7 +403,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -472,7 +472,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -541,7 +541,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -610,7 +610,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -681,7 +681,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -749,7 +749,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -817,7 +817,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -888,7 +888,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -956,7 +956,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1024,7 +1024,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1095,7 +1095,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1166,7 +1166,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1234,7 +1234,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1302,7 +1302,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1370,7 +1370,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1438,7 +1438,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1512,7 +1512,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1586,7 +1586,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1660,7 +1660,7 @@ import org.openapitools.client.api.SharesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SharesApi apiInstance = new SharesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

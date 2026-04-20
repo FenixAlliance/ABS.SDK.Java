@@ -1,6 +1,6 @@
 # FiscalResponsibilityRecordsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 
@@ -102,7 +102,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 
@@ -172,7 +172,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 
@@ -246,7 +246,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 
@@ -318,7 +318,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 
@@ -390,7 +390,7 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
     Object tenantId = null; // Object | 

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * SubscriptionPlanUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:12:45.206366700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:27:10.979447600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SubscriptionPlanUpdateDto {
   public static final String SERIALIZED_NAME_HOT = "hot";
   @SerializedName(SERIALIZED_NAME_HOT)
@@ -3479,7 +3479,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedWitholdingTaxesInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedWitholdingTaxesInUsd
    */
   @javax.annotation.Nullable
@@ -3500,7 +3500,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedPaymentCostInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedPaymentCostInUsd
    */
   @javax.annotation.Nullable
@@ -3521,7 +3521,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedPaymentTaxInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedPaymentTaxInUsd
    */
   @javax.annotation.Nullable
@@ -3542,7 +3542,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedDefaultShippingCostInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedDefaultShippingCostInUsd
    */
   @javax.annotation.Nullable
@@ -3563,7 +3563,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedDefaultShippingTaxInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedDefaultShippingTaxInUsd
    */
   @javax.annotation.Nullable
@@ -3584,7 +3584,7 @@ public class SubscriptionPlanUpdateDto {
   /**
    * Get estimatedTotalPriceInUsd
    * minimum: 0
-   * maximum: 1.7976931348623157E+308
+   * maximum: 999999999999999
    * @return estimatedTotalPriceInUsd
    */
   @javax.annotation.Nullable

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * BlogPostUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:48.820635200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:08.778629700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BlogPostUpdateDto {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -174,7 +174,9 @@ public class BlogPostUpdateDto {
     
     HTML5("Html5"),
     
-    MARKDOWN("Markdown");
+    MARKDOWN("Markdown"),
+    
+    MARKUP("Markup");
 
     private String value;
 
@@ -326,6 +328,14 @@ public class BlogPostUpdateDto {
   public static final String SERIALIZED_NAME_ALLOW_SEARCH_ENGINE_INDEXING = "allowSearchEngineIndexing";
   @SerializedName(SERIALIZED_NAME_ALLOW_SEARCH_ENGINE_INDEXING)
   private Boolean allowSearchEngineIndexing;
+
+  public static final String SERIALIZED_NAME_BLOG_POST_CATEGORY_ID = "blogPostCategoryId";
+  @SerializedName(SERIALIZED_NAME_BLOG_POST_CATEGORY_ID)
+  private String blogPostCategoryId;
+
+  public static final String SERIALIZED_NAME_WEB_TEMPLATE_ID = "webTemplateId";
+  @SerializedName(SERIALIZED_NAME_WEB_TEMPLATE_ID)
+  private String webTemplateId;
 
   public BlogPostUpdateDto() {
   }
@@ -1356,6 +1366,44 @@ public class BlogPostUpdateDto {
   }
 
 
+  public BlogPostUpdateDto blogPostCategoryId(String blogPostCategoryId) {
+    this.blogPostCategoryId = blogPostCategoryId;
+    return this;
+  }
+
+  /**
+   * Get blogPostCategoryId
+   * @return blogPostCategoryId
+   */
+  @javax.annotation.Nullable
+  public String getBlogPostCategoryId() {
+    return blogPostCategoryId;
+  }
+
+  public void setBlogPostCategoryId(String blogPostCategoryId) {
+    this.blogPostCategoryId = blogPostCategoryId;
+  }
+
+
+  public BlogPostUpdateDto webTemplateId(String webTemplateId) {
+    this.webTemplateId = webTemplateId;
+    return this;
+  }
+
+  /**
+   * Get webTemplateId
+   * @return webTemplateId
+   */
+  @javax.annotation.Nullable
+  public String getWebTemplateId() {
+    return webTemplateId;
+  }
+
+  public void setWebTemplateId(String webTemplateId) {
+    this.webTemplateId = webTemplateId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1419,7 +1467,9 @@ public class BlogPostUpdateDto {
         Objects.equals(this.allowTrackbacks, blogPostUpdateDto.allowTrackbacks) &&
         Objects.equals(this.cornerstoneContent, blogPostUpdateDto.cornerstoneContent) &&
         Objects.equals(this.isEssentialContent, blogPostUpdateDto.isEssentialContent) &&
-        Objects.equals(this.allowSearchEngineIndexing, blogPostUpdateDto.allowSearchEngineIndexing);
+        Objects.equals(this.allowSearchEngineIndexing, blogPostUpdateDto.allowSearchEngineIndexing) &&
+        Objects.equals(this.blogPostCategoryId, blogPostUpdateDto.blogPostCategoryId) &&
+        Objects.equals(this.webTemplateId, blogPostUpdateDto.webTemplateId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1428,7 +1478,7 @@ public class BlogPostUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, slug, name, title, excerpt, password, description, highlightImage, canonicalUrl, seoTitle, seoKeyWords, seoKeyPhrases, metaDescription, twitterImage, twitterTitle, twitterDescription, facebookImage, facebookTitle, facebookDescription, featuredImageUrl, content, code, namespace, typeName, generatedCode, compilationPath, htmlContent, codeType, cSharpContent, razorContent, cssContent, jsContent, cssFiles, jsFiles, razorGeneratedCode, cSharpGeneratedCode, precompiledLogicSize, precompiledLogicSizeLong, precompiledViewSize, precompiledViewSizeLong, precompiledLogicViewSize, template, _default, enable, enableComments, displaySocialBox, published, inTrashCan, systemLocked, allowPingbacks, allowTrackbacks, cornerstoneContent, isEssentialContent, allowSearchEngineIndexing);
+    return Objects.hash(order, slug, name, title, excerpt, password, description, highlightImage, canonicalUrl, seoTitle, seoKeyWords, seoKeyPhrases, metaDescription, twitterImage, twitterTitle, twitterDescription, facebookImage, facebookTitle, facebookDescription, featuredImageUrl, content, code, namespace, typeName, generatedCode, compilationPath, htmlContent, codeType, cSharpContent, razorContent, cssContent, jsContent, cssFiles, jsFiles, razorGeneratedCode, cSharpGeneratedCode, precompiledLogicSize, precompiledLogicSizeLong, precompiledViewSize, precompiledViewSizeLong, precompiledLogicViewSize, template, _default, enable, enableComments, displaySocialBox, published, inTrashCan, systemLocked, allowPingbacks, allowTrackbacks, cornerstoneContent, isEssentialContent, allowSearchEngineIndexing, blogPostCategoryId, webTemplateId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1496,6 +1546,8 @@ public class BlogPostUpdateDto {
     sb.append("    cornerstoneContent: ").append(toIndentedString(cornerstoneContent)).append("\n");
     sb.append("    isEssentialContent: ").append(toIndentedString(isEssentialContent)).append("\n");
     sb.append("    allowSearchEngineIndexing: ").append(toIndentedString(allowSearchEngineIndexing)).append("\n");
+    sb.append("    blogPostCategoryId: ").append(toIndentedString(blogPostCategoryId)).append("\n");
+    sb.append("    webTemplateId: ").append(toIndentedString(webTemplateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1572,6 +1624,8 @@ public class BlogPostUpdateDto {
     openapiFields.add("cornerstoneContent");
     openapiFields.add("isEssentialContent");
     openapiFields.add("allowSearchEngineIndexing");
+    openapiFields.add("blogPostCategoryId");
+    openapiFields.add("webTemplateId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1706,6 +1760,12 @@ public class BlogPostUpdateDto {
       }
       if ((jsonObj.get("cSharpGeneratedCode") != null && !jsonObj.get("cSharpGeneratedCode").isJsonNull()) && !jsonObj.get("cSharpGeneratedCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cSharpGeneratedCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cSharpGeneratedCode").toString()));
+      }
+      if ((jsonObj.get("blogPostCategoryId") != null && !jsonObj.get("blogPostCategoryId").isJsonNull()) && !jsonObj.get("blogPostCategoryId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `blogPostCategoryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blogPostCategoryId").toString()));
+      }
+      if ((jsonObj.get("webTemplateId") != null && !jsonObj.get("webTemplateId").isJsonNull()) && !jsonObj.get("webTemplateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `webTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webTemplateId").toString()));
       }
   }
 

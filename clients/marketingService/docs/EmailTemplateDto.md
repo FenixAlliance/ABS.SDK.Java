@@ -81,6 +81,7 @@
 | LIQUID | &quot;Liquid&quot; |
 | HTML5 | &quot;Html5&quot; |
 | MARKDOWN | &quot;Markdown&quot; |
+| MARKUP | &quot;Markup&quot; |
 
 
 

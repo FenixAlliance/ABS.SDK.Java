@@ -1,6 +1,6 @@
 # CountriesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -37,7 +37,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -103,7 +103,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -169,7 +169,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -237,7 +237,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryStateId = "countryStateId_example"; // String | 
@@ -307,7 +307,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -375,7 +375,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryStateId = "countryStateId_example"; // String | 
@@ -445,7 +445,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -513,7 +513,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -581,7 +581,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -649,7 +649,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryId = "countryId_example"; // String | 
@@ -717,7 +717,7 @@ import org.openapitools.client.api.CountriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     CountriesApi apiInstance = new CountriesApi(defaultClient);
     String countryName = "countryName_example"; // String | 

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * WebPageUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:48.820635200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:08.778629700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class WebPageUpdateDto {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
@@ -174,7 +174,9 @@ public class WebPageUpdateDto {
     
     HTML5("Html5"),
     
-    MARKDOWN("Markdown");
+    MARKDOWN("Markdown"),
+    
+    MARKUP("Markup");
 
     private String value;
 

@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * WebPortalDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:12:59.673754200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:27:26.357261200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class WebPortalDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,21 +84,21 @@ public class WebPortalDto {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_WEBSITE_THEME_I_D = "websiteThemeID";
-  @SerializedName(SERIALIZED_NAME_WEBSITE_THEME_I_D)
-  private String websiteThemeID;
+  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
+  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
+  private String enrollmentId;
 
-  public static final String SERIALIZED_NAME_BUSINESS_DOMAIN_I_D = "businessDomainID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_DOMAIN_I_D)
-  private String businessDomainID;
+  public static final String SERIALIZED_NAME_WEBSITE_THEME_ID = "websiteThemeId";
+  @SerializedName(SERIALIZED_NAME_WEBSITE_THEME_ID)
+  private String websiteThemeId;
 
-  public static final String SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D = "businessProfileRecordID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PROFILE_RECORD_I_D)
-  private String businessProfileRecordID;
+  public static final String SERIALIZED_NAME_BUSINESS_DOMAIN_ID = "businessDomainId";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_DOMAIN_ID)
+  private String businessDomainId;
 
-  public static final String SERIALIZED_NAME_BUSINESS_PORTAL_APPLICATION_I_D = "businessPortalApplicationID";
-  @SerializedName(SERIALIZED_NAME_BUSINESS_PORTAL_APPLICATION_I_D)
-  private String businessPortalApplicationID;
+  public static final String SERIALIZED_NAME_BUSINESS_PORTAL_APPLICATION_ID = "businessPortalApplicationId";
+  @SerializedName(SERIALIZED_NAME_BUSINESS_PORTAL_APPLICATION_ID)
+  private String businessPortalApplicationId;
 
   public WebPortalDto() {
   }
@@ -255,79 +255,79 @@ public class WebPortalDto {
   }
 
 
-  public WebPortalDto websiteThemeID(String websiteThemeID) {
-    this.websiteThemeID = websiteThemeID;
+  public WebPortalDto enrollmentId(String enrollmentId) {
+    this.enrollmentId = enrollmentId;
     return this;
   }
 
   /**
-   * Get websiteThemeID
-   * @return websiteThemeID
+   * Get enrollmentId
+   * @return enrollmentId
    */
   @javax.annotation.Nullable
-  public String getWebsiteThemeID() {
-    return websiteThemeID;
+  public String getEnrollmentId() {
+    return enrollmentId;
   }
 
-  public void setWebsiteThemeID(String websiteThemeID) {
-    this.websiteThemeID = websiteThemeID;
+  public void setEnrollmentId(String enrollmentId) {
+    this.enrollmentId = enrollmentId;
   }
 
 
-  public WebPortalDto businessDomainID(String businessDomainID) {
-    this.businessDomainID = businessDomainID;
+  public WebPortalDto websiteThemeId(String websiteThemeId) {
+    this.websiteThemeId = websiteThemeId;
     return this;
   }
 
   /**
-   * Get businessDomainID
-   * @return businessDomainID
+   * Get websiteThemeId
+   * @return websiteThemeId
    */
   @javax.annotation.Nullable
-  public String getBusinessDomainID() {
-    return businessDomainID;
+  public String getWebsiteThemeId() {
+    return websiteThemeId;
   }
 
-  public void setBusinessDomainID(String businessDomainID) {
-    this.businessDomainID = businessDomainID;
+  public void setWebsiteThemeId(String websiteThemeId) {
+    this.websiteThemeId = websiteThemeId;
   }
 
 
-  public WebPortalDto businessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
+  public WebPortalDto businessDomainId(String businessDomainId) {
+    this.businessDomainId = businessDomainId;
     return this;
   }
 
   /**
-   * Get businessProfileRecordID
-   * @return businessProfileRecordID
+   * Get businessDomainId
+   * @return businessDomainId
    */
   @javax.annotation.Nullable
-  public String getBusinessProfileRecordID() {
-    return businessProfileRecordID;
+  public String getBusinessDomainId() {
+    return businessDomainId;
   }
 
-  public void setBusinessProfileRecordID(String businessProfileRecordID) {
-    this.businessProfileRecordID = businessProfileRecordID;
+  public void setBusinessDomainId(String businessDomainId) {
+    this.businessDomainId = businessDomainId;
   }
 
 
-  public WebPortalDto businessPortalApplicationID(String businessPortalApplicationID) {
-    this.businessPortalApplicationID = businessPortalApplicationID;
+  public WebPortalDto businessPortalApplicationId(String businessPortalApplicationId) {
+    this.businessPortalApplicationId = businessPortalApplicationId;
     return this;
   }
 
   /**
-   * Get businessPortalApplicationID
-   * @return businessPortalApplicationID
+   * Get businessPortalApplicationId
+   * @return businessPortalApplicationId
    */
   @javax.annotation.Nullable
-  public String getBusinessPortalApplicationID() {
-    return businessPortalApplicationID;
+  public String getBusinessPortalApplicationId() {
+    return businessPortalApplicationId;
   }
 
-  public void setBusinessPortalApplicationID(String businessPortalApplicationID) {
-    this.businessPortalApplicationID = businessPortalApplicationID;
+  public void setBusinessPortalApplicationId(String businessPortalApplicationId) {
+    this.businessPortalApplicationId = businessPortalApplicationId;
   }
 
 
@@ -349,10 +349,10 @@ public class WebPortalDto {
         Objects.equals(this.disabled, webPortalDto.disabled) &&
         Objects.equals(this.tenantId, webPortalDto.tenantId) &&
         Objects.equals(this.description, webPortalDto.description) &&
-        Objects.equals(this.websiteThemeID, webPortalDto.websiteThemeID) &&
-        Objects.equals(this.businessDomainID, webPortalDto.businessDomainID) &&
-        Objects.equals(this.businessProfileRecordID, webPortalDto.businessProfileRecordID) &&
-        Objects.equals(this.businessPortalApplicationID, webPortalDto.businessPortalApplicationID);
+        Objects.equals(this.enrollmentId, webPortalDto.enrollmentId) &&
+        Objects.equals(this.websiteThemeId, webPortalDto.websiteThemeId) &&
+        Objects.equals(this.businessDomainId, webPortalDto.businessDomainId) &&
+        Objects.equals(this.businessPortalApplicationId, webPortalDto.businessPortalApplicationId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -361,7 +361,7 @@ public class WebPortalDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, root, title, domain, disabled, tenantId, description, websiteThemeID, businessDomainID, businessProfileRecordID, businessPortalApplicationID);
+    return Objects.hash(id, timestamp, root, title, domain, disabled, tenantId, description, enrollmentId, websiteThemeId, businessDomainId, businessPortalApplicationId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -383,10 +383,10 @@ public class WebPortalDto {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    websiteThemeID: ").append(toIndentedString(websiteThemeID)).append("\n");
-    sb.append("    businessDomainID: ").append(toIndentedString(businessDomainID)).append("\n");
-    sb.append("    businessProfileRecordID: ").append(toIndentedString(businessProfileRecordID)).append("\n");
-    sb.append("    businessPortalApplicationID: ").append(toIndentedString(businessPortalApplicationID)).append("\n");
+    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
+    sb.append("    websiteThemeId: ").append(toIndentedString(websiteThemeId)).append("\n");
+    sb.append("    businessDomainId: ").append(toIndentedString(businessDomainId)).append("\n");
+    sb.append("    businessPortalApplicationId: ").append(toIndentedString(businessPortalApplicationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -417,10 +417,10 @@ public class WebPortalDto {
     openapiFields.add("disabled");
     openapiFields.add("tenantId");
     openapiFields.add("description");
-    openapiFields.add("websiteThemeID");
-    openapiFields.add("businessDomainID");
-    openapiFields.add("businessProfileRecordID");
-    openapiFields.add("businessPortalApplicationID");
+    openapiFields.add("enrollmentId");
+    openapiFields.add("websiteThemeId");
+    openapiFields.add("businessDomainId");
+    openapiFields.add("businessPortalApplicationId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -462,17 +462,17 @@ public class WebPortalDto {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("websiteThemeID") != null && !jsonObj.get("websiteThemeID").isJsonNull()) && !jsonObj.get("websiteThemeID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `websiteThemeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websiteThemeID").toString()));
+      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
-      if ((jsonObj.get("businessDomainID") != null && !jsonObj.get("businessDomainID").isJsonNull()) && !jsonObj.get("businessDomainID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessDomainID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessDomainID").toString()));
+      if ((jsonObj.get("websiteThemeId") != null && !jsonObj.get("websiteThemeId").isJsonNull()) && !jsonObj.get("websiteThemeId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `websiteThemeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("websiteThemeId").toString()));
       }
-      if ((jsonObj.get("businessProfileRecordID") != null && !jsonObj.get("businessProfileRecordID").isJsonNull()) && !jsonObj.get("businessProfileRecordID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessProfileRecordID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessProfileRecordID").toString()));
+      if ((jsonObj.get("businessDomainId") != null && !jsonObj.get("businessDomainId").isJsonNull()) && !jsonObj.get("businessDomainId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessDomainId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessDomainId").toString()));
       }
-      if ((jsonObj.get("businessPortalApplicationID") != null && !jsonObj.get("businessPortalApplicationID").isJsonNull()) && !jsonObj.get("businessPortalApplicationID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `businessPortalApplicationID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessPortalApplicationID").toString()));
+      if ((jsonObj.get("businessPortalApplicationId") != null && !jsonObj.get("businessPortalApplicationId").isJsonNull()) && !jsonObj.get("businessPortalApplicationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `businessPortalApplicationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessPortalApplicationId").toString()));
       }
   }
 

@@ -1,6 +1,6 @@
 # OptionsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -34,7 +34,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     String key = "key_example"; // String | 
@@ -106,7 +106,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     UUID optionId = UUID.randomUUID(); // UUID | 
@@ -174,7 +174,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     UUID optionId = UUID.randomUUID(); // UUID | 
@@ -242,7 +242,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     String key = "key_example"; // String | 
@@ -312,7 +312,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     UUID portalId = UUID.randomUUID(); // UUID | 
@@ -380,7 +380,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     UUID portalId = UUID.randomUUID(); // UUID | 
@@ -448,7 +448,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     UUID optionId = UUID.randomUUID(); // UUID | 
@@ -518,7 +518,7 @@ import org.openapitools.client.api.OptionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     OptionsApi apiInstance = new OptionsApi(defaultClient);
     String key = "key_example"; // String | 

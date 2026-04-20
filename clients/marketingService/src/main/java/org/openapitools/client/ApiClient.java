@@ -61,12 +61,25 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "http://localhost";
+    private String basePath = "https://absuite.net";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "",
-      "No description provided",
-      new HashMap<String, ServerVariable>()
+      "{server}",
+      "Alliance Business Suite API",
+      new HashMap<String, ServerVariable>() {{
+        put("server", new ServerVariable(
+          "ABS instance base URL",
+          "https://absuite.net",
+          new HashSet<String>(
+            Arrays.asList(
+              "https://absuite.net",
+              "https://test.absuite.net",
+              "https://dev.absuite.net",
+              "https://localhost:44388"
+            )
+          )
+        ));
+      }}
     )
   ));
     protected Integer serverIndex = 0;
@@ -156,7 +169,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://localhost
+     * @param basePath Base path of the URL (e.g https://absuite.net
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

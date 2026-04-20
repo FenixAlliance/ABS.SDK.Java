@@ -1,6 +1,6 @@
 # WishListsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -37,7 +37,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -103,7 +103,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -169,7 +169,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 
@@ -235,7 +235,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID recordId = UUID.randomUUID(); // UUID | 
@@ -300,7 +300,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 
@@ -366,7 +366,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 
@@ -432,7 +432,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID cartId = UUID.randomUUID(); // UUID | 
@@ -498,7 +498,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID cartId = UUID.randomUUID(); // UUID | 
@@ -566,7 +566,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 
@@ -634,7 +634,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 
@@ -700,7 +700,7 @@ import org.openapitools.client.api.WishListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     WishListsApi apiInstance = new WishListsApi(defaultClient);
     UUID wishListId = UUID.randomUUID(); // UUID | 

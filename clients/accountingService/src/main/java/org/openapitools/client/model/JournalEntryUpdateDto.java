@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * JournalEntryUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-16T21:10:25.891756500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:24:43.221250200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JournalEntryUpdateDto {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)

@@ -9,15 +9,15 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**title** | **String** |  |  [optional] |
-|**code** | **String** |  |  [optional] |
+|**title** | **String** |  |  |
 |**published** | **Boolean** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**htmlContent** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
+|**markup** | **String** |  |  [optional] |
 |**featuredImageUrl** | **String** |  |  [optional] |
 |**codeType** | [**CodeTypeEnum**](#CodeTypeEnum) |  |  [optional] |
-|**blogPostCategoryID** | **String** |  |  [optional] |
-|**webTemplateID** | **String** |  |  [optional] |
+|**blogPostCategoryId** | **String** |  |  [optional] |
+|**webTemplateId** | **String** |  |  [optional] |
 
 
 
@@ -31,6 +31,7 @@
 | LIQUID | &quot;Liquid&quot; |
 | HTML5 | &quot;Html5&quot; |
 | MARKDOWN | &quot;Markdown&quot; |
+| MARKUP | &quot;Markup&quot; |
 
 
 
