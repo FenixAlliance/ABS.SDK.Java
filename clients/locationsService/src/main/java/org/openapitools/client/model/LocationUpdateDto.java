@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * LocationUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:26:04.732783200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:37:09.907490600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LocationUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

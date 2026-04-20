@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * GoogleRecaptchaIntegrationOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:08.778629700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:34:30.574094900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class GoogleRecaptchaIntegrationOptions {
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)

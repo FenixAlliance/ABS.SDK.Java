@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportEntitlementUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:27:15.551127400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:40:26.712894600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportEntitlementUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * RefreshRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:49.742674400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:36:28.095092300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class RefreshRequest {
   public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refreshToken";
   @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)

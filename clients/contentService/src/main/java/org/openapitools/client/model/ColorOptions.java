@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ColorOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:08.778629700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:34:30.574094900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ColorOptions {
   /**
    * Gets or Sets primarySkin

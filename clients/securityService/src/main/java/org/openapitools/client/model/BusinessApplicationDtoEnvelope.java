@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * BusinessApplicationDtoEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:26:47.773947-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:39:09.068469700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BusinessApplicationDtoEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * DealUnitFlowCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:20.275321600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:35:04.933608700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class DealUnitFlowCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

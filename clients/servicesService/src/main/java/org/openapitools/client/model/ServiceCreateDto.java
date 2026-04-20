@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * ServiceCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:26:52.717502900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:39:22.813272400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ServiceCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

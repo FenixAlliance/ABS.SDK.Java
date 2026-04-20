@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SuiteLicenseDtoEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:27:20.518710500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:40:38.273453500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SuiteLicenseDtoEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

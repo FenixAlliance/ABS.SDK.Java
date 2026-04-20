@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemPriceCalculation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:26:30.025098600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:38:24.033007700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemPriceCalculation {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * CountryTopLevelDomainDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:25:32.340418900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:35:39.263570200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CountryTopLevelDomainDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
