@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * JsonWebKeySet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:36:14.878601300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:00:47.101140600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JsonWebKeySet {
   public static final String SERIALIZED_NAME_KEYS = "keys";
   @SerializedName(SERIALIZED_NAME_KEYS)

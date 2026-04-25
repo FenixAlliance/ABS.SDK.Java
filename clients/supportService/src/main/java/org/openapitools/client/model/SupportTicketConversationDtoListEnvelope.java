@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * SupportTicketConversationDtoListEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:40:26.712894600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:05:12.885628100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SupportTicketConversationDtoListEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

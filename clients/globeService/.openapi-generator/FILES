@@ -27,7 +27,7 @@ docs/CurrencyDto.md
 docs/CurrencyDtoEnvelope.md
 docs/CurrencyDtoListEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -69,7 +69,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/CountriesApi.java
 src/main/java/org/openapitools/client/api/CurrenciesApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/LanguagesApi.java
 src/main/java/org/openapitools/client/api/TimezonesApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java

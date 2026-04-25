@@ -18,7 +18,7 @@ docs/ExtendedTenantDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/ExtendedUserDtoListEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/ISwaggerContact.md
@@ -97,7 +97,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AntiforgeryApi.java
 src/main/java/org/openapitools/client/api/EmailsApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/LicensingApi.java
 src/main/java/org/openapitools/client/api/MigrationsApi.java
 src/main/java/org/openapitools/client/api/ModulesApi.java
@@ -168,3 +168,4 @@ src/main/java/org/openapitools/client/model/UserDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/UserSettingsDto.java
 src/main/java/org/openapitools/client/model/UserUpdateDto.java
 src/main/java/org/openapitools/client/model/WalletDto.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

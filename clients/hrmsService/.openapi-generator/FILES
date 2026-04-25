@@ -18,7 +18,7 @@ docs/EmployerProfileDtoListEnvelope.md
 docs/EmployersApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/GigCreateDto.md
 docs/GigDto.md
@@ -66,7 +66,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/EmployeesApi.java
 src/main/java/org/openapitools/client/api/EmployersApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/GigsApi.java
 src/main/java/org/openapitools/client/api/JobOffersApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java

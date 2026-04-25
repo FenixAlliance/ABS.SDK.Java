@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectHoursApprovalStatusUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:40:56.513006400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:06:01.872860100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectHoursApprovalStatusUpdateDto {
   /**
    * Gets or Sets approvalStatus

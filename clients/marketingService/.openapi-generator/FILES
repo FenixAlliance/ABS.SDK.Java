@@ -26,7 +26,7 @@ docs/EmailTemplateUpdateDto.md
 docs/EmailTemplatesApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -95,7 +95,7 @@ src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/EmailGroupsApi.java
 src/main/java/org/openapitools/client/api/EmailSignaturesApi.java
 src/main/java/org/openapitools/client/api/EmailTemplatesApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/MarketingCampaignsApi.java
 src/main/java/org/openapitools/client/api/MarketingListsApi.java
 src/main/java/org/openapitools/client/api/NewslettersApi.java
@@ -162,3 +162,4 @@ src/main/java/org/openapitools/client/model/SocialPostBucketDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/SocialPostBucketUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

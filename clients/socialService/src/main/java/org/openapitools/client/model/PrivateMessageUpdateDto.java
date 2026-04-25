@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * PrivateMessageUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:40:01.337110400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:04:40.788875200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PrivateMessageUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

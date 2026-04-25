@@ -11,7 +11,7 @@ docs/AuthorizationResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -64,7 +64,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/ApplicationsApi.java
 src/main/java/org/openapitools/client/api/CheckerApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/OAuthApi.java
 src/main/java/org/openapitools/client/api/ResourceApi.java
 src/main/java/org/openapitools/client/api/UserInfoApi.java

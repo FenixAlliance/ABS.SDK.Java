@@ -106,7 +106,7 @@ docs/CreateLedgerDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -310,7 +310,7 @@ src/main/java/org/openapitools/client/api/BillingProfilesApi.java
 src/main/java/org/openapitools/client/api/BudgetsApi.java
 src/main/java/org/openapitools/client/api/CommissionsApi.java
 src/main/java/org/openapitools/client/api/CostCentresApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/FinancialBooksApi.java
 src/main/java/org/openapitools/client/api/FiscalAuthoritiesApi.java
 src/main/java/org/openapitools/client/api/FiscalAuthorityYearsApi.java
@@ -582,3 +582,4 @@ src/main/java/org/openapitools/client/model/TransactionUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UpdateLedgerDto.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

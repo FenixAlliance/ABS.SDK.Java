@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * ServiceCaseDtoIReadOnlyListEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:39:22.813272400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:04:01.928607500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ServiceCaseDtoIReadOnlyListEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

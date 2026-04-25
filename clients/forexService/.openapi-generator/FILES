@@ -12,7 +12,7 @@ docs/ExchangeApi.md
 docs/ExchangeRate.md
 docs/ExchangeRateEnvelope.md
 docs/ExchangeVApi.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForexRatesDto.md
 docs/ForexRatesDtoEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -53,7 +53,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/ExchangeApi.java
 src/main/java/org/openapitools/client/api/ExchangeVApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/RatesApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java

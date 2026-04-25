@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PaymentTermCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:38:11.839455900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:02:45.760197800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PaymentTermCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

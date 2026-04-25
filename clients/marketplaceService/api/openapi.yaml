@@ -23,7 +23,7 @@ servers:
       - https://dev.absuite.net
       - https://localhost:44388
 tags:
-- name: FenixAlliance.ABP.Web
+- name: FenixAlliance.ABS.Web
 paths:
   /version:
     get:
@@ -31,7 +31,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /health:
@@ -40,7 +40,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /hello:
@@ -49,7 +49,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /register:
@@ -70,7 +70,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -105,7 +105,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -125,7 +125,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -158,7 +158,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -173,7 +173,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -195,7 +195,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -217,7 +217,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -245,7 +245,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -268,7 +268,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
       - application/problem+json
@@ -295,11 +295,96 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABP.Web
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
       - application/problem+json
+  /Account/PerformExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Logout:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/LinkExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/DownloadPersonalData:
+    post:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
 components:
   schemas:
     AccessTokenResponse:
@@ -534,5 +619,22 @@ components:
       - isTwoFactorEnabled
       - recoveryCodesLeft
       - sharedKey
+      type: object
+    _Account_PerformExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+        returnUrl:
+          type: string
+      type: object
+    _Account_Logout_post_request:
+      properties:
+        returnUrl:
+          type: string
+      type: object
+    _Account_Manage_LinkExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
       type: object
 

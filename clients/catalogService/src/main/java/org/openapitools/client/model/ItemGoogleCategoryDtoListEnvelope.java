@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemGoogleCategoryDtoListEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:34:10.848870400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T20:58:49.276448700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemGoogleCategoryDtoListEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

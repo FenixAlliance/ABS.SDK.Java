@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * BlogPostUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:34:30.574094900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T20:59:10.105105700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BlogPostUpdateDto {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)

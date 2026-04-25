@@ -12,7 +12,7 @@ docs/BlobEnvelope.md
 docs/BlobsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/FileUploadDto.md
 docs/FileUploadDtoEnvelope.md
 docs/FilesApi.md
@@ -53,7 +53,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AvatarsApi.java
 src/main/java/org/openapitools/client/api/BlobsApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/FilesApi.java
 src/main/java/org/openapitools/client/api/RadzenEditorApi.java
 src/main/java/org/openapitools/client/api/UploadsApi.java
@@ -80,3 +80,4 @@ src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
 src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

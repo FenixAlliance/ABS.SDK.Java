@@ -23,7 +23,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedContactDto.md
 docs/ExtendedContactDtoEnvelope.md
 docs/ExtendedContactDtoListEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -73,7 +73,7 @@ src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/ContactsApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/OptionsApi.java
 src/main/java/org/openapitools/client/api/SyncApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java

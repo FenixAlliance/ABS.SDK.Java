@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ForgotPasswordRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:39:09.068469700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:47.825638300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ForgotPasswordRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

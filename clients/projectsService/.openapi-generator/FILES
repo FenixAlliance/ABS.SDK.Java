@@ -8,7 +8,7 @@ build.sbt
 docs/AccessTokenResponse.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -68,7 +68,7 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/ProjectsApi.java
 src/main/java/org/openapitools/client/api/TaskCategoriesApi.java
 src/main/java/org/openapitools/client/api/TaskTypesApi.java
@@ -114,3 +114,4 @@ src/main/java/org/openapitools/client/model/TaskTypeDto.java
 src/main/java/org/openapitools/client/model/TaskTypeUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

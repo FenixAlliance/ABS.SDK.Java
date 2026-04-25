@@ -83,7 +83,7 @@ docs/CourseWikiUpdateDto.md
 docs/CourseWikisApi.md
 docs/CoursesApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -143,7 +143,7 @@ src/main/java/org/openapitools/client/api/CourseUnitsApi.java
 src/main/java/org/openapitools/client/api/CourseUpdatesApi.java
 src/main/java/org/openapitools/client/api/CourseWikisApi.java
 src/main/java/org/openapitools/client/api/CoursesApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/InstructorProfilesApi.java
 src/main/java/org/openapitools/client/api/StudentProfilesApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
@@ -228,3 +228,4 @@ src/main/java/org/openapitools/client/model/StudentProfileDto.java
 src/main/java/org/openapitools/client/model/StudentProfileUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java

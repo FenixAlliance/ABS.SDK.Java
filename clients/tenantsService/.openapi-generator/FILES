@@ -18,7 +18,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesApi.md
@@ -183,7 +183,7 @@ src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/DepartmentsApi.java
 src/main/java/org/openapitools/client/api/EmployeeEnrollmentsApi.java
 src/main/java/org/openapitools/client/api/EnrollmentsApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbpWebApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/IndustriesApi.java
 src/main/java/org/openapitools/client/api/InvitationsApi.java
 src/main/java/org/openapitools/client/api/OptionsApi.java
@@ -338,3 +338,4 @@ src/main/java/org/openapitools/client/model/WalletDto.java
 src/main/java/org/openapitools/client/model/WalletDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WebPortalDto.java
 src/main/java/org/openapitools/client/model/WebPortalDtoListEnvelope.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java
