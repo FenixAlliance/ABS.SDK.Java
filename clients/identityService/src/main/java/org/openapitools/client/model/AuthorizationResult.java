@@ -49,10 +49,10 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * AuthorizationResult
+ * AuthResult
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:00:47.101140600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
-public class AuthorizationResult {
+public class AuthResult {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private Object userId;
@@ -85,10 +85,10 @@ public class AuthorizationResult {
   @SerializedName(SERIALIZED_NAME_ERROR)
   private String error;
 
-  public AuthorizationResult() {
+  public AuthResult() {
   }
 
-  public AuthorizationResult userId(Object userId) {
+  public AuthResult userId(Object userId) {
     this.userId = userId;
     return this;
   }
@@ -107,7 +107,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult tenantId(Object tenantId) {
+  public AuthResult tenantId(Object tenantId) {
     this.tenantId = tenantId;
     return this;
   }
@@ -126,7 +126,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult portalId(Object portalId) {
+  public AuthResult portalId(Object portalId) {
     this.portalId = portalId;
     return this;
   }
@@ -145,7 +145,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult applicationId(Object applicationId) {
+  public AuthResult applicationId(Object applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -164,7 +164,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult enrollmentId(Object enrollmentId) {
+  public AuthResult enrollmentId(Object enrollmentId) {
     this.enrollmentId = enrollmentId;
     return this;
   }
@@ -183,7 +183,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult correlationId(String correlationId) {
+  public AuthResult correlationId(String correlationId) {
     this.correlationId = correlationId;
     return this;
   }
@@ -202,12 +202,12 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult scopes(List<String> scopes) {
+  public AuthResult scopes(List<String> scopes) {
     this.scopes = scopes;
     return this;
   }
 
-  public AuthorizationResult addScopesItem(String scopesItem) {
+  public AuthResult addScopesItem(String scopesItem) {
     if (this.scopes == null) {
       this.scopes = new ArrayList<>();
     }
@@ -229,7 +229,7 @@ public class AuthorizationResult {
   }
 
 
-  public AuthorizationResult error(String error) {
+  public AuthResult error(String error) {
     this.error = error;
     return this;
   }
@@ -257,7 +257,7 @@ public class AuthorizationResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthorizationResult authorizationResult = (AuthorizationResult) o;
+    AuthResult authorizationResult = (AuthResult) o;
     return Objects.equals(this.userId, authorizationResult.userId) &&
         Objects.equals(this.tenantId, authorizationResult.tenantId) &&
         Objects.equals(this.portalId, authorizationResult.portalId) &&
@@ -287,7 +287,7 @@ public class AuthorizationResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthorizationResult {\n");
+    sb.append("class AuthResult {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    portalId: ").append(toIndentedString(portalId)).append("\n");
@@ -335,20 +335,20 @@ public class AuthorizationResult {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AuthorizationResult
+   * @throws IOException if the JSON Element is invalid with respect to AuthResult
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AuthorizationResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthorizationResult is not found in the empty JSON string", AuthorizationResult.openapiRequiredFields.toString()));
+        if (!AuthResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthResult is not found in the empty JSON string", AuthResult.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AuthorizationResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthorizationResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!AuthResult.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -368,22 +368,22 @@ public class AuthorizationResult {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AuthorizationResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AuthorizationResult' and its subtypes
+       if (!AuthResult.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AuthResult' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AuthorizationResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AuthorizationResult.class));
+       final TypeAdapter<AuthResult> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AuthResult.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AuthorizationResult>() {
+       return (TypeAdapter<T>) new TypeAdapter<AuthResult>() {
            @Override
-           public void write(JsonWriter out, AuthorizationResult value) throws IOException {
+           public void write(JsonWriter out, AuthResult value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public AuthorizationResult read(JsonReader in) throws IOException {
+           public AuthResult read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -394,18 +394,18 @@ public class AuthorizationResult {
   }
 
   /**
-   * Create an instance of AuthorizationResult given an JSON string
+   * Create an instance of AuthResult given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AuthorizationResult
-   * @throws IOException if the JSON string is invalid with respect to AuthorizationResult
+   * @return An instance of AuthResult
+   * @throws IOException if the JSON string is invalid with respect to AuthResult
    */
-  public static AuthorizationResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AuthorizationResult.class);
+  public static AuthResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AuthResult.class);
   }
 
   /**
-   * Convert an instance of AuthorizationResult to an JSON string
+   * Convert an instance of AuthResult to an JSON string
    *
    * @return JSON string
    */

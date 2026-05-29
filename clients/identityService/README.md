@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
- - [AuthorizationResult](docs/AuthorizationResult.md)
+ - [AuthResult](docs/AuthResult.md)
  - [AuthorizationResultEnvelope](docs/AuthorizationResultEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)

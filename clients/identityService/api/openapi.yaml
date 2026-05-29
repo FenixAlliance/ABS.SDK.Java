@@ -1135,7 +1135,7 @@ components:
       additionalProperties: false
       format: uuid
       type: object
-    AuthorizationResult:
+    AuthResult:
       additionalProperties: false
       example:
         enrollmentId: "{}"
@@ -1219,7 +1219,7 @@ components:
           readOnly: true
           type: string
         result:
-          $ref: '#/components/schemas/AuthorizationResult'
+          $ref: '#/components/schemas/AuthResult'
       type: object
     EnrollmentId:
       additionalProperties: false

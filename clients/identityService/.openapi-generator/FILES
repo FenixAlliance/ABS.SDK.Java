@@ -7,7 +7,7 @@ build.gradle
 build.sbt
 docs/AccessTokenResponse.md
 docs/ApplicationsApi.md
-docs/AuthorizationResult.md
+docs/AuthResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
@@ -74,7 +74,7 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
-src/main/java/org/openapitools/client/model/AuthorizationResult.java
+src/main/java/org/openapitools/client/model/AuthResult.java
 src/main/java/org/openapitools/client/model/AuthorizationResultEnvelope.java
 src/main/java/org/openapitools/client/model/ErrorEnvelope.java
 src/main/java/org/openapitools/client/model/ForgotPasswordRequest.java

@@ -1,6 +1,6 @@
 
 
-# AuthorizationResult
+# AuthResult
 
 
 ## Properties

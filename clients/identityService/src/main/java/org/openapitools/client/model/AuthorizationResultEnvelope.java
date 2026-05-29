@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
-import org.openapitools.client.model.AuthorizationResult;
+import org.openapitools.client.model.AuthResult;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -75,7 +75,7 @@ public class AuthorizationResultEnvelope {
 
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
-  private AuthorizationResult result;
+  private AuthResult result;
 
   public AuthorizationResultEnvelope() {
   }
@@ -162,7 +162,7 @@ public class AuthorizationResultEnvelope {
 
 
 
-  public AuthorizationResultEnvelope result(AuthorizationResult result) {
+  public AuthorizationResultEnvelope result(AuthResult result) {
     this.result = result;
     return this;
   }
@@ -172,11 +172,11 @@ public class AuthorizationResultEnvelope {
    * @return result
    */
   @javax.annotation.Nullable
-  public AuthorizationResult getResult() {
+  public AuthResult getResult() {
     return result;
   }
 
-  public void setResult(AuthorizationResult result) {
+  public void setResult(AuthResult result) {
     this.result = result;
   }
 
@@ -290,7 +290,7 @@ public class AuthorizationResultEnvelope {
       }
       // validate the optional field `result`
       if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) {
-        AuthorizationResult.validateJsonElement(jsonObj.get("result"));
+        AuthResult.validateJsonElement(jsonObj.get("result"));
       }
   }
 

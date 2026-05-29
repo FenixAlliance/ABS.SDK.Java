@@ -27,17 +27,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for AuthorizationResult
+ * Model tests for AuthResult
  */
 public class AuthorizationResultTest {
-    private final AuthorizationResult model = new AuthorizationResult();
+    private final AuthResult model = new AuthResult();
 
     /**
-     * Model tests for AuthorizationResult
+     * Model tests for AuthResult
      */
     @Test
     public void testAuthorizationResult() {
-        // TODO: test AuthorizationResult
+        // TODO: test AuthResult
     }
 
     /**
