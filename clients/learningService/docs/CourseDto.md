@@ -170,6 +170,20 @@
 |**selectedShipmentPolicies** | **List&lt;String&gt;** |  |  [optional] |
 |**selectedAttributesOptions** | **List&lt;String&gt;** |  |  [optional] |
 |**selectedSellingMarginPolicies** | **List&lt;String&gt;** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
+|**version** | **String** |  |  [optional] |
+|**courseCategoryID** | **String** |  |  [optional] |
+|**courseCategoryName** | **String** |  |  [optional] |
+|**instructorProfileID** | **String** |  |  [optional] |
+|**instructorProfileName** | **String** |  |  [optional] |
+|**maxCourseEnrollments** | **Integer** |  |  [optional] |
+|**totalEffortInWeeks** | **Integer** |  |  [optional] |
+|**totalHoursPerWeek** | **Integer** |  |  [optional] |
+|**totalEffortInHours** | **Integer** |  |  [optional] |
+|**startDateTime** | **OffsetDateTime** |  |  [optional] |
+|**endDateTime** | **OffsetDateTime** |  |  [optional] |
+|**inscriptionsStartDateTime** | **OffsetDateTime** |  |  [optional] |
+|**inscriptionsEndDateTime** | **OffsetDateTime** |  |  [optional] |
 
 
 

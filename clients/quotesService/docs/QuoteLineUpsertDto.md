@@ -8,13 +8,60 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**closed** | **Boolean** |  |  [optional] |
+|**title** | **String** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
+|**priceListId** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**individualId** | **String** |  |  [optional] |
+|**paymentTermId** | **String** |  |  [optional] |
+|**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
+|**firstName** | **String** |  |  [optional] |
+|**lastName** | **String** |  |  [optional] |
+|**companyName** | **String** |  |  [optional] |
+|**billingEmail** | **String** |  |  [optional] |
+|**addressLine1** | **String** |  |  [optional] |
+|**addressLine2** | **String** |  |  [optional] |
+|**postalCode** | **String** |  |  [optional] |
+|**countryId** | **String** |  |  [optional] |
+|**stateId** | **String** |  |  [optional] |
+|**cityId** | **String** |  |  [optional] |
+|**billingLocationId** | **String** |  |  [optional] |
+|**shippingLocationId** | **String** |  |  [optional] |
+|**shippingMethodId** | **String** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**totalDetail** | **Double** |  |  [optional] |
+|**totalDetailCurrencyId** | **String** |  |  [optional] |
+|**totalProfit** | **Double** |  |  [optional] |
+|**totalProfitCurrencyId** | **String** |  |  [optional] |
+|**totalDiscounts** | **Double** |  |  [optional] |
+|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalSurcharges** | **Double** |  |  [optional] |
+|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalShippingTax** | **Double** |  |  [optional] |
+|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
+|**totalShippingCost** | **Double** |  |  [optional] |
+|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalDiscounts** | **Double** |  |  [optional] |
+|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
+|**totalGlobalSurcharges** | **Double** |  |  [optional] |
+|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
+|**totalWithheldTax** | **Double** |  |  [optional] |
+|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
+|**totalTaxBase** | **Double** |  |  [optional] |
+|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
+|**totalTaxes** | **Double** |  |  [optional] |
+|**totalTaxesCurrencyId** | **String** |  |  [optional] |
+|**total** | **Double** |  |  [optional] |
+|**totalCurrencyId** | **String** |  |  [optional] |
+|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
+|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**itemId** | **String** |  |  [optional] |
 |**itemTitle** | **String** |  |  [optional] |
 |**itemShortDescription** | **String** |  |  [optional] |
 |**itemPrimaryImageUrl** | **String** |  |  [optional] |
 |**shippingPolicyId** | **String** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
-|**description** | **String** |  |  [optional] |
 |**quantity** | **Double** |  |  [optional] |
 |**free** | **Boolean** |  |  [optional] |
 |**freeReason** | **String** |  |  [optional] |
@@ -43,10 +90,7 @@
 |**priceListItemId** | **String** |  |  [optional] |
 |**unitId** | **String** |  |  [optional] |
 |**unitGroupId** | **String** |  |  [optional] |
-|**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
-|**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**forexRatesSnapshot** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
 |**totalBaseAmountInUsd** | **Double** |  |  [optional] |
 |**totalProfitInUsd** | **Double** |  |  [optional] |
 |**totalDetailAmountInUsd** | **Double** |  |  [optional] |
@@ -67,49 +111,15 @@
 |**customGlobalSurchargesAmountCurrencyId** | **String** |  |  [optional] |
 |**customGlobalDiscountsAmount** | **Double** |  |  [optional] |
 |**customGlobalDiscountsAmountCurrencyId** | **String** |  |  [optional] |
-|**totalDetail** | **Double** |  |  [optional] |
-|**totalDetailCurrencyId** | **String** |  |  [optional] |
-|**totalProfit** | **Double** |  |  [optional] |
-|**totalProfitCurrencyId** | **String** |  |  [optional] |
-|**totalDiscounts** | **Double** |  |  [optional] |
-|**totalDiscountsCurrencyId** | **String** |  |  [optional] |
-|**totalSurcharges** | **Double** |  |  [optional] |
-|**totalSurchargesCurrencyId** | **String** |  |  [optional] |
-|**totalTaxBase** | **Double** |  |  [optional] |
-|**totalTaxBaseCurrencyId** | **String** |  |  [optional] |
-|**totalShippingCost** | **Double** |  |  [optional] |
-|**totalShippingCostCurrencyId** | **String** |  |  [optional] |
-|**totalShippingTax** | **Double** |  |  [optional] |
-|**totalShippingTaxCurrencyId** | **String** |  |  [optional] |
-|**totalTaxes** | **Double** |  |  [optional] |
-|**totalTaxesCurrencyId** | **String** |  |  [optional] |
-|**totalWithheldTax** | **Double** |  |  [optional] |
-|**totalWithheldTaxCurrencyId** | **String** |  |  [optional] |
-|**totalGlobalDiscounts** | **Double** |  |  [optional] |
-|**totalGlobalDiscountsCurrencyId** | **String** |  |  [optional] |
-|**totalGlobalSurcharges** | **Double** |  |  [optional] |
-|**totalGlobalSurchargesCurrencyId** | **String** |  |  [optional] |
-|**total** | **Double** |  |  [optional] |
-|**totalCurrencyId** | **String** |  |  [optional] |
 |**returnPolicyId** | **String** |  |  [optional] |
 |**refundPolicyId** | **String** |  |  [optional] |
 |**warrantyPolicyId** | **String** |  |  [optional] |
 |**shipmentPolicyId** | **String** |  |  [optional] |
-|**shippingLocationId** | **String** |  |  [optional] |
 |**locationId** | **String** |  |  [optional] |
 |**quoteItemRecordId** | **String** |  |  [optional] |
 |**parentBillingItemRecordId** | **String** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**quoteId** | **String** |  |  [optional] |
-
-
-
-## Enum: TaxCalculationMethodEnum
-
-| Name | Value |
-|---- | -----|
-| INCLUDED | &quot;Included&quot; |
-| EXCLUDED | &quot;Excluded&quot; |
 
 
 
@@ -119,6 +129,15 @@
 |---- | -----|
 | AUTOMATIC | &quot;Automatic&quot; |
 | CUSTOM | &quot;Custom&quot; |
+
+
+
+## Enum: TaxCalculationMethodEnum
+
+| Name | Value |
+|---- | -----|
+| INCLUDED | &quot;Included&quot; |
+| EXCLUDED | &quot;Excluded&quot; |
 
 
 

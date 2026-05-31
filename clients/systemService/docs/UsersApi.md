@@ -1,6 +1,6 @@
 # UsersApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -23,7 +23,7 @@ All URIs are relative to *https://absuite.net*
 
 Preview the rendered email for a user.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -37,7 +37,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID userId = UUID.randomUUID(); // UUID | 
@@ -91,7 +91,7 @@ No authorization required
 
 Send an email to a user.
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -105,7 +105,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID userId = UUID.randomUUID(); // UUID | 
@@ -161,7 +161,7 @@ No authorization required
 
 Create a new user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -175,7 +175,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -229,7 +229,7 @@ No authorization required
 
 Delete a user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -243,7 +243,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID userId = UUID.randomUUID(); // UUID | 
@@ -297,7 +297,7 @@ No authorization required
 
 Retrieve an extended user by ID
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -311,7 +311,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String userId = "userId_example"; // String | 
@@ -365,7 +365,7 @@ No authorization required
 
 Retrieve a list of extended users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -379,7 +379,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -431,7 +431,7 @@ No authorization required
 
 Get the count of extended users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -445,7 +445,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -497,7 +497,7 @@ No authorization required
 
 Retrieve a user by ID
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -511,7 +511,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String userId = "userId_example"; // String | 
@@ -565,7 +565,7 @@ No authorization required
 
 Retrieve a list of users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -579,7 +579,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -631,7 +631,7 @@ No authorization required
 
 Get the count of users
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -645,7 +645,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -697,7 +697,7 @@ No authorization required
 
 Update a user
 
-This action is only available for users with the &#39;business_owner&#39; role (global administrators).
+This action is only available for global administrators.
 
 ### Example
 ```java
@@ -711,7 +711,7 @@ import org.openapitools.client.api.UsersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     UsersApi apiInstance = new UsersApi(defaultClient);
     UUID userId = UUID.randomUUID(); // UUID | 

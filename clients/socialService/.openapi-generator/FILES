@@ -7,12 +7,13 @@ build.gradle
 build.sbt
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/CompletionsApi.md
 docs/ConversationCreateDto.md
 docs/ConversationDto.md
 docs/ConversationDtoListEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -22,6 +23,7 @@ docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
 docs/NotificationDto.md
+docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
@@ -95,7 +97,8 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
+src/main/java/org/openapitools/client/api/CompletionsApi.java
+src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
 src/main/java/org/openapitools/client/api/SocialFeedsApi.java
 src/main/java/org/openapitools/client/api/SocialGroupsApi.java
 src/main/java/org/openapitools/client/api/SocialPostsApi.java
@@ -121,6 +124,7 @@ src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/Int32Envelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/NotificationDto.java
+src/main/java/org/openapitools/client/model/NotificationDtoEnvelope.java
 src/main/java/org/openapitools/client/model/NotificationDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/PrivateMessageCreateDto.java
 src/main/java/org/openapitools/client/model/PrivateMessageDto.java
@@ -168,4 +172,6 @@ src/main/java/org/openapitools/client/model/SocialReactionDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/SocialReactionUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java
+src/test/java/org/openapitools/client/api/CompletionsApiTest.java
+src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
+src/test/java/org/openapitools/client/model/NotificationDtoEnvelopeTest.java

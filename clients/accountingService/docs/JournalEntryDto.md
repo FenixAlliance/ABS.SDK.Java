@@ -17,6 +17,8 @@
 |**forexRate** | **Double** |  |  [optional] |
 |**credit** | **Double** |  |  [optional] |
 |**debit** | **Double** |  |  [optional] |
+|**creditInUsd** | **Double** |  |  [optional] |
+|**debitInUsd** | **Double** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
@@ -31,6 +33,8 @@
 |**parentJournalEntryId** | **String** |  |  [optional] |
 |**creditAmount** | [**Money**](Money.md) |  |  [optional] |
 |**debitAmount** | [**Money**](Money.md) |  |  [optional] |
+|**creditAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
+|**debitAmountInUsd** | [**Money**](Money.md) |  |  [optional] |
 
 
 

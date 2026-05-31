@@ -1,6 +1,6 @@
 # FiscalRegimesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     FiscalRegimeCreateDto fiscalRegimeCreateDto = new FiscalRegimeCreateDto(); // FiscalRegimeCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **fiscalRegimeCreateDto** | [**FiscalRegimeCreateDto**](FiscalRegimeCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID regimeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **regimeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -172,10 +172,10 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID regimeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -198,7 +198,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **regimeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getFiscalRegimes"></a>
 # **getFiscalRegimes**
-> FiscalRegimeDtoListEnvelope getFiscalRegimes(fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> FiscalRegimeDtoListEnvelope getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
 
 Get fiscal regimes for an authority
 
@@ -244,15 +244,16 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      FiscalRegimeDtoListEnvelope result = apiInstance.getFiscalRegimes(fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      FiscalRegimeDtoListEnvelope result = apiInstance.getFiscalRegimes(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalRegimesApi#getFiscalRegimes");
@@ -269,6 +270,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -296,7 +298,7 @@ No authorization required
 
 <a id="getFiscalRegimesCount"></a>
 # **getFiscalRegimesCount**
-> Int32Envelope getFiscalRegimesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
 
 Get fiscal regimes count
 
@@ -314,14 +316,15 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getFiscalRegimesCount(fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalRegimesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalRegimesApi#getFiscalRegimesCount");
@@ -338,6 +341,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -382,10 +386,10 @@ import org.openapitools.client.api.FiscalRegimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalRegimesApi apiInstance = new FiscalRegimesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID regimeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -408,7 +412,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **regimeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

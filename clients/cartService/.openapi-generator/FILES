@@ -13,17 +13,16 @@ docs/CartDtoEnvelope.md
 docs/CartUpdateRequest.md
 docs/CartsApi.md
 docs/CompareApi.md
+docs/CompletionsApi.md
 docs/CountryDto.md
 docs/CountryDtoEnvelope.md
 docs/CountrySwitchRequest.md
 docs/CurrencyDto.md
 docs/CurrencyDtoEnvelope.md
-docs/CurrencyId.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbsWebApi.md
-docs/ForexRates.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -37,7 +36,6 @@ docs/ItemToCompareCartRecordDto.md
 docs/ItemToCompareCartRecordDtoEnvelope.md
 docs/ItemToCompareCartRecordDtoListEnvelope.md
 docs/LoginRequest.md
-docs/Money.md
 docs/NewWishListRequest.md
 docs/ProductToWishListRequest.md
 docs/RecordsApi.md
@@ -76,7 +74,8 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/CartsApi.java
 src/main/java/org/openapitools/client/api/CompareApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
+src/main/java/org/openapitools/client/api/CompletionsApi.java
+src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
 src/main/java/org/openapitools/client/api/RecordsApi.java
 src/main/java/org/openapitools/client/api/WishListsApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
@@ -95,11 +94,9 @@ src/main/java/org/openapitools/client/model/CountryDtoEnvelope.java
 src/main/java/org/openapitools/client/model/CountrySwitchRequest.java
 src/main/java/org/openapitools/client/model/CurrencyDto.java
 src/main/java/org/openapitools/client/model/CurrencyDtoEnvelope.java
-src/main/java/org/openapitools/client/model/CurrencyId.java
 src/main/java/org/openapitools/client/model/CurrencySwitchRequest.java
 src/main/java/org/openapitools/client/model/EmptyEnvelope.java
 src/main/java/org/openapitools/client/model/ErrorEnvelope.java
-src/main/java/org/openapitools/client/model/ForexRates.java
 src/main/java/org/openapitools/client/model/ForgotPasswordRequest.java
 src/main/java/org/openapitools/client/model/HttpValidationProblemDetails.java
 src/main/java/org/openapitools/client/model/InfoRequest.java
@@ -113,7 +110,6 @@ src/main/java/org/openapitools/client/model/ItemToCompareCartRecordDto.java
 src/main/java/org/openapitools/client/model/ItemToCompareCartRecordDtoEnvelope.java
 src/main/java/org/openapitools/client/model/ItemToCompareCartRecordDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
-src/main/java/org/openapitools/client/model/Money.java
 src/main/java/org/openapitools/client/model/NewWishListRequest.java
 src/main/java/org/openapitools/client/model/ProductToWishListRequest.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
@@ -126,3 +122,5 @@ src/main/java/org/openapitools/client/model/WishListDto.java
 src/main/java/org/openapitools/client/model/WishListDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WishListItemRecordDto.java
 src/main/java/org/openapitools/client/model/WishListUpdateDto.java
+src/test/java/org/openapitools/client/api/CompletionsApiTest.java
+src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

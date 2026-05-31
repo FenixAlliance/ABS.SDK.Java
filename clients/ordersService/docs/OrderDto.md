@@ -33,6 +33,7 @@
 |**customerNotes** | **String** |  |  [optional] |
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
+|**forexRatesSnapshot** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**totalDetail** | **Double** |  |  [optional] |
 |**totalDetailCurrencyId** | **String** |  |  [optional] |

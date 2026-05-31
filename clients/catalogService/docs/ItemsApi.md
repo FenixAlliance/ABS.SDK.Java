@@ -1,6 +1,6 @@
 # ItemsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -84,7 +84,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countStockItemTagsByItemId"></a>
 # **countStockItemTagsByItemId**
-> Int32Envelope countStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+> Int32Envelope countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion)
 
 Count tags for a stock item
 
@@ -102,14 +102,15 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countStockItemTagsByItemId(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#countStockItemTagsByItemId");
@@ -126,6 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -170,7 +172,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -238,7 +240,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -307,7 +309,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -376,7 +378,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -444,7 +446,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -511,7 +513,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -581,7 +583,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -649,7 +651,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -719,7 +721,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -787,7 +789,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -857,7 +859,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -925,7 +927,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -993,7 +995,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1061,7 +1063,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1131,7 +1133,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1199,7 +1201,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1269,7 +1271,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1339,7 +1341,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1407,7 +1409,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1477,7 +1479,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1545,7 +1547,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1615,7 +1617,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1683,7 +1685,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1751,7 +1753,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1821,7 +1823,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1889,7 +1891,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -1959,7 +1961,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2029,7 +2031,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2097,7 +2099,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2165,7 +2167,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2217,7 +2219,7 @@ No authorization required
 
 <a id="getStockItemTagById"></a>
 # **getStockItemTagById**
-> ItemTagDtoEnvelope getStockItemTagById(itemId, itemTagId, apiVersion, xApiVersion)
+> ItemTagDtoEnvelope getStockItemTagById(tenantId, itemId, itemTagId, apiVersion, xApiVersion)
 
 Get tag by ID for a stock item
 
@@ -2235,15 +2237,16 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     UUID itemTagId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTagDtoEnvelope result = apiInstance.getStockItemTagById(itemId, itemTagId, apiVersion, xApiVersion);
+      ItemTagDtoEnvelope result = apiInstance.getStockItemTagById(tenantId, itemId, itemTagId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTagById");
@@ -2260,6 +2263,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **itemId** | **UUID**|  | |
 | **itemTagId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -2287,7 +2291,7 @@ No authorization required
 
 <a id="getStockItemTagsByItemId"></a>
 # **getStockItemTagsByItemId**
-> ItemTagDtoListEnvelope getStockItemTagsByItemId(itemId, apiVersion, xApiVersion)
+> ItemTagDtoListEnvelope getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion)
 
 Get tags for a stock item
 
@@ -2305,14 +2309,15 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTagDtoListEnvelope result = apiInstance.getStockItemTagsByItemId(itemId, apiVersion, xApiVersion);
+      ItemTagDtoListEnvelope result = apiInstance.getStockItemTagsByItemId(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTagsByItemId");
@@ -2329,6 +2334,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -2373,7 +2379,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2441,7 +2447,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2493,7 +2499,7 @@ No authorization required
 
 <a id="getStockItemTypeById"></a>
 # **getStockItemTypeById**
-> ItemTypeDtoEnvelope getStockItemTypeById(itemId, itemTypeId, apiVersion, xApiVersion)
+> ItemTypeDtoEnvelope getStockItemTypeById(tenantId, itemId, itemTypeId, apiVersion, xApiVersion)
 
 Get type by ID for a stock item
 
@@ -2511,15 +2517,16 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     UUID itemTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTypeDtoEnvelope result = apiInstance.getStockItemTypeById(itemId, itemTypeId, apiVersion, xApiVersion);
+      ItemTypeDtoEnvelope result = apiInstance.getStockItemTypeById(tenantId, itemId, itemTypeId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTypeById");
@@ -2536,6 +2543,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **itemId** | **UUID**|  | |
 | **itemTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -2563,7 +2571,7 @@ No authorization required
 
 <a id="getStockItemTypesByItemId"></a>
 # **getStockItemTypesByItemId**
-> ItemTypeDtoListEnvelope getStockItemTypesByItemId(itemId, apiVersion, xApiVersion)
+> ItemTypeDtoListEnvelope getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion)
 
 Get types for a stock item
 
@@ -2581,14 +2589,15 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTypeDtoListEnvelope result = apiInstance.getStockItemTypesByItemId(itemId, apiVersion, xApiVersion);
+      ItemTypeDtoListEnvelope result = apiInstance.getStockItemTypesByItemId(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemsApi#getStockItemTypesByItemId");
@@ -2605,6 +2614,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **itemId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -2649,7 +2659,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2717,7 +2727,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -2787,7 +2797,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2855,7 +2865,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2923,7 +2933,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2991,7 +3001,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3065,7 +3075,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -3135,7 +3145,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3207,7 +3217,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3279,7 +3289,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3351,7 +3361,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3423,7 +3433,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -3493,7 +3503,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3565,7 +3575,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3637,7 +3647,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3709,7 +3719,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3781,7 +3791,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3853,7 +3863,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3925,7 +3935,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3997,7 +4007,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4069,7 +4079,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4141,7 +4151,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4213,7 +4223,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -4283,7 +4293,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4355,7 +4365,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4427,7 +4437,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4499,7 +4509,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4571,7 +4581,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -4641,7 +4651,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4713,7 +4723,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4785,7 +4795,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4857,7 +4867,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -4929,7 +4939,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -5001,7 +5011,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -5073,7 +5083,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -5145,7 +5155,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -5217,7 +5227,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -5289,7 +5299,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -5361,7 +5371,7 @@ import org.openapitools.client.api.ItemsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemsApi apiInstance = new ItemsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

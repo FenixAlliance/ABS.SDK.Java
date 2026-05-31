@@ -1,6 +1,6 @@
 # ApplicationsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     String appId = "appId_example"; // String | 
@@ -96,7 +96,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     String appId = "appId_example"; // String | 
@@ -165,7 +165,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     String appId = "appId_example"; // String | 
@@ -232,7 +232,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     String appId = "appId_example"; // String | 
@@ -299,7 +299,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     String appId = "appId_example"; // String | 

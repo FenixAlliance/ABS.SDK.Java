@@ -8,10 +8,11 @@ build.sbt
 docs/AccessTokenResponse.md
 docs/ApplicationsApi.md
 docs/AuthResult.md
-docs/AuthorizationResultEnvelope.md
+docs/AuthResultEnvelope.md
 docs/CheckerApi.md
+docs/CompletionsApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -64,7 +65,8 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/ApplicationsApi.java
 src/main/java/org/openapitools/client/api/CheckerApi.java
-src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
+src/main/java/org/openapitools/client/api/CompletionsApi.java
+src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
 src/main/java/org/openapitools/client/api/OAuthApi.java
 src/main/java/org/openapitools/client/api/ResourceApi.java
 src/main/java/org/openapitools/client/api/UserInfoApi.java
@@ -75,7 +77,7 @@ src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
 src/main/java/org/openapitools/client/model/AuthResult.java
-src/main/java/org/openapitools/client/model/AuthorizationResultEnvelope.java
+src/main/java/org/openapitools/client/model/AuthResultEnvelope.java
 src/main/java/org/openapitools/client/model/ErrorEnvelope.java
 src/main/java/org/openapitools/client/model/ForgotPasswordRequest.java
 src/main/java/org/openapitools/client/model/HttpValidationProblemDetails.java
@@ -102,3 +104,7 @@ src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UserCreateDto.java
 src/main/java/org/openapitools/client/model/UserCreateDtoEnvelope.java
+src/test/java/org/openapitools/client/api/CompletionsApiTest.java
+src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
+src/test/java/org/openapitools/client/model/AuthResultEnvelopeTest.java
+src/test/java/org/openapitools/client/model/AuthResultTest.java

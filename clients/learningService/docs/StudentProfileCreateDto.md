@@ -9,12 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
-|**verified** | **Boolean** |  |  [optional] |
-|**submitted** | **Boolean** |  |  [optional] |
 |**avatarUrl** | **String** |  |  [optional] |
-|**qualifiedName** | **String** |  |  [optional] |
-|**verificationTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**data** | **String** |  |  [optional] |
 |**dataLabel** | **String** |  |  [optional] |
 |**data1** | **String** |  |  [optional] |

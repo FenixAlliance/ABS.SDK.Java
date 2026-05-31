@@ -1,6 +1,6 @@
 # ItemRefundPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemRefundPoliciesAsync"></a>
 # **countItemRefundPoliciesAsync**
-> Int32Envelope countItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item refund policies
 
@@ -31,14 +31,15 @@ import org.openapitools.client.api.ItemRefundPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemRefundPoliciesApi apiInstance = new ItemRefundPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRefundPoliciesApi#countItemRefundPoliciesAsync");
@@ -55,6 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -81,7 +83,7 @@ No authorization required
 
 <a id="getItemRefundPoliciesAsync"></a>
 # **getItemRefundPoliciesAsync**
-> ItemRefundPolicyDtoListEnvelope getItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoListEnvelope getItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item refund policies
 
@@ -99,14 +101,15 @@ import org.openapitools.client.api.ItemRefundPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemRefundPoliciesApi apiInstance = new ItemRefundPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemRefundPolicyDtoListEnvelope result = apiInstance.getItemRefundPoliciesAsync(itemId, apiVersion, xApiVersion);
+      ItemRefundPolicyDtoListEnvelope result = apiInstance.getItemRefundPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRefundPoliciesApi#getItemRefundPoliciesAsync");
@@ -123,6 +126,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -149,7 +153,7 @@ No authorization required
 
 <a id="getItemRefundPolicyByIdAsync"></a>
 # **getItemRefundPolicyByIdAsync**
-> ItemRefundPolicyDtoEnvelope getItemRefundPolicyByIdAsync(itemRefundPolicyId, itemId, apiVersion, xApiVersion)
+> ItemRefundPolicyDtoEnvelope getItemRefundPolicyByIdAsync(itemRefundPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item refund policy by ID
 
@@ -167,15 +171,16 @@ import org.openapitools.client.api.ItemRefundPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemRefundPoliciesApi apiInstance = new ItemRefundPoliciesApi(defaultClient);
     UUID itemRefundPolicyId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemRefundPolicyDtoEnvelope result = apiInstance.getItemRefundPolicyByIdAsync(itemRefundPolicyId, itemId, apiVersion, xApiVersion);
+      ItemRefundPolicyDtoEnvelope result = apiInstance.getItemRefundPolicyByIdAsync(itemRefundPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemRefundPoliciesApi#getItemRefundPolicyByIdAsync");
@@ -193,6 +198,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemRefundPolicyId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -237,7 +243,7 @@ import org.openapitools.client.api.ItemRefundPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemRefundPoliciesApi apiInstance = new ItemRefundPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +314,7 @@ import org.openapitools.client.api.ItemRefundPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemRefundPoliciesApi apiInstance = new ItemRefundPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

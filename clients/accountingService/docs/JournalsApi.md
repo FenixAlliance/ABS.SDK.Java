@@ -1,9 +1,11 @@
 # JournalsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**aggregateJournalEntryCreditsAsync**](JournalsApi.md#aggregateJournalEntryCreditsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits |
+| [**aggregateJournalEntryDebitsAsync**](JournalsApi.md#aggregateJournalEntryDebitsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits |
 | [**countJournalsAsync**](JournalsApi.md#countJournalsAsync) | **GET** /api/v2/AccountingService/Journals/Count | Count journals |
 | [**createJournalAsync**](JournalsApi.md#createJournalAsync) | **POST** /api/v2/AccountingService/Journals | Create journal |
 | [**createJournalEntryAsync**](JournalsApi.md#createJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry |
@@ -16,6 +18,150 @@ All URIs are relative to *https://absuite.net*
 | [**updateJournalAsync**](JournalsApi.md#updateJournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal |
 | [**updateJournalEntryAsync**](JournalsApi.md#updateJournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry |
 
+
+<a id="aggregateJournalEntryCreditsAsync"></a>
+# **aggregateJournalEntryCreditsAsync**
+> MoneyEnvelope aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion)
+
+Aggregate journal entry credits
+
+Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    String currencyId = "currencyId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      MoneyEnvelope result = apiInstance.aggregateJournalEntryCreditsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#aggregateJournalEntryCreditsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **currencyId** | **String**|  | [optional] |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a id="aggregateJournalEntryDebitsAsync"></a>
+# **aggregateJournalEntryDebitsAsync**
+> MoneyEnvelope aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion)
+
+Aggregate journal entry debits
+
+Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    String currencyId = "currencyId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      MoneyEnvelope result = apiInstance.aggregateJournalEntryDebitsAsync(tenantId, journalId, currencyId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#aggregateJournalEntryDebitsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **currencyId** | **String**|  | [optional] |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 <a id="countJournalsAsync"></a>
 # **countJournalsAsync**
@@ -37,7 +183,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -105,7 +251,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -175,7 +321,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -247,7 +393,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -317,7 +463,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -389,7 +535,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -459,7 +605,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -529,7 +675,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -599,7 +745,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -667,7 +813,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -739,7 +885,7 @@ import org.openapitools.client.api.JournalsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

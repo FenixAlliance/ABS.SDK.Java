@@ -1,6 +1,6 @@
 # EmployersApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -103,7 +103,7 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -174,7 +174,7 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -244,7 +244,7 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -312,7 +312,7 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -362,7 +362,7 @@ No authorization required
 
 <a id="updateEmployerAsync"></a>
 # **updateEmployerAsync**
-> EmptyEnvelope updateEmployerAsync(tenantId, employerId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateEmployerAsync(tenantId, employerId, apiVersion, xApiVersion, employerProfileUpdateDto)
 
 Update an employer
 
@@ -380,16 +380,16 @@ import org.openapitools.client.api.EmployersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmployersApi apiInstance = new EmployersApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID employerId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    Object body = null; // Object | 
+    EmployerProfileUpdateDto employerProfileUpdateDto = new EmployerProfileUpdateDto(); // EmployerProfileUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateEmployerAsync(tenantId, employerId, apiVersion, xApiVersion, body);
+      EmptyEnvelope result = apiInstance.updateEmployerAsync(tenantId, employerId, apiVersion, xApiVersion, employerProfileUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployersApi#updateEmployerAsync");
@@ -410,7 +410,7 @@ public class Example {
 | **employerId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **employerProfileUpdateDto** | [**EmployerProfileUpdateDto**](EmployerProfileUpdateDto.md)|  | [optional] |
 
 ### Return type
 

@@ -1,6 +1,6 @@
 # OAuthApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -33,7 +33,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -81,7 +81,7 @@ No authorization required
 
 <a id="get"></a>
 # **get**
-> AuthorizationResultEnvelope get(tenantId, apiVersion, xApiVersion)
+> AuthResultEnvelope get(tenantId, apiVersion, xApiVersion)
 
 Get current user identity
 
@@ -99,14 +99,14 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      AuthorizationResultEnvelope result = apiInstance.get(tenantId, apiVersion, xApiVersion);
+      AuthResultEnvelope result = apiInstance.get(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OAuthApi#get");
@@ -129,7 +129,7 @@ public class Example {
 
 ### Return type
 
-[**AuthorizationResultEnvelope**](AuthorizationResultEnvelope.md)
+[**AuthResultEnvelope**](AuthResultEnvelope.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     String applicationId = "applicationId_example"; // String | 
@@ -233,7 +233,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -301,7 +301,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -371,7 +371,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -439,7 +439,7 @@ import org.openapitools.client.api.OAuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     OAuthApi apiInstance = new OAuthApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 

@@ -9,28 +9,27 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SystemService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
 - name: Antiforgery
+- name: Carts
+- name: Completions
+- name: ContactOptions
 - name: Emails
-- name: FenixAlliance.ABS.Web
+- name: FenixAlliance.Portals.Website
+- name: IPLookups
+- name: Licenses
 - name: Licensing
 - name: Migrations
 - name: Modules
 - name: Options
+- name: Overview
+- name: Portals
+- name: TenantOptions
 - name: Tenants
+- name: UserOptions
 - name: Users
 paths:
   /api/v2/SystemService/Antiforgery/GetAndStoreTokens:
@@ -89,6 +88,993 @@ paths:
       - Antiforgery
       x-accepts:
       - application/json
+  /api/v2/SystemService/Carts:
+    get:
+      description: Retrieve a list of all carts in the system
+      operationId: GetSystemCarts
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of system carts
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Carts/Count:
+    get:
+      description: Get the count of all carts in the system
+      operationId: GetSystemCartsCount
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of system carts
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Carts/{cartId}:
+    delete:
+      description: Delete a system cart by its ID
+      operationId: DeleteSystemCart
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a system cart
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieve a single system cart by its ID
+      operationId: GetSystemCartById
+      parameters:
+      - explode: false
+        in: path
+        name: cartId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CartDtoEnvelope'
+          description: OK
+      summary: Retrieve a single system cart by its ID
+      tags:
+      - Carts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
+  /api/v2/SystemService/Contacts/{contactId}/Options:
+    get:
+      description: Admin endpoint to retrieve options for any contact
+      operationId: GetSystemContactOptions
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of contact options (admin)
+      tags:
+      - ContactOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Admin endpoint to create an option for any contact
+      operationId: CreateSystemContactOption
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new contact option (admin)
+      tags:
+      - ContactOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Contacts/{contactId}/Options/Count:
+    get:
+      description: Admin endpoint to get the count of options for any contact
+      operationId: GetSystemContactOptionsCount
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of contact options (admin)
+      tags:
+      - ContactOptions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Contacts/{contactId}/Options/{optionId}:
+    delete:
+      description: Admin endpoint to delete an option for any contact
+      operationId: DeleteSystemContactOption
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a contact option (admin)
+      tags:
+      - ContactOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Admin endpoint to retrieve a single option for any contact
+      operationId: GetSystemContactOptionById
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single contact option by its ID (admin)
+      tags:
+      - ContactOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Admin endpoint to update an option for any contact
+      operationId: UpdateSystemContactOption
+      parameters:
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a contact option (admin)
+      tags:
+      - ContactOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SystemService/Emails/SendBasic:
     post:
       description: This action is only available for global administrators (business_owner
@@ -140,10 +1126,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TenantDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/TenantDtoListEnvelope'
+                $ref: '#/components/schemas/Envelope'
           description: OK
       summary: Send a basic transactional email to recipients.
       tags:
@@ -195,7 +1181,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -204,7 +1190,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -213,7 +1199,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -234,7 +1220,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -269,7 +1255,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -289,7 +1275,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -322,7 +1308,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -337,7 +1323,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -359,7 +1345,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -381,7 +1367,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -409,7 +1395,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -432,7 +1418,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -459,7 +1445,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -488,7 +1474,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -512,7 +1498,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -536,7 +1522,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -546,9 +1532,504 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
+  /api/v2/SystemService/IPLookups:
+    get:
+      description: Retrieve a list of all IP lookups in the system
+      operationId: GetSystemIPLookups
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IPLookupDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IPLookupDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of system IP lookups
+      tags:
+      - IPLookups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/IPLookups/Count:
+    get:
+      description: Get the count of all IP lookups in the system
+      operationId: GetSystemIPLookupsCount
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of system IP lookups
+      tags:
+      - IPLookups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/IPLookups/{ipLookupId}:
+    delete:
+      description: Delete a system IP lookup by its ID
+      operationId: DeleteSystemIPLookup
+      parameters:
+      - explode: false
+        in: path
+        name: ipLookupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a system IP lookup
+      tags:
+      - IPLookups
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieve a single system IP lookup by its ID
+      operationId: GetSystemIPLookupById
+      parameters:
+      - explode: false
+        in: path
+        name: ipLookupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IPLookupDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IPLookupDtoEnvelope'
+          description: OK
+      summary: Retrieve a single system IP lookup by its ID
+      tags:
+      - IPLookups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/Licensing/Licenses/Validate:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BooleanEnvelope'
+          description: OK
+      tags:
+      - Licenses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/Licensing/Licenses/Validate/Errors:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LicenseValidationErrorListEnvelope'
+          description: OK
+      tags:
+      - Licenses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/Licensing/Licenses/Validate/Attributes:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LicenseKey'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LicenseAttributesListEnvelope'
+          description: OK
+      tags:
+      - Licenses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/Licensing/Licenses/Generate:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRequest'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StringEnvelope'
+          description: OK
+      tags:
+      - Licenses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SystemService/Licensing/Licenses:
     get:
       description: "Retrieves a list of suite licenses, optionally filtered by tenant."
@@ -879,6 +2360,14 @@ paths:
       description: Retrieves a single suite license by its unique identifier.
       operationId: GetLicenseByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: licenseId
@@ -1204,14 +2693,6 @@ paths:
       description: Retrieves all license assignments for a given license.
       operationId: GetLicenseAssignmentsAsync
       parameters:
-      - explode: false
-        in: path
-        name: licenseId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       - explode: true
         in: query
         name: tenantId
@@ -1220,6 +2701,14 @@ paths:
           format: uuid
           type: string
         style: form
+      - explode: false
+        in: path
+        name: licenseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
         name: api-version
@@ -1537,14 +3026,6 @@ paths:
       description: Retrieves all additional attributes for a given license.
       operationId: GetLicenseAttributesAsync
       parameters:
-      - explode: false
-        in: path
-        name: licenseId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       - explode: true
         in: query
         name: tenantId
@@ -1553,6 +3034,14 @@ paths:
           format: uuid
           type: string
         style: form
+      - explode: false
+        in: path
+        name: licenseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
         name: api-version
@@ -1870,14 +3359,6 @@ paths:
       description: Retrieves all features for a given license.
       operationId: GetLicenseFeaturesAsync
       parameters:
-      - explode: false
-        in: path
-        name: licenseId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       - explode: true
         in: query
         name: tenantId
@@ -1886,6 +3367,14 @@ paths:
           format: uuid
           type: string
         style: form
+      - explode: false
+        in: path
+        name: licenseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
         name: api-version
@@ -2203,14 +3692,6 @@ paths:
       description: Retrieves the record quota for a given license.
       operationId: GetLicenseRecordsQuotaAsync
       parameters:
-      - explode: false
-        in: path
-        name: licenseId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       - explode: true
         in: query
         name: tenantId
@@ -2219,6 +3700,14 @@ paths:
           format: uuid
           type: string
         style: form
+      - explode: false
+        in: path
+        name: licenseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
         name: api-version
@@ -4203,6 +5692,853 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SystemService/Overview:
+    get:
+      description: "Returns runtime, memory, and entity count information for the\
+        \ system"
+      operationId: GetSystemOverview
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemOverviewDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SystemOverviewDtoEnvelope'
+          description: OK
+      summary: Get system overview information
+      tags:
+      - Overview
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Portals:
+    get:
+      description: Retrieve a list of all web portals in the system
+      operationId: GetSystemPortals
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of system portals
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new web portal in the system
+      operationId: CreateSystemPortal
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebPortalCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebPortalCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new system portal
+      tags:
+      - Portals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Portals/Count:
+    get:
+      description: Get the count of all web portals in the system
+      operationId: GetSystemPortalsCount
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of system portals
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Portals/{portalId}:
+    delete:
+      description: Delete a web portal from the system
+      operationId: DeleteSystemPortal
+      parameters:
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a system portal
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieve a single system portal by its ID
+      operationId: GetSystemPortalById
+      parameters:
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WebPortalDtoEnvelope'
+          description: OK
+      summary: Retrieve a single system portal by its ID
+      tags:
+      - Portals
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update an existing web portal in the system
+      operationId: UpdateSystemPortal
+      parameters:
+      - explode: false
+        in: path
+        name: portalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebPortalUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WebPortalUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a system portal
+      tags:
+      - Portals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Tenants/{tenantId}/Options:
+    get:
+      description: Admin endpoint to retrieve options for any tenant
+      operationId: GetSystemTenantOptions
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of tenant options (admin)
+      tags:
+      - TenantOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Admin endpoint to create an option for any tenant
+      operationId: CreateSystemTenantOption
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new tenant option (admin)
+      tags:
+      - TenantOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Tenants/{tenantId}/Options/Count:
+    get:
+      description: Admin endpoint to get the count of options for any tenant
+      operationId: GetSystemTenantOptionsCount
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of tenant options (admin)
+      tags:
+      - TenantOptions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId}:
+    delete:
+      description: Admin endpoint to delete an option for any tenant
+      operationId: DeleteSystemTenantOption
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a tenant option (admin)
+      tags:
+      - TenantOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Admin endpoint to retrieve a single option for any tenant
+      operationId: GetSystemTenantOptionById
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single tenant option by its ID (admin)
+      tags:
+      - TenantOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Admin endpoint to update an option for any tenant
+      operationId: UpdateSystemTenantOption
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a tenant option (admin)
+      tags:
+      - TenantOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SystemService/Tenants:
     get:
       description: This action is only available for global administrators.
@@ -4669,8 +7005,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview:
     post:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: AdminPreviewTenantEmail
       parameters:
       - explode: false
@@ -4706,7 +7041,7 @@ paths:
       responses:
         "200":
           description: OK
-      summary: Preview the rendered email for a user.
+      summary: Preview the rendered email for a tenant.
       tags:
       - Tenants
       x-content-type: application/json
@@ -4714,8 +7049,7 @@ paths:
       - application/json
   /api/v2/SystemService/Tenants/{tenantId}/Emails/Send:
     post:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: AdminSendTenantEmail
       parameters:
       - explode: false
@@ -4751,16 +7085,451 @@ paths:
       responses:
         "200":
           description: OK
-      summary: Send an email to a user.
+      summary: Send an email to a tenant.
       tags:
       - Tenants
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v2/SystemService/Users/{userId}/Options:
+    get:
+      description: Admin endpoint to retrieve options for any user
+      operationId: GetSystemUserOptions
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of user options (admin)
+      tags:
+      - UserOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Admin endpoint to create an option for any user
+      operationId: CreateSystemUserOption
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: key
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a new user option (admin)
+      tags:
+      - UserOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Users/{userId}/Options/Count:
+    get:
+      description: Admin endpoint to get the count of options for any user
+      operationId: GetSystemUserOptionsCount
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: portalId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of user options (admin)
+      tags:
+      - UserOptions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SystemService/Users/{userId}/Options/{optionId}:
+    delete:
+      description: Admin endpoint to delete an option for any user
+      operationId: DeleteSystemUserOption
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a user option (admin)
+      tags:
+      - UserOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Admin endpoint to retrieve a single option for any user
+      operationId: GetSystemUserOptionById
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/OptionDtoEnvelope'
+          description: OK
+      summary: Retrieve a single user option by its ID (admin)
+      tags:
+      - UserOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Admin endpoint to update an option for any user
+      operationId: UpdateSystemUserOption
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a user option (admin)
+      tags:
+      - UserOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SystemService/Users:
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetUsersAsync
       parameters:
       - explode: true
@@ -4812,8 +7581,7 @@ paths:
       - application/json
       - application/xml
     post:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: CreateAccountHolderAsync
       parameters:
       - explode: true
@@ -4875,8 +7643,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/Count:
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetUsersCountAsync
       parameters:
       - explode: true
@@ -4929,8 +7696,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/Extended:
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetExtendedUsersAsync
       parameters:
       - explode: true
@@ -4983,8 +7749,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/Extended/Count:
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetExtendedUsersCountAsync
       parameters:
       - explode: true
@@ -5037,8 +7802,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/{userId}:
     delete:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: DeleteAccountHolderAsync
       parameters:
       - explode: false
@@ -5098,8 +7862,7 @@ paths:
       - application/json
       - application/xml
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetUserAsync
       parameters:
       - explode: false
@@ -5158,8 +7921,7 @@ paths:
       - application/json
       - application/xml
     put:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: UpdateAccountHolderAsync
       parameters:
       - explode: false
@@ -5229,8 +7991,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/{userId}/Extended:
     get:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: GetExtendedAccountHolderAsync
       parameters:
       - explode: false
@@ -5290,8 +8051,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/{userId}/Emails/Preview:
     post:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: AdminPreviewUserEmailTemplate
       parameters:
       - explode: false
@@ -5352,8 +8112,7 @@ paths:
       - application/xml
   /api/v2/SystemService/Users/{userId}/Emails/Send:
     post:
-      description: This action is only available for users with the 'business_owner'
-        role (global administrators).
+      description: This action is only available for global administrators.
       operationId: AdminSendUserEmail
       parameters:
       - explode: false
@@ -5449,6 +8208,19 @@ components:
       - expiresIn
       - refreshToken
       type: object
+    AdditionalAttribute:
+      additionalProperties: false
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
     BooleanEnvelope:
       additionalProperties: false
       example:
@@ -5493,8 +8265,13 @@ components:
         type: type
         currencyId: currencyId
         countryId: countryId
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
           nullable: true
           type: string
         ip:
@@ -5529,6 +8306,105 @@ components:
           format: int32
           nullable: true
           type: integer
+      type: object
+    CartDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          total: 0.8008281904610115
+          itemCartRecordsCount: 5
+          ip: ip
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
+          id: id
+          subTotal: 5.962133916683182
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CartDto'
+      type: object
+    CartDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - total: 0.8008281904610115
+          itemCartRecordsCount: 5
+          ip: ip
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
+          id: id
+          subTotal: 5.962133916683182
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - total: 0.8008281904610115
+          itemCartRecordsCount: 5
+          ip: ip
+          freight: 1.4658129805029452
+          itemToCompareRecordsCount: 2
+          taxes: 6.027456183070403
+          id: id
+          subTotal: 5.962133916683182
+          type: type
+          currencyId: currencyId
+          countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CartDto'
+          nullable: true
+          type: array
       type: object
     EmailDispatchRequest:
       additionalProperties: false
@@ -5654,6 +8530,37 @@ components:
           readOnly: true
           type: string
       type: object
+    Envelope:
+      additionalProperties: false
+      example:
+        result: result
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          nullable: true
+          type: string
+      type: object
     ErrorEnvelope:
       additionalProperties: false
       example:
@@ -5704,6 +8611,7 @@ components:
           type: type
           currencyId: currencyId
           countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
         legalName: legalName
         facebookUrl: facebookUrl
         id: id
@@ -5712,19 +8620,19 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 1
+          unreadMessagesCount: 7
           type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
           youtubeURL: youtubeURL
-          followsCount: 1
+          followsCount: 7
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 7
-          notificationsCount: 6
+          unreadNotificationsCount: 4
+          notificationsCount: 2
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -5732,8 +8640,8 @@ components:
           name: name
           dribbleURL: dribbleURL
           countryName: countryName
-          messagesCount: 1
-          followersCount: 1
+          messagesCount: 9
+          followersCount: 3
         businessIndustryId: businessIndustryId
         socialProfileId: socialProfileId
         currencyId: currencyId
@@ -5744,19 +8652,19 @@ components:
         linkedInUrl: linkedInUrl
         wallet:
           verified: true
-          balanceInUsd: 2.027123023002322
+          balanceInUsd: 5.962133916683182
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 7.061401241503109
-          forexRate: 3.616076749251911
+          balance: 0.8008281904610115
+          forexRate: 1.4658129805029452
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 7.386281948385884
-          cryptoBalance: 9.301444243932576
-          mainNetEtherBalance: 4.145608029883936
+          rollingReservePercent: 2.3021358869347655
+          cryptoBalance: 6.027456183070403
+          mainNetEtherBalance: 5.637376656633329
           timestamp: 2000-01-23T04:56:07.000+00:00
         avatarUrl: avatarUrl
         qualifiedName: qualifiedName
@@ -5926,6 +8834,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           legalName: legalName
           facebookUrl: facebookUrl
           id: id
@@ -5934,19 +8843,19 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 7
             type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
             youtubeURL: youtubeURL
-            followsCount: 1
+            followsCount: 7
             id: id
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 4
+            notificationsCount: 2
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -5954,8 +8863,8 @@ components:
             name: name
             dribbleURL: dribbleURL
             countryName: countryName
-            messagesCount: 1
-            followersCount: 1
+            messagesCount: 9
+            followersCount: 3
           businessIndustryId: businessIndustryId
           socialProfileId: socialProfileId
           currencyId: currencyId
@@ -5966,19 +8875,19 @@ components:
           linkedInUrl: linkedInUrl
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 5.962133916683182
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 0.8008281904610115
+            forexRate: 1.4658129805029452
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 2.3021358869347655
+            cryptoBalance: 6.027456183070403
+            mainNetEtherBalance: 5.637376656633329
             timestamp: 2000-01-23T04:56:07.000+00:00
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
@@ -6019,6 +8928,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           legalName: legalName
           facebookUrl: facebookUrl
           id: id
@@ -6027,19 +8937,19 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 7
             type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
             youtubeURL: youtubeURL
-            followsCount: 1
+            followsCount: 7
             id: id
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 4
+            notificationsCount: 2
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -6047,8 +8957,8 @@ components:
             name: name
             dribbleURL: dribbleURL
             countryName: countryName
-            messagesCount: 1
-            followersCount: 1
+            messagesCount: 9
+            followersCount: 3
           businessIndustryId: businessIndustryId
           socialProfileId: socialProfileId
           currencyId: currencyId
@@ -6059,19 +8969,19 @@ components:
           linkedInUrl: linkedInUrl
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 5.962133916683182
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 0.8008281904610115
+            forexRate: 1.4658129805029452
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 2.3021358869347655
+            cryptoBalance: 6.027456183070403
+            mainNetEtherBalance: 5.637376656633329
             timestamp: 2000-01-23T04:56:07.000+00:00
           avatarUrl: avatarUrl
           qualifiedName: qualifiedName
@@ -6144,6 +9054,7 @@ components:
           type: type
           currencyId: currencyId
           countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
         currentTenantId: currentTenantId
         publicName: publicName
         id: id
@@ -6185,19 +9096,19 @@ components:
           notes: notes
           twitterUrl: twitterUrl
           about: about
-          unreadMessagesCount: 1
+          unreadMessagesCount: 7
           type: User
           countryId: countryId
           cover: cover
           facebookURL: facebookURL
           youtubeURL: youtubeURL
-          followsCount: 1
+          followsCount: 7
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
           pinterestURL: pinterestURL
           linkedInURL: linkedInURL
-          unreadNotificationsCount: 7
-          notificationsCount: 6
+          unreadNotificationsCount: 4
+          notificationsCount: 2
           avatar: avatar
           socialFeedId: socialFeedId
           identityId: identityId
@@ -6205,26 +9116,26 @@ components:
           name: name
           dribbleURL: dribbleURL
           countryName: countryName
-          messagesCount: 1
-          followersCount: 1
+          messagesCount: 9
+          followersCount: 3
         socialProfileId: socialProfileId
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         wallet:
           verified: true
-          balanceInUsd: 2.027123023002322
+          balanceInUsd: 5.962133916683182
           type: type
           ethereumPrivateKey: ethereumPrivateKey
-          balance: 7.061401241503109
-          forexRate: 3.616076749251911
+          balance: 0.8008281904610115
+          forexRate: 1.4658129805029452
           ethereumAddress: ethereumAddress
           ethereumPublicKey: ethereumPublicKey
           testMode: true
           id: id
           currencyId: currencyId
-          rollingReservePercent: 7.386281948385884
-          cryptoBalance: 9.301444243932576
-          mainNetEtherBalance: 4.145608029883936
+          rollingReservePercent: 2.3021358869347655
+          cryptoBalance: 6.027456183070403
+          mainNetEtherBalance: 5.637376656633329
           timestamp: 2000-01-23T04:56:07.000+00:00
         stateId: stateId
         lockoutEnabled: true
@@ -6426,6 +9337,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           currentTenantId: currentTenantId
           publicName: publicName
           id: id
@@ -6467,19 +9379,19 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 7
             type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
             youtubeURL: youtubeURL
-            followsCount: 1
+            followsCount: 7
             id: id
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 4
+            notificationsCount: 2
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -6487,26 +9399,26 @@ components:
             name: name
             dribbleURL: dribbleURL
             countryName: countryName
-            messagesCount: 1
-            followersCount: 1
+            messagesCount: 9
+            followersCount: 3
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 5.962133916683182
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 0.8008281904610115
+            forexRate: 1.4658129805029452
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 2.3021358869347655
+            cryptoBalance: 6.027456183070403
+            mainNetEtherBalance: 5.637376656633329
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           lockoutEnabled: true
@@ -6566,6 +9478,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           currentTenantId: currentTenantId
           publicName: publicName
           id: id
@@ -6607,19 +9520,19 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 7
             type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
             youtubeURL: youtubeURL
-            followsCount: 1
+            followsCount: 7
             id: id
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 4
+            notificationsCount: 2
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -6627,26 +9540,26 @@ components:
             name: name
             dribbleURL: dribbleURL
             countryName: countryName
-            messagesCount: 1
-            followersCount: 1
+            messagesCount: 9
+            followersCount: 3
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 5.962133916683182
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 0.8008281904610115
+            forexRate: 1.4658129805029452
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 2.3021358869347655
+            cryptoBalance: 6.027456183070403
+            mainNetEtherBalance: 5.637376656633329
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           lockoutEnabled: true
@@ -6676,6 +9589,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           currentTenantId: currentTenantId
           publicName: publicName
           id: id
@@ -6717,19 +9631,19 @@ components:
             notes: notes
             twitterUrl: twitterUrl
             about: about
-            unreadMessagesCount: 1
+            unreadMessagesCount: 7
             type: User
             countryId: countryId
             cover: cover
             facebookURL: facebookURL
             youtubeURL: youtubeURL
-            followsCount: 1
+            followsCount: 7
             id: id
             timestamp: 2000-01-23T04:56:07.000+00:00
             pinterestURL: pinterestURL
             linkedInURL: linkedInURL
-            unreadNotificationsCount: 7
-            notificationsCount: 6
+            unreadNotificationsCount: 4
+            notificationsCount: 2
             avatar: avatar
             socialFeedId: socialFeedId
             identityId: identityId
@@ -6737,26 +9651,26 @@ components:
             name: name
             dribbleURL: dribbleURL
             countryName: countryName
-            messagesCount: 1
-            followersCount: 1
+            messagesCount: 9
+            followersCount: 3
           socialProfileId: socialProfileId
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           wallet:
             verified: true
-            balanceInUsd: 2.027123023002322
+            balanceInUsd: 5.962133916683182
             type: type
             ethereumPrivateKey: ethereumPrivateKey
-            balance: 7.061401241503109
-            forexRate: 3.616076749251911
+            balance: 0.8008281904610115
+            forexRate: 1.4658129805029452
             ethereumAddress: ethereumAddress
             ethereumPublicKey: ethereumPublicKey
             testMode: true
             id: id
             currencyId: currencyId
-            rollingReservePercent: 7.386281948385884
-            cryptoBalance: 9.301444243932576
-            mainNetEtherBalance: 4.145608029883936
+            rollingReservePercent: 2.3021358869347655
+            cryptoBalance: 6.027456183070403
+            mainNetEtherBalance: 5.637376656633329
             timestamp: 2000-01-23T04:56:07.000+00:00
           stateId: stateId
           lockoutEnabled: true
@@ -6832,6 +9746,110 @@ components:
             type: array
           nullable: true
           type: object
+      type: object
+    IPLookupDto:
+      additionalProperties: false
+      example:
+        city: city
+        ip: ip
+        id: id
+        ua: ua
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        ip:
+          nullable: true
+          type: string
+        ua:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+      type: object
+    IPLookupDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          city: city
+          ip: ip
+          id: id
+          ua: ua
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/IPLookupDto'
+      type: object
+    IPLookupDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - city: city
+          ip: ip
+          id: id
+          ua: ua
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - city: city
+          ip: ip
+          id: id
+          ua: ua
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/IPLookupDto'
+          nullable: true
+          type: array
       type: object
     ISwaggerContact:
       additionalProperties: false
@@ -7037,6 +10055,190 @@ components:
           format: int32
           type: integer
       type: object
+    LicenseAttributes:
+      additionalProperties: false
+      type: object
+    LicenseAttributesListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - null
+        - null
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LicenseAttributes'
+          nullable: true
+          type: array
+      type: object
+    LicenseFeature:
+      additionalProperties: false
+      example:
+        value: value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    LicenseKey:
+      additionalProperties: false
+      example:
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+      type: object
+    LicenseKeyRequest:
+      additionalProperties: false
+      example:
+        enrollmentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        licenseType: Trial
+        features:
+        - value: value
+          key: key
+        - value: value
+          key: key
+        orderId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        paymentId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tenantId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entitlementId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        invoiceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        seats: 0
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+        additionalAttributes:
+        - value: value
+          key: key
+        - value: value
+          key: key
+      properties:
+        userId:
+          format: uuid
+          type: string
+        tenantId:
+          format: uuid
+          nullable: true
+          type: string
+        orderId:
+          format: uuid
+          nullable: true
+          type: string
+        paymentId:
+          format: uuid
+          nullable: true
+          type: string
+        invoiceId:
+          format: uuid
+          nullable: true
+          type: string
+        enrollmentId:
+          format: uuid
+          nullable: true
+          type: string
+        entitlementId:
+          format: uuid
+          nullable: true
+          type: string
+        seats:
+          format: int32
+          type: integer
+        licenseType:
+          enum:
+          - Trial
+          - Standard
+          - Enterprise
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        features:
+          items:
+            $ref: '#/components/schemas/LicenseFeature'
+          nullable: true
+          type: array
+        additionalAttributes:
+          items:
+            $ref: '#/components/schemas/AdditionalAttribute'
+          nullable: true
+          type: array
+      type: object
+    LicenseValidationError:
+      additionalProperties: false
+      example:
+        howToResolve: howToResolve
+        message: message
+      properties:
+        message:
+          nullable: true
+          type: string
+        howToResolve:
+          nullable: true
+          type: string
+      type: object
+    LicenseValidationErrorListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - howToResolve: howToResolve
+          message: message
+        - howToResolve: howToResolve
+          message: message
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LicenseValidationError'
+          nullable: true
+          type: array
+      type: object
     LicenseValidationRequest:
       additionalProperties: false
       example:
@@ -7085,6 +10287,9 @@ components:
         type: Module
         repository: repository
         markedForDeletion: true
+        requiredPermissions:
+        - requiredPermissions
+        - requiredPermissions
         path: path
         enable: true
         authorUrl: authorUrl
@@ -7243,6 +10448,12 @@ components:
             type: string
           nullable: true
           type: array
+        requiredPermissions:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
         markedForDeletion:
           type: boolean
         version:
@@ -7262,6 +10473,9 @@ components:
           type: Module
           repository: repository
           markedForDeletion: true
+          requiredPermissions:
+          - requiredPermissions
+          - requiredPermissions
           path: path
           enable: true
           authorUrl: authorUrl
@@ -7343,6 +10557,9 @@ components:
           type: Module
           repository: repository
           markedForDeletion: true
+          requiredPermissions:
+          - requiredPermissions
+          - requiredPermissions
           path: path
           enable: true
           authorUrl: authorUrl
@@ -7810,19 +11027,19 @@ components:
         notes: notes
         twitterUrl: twitterUrl
         about: about
-        unreadMessagesCount: 1
+        unreadMessagesCount: 7
         type: User
         countryId: countryId
         cover: cover
         facebookURL: facebookURL
         youtubeURL: youtubeURL
-        followsCount: 1
+        followsCount: 7
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
         pinterestURL: pinterestURL
         linkedInURL: linkedInURL
-        unreadNotificationsCount: 7
-        notificationsCount: 6
+        unreadNotificationsCount: 4
+        notificationsCount: 2
         avatar: avatar
         socialFeedId: socialFeedId
         identityId: identityId
@@ -7830,8 +11047,8 @@ components:
         name: name
         dribbleURL: dribbleURL
         countryName: countryName
-        messagesCount: 1
-        followersCount: 1
+        messagesCount: 9
+        followersCount: 3
       properties:
         id:
           nullable: true
@@ -7920,6 +11137,37 @@ components:
           nullable: true
           type: string
         notes:
+          nullable: true
+          type: string
+      type: object
+    StringEnvelope:
+      additionalProperties: false
+      example:
+        result: result
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
           nullable: true
           type: string
       type: object
@@ -8224,6 +11472,129 @@ components:
             $ref: '#/components/schemas/SuiteLicenseDto'
           nullable: true
           type: array
+      type: object
+    SystemOverviewDto:
+      additionalProperties: false
+      example:
+        osDescription: osDescription
+        isDebugMode: true
+        osArchitecture: osArchitecture
+        contactsCount: 2
+        usersCount: 5
+        privateMemoryMb: 0
+        runtimeIdentifier: runtimeIdentifier
+        machineName: machineName
+        uptime: uptime
+        memoryWorkingSetMb: 1
+        productVersion: productVersion
+        ordersCount: 5
+        isDevMode: true
+        processName: processName
+        processArchitecture: processArchitecture
+        pagedMemoryMb: 6
+        osPlatform: osPlatform
+        frameworkDescription: frameworkDescription
+      properties:
+        uptime:
+          format: date-span
+          type: string
+        osDescription:
+          nullable: true
+          type: string
+        machineName:
+          nullable: true
+          type: string
+        processName:
+          nullable: true
+          type: string
+        productVersion:
+          nullable: true
+          type: string
+        privateMemoryMb:
+          format: int64
+          type: integer
+        pagedMemoryMb:
+          format: int64
+          type: integer
+        memoryWorkingSetMb:
+          format: int64
+          type: integer
+        isDebugMode:
+          type: boolean
+        isDevMode:
+          type: boolean
+        frameworkDescription:
+          nullable: true
+          type: string
+        runtimeIdentifier:
+          nullable: true
+          type: string
+        osArchitecture:
+          nullable: true
+          type: string
+        osPlatform:
+          nullable: true
+          type: string
+        processArchitecture:
+          nullable: true
+          type: string
+        usersCount:
+          format: int32
+          type: integer
+        ordersCount:
+          format: int32
+          type: integer
+        contactsCount:
+          format: int32
+          type: integer
+      type: object
+    SystemOverviewDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          osDescription: osDescription
+          isDebugMode: true
+          osArchitecture: osArchitecture
+          contactsCount: 2
+          usersCount: 5
+          privateMemoryMb: 0
+          runtimeIdentifier: runtimeIdentifier
+          machineName: machineName
+          uptime: uptime
+          memoryWorkingSetMb: 1
+          productVersion: productVersion
+          ordersCount: 5
+          isDevMode: true
+          processName: processName
+          processArchitecture: processArchitecture
+          pagedMemoryMb: 6
+          osPlatform: osPlatform
+          frameworkDescription: frameworkDescription
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SystemOverviewDto'
       type: object
     TenantCreateDto:
       additionalProperties: false
@@ -9553,19 +12924,19 @@ components:
       additionalProperties: false
       example:
         verified: true
-        balanceInUsd: 2.027123023002322
+        balanceInUsd: 5.962133916683182
         type: type
         ethereumPrivateKey: ethereumPrivateKey
-        balance: 7.061401241503109
-        forexRate: 3.616076749251911
+        balance: 0.8008281904610115
+        forexRate: 1.4658129805029452
         ethereumAddress: ethereumAddress
         ethereumPublicKey: ethereumPublicKey
         testMode: true
         id: id
         currencyId: currencyId
-        rollingReservePercent: 7.386281948385884
-        cryptoBalance: 9.301444243932576
-        mainNetEtherBalance: 4.145608029883936
+        rollingReservePercent: 2.3021358869347655
+        cryptoBalance: 6.027456183070403
+        mainNetEtherBalance: 5.637376656633329
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -9573,6 +12944,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         balance:
           format: double
@@ -9611,6 +12983,235 @@ components:
         rollingReservePercent:
           format: double
           type: number
+      type: object
+    WebPortalCreateDto:
+      additionalProperties: false
+      example:
+        root: true
+        domain: domain
+        description: description
+        businessPortalApplicationID: businessPortalApplicationID
+        disabled: true
+        businessDomainID: businessDomainID
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        websiteThemeID: websiteThemeID
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        root:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        disabled:
+          type: boolean
+        description:
+          nullable: true
+          type: string
+        websiteThemeID:
+          nullable: true
+          type: string
+        businessDomainID:
+          nullable: true
+          type: string
+        businessPortalApplicationID:
+          nullable: true
+          type: string
+      type: object
+    WebPortalDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        root: true
+        domain: domain
+        tenantId: tenantId
+        description: description
+        businessPortalApplicationId: businessPortalApplicationId
+        disabled: true
+        businessDomainId: businessDomainId
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        websiteThemeId: websiteThemeId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        root:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        disabled:
+          type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        websiteThemeId:
+          nullable: true
+          type: string
+        businessDomainId:
+          nullable: true
+          type: string
+        businessPortalApplicationId:
+          nullable: true
+          type: string
+      type: object
+    WebPortalDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          root: true
+          domain: domain
+          tenantId: tenantId
+          description: description
+          businessPortalApplicationId: businessPortalApplicationId
+          disabled: true
+          businessDomainId: businessDomainId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          websiteThemeId: websiteThemeId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WebPortalDto'
+      type: object
+    WebPortalDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          root: true
+          domain: domain
+          tenantId: tenantId
+          description: description
+          businessPortalApplicationId: businessPortalApplicationId
+          disabled: true
+          businessDomainId: businessDomainId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          websiteThemeId: websiteThemeId
+        - enrollmentId: enrollmentId
+          root: true
+          domain: domain
+          tenantId: tenantId
+          description: description
+          businessPortalApplicationId: businessPortalApplicationId
+          disabled: true
+          businessDomainId: businessDomainId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          websiteThemeId: websiteThemeId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WebPortalDto'
+          nullable: true
+          type: array
+      type: object
+    WebPortalUpdateDto:
+      additionalProperties: false
+      example:
+        root: true
+        domain: domain
+        description: description
+        businessPortalApplicationID: businessPortalApplicationID
+        disabled: true
+        businessDomainID: businessDomainID
+        title: title
+        websiteThemeID: websiteThemeID
+      properties:
+        root:
+          type: boolean
+        title:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        disabled:
+          type: boolean
+        description:
+          nullable: true
+          type: string
+        websiteThemeID:
+          nullable: true
+          type: string
+        businessDomainID:
+          nullable: true
+          type: string
+        businessPortalApplicationID:
+          nullable: true
+          type: string
       type: object
     _Account_PerformExternalLogin_post_request:
       properties:

@@ -1,6 +1,6 @@
 # ItemCategoriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -100,7 +100,7 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -170,7 +170,7 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -239,7 +239,7 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -263,7 +263,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -289,7 +289,7 @@ No authorization required
 
 <a id="getItemCategoryByIdAsync"></a>
 # **getItemCategoryByIdAsync**
-> ItemCategoryDtoEnvelope getItemCategoryByIdAsync(itemCategoryId, apiVersion, xApiVersion)
+> ItemCategoryDtoEnvelope getItemCategoryByIdAsync(itemCategoryId, tenantId, apiVersion, xApiVersion)
 
 Get item category by ID
 
@@ -307,14 +307,15 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID itemCategoryId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemCategoryDtoEnvelope result = apiInstance.getItemCategoryByIdAsync(itemCategoryId, apiVersion, xApiVersion);
+      ItemCategoryDtoEnvelope result = apiInstance.getItemCategoryByIdAsync(itemCategoryId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemCategoriesApi#getItemCategoryByIdAsync");
@@ -332,6 +333,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemCategoryId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -375,7 +377,7 @@ import org.openapitools.client.api.ItemCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemCategoriesApi apiInstance = new ItemCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

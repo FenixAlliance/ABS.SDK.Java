@@ -9,30 +9,1103 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: ShipmentsService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
-- name: FenixAlliance.ABS.Web
+- name: BillsOfLading
+- name: Completions
+- name: FenixAlliance.Portals.Website
+- name: ItemShippingPolicies
 - name: Shipments
+- name: ShippingClasses
+- name: ShippingCouriers
+- name: ShippingLabels
+- name: ShippingMethods
+- name: ShippingRegions
+- name: ShippingZones
 paths:
+  /api/v2/ShipmentsService/BillsOfLading:
+    get:
+      description: Retrieves all bills of lading for the specified tenant.
+      operationId: GetBillsOfLadingAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingDtoListEnvelope'
+          description: OK
+      summary: Get all bills of lading
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new bill of lading for the specified tenant.
+      operationId: CreateBillOfLadingAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a bill of lading
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/BillsOfLading/Count:
+    get:
+      description: Returns the count of bills of lading for the specified tenant.
+      operationId: GetBillsOfLadingCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get bills of lading count
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}:
+    delete:
+      description: Deletes a bill of lading.
+      operationId: DeleteBillOfLadingAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a bill of lading
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific bill of lading by its identifier.
+      operationId: GetBillOfLadingByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingDtoEnvelope'
+          description: OK
+      summary: Get bill of lading by ID
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing bill of lading.
+      operationId: UpdateBillOfLadingAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a bill of lading
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines:
+    get:
+      description: Retrieves all lines for a specific bill of lading.
+      operationId: GetBillOfLadingLinesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingLineDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingLineDtoListEnvelope'
+          description: OK
+      summary: Get bill of lading lines
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new line for a bill of lading.
+      operationId: CreateBillOfLadingLineAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a bill of lading line
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/Count:
+    get:
+      description: Returns the count of lines for a specific bill of lading.
+      operationId: GetBillOfLadingLinesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get bill of lading lines count
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId}:
+    delete:
+      description: Deletes a line from a bill of lading.
+      operationId: DeleteBillOfLadingLineAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a bill of lading line
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific line from a bill of lading.
+      operationId: GetBillOfLadingLineByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingLineDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BillOfLadingLineDtoEnvelope'
+          description: OK
+      summary: Get bill of lading line by ID
+      tags:
+      - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing line on a bill of lading.
+      operationId: UpdateBillOfLadingLineAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BillOfLadingLineUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a bill of lading line
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -41,7 +1114,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -50,7 +1123,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -71,7 +1144,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -106,7 +1179,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -126,7 +1199,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -159,7 +1232,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -174,7 +1247,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -196,7 +1269,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -218,7 +1291,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -246,7 +1319,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -269,7 +1342,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -296,7 +1369,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -325,7 +1398,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -349,7 +1422,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -373,7 +1446,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -383,12 +1456,342 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
+  /api/v2/ShipmentsService/ItemShippingPolicies:
+    get:
+      description: Retrieves all item shipping policies for the specified tenant.
+      operationId: GetItemShippingPoliciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemShippingPolicyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemShippingPolicyDtoListEnvelope'
+          description: OK
+      summary: Get all item shipping policies
+      tags:
+      - ItemShippingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new item shipping policy.
+      operationId: CreateItemShippingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create an item shipping policy
+      tags:
+      - ItemShippingPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ItemShippingPolicies/Count:
+    get:
+      description: Returns the count of item shipping policies.
+      operationId: GetItemShippingPoliciesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get item shipping policies count
+      tags:
+      - ItemShippingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ItemShippingPolicies/{policyId}:
+    delete:
+      description: Deletes an item shipping policy.
+      operationId: DeleteItemShippingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete an item shipping policy
+      tags:
+      - ItemShippingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific item shipping policy.
+      operationId: GetItemShippingPolicyByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemShippingPolicyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemShippingPolicyDtoEnvelope'
+          description: OK
+      summary: Get item shipping policy by ID
+      tags:
+      - ItemShippingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing item shipping policy.
+      operationId: UpdateItemShippingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemShippingPolicyUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update an item shipping policy
+      tags:
+      - ItemShippingPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/ShipmentsService/Shipments:
     get:
-      description: Retrieves a list of shipments for the specified tenant.
+      description: Retrieves all shipments for the specified tenant.
       operationId: GetShipmentsAsync
       parameters:
       - explode: true
@@ -441,9 +1844,2276 @@ paths:
               schema:
                 $ref: '#/components/schemas/ShipmentDtoListEnvelope'
           description: OK
-      summary: Retrieve a list of shipments
+      summary: Get all shipments
       tags:
       - Shipments
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipment for the specified tenant.
+      operationId: CreateShipmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShipmentCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipment
+      tags:
+      - Shipments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/Shipments/Count:
+    get:
+      description: Returns the count of shipments for the specified tenant.
+      operationId: GetShipmentsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipments count
+      tags:
+      - Shipments
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/Shipments/{shipmentId}:
+    delete:
+      description: Deletes a shipment.
+      operationId: DeleteShipmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shipmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipment
+      tags:
+      - Shipments
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipment by its ID.
+      operationId: GetShipmentByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shipmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShipmentDtoEnvelope'
+          description: OK
+      summary: Get shipment by ID
+      tags:
+      - Shipments
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipment.
+      operationId: UpdateShipmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shipmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShipmentUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipment
+      tags:
+      - Shipments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingClasses:
+    get:
+      description: Retrieves all shipping classes for the specified tenant.
+      operationId: GetShippingClassesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingClassDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingClassDtoListEnvelope'
+          description: OK
+      summary: Get all shipping classes
+      tags:
+      - ShippingClasses
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping class.
+      operationId: CreateShippingClassAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingClassCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingClassCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping class
+      tags:
+      - ShippingClasses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingClasses/Count:
+    get:
+      description: Returns the count of shipping classes.
+      operationId: GetShippingClassesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping classes count
+      tags:
+      - ShippingClasses
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingClasses/{classId}:
+    delete:
+      description: Deletes a shipping class.
+      operationId: DeleteShippingClassAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: classId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping class
+      tags:
+      - ShippingClasses
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping class.
+      operationId: GetShippingClassByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: classId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingClassDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingClassDtoEnvelope'
+          description: OK
+      summary: Get shipping class by ID
+      tags:
+      - ShippingClasses
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping class.
+      operationId: UpdateShippingClassAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: classId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingClassUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingClassUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping class
+      tags:
+      - ShippingClasses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingCouriers:
+    get:
+      description: Retrieves all shipping couriers for the specified tenant.
+      operationId: GetShippingCouriersAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingCourierDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingCourierDtoListEnvelope'
+          description: OK
+      summary: Get all shipping couriers
+      tags:
+      - ShippingCouriers
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping courier.
+      operationId: CreateShippingCourierAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping courier
+      tags:
+      - ShippingCouriers
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingCouriers/Count:
+    get:
+      description: Returns the count of shipping couriers for the specified tenant.
+      operationId: GetShippingCouriersCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping couriers count
+      tags:
+      - ShippingCouriers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingCouriers/{courierId}:
+    delete:
+      description: Deletes a shipping courier.
+      operationId: DeleteShippingCourierAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courierId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping courier
+      tags:
+      - ShippingCouriers
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping courier by its ID.
+      operationId: GetShippingCourierByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courierId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingCourierDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingCourierDtoEnvelope'
+          description: OK
+      summary: Get shipping courier by ID
+      tags:
+      - ShippingCouriers
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping courier.
+      operationId: UpdateShippingCourierAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courierId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingCourierUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping courier
+      tags:
+      - ShippingCouriers
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingLabels:
+    get:
+      description: Retrieves all shipping labels for the specified tenant.
+      operationId: GetShippingLabelsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingLabelDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingLabelDtoListEnvelope'
+          description: OK
+      summary: Get all shipping labels
+      tags:
+      - ShippingLabels
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping label.
+      operationId: CreateShippingLabelAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping label
+      tags:
+      - ShippingLabels
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingLabels/Count:
+    get:
+      description: Returns the count of shipping labels.
+      operationId: GetShippingLabelsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping labels count
+      tags:
+      - ShippingLabels
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingLabels/{labelId}:
+    delete:
+      description: Deletes a shipping label.
+      operationId: DeleteShippingLabelAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: labelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping label
+      tags:
+      - ShippingLabels
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping label.
+      operationId: GetShippingLabelByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: labelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingLabelDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingLabelDtoEnvelope'
+          description: OK
+      summary: Get shipping label by ID
+      tags:
+      - ShippingLabels
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping label.
+      operationId: UpdateShippingLabelAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: labelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping label
+      tags:
+      - ShippingLabels
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingMethods:
+    get:
+      description: Retrieves all shipping methods for the specified tenant.
+      operationId: GetShippingMethodsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingMethodDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingMethodDtoListEnvelope'
+          description: OK
+      summary: Get all shipping methods
+      tags:
+      - ShippingMethods
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping method.
+      operationId: CreateShippingMethodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping method
+      tags:
+      - ShippingMethods
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingMethods/Count:
+    get:
+      description: Returns the count of shipping methods.
+      operationId: GetShippingMethodsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping methods count
+      tags:
+      - ShippingMethods
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingMethods/{methodId}:
+    delete:
+      description: Deletes a shipping method.
+      operationId: DeleteShippingMethodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: methodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping method
+      tags:
+      - ShippingMethods
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping method.
+      operationId: GetShippingMethodByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: methodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingMethodDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingMethodDtoEnvelope'
+          description: OK
+      summary: Get shipping method by ID
+      tags:
+      - ShippingMethods
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping method.
+      operationId: UpdateShippingMethodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: methodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingMethodUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping method
+      tags:
+      - ShippingMethods
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingRegions:
+    get:
+      description: Retrieves all shipping regions for the specified tenant.
+      operationId: GetShippingRegionsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingRegionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingRegionDtoListEnvelope'
+          description: OK
+      summary: Get all shipping regions
+      tags:
+      - ShippingRegions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping region.
+      operationId: CreateShippingRegionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping region
+      tags:
+      - ShippingRegions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingRegions/Count:
+    get:
+      description: Returns the count of shipping regions.
+      operationId: GetShippingRegionsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping regions count
+      tags:
+      - ShippingRegions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingRegions/{regionId}:
+    delete:
+      description: Deletes a shipping region.
+      operationId: DeleteShippingRegionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: regionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping region
+      tags:
+      - ShippingRegions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping region.
+      operationId: GetShippingRegionByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: regionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingRegionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingRegionDtoEnvelope'
+          description: OK
+      summary: Get shipping region by ID
+      tags:
+      - ShippingRegions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping region.
+      operationId: UpdateShippingRegionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: regionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingRegionUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping region
+      tags:
+      - ShippingRegions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingZones:
+    get:
+      description: Retrieves all shipping zones for the specified tenant.
+      operationId: GetShippingZonesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingZoneDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingZoneDtoListEnvelope'
+          description: OK
+      summary: Get all shipping zones
+      tags:
+      - ShippingZones
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new shipping zone.
+      operationId: CreateShippingZoneAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          description: Created
+      summary: Create a shipping zone
+      tags:
+      - ShippingZones
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingZones/Count:
+    get:
+      description: Returns the count of shipping zones.
+      operationId: GetShippingZonesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get shipping zones count
+      tags:
+      - ShippingZones
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ShipmentsService/ShippingZones/{zoneId}:
+    delete:
+      description: Deletes a shipping zone.
+      operationId: DeleteShippingZoneAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: zoneId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a shipping zone
+      tags:
+      - ShippingZones
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific shipping zone.
+      operationId: GetShippingZoneByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: zoneId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingZoneDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShippingZoneDtoEnvelope'
+          description: OK
+      summary: Get shipping zone by ID
+      tags:
+      - ShippingZones
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing shipping zone.
+      operationId: UpdateShippingZoneAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: zoneId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShippingZoneUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Update a shipping zone
+      tags:
+      - ShippingZones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -474,6 +4144,854 @@ components:
       - accessToken
       - expiresIn
       - refreshToken
+      type: object
+    BillOfLadingCreateDto:
+      additionalProperties: false
+      example:
+        freightPaymentType: freightPaymentType
+        totalPackages: 1
+        consigneeContactId: consigneeContactId
+        orderId: orderId
+        shippingCourierId: shippingCourierId
+        description: description
+        title: title
+        numberOfOriginals: 0
+        marksAndNumbers: marksAndNumbers
+        voyageNumber: voyageNumber
+        portOfDischargeId: portOfDischargeId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        notifyPartyContactId: notifyPartyContactId
+        declaredValueCurrencyId: declaredValueCurrencyId
+        totalVolumeM3: 5.637376656633329
+        billOfLadingType: billOfLadingType
+        isClean: true
+        placeOfReceiptId: placeOfReceiptId
+        isNegotiable: true
+        billOfLadingNumber: billOfLadingNumber
+        shipperContactId: shipperContactId
+        shipmentId: shipmentId
+        declaredValueAmount: 6.027456183070403
+        shippingTerms: shippingTerms
+        placeOfDeliveryId: placeOfDeliveryId
+        portOfLoadingId: portOfLoadingId
+        voyageId: voyageId
+        freightChargesDescription: freightChargesDescription
+        vesselName: vesselName
+        totalGrossWeightKg: 5.962133916683182
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        billOfLadingNumber:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        billOfLadingType:
+          nullable: true
+          type: string
+        isNegotiable:
+          type: boolean
+        isClean:
+          type: boolean
+        numberOfOriginals:
+          format: int32
+          type: integer
+        freightPaymentType:
+          nullable: true
+          type: string
+        shippingTerms:
+          nullable: true
+          type: string
+        freightChargesDescription:
+          nullable: true
+          type: string
+        declaredValueAmount:
+          format: double
+          type: number
+        declaredValueCurrencyId:
+          nullable: true
+          type: string
+        vesselName:
+          nullable: true
+          type: string
+        voyageNumber:
+          nullable: true
+          type: string
+        shipperContactId:
+          nullable: true
+          type: string
+        consigneeContactId:
+          nullable: true
+          type: string
+        notifyPartyContactId:
+          nullable: true
+          type: string
+        shippingCourierId:
+          nullable: true
+          type: string
+        portOfLoadingId:
+          nullable: true
+          type: string
+        portOfDischargeId:
+          nullable: true
+          type: string
+        placeOfReceiptId:
+          nullable: true
+          type: string
+        placeOfDeliveryId:
+          nullable: true
+          type: string
+        shipmentId:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        voyageId:
+          nullable: true
+          type: string
+        marksAndNumbers:
+          nullable: true
+          type: string
+        totalPackages:
+          format: int32
+          type: integer
+        totalGrossWeightKg:
+          format: double
+          type: number
+        totalVolumeM3:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    BillOfLadingDto:
+      additionalProperties: false
+      example:
+        issuedDate: 2000-01-23T04:56:07.000+00:00
+        freightPaymentType: freightPaymentType
+        totalPackages: 1
+        consigneeContactId: consigneeContactId
+        orderId: orderId
+        shippingCourierId: shippingCourierId
+        description: description
+        title: title
+        numberOfOriginals: 0
+        expiryDate: 2000-01-23T04:56:07.000+00:00
+        marksAndNumbers: marksAndNumbers
+        voyageNumber: voyageNumber
+        portOfDischargeId: portOfDischargeId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
+        notifyPartyContactId: notifyPartyContactId
+        declaredValueCurrencyId: declaredValueCurrencyId
+        totalVolumeM3: 5.637376656633329
+        billOfLadingType: billOfLadingType
+        onBoardDate: 2000-01-23T04:56:07.000+00:00
+        isClean: true
+        placeOfReceiptId: placeOfReceiptId
+        isNegotiable: true
+        billOfLadingNumber: billOfLadingNumber
+        shipperContactId: shipperContactId
+        shipmentId: shipmentId
+        declaredValueAmount: 6.027456183070403
+        shippingTerms: shippingTerms
+        placeOfDeliveryId: placeOfDeliveryId
+        tenantId: tenantId
+        portOfLoadingId: portOfLoadingId
+        voyageId: voyageId
+        freightChargesDescription: freightChargesDescription
+        status: status
+        vesselName: vesselName
+        totalGrossWeightKg: 5.962133916683182
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        billOfLadingNumber:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        billOfLadingType:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        isNegotiable:
+          type: boolean
+        isClean:
+          type: boolean
+        numberOfOriginals:
+          format: int32
+          type: integer
+        freightPaymentType:
+          nullable: true
+          type: string
+        shippingTerms:
+          nullable: true
+          type: string
+        freightChargesDescription:
+          nullable: true
+          type: string
+        declaredValueAmount:
+          format: double
+          type: number
+        declaredValueCurrencyId:
+          nullable: true
+          type: string
+        issuedDate:
+          format: date-time
+          nullable: true
+          type: string
+        onBoardDate:
+          format: date-time
+          nullable: true
+          type: string
+        expiryDate:
+          format: date-time
+          nullable: true
+          type: string
+        vesselName:
+          nullable: true
+          type: string
+        voyageNumber:
+          nullable: true
+          type: string
+        shipperContactId:
+          nullable: true
+          type: string
+        consigneeContactId:
+          nullable: true
+          type: string
+        notifyPartyContactId:
+          nullable: true
+          type: string
+        shippingCourierId:
+          nullable: true
+          type: string
+        portOfLoadingId:
+          nullable: true
+          type: string
+        portOfDischargeId:
+          nullable: true
+          type: string
+        placeOfReceiptId:
+          nullable: true
+          type: string
+        placeOfDeliveryId:
+          nullable: true
+          type: string
+        shipmentId:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        voyageId:
+          nullable: true
+          type: string
+        marksAndNumbers:
+          nullable: true
+          type: string
+        totalPackages:
+          format: int32
+          type: integer
+        totalGrossWeightKg:
+          format: double
+          type: number
+        totalVolumeM3:
+          format: double
+          nullable: true
+          type: number
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    BillOfLadingDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          issuedDate: 2000-01-23T04:56:07.000+00:00
+          freightPaymentType: freightPaymentType
+          totalPackages: 1
+          consigneeContactId: consigneeContactId
+          orderId: orderId
+          shippingCourierId: shippingCourierId
+          description: description
+          title: title
+          numberOfOriginals: 0
+          expiryDate: 2000-01-23T04:56:07.000+00:00
+          marksAndNumbers: marksAndNumbers
+          voyageNumber: voyageNumber
+          portOfDischargeId: portOfDischargeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          notifyPartyContactId: notifyPartyContactId
+          declaredValueCurrencyId: declaredValueCurrencyId
+          totalVolumeM3: 5.637376656633329
+          billOfLadingType: billOfLadingType
+          onBoardDate: 2000-01-23T04:56:07.000+00:00
+          isClean: true
+          placeOfReceiptId: placeOfReceiptId
+          isNegotiable: true
+          billOfLadingNumber: billOfLadingNumber
+          shipperContactId: shipperContactId
+          shipmentId: shipmentId
+          declaredValueAmount: 6.027456183070403
+          shippingTerms: shippingTerms
+          placeOfDeliveryId: placeOfDeliveryId
+          tenantId: tenantId
+          portOfLoadingId: portOfLoadingId
+          voyageId: voyageId
+          freightChargesDescription: freightChargesDescription
+          status: status
+          vesselName: vesselName
+          totalGrossWeightKg: 5.962133916683182
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BillOfLadingDto'
+      type: object
+    BillOfLadingDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - issuedDate: 2000-01-23T04:56:07.000+00:00
+          freightPaymentType: freightPaymentType
+          totalPackages: 1
+          consigneeContactId: consigneeContactId
+          orderId: orderId
+          shippingCourierId: shippingCourierId
+          description: description
+          title: title
+          numberOfOriginals: 0
+          expiryDate: 2000-01-23T04:56:07.000+00:00
+          marksAndNumbers: marksAndNumbers
+          voyageNumber: voyageNumber
+          portOfDischargeId: portOfDischargeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          notifyPartyContactId: notifyPartyContactId
+          declaredValueCurrencyId: declaredValueCurrencyId
+          totalVolumeM3: 5.637376656633329
+          billOfLadingType: billOfLadingType
+          onBoardDate: 2000-01-23T04:56:07.000+00:00
+          isClean: true
+          placeOfReceiptId: placeOfReceiptId
+          isNegotiable: true
+          billOfLadingNumber: billOfLadingNumber
+          shipperContactId: shipperContactId
+          shipmentId: shipmentId
+          declaredValueAmount: 6.027456183070403
+          shippingTerms: shippingTerms
+          placeOfDeliveryId: placeOfDeliveryId
+          tenantId: tenantId
+          portOfLoadingId: portOfLoadingId
+          voyageId: voyageId
+          freightChargesDescription: freightChargesDescription
+          status: status
+          vesselName: vesselName
+          totalGrossWeightKg: 5.962133916683182
+        - issuedDate: 2000-01-23T04:56:07.000+00:00
+          freightPaymentType: freightPaymentType
+          totalPackages: 1
+          consigneeContactId: consigneeContactId
+          orderId: orderId
+          shippingCourierId: shippingCourierId
+          description: description
+          title: title
+          numberOfOriginals: 0
+          expiryDate: 2000-01-23T04:56:07.000+00:00
+          marksAndNumbers: marksAndNumbers
+          voyageNumber: voyageNumber
+          portOfDischargeId: portOfDischargeId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          notifyPartyContactId: notifyPartyContactId
+          declaredValueCurrencyId: declaredValueCurrencyId
+          totalVolumeM3: 5.637376656633329
+          billOfLadingType: billOfLadingType
+          onBoardDate: 2000-01-23T04:56:07.000+00:00
+          isClean: true
+          placeOfReceiptId: placeOfReceiptId
+          isNegotiable: true
+          billOfLadingNumber: billOfLadingNumber
+          shipperContactId: shipperContactId
+          shipmentId: shipmentId
+          declaredValueAmount: 6.027456183070403
+          shippingTerms: shippingTerms
+          placeOfDeliveryId: placeOfDeliveryId
+          tenantId: tenantId
+          portOfLoadingId: portOfLoadingId
+          voyageId: voyageId
+          freightChargesDescription: freightChargesDescription
+          status: status
+          vesselName: vesselName
+          totalGrossWeightKg: 5.962133916683182
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BillOfLadingDto'
+          nullable: true
+          type: array
+      type: object
+    BillOfLadingLineCreateDto:
+      additionalProperties: false
+      example:
+        marksAndNumbers: marksAndNumbers
+        itemId: itemId
+        quantity: 0.8008281904610115
+        hsCode: hsCode
+        grossWeightKg: 6.027456183070403
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        packageType: packageType
+        volumeM3: 1.4658129805029452
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        packageType:
+          nullable: true
+          type: string
+        grossWeightKg:
+          format: double
+          type: number
+        volumeM3:
+          format: double
+          nullable: true
+          type: number
+        marksAndNumbers:
+          nullable: true
+          type: string
+        hsCode:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+      type: object
+    BillOfLadingLineDto:
+      additionalProperties: false
+      example:
+        marksAndNumbers: marksAndNumbers
+        itemId: itemId
+        quantity: 0.8008281904610115
+        hsCode: hsCode
+        grossWeightKg: 6.027456183070403
+        tenantId: tenantId
+        description: description
+        billOfLadingId: billOfLadingId
+        id: id
+        packageType: packageType
+        volumeM3: 1.4658129805029452
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        packageType:
+          nullable: true
+          type: string
+        grossWeightKg:
+          format: double
+          type: number
+        volumeM3:
+          format: double
+          nullable: true
+          type: number
+        marksAndNumbers:
+          nullable: true
+          type: string
+        hsCode:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+        billOfLadingId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    BillOfLadingLineDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          marksAndNumbers: marksAndNumbers
+          itemId: itemId
+          quantity: 0.8008281904610115
+          hsCode: hsCode
+          grossWeightKg: 6.027456183070403
+          tenantId: tenantId
+          description: description
+          billOfLadingId: billOfLadingId
+          id: id
+          packageType: packageType
+          volumeM3: 1.4658129805029452
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BillOfLadingLineDto'
+      type: object
+    BillOfLadingLineDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - marksAndNumbers: marksAndNumbers
+          itemId: itemId
+          quantity: 0.8008281904610115
+          hsCode: hsCode
+          grossWeightKg: 6.027456183070403
+          tenantId: tenantId
+          description: description
+          billOfLadingId: billOfLadingId
+          id: id
+          packageType: packageType
+          volumeM3: 1.4658129805029452
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - marksAndNumbers: marksAndNumbers
+          itemId: itemId
+          quantity: 0.8008281904610115
+          hsCode: hsCode
+          grossWeightKg: 6.027456183070403
+          tenantId: tenantId
+          description: description
+          billOfLadingId: billOfLadingId
+          id: id
+          packageType: packageType
+          volumeM3: 1.4658129805029452
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BillOfLadingLineDto'
+          nullable: true
+          type: array
+      type: object
+    BillOfLadingLineUpdateDto:
+      additionalProperties: false
+      example:
+        marksAndNumbers: marksAndNumbers
+        itemId: itemId
+        quantity: 0.8008281904610115
+        hsCode: hsCode
+        grossWeightKg: 6.027456183070403
+        description: description
+        packageType: packageType
+        volumeM3: 1.4658129805029452
+      properties:
+        description:
+          nullable: true
+          type: string
+        quantity:
+          format: double
+          type: number
+        packageType:
+          nullable: true
+          type: string
+        grossWeightKg:
+          format: double
+          type: number
+        volumeM3:
+          format: double
+          nullable: true
+          type: number
+        marksAndNumbers:
+          nullable: true
+          type: string
+        hsCode:
+          nullable: true
+          type: string
+        itemId:
+          nullable: true
+          type: string
+      type: object
+    BillOfLadingUpdateDto:
+      additionalProperties: false
+      example:
+        freightPaymentType: freightPaymentType
+        totalPackages: 1
+        consigneeContactId: consigneeContactId
+        orderId: orderId
+        shippingCourierId: shippingCourierId
+        description: description
+        title: title
+        numberOfOriginals: 0
+        expiryDate: 2000-01-23T04:56:07.000+00:00
+        marksAndNumbers: marksAndNumbers
+        voyageNumber: voyageNumber
+        portOfDischargeId: portOfDischargeId
+        notifyPartyContactId: notifyPartyContactId
+        declaredValueCurrencyId: declaredValueCurrencyId
+        totalVolumeM3: 5.637376656633329
+        billOfLadingType: billOfLadingType
+        isClean: true
+        placeOfReceiptId: placeOfReceiptId
+        isNegotiable: true
+        billOfLadingNumber: billOfLadingNumber
+        shipperContactId: shipperContactId
+        shipmentId: shipmentId
+        declaredValueAmount: 6.027456183070403
+        shippingTerms: shippingTerms
+        placeOfDeliveryId: placeOfDeliveryId
+        portOfLoadingId: portOfLoadingId
+        voyageId: voyageId
+        freightChargesDescription: freightChargesDescription
+        vesselName: vesselName
+        totalGrossWeightKg: 5.962133916683182
+      properties:
+        billOfLadingNumber:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        billOfLadingType:
+          nullable: true
+          type: string
+        isNegotiable:
+          type: boolean
+        isClean:
+          type: boolean
+        numberOfOriginals:
+          format: int32
+          type: integer
+        freightPaymentType:
+          nullable: true
+          type: string
+        shippingTerms:
+          nullable: true
+          type: string
+        freightChargesDescription:
+          nullable: true
+          type: string
+        declaredValueAmount:
+          format: double
+          type: number
+        declaredValueCurrencyId:
+          nullable: true
+          type: string
+        expiryDate:
+          format: date-time
+          nullable: true
+          type: string
+        vesselName:
+          nullable: true
+          type: string
+        voyageNumber:
+          nullable: true
+          type: string
+        shipperContactId:
+          nullable: true
+          type: string
+        consigneeContactId:
+          nullable: true
+          type: string
+        notifyPartyContactId:
+          nullable: true
+          type: string
+        shippingCourierId:
+          nullable: true
+          type: string
+        portOfLoadingId:
+          nullable: true
+          type: string
+        portOfDischargeId:
+          nullable: true
+          type: string
+        placeOfReceiptId:
+          nullable: true
+          type: string
+        placeOfDeliveryId:
+          nullable: true
+          type: string
+        shipmentId:
+          nullable: true
+          type: string
+        orderId:
+          nullable: true
+          type: string
+        voyageId:
+          nullable: true
+          type: string
+        marksAndNumbers:
+          nullable: true
+          type: string
+        totalPackages:
+          format: int32
+          type: integer
+        totalGrossWeightKg:
+          format: double
+          type: number
+        totalVolumeM3:
+          format: double
+          nullable: true
+          type: number
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
       type: object
     ErrorEnvelope:
       additionalProperties: false
@@ -572,6 +5090,609 @@ components:
       - email
       - isEmailConfirmed
       type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    ItemShippingPolicyCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        weeks: 314780940
+        customState: customState
+        description: description
+        title: title
+        type: type
+        customCity: customCity
+        years: 1210617418
+        isFree: true
+        percentage: 70.61401241503108
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: 230213588693476.28
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        allowInternational: true
+        hours: 171976544
+        months: 1280358508
+        shippingCourierID: shippingCourierID
+        isExpressShipmentPolicy: true
+        countryStateID: countryStateID
+        cityID: cityID
+        countryID: countryID
+        isDefault: true
+        isEnabled: true
+        days: 1294386358
+        currencyID: currencyID
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        type:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          type: string
+        isExpressShipmentPolicy:
+          type: boolean
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        days:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        weeks:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        months:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        years:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          maximum: 999999999999999
+          minimum: 0
+          type: number
+        percentage:
+          format: double
+          maximum: 100
+          minimum: 0
+          type: number
+        currencyID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        countryID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        countryStateID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        customState:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        customCity:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        cityID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        shippingCourierID:
+          maxLength: 36
+          minLength: 36
+          type: string
+      required:
+      - code
+      - currencyID
+      - shippingCourierID
+      - title
+      - type
+      type: object
+    ItemShippingPolicyDto:
+      additionalProperties: false
+      example:
+        code: code
+        weeks: 314780940
+        customState: customState
+        description: description
+        type: type
+        title: title
+        customCity: customCity
+        years: 1210617418
+        isFree: true
+        percentage: 70.61401241503108
+        id: id
+        value: 230213588693476.28
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        allowInternational: true
+        hours: 171976544
+        months: 1280358508
+        shippingCourierID: shippingCourierID
+        businessID: businessID
+        isExpressShipmentPolicy: true
+        countryStateID: countryStateID
+        cityID: cityID
+        businessProfileRecordID: businessProfileRecordID
+        countryID: countryID
+        isDefault: true
+        isEnabled: true
+        days: 1294386358
+        currencyID: currencyID
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        isExpressShipmentPolicy:
+          type: boolean
+        shippingCourierID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        type:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        days:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        weeks:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        months:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        years:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          maximum: 999999999999999
+          minimum: 0
+          type: number
+        percentage:
+          format: double
+          maximum: 100
+          minimum: 0
+          type: number
+        currencyID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        countryID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        countryStateID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        customState:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        customCity:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        cityID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        businessProfileRecordID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      required:
+      - businessID
+      - code
+      - currencyID
+      - shippingCourierID
+      - title
+      - type
+      type: object
+    ItemShippingPolicyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          isExpressShipmentPolicy: true
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemShippingPolicyDto'
+      type: object
+    ItemShippingPolicyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          isExpressShipmentPolicy: true
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        - code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          isExpressShipmentPolicy: true
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemShippingPolicyDto'
+          nullable: true
+          type: array
+      type: object
+    ItemShippingPolicyUpdateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 171976544
+        code: code
+        weeks: 314780940
+        months: 1280358508
+        customState: customState
+        shippingCourierID: shippingCourierID
+        description: description
+        isExpressShipmentPolicy: true
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        type: type
+        customCity: customCity
+        years: 1210617418
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 70.61401241503108
+        days: 1294386358
+        currencyID: currencyID
+        value: 230213588693476.28
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        type:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          type: string
+        isExpressShipmentPolicy:
+          type: boolean
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        days:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        weeks:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        months:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        years:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          maximum: 999999999999999
+          minimum: 0
+          type: number
+        percentage:
+          format: double
+          maximum: 100
+          minimum: 0
+          type: number
+        currencyID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        countryID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        countryStateID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        customState:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        customCity:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        cityID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        shippingCourierID:
+          maxLength: 36
+          minLength: 36
+          type: string
+      required:
+      - code
+      - currencyID
+      - shippingCourierID
+      - title
+      - type
+      type: object
     LoginRequest:
       additionalProperties: false
       example:
@@ -655,24 +5776,86 @@ components:
       - newPassword
       - resetCode
       type: object
+    ShipmentCreateDto:
+      additionalProperties: false
+      example:
+        expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+        isInternational: true
+        orderID: orderID
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        shippingTerms: NC
+        trackingCode: trackingCode
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        trackingCode:
+          nullable: true
+          type: string
+        isInternational:
+          type: boolean
+        expectedShippingDate:
+          format: date-time
+          type: string
+        expectedDeliveryDate:
+          format: date-time
+          type: string
+        shippingTerms:
+          enum:
+          - NC
+          - EXW
+          - FCA
+          - FOB
+          - FAS
+          - CFR
+          - CIF
+          - CPT
+          - CIP
+          - DDP
+          - DAP
+          - DPU
+          type: string
+        orderID:
+          nullable: true
+          type: string
+      type: object
     ShipmentDto:
       additionalProperties: false
       example:
         shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
         expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+        orderID: orderID
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        businessID: businessID
+        trackingCode: trackingCode
+        delivered: true
+        shipped: true
         isInternational: true
         deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
-        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        trackingCode: trackingCode
+        shippingTerms: NC
         id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
           nullable: true
           type: string
         trackingCode:
           nullable: true
           type: string
         isInternational:
+          type: boolean
+        shipped:
+          type: boolean
+        delivered:
           type: boolean
         shipmentTimestamp:
           format: date-time
@@ -686,6 +5869,70 @@ components:
         expectedDeliveryDate:
           format: date-time
           type: string
+        shippingTerms:
+          enum:
+          - NC
+          - EXW
+          - FCA
+          - FOB
+          - FAS
+          - CFR
+          - CIF
+          - CPT
+          - CIP
+          - DDP
+          - DAP
+          - DPU
+          type: string
+        orderID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ShipmentDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
+          expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+          orderID: orderID
+          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          trackingCode: trackingCode
+          delivered: true
+          shipped: true
+          isInternational: true
+          deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
+          shippingTerms: NC
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShipmentDto'
       type: object
     ShipmentDtoListEnvelope:
       additionalProperties: false
@@ -693,18 +5940,30 @@ components:
         result:
         - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
           expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+          orderID: orderID
+          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          trackingCode: trackingCode
+          delivered: true
+          shipped: true
           isInternational: true
           deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
-          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          trackingCode: trackingCode
+          shippingTerms: NC
           id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
         - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
           expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+          orderID: orderID
+          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+          businessID: businessID
+          trackingCode: trackingCode
+          delivered: true
+          shipped: true
           isInternational: true
           deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
-          expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          trackingCode: trackingCode
+          shippingTerms: NC
           id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -733,6 +5992,1089 @@ components:
             $ref: '#/components/schemas/ShipmentDto'
           nullable: true
           type: array
+      type: object
+    ShipmentUpdateDto:
+      additionalProperties: false
+      example:
+        shipped: true
+        shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
+        expectedShippingDate: 2000-01-23T04:56:07.000+00:00
+        isInternational: true
+        orderID: orderID
+        deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        shippingTerms: NC
+        trackingCode: trackingCode
+        delivered: true
+      properties:
+        trackingCode:
+          nullable: true
+          type: string
+        isInternational:
+          type: boolean
+        shipped:
+          type: boolean
+        delivered:
+          type: boolean
+        shipmentTimestamp:
+          format: date-time
+          type: string
+        deliveryTimestamp:
+          format: date-time
+          type: string
+        expectedShippingDate:
+          format: date-time
+          type: string
+        expectedDeliveryDate:
+          format: date-time
+          type: string
+        shippingTerms:
+          enum:
+          - NC
+          - EXW
+          - FCA
+          - FOB
+          - FAS
+          - CFR
+          - CIF
+          - CPT
+          - CIP
+          - DDP
+          - DAP
+          - DPU
+          type: string
+        orderID:
+          nullable: true
+          type: string
+      type: object
+    ShippingClassCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        slug: slug
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        slug:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ShippingClassDto:
+      additionalProperties: false
+      example:
+        name: name
+        businessID: businessID
+        id: id
+        slug: slug
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        slug:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ShippingClassDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          name: name
+          businessID: businessID
+          id: id
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingClassDto'
+      type: object
+    ShippingClassDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          businessID: businessID
+          id: id
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          businessID: businessID
+          id: id
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingClassDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingClassUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        slug: slug
+      properties:
+        name:
+          nullable: true
+          type: string
+        slug:
+          nullable: true
+          type: string
+      type: object
+    ShippingCourierCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        businessProfileRecordID: businessProfileRecordID
+        logoURL: logoURL
+        countryID: countryID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        logoURL:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ShippingCourierDto:
+      additionalProperties: false
+      example:
+        name: name
+        businessID: businessID
+        id: id
+        businessProfileRecordID: businessProfileRecordID
+        logoURL: logoURL
+        countryID: countryID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        logoURL:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      type: object
+    ShippingCourierDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          name: name
+          businessID: businessID
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          logoURL: logoURL
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingCourierDto'
+      type: object
+    ShippingCourierDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          businessID: businessID
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          logoURL: logoURL
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          businessID: businessID
+          id: id
+          businessProfileRecordID: businessProfileRecordID
+          logoURL: logoURL
+          countryID: countryID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingCourierDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingCourierUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        businessProfileRecordID: businessProfileRecordID
+        logoURL: logoURL
+        countryID: countryID
+      properties:
+        name:
+          nullable: true
+          type: string
+        logoURL:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      type: object
+    ShippingLabelCreateDto:
+      additionalProperties: false
+      example:
+        expectedDelivery: 2000-01-23T04:56:07.000+00:00
+        locationID: locationID
+        shipmentID: shipmentID
+        shippingCourierID: shippingCourierID
+        trackingCode: trackingCode
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        trackingCode:
+          minLength: 1
+          type: string
+        expectedDelivery:
+          format: date-time
+          type: string
+        locationID:
+          nullable: true
+          type: string
+        shipmentID:
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+      required:
+      - trackingCode
+      type: object
+    ShippingLabelDto:
+      additionalProperties: false
+      example:
+        expectedDelivery: 2000-01-23T04:56:07.000+00:00
+        locationID: locationID
+        shipmentID: shipmentID
+        shippingCourierID: shippingCourierID
+        businessID: businessID
+        trackingCode: trackingCode
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        trackingCode:
+          nullable: true
+          type: string
+        expectedDelivery:
+          format: date-time
+          type: string
+        locationID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        shipmentID:
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+      type: object
+    ShippingLabelDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          expectedDelivery: 2000-01-23T04:56:07.000+00:00
+          locationID: locationID
+          shipmentID: shipmentID
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          trackingCode: trackingCode
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingLabelDto'
+      type: object
+    ShippingLabelDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - expectedDelivery: 2000-01-23T04:56:07.000+00:00
+          locationID: locationID
+          shipmentID: shipmentID
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          trackingCode: trackingCode
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - expectedDelivery: 2000-01-23T04:56:07.000+00:00
+          locationID: locationID
+          shipmentID: shipmentID
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          trackingCode: trackingCode
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingLabelDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingLabelUpdateDto:
+      additionalProperties: false
+      example:
+        expectedDelivery: 2000-01-23T04:56:07.000+00:00
+        locationID: locationID
+        shipmentID: shipmentID
+        shippingCourierID: shippingCourierID
+        trackingCode: trackingCode
+      properties:
+        trackingCode:
+          nullable: true
+          type: string
+        expectedDelivery:
+          format: date-time
+          type: string
+        locationID:
+          nullable: true
+          type: string
+        shipmentID:
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+      type: object
+    ShippingMethodCreateDto:
+      additionalProperties: false
+      example:
+        cost: 0.8008281904610115
+        taxIncluded: true
+        taxable: true
+        shippingClassCalculationType: PerClass
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyID: currencyID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        description:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        taxable:
+          type: boolean
+        taxIncluded:
+          type: boolean
+        currencyID:
+          nullable: true
+          type: string
+        shippingClassCalculationType:
+          enum:
+          - PerClass
+          - PerOrder
+          type: string
+      required:
+      - name
+      type: object
+    ShippingMethodDto:
+      additionalProperties: false
+      example:
+        cost: 0.8008281904610115
+        taxIncluded: true
+        taxable: true
+        shippingClassCalculationType: PerClass
+        name: name
+        businessID: businessID
+        description: description
+        id: id
+        currencyID: currencyID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        taxable:
+          type: boolean
+        taxIncluded:
+          type: boolean
+        currencyID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        shippingClassCalculationType:
+          enum:
+          - PerClass
+          - PerOrder
+          type: string
+      type: object
+    ShippingMethodDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          cost: 0.8008281904610115
+          taxIncluded: true
+          taxable: true
+          shippingClassCalculationType: PerClass
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          currencyID: currencyID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingMethodDto'
+      type: object
+    ShippingMethodDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - cost: 0.8008281904610115
+          taxIncluded: true
+          taxable: true
+          shippingClassCalculationType: PerClass
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          currencyID: currencyID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - cost: 0.8008281904610115
+          taxIncluded: true
+          taxable: true
+          shippingClassCalculationType: PerClass
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          currencyID: currencyID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingMethodDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingMethodUpdateDto:
+      additionalProperties: false
+      example:
+        cost: 0.8008281904610115
+        taxIncluded: true
+        taxable: true
+        shippingClassCalculationType: PerClass
+        name: name
+        description: description
+        currencyID: currencyID
+      properties:
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        taxable:
+          type: boolean
+        taxIncluded:
+          type: boolean
+        currencyID:
+          nullable: true
+          type: string
+        shippingClassCalculationType:
+          enum:
+          - PerClass
+          - PerOrder
+          type: string
+      type: object
+    ShippingRegionCreateDto:
+      additionalProperties: false
+      example:
+        postalCodes: postalCodes
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        postalCodes:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ShippingRegionDto:
+      additionalProperties: false
+      example:
+        postalCodes: postalCodes
+        name: name
+        businessID: businessID
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        postalCodes:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ShippingRegionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          postalCodes: postalCodes
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingRegionDto'
+      type: object
+    ShippingRegionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - postalCodes: postalCodes
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - postalCodes: postalCodes
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingRegionDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingRegionUpdateDto:
+      additionalProperties: false
+      example:
+        postalCodes: postalCodes
+        name: name
+      properties:
+        name:
+          nullable: true
+          type: string
+        postalCodes:
+          nullable: true
+          type: string
+      type: object
+    ShippingZoneCreateDto:
+      additionalProperties: false
+      example:
+        default: true
+        countryCodes: countryCodes
+        postalCodes: postalCodes
+        everywhere: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        default:
+          type: boolean
+        everywhere:
+          type: boolean
+        postalCodes:
+          nullable: true
+          type: string
+        countryCodes:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ShippingZoneDto:
+      additionalProperties: false
+      example:
+        default: true
+        countryCodes: countryCodes
+        postalCodes: postalCodes
+        everywhere: true
+        name: name
+        businessID: businessID
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        default:
+          type: boolean
+        everywhere:
+          type: boolean
+        postalCodes:
+          nullable: true
+          type: string
+        countryCodes:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ShippingZoneDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          default: true
+          countryCodes: countryCodes
+          postalCodes: postalCodes
+          everywhere: true
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ShippingZoneDto'
+      type: object
+    ShippingZoneDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - default: true
+          countryCodes: countryCodes
+          postalCodes: postalCodes
+          everywhere: true
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - default: true
+          countryCodes: countryCodes
+          postalCodes: postalCodes
+          everywhere: true
+          name: name
+          businessID: businessID
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ShippingZoneDto'
+          nullable: true
+          type: array
+      type: object
+    ShippingZoneUpdateDto:
+      additionalProperties: false
+      example:
+        default: true
+        countryCodes: countryCodes
+        postalCodes: postalCodes
+        everywhere: true
+        name: name
+      properties:
+        name:
+          nullable: true
+          type: string
+        default:
+          type: boolean
+        everywhere:
+          type: boolean
+        postalCodes:
+          nullable: true
+          type: string
+        countryCodes:
+          nullable: true
+          type: string
       type: object
     TwoFactorRequest:
       additionalProperties: false

@@ -9,30 +9,349 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SalesService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
-- name: FenixAlliance.ABS.Web
+- name: Completions
+- name: FenixAlliance.Portals.Website
+- name: LoyaltyPrograms
 - name: Margins
+- name: PointOfSales
+- name: SalesLiteratures
+- name: Stores
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -41,7 +360,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -50,7 +369,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -71,7 +390,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -106,7 +425,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -126,7 +445,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -159,7 +478,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -174,7 +493,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -196,7 +515,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -218,7 +537,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -246,7 +565,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -269,7 +588,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -296,7 +615,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -325,7 +644,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -349,7 +668,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -373,7 +692,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -383,9 +702,278 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
+  /api/v2/SalesService/LoyaltyPrograms/Count:
+    get:
+      description: Returns the total count of loyalty programs for the specified tenant
+        with OData filter support.
+      operationId: CountLoyaltyProgramsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get loyalty programs count
+      tags:
+      - LoyaltyPrograms
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/LoyaltyPrograms:
+    get:
+      description: Retrieves a list of loyalty programs for the specified tenant with
+        OData query support.
+      operationId: GetLoyaltyProgramsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltyProgramDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoyaltyProgramDtoListEnvelope'
+          description: OK
+      summary: Get loyalty programs
+      tags:
+      - LoyaltyPrograms
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new loyalty program for the specified tenant.
+      operationId: CreateLoyaltyProgramAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoyaltyProgramCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoyaltyProgramCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a loyalty program
+      tags:
+      - LoyaltyPrograms
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId}:
+    delete:
+      description: Deletes an existing loyalty program by its unique identifier.
+      operationId: DeleteLoyaltyProgramAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loyaltyProgramId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a loyalty program
+      tags:
+      - LoyaltyPrograms
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a single loyalty program by its unique identifier.
+      operationId: GetLoyaltyProgramAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loyaltyProgramId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltyProgramDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoyaltyProgramDtoEnvelope'
+          description: OK
+      summary: Get loyalty program by ID
+      tags:
+      - LoyaltyPrograms
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing loyalty program by its unique identifier.
+      operationId: UpdateLoyaltyProgramAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loyaltyProgramId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoyaltyProgramUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoyaltyProgramUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a loyalty program
+      tags:
+      - LoyaltyPrograms
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SalesService/Margins/{marginId}/Details:
     get:
       description: Retrieves the details of a specific sales margin by its ID.
@@ -421,6 +1009,852 @@ paths:
       - Margins
       x-accepts:
       - application/json
+  /api/v2/SalesService/PointOfSales/Count:
+    get:
+      description: Returns the total count of point of sales for the specified tenant
+        with OData filter support.
+      operationId: CountPointOfSalesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get point of sales count
+      tags:
+      - PointOfSales
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/PointOfSales:
+    get:
+      description: Retrieves a list of point of sales for the specified tenant with
+        OData query support.
+      operationId: GetPointOfSalesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointOfSaleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PointOfSaleDtoListEnvelope'
+          description: OK
+      summary: Get point of sales
+      tags:
+      - PointOfSales
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new point of sale for the specified tenant.
+      operationId: CreatePointOfSaleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointOfSaleCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PointOfSaleCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a point of sale
+      tags:
+      - PointOfSales
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/PointOfSales/{pointOfSaleId}:
+    delete:
+      description: Deletes an existing point of sale by its unique identifier.
+      operationId: DeletePointOfSaleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pointOfSaleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a point of sale
+      tags:
+      - PointOfSales
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a single point of sale by its unique identifier.
+      operationId: GetPointOfSaleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pointOfSaleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointOfSaleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PointOfSaleDtoEnvelope'
+          description: OK
+      summary: Get point of sale by ID
+      tags:
+      - PointOfSales
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing point of sale by its unique identifier.
+      operationId: UpdatePointOfSaleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pointOfSaleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointOfSaleUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PointOfSaleUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a point of sale
+      tags:
+      - PointOfSales
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/SalesLiteratures/Count:
+    get:
+      description: Returns the total count of sales literatures for the specified
+        tenant with OData filter support.
+      operationId: CountSalesLiteraturesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get sales literatures count
+      tags:
+      - SalesLiteratures
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/SalesLiteratures:
+    get:
+      description: Retrieves a list of sales literatures for the specified tenant
+        with OData query support.
+      operationId: GetSalesLiteraturesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesLiteratureDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SalesLiteratureDtoListEnvelope'
+          description: OK
+      summary: Get sales literatures
+      tags:
+      - SalesLiteratures
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new sales literature for the specified tenant.
+      operationId: CreateSalesLiteratureAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesLiteratureCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SalesLiteratureCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a sales literature
+      tags:
+      - SalesLiteratures
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/SalesLiteratures/Extended:
+    get:
+      description: Retrieves a list of sales literatures with extended details for
+        the specified tenant with OData query support.
+      operationId: GetExtendedSalesLiteraturesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtendedSalesLiteratureDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExtendedSalesLiteratureDtoListEnvelope'
+          description: OK
+      summary: Get extended sales literatures
+      tags:
+      - SalesLiteratures
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/SalesLiteratures/{salesLiteratureId}:
+    delete:
+      description: Deletes an existing sales literature by its unique identifier.
+      operationId: DeleteSalesLiteratureAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: salesLiteratureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a sales literature
+      tags:
+      - SalesLiteratures
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a single sales literature by its unique identifier.
+      operationId: GetSalesLiteratureAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: salesLiteratureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesLiteratureDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SalesLiteratureDtoEnvelope'
+          description: OK
+      summary: Get sales literature by ID
+      tags:
+      - SalesLiteratures
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing sales literature by its unique identifier.
+      operationId: UpdateSalesLiteratureAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: salesLiteratureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesLiteratureUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SalesLiteratureUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a sales literature
+      tags:
+      - SalesLiteratures
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/Stores/Count:
+    get:
+      description: Returns the total count of stores for the specified tenant with
+        OData filter support.
+      operationId: CountStoresAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get stores count
+      tags:
+      - Stores
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/Stores:
+    get:
+      description: Retrieves a list of stores for the specified tenant with OData
+        query support.
+      operationId: GetStoresAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StoreDtoListEnvelope'
+          description: OK
+      summary: Get stores
+      tags:
+      - Stores
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new store for the specified tenant.
+      operationId: CreateStoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/StoreCreateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a store
+      tags:
+      - Stores
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SalesService/Stores/{storeId}:
+    delete:
+      description: Deletes an existing store by its unique identifier.
+      operationId: DeleteStoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: storeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a store
+      tags:
+      - Stores
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a single store by its unique identifier.
+      operationId: GetStoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: storeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StoreDtoEnvelope'
+          description: OK
+      summary: Get store by ID
+      tags:
+      - Stores
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing store by its unique identifier.
+      operationId: UpdateStoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: storeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/StoreUpdateDto'
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a store
+      tags:
+      - Stores
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
 components:
   schemas:
     AccessTokenResponse:
@@ -448,6 +1882,298 @@ components:
       - accessToken
       - expiresIn
       - refreshToken
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ExtendedSalesLiteratureDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        salesLiteratureTypeId: salesLiteratureTypeId
+        modifiedDate: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        salesLiteratureType:
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        content: content
+        tenant:
+          supportPhoneNumber: supportPhoneNumber
+          whatsAppNumber: whatsAppNumber
+          twitterUrl: twitterUrl
+          about: about
+          businessName: businessName
+          cityId: cityId
+          businessSegmentId: businessSegmentId
+          countryId: countryId
+          legalName: legalName
+          facebookUrl: facebookUrl
+          id: id
+          businessIndustryId: businessIndustryId
+          socialProfileId: socialProfileId
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          walletId: walletId
+          linkedInUrl: linkedInUrl
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          stateId: stateId
+          languageId: languageId
+          verified: true
+          coverUrl: coverUrl
+          twitterUsername: twitterUsername
+          socialFeedId: socialFeedId
+          phone: phone
+          taxId: taxId
+          webUrl: webUrl
+          name: name
+          duns: duns
+          timezoneId: timezoneId
+          businessLegalName: businessLegalName
+          instagramUrl: instagramUrl
+          slogan: slogan
+          youTubeUrl: youTubeUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        modifiedDate:
+          format: date-time
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        salesLiteratureTypeId:
+          nullable: true
+          type: string
+        salesLiteratureType:
+          $ref: '#/components/schemas/SalesLiteratureTypeDto'
+        tenant:
+          $ref: '#/components/schemas/TenantDto'
+      type: object
+    ExtendedSalesLiteratureDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          salesLiteratureTypeId: salesLiteratureTypeId
+          modifiedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          salesLiteratureType:
+            enrollmentId: enrollmentId
+            name: name
+            tenantId: tenantId
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          content: content
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          salesLiteratureTypeId: salesLiteratureTypeId
+          modifiedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          salesLiteratureType:
+            enrollmentId: enrollmentId
+            name: name
+            tenantId: tenantId
+            id: id
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          content: content
+          tenant:
+            supportPhoneNumber: supportPhoneNumber
+            whatsAppNumber: whatsAppNumber
+            twitterUrl: twitterUrl
+            about: about
+            businessName: businessName
+            cityId: cityId
+            businessSegmentId: businessSegmentId
+            countryId: countryId
+            legalName: legalName
+            facebookUrl: facebookUrl
+            id: id
+            businessIndustryId: businessIndustryId
+            socialProfileId: socialProfileId
+            currencyId: currencyId
+            email: email
+            gitHubUrl: gitHubUrl
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            walletId: walletId
+            linkedInUrl: linkedInUrl
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            stateId: stateId
+            languageId: languageId
+            verified: true
+            coverUrl: coverUrl
+            twitterUsername: twitterUsername
+            socialFeedId: socialFeedId
+            phone: phone
+            taxId: taxId
+            webUrl: webUrl
+            name: name
+            duns: duns
+            timezoneId: timezoneId
+            businessLegalName: businessLegalName
+            instagramUrl: instagramUrl
+            slogan: slogan
+            youTubeUrl: youTubeUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ExtendedSalesLiteratureDto'
+          nullable: true
+          type: array
       type: object
     ForgotPasswordRequest:
       additionalProperties: false
@@ -519,6 +2245,37 @@ components:
       - email
       - isEmailConfirmed
       type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
     LoginRequest:
       additionalProperties: false
       example:
@@ -542,6 +2299,360 @@ components:
       required:
       - email
       - password
+      type: object
+    LoyaltyProgramCreateDto:
+      additionalProperties: false
+      example:
+        description: description
+        priceListId: priceListId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    LoyaltyProgramDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        description: description
+        priceListId: priceListId
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+      type: object
+    LoyaltyProgramDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          tenantId: tenantId
+          description: description
+          priceListId: priceListId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/LoyaltyProgramDto'
+      type: object
+    LoyaltyProgramDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          description: description
+          priceListId: priceListId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          description: description
+          priceListId: priceListId
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/LoyaltyProgramDto'
+          nullable: true
+          type: array
+      type: object
+    LoyaltyProgramUpdateDto:
+      additionalProperties: false
+      example:
+        description: description
+        priceListId: priceListId
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+      type: object
+    PointOfSaleCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        locationId: locationId
+        description: description
+        priceListId: priceListId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          minLength: 1
+          type: string
+        code:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    PointOfSaleDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        code: code
+        locationId: locationId
+        tenantId: tenantId
+        priceListId: priceListId
+        description: description
+        id: id
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+      type: object
+    PointOfSaleDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          code: code
+          locationId: locationId
+          tenantId: tenantId
+          priceListId: priceListId
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/PointOfSaleDto'
+      type: object
+    PointOfSaleDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          code: code
+          locationId: locationId
+          tenantId: tenantId
+          priceListId: priceListId
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          code: code
+          locationId: locationId
+          tenantId: tenantId
+          priceListId: priceListId
+          description: description
+          id: id
+          title: title
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PointOfSaleDto'
+          nullable: true
+          type: array
+      type: object
+    PointOfSaleUpdateDto:
+      additionalProperties: false
+      example:
+        code: code
+        locationId: locationId
+        description: description
+        priceListId: priceListId
+        title: title
+      properties:
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        locationId:
+          nullable: true
+          type: string
       type: object
     RefreshRequest:
       additionalProperties: false
@@ -601,6 +2712,573 @@ components:
       - email
       - newPassword
       - resetCode
+      type: object
+    SalesLiteratureCreateDto:
+      additionalProperties: false
+      example:
+        salesLiteratureTypeId: salesLiteratureTypeId
+        modifiedDate: 2000-01-23T04:56:07.000+00:00
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        content:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        modifiedDate:
+          format: date-time
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        salesLiteratureTypeId:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      type: object
+    SalesLiteratureDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        salesLiteratureTypeId: salesLiteratureTypeId
+        modifiedDate: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        modifiedDate:
+          format: date-time
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        salesLiteratureTypeId:
+          nullable: true
+          type: string
+      type: object
+    SalesLiteratureDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          salesLiteratureTypeId: salesLiteratureTypeId
+          modifiedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SalesLiteratureDto'
+      type: object
+    SalesLiteratureDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          salesLiteratureTypeId: salesLiteratureTypeId
+          modifiedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          salesLiteratureTypeId: salesLiteratureTypeId
+          modifiedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          content: content
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SalesLiteratureDto'
+          nullable: true
+          type: array
+      type: object
+    SalesLiteratureTypeDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    SalesLiteratureUpdateDto:
+      additionalProperties: false
+      example:
+        salesLiteratureTypeId: salesLiteratureTypeId
+        modifiedDate: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
+        content: content
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        title:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        content:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        modifiedDate:
+          format: date-time
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        salesLiteratureTypeId:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      type: object
+    StoreCreateDto:
+      additionalProperties: false
+      example:
+        eCommerce: true
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        eCommerce:
+          type: boolean
+        currencyId:
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    StoreDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        eCommerce: true
+        tenantId: tenantId
+        name: name
+        id: id
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        eCommerce:
+          type: boolean
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    StoreDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          eCommerce: true
+          tenantId: tenantId
+          name: name
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/StoreDto'
+      type: object
+    StoreDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          eCommerce: true
+          tenantId: tenantId
+          name: name
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          eCommerce: true
+          tenantId: tenantId
+          name: name
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/StoreDto'
+          nullable: true
+          type: array
+      type: object
+    StoreUpdateDto:
+      additionalProperties: false
+      example:
+        eCommerce: true
+        name: name
+        currencyId: currencyId
+      properties:
+        name:
+          nullable: true
+          type: string
+        eCommerce:
+          nullable: true
+          type: boolean
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    TenantDto:
+      additionalProperties: false
+      example:
+        supportPhoneNumber: supportPhoneNumber
+        whatsAppNumber: whatsAppNumber
+        twitterUrl: twitterUrl
+        about: about
+        businessName: businessName
+        cityId: cityId
+        businessSegmentId: businessSegmentId
+        countryId: countryId
+        legalName: legalName
+        facebookUrl: facebookUrl
+        id: id
+        businessIndustryId: businessIndustryId
+        socialProfileId: socialProfileId
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        walletId: walletId
+        linkedInUrl: linkedInUrl
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        stateId: stateId
+        languageId: languageId
+        verified: true
+        coverUrl: coverUrl
+        twitterUsername: twitterUsername
+        socialFeedId: socialFeedId
+        phone: phone
+        taxId: taxId
+        webUrl: webUrl
+        name: name
+        duns: duns
+        timezoneId: timezoneId
+        businessLegalName: businessLegalName
+        instagramUrl: instagramUrl
+        slogan: slogan
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        socialFeedId:
+          nullable: true
+          type: string
+        businessIndustryId:
+          nullable: true
+          type: string
+        businessSegmentId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        slogan:
+          nullable: true
+          type: string
+        legalName:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        whatsAppNumber:
+          nullable: true
+          type: string
+        supportPhoneNumber:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        businessName:
+          nullable: true
+          readOnly: true
+          type: string
+        businessLegalName:
+          nullable: true
+          readOnly: true
+          type: string
+        twitterUsername:
+          nullable: true
+          type: string
       type: object
     TwoFactorRequest:
       additionalProperties: false

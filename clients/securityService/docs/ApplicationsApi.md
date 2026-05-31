@@ -1,6 +1,6 @@
 # ApplicationsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -9,6 +9,8 @@ All URIs are relative to *https://absuite.net*
 | [**getBusinessApplicationByIdAsync**](ApplicationsApi.md#getBusinessApplicationByIdAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID |
 | [**getBusinessApplicationsAsync**](ApplicationsApi.md#getBusinessApplicationsAsync) | **GET** /api/v2/SecurityService/Applications | Get all business applications |
 | [**getBusinessApplicationsCountAsync**](ApplicationsApi.md#getBusinessApplicationsCountAsync) | **GET** /api/v2/SecurityService/Applications/Count | Get business applications count |
+| [**getPermissionsByApplicationAsync**](ApplicationsApi.md#getPermissionsByApplicationAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Permissions | Get permissions by application |
+| [**getRolesByApplicationAsync**](ApplicationsApi.md#getRolesByApplicationAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Roles | Get roles by application |
 | [**updateBusinessApplicationAsync**](ApplicationsApi.md#updateBusinessApplicationAsync) | **PUT** /api/v2/SecurityService/Applications/{applicationId} | Update an existing business application |
 
 
@@ -32,7 +34,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -103,7 +105,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -174,7 +176,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -244,7 +246,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -312,7 +314,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -360,6 +362,146 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getPermissionsByApplicationAsync"></a>
+# **getPermissionsByApplicationAsync**
+> SecurityPermissionDtoListEnvelope getPermissionsByApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion)
+
+Get permissions by application
+
+Retrieves all security permissions granted to a specific business application.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ApplicationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String applicationId = "applicationId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityPermissionDtoListEnvelope result = apiInstance.getPermissionsByApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ApplicationsApi#getPermissionsByApplicationAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **applicationId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getRolesByApplicationAsync"></a>
+# **getRolesByApplicationAsync**
+> SecurityRoleDtoListEnvelope getRolesByApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion)
+
+Get roles by application
+
+Retrieves all security roles granted to a specific business application.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ApplicationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String applicationId = "applicationId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SecurityRoleDtoListEnvelope result = apiInstance.getRolesByApplicationAsync(tenantId, applicationId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ApplicationsApi#getRolesByApplicationAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **applicationId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="updateBusinessApplicationAsync"></a>
 # **updateBusinessApplicationAsync**
 > EmptyEnvelope updateBusinessApplicationAsync(tenantId, applicationId, businessApplicationUpdateDto, apiVersion, xApiVersion)
@@ -380,7 +522,7 @@ import org.openapitools.client.api.ApplicationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

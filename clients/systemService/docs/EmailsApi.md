@@ -1,6 +1,6 @@
 # EmailsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import org.openapitools.client.api.EmailsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmailsApi apiInstance = new EmailsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -75,7 +75,7 @@ No authorization required
 
 <a id="adminSendBasicEmail"></a>
 # **adminSendBasicEmail**
-> TenantDtoListEnvelope adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
+> Envelope adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest)
 
 Send a basic transactional email to recipients.
 
@@ -93,14 +93,14 @@ import org.openapitools.client.api.EmailsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     EmailsApi apiInstance = new EmailsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     ObjectEmailDispatchRequest objectEmailDispatchRequest = new ObjectEmailDispatchRequest(); // ObjectEmailDispatchRequest | 
     try {
-      TenantDtoListEnvelope result = apiInstance.adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest);
+      Envelope result = apiInstance.adminSendBasicEmail(apiVersion, xApiVersion, objectEmailDispatchRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmailsApi#adminSendBasicEmail");
@@ -123,7 +123,7 @@ public class Example {
 
 ### Return type
 
-[**TenantDtoListEnvelope**](TenantDtoListEnvelope.md)
+[**Envelope**](Envelope.md)
 
 ### Authorization
 

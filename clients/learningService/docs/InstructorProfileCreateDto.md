@@ -9,13 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**authorized** | **Boolean** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
-|**verified** | **Boolean** |  |  [optional] |
-|**submitted** | **Boolean** |  |  [optional] |
 |**avatarUrl** | **String** |  |  [optional] |
-|**qualifiedName** | **String** |  |  [optional] |
-|**verificationTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**data** | **String** |  |  [optional] |
 |**dataLabel** | **String** |  |  [optional] |
 |**data1** | **String** |  |  [optional] |
@@ -36,6 +33,7 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
+|**authorized** | **Boolean** |  |  [optional] |
 |**contactID** | **String** |  |  [optional] |
 
 

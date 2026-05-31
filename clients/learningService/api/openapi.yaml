@@ -9,42 +9,363 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: LearningService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
+- name: Completions
 - name: CourseArticles
+- name: CourseAssignmentComponents
 - name: CourseAssignments
+- name: CourseAssignmentTypes
 - name: CourseCategories
 - name: CourseCertificates
 - name: CourseCohorts
+- name: CourseContentGroups
 - name: CourseEnrollments
 - name: CourseFiles
 - name: CourseForums
+- name: CourseGradingRubrics
 - name: CourseHandouts
 - name: CourseLibraries
 - name: CoursePages
 - name: CourseProblemSets
 - name: Courses
 - name: CourseSections
+- name: CourseTeamMemberships
 - name: CourseUnitComponents
 - name: CourseUnits
 - name: CourseUpdates
 - name: CourseWikis
-- name: FenixAlliance.ABS.Web
+- name: FenixAlliance.Portals.Website
 - name: InstructorProfiles
+- name: Me
 - name: StudentProfiles
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /api/v2/LearningService/CourseArticles:
     get:
       description: Retrieves all course articles for the specified tenant.
@@ -370,6 +691,332 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/LearningService/CourseAssignmentComponents:
+    get:
+      description: Retrieves all course assignment components for the specified tenant.
+      operationId: GetCourseAssignmentComponentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseAssignmentComponentDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseAssignmentComponentDto'
+                type: array
+          description: OK
+      summary: Get all course assignment components
+      tags:
+      - CourseAssignmentComponents
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new course assignment component for the specified tenant.
+      operationId: CreateCourseAssignmentComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentComponentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentComponentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "201":
+          description: Created
+      summary: Create a course assignment component
+      tags:
+      - CourseAssignmentComponents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseAssignmentComponents/Count:
+    get:
+      description: Returns the count of course assignment components for the specified
+        tenant.
+      operationId: GetCourseAssignmentComponentsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course assignment components count
+      tags:
+      - CourseAssignmentComponents
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseAssignmentComponents/{componentId}:
+    delete:
+      description: Deletes a course assignment component by its ID.
+      operationId: DeleteCourseAssignmentComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: componentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Delete a course assignment component
+      tags:
+      - CourseAssignmentComponents
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific course assignment component by its ID.
+      operationId: GetCourseAssignmentComponentByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: componentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseAssignmentComponentDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseAssignmentComponentDto'
+          description: OK
+      summary: Get course assignment component by ID
+      tags:
+      - CourseAssignmentComponents
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing course assignment component.
+      operationId: UpdateCourseAssignmentComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: componentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentComponentUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentComponentUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a course assignment component
+      tags:
+      - CourseAssignmentComponents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/LearningService/CourseAssignments:
     get:
       description: Retrieves all course assignments for the specified tenant.
@@ -691,6 +1338,332 @@ paths:
       summary: Update a course assignment
       tags:
       - CourseAssignments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseAssignmentTypes:
+    get:
+      description: Retrieves all course assignment types for the specified tenant.
+      operationId: GetCourseAssignmentTypesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseAssignmentTypeDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseAssignmentTypeDto'
+                type: array
+          description: OK
+      summary: Get all course assignment types
+      tags:
+      - CourseAssignmentTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new course assignment type for the specified tenant.
+      operationId: CreateCourseAssignmentTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentTypeCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentTypeCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "201":
+          description: Created
+      summary: Create a course assignment type
+      tags:
+      - CourseAssignmentTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseAssignmentTypes/Count:
+    get:
+      description: Returns the count of course assignment types for the specified
+        tenant.
+      operationId: GetCourseAssignmentTypesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course assignment types count
+      tags:
+      - CourseAssignmentTypes
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId}:
+    delete:
+      description: Deletes a course assignment type by its ID.
+      operationId: DeleteCourseAssignmentTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assignmentTypeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Delete a course assignment type
+      tags:
+      - CourseAssignmentTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific course assignment type by its ID.
+      operationId: GetCourseAssignmentTypeByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: assignmentTypeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseAssignmentTypeDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseAssignmentTypeDto'
+          description: OK
+      summary: Get course assignment type by ID
+      tags:
+      - CourseAssignmentTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing course assignment type.
+      operationId: UpdateCourseAssignmentTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assignmentTypeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentTypeUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseAssignmentTypeUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a course assignment type
+      tags:
+      - CourseAssignmentTypes
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -1577,6 +2550,123 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    put:
+      description: Updates an existing course certificate template for the specified
+        tenant.
+      operationId: UpdateCourseCertificateTemplateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseCertificateTemplateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseCertificateTemplateUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseCertificateTemplateUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a certificate template
+      tags:
+      - CourseCertificates
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseCertificates/Template/Count:
+    get:
+      description: Returns the count of course certificate templates for the specified
+        tenant.
+      operationId: GetCourseCertificateTemplatesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get certificate templates count
+      tags:
+      - CourseCertificates
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/LearningService/CourseCohorts:
     get:
       description: Retrieves all course cohorts for the specified tenant.
@@ -1899,6 +2989,439 @@ paths:
       tags:
       - CourseCohorts
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseContentGroups:
+    get:
+      description: Retrieves all course content groups for the specified tenant.
+      operationId: GetCourseContentGroupsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseContentGroupDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseContentGroupDto'
+                type: array
+          description: OK
+      summary: Get all course content groups
+      tags:
+      - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new course content group for the specified tenant.
+      operationId: CreateCourseContentGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseContentGroupCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseContentGroupCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "201":
+          description: Created
+      summary: Create a new course content group
+      tags:
+      - CourseContentGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseContentGroups/Count:
+    get:
+      description: Returns the count of course content groups for the specified tenant.
+      operationId: GetCourseContentGroupsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course content groups count
+      tags:
+      - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseContentGroups/{groupId}:
+    delete:
+      description: Deletes a course content group for the specified tenant.
+      operationId: DeleteCourseContentGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Delete a course content group
+      tags:
+      - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific course content group by its ID.
+      operationId: GetCourseContentGroupByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseContentGroupDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseContentGroupDto'
+          description: OK
+      summary: Get course content group by ID
+      tags:
+      - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing course content group for the specified tenant.
+      operationId: UpdateCourseContentGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseContentGroupUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseContentGroupUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a course content group
+      tags:
+      - CourseContentGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Courses/{courseId}/ContentGroups:
+    get:
+      description: Retrieves all course content groups for a specific course.
+      operationId: GetCourseContentGroupsByCourseAsync
+      parameters:
+      - explode: false
+        in: path
+        name: courseId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseContentGroupDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseContentGroupDto'
+                type: array
+          description: OK
+      summary: Get course content groups by course
+      tags:
+      - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Courses/{courseId}/ContentGroups/Count:
+    get:
+      description: Returns the count of course content groups for a specific course.
+      operationId: GetCourseContentGroupsByCourseCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: courseId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course content groups count by course
+      tags:
+      - CourseContentGroups
       x-accepts:
       - application/json
       - application/xml
@@ -2962,6 +4485,331 @@ paths:
       summary: Update a course forum
       tags:
       - CourseForums
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseGradingRubrics:
+    get:
+      description: Retrieves all course grading rubrics for the specified tenant.
+      operationId: GetCourseGradingRubricsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseGradingRubricDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseGradingRubricDto'
+                type: array
+          description: OK
+      summary: Get all course grading rubrics
+      tags:
+      - CourseGradingRubrics
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new course grading rubric for the specified tenant.
+      operationId: CreateCourseGradingRubricAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseGradingRubricCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseGradingRubricCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "201":
+          description: Created
+      summary: Create a course grading rubric
+      tags:
+      - CourseGradingRubrics
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseGradingRubrics/Count:
+    get:
+      description: Returns the count of course grading rubrics for the specified tenant.
+      operationId: GetCourseGradingRubricsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course grading rubrics count
+      tags:
+      - CourseGradingRubrics
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseGradingRubrics/{rubricId}:
+    delete:
+      description: Deletes a course grading rubric by its ID.
+      operationId: DeleteCourseGradingRubricAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: rubricId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Delete a course grading rubric
+      tags:
+      - CourseGradingRubrics
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific course grading rubric by its ID.
+      operationId: GetCourseGradingRubricByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: rubricId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseGradingRubricDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseGradingRubricDto'
+          description: OK
+      summary: Get course grading rubric by ID
+      tags:
+      - CourseGradingRubrics
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing course grading rubric.
+      operationId: UpdateCourseGradingRubricAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: rubricId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseGradingRubricUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseGradingRubricUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a course grading rubric
+      tags:
+      - CourseGradingRubrics
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -4519,7 +6367,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -6885,6 +8733,332 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/LearningService/CourseTeamMemberships:
+    get:
+      description: Retrieves all course team memberships for the specified tenant.
+      operationId: GetCourseTeamMembershipsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseTeamMembershipDto'
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CourseTeamMembershipDto'
+                type: array
+          description: OK
+      summary: Get all course team memberships
+      tags:
+      - CourseTeamMemberships
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new course team membership for the specified tenant.
+      operationId: CreateCourseTeamMembershipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseTeamMembershipCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseTeamMembershipCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "201":
+          description: Created
+      summary: Create a course team membership
+      tags:
+      - CourseTeamMemberships
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseTeamMemberships/Count:
+    get:
+      description: Returns the count of course team memberships for the specified
+        tenant.
+      operationId: GetCourseTeamMembershipsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: Get course team memberships count
+      tags:
+      - CourseTeamMemberships
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/CourseTeamMemberships/{membershipId}:
+    delete:
+      description: Deletes a course team membership by its ID.
+      operationId: DeleteCourseTeamMembershipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Delete a course team membership
+      tags:
+      - CourseTeamMemberships
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific course team membership by its ID.
+      operationId: GetCourseTeamMembershipByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseTeamMembershipDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseTeamMembershipDto'
+          description: OK
+      summary: Get course team membership by ID
+      tags:
+      - CourseTeamMemberships
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing course team membership.
+      operationId: UpdateCourseTeamMembershipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseTeamMembershipUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CourseTeamMembershipUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Update a course team membership
+      tags:
+      - CourseTeamMemberships
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/LearningService/CourseUnitComponents:
     get:
       description: Retrieves all course unit components for the specified tenant.
@@ -8191,7 +10365,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -8200,7 +10374,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -8209,7 +10383,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -8230,7 +10404,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -8265,7 +10439,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -8285,7 +10459,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -8318,7 +10492,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -8333,7 +10507,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -8355,7 +10529,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -8377,7 +10551,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -8405,7 +10579,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -8428,7 +10602,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -8455,7 +10629,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -8484,7 +10658,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -8508,7 +10682,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -8532,7 +10706,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -8542,7 +10716,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /api/v2/LearningService/InstructorProfiles:
@@ -8860,6 +11034,663 @@ paths:
       tags:
       - InstructorProfiles
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/StudentProfiles:
+    get:
+      operationId: GetMyStudentProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProfileDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StudentProfileDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's student profiles
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/StudentProfiles/Count:
+    get:
+      operationId: GetMyStudentProfilesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's student profiles count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/InstructorProfiles:
+    get:
+      operationId: GetMyInstructorProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstructorProfileDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InstructorProfileDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's instructor profiles
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/InstructorProfiles/Count:
+    get:
+      operationId: GetMyInstructorProfilesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's instructor profiles count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Enrollments:
+    get:
+      operationId: GetMyEnrollmentsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseEnrollmentDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseEnrollmentDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's course enrollments
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Enrollments/Count:
+    get:
+      operationId: GetMyEnrollmentsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's enrollment count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Courses:
+    get:
+      operationId: GetMyStudentCoursesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's enrolled courses
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Courses/Count:
+    get:
+      operationId: GetMyStudentCoursesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's enrolled courses count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/InstructorCourses:
+    get:
+      operationId: GetMyInstructorCoursesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's instructor courses
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/InstructorCourses/Count:
+    get:
+      operationId: GetMyInstructorCoursesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's instructor courses count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Certificates:
+    get:
+      operationId: GetMyCertificatesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseCompletionCertificateDtoIReadOnlyListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CourseCompletionCertificateDtoIReadOnlyListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's completion certificates
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/Certificates/Count:
+    get:
+      operationId: GetMyCertificatesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+            application/xml:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's certificates count
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/AverageScore:
+    get:
+      operationId: GetMyAverageScoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AverageDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AverageDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's average score
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/HoursCompleted:
+    get:
+      operationId: GetMyHoursCompletedAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's completed hours
+      tags:
+      - Me
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/LearningService/Me/PendingTasks:
+    get:
+      operationId: GetMyPendingTaskCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CountDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Get current user's pending task count
+      tags:
+      - Me
       x-accepts:
       - application/json
       - application/xml
@@ -9341,6 +12172,298 @@ components:
           format: double
           type: number
       type: object
+    AverageDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          average: 0.8008281904610115
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/AverageDto'
+      type: object
+    ContactDto:
+      additionalProperties: false
+      example:
+        streetLine2: streetLine2
+        zipCode: zipCode
+        streetLine1: streetLine1
+        jobTitle: jobTitle
+        twitterUrl: https://openapi-generator.tech
+        postalCode: postalCode
+        tikTokUrl: https://openapi-generator.tech
+        about: about
+        cityId: cityId
+        type: Individual
+        identityProvider: identityProvider
+        publicName: publicName
+        id: id
+        currencyId: currencyId
+        gitHubUrl: https://openapi-generator.tech
+        walletId: walletId
+        enrollmentId: enrollmentId
+        parentContactId: parentContactId
+        activeDirectoryId: activeDirectoryId
+        linkedInUrl: https://openapi-generator.tech
+        avatarUrl: avatarUrl
+        qualifiedName: qualifiedName
+        cartId: cartId
+        relatedTenantId: relatedTenantId
+        twitchUrl: https://openapi-generator.tech
+        ownerContactId: ownerContactId
+        coverUrl: coverUrl
+        firstName: firstName
+        activityFeedId: activityFeedId
+        mobilePhone: mobilePhone
+        phone: phone
+        webUrl: https://openapi-generator.tech
+        taxId: taxId
+        duns: duns
+        businessPhone: businessPhone
+        youTubeUrl: https://openapi-generator.tech
+        annualRevenue: annualRevenue
+        birthday: 2000-01-23T04:56:07.000+00:00
+        lastName: lastName
+        relatedUserId: relatedUserId
+        countryId: countryId
+        redditUrl: https://openapi-generator.tech
+        facebookUrl: https://openapi-generator.tech
+        websiteUrl: https://openapi-generator.tech
+        street: street
+        territoryId: territoryId
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        partnerProfileId: partnerProfileId
+        stateId: stateId
+        languageId: languageId
+        primaryContactId: primaryContactId
+        identityProviderAccessToken: identityProviderAccessToken
+        githubUsername: githubUsername
+        tenantId: tenantId
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: https://openapi-generator.tech
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Individual
+          - Organization
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        phone:
+          format: tel
+          nullable: true
+          type: string
+        publicName:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        webUrl:
+          format: uri
+          nullable: true
+          type: string
+        gitHubUrl:
+          format: uri
+          nullable: true
+          type: string
+        twitchUrl:
+          format: uri
+          nullable: true
+          type: string
+        redditUrl:
+          format: uri
+          nullable: true
+          type: string
+        tikTokUrl:
+          format: uri
+          nullable: true
+          type: string
+        websiteUrl:
+          format: uri
+          nullable: true
+          type: string
+        twitterUrl:
+          format: uri
+          nullable: true
+          type: string
+        facebookUrl:
+          format: uri
+          nullable: true
+          type: string
+        youTubeUrl:
+          format: uri
+          nullable: true
+          type: string
+        linkedInUrl:
+          format: uri
+          nullable: true
+          type: string
+        instagramUrl:
+          format: uri
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        duns:
+          nullable: true
+          type: string
+        taxId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        street:
+          nullable: true
+          type: string
+        cartId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        zipCode:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        territoryId:
+          nullable: true
+          type: string
+        mobilePhone:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        annualRevenue:
+          nullable: true
+          type: string
+        relatedUserId:
+          nullable: true
+          type: string
+        businessPhone:
+          nullable: true
+          type: string
+        ownerContactId:
+          nullable: true
+          type: string
+        relatedTenantId:
+          nullable: true
+          type: string
+        activityFeedId:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        primaryContactId:
+          nullable: true
+          type: string
+        activeDirectoryId:
+          nullable: true
+          type: string
+        identityProviderAccessToken:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
     CountDto:
       additionalProperties: false
       example:
@@ -9358,6 +12481,39 @@ components:
         count:
           format: int32
           type: integer
+      type: object
+    CountDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          count: 0
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CountDto'
       type: object
     CourseArticleCreateDto:
       additionalProperties: false
@@ -9448,6 +12604,115 @@ components:
           nullable: true
           type: string
         content:
+          nullable: true
+          type: string
+      type: object
+    CourseAssignmentComponentCreateDto:
+      additionalProperties: false
+      example:
+        courseAssignmentID: courseAssignmentID
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        courseID: courseID
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        order: 0
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        courseAssignmentID:
+          minLength: 1
+          type: string
+        courseID:
+          minLength: 1
+          type: string
+      required:
+      - courseAssignmentID
+      - courseID
+      - title
+      type: object
+    CourseAssignmentComponentDto:
+      additionalProperties: false
+      example:
+        courseAssignmentID: courseAssignmentID
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        courseID: courseID
+        content: content
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        order: 0
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        order:
+          format: int32
+          type: integer
+        courseAssignmentID:
+          nullable: true
+          type: string
+        courseID:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    CourseAssignmentComponentUpdateDto:
+      additionalProperties: false
+      example:
+        courseAssignmentID: courseAssignmentID
+        description: description
+        title: title
+        content: content
+        order: 0
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        order:
+          format: int32
+          nullable: true
+          type: integer
+        courseAssignmentID:
           nullable: true
           type: string
       type: object
@@ -9560,6 +12825,116 @@ components:
         tenantId:
           nullable: true
           type: string
+      type: object
+    CourseAssignmentTypeCreateDto:
+      additionalProperties: false
+      example:
+        excluded: 1
+        quantity: 6
+        name: name
+        weight: 0.8008281904610115
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        abbreviation: abbreviation
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          minLength: 1
+          type: string
+        abbreviation:
+          nullable: true
+          type: string
+        weight:
+          format: double
+          type: number
+        quantity:
+          format: int32
+          type: integer
+        excluded:
+          format: int32
+          type: integer
+        courseID:
+          minLength: 1
+          type: string
+      required:
+      - courseID
+      - name
+      type: object
+    CourseAssignmentTypeDto:
+      additionalProperties: false
+      example:
+        excluded: 1
+        quantity: 6
+        name: name
+        tenantId: tenantId
+        weight: 0.8008281904610115
+        id: id
+        abbreviation: abbreviation
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        abbreviation:
+          nullable: true
+          type: string
+        weight:
+          format: double
+          type: number
+        quantity:
+          format: int32
+          type: integer
+        excluded:
+          format: int32
+          type: integer
+        courseID:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    CourseAssignmentTypeUpdateDto:
+      additionalProperties: false
+      example:
+        excluded: 1
+        quantity: 6
+        name: name
+        weight: 0.8008281904610115
+        abbreviation: abbreviation
+      properties:
+        name:
+          nullable: true
+          type: string
+        abbreviation:
+          nullable: true
+          type: string
+        weight:
+          format: double
+          nullable: true
+          type: number
+        quantity:
+          format: int32
+          nullable: true
+          type: integer
+        excluded:
+          format: int32
+          nullable: true
+          type: integer
       type: object
     CourseAssignmentUpdateDto:
       additionalProperties: false
@@ -9764,6 +13139,31 @@ components:
           nullable: true
           type: string
         businessProfileRecordID:
+          nullable: true
+          type: string
+        socialProfileID:
+          nullable: true
+          type: string
+        parentWebContentID:
+          nullable: true
+          type: string
+        parentWebContentVersionID:
+          nullable: true
+          type: string
+      type: object
+    CourseCertificateTemplateUpdateDto:
+      additionalProperties: false
+      example:
+        parentWebContentVersionID: parentWebContentVersionID
+        socialProfileID: socialProfileID
+        parentWebContentID: parentWebContentID
+        webPortalID: webPortalID
+        websiteThemeID: websiteThemeID
+      properties:
+        webPortalID:
+          nullable: true
+          type: string
+        websiteThemeID:
           nullable: true
           type: string
         socialProfileID:
@@ -9988,6 +13388,67 @@ components:
           nullable: true
           type: string
       type: object
+    CourseCompletionCertificateDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - studentLastName: studentLastName
+          instructorName: instructorName
+          businessID: businessID
+          courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
+          studentProfileID: studentProfileID
+          businessProfileRecordID: businessProfileRecordID
+          courseTitle: courseTitle
+          courseEnrollmentID: courseEnrollmentID
+          instructorLastName: instructorLastName
+          studentName: studentName
+          id: id
+          courseID: courseID
+          totalEffortInHours: 0.8008281904610115
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - studentLastName: studentLastName
+          instructorName: instructorName
+          businessID: businessID
+          courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
+          studentProfileID: studentProfileID
+          businessProfileRecordID: businessProfileRecordID
+          courseTitle: courseTitle
+          courseEnrollmentID: courseEnrollmentID
+          instructorLastName: instructorLastName
+          studentName: studentName
+          id: id
+          courseID: courseID
+          totalEffortInHours: 0.8008281904610115
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CourseCompletionCertificateDto'
+          nullable: true
+          type: array
+      type: object
     CourseCompletionCertificateUpdateDto:
       additionalProperties: false
       example:
@@ -10009,11 +13470,12 @@ components:
           nullable: true
           type: string
       type: object
-    CourseCreateDto:
+    CourseContentGroupCreateDto:
       additionalProperties: false
       example:
+        name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        title: title
+        courseID: courseID
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -10022,14 +13484,152 @@ components:
         timestamp:
           format: date-time
           type: string
-        title:
+        name:
+          minLength: 1
+          type: string
+        courseID:
+          minLength: 1
+          type: string
+      required:
+      - courseID
+      - name
+      type: object
+    CourseContentGroupDto:
+      additionalProperties: false
+      example:
+        name: name
+        businessID: businessID
+        id: id
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
           nullable: true
           type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        courseID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    CourseContentGroupUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        courseID: courseID
+      properties:
+        name:
+          nullable: true
+          type: string
+        courseID:
+          nullable: true
+          type: string
+      type: object
+    CourseCreateDto:
+      additionalProperties: false
+      example:
+        summary: summary
+        code: code
+        inscriptionsEndDateTime: 2000-01-23T04:56:07.000+00:00
+        maxCourseEnrollments: 6
+        totalHoursPerWeek: 5
+        regularPrice: 0.8008281904610115
+        description: description
+        title: title
+        endDateTime: 2000-01-23T04:56:07.000+00:00
+        version: version
+        startDateTime: 2000-01-23T04:56:07.000+00:00
+        courseCategoryID: courseCategoryID
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        sku: sku
+        currencyID: currencyID
+        totalEffortInHours: 5
+        inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        instructorProfileID: instructorProfileID
+        totalEffortInWeeks: 1
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        sku:
+          nullable: true
+          type: string
+        summary:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        courseCategoryID:
+          nullable: true
+          type: string
+        instructorProfileID:
+          nullable: true
+          type: string
+        currencyID:
+          nullable: true
+          type: string
+        regularPrice:
+          format: double
+          type: number
+        maxCourseEnrollments:
+          format: int32
+          type: integer
+        totalEffortInWeeks:
+          format: int32
+          type: integer
+        totalHoursPerWeek:
+          format: int32
+          type: integer
+        totalEffortInHours:
+          format: int32
+          type: integer
+        startDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        endDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsStartDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsEndDateTime:
+          format: date-time
+          nullable: true
+          type: string
+      required:
+      - description
+      - title
       type: object
     CourseDto:
       additionalProperties: false
       example:
         trending: true
+        totalHoursPerWeek: 3
         estimatedDefaultShippingTaxInUsd: 6.878052220127876
         discountAmount: 1.4894159098541704
         isProductOfTheWeek: true
@@ -10050,6 +13650,7 @@ components:
         currencyId: currencyId
         isDeadlineDiscount: true
         height: 4.145608029883936
+        totalEffortInWeeks: 3
         supportedOperatingSystem: supportedOperatingSystem
         onDiscount: true
         images:
@@ -10063,6 +13664,7 @@ components:
         pageCoverBackgroundUrl: pageCoverBackgroundUrl
         isBestSeller: true
         displayOnBrandsMozaic: true
+        version: version
         estimatedDefaultShippingCostInUsd: 5.944895607614016
         unitGroupId: unitGroupId
         auctionStart: 2000-01-23T04:56:07.000+00:00
@@ -10077,6 +13679,7 @@ components:
         itemTypeName: itemTypeName
         permalink: permalink
         isPercentageDiscount: true
+        inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
         packagedQuantity: 5
         energyEfficiencyRating: energyEfficiencyRating
         primaryImageUrl: primaryImageUrl
@@ -10116,7 +13719,9 @@ components:
         preSale: true
         mozaicCoverUrl: mozaicCoverUrl
         deleted: true
+        startDateTime: 2000-01-23T04:56:07.000+00:00
         series: series
+        courseCategoryID: courseCategoryID
         tenantId: tenantId
         width: 9.301444243932576
         publishedDate: 2000-01-23T04:56:07.000+00:00
@@ -10132,7 +13737,9 @@ components:
         selectedGoogleCategories:
         - selectedGoogleCategories
         - selectedGoogleCategories
+        instructorProfileName: instructorProfileName
         reviewsCount: 6
+        courseCategoryName: courseCategoryName
         features: features
         displayOnCategoryMozaic: true
         selectedShipmentPolicies:
@@ -10153,6 +13760,7 @@ components:
         - selectedTaxPolicies
         - selectedTaxPolicies
         estimatedDiscountsInUsd: 6.683562403749608
+        maxCourseEnrollments: 6
         selectedTypes:
         - selectedTypes
         - selectedTypes
@@ -10160,6 +13768,7 @@ components:
         weight: 3.616076749251911
         shortDescription: shortDescription
         published: true
+        endDateTime: 2000-01-23T04:56:07.000+00:00
         isDealersChoice: true
         eaNs: eaNs
         supplierProfileId: supplierProfileId
@@ -10177,6 +13786,7 @@ components:
         selectedSellingMarginPolicies:
         - selectedSellingMarginPolicies
         - selectedSellingMarginPolicies
+        code: code
         color: color
         selectedReturnPolicies:
         - selectedReturnPolicies
@@ -10197,12 +13807,14 @@ components:
         isbN13: isbN13
         estimatedWithholdingTaxesInUsd: 6.778324963048013
         itemTypeId: itemTypeId
+        totalEffortInHours: 7
         operatingSystemSupported: operatingSystemSupported
         gtiNs: gtiNs
         summary: summary
         digital: true
         gtin: gtin
         isWeeklyDeal: true
+        inscriptionsEndDateTime: 2000-01-23T04:56:07.000+00:00
         releaseDate: releaseDate
         primaryGoogleCategoryName: primaryGoogleCategoryName
         validPrimaryImage: true
@@ -10222,6 +13834,7 @@ components:
         mpNs: mpNs
         isOfficialChoice: true
         categoryId: categoryId
+        instructorProfileID: instructorProfileID
       properties:
         id:
           nullable: true
@@ -10738,6 +14351,499 @@ components:
             type: string
           nullable: true
           type: array
+        code:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        courseCategoryID:
+          nullable: true
+          type: string
+        courseCategoryName:
+          nullable: true
+          type: string
+        instructorProfileID:
+          nullable: true
+          type: string
+        instructorProfileName:
+          nullable: true
+          type: string
+        maxCourseEnrollments:
+          format: int32
+          type: integer
+        totalEffortInWeeks:
+          format: int32
+          type: integer
+        totalHoursPerWeek:
+          format: int32
+          type: integer
+        totalEffortInHours:
+          format: int32
+          type: integer
+        startDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        endDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsStartDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsEndDateTime:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    CourseDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - trending: true
+          totalHoursPerWeek: 3
+          estimatedDefaultShippingTaxInUsd: 6.878052220127876
+          discountAmount: 1.4894159098541704
+          isProductOfTheWeek: true
+          asiNs: asiNs
+          byRequest: true
+          deadlineDiscountFromDate: 2000-01-23T04:56:07.000+00:00
+          systemRequirements: systemRequirements
+          selectedWarrantyPolicies:
+          - selectedWarrantyPolicies
+          - selectedWarrantyPolicies
+          youtubeVideoId: youtubeVideoId
+          shipsToRules: shipsToRules
+          isNewArrival: true
+          model: model
+          inStock: true
+          id: id
+          sku: sku
+          currencyId: currencyId
+          isDeadlineDiscount: true
+          height: 4.145608029883936
+          totalEffortInWeeks: 3
+          supportedOperatingSystem: supportedOperatingSystem
+          onDiscount: true
+          images:
+          - images
+          - images
+          skUs: skUs
+          taxable: true
+          disableDefaultPolicies: true
+          upc: upc
+          mpn: mpn
+          pageCoverBackgroundUrl: pageCoverBackgroundUrl
+          isBestSeller: true
+          displayOnBrandsMozaic: true
+          version: version
+          estimatedDefaultShippingCostInUsd: 5.944895607614016
+          unitGroupId: unitGroupId
+          auctionStart: 2000-01-23T04:56:07.000+00:00
+          selectedRefundPolicies:
+          - selectedRefundPolicies
+          - selectedRefundPolicies
+          brandId: brandId
+          displayOnBannerMarketingRotation: true
+          selectedTags:
+          - selectedTags
+          - selectedTags
+          itemTypeName: itemTypeName
+          permalink: permalink
+          isPercentageDiscount: true
+          inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
+          packagedQuantity: 5
+          energyEfficiencyRating: energyEfficiencyRating
+          primaryImageUrl: primaryImageUrl
+          recurrency: 2.3021358869347655
+          displayShowcaseTab: true
+          estimatedProfitInUsd: 9.965781217890562
+          selectedCategories:
+          - selectedCategories
+          - selectedCategories
+          pattern: pattern
+          packageContent: packageContent
+          supplierCode: supplierCode
+          hot: true
+          displayOnGlobalMozaic: true
+          discountPercentage: 1.1730742509559433
+          ean: ean
+          hasVariations: true
+          unitId: unitId
+          ingredients: ingredients
+          onSale: true
+          nutritionFacts: nutritionFacts
+          upCs: upCs
+          customTaxPercentage: 4.965218492984954
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          isProductOfTheMonth: true
+          estimatedPaymentTaxInUsd: 9.018348186070783
+          selectedAttributesOptions:
+          - selectedAttributesOptions
+          - selectedAttributesOptions
+          estimatedTotalPriceInUsd: 6.438423552598547
+          auctionEnd: 2000-01-23T04:56:07.000+00:00
+          manageInventory: true
+          questionsCount: 1
+          unspsc: unspsc
+          estimatedRegularPriceInUsd: 1.284659006116532
+          lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
+          preSale: true
+          mozaicCoverUrl: mozaicCoverUrl
+          deleted: true
+          startDateTime: 2000-01-23T04:56:07.000+00:00
+          series: series
+          courseCategoryID: courseCategoryID
+          tenantId: tenantId
+          width: 9.301444243932576
+          publishedDate: 2000-01-23T04:56:07.000+00:00
+          tariffHeading: tariffHeading
+          primaryGoogleCategoryId: primaryGoogleCategoryId
+          purchaseNote: purchaseNote
+          featured: true
+          selectedBrands:
+          - selectedBrands
+          - selectedBrands
+          regularPrice: 7.386281948385884
+          lowStock: true
+          selectedGoogleCategories:
+          - selectedGoogleCategories
+          - selectedGoogleCategories
+          instructorProfileName: instructorProfileName
+          reviewsCount: 6
+          courseCategoryName: courseCategoryName
+          features: features
+          displayOnCategoryMozaic: true
+          selectedShipmentPolicies:
+          - selectedShipmentPolicies
+          - selectedShipmentPolicies
+          parentItemId: parentItemId
+          isFixedDiscount: true
+          estimatedDealSavingsInUsd: 6.965117697638846
+          barcode: barcode
+          selectedPricingPolicies:
+          - selectedPricingPolicies
+          - selectedPricingPolicies
+          isbNs: isbNs
+          customTaxAmount: 7.457744773683766
+          enrollmentId: enrollmentId
+          brandName: brandName
+          selectedTaxPolicies:
+          - selectedTaxPolicies
+          - selectedTaxPolicies
+          estimatedDiscountsInUsd: 6.683562403749608
+          maxCourseEnrollments: 6
+          selectedTypes:
+          - selectedTypes
+          - selectedTypes
+          viewsCount: 0
+          weight: 3.616076749251911
+          shortDescription: shortDescription
+          published: true
+          endDateTime: 2000-01-23T04:56:07.000+00:00
+          isDealersChoice: true
+          eaNs: eaNs
+          supplierProfileId: supplierProfileId
+          isMonthlyDeal: true
+          officialDescriptionUrl: officialDescriptionUrl
+          name: name
+          unspsCs: unspsCs
+          selectedPricingRules:
+          - selectedPricingRules
+          - selectedPricingRules
+          displayDescriptionEditor: true
+          estimatedTaxBasePriceInUsd: 2.8841621266687802
+          reviewsAvg: 5.637376656633329
+          longDescription: longDescription
+          selectedSellingMarginPolicies:
+          - selectedSellingMarginPolicies
+          - selectedSellingMarginPolicies
+          code: code
+          color: color
+          selectedReturnPolicies:
+          - selectedReturnPolicies
+          - selectedReturnPolicies
+          isbn: isbn
+          part: part
+          discountPrice: 1.2315135367772556
+          description: description
+          customTaxValue: 1.0246457001441578
+          estimatedTaxesInUsd: 5.025004791520295
+          title: title
+          deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
+          googleCategories: googleCategories
+          auction: true
+          displayShortDescriptionEditor: true
+          customTaxDescription: customTaxDescription
+          isDailyDeal: true
+          isbN13: isbN13
+          estimatedWithholdingTaxesInUsd: 6.778324963048013
+          itemTypeId: itemTypeId
+          totalEffortInHours: 7
+          operatingSystemSupported: operatingSystemSupported
+          gtiNs: gtiNs
+          summary: summary
+          digital: true
+          gtin: gtin
+          isWeeklyDeal: true
+          inscriptionsEndDateTime: 2000-01-23T04:56:07.000+00:00
+          releaseDate: releaseDate
+          primaryGoogleCategoryName: primaryGoogleCategoryName
+          validPrimaryImage: true
+          estimatedSurchargesInUsd: 8.762042012749001
+          languageId: languageId
+          length: 2.027123023002322
+          shippingCountryId: shippingCountryId
+          taxIncludedInPrice: true
+          measurementUnit: measurementUnit
+          discriminator: discriminator
+          inCartQuantity: 6.84685269835264
+          material: material
+          estimatedPaymentCostInUsd: 3.5571952270680973
+          currentStock: 7.061401241503109
+          asin: asin
+          estimatedBasePriceInUsd: 9.369310271410669
+          mpNs: mpNs
+          isOfficialChoice: true
+          categoryId: categoryId
+          instructorProfileID: instructorProfileID
+        - trending: true
+          totalHoursPerWeek: 3
+          estimatedDefaultShippingTaxInUsd: 6.878052220127876
+          discountAmount: 1.4894159098541704
+          isProductOfTheWeek: true
+          asiNs: asiNs
+          byRequest: true
+          deadlineDiscountFromDate: 2000-01-23T04:56:07.000+00:00
+          systemRequirements: systemRequirements
+          selectedWarrantyPolicies:
+          - selectedWarrantyPolicies
+          - selectedWarrantyPolicies
+          youtubeVideoId: youtubeVideoId
+          shipsToRules: shipsToRules
+          isNewArrival: true
+          model: model
+          inStock: true
+          id: id
+          sku: sku
+          currencyId: currencyId
+          isDeadlineDiscount: true
+          height: 4.145608029883936
+          totalEffortInWeeks: 3
+          supportedOperatingSystem: supportedOperatingSystem
+          onDiscount: true
+          images:
+          - images
+          - images
+          skUs: skUs
+          taxable: true
+          disableDefaultPolicies: true
+          upc: upc
+          mpn: mpn
+          pageCoverBackgroundUrl: pageCoverBackgroundUrl
+          isBestSeller: true
+          displayOnBrandsMozaic: true
+          version: version
+          estimatedDefaultShippingCostInUsd: 5.944895607614016
+          unitGroupId: unitGroupId
+          auctionStart: 2000-01-23T04:56:07.000+00:00
+          selectedRefundPolicies:
+          - selectedRefundPolicies
+          - selectedRefundPolicies
+          brandId: brandId
+          displayOnBannerMarketingRotation: true
+          selectedTags:
+          - selectedTags
+          - selectedTags
+          itemTypeName: itemTypeName
+          permalink: permalink
+          isPercentageDiscount: true
+          inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
+          packagedQuantity: 5
+          energyEfficiencyRating: energyEfficiencyRating
+          primaryImageUrl: primaryImageUrl
+          recurrency: 2.3021358869347655
+          displayShowcaseTab: true
+          estimatedProfitInUsd: 9.965781217890562
+          selectedCategories:
+          - selectedCategories
+          - selectedCategories
+          pattern: pattern
+          packageContent: packageContent
+          supplierCode: supplierCode
+          hot: true
+          displayOnGlobalMozaic: true
+          discountPercentage: 1.1730742509559433
+          ean: ean
+          hasVariations: true
+          unitId: unitId
+          ingredients: ingredients
+          onSale: true
+          nutritionFacts: nutritionFacts
+          upCs: upCs
+          customTaxPercentage: 4.965218492984954
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          isProductOfTheMonth: true
+          estimatedPaymentTaxInUsd: 9.018348186070783
+          selectedAttributesOptions:
+          - selectedAttributesOptions
+          - selectedAttributesOptions
+          estimatedTotalPriceInUsd: 6.438423552598547
+          auctionEnd: 2000-01-23T04:56:07.000+00:00
+          manageInventory: true
+          questionsCount: 1
+          unspsc: unspsc
+          estimatedRegularPriceInUsd: 1.284659006116532
+          lastFixedPricesUpdateDateTime: 2000-01-23T04:56:07.000+00:00
+          preSale: true
+          mozaicCoverUrl: mozaicCoverUrl
+          deleted: true
+          startDateTime: 2000-01-23T04:56:07.000+00:00
+          series: series
+          courseCategoryID: courseCategoryID
+          tenantId: tenantId
+          width: 9.301444243932576
+          publishedDate: 2000-01-23T04:56:07.000+00:00
+          tariffHeading: tariffHeading
+          primaryGoogleCategoryId: primaryGoogleCategoryId
+          purchaseNote: purchaseNote
+          featured: true
+          selectedBrands:
+          - selectedBrands
+          - selectedBrands
+          regularPrice: 7.386281948385884
+          lowStock: true
+          selectedGoogleCategories:
+          - selectedGoogleCategories
+          - selectedGoogleCategories
+          instructorProfileName: instructorProfileName
+          reviewsCount: 6
+          courseCategoryName: courseCategoryName
+          features: features
+          displayOnCategoryMozaic: true
+          selectedShipmentPolicies:
+          - selectedShipmentPolicies
+          - selectedShipmentPolicies
+          parentItemId: parentItemId
+          isFixedDiscount: true
+          estimatedDealSavingsInUsd: 6.965117697638846
+          barcode: barcode
+          selectedPricingPolicies:
+          - selectedPricingPolicies
+          - selectedPricingPolicies
+          isbNs: isbNs
+          customTaxAmount: 7.457744773683766
+          enrollmentId: enrollmentId
+          brandName: brandName
+          selectedTaxPolicies:
+          - selectedTaxPolicies
+          - selectedTaxPolicies
+          estimatedDiscountsInUsd: 6.683562403749608
+          maxCourseEnrollments: 6
+          selectedTypes:
+          - selectedTypes
+          - selectedTypes
+          viewsCount: 0
+          weight: 3.616076749251911
+          shortDescription: shortDescription
+          published: true
+          endDateTime: 2000-01-23T04:56:07.000+00:00
+          isDealersChoice: true
+          eaNs: eaNs
+          supplierProfileId: supplierProfileId
+          isMonthlyDeal: true
+          officialDescriptionUrl: officialDescriptionUrl
+          name: name
+          unspsCs: unspsCs
+          selectedPricingRules:
+          - selectedPricingRules
+          - selectedPricingRules
+          displayDescriptionEditor: true
+          estimatedTaxBasePriceInUsd: 2.8841621266687802
+          reviewsAvg: 5.637376656633329
+          longDescription: longDescription
+          selectedSellingMarginPolicies:
+          - selectedSellingMarginPolicies
+          - selectedSellingMarginPolicies
+          code: code
+          color: color
+          selectedReturnPolicies:
+          - selectedReturnPolicies
+          - selectedReturnPolicies
+          isbn: isbn
+          part: part
+          discountPrice: 1.2315135367772556
+          description: description
+          customTaxValue: 1.0246457001441578
+          estimatedTaxesInUsd: 5.025004791520295
+          title: title
+          deadlineDiscountDueDate: 2000-01-23T04:56:07.000+00:00
+          googleCategories: googleCategories
+          auction: true
+          displayShortDescriptionEditor: true
+          customTaxDescription: customTaxDescription
+          isDailyDeal: true
+          isbN13: isbN13
+          estimatedWithholdingTaxesInUsd: 6.778324963048013
+          itemTypeId: itemTypeId
+          totalEffortInHours: 7
+          operatingSystemSupported: operatingSystemSupported
+          gtiNs: gtiNs
+          summary: summary
+          digital: true
+          gtin: gtin
+          isWeeklyDeal: true
+          inscriptionsEndDateTime: 2000-01-23T04:56:07.000+00:00
+          releaseDate: releaseDate
+          primaryGoogleCategoryName: primaryGoogleCategoryName
+          validPrimaryImage: true
+          estimatedSurchargesInUsd: 8.762042012749001
+          languageId: languageId
+          length: 2.027123023002322
+          shippingCountryId: shippingCountryId
+          taxIncludedInPrice: true
+          measurementUnit: measurementUnit
+          discriminator: discriminator
+          inCartQuantity: 6.84685269835264
+          material: material
+          estimatedPaymentCostInUsd: 3.5571952270680973
+          currentStock: 7.061401241503109
+          asin: asin
+          estimatedBasePriceInUsd: 9.369310271410669
+          mpNs: mpNs
+          isOfficialChoice: true
+          categoryId: categoryId
+          instructorProfileID: instructorProfileID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CourseDto'
+          nullable: true
+          type: array
       type: object
     CourseEnrollmentCreateDto:
       additionalProperties: false
@@ -10801,6 +14907,53 @@ components:
         courseCompletionCertificateID:
           nullable: true
           type: string
+      type: object
+    CourseEnrollmentDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - id: id
+          courseCompletionCertificateID: courseCompletionCertificateID
+          studentProfileID: studentProfileID
+          courseID: courseID
+          courseCohortID: courseCohortID
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - id: id
+          courseCompletionCertificateID: courseCompletionCertificateID
+          studentProfileID: studentProfileID
+          courseID: courseID
+          courseCohortID: courseCohortID
+          businessProfileRecordID: businessProfileRecordID
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CourseEnrollmentDto'
+          nullable: true
+          type: array
       type: object
     CourseEnrollmentUpdateDto:
       additionalProperties: false
@@ -11003,6 +15156,87 @@ components:
         description:
           nullable: true
           type: string
+      type: object
+    CourseGradingRubricCreateDto:
+      additionalProperties: false
+      example:
+        enablePoints: true
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          minLength: 1
+          type: string
+        description:
+          nullable: true
+          type: string
+        enablePoints:
+          type: boolean
+        courseID:
+          minLength: 1
+          type: string
+      required:
+      - courseID
+      - title
+      type: object
+    CourseGradingRubricDto:
+      additionalProperties: false
+      example:
+        enablePoints: true
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enablePoints:
+          type: boolean
+        courseID:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    CourseGradingRubricUpdateDto:
+      additionalProperties: false
+      example:
+        enablePoints: true
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        enablePoints:
+          nullable: true
+          type: boolean
       type: object
     CourseHandoutCreateDto:
       additionalProperties: false
@@ -11625,6 +15859,84 @@ components:
         hideFromStudents:
           type: boolean
       type: object
+    CourseTeamMembershipCreateDto:
+      additionalProperties: false
+      example:
+        courseTeamMembershipType: Admin
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        instructorProfileID: instructorProfileID
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        courseID:
+          minLength: 1
+          type: string
+        instructorProfileID:
+          minLength: 1
+          type: string
+        courseTeamMembershipType:
+          enum:
+          - Admin
+          - Staff
+          type: string
+      required:
+      - courseID
+      - instructorProfileID
+      type: object
+    CourseTeamMembershipDto:
+      additionalProperties: false
+      example:
+        courseTeamMembershipType: Admin
+        tenantId: tenantId
+        id: id
+        courseID: courseID
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        instructorProfileID: instructorProfileID
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        courseID:
+          nullable: true
+          type: string
+        instructorProfileID:
+          nullable: true
+          type: string
+        courseTeamMembershipType:
+          enum:
+          - Admin
+          - Staff
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    CourseTeamMembershipUpdateDto:
+      additionalProperties: false
+      example:
+        courseTeamMembershipType: Admin
+        instructorProfileID: instructorProfileID
+      properties:
+        instructorProfileID:
+          nullable: true
+          type: string
+        courseTeamMembershipType:
+          enum:
+          - Admin
+          - Staff
+          nullable: true
+          type: string
+      type: object
     CourseUnitComponentCreateDto:
       additionalProperties: false
       example:
@@ -11928,11 +16240,92 @@ components:
     CourseUpdateDto:
       additionalProperties: false
       example:
+        summary: summary
+        code: code
+        inscriptionsEndDateTime: 2000-01-23T04:56:07.000+00:00
+        maxCourseEnrollments: 6
+        totalHoursPerWeek: 5
+        regularPrice: 0.8008281904610115
+        description: description
+        published: true
         title: title
+        endDateTime: 2000-01-23T04:56:07.000+00:00
+        version: version
+        startDateTime: 2000-01-23T04:56:07.000+00:00
+        courseCategoryID: courseCategoryID
+        sku: sku
+        currencyID: currencyID
+        totalEffortInHours: 5
+        inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
+        instructorProfileID: instructorProfileID
+        totalEffortInWeeks: 1
       properties:
         title:
           nullable: true
           type: string
+        description:
+          nullable: true
+          type: string
+        sku:
+          nullable: true
+          type: string
+        summary:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        courseCategoryID:
+          nullable: true
+          type: string
+        instructorProfileID:
+          nullable: true
+          type: string
+        currencyID:
+          nullable: true
+          type: string
+        regularPrice:
+          format: double
+          nullable: true
+          type: number
+        maxCourseEnrollments:
+          format: int32
+          nullable: true
+          type: integer
+        totalEffortInWeeks:
+          format: int32
+          nullable: true
+          type: integer
+        totalHoursPerWeek:
+          format: int32
+          nullable: true
+          type: integer
+        totalEffortInHours:
+          format: int32
+          nullable: true
+          type: integer
+        startDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        endDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsStartDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        inscriptionsEndDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        published:
+          nullable: true
+          type: boolean
       type: object
     CourseWikiCreateDto:
       additionalProperties: false
@@ -12135,31 +16528,29 @@ components:
         contactID: contactID
         about: about
         data8Label: data8Label
+        type: type
         authorized: true
         data5Label: data5Label
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
-        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
-        qualifiedName: qualifiedName
         data3: data3
         data9Label: data9Label
         data2: data2
-        verified: true
         dataLabel: dataLabel
         data1: data1
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
-        submitted: true
         data7Label: data7Label
       properties:
         id:
@@ -12168,23 +16559,17 @@ components:
         timestamp:
           format: date-time
           type: string
-        authorized:
-          type: boolean
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
         about:
           nullable: true
           type: string
-        verified:
-          type: boolean
-        submitted:
-          type: boolean
         avatarUrl:
           nullable: true
-          type: string
-        qualifiedName:
-          nullable: true
-          type: string
-        verificationTimestamp:
-          format: date-time
           type: string
         data:
           nullable: true
@@ -12246,6 +16631,8 @@ components:
         data9Label:
           nullable: true
           type: string
+        authorized:
+          type: boolean
         contactID:
           nullable: true
           type: string
@@ -12257,6 +16644,67 @@ components:
         contactID: contactID
         about: about
         data8Label: data8Label
+        type: type
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
         authorized: true
         data5Label: data5Label
         id: id
@@ -12264,10 +16712,12 @@ components:
         verificationTimestamp: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
+        enrollmentId: enrollmentId
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
         qualifiedName: qualifiedName
@@ -12284,6 +16734,7 @@ components:
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
+        tenantId: tenantId
         data7Label: data7Label
       properties:
         id:
@@ -12293,8 +16744,18 @@ components:
           format: date-time
           nullable: true
           type: string
-        authorized:
-          type: boolean
+        contactId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         about:
           nullable: true
           type: string
@@ -12305,11 +16766,15 @@ components:
         avatarUrl:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
         qualifiedName:
           nullable: true
+          readOnly: true
           type: string
         verificationTimestamp:
           format: date-time
+          nullable: true
           type: string
         data:
           nullable: true
@@ -12371,6 +16836,8 @@ components:
         data9Label:
           nullable: true
           type: string
+        authorized:
+          type: boolean
         businessID:
           nullable: true
           type: string
@@ -12381,63 +16848,271 @@ components:
           nullable: true
           type: string
       type: object
+    InstructorProfileDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          contactID: contactID
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          authorized: true
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          businessID: businessID
+          data3Label: data3Label
+          data6Label: data6Label
+          businessProfileRecordID: businessProfileRecordID
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        - data: data
+          contactID: contactID
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          authorized: true
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          businessID: businessID
+          data3Label: data3Label
+          data6Label: data6Label
+          businessProfileRecordID: businessProfileRecordID
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InstructorProfileDto'
+          nullable: true
+          type: array
+      type: object
     InstructorProfileUpdateDto:
       additionalProperties: false
       example:
         data: data
         about: about
         data8Label: data8Label
+        type: type
         authorized: true
         data5Label: data5Label
-        id: id
         data2Label: data2Label
-        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
-        timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
-        qualifiedName: qualifiedName
         data3: data3
         data9Label: data9Label
         data2: data2
-        verified: true
         dataLabel: dataLabel
         data1: data1
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
-        submitted: true
         data7Label: data7Label
       properties:
-        id:
+        type:
           nullable: true
           type: string
-        timestamp:
-          format: date-time
+        contactId:
           nullable: true
           type: string
-        authorized:
-          type: boolean
         about:
           nullable: true
           type: string
-        verified:
-          type: boolean
-        submitted:
-          type: boolean
         avatarUrl:
           nullable: true
-          type: string
-        qualifiedName:
-          nullable: true
-          type: string
-        verificationTimestamp:
-          format: date-time
           type: string
         data:
           nullable: true
@@ -12499,6 +17174,8 @@ components:
         data9Label:
           nullable: true
           type: string
+        authorized:
+          type: boolean
       type: object
     LoginRequest:
       additionalProperties: false
@@ -12590,30 +17267,28 @@ components:
         contactID: contactID
         about: about
         data8Label: data8Label
+        type: type
         data5Label: data5Label
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
-        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
-        qualifiedName: qualifiedName
         data3: data3
         data9Label: data9Label
         data2: data2
-        verified: true
         dataLabel: dataLabel
         data1: data1
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
-        submitted: true
         data7Label: data7Label
       properties:
         id:
@@ -12622,21 +17297,17 @@ components:
         timestamp:
           format: date-time
           type: string
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
         about:
           nullable: true
           type: string
-        verified:
-          type: boolean
-        submitted:
-          type: boolean
         avatarUrl:
           nullable: true
-          type: string
-        qualifiedName:
-          nullable: true
-          type: string
-        verificationTimestamp:
-          format: date-time
           type: string
         data:
           nullable: true
@@ -12709,16 +17380,79 @@ components:
         contactID: contactID
         about: about
         data8Label: data8Label
+        type: type
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
         data5Label: data5Label
         id: id
         data2Label: data2Label
         verificationTimestamp: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
+        enrollmentId: enrollmentId
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
         qualifiedName: qualifiedName
@@ -12735,6 +17469,7 @@ components:
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
+        tenantId: tenantId
         data7Label: data7Label
       properties:
         id:
@@ -12742,6 +17477,18 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         about:
@@ -12754,11 +17501,15 @@ components:
         avatarUrl:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
         qualifiedName:
           nullable: true
+          readOnly: true
           type: string
         verificationTimestamp:
           format: date-time
+          nullable: true
           type: string
         data:
           nullable: true
@@ -12830,6 +17581,229 @@ components:
           nullable: true
           type: string
       type: object
+    StudentProfileDtoIReadOnlyListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          contactID: contactID
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          businessID: businessID
+          data3Label: data3Label
+          data6Label: data6Label
+          businessProfileRecordID: businessProfileRecordID
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        - data: data
+          contactID: contactID
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          businessID: businessID
+          data3Label: data3Label
+          data6Label: data6Label
+          businessProfileRecordID: businessProfileRecordID
+          data1Label: data1Label
+          data4Label: data4Label
+          submitted: true
+          tenantId: tenantId
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/StudentProfileDto'
+          nullable: true
+          type: array
+      type: object
     StudentProfileUpdateDto:
       additionalProperties: false
       example:
@@ -12837,53 +17811,39 @@ components:
         contactID: contactID
         about: about
         data8Label: data8Label
+        type: type
         data5Label: data5Label
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
-        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
-        timestamp: 2000-01-23T04:56:07.000+00:00
         data9: data9
         data8: data8
         data7: data7
         data6: data6
         data5: data5
+        contactId: contactId
         avatarUrl: avatarUrl
         data4: data4
-        qualifiedName: qualifiedName
         data3: data3
         data9Label: data9Label
         data2: data2
-        verified: true
         dataLabel: dataLabel
         data1: data1
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
-        submitted: true
         data7Label: data7Label
       properties:
-        id:
-          format: uuid
+        type:
+          nullable: true
           type: string
-        timestamp:
-          format: date-time
+        contactId:
+          nullable: true
           type: string
         about:
           nullable: true
           type: string
-        verified:
-          type: boolean
-        submitted:
-          type: boolean
         avatarUrl:
           nullable: true
-          type: string
-        qualifiedName:
-          nullable: true
-          type: string
-        verificationTimestamp:
-          format: date-time
           type: string
         data:
           nullable: true

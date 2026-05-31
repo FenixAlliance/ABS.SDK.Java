@@ -1,6 +1,6 @@
 # PaymentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -99,7 +99,7 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -148,7 +148,7 @@ No authorization required
 
 <a id="getPaymentAsync"></a>
 # **getPaymentAsync**
-> PaymentDtoListEnvelope getPaymentAsync(paymentId)
+> PaymentDtoListEnvelope getPaymentAsync(tenantId, paymentId)
 
 Gets a payment by ID (deprecated)
 
@@ -166,12 +166,13 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID paymentId = UUID.randomUUID(); // UUID | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getPaymentAsync(paymentId);
+      PaymentDtoListEnvelope result = apiInstance.getPaymentAsync(tenantId, paymentId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentsApi#getPaymentAsync");
@@ -188,6 +189,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **paymentId** | **UUID**|  | |
 
 ### Return type
@@ -212,7 +214,7 @@ No authorization required
 
 <a id="getPaymentAsyncV2"></a>
 # **getPaymentAsyncV2**
-> PaymentDtoListEnvelope getPaymentAsyncV2(paymentId)
+> PaymentDtoListEnvelope getPaymentAsyncV2(tenantId, paymentId)
 
 Gets a payment by ID
 
@@ -230,12 +232,13 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID paymentId = UUID.randomUUID(); // UUID | 
     try {
-      PaymentDtoListEnvelope result = apiInstance.getPaymentAsyncV2(paymentId);
+      PaymentDtoListEnvelope result = apiInstance.getPaymentAsyncV2(tenantId, paymentId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentsApi#getPaymentAsyncV2");
@@ -252,6 +255,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **paymentId** | **UUID**|  | |
 
 ### Return type
@@ -294,7 +298,7 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -359,7 +363,7 @@ import org.openapitools.client.api.PaymentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     PaymentsApi apiInstance = new PaymentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

@@ -1,6 +1,6 @@
 # FiscalEnumerationRangesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     InvoiceEnumerationRangeCreateDto invoiceEnumerationRangeCreateDto = new InvoiceEnumerationRangeCreateDto(); // InvoiceEnumerationRangeCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **invoiceEnumerationRangeCreateDto** | [**InvoiceEnumerationRangeCreateDto**](InvoiceEnumerationRangeCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID enumerationRangeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **enumerationRangeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -172,10 +172,10 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID enumerationRangeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -198,7 +198,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **enumerationRangeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRanges"></a>
 # **getInvoiceEnumerationRanges**
-> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> InvoiceEnumerationRangeDtoListEnvelope getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
 
 Get invoice enumeration ranges for an authority
 
@@ -244,15 +244,16 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      InvoiceEnumerationRangeDtoListEnvelope result = apiInstance.getInvoiceEnumerationRanges(fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      InvoiceEnumerationRangeDtoListEnvelope result = apiInstance.getInvoiceEnumerationRanges(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalEnumerationRangesApi#getInvoiceEnumerationRanges");
@@ -269,6 +270,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -296,7 +298,7 @@ No authorization required
 
 <a id="getInvoiceEnumerationRangesCount"></a>
 # **getInvoiceEnumerationRangesCount**
-> Int32Envelope getInvoiceEnumerationRangesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
 
 Get invoice enumeration ranges count
 
@@ -314,14 +316,15 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getInvoiceEnumerationRangesCount(fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getInvoiceEnumerationRangesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalEnumerationRangesApi#getInvoiceEnumerationRangesCount");
@@ -338,6 +341,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -382,10 +386,10 @@ import org.openapitools.client.api.FiscalEnumerationRangesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID enumerationRangeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -408,7 +412,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **enumerationRangeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

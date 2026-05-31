@@ -1,6 +1,6 @@
 # LicensingApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -16,7 +16,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="getLicenseAssignmentsAsync"></a>
 # **getLicenseAssignmentsAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseAssignmentsAsync(licenseId, tenantId, apiVersion, xApiVersion)
+> SuiteLicenseAssignmentDtoListEnvelope getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
 Retrieve license assignments
 
@@ -34,15 +34,15 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
-    UUID licenseId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID licenseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAssignmentsAsync(licenseId, tenantId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingApi#getLicenseAssignmentsAsync");
@@ -59,8 +59,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **licenseId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **licenseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -85,7 +85,7 @@ No authorization required
 
 <a id="getLicenseAttributesAsync"></a>
 # **getLicenseAttributesAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseAttributesAsync(licenseId, tenantId, apiVersion, xApiVersion)
+> SuiteLicenseAssignmentDtoListEnvelope getLicenseAttributesAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
 Retrieve license attributes
 
@@ -103,15 +103,15 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
-    UUID licenseId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID licenseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAttributesAsync(licenseId, tenantId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAttributesAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingApi#getLicenseAttributesAsync");
@@ -128,8 +128,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **licenseId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **licenseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -154,7 +154,7 @@ No authorization required
 
 <a id="getLicenseByIdAsync"></a>
 # **getLicenseByIdAsync**
-> SuiteLicenseDtoEnvelope getLicenseByIdAsync(licenseId, apiVersion, xApiVersion)
+> SuiteLicenseDtoEnvelope getLicenseByIdAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
 Retrieve a license by ID
 
@@ -172,14 +172,15 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID licenseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseDtoEnvelope result = apiInstance.getLicenseByIdAsync(licenseId, apiVersion, xApiVersion);
+      SuiteLicenseDtoEnvelope result = apiInstance.getLicenseByIdAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingApi#getLicenseByIdAsync");
@@ -196,6 +197,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **licenseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -221,7 +223,7 @@ No authorization required
 
 <a id="getLicenseFeaturesAsync"></a>
 # **getLicenseFeaturesAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseFeaturesAsync(licenseId, tenantId, apiVersion, xApiVersion)
+> SuiteLicenseAssignmentDtoListEnvelope getLicenseFeaturesAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
 Retrieve license features
 
@@ -239,15 +241,15 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
-    UUID licenseId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID licenseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseFeaturesAsync(licenseId, tenantId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseFeaturesAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingApi#getLicenseFeaturesAsync");
@@ -264,8 +266,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **licenseId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **licenseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -290,7 +292,7 @@ No authorization required
 
 <a id="getLicenseRecordsQuotaAsync"></a>
 # **getLicenseRecordsQuotaAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseRecordsQuotaAsync(licenseId, tenantId, apiVersion, xApiVersion)
+> SuiteLicenseAssignmentDtoListEnvelope getLicenseRecordsQuotaAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
 Retrieve license record quota
 
@@ -308,15 +310,15 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
-    UUID licenseId = UUID.randomUUID(); // UUID | 
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID licenseId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseRecordsQuotaAsync(licenseId, tenantId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseRecordsQuotaAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LicensingApi#getLicenseRecordsQuotaAsync");
@@ -333,8 +335,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **licenseId** | **UUID**|  | |
 | **tenantId** | **UUID**|  | |
+| **licenseId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -377,7 +379,7 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -444,7 +446,7 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -513,7 +515,7 @@ import org.openapitools.client.api.LicensingApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     LicensingApi apiInstance = new LicensingApi(defaultClient);
     LicenseValidationRequest licenseValidationRequest = new LicenseValidationRequest(); // LicenseValidationRequest | 

@@ -1,6 +1,6 @@
 # FiscalResponsibilityRecordsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     FiscalResponsibilityRecordCreateDto fiscalResponsibilityRecordCreateDto = new FiscalResponsibilityRecordCreateDto(); // FiscalResponsibilityRecordCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **fiscalResponsibilityRecordCreateDto** | [**FiscalResponsibilityRecordCreateDto**](FiscalResponsibilityRecordCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityRecordId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalResponsibilityRecordId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -172,10 +172,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityRecordId = UUID.randomUUID(); // UUID | 
@@ -199,7 +199,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **fiscalResponsibilityRecordId** | **UUID**|  | |
@@ -246,10 +246,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -272,7 +272,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -318,10 +318,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -344,7 +344,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -390,10 +390,10 @@ import org.openapitools.client.api.FiscalResponsibilityRecordsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilityRecordsApi apiInstance = new FiscalResponsibilityRecordsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityRecordId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -416,7 +416,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalResponsibilityRecordId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

@@ -1,9 +1,10 @@
 # AccountsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**aggregateAccountsBalanceAsync**](AccountsApi.md#aggregateAccountsBalanceAsync) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance |
 | [**balanceAccountAsync**](AccountsApi.md#balanceAccountAsync) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account |
 | [**balanceRootAccountAsync**](AccountsApi.md#balanceRootAccountAsync) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account |
 | [**createAccountAsync**](AccountsApi.md#createAccountAsync) | **POST** /api/v2/AccountingService/Accounts | Get root accounts |
@@ -26,20 +27,93 @@ All URIs are relative to *https://absuite.net*
 | [**getAccountEntryAsync**](AccountsApi.md#getAccountEntryAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry |
 | [**getAccountRelationsAsync**](AccountsApi.md#getAccountRelationsAsync) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations |
 | [**getAccountRelationsCountAsync**](AccountsApi.md#getAccountRelationsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count |
+| [**getAccountTypeByIdAsync**](AccountsApi.md#getAccountTypeByIdAsync) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID |
 | [**getAccountTypesAsync**](AccountsApi.md#getAccountTypesAsync) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types |
 | [**getAccountTypesCountAsync**](AccountsApi.md#getAccountTypesCountAsync) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count |
 | [**getAccountsAsync**](AccountsApi.md#getAccountsAsync) | **GET** /api/v2/AccountingService/Accounts | Creates a new account |
 | [**getAccountsCountAsync**](AccountsApi.md#getAccountsCountAsync) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts |
+| [**getChartsOfAccountsAsync**](AccountsApi.md#getChartsOfAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts |
 | [**getChildAccountsAsync**](AccountsApi.md#getChildAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts |
 | [**getCreditAccountEntriesAsync**](AccountsApi.md#getCreditAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries |
 | [**getDebitAccountEntriesAsync**](AccountsApi.md#getDebitAccountEntriesAsync) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries |
 | [**getRootAccountsAsync**](AccountsApi.md#getRootAccountsAsync) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts |
 | [**patchAccountAsync**](AccountsApi.md#patchAccountAsync) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account |
+| [**seedChartOfAccountsAsync**](AccountsApi.md#seedChartOfAccountsAsync) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts |
 | [**updateAccountAsync**](AccountsApi.md#updateAccountAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account |
 | [**updateAccountEntryAsync**](AccountsApi.md#updateAccountEntryAsync) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry |
 | [**updateAccountRelationAsync**](AccountsApi.md#updateAccountRelationAsync) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation |
 | [**updateAccountTypeAsync**](AccountsApi.md#updateAccountTypeAsync) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type |
 
+
+<a id="aggregateAccountsBalanceAsync"></a>
+# **aggregateAccountsBalanceAsync**
+> MoneyEnvelope aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion)
+
+Aggregate accounts balance
+
+Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String currencyId = "currencyId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      MoneyEnvelope result = apiInstance.aggregateAccountsBalanceAsync(tenantId, currencyId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#aggregateAccountsBalanceAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **currencyId** | **String**|  | [optional] |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 <a id="balanceAccountAsync"></a>
 # **balanceAccountAsync**
@@ -61,7 +135,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -131,7 +205,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -199,7 +273,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -269,7 +343,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -341,7 +415,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -413,7 +487,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -486,7 +560,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -540,7 +614,7 @@ No authorization required
 
 <a id="createAccountTypeAsync"></a>
 # **createAccountTypeAsync**
-> EmptyEnvelope createAccountTypeAsync(tenantId, accountId, apiVersion, xApiVersion, accountTypeCreateDto)
+> EmptyEnvelope createAccountTypeAsync(tenantId, apiVersion, xApiVersion, accountTypeCreateDto)
 
 Create account type
 
@@ -558,16 +632,15 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     AccountTypeCreateDto accountTypeCreateDto = new AccountTypeCreateDto(); // AccountTypeCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.createAccountTypeAsync(tenantId, accountId, apiVersion, xApiVersion, accountTypeCreateDto);
+      EmptyEnvelope result = apiInstance.createAccountTypeAsync(tenantId, apiVersion, xApiVersion, accountTypeCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#createAccountTypeAsync");
@@ -585,7 +658,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **accountTypeCreateDto** | [**AccountTypeCreateDto**](AccountTypeCreateDto.md)|  | [optional] |
@@ -630,7 +702,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -700,7 +772,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -773,7 +845,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -827,7 +899,7 @@ No authorization required
 
 <a id="deleteAccountTypeAsync"></a>
 # **deleteAccountTypeAsync**
-> EmptyEnvelope deleteAccountTypeAsync(tenantId, accountTypeId, accountId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
 
 Delete account type
 
@@ -845,16 +917,15 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID accountTypeId = UUID.randomUUID(); // UUID | 
-    UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.deleteAccountTypeAsync(tenantId, accountTypeId, accountId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#deleteAccountTypeAsync");
@@ -873,7 +944,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **accountTypeId** | **UUID**|  | |
-| **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -917,7 +987,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -989,7 +1059,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1059,7 +1129,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1129,7 +1199,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1199,7 +1269,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1269,7 +1339,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1339,7 +1409,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1409,7 +1479,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1481,7 +1551,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1551,7 +1621,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1601,9 +1671,79 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getAccountTypeByIdAsync"></a>
+# **getAccountTypeByIdAsync**
+> AccountTypeDtoEnvelope getAccountTypeByIdAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+
+Get account type by ID
+
+Get account type by ID.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID accountTypeId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      AccountTypeDtoEnvelope result = apiInstance.getAccountTypeByIdAsync(tenantId, accountTypeId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#getAccountTypeByIdAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **accountTypeId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**AccountTypeDtoEnvelope**](AccountTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="getAccountTypesAsync"></a>
 # **getAccountTypesAsync**
-> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+> AccountTypeDtoListEnvelope getAccountTypesAsync(tenantId, apiVersion, xApiVersion)
 
 Get account types
 
@@ -1621,15 +1761,14 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID accountTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      AccountTypeDtoListEnvelope result = apiInstance.getAccountTypesAsync(tenantId, accountTypeId, apiVersion, xApiVersion);
+      AccountTypeDtoListEnvelope result = apiInstance.getAccountTypesAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountTypesAsync");
@@ -1647,7 +1786,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **accountTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -1673,7 +1811,7 @@ No authorization required
 
 <a id="getAccountTypesCountAsync"></a>
 # **getAccountTypesCountAsync**
-> Int32Envelope getAccountTypesCountAsync(tenantId, accountTypeId, apiVersion, xApiVersion)
+> Int32Envelope getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get account types count
 
@@ -1691,15 +1829,14 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID accountTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getAccountTypesCountAsync(tenantId, accountTypeId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getAccountTypesCountAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#getAccountTypesCountAsync");
@@ -1717,7 +1854,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **accountTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -1761,7 +1897,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1829,7 +1965,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1877,6 +2013,72 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getChartsOfAccountsAsync"></a>
+# **getChartsOfAccountsAsync**
+> ChartOfAccountsListEnvelope getChartsOfAccountsAsync(apiVersion, xApiVersion)
+
+Get charts of accounts
+
+Get available charts of accounts.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      ChartOfAccountsListEnvelope result = apiInstance.getChartsOfAccountsAsync(apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#getChartsOfAccountsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**ChartOfAccountsListEnvelope**](ChartOfAccountsListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="getChildAccountsAsync"></a>
 # **getChildAccountsAsync**
 > AccountDtoListEnvelope getChildAccountsAsync(tenantId, accountId, apiVersion, xApiVersion)
@@ -1897,7 +2099,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1967,7 +2169,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2037,7 +2239,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2107,7 +2309,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2175,7 +2377,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2227,6 +2429,76 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="seedChartOfAccountsAsync"></a>
+# **seedChartOfAccountsAsync**
+> EmptyEnvelope seedChartOfAccountsAsync(tenantId, apiVersion, xApiVersion, seedChartOfAccountsRequest)
+
+Seed chart of accounts
+
+Seed a chart of accounts from a file URL.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AccountsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    AccountsApi apiInstance = new AccountsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    SeedChartOfAccountsRequest seedChartOfAccountsRequest = new SeedChartOfAccountsRequest(); // SeedChartOfAccountsRequest | 
+    try {
+      EmptyEnvelope result = apiInstance.seedChartOfAccountsAsync(tenantId, apiVersion, xApiVersion, seedChartOfAccountsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AccountsApi#seedChartOfAccountsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **seedChartOfAccountsRequest** | [**SeedChartOfAccountsRequest**](SeedChartOfAccountsRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="updateAccountAsync"></a>
 # **updateAccountAsync**
 > AccountDtoEnvelope updateAccountAsync(tenantId, accountId, apiVersion, xApiVersion, accountUpdateDto)
@@ -2247,7 +2519,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2319,7 +2591,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2394,7 +2666,7 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2450,7 +2722,7 @@ No authorization required
 
 <a id="updateAccountTypeAsync"></a>
 # **updateAccountTypeAsync**
-> EmptyEnvelope updateAccountTypeAsync(tenantId, accountTypeId, accountId, apiVersion, xApiVersion, accountTypeUpdateDto)
+> EmptyEnvelope updateAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, accountTypeUpdateDto)
 
 Update account type
 
@@ -2468,17 +2740,16 @@ import org.openapitools.client.api.AccountsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID accountTypeId = UUID.randomUUID(); // UUID | 
-    UUID accountId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     AccountTypeUpdateDto accountTypeUpdateDto = new AccountTypeUpdateDto(); // AccountTypeUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateAccountTypeAsync(tenantId, accountTypeId, accountId, apiVersion, xApiVersion, accountTypeUpdateDto);
+      EmptyEnvelope result = apiInstance.updateAccountTypeAsync(tenantId, accountTypeId, apiVersion, xApiVersion, accountTypeUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AccountsApi#updateAccountTypeAsync");
@@ -2497,7 +2768,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **accountTypeId** | **UUID**|  | |
-| **accountId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **accountTypeUpdateDto** | [**AccountTypeUpdateDto**](AccountTypeUpdateDto.md)|  | [optional] |

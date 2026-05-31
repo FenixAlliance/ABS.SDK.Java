@@ -1,6 +1,6 @@
 # ExchangeApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import org.openapitools.client.api.ExchangeApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ExchangeApi apiInstance = new ExchangeApi(defaultClient);
     Double amount = 3.4D; // Double | 
@@ -96,7 +96,7 @@ import org.openapitools.client.api.ExchangeApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ExchangeApi apiInstance = new ExchangeApi(defaultClient);
     Double amount = 3.4D; // Double | 

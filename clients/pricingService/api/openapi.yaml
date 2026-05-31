@@ -9,25 +9,342 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: PricingService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
+- name: Completions
 - name: DiscountLists
-- name: FenixAlliance.ABS.Web
+- name: FenixAlliance.Portals.Website
 - name: PriceLists
 - name: Prices
+- name: PricingRules
+- name: RoundingPolicies
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /api/v2/PricingService/DiscountLists:
     get:
       description: Gets all discount lists for the current tenant with OData support.
@@ -833,7 +1150,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -842,7 +1159,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -851,7 +1168,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -872,7 +1189,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -907,7 +1224,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -927,7 +1244,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -960,7 +1277,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -975,7 +1292,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -997,7 +1314,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -1019,7 +1336,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -1047,7 +1364,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -1070,7 +1387,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -1097,7 +1414,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -1126,7 +1443,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -1150,7 +1467,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -1174,7 +1491,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -1184,7 +1501,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /api/v2/PricingService/PriceLists:
@@ -1995,6 +2312,799 @@ paths:
       summary: Gets total savings for an item
       tags:
       - Prices
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PricingRules:
+    get:
+      description: "Retrieves all pricing rules for the specified tenant, with optional\
+        \ OData query options."
+      operationId: GetPricingRules
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoListEnvelope'
+          description: OK
+      summary: Get all pricing rules
+      tags:
+      - PricingRules
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new pricing rule for the specified tenant.
+      operationId: CreatePricingRule
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PricingRuleCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PricingRuleCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
+          description: Created
+      summary: Create a new pricing rule
+      tags:
+      - PricingRules
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PricingRules/{pricingRuleId}:
+    delete:
+      description: Deletes a pricing rule for the specified tenant and rule ID.
+      operationId: DeletePricingRule
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pricingRuleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Delete a pricing rule
+      tags:
+      - PricingRules
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a pricing rule by its unique identifier.
+      operationId: GetPricingRuleById
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pricingRuleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
+          description: OK
+      summary: Get pricing rule by ID
+      tags:
+      - PricingRules
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PricingRules/Count:
+    get:
+      description: Gets the count of pricing rules for the current tenant.
+      operationId: GetPricingRulesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Counts pricing rules
+      tags:
+      - PricingRules
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/PricingRules/Update:
+    put:
+      description: Updates an existing pricing rule for the specified tenant and rule
+        ID.
+      operationId: UpdatePricingRule
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pricingRuleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PricingRuleUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PricingRuleUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Update a pricing rule
+      tags:
+      - PricingRules
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/RoundingPolicies:
+    get:
+      description: Retrieves all rounding policies for the current tenant with OData
+        support.
+      operationId: GetRoundingPoliciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoundingPolicyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoundingPolicyDtoListEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Gets all rounding policies
+      tags:
+      - RoundingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new rounding policy for the current tenant.
+      operationId: CreateRoundingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoundingPolicyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RoundingPolicyCreateDto'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Creates a rounding policy
+      tags:
+      - RoundingPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/RoundingPolicies/Count:
+    get:
+      description: Gets the count of rounding policies for the current tenant.
+      operationId: GetRoundingPoliciesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Counts rounding policies
+      tags:
+      - RoundingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/PricingService/RoundingPolicies/{roundingPolicyId}:
+    delete:
+      description: Deletes the specified rounding policy.
+      operationId: DeleteRoundingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: roundingPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Deletes a rounding policy
+      tags:
+      - RoundingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves the details of a rounding policy using its unique ID.
+      operationId: GetRoundingPolicyByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: roundingPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoundingPolicyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoundingPolicyDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Gets a rounding policy by ID
+      tags:
+      - RoundingPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates the specified rounding policy.
+      operationId: UpdateRoundingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: roundingPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoundingPolicyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RoundingPolicyUpdateDto'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Updates a rounding policy
+      tags:
+      - RoundingPolicies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3416,6 +4526,410 @@ components:
       required:
       - name
       type: object
+    PricingRuleCreateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        code: code
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
+    PricingRuleDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        code: code
+        weeks: 1
+        months: 5
+        customState: customState
+        businessID: businessID
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: id
+        currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
+    PricingRuleDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          reduce: true
+          allowInternational: true
+          hours: 0
+          code: code
+          weeks: 1
+          months: 5
+          customState: customState
+          businessID: businessID
+          description: description
+          countryStateID: countryStateID
+          cityID: cityID
+          title: title
+          customCity: customCity
+          years: 5
+          countryID: countryID
+          isDefault: true
+          isFree: true
+          isEnabled: true
+          percentage: 7.061401241503109
+          days: 6
+          id: id
+          currencyID: currencyID
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/PricingRuleDto'
+      type: object
+    PricingRuleDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - reduce: true
+          allowInternational: true
+          hours: 0
+          code: code
+          weeks: 1
+          months: 5
+          customState: customState
+          businessID: businessID
+          description: description
+          countryStateID: countryStateID
+          cityID: cityID
+          title: title
+          customCity: customCity
+          years: 5
+          countryID: countryID
+          isDefault: true
+          isFree: true
+          isEnabled: true
+          percentage: 7.061401241503109
+          days: 6
+          id: id
+          currencyID: currencyID
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - reduce: true
+          allowInternational: true
+          hours: 0
+          code: code
+          weeks: 1
+          months: 5
+          customState: customState
+          businessID: businessID
+          description: description
+          countryStateID: countryStateID
+          cityID: cityID
+          title: title
+          customCity: customCity
+          years: 5
+          countryID: countryID
+          isDefault: true
+          isFree: true
+          isEnabled: true
+          percentage: 7.061401241503109
+          days: 6
+          id: id
+          currencyID: currencyID
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PricingRuleDto'
+          nullable: true
+          type: array
+      type: object
+    PricingRuleUpdateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        currencyID: currencyID
+        value: 2.3021358869347655
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
     RefreshRequest:
       additionalProperties: false
       example:
@@ -3474,6 +4988,433 @@ components:
       - email
       - newPassword
       - resetCode
+      type: object
+    RoundingPolicyCreateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        code: code
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateId: countryStateId
+        cityId: cityId
+        title: title
+        customCity: customCity
+        years: 5
+        countryId: countryId
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 150
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+      type: object
+    RoundingPolicyDto:
+      additionalProperties: false
+      example:
+        code: code
+        weeks: 1
+        customState: customState
+        description: description
+        countryStateId: countryStateId
+        cityId: cityId
+        title: title
+        customCity: customCity
+        years: 5
+        countryId: countryId
+        isFree: true
+        percentage: 7.061401241503109
+        id: id
+        currencyId: currencyId
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        enrollmentId: enrollmentId
+        allowInternational: true
+        hours: 0
+        months: 5
+        isDefault: true
+        isEnabled: true
+        tenantId: tenantId
+        days: 6
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    RoundingPolicyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          weeks: 1
+          customState: customState
+          description: description
+          countryStateId: countryStateId
+          cityId: cityId
+          title: title
+          customCity: customCity
+          years: 5
+          countryId: countryId
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/RoundingPolicyDto'
+      type: object
+    RoundingPolicyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          countryStateId: countryStateId
+          cityId: cityId
+          title: title
+          customCity: customCity
+          years: 5
+          countryId: countryId
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          countryStateId: countryStateId
+          cityId: cityId
+          title: title
+          customCity: customCity
+          years: 5
+          countryId: countryId
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          currencyId: currencyId
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/RoundingPolicyDto'
+          nullable: true
+          type: array
+      type: object
+    RoundingPolicyUpdateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        code: code
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateId: countryStateId
+        cityId: cityId
+        title: title
+        customCity: customCity
+        years: 5
+        countryId: countryId
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        currencyId: currencyId
+        value: 2.3021358869347655
+      properties:
+        code:
+          nullable: true
+          type: string
+        title:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 150
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
       type: object
     TwoFactorRequest:
       additionalProperties: false

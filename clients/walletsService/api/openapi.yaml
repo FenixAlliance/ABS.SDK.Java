@@ -9,30 +9,345 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: WalletsService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
-- name: FenixAlliance.ABS.Web
+- name: Completions
+- name: FenixAlliance.Portals.Website
 - name: Wallets
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -41,7 +356,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -50,7 +365,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -71,7 +386,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -106,7 +421,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -126,7 +441,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -159,7 +474,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -174,7 +489,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -196,7 +511,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -218,7 +533,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -246,7 +561,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -269,7 +584,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -296,7 +611,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -325,7 +640,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -349,7 +664,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -373,7 +688,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -383,7 +698,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /api/v2/WalletsService/Wallets/{walletId}:
@@ -810,6 +1125,75 @@ paths:
       summary: Get Wallet Payments
       tags:
       - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new payment for a specific wallet by ID.
+      operationId: CreateWalletPaymentAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Payment
+      tags:
+      - Wallets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1767,6 +2151,1495 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Quotes:
+    get:
+      description: Get quotes of a specific wallet by ID.
+      operationId: GetWalletQuotesAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/QuoteDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Quotes
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Quotes/Count:
+    get:
+      description: Get quotes count of a specific wallet by ID.
+      operationId: GetWalletQuotesCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Quotes Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/BankAccounts:
+    get:
+      description: Get bank accounts of a specific wallet by ID.
+      operationId: GetWalletBankAccountsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BankAccountDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Bank Accounts
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new bank account for a specific wallet by ID.
+      operationId: CreateWalletBankAccountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankAccountCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Bank Account
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/Count:
+    get:
+      description: Get bank accounts count of a specific wallet by ID.
+      operationId: GetWalletBankAccountsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Bank Accounts Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId}:
+    delete:
+      description: Delete a specific bank account of a specific wallet by ID.
+      operationId: DeleteWalletBankAccountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete Wallet Bank Account
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a specific bank account of a specific wallet by ID.
+      operationId: GetWalletBankAccountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BankAccountDtoEnvelope'
+          description: OK
+      summary: Get Wallet Bank Account
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a specific bank account of a specific wallet by ID.
+      operationId: UpdateWalletBankAccountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankAccountUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BankAccountUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Wallet Bank Account
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Withdraws:
+    get:
+      description: Get withdraws of a specific wallet by ID.
+      operationId: GetWalletWithdrawsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletWithdrawDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WalletWithdrawDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Withdraws
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new withdraw request for a specific wallet by ID.
+      operationId: CreateWalletWithdrawRequestAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WalletWithdrawRequestCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Withdraw Request
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count:
+    get:
+      description: Get withdraws count of a specific wallet by ID.
+      operationId: GetWalletWithdrawsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Withdraws Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests:
+    get:
+      description: Get withdraw requests of a specific wallet by ID.
+      operationId: GetWalletWithdrawRequestsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletWithdrawRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WalletWithdrawRequestDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Withdraw Requests
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/WithdrawRequests/Count:
+    get:
+      description: Get withdraw requests count of a specific wallet by ID.
+      operationId: GetWalletWithdrawRequestsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Withdraw Requests Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Chargebacks:
+    get:
+      description: Get chargebacks of a specific wallet by ID.
+      operationId: GetWalletChargebacksAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentChargebackDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentChargebackDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Chargebacks
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Chargebacks/Count:
+    get:
+      description: Get chargebacks count of a specific wallet by ID.
+      operationId: GetWalletChargebacksCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Chargebacks Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Refunds:
+    get:
+      description: Get refunds of a specific wallet by ID.
+      operationId: GetWalletRefundsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentRefundDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentRefundDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Refunds
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Refunds/Count:
+    get:
+      description: Get refunds count of a specific wallet by ID.
+      operationId: GetWalletRefundsCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Refunds Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Tokens:
+    get:
+      description: Get payment tokens of a specific wallet by ID.
+      operationId: GetWalletTokensAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentTokenDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentTokenDtoListEnvelope'
+          description: OK
+      summary: Get Wallet Tokens
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Create a new payment token for a specific wallet by ID.
+      operationId: CreateWalletTokenAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create Wallet Token
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Tokens/Count:
+    get:
+      description: Get payment tokens count of a specific wallet by ID.
+      operationId: GetWalletTokensCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get Wallet Tokens Count
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId}:
+    delete:
+      description: Delete a specific payment token of a specific wallet by ID.
+      operationId: DeleteWalletTokenAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Delete Wallet Token
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Get a specific payment token of a specific wallet by ID.
+      operationId: GetWalletTokenAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentTokenDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentTokenDtoEnvelope'
+          description: OK
+      summary: Get Wallet Token
+      tags:
+      - Wallets
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Update a specific payment token of a specific wallet by ID.
+      operationId: UpdateWalletTokenAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PaymentTokenUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update Wallet Token
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
 components:
   schemas:
     AccessTokenResponse:
@@ -1794,6 +3667,256 @@ components:
       - accessToken
       - expiresIn
       - refreshToken
+      type: object
+    BankAccountCreateDto:
+      additionalProperties: false
+      example:
+        branchCode: branchCode
+        bankId: bankId
+        qualifiedName: qualifiedName
+        iban: iban
+        name: name
+        bankAccountNumber: bankAccountNumber
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        bankProfileId: bankProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        swift: swift
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          nullable: true
+          type: string
+        iban:
+          nullable: true
+          type: string
+        swift:
+          nullable: true
+          type: string
+        branchCode:
+          nullable: true
+          type: string
+        bankAccountNumber:
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        bankId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    BankAccountDto:
+      additionalProperties: false
+      example:
+        walletId: walletId
+        enrollmentId: enrollmentId
+        qualifiedName: qualifiedName
+        branchCode: branchCode
+        bankId: bankId
+        iban: iban
+        name: name
+        tenantId: tenantId
+        bankAccountNumber: bankAccountNumber
+        id: id
+        bankProfileId: bankProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        swift: swift
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        iban:
+          nullable: true
+          type: string
+        swift:
+          nullable: true
+          type: string
+        branchCode:
+          nullable: true
+          type: string
+        bankAccountNumber:
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        bankId:
+          nullable: true
+          type: string
+        bankProfileId:
+          nullable: true
+          type: string
+        walletId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    BankAccountDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          walletId: walletId
+          enrollmentId: enrollmentId
+          qualifiedName: qualifiedName
+          branchCode: branchCode
+          bankId: bankId
+          iban: iban
+          name: name
+          tenantId: tenantId
+          bankAccountNumber: bankAccountNumber
+          id: id
+          bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          swift: swift
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BankAccountDto'
+      type: object
+    BankAccountDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - walletId: walletId
+          enrollmentId: enrollmentId
+          qualifiedName: qualifiedName
+          branchCode: branchCode
+          bankId: bankId
+          iban: iban
+          name: name
+          tenantId: tenantId
+          bankAccountNumber: bankAccountNumber
+          id: id
+          bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          swift: swift
+        - walletId: walletId
+          enrollmentId: enrollmentId
+          qualifiedName: qualifiedName
+          branchCode: branchCode
+          bankId: bankId
+          iban: iban
+          name: name
+          tenantId: tenantId
+          bankAccountNumber: bankAccountNumber
+          id: id
+          bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          swift: swift
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BankAccountDto'
+          nullable: true
+          type: array
+      type: object
+    BankAccountUpdateDto:
+      additionalProperties: false
+      example:
+        branchCode: branchCode
+        bankId: bankId
+        qualifiedName: qualifiedName
+        iban: iban
+        name: name
+        bankAccountNumber: bankAccountNumber
+        bankProfileId: bankProfileId
+        swift: swift
+      properties:
+        name:
+          nullable: true
+          type: string
+        iban:
+          nullable: true
+          type: string
+        swift:
+          nullable: true
+          type: string
+        branchCode:
+          nullable: true
+          type: string
+        bankAccountNumber:
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        bankId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
       type: object
     ContactDto:
       additionalProperties: false
@@ -2173,6 +4296,7 @@ components:
         customTaxAmount: 3.5571952270680973
         enrollmentId: enrollmentId
         walletId: walletId
+        forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 5.025004791520295
         totalProfitInUsd: 1.4894159098541704
         orderLinesCount: 6
@@ -2532,6 +4656,9 @@ components:
         forexRate:
           format: double
           type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
         currencyId:
           nullable: true
           type: string
@@ -2802,6 +4929,7 @@ components:
           customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           orderLinesCount: 6
@@ -3142,6 +5270,7 @@ components:
           customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           orderLinesCount: 6
@@ -3581,6 +5710,7 @@ components:
         currencyId: currencyId
         enumeration: enumeration
         enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 5.025004791520295
         totalProfitInUsd: 1.4894159098541704
         totalGlobalSurchargesInUsd: 8.762042012749001
@@ -3718,6 +5848,9 @@ components:
         forexRate:
           format: double
           type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
         currencyId:
           nullable: true
           type: string
@@ -3919,6 +6052,7 @@ components:
           currencyId: currencyId
           enumeration: enumeration
           enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           totalGlobalSurchargesInUsd: 8.762042012749001
@@ -3998,6 +6132,7 @@ components:
           currencyId: currencyId
           enumeration: enumeration
           enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           totalGlobalSurchargesInUsd: 8.762042012749001
@@ -4530,6 +6665,7 @@ components:
         customTaxAmount: 3.5571952270680973
         enrollmentId: enrollmentId
         walletId: walletId
+        forexRatesSnapshot: forexRatesSnapshot
         totalWithheldTaxesInUsd: 5.025004791520295
         totalProfitInUsd: 1.4894159098541704
         orderLinesCount: 6
@@ -4673,6 +6809,9 @@ components:
         forexRate:
           format: double
           type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
         currencyId:
           nullable: true
           type: string
@@ -4892,6 +7031,7 @@ components:
           customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           orderLinesCount: 6
@@ -4977,6 +7117,7 @@ components:
           customTaxAmount: 3.5571952270680973
           enrollmentId: enrollmentId
           walletId: walletId
+          forexRatesSnapshot: forexRatesSnapshot
           totalWithheldTaxesInUsd: 5.025004791520295
           totalProfitInUsd: 1.4894159098541704
           orderLinesCount: 6
@@ -5067,6 +7208,367 @@ components:
             $ref: '#/components/schemas/OrderDto'
           nullable: true
           type: array
+      type: object
+    PaymentChargebackDto:
+      additionalProperties: false
+      example:
+        totalFees: 0.8008281904610115
+        paymentId: paymentId
+        requestDate: 2000-01-23T04:56:07.000+00:00
+        id: id
+        bankProfileName: bankProfileName
+        bankProfileId: bankProfileId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        requestDate:
+          format: date-time
+          type: string
+        paymentId:
+          nullable: true
+          type: string
+        bankProfileId:
+          nullable: true
+          type: string
+        bankProfileName:
+          nullable: true
+          type: string
+        totalFees:
+          format: double
+          type: number
+      type: object
+    PaymentChargebackDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalFees: 0.8008281904610115
+          paymentId: paymentId
+          requestDate: 2000-01-23T04:56:07.000+00:00
+          id: id
+          bankProfileName: bankProfileName
+          bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - totalFees: 0.8008281904610115
+          paymentId: paymentId
+          requestDate: 2000-01-23T04:56:07.000+00:00
+          id: id
+          bankProfileName: bankProfileName
+          bankProfileId: bankProfileId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentChargebackDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentCreateDto:
+      additionalProperties: false
+      example:
+        data: data
+        called: true
+        orderId: orderId
+        fiscalIdentificationTypeId: fiscalIdentificationTypeId
+        signatureMismatch: true
+        authorization: authorization
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        forexRatesSnapshot: forexRatesSnapshot
+        correlationCode: correlationCode
+        isExternal: true
+        dataLabel: dataLabel
+        emisorWalletId: emisorWalletId
+        data1Label: data1Label
+        antiFraudScore: 5.637376656633329
+        bankId: bankId
+        forexRate: 0.8008281904610115
+        phone: phone
+        bankAccountId: bankAccountId
+        markedForRevision: true
+        referenceCode: referenceCode
+        callRecordURL: callRecordURL
+        ipLookupId: ipLookupId
+        totalCost: 6.027456183070403
+        payerPictureTimestamp: payerPictureTimestamp
+        officialId: officialId
+        signature: signature
+        city: city
+        accountingEntryId: accountingEntryId
+        onBehalfOf: Self
+        entitlementId: entitlementId
+        identificationBackPicture: identificationBackPicture
+        payerPicture: payerPicture
+        countryId: countryId
+        identificationPicture: identificationPicture
+        paymentType: Paid
+        locationId: locationId
+        cellphone: cellphone
+        department: department
+        paymentStatus: Unset
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        baseCost: 5.962133916683182
+        totalTaxes: 1.4658129805029452
+        identificationBackPictureTimestamp: identificationBackPictureTimestamp
+        receiverWalletId: receiverWalletId
+        data1: data1
+        verified: true
+        identificationPictureTimestamp: identificationPictureTimestamp
+        paymentGatewayId: paymentGatewayId
+        officialIdExpeditionDate: 2000-01-23T04:56:07.000+00:00
+        response: response
+        closed: true
+        paymentTokenId: paymentTokenId
+        invoiceId: invoiceId
+        billingAddress: billingAddress
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        invoiceId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        totalCost:
+          format: double
+          type: number
+        totalTaxes:
+          format: double
+          type: number
+        closed:
+          type: boolean
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        response:
+          nullable: true
+          type: string
+        authorization:
+          nullable: true
+          type: string
+        referenceCode:
+          nullable: true
+          type: string
+        correlationCode:
+          nullable: true
+          type: string
+        lastUpdated:
+          format: date-time
+          type: string
+        onBehalfOf:
+          enum:
+          - Self
+          - Tenant
+          - Individual
+          - Organization
+          type: string
+        paymentType:
+          enum:
+          - Paid
+          - Received
+          - Internal
+          type: string
+        paymentStatus:
+          enum:
+          - Unset
+          - Accepted
+          - Rejected
+          - OnHold
+          - Failed
+          - Reversed
+          - Retained
+          - Initialized
+          - Expired
+          - Abandoned
+          - Cancelled
+          - AcceptedRetained
+          type: string
+        baseCost:
+          format: double
+          type: number
+        signature:
+          nullable: true
+          type: string
+        signatureMismatch:
+          type: boolean
+        isExternal:
+          type: boolean
+        markedForRevision:
+          type: boolean
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        officialId:
+          nullable: true
+          type: string
+        officialIdExpeditionDate:
+          format: date-time
+          type: string
+        fiscalIdentificationTypeId:
+          nullable: true
+          type: string
+        billingAddress:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        cellphone:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        locationId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        entitlementId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        antiFraudScore:
+          format: double
+          type: number
+        callRecordURL:
+          nullable: true
+          type: string
+        called:
+          type: boolean
+        verified:
+          type: boolean
+        payerPictureTimestamp:
+          nullable: true
+          type: string
+        payerPicture:
+          nullable: true
+          type: string
+        identificationPictureTimestamp:
+          nullable: true
+          type: string
+        identificationPicture:
+          nullable: true
+          type: string
+        identificationBackPicture:
+          nullable: true
+          type: string
+        identificationBackPictureTimestamp:
+          nullable: true
+          type: string
+        ipLookupId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        orderId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        accountingEntryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentGatewayId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        bankId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        paymentTokenId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        emisorWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
       type: object
     PaymentDto:
       additionalProperties: false
@@ -5470,6 +7972,805 @@ components:
         result:
           items:
             $ref: '#/components/schemas/PaymentDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentRefundDto:
+      additionalProperties: false
+      example:
+        totalFees: 0.8008281904610115
+        walletAccountId: walletAccountId
+        paymentId: paymentId
+        id: id
+        refundRequestId: refundRequestId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        paymentId:
+          nullable: true
+          type: string
+        walletAccountId:
+          nullable: true
+          type: string
+        refundRequestId:
+          nullable: true
+          type: string
+        totalFees:
+          format: double
+          type: number
+      type: object
+    PaymentRefundDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalFees: 0.8008281904610115
+          walletAccountId: walletAccountId
+          paymentId: paymentId
+          id: id
+          refundRequestId: refundRequestId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - totalFees: 0.8008281904610115
+          walletAccountId: walletAccountId
+          paymentId: paymentId
+          id: id
+          refundRequestId: refundRequestId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentRefundDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentTokenCreateDto:
+      additionalProperties: false
+      example:
+        paymentGatewayId: paymentGatewayId
+        cardExpirationMonth: cardExpirationMonth
+        cardFranchise: cardFranchise
+        cardExpirationYear: cardExpirationYear
+        validUntil: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tokenType: tokenType
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        mask: mask
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        mask:
+          minLength: 1
+          type: string
+        tokenType:
+          nullable: true
+          type: string
+        cardFranchise:
+          nullable: true
+          type: string
+        cardExpirationMonth:
+          minLength: 1
+          type: string
+        cardExpirationYear:
+          minLength: 1
+          type: string
+        validUntil:
+          format: date-time
+          nullable: true
+          type: string
+        paymentGatewayId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - cardExpirationMonth
+      - cardExpirationYear
+      - mask
+      type: object
+    PaymentTokenDto:
+      additionalProperties: false
+      example:
+        paymentGatewayId: paymentGatewayId
+        walletAccountId: walletAccountId
+        test: true
+        cardExpirationMonth: cardExpirationMonth
+        cardFranchise: cardFranchise
+        cardExpirationYear: cardExpirationYear
+        validUntil: 2000-01-23T04:56:07.000+00:00
+        id: id
+        tokenType: tokenType
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        mask: mask
+        status: status
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        test:
+          type: boolean
+        mask:
+          nullable: true
+          type: string
+        tokenType:
+          nullable: true
+          type: string
+        cardFranchise:
+          nullable: true
+          type: string
+        cardExpirationMonth:
+          nullable: true
+          type: string
+        cardExpirationYear:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        validUntil:
+          format: date-time
+          nullable: true
+          type: string
+        walletAccountId:
+          nullable: true
+          type: string
+        paymentGatewayId:
+          nullable: true
+          type: string
+      type: object
+    PaymentTokenDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          paymentGatewayId: paymentGatewayId
+          walletAccountId: walletAccountId
+          test: true
+          cardExpirationMonth: cardExpirationMonth
+          cardFranchise: cardFranchise
+          cardExpirationYear: cardExpirationYear
+          validUntil: 2000-01-23T04:56:07.000+00:00
+          id: id
+          tokenType: tokenType
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          mask: mask
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/PaymentTokenDto'
+      type: object
+    PaymentTokenDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - paymentGatewayId: paymentGatewayId
+          walletAccountId: walletAccountId
+          test: true
+          cardExpirationMonth: cardExpirationMonth
+          cardFranchise: cardFranchise
+          cardExpirationYear: cardExpirationYear
+          validUntil: 2000-01-23T04:56:07.000+00:00
+          id: id
+          tokenType: tokenType
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          mask: mask
+          status: status
+        - paymentGatewayId: paymentGatewayId
+          walletAccountId: walletAccountId
+          test: true
+          cardExpirationMonth: cardExpirationMonth
+          cardFranchise: cardFranchise
+          cardExpirationYear: cardExpirationYear
+          validUntil: 2000-01-23T04:56:07.000+00:00
+          id: id
+          tokenType: tokenType
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          mask: mask
+          status: status
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/PaymentTokenDto'
+          nullable: true
+          type: array
+      type: object
+    PaymentTokenUpdateDto:
+      additionalProperties: false
+      example:
+        paymentGatewayId: paymentGatewayId
+        cardExpirationMonth: cardExpirationMonth
+        cardFranchise: cardFranchise
+        cardExpirationYear: cardExpirationYear
+        validUntil: 2000-01-23T04:56:07.000+00:00
+        tokenType: tokenType
+        mask: mask
+        status: status
+      properties:
+        mask:
+          nullable: true
+          type: string
+        tokenType:
+          nullable: true
+          type: string
+        cardFranchise:
+          nullable: true
+          type: string
+        cardExpirationMonth:
+          nullable: true
+          type: string
+        cardExpirationYear:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        validUntil:
+          format: date-time
+          nullable: true
+          type: string
+        paymentGatewayId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    QuoteDto:
+      additionalProperties: false
+      example:
+        totalDiscountsInUsd: 6.84685269835264
+        totalShippingCostCurrencyId: totalShippingCostCurrencyId
+        totalInUsd: 9.018348186070783
+        companyName: companyName
+        postalCode: postalCode
+        totalDetail: 6.027456183070403
+        totalShippingCost: 9.301444243932576
+        totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+        freightTerms: FOB
+        cityId: cityId
+        type: type
+        totalTaxBaseInUsd: 1.1730742509559433
+        organizationId: organizationId
+        totalTaxBase: 2.3021358869347655
+        effectiveTo: 2000-01-23T04:56:07.000+00:00
+        customDiscountsAmount: 6.438423552598547
+        totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+        addressLine1: addressLine1
+        addressLine2: addressLine2
+        id: id
+        currencyId: currencyId
+        enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
+        totalWithheldTaxesInUsd: 5.025004791520295
+        totalProfitInUsd: 1.4894159098541704
+        dealUnitId: dealUnitId
+        totalGlobalSurchargesInUsd: 8.762042012749001
+        cartId: cartId
+        totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+        costCalculationMethod: Automatic
+        totalShippingTaxesInUsd: 9.369310271410669
+        firstName: firstName
+        totalShippingTax: 3.616076749251911
+        forexRate: 0.8008281904610115
+        totalShippingCostInUsd: 9.965781217890562
+        totalDetailInUsd: 1.0246457001441578
+        lastName: lastName
+        totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+        totalProfit: 1.4658129805029452
+        totalGlobalDiscounts: 4.145608029883936
+        totalDiscounts: 5.962133916683182
+        totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+        description: description
+        customerNotes: customerNotes
+        individualId: individualId
+        title: title
+        countryId: countryId
+        quoteStatus: Draft
+        total: 1.2315135367772556
+        totalCurrencyId: totalCurrencyId
+        totalSurchargesInUsd: 7.457744773683766
+        billingEmail: billingEmail
+        totalDiscountsCurrencyId: totalDiscountsCurrencyId
+        receiverTenantId: receiverTenantId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        totalTaxes: 7.061401241503109
+        totalWithheldTax: 2.027123023002322
+        stateId: stateId
+        priceListId: priceListId
+        userId: userId
+        totalDetailCurrencyId: totalDetailCurrencyId
+        totalSurchargesCurrencyId: totalSurchargesCurrencyId
+        totalTaxesInUsd: 4.965218492984954
+        tenantId: tenantId
+        closed: true
+        totalSurcharges: 5.637376656633329
+        taxCalculationMethod: Included
+        totalGlobalSurcharges: 7.386281948385884
+        totalGlobalDiscountsInUsd: 6.683562403749608
+        totalProfitCurrencyId: totalProfitCurrencyId
+        effectiveFrom: 2000-01-23T04:56:07.000+00:00
+        totalTaxesCurrencyId: totalTaxesCurrencyId
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        closed:
+          type: boolean
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priceListId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        receiverTenantId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        companyName:
+          nullable: true
+          type: string
+        billingEmail:
+          nullable: true
+          type: string
+        addressLine1:
+          nullable: true
+          type: string
+        addressLine2:
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        customerNotes:
+          nullable: true
+          type: string
+        taxCalculationMethod:
+          enum:
+          - Included
+          - Excluded
+          type: string
+        costCalculationMethod:
+          enum:
+          - Automatic
+          - Custom
+          type: string
+        forexRate:
+          format: double
+          type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        totalDetail:
+          format: double
+          type: number
+        totalDetailCurrencyId:
+          nullable: true
+          type: string
+        totalProfit:
+          format: double
+          type: number
+        totalProfitCurrencyId:
+          nullable: true
+          type: string
+        totalDiscounts:
+          format: double
+          type: number
+        totalDiscountsCurrencyId:
+          nullable: true
+          type: string
+        totalSurcharges:
+          format: double
+          type: number
+        totalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        totalTaxBase:
+          format: double
+          type: number
+        totalTaxBaseCurrencyId:
+          nullable: true
+          type: string
+        totalTaxes:
+          format: double
+          type: number
+        totalTaxesCurrencyId:
+          nullable: true
+          type: string
+        totalShippingCost:
+          format: double
+          type: number
+        totalShippingCostCurrencyId:
+          nullable: true
+          type: string
+        totalShippingTax:
+          format: double
+          type: number
+        totalShippingTaxCurrencyId:
+          nullable: true
+          type: string
+        totalWithheldTax:
+          format: double
+          type: number
+        totalWithheldTaxCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalDiscounts:
+          format: double
+          type: number
+        totalGlobalDiscountsCurrencyId:
+          nullable: true
+          type: string
+        totalGlobalSurcharges:
+          format: double
+          type: number
+        totalGlobalSurchargesCurrencyId:
+          nullable: true
+          type: string
+        total:
+          format: double
+          type: number
+        totalCurrencyId:
+          nullable: true
+          type: string
+        totalDetailInUsd:
+          format: double
+          type: number
+        totalProfitInUsd:
+          format: double
+          type: number
+        totalDiscountsInUsd:
+          format: double
+          type: number
+        totalSurchargesInUsd:
+          format: double
+          type: number
+        totalTaxBaseInUsd:
+          format: double
+          type: number
+        totalTaxesInUsd:
+          format: double
+          type: number
+        totalWithheldTaxesInUsd:
+          format: double
+          type: number
+        totalShippingCostInUsd:
+          format: double
+          type: number
+        totalShippingTaxesInUsd:
+          format: double
+          type: number
+        totalGlobalDiscountsInUsd:
+          format: double
+          type: number
+        totalGlobalSurchargesInUsd:
+          format: double
+          type: number
+        totalInUsd:
+          format: double
+          type: number
+        cartId:
+          nullable: true
+          type: string
+        dealUnitId:
+          nullable: true
+          type: string
+        effectiveTo:
+          format: date-time
+          nullable: true
+          type: string
+        effectiveFrom:
+          format: date-time
+          nullable: true
+          type: string
+        quoteStatus:
+          enum:
+          - Draft
+          - New
+          - Accepted
+          - Declined
+          - Expired
+          type: string
+        freightTerms:
+          enum:
+          - FOB
+          - NoCharge
+          type: string
+        customDiscountsAmount:
+          format: double
+          type: number
+      type: object
+    QuoteDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
+          companyName: companyName
+          postalCode: postalCode
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
+          cityId: cityId
+          type: type
+          totalTaxBaseInUsd: 1.1730742509559433
+          organizationId: organizationId
+          totalTaxBase: 2.3021358869347655
+          effectiveTo: 2000-01-23T04:56:07.000+00:00
+          customDiscountsAmount: 6.438423552598547
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          id: id
+          currencyId: currencyId
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          dealUnitId: dealUnitId
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          cartId: cartId
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
+          firstName: firstName
+          totalShippingTax: 3.616076749251911
+          forexRate: 0.8008281904610115
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          lastName: lastName
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          quoteStatus: Draft
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
+          billingEmail: billingEmail
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          receiverTenantId: receiverTenantId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
+          stateId: stateId
+          priceListId: priceListId
+          userId: userId
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
+          effectiveFrom: 2000-01-23T04:56:07.000+00:00
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        - totalDiscountsInUsd: 6.84685269835264
+          totalShippingCostCurrencyId: totalShippingCostCurrencyId
+          totalInUsd: 9.018348186070783
+          companyName: companyName
+          postalCode: postalCode
+          totalDetail: 6.027456183070403
+          totalShippingCost: 9.301444243932576
+          totalGlobalSurchargesCurrencyId: totalGlobalSurchargesCurrencyId
+          freightTerms: FOB
+          cityId: cityId
+          type: type
+          totalTaxBaseInUsd: 1.1730742509559433
+          organizationId: organizationId
+          totalTaxBase: 2.3021358869347655
+          effectiveTo: 2000-01-23T04:56:07.000+00:00
+          customDiscountsAmount: 6.438423552598547
+          totalTaxBaseCurrencyId: totalTaxBaseCurrencyId
+          addressLine1: addressLine1
+          addressLine2: addressLine2
+          id: id
+          currencyId: currencyId
+          enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          totalWithheldTaxesInUsd: 5.025004791520295
+          totalProfitInUsd: 1.4894159098541704
+          dealUnitId: dealUnitId
+          totalGlobalSurchargesInUsd: 8.762042012749001
+          cartId: cartId
+          totalWithheldTaxCurrencyId: totalWithheldTaxCurrencyId
+          costCalculationMethod: Automatic
+          totalShippingTaxesInUsd: 9.369310271410669
+          firstName: firstName
+          totalShippingTax: 3.616076749251911
+          forexRate: 0.8008281904610115
+          totalShippingCostInUsd: 9.965781217890562
+          totalDetailInUsd: 1.0246457001441578
+          lastName: lastName
+          totalGlobalDiscountsCurrencyId: totalGlobalDiscountsCurrencyId
+          totalProfit: 1.4658129805029452
+          totalGlobalDiscounts: 4.145608029883936
+          totalDiscounts: 5.962133916683182
+          totalShippingTaxCurrencyId: totalShippingTaxCurrencyId
+          description: description
+          customerNotes: customerNotes
+          individualId: individualId
+          title: title
+          countryId: countryId
+          quoteStatus: Draft
+          total: 1.2315135367772556
+          totalCurrencyId: totalCurrencyId
+          totalSurchargesInUsd: 7.457744773683766
+          billingEmail: billingEmail
+          totalDiscountsCurrencyId: totalDiscountsCurrencyId
+          receiverTenantId: receiverTenantId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          totalTaxes: 7.061401241503109
+          totalWithheldTax: 2.027123023002322
+          stateId: stateId
+          priceListId: priceListId
+          userId: userId
+          totalDetailCurrencyId: totalDetailCurrencyId
+          totalSurchargesCurrencyId: totalSurchargesCurrencyId
+          totalTaxesInUsd: 4.965218492984954
+          tenantId: tenantId
+          closed: true
+          totalSurcharges: 5.637376656633329
+          taxCalculationMethod: Included
+          totalGlobalSurcharges: 7.386281948385884
+          totalGlobalDiscountsInUsd: 6.683562403749608
+          totalProfitCurrencyId: totalProfitCurrencyId
+          effectiveFrom: 2000-01-23T04:56:07.000+00:00
+          totalTaxesCurrencyId: totalTaxesCurrencyId
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/QuoteDto'
           nullable: true
           type: array
       type: object
@@ -6014,6 +9315,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         balance:
           format: double
@@ -6097,6 +9399,228 @@ components:
           type: string
         result:
           $ref: '#/components/schemas/WalletDto'
+      type: object
+    WalletWithdrawDto:
+      additionalProperties: false
+      example:
+        walletAccountId: walletAccountId
+        walletWithdrawRequestId: walletWithdrawRequestId
+        balanceBeforeWithdraw: 0.8008281904610115
+        balanceAfterWithdraw: 6.027456183070403
+        withdrawedAmount: 1.4658129805029452
+        id: id
+        currencyId: currencyId
+        withdrawStatus: OnHold
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        withdrawStatus:
+          enum:
+          - OnHold
+          - Retained
+          - Processing
+          - OnValidation
+          - Processed
+          type: string
+        walletAccountId:
+          nullable: true
+          type: string
+        walletWithdrawRequestId:
+          nullable: true
+          type: string
+        balanceBeforeWithdraw:
+          format: double
+          type: number
+        balanceAfterWithdraw:
+          format: double
+          type: number
+        withdrawedAmount:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    WalletWithdrawDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - walletAccountId: walletAccountId
+          walletWithdrawRequestId: walletWithdrawRequestId
+          balanceBeforeWithdraw: 0.8008281904610115
+          balanceAfterWithdraw: 6.027456183070403
+          withdrawedAmount: 1.4658129805029452
+          id: id
+          currencyId: currencyId
+          withdrawStatus: OnHold
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - walletAccountId: walletAccountId
+          walletWithdrawRequestId: walletWithdrawRequestId
+          balanceBeforeWithdraw: 0.8008281904610115
+          balanceAfterWithdraw: 6.027456183070403
+          withdrawedAmount: 1.4658129805029452
+          id: id
+          currencyId: currencyId
+          withdrawStatus: OnHold
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WalletWithdrawDto'
+          nullable: true
+          type: array
+      type: object
+    WalletWithdrawRequestCreateDto:
+      additionalProperties: false
+      example:
+        requestedWithdrawAmount: 0.8008281904610115
+        bankAccountId: bankAccountId
+        id: id
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        requestedWithdrawAmount:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        bankAccountId:
+          nullable: true
+          type: string
+      type: object
+    WalletWithdrawRequestDto:
+      additionalProperties: false
+      example:
+        walletAccountId: walletAccountId
+        requestedWithdrawAmount: 0.8008281904610115
+        walletWithdrawRequestStatus: Pending
+        bankAccountId: bankAccountId
+        businessId: businessId
+        id: id
+        currencyId: currencyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        requestedWithdrawAmountInUSD: 6.027456183070403
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        requestedWithdrawAmount:
+          format: double
+          type: number
+        requestedWithdrawAmountInUSD:
+          format: double
+          type: number
+        walletWithdrawRequestStatus:
+          enum:
+          - Pending
+          - Processed
+          - Cancelled
+          - OnHold
+          - Denied
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        businessId:
+          nullable: true
+          type: string
+        walletAccountId:
+          nullable: true
+          type: string
+        bankAccountId:
+          nullable: true
+          type: string
+      type: object
+    WalletWithdrawRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - walletAccountId: walletAccountId
+          requestedWithdrawAmount: 0.8008281904610115
+          walletWithdrawRequestStatus: Pending
+          bankAccountId: bankAccountId
+          businessId: businessId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          requestedWithdrawAmountInUSD: 6.027456183070403
+        - walletAccountId: walletAccountId
+          requestedWithdrawAmount: 0.8008281904610115
+          walletWithdrawRequestStatus: Pending
+          bankAccountId: bankAccountId
+          businessId: businessId
+          id: id
+          currencyId: currencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          requestedWithdrawAmountInUSD: 6.027456183070403
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WalletWithdrawRequestDto'
+          nullable: true
+          type: array
       type: object
     _Account_PerformExternalLogin_post_request:
       properties:

@@ -9,35 +9,359 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SupportService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
-- name: FenixAlliance.ABS.Web
+- name: Completions
+- name: FenixAlliance.Portals.Website
+- name: InquiryRequests
+- name: KnowledgeArticles
+- name: MaintenanceVisits
+- name: RefundPolicies
+- name: RefundRequests
+- name: ReturnPolicies
+- name: ReturnRequests
 - name: SupportEntitlements
 - name: SupportRequestAttachments
 - name: SupportRequests
 - name: SupportTicketPriorities
 - name: SupportTickets
 - name: SupportTicketTypes
+- name: WarrantyPolicies
+- name: WarrantyRequests
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -46,7 +370,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -55,7 +379,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -76,7 +400,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -111,7 +435,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -131,7 +455,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -164,7 +488,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -179,7 +503,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -201,7 +525,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -223,7 +547,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -251,7 +575,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -274,7 +598,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -301,7 +625,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -330,7 +654,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -354,7 +678,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -378,7 +702,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -388,9 +712,2262 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
+  /api/v2/SupportService/InquiryRequests:
+    get:
+      operationId: GetInquiryRequestsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InquiryRequestDtoListEnvelope'
+          description: OK
+      summary: Retrieve inquiry requests
+      tags:
+      - InquiryRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateInquiryRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create an inquiry request
+      tags:
+      - InquiryRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/InquiryRequests/Count:
+    get:
+      operationId: GetInquiryRequestsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get inquiry requests count
+      tags:
+      - InquiryRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/InquiryRequests/{inquiryRequestId}:
+    delete:
+      operationId: DeleteInquiryRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: inquiryRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete an inquiry request
+      tags:
+      - InquiryRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetInquiryRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: inquiryRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryRequestDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InquiryRequestDtoEnvelope'
+          description: OK
+      summary: Retrieve an inquiry request by ID
+      tags:
+      - InquiryRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateInquiryRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: inquiryRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InquiryRequestUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update an inquiry request
+      tags:
+      - InquiryRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/KnowledgeArticles:
+    get:
+      operationId: GetKnowledgeArticlesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeArticleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KnowledgeArticleDtoListEnvelope'
+          description: OK
+      summary: Retrieve knowledge articles
+      tags:
+      - KnowledgeArticles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateKnowledgeArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a knowledge article
+      tags:
+      - KnowledgeArticles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/KnowledgeArticles/Count:
+    get:
+      operationId: GetKnowledgeArticlesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get knowledge articles count
+      tags:
+      - KnowledgeArticles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/KnowledgeArticles/{knowledgeArticleId}:
+    delete:
+      operationId: DeleteKnowledgeArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: knowledgeArticleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a knowledge article
+      tags:
+      - KnowledgeArticles
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetKnowledgeArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: knowledgeArticleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeArticleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KnowledgeArticleDtoEnvelope'
+          description: OK
+      summary: Retrieve a knowledge article by ID
+      tags:
+      - KnowledgeArticles
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateKnowledgeArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: knowledgeArticleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/KnowledgeArticleUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a knowledge article
+      tags:
+      - KnowledgeArticles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/MaintenanceVisits:
+    get:
+      operationId: GetMaintenanceVisitsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceVisitDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MaintenanceVisitDtoListEnvelope'
+          description: OK
+      summary: Retrieve maintenance visits
+      tags:
+      - MaintenanceVisits
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateMaintenanceVisitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a maintenance visit
+      tags:
+      - MaintenanceVisits
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/MaintenanceVisits/Count:
+    get:
+      operationId: GetMaintenanceVisitsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get maintenance visits count
+      tags:
+      - MaintenanceVisits
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId}:
+    delete:
+      operationId: DeleteMaintenanceVisitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: maintenanceVisitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a maintenance visit
+      tags:
+      - MaintenanceVisits
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetMaintenanceVisitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: maintenanceVisitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceVisitDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MaintenanceVisitDtoEnvelope'
+          description: OK
+      summary: Retrieve a maintenance visit by ID
+      tags:
+      - MaintenanceVisits
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateMaintenanceVisitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: maintenanceVisitId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/MaintenanceVisitUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a maintenance visit
+      tags:
+      - MaintenanceVisits
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundPolicies:
+    get:
+      operationId: GetRefundPoliciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemRefundPolicyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemRefundPolicyDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of refund policies
+      tags:
+      - RefundPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateRefundPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a new refund policy
+      tags:
+      - RefundPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundPolicies/Count:
+    get:
+      operationId: GetRefundPoliciesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of refund policies
+      tags:
+      - RefundPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundPolicies/{refundPolicyId}:
+    delete:
+      operationId: DeleteRefundPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a refund policy
+      tags:
+      - RefundPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetRefundPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemRefundPolicyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemRefundPolicyDtoEnvelope'
+          description: OK
+      summary: Retrieve a refund policy by ID
+      tags:
+      - RefundPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateRefundPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemRefundPolicyUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a refund policy
+      tags:
+      - RefundPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundRequests:
+    get:
+      operationId: GetRefundRequestsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefundRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RefundRequestDtoListEnvelope'
+          description: OK
+      summary: Retrieve refund requests
+      tags:
+      - RefundRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateRefundRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RefundRequestCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a refund request
+      tags:
+      - RefundRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundRequests/Count:
+    get:
+      operationId: GetRefundRequestsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get refund requests count
+      tags:
+      - RefundRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/RefundRequests/{refundRequestId}:
+    delete:
+      operationId: DeleteRefundRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a refund request
+      tags:
+      - RefundRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetRefundRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefundRequestDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RefundRequestDtoEnvelope'
+          description: OK
+      summary: Retrieve a refund request by ID
+      tags:
+      - RefundRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateRefundRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: refundRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequestUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RefundRequestUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a refund request
+      tags:
+      - RefundRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnPolicies:
+    get:
+      operationId: GetReturnPoliciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemReturnPolicyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemReturnPolicyDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of return policies
+      tags:
+      - ReturnPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateReturnPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a new return policy
+      tags:
+      - ReturnPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnPolicies/Count:
+    get:
+      operationId: GetReturnPoliciesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of return policies
+      tags:
+      - ReturnPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnPolicies/{returnPolicyId}:
+    delete:
+      operationId: DeleteReturnPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a return policy
+      tags:
+      - ReturnPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetReturnPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemReturnPolicyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemReturnPolicyDtoEnvelope'
+          description: OK
+      summary: Retrieve a return policy by ID
+      tags:
+      - ReturnPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateReturnPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemReturnPolicyUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a return policy
+      tags:
+      - ReturnPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnRequests:
+    get:
+      operationId: GetReturnRequestsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ReturnRequestDtoListEnvelope'
+          description: OK
+      summary: Retrieve return requests
+      tags:
+      - ReturnRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateReturnRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a return request
+      tags:
+      - ReturnRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnRequests/Count:
+    get:
+      operationId: GetReturnRequestsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get return requests count
+      tags:
+      - ReturnRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/ReturnRequests/{returnRequestId}:
+    delete:
+      operationId: DeleteReturnRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a return request
+      tags:
+      - ReturnRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetReturnRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnRequestDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ReturnRequestDtoEnvelope'
+          description: OK
+      summary: Retrieve a return request by ID
+      tags:
+      - ReturnRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateReturnRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: returnRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReturnRequestUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a return request
+      tags:
+      - ReturnRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SupportService/SupportEntitlements:
     get:
       description: Retrieves a list of support entitlements for the specified tenant
@@ -3598,6 +6175,696 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/SupportService/WarrantyPolicies:
+    get:
+      operationId: GetWarrantyPoliciesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemWarrantyPolicyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemWarrantyPolicyDtoListEnvelope'
+          description: OK
+      summary: Retrieve a list of warranty policies
+      tags:
+      - WarrantyPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateWarrantyPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a new warranty policy
+      tags:
+      - WarrantyPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/WarrantyPolicies/Count:
+    get:
+      operationId: GetWarrantyPoliciesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of warranty policies
+      tags:
+      - WarrantyPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/WarrantyPolicies/{warrantyPolicyId}:
+    delete:
+      operationId: DeleteWarrantyPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a warranty policy
+      tags:
+      - WarrantyPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetWarrantyPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemWarrantyPolicyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemWarrantyPolicyDtoEnvelope'
+          description: OK
+      summary: Retrieve a warranty policy by ID
+      tags:
+      - WarrantyPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateWarrantyPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemWarrantyPolicyUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a warranty policy
+      tags:
+      - WarrantyPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/WarrantyRequests:
+    get:
+      operationId: GetWarrantyRequestsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WarrantyRequestDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WarrantyRequestDtoListEnvelope'
+          description: OK
+      summary: Retrieve warranty requests
+      tags:
+      - WarrantyRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateWarrantyRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestCreateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a warranty request
+      tags:
+      - WarrantyRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/WarrantyRequests/Count:
+    get:
+      operationId: GetWarrantyRequestsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get warranty requests count
+      tags:
+      - WarrantyRequests
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SupportService/WarrantyRequests/{warrantyRequestId}:
+    delete:
+      operationId: DeleteWarrantyRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a warranty request
+      tags:
+      - WarrantyRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      operationId: GetWarrantyRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WarrantyRequestDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WarrantyRequestDtoEnvelope'
+          description: OK
+      summary: Retrieve a warranty request by ID
+      tags:
+      - WarrantyRequests
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateWarrantyRequestAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: warrantyRequestId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/WarrantyRequestUpdateDto'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a warranty request
+      tags:
+      - WarrantyRequests
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
 components:
   schemas:
     AccessTokenResponse:
@@ -3750,6 +7017,301 @@ components:
       - email
       - isEmailConfirmed
       type: object
+    InquiryRequestCreateDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        organizationDomain: organizationDomain
+        organizationName: organizationName
+        type: type
+        message: message
+        countryId: countryId
+        phone: phone
+        name: name
+        jobRole: jobRole
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          nullable: true
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        email:
+          format: email
+          minLength: 1
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        jobRole:
+          nullable: true
+          type: string
+        organizationDomain:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        message:
+          minLength: 1
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      required:
+      - email
+      - message
+      - name
+      type: object
+    InquiryRequestDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        accountHolderId: accountHolderId
+        organizationDomain: organizationDomain
+        organizationName: organizationName
+        type: type
+        message: message
+        businessProfileRecordId: businessProfileRecordId
+        countryId: countryId
+        phone: phone
+        name: name
+        tenantId: tenantId
+        jobRole: jobRole
+        id: id
+        socialProfileId: socialProfileId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        jobRole:
+          nullable: true
+          type: string
+        organizationDomain:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        accountHolderId:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
+    InquiryRequestDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          lastName: lastName
+          accountHolderId: accountHolderId
+          organizationDomain: organizationDomain
+          organizationName: organizationName
+          type: type
+          message: message
+          businessProfileRecordId: businessProfileRecordId
+          countryId: countryId
+          phone: phone
+          name: name
+          tenantId: tenantId
+          jobRole: jobRole
+          id: id
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/InquiryRequestDto'
+      type: object
+    InquiryRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - lastName: lastName
+          accountHolderId: accountHolderId
+          organizationDomain: organizationDomain
+          organizationName: organizationName
+          type: type
+          message: message
+          businessProfileRecordId: businessProfileRecordId
+          countryId: countryId
+          phone: phone
+          name: name
+          tenantId: tenantId
+          jobRole: jobRole
+          id: id
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - lastName: lastName
+          accountHolderId: accountHolderId
+          organizationDomain: organizationDomain
+          organizationName: organizationName
+          type: type
+          message: message
+          businessProfileRecordId: businessProfileRecordId
+          countryId: countryId
+          phone: phone
+          name: name
+          tenantId: tenantId
+          jobRole: jobRole
+          id: id
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/InquiryRequestDto'
+          nullable: true
+          type: array
+      type: object
+    InquiryRequestUpdateDto:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        organizationDomain: organizationDomain
+        organizationName: organizationName
+        phone: phone
+        name: name
+        jobRole: jobRole
+        type: type
+        message: message
+        socialProfileId: socialProfileId
+        email: email
+        countryId: countryId
+      properties:
+        type:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        organizationName:
+          nullable: true
+          type: string
+        jobRole:
+          nullable: true
+          type: string
+        organizationDomain:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+      type: object
     Int32Envelope:
       additionalProperties: false
       example:
@@ -3781,6 +7343,1629 @@ components:
           format: int32
           type: integer
       type: object
+    ItemRefundPolicyCreateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    ItemRefundPolicyDto:
+      additionalProperties: false
+      example:
+        code: code
+        weeks: 1
+        customState: customState
+        description: description
+        type: type
+        title: title
+        customCity: customCity
+        years: 5
+        isFree: true
+        percentage: 7.061401241503109
+        id: id
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        allowInternational: true
+        hours: 0
+        months: 5
+        shippingCourierID: shippingCourierID
+        businessID: businessID
+        countryStateID: countryStateID
+        cityID: cityID
+        businessProfileRecordID: businessProfileRecordID
+        countryID: countryID
+        isDefault: true
+        isEnabled: true
+        days: 6
+        currencyID: currencyID
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      type: object
+    ItemRefundPolicyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemRefundPolicyDto'
+      type: object
+    ItemRefundPolicyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemRefundPolicyDto'
+          nullable: true
+          type: array
+      type: object
+    ItemRefundPolicyUpdateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        currencyID: currencyID
+        value: 2.3021358869347655
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
+    ItemReturnPolicyCreateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        shippingCourierID: shippingCourierID
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    ItemReturnPolicyDto:
+      additionalProperties: false
+      example:
+        code: code
+        weeks: 1
+        customState: customState
+        description: description
+        type: type
+        title: title
+        customCity: customCity
+        years: 5
+        isFree: true
+        percentage: 7.061401241503109
+        id: id
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        allowInternational: true
+        hours: 0
+        months: 5
+        shippingCourierID: shippingCourierID
+        businessID: businessID
+        countryStateID: countryStateID
+        cityID: cityID
+        businessProfileRecordID: businessProfileRecordID
+        countryID: countryID
+        isDefault: true
+        isEnabled: true
+        days: 6
+        currencyID: currencyID
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+        businessProfileRecordID:
+          nullable: true
+          type: string
+      type: object
+    ItemReturnPolicyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemReturnPolicyDto'
+      type: object
+    ItemReturnPolicyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        - code: code
+          weeks: 1
+          customState: customState
+          description: description
+          type: type
+          title: title
+          customCity: customCity
+          years: 5
+          isFree: true
+          percentage: 7.061401241503109
+          id: id
+          value: 2.3021358869347655
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 0
+          months: 5
+          shippingCourierID: shippingCourierID
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 6
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemReturnPolicyDto'
+          nullable: true
+          type: array
+      type: object
+    ItemReturnPolicyUpdateDto:
+      additionalProperties: false
+      example:
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        shippingCourierID: shippingCourierID
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        currencyID: currencyID
+        value: 2.3021358869347655
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        shippingCourierID:
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
+    ItemWarrantyPolicyCreateDto:
+      additionalProperties: false
+      example:
+        isExtendedWarranty: true
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyID: currencyID
+        value: 2.3021358869347655
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isExtendedWarranty:
+          type: boolean
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    ItemWarrantyPolicyDto:
+      additionalProperties: false
+      example:
+        isExtendedWarranty: true
+        code: code
+        weeks: 314780940
+        customState: customState
+        description: description
+        title: title
+        customCity: customCity
+        years: 1210617418
+        isFree: true
+        percentage: 70.61401241503108
+        id: id
+        value: 230213588693476.28
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        allowInternational: true
+        hours: 171976544
+        months: 1280358508
+        businessID: businessID
+        countryStateID: countryStateID
+        cityID: cityID
+        businessProfileRecordID: businessProfileRecordID
+        countryID: countryID
+        isDefault: true
+        isEnabled: true
+        days: 1294386358
+        currencyID: currencyID
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        isExtendedWarranty:
+          type: boolean
+        code:
+          maxLength: 255
+          minLength: 0
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        days:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        weeks:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        months:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        years:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        value:
+          format: double
+          maximum: 999999999999999
+          minimum: 0
+          type: number
+        percentage:
+          format: double
+          maximum: 100
+          minimum: 0
+          type: number
+        currencyID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        countryID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        countryStateID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        customState:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        customCity:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        cityID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        businessID:
+          maxLength: 36
+          minLength: 36
+          type: string
+        businessProfileRecordID:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+      required:
+      - businessID
+      - code
+      - title
+      type: object
+    ItemWarrantyPolicyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          isExtendedWarranty: true
+          code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemWarrantyPolicyDto'
+      type: object
+    ItemWarrantyPolicyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - isExtendedWarranty: true
+          code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        - isExtendedWarranty: true
+          code: code
+          weeks: 314780940
+          customState: customState
+          description: description
+          title: title
+          customCity: customCity
+          years: 1210617418
+          isFree: true
+          percentage: 70.61401241503108
+          id: id
+          value: 230213588693476.28
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          allowInternational: true
+          hours: 171976544
+          months: 1280358508
+          businessID: businessID
+          countryStateID: countryStateID
+          cityID: cityID
+          businessProfileRecordID: businessProfileRecordID
+          countryID: countryID
+          isDefault: true
+          isEnabled: true
+          days: 1294386358
+          currencyID: currencyID
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemWarrantyPolicyDto'
+          nullable: true
+          type: array
+      type: object
+    ItemWarrantyPolicyUpdateDto:
+      additionalProperties: false
+      example:
+        isExtendedWarranty: true
+        reduce: true
+        allowInternational: true
+        hours: 0
+        weeks: 1
+        months: 5
+        customState: customState
+        description: description
+        countryStateID: countryStateID
+        cityID: cityID
+        title: title
+        customCity: customCity
+        years: 5
+        countryID: countryID
+        isDefault: true
+        isFree: true
+        isEnabled: true
+        percentage: 7.061401241503109
+        days: 6
+        currencyID: currencyID
+        value: 2.3021358869347655
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        isExtendedWarranty:
+          type: boolean
+        isFree:
+          type: boolean
+        reduce:
+          type: boolean
+        isEnabled:
+          type: boolean
+        isDefault:
+          type: boolean
+        allowInternational:
+          type: boolean
+        hours:
+          format: int32
+          type: integer
+        days:
+          format: int32
+          type: integer
+        weeks:
+          format: int32
+          type: integer
+        months:
+          format: int32
+          type: integer
+        years:
+          format: int32
+          type: integer
+        value:
+          format: double
+          type: number
+        percentage:
+          format: double
+          type: number
+        currencyID:
+          nullable: true
+          type: string
+        countryID:
+          nullable: true
+          type: string
+        countryStateID:
+          nullable: true
+          type: string
+        customState:
+          nullable: true
+          type: string
+        customCity:
+          nullable: true
+          type: string
+        cityID:
+          nullable: true
+          type: string
+      type: object
+    KnowledgeArticleCreateDto:
+      additionalProperties: false
+      example:
+        description: description
+        published: true
+        title: title
+        seoTitle: seoTitle
+        metaDescription: metaDescription
+        content: content
+        seoKeyWords: seoKeyWords
+        highlightImage: highlightImage
+        enable: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        excerpt: excerpt
+        slug: slug
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        slug:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+      required:
+      - title
+      type: object
+    KnowledgeArticleDto:
+      additionalProperties: false
+      example:
+        description: description
+        published: true
+        title: title
+        seoTitle: seoTitle
+        metaDescription: metaDescription
+        businessProfileRecordId: businessProfileRecordId
+        content: content
+        seoKeyWords: seoKeyWords
+        releaseDateTime: 2000-01-23T04:56:07.000+00:00
+        highlightImage: highlightImage
+        enable: true
+        lastModification: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        id: id
+        excerpt: excerpt
+        slug: slug
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        slug:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+        releaseDateTime:
+          format: date-time
+          type: string
+        lastModification:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+      type: object
+    KnowledgeArticleDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          description: description
+          published: true
+          title: title
+          seoTitle: seoTitle
+          metaDescription: metaDescription
+          businessProfileRecordId: businessProfileRecordId
+          content: content
+          seoKeyWords: seoKeyWords
+          releaseDateTime: 2000-01-23T04:56:07.000+00:00
+          highlightImage: highlightImage
+          enable: true
+          lastModification: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          excerpt: excerpt
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/KnowledgeArticleDto'
+      type: object
+    KnowledgeArticleDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - description: description
+          published: true
+          title: title
+          seoTitle: seoTitle
+          metaDescription: metaDescription
+          businessProfileRecordId: businessProfileRecordId
+          content: content
+          seoKeyWords: seoKeyWords
+          releaseDateTime: 2000-01-23T04:56:07.000+00:00
+          highlightImage: highlightImage
+          enable: true
+          lastModification: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          excerpt: excerpt
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - description: description
+          published: true
+          title: title
+          seoTitle: seoTitle
+          metaDescription: metaDescription
+          businessProfileRecordId: businessProfileRecordId
+          content: content
+          seoKeyWords: seoKeyWords
+          releaseDateTime: 2000-01-23T04:56:07.000+00:00
+          highlightImage: highlightImage
+          enable: true
+          lastModification: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          excerpt: excerpt
+          slug: slug
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/KnowledgeArticleDto'
+          nullable: true
+          type: array
+      type: object
+    KnowledgeArticleUpdateDto:
+      additionalProperties: false
+      example:
+        highlightImage: highlightImage
+        enable: true
+        description: description
+        published: true
+        title: title
+        excerpt: excerpt
+        seoTitle: seoTitle
+        metaDescription: metaDescription
+        slug: slug
+        content: content
+        seoKeyWords: seoKeyWords
+      properties:
+        title:
+          nullable: true
+          type: string
+        slug:
+          nullable: true
+          type: string
+        excerpt:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        content:
+          nullable: true
+          type: string
+        highlightImage:
+          nullable: true
+          type: string
+        seoTitle:
+          nullable: true
+          type: string
+        seoKeyWords:
+          nullable: true
+          type: string
+        metaDescription:
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        enable:
+          type: boolean
+      type: object
     LoginRequest:
       additionalProperties: false
       example:
@@ -3804,6 +8989,119 @@ components:
       required:
       - email
       - password
+      type: object
+    MaintenanceVisitCreateDto:
+      additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+    MaintenanceVisitDto:
+      additionalProperties: false
+      example:
+        tenantId: tenantId
+        id: id
+        businessProfileRecordId: businessProfileRecordId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+      type: object
+    MaintenanceVisitDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          tenantId: tenantId
+          id: id
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/MaintenanceVisitDto'
+      type: object
+    MaintenanceVisitDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - tenantId: tenantId
+          id: id
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - tenantId: tenantId
+          id: id
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/MaintenanceVisitDto'
+          nullable: true
+          type: array
+      type: object
+    MaintenanceVisitUpdateDto:
+      additionalProperties: false
       type: object
     PrivateMessageDto:
       additionalProperties: false
@@ -3920,6 +9218,245 @@ components:
       required:
       - refreshToken
       type: object
+    RefundRequestCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        contactId: contactId
+        refundPolicyId: refundPolicyId
+        paymentId: paymentId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 4000
+          minLength: 0
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        paymentId:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    RefundRequestDto:
+      additionalProperties: false
+      example:
+        accountHolderId: accountHolderId
+        contactId: contactId
+        refundPolicyId: refundPolicyId
+        description: description
+        title: title
+        businessProfileRecordId: businessProfileRecordId
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        paymentId: paymentId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        accountHolderId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        paymentId:
+          nullable: true
+          type: string
+      type: object
+    RefundRequestDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          accountHolderId: accountHolderId
+          contactId: contactId
+          refundPolicyId: refundPolicyId
+          description: description
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          supportEntitlementId: supportEntitlementId
+          approved: true
+          paymentId: paymentId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/RefundRequestDto'
+      type: object
+    RefundRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - accountHolderId: accountHolderId
+          contactId: contactId
+          refundPolicyId: refundPolicyId
+          description: description
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          supportEntitlementId: supportEntitlementId
+          approved: true
+          paymentId: paymentId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - accountHolderId: accountHolderId
+          contactId: contactId
+          refundPolicyId: refundPolicyId
+          description: description
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          supportEntitlementId: supportEntitlementId
+          approved: true
+          paymentId: paymentId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/RefundRequestDto'
+          nullable: true
+          type: array
+      type: object
+    RefundRequestUpdateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        refundPolicyId: refundPolicyId
+        paymentId: paymentId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        refundPolicyId:
+          nullable: true
+          type: string
+        paymentId:
+          nullable: true
+          type: string
+      type: object
     RegisterRequest:
       additionalProperties: false
       example:
@@ -3967,6 +9504,230 @@ components:
       - email
       - newPassword
       - resetCode
+      type: object
+    ReturnRequestCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        returnPolicyId: returnPolicyId
+        contactId: contactId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 4000
+          minLength: 0
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        returnPolicyId:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    ReturnRequestDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        accountHolderId: accountHolderId
+        approved: true
+        returnPolicyId: returnPolicyId
+        contactId: contactId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        businessProfileRecordId: businessProfileRecordId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        accountHolderId:
+          nullable: true
+          type: string
+        returnPolicyId:
+          nullable: true
+          type: string
+      type: object
+    ReturnRequestDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          returnPolicyId: returnPolicyId
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ReturnRequestDto'
+      type: object
+    ReturnRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          returnPolicyId: returnPolicyId
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          returnPolicyId: returnPolicyId
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ReturnRequestDto'
+          nullable: true
+          type: array
+      type: object
+    ReturnRequestUpdateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        returnPolicyId: returnPolicyId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        returnPolicyId:
+          nullable: true
+          type: string
       type: object
     SupportEntitlementCreateDto:
       additionalProperties: false
@@ -6019,6 +11780,230 @@ components:
       - isTwoFactorEnabled
       - recoveryCodesLeft
       - sharedKey
+      type: object
+    WarrantyRequestCreateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        contactId: contactId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        warrantyPolicyId: warrantyPolicyId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 4000
+          minLength: 0
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
+      required:
+      - title
+      type: object
+    WarrantyRequestDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        accountHolderId: accountHolderId
+        approved: true
+        contactId: contactId
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        description: description
+        id: id
+        title: title
+        warrantyPolicyId: warrantyPolicyId
+        businessProfileRecordId: businessProfileRecordId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        businessProfileRecordId:
+          nullable: true
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        accountHolderId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
+      type: object
+    WarrantyRequestDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          warrantyPolicyId: warrantyPolicyId
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/WarrantyRequestDto'
+      type: object
+    WarrantyRequestDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          warrantyPolicyId: warrantyPolicyId
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - supportEntitlementId: supportEntitlementId
+          accountHolderId: accountHolderId
+          approved: true
+          contactId: contactId
+          approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          warrantyPolicyId: warrantyPolicyId
+          businessProfileRecordId: businessProfileRecordId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/WarrantyRequestDto'
+          nullable: true
+          type: array
+      type: object
+    WarrantyRequestUpdateDto:
+      additionalProperties: false
+      example:
+        supportEntitlementId: supportEntitlementId
+        approved: true
+        approvedTimestamp: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
+        warrantyPolicyId: warrantyPolicyId
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        approvedTimestamp:
+          format: date-time
+          type: string
+        supportEntitlementId:
+          nullable: true
+          type: string
+        warrantyPolicyId:
+          nullable: true
+          type: string
       type: object
     _Account_PerformExternalLogin_post_request:
       properties:

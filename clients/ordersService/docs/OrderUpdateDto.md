@@ -7,6 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**closed** | **Boolean** |  |  [optional] |
+|**title** | **String** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
+|**priceListId** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**individualId** | **String** |  |  [optional] |
+|**paymentTermId** | **String** |  |  [optional] |
+|**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**companyName** | **String** |  |  [optional] |
@@ -20,6 +29,8 @@
 |**billingLocationId** | **String** |  |  [optional] |
 |**shippingLocationId** | **String** |  |  [optional] |
 |**shippingMethodId** | **String** |  |  [optional] |
+|**forexRate** | **Double** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
 |**totalDetail** | **Double** |  |  [optional] |
 |**totalDetailCurrencyId** | **String** |  |  [optional] |
 |**totalProfit** | **Double** |  |  [optional] |
@@ -47,22 +58,11 @@
 |**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**cartId** | **String** |  |  [optional] |
-|**userId** | **String** |  |  [optional] |
-|**forexRate** | **Double** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
-|**individualId** | **String** |  |  [optional] |
-|**organizationId** | **String** |  |  [optional] |
 |**totalAmountInUsd** | **Double** |  |  [optional] |
 |**totalTaxesInUsd** | **Double** |  |  [optional] |
-|**receiverTenantId** | **String** |  |  [optional] |
-|**closed** | **Boolean** |  |  [optional] |
-|**priceListId** | **String** |  |  [optional] |
-|**paymentTermId** | **String** |  |  [optional] |
 |**quoteStatus** | **String** |  |  [optional] |
 |**effectiveTo** | **OffsetDateTime** |  |  [optional] |
 |**effectiveFrom** | **OffsetDateTime** |  |  [optional] |
-|**description** | **String** |  |  [optional] |
-|**title** | **String** |  |  [optional] |
 
 
 

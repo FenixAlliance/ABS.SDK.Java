@@ -1,6 +1,6 @@
 # CourseCertificatesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -11,9 +11,11 @@ All URIs are relative to *https://absuite.net*
 | [**getCourseCertificateAsync**](CourseCertificatesApi.md#getCourseCertificateAsync) | **GET** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID |
 | [**getCourseCertificateTemplateAsync**](CourseCertificatesApi.md#getCourseCertificateTemplateAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID |
 | [**getCourseCertificateTemplatesAsync**](CourseCertificatesApi.md#getCourseCertificateTemplatesAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates |
+| [**getCourseCertificateTemplatesCountAsync**](CourseCertificatesApi.md#getCourseCertificateTemplatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count |
 | [**getCourseCertificatesAsync**](CourseCertificatesApi.md#getCourseCertificatesAsync) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates |
 | [**getCourseCertificatesCountAsync**](CourseCertificatesApi.md#getCourseCertificatesCountAsync) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count |
 | [**updateCourseCertificateAsync**](CourseCertificatesApi.md#updateCourseCertificateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate |
+| [**updateCourseCertificateTemplateAsync**](CourseCertificatesApi.md#updateCourseCertificateTemplateAsync) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template |
 
 
 <a id="createCourseCertificateAsync"></a>
@@ -36,7 +38,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -104,7 +106,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -172,7 +174,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -240,7 +242,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +310,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -377,7 +379,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -446,7 +448,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -493,6 +495,73 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **200** | OK |  -  |
 
+<a id="getCourseCertificateTemplatesCountAsync"></a>
+# **getCourseCertificateTemplatesCountAsync**
+> Integer getCourseCertificateTemplatesCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get certificate templates count
+
+Returns the count of course certificate templates for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CourseCertificatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Integer result = apiInstance.getCourseCertificateTemplatesCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CourseCertificatesApi#getCourseCertificateTemplatesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+**Integer**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
 <a id="getCourseCertificatesAsync"></a>
 # **getCourseCertificatesAsync**
 > List&lt;CourseCompletionCertificateDto&gt; getCourseCertificatesAsync(tenantId, apiVersion, xApiVersion)
@@ -513,7 +582,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -580,7 +649,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -647,7 +716,7 @@ import org.openapitools.client.api.CourseCertificatesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -677,6 +746,76 @@ public class Example {
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **courseCompletionCertificateUpdateDto** | [**CourseCompletionCertificateUpdateDto**](CourseCompletionCertificateUpdateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="updateCourseCertificateTemplateAsync"></a>
+# **updateCourseCertificateTemplateAsync**
+> updateCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, courseCertificateTemplateUpdateDto)
+
+Update a certificate template
+
+Updates an existing course certificate template for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CourseCertificatesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    CourseCertificatesApi apiInstance = new CourseCertificatesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID courseCertificateTemplateId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    CourseCertificateTemplateUpdateDto courseCertificateTemplateUpdateDto = new CourseCertificateTemplateUpdateDto(); // CourseCertificateTemplateUpdateDto | 
+    try {
+      apiInstance.updateCourseCertificateTemplateAsync(tenantId, courseCertificateTemplateId, apiVersion, xApiVersion, courseCertificateTemplateUpdateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CourseCertificatesApi#updateCourseCertificateTemplateAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **courseCertificateTemplateId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **courseCertificateTemplateUpdateDto** | [**CourseCertificateTemplateUpdateDto**](CourseCertificateTemplateUpdateDto.md)|  | [optional] |
 
 ### Return type
 

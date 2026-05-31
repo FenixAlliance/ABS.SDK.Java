@@ -1,6 +1,6 @@
 # FiscalPeriodsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     FiscalPeriodCreateDto fiscalPeriodCreateDto = new FiscalPeriodCreateDto(); // FiscalPeriodCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **fiscalPeriodCreateDto** | [**FiscalPeriodCreateDto**](FiscalPeriodCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -172,10 +172,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     UUID fiscalPeriodId = UUID.randomUUID(); // UUID | 
@@ -199,7 +199,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalYearId** | **UUID**|  | |
 | **fiscalPeriodId** | **UUID**|  | |
@@ -246,10 +246,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     String authorityId = "authorityId_example"; // String | 
@@ -273,7 +273,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalYearId** | **UUID**|  | |
 | **authorityId** | **String**|  | |
@@ -320,10 +320,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalYearId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -346,7 +346,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalYearId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -392,10 +392,10 @@ import org.openapitools.client.api.FiscalPeriodsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalPeriodsApi apiInstance = new FiscalPeriodsApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalPeriodId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -418,7 +418,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalPeriodId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

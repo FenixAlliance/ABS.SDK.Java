@@ -1,6 +1,6 @@
 # CourseCategoriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -100,7 +100,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -168,7 +168,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -235,7 +235,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -302,7 +302,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     String categoryId = "categoryId_example"; // String | 
@@ -369,7 +369,7 @@ import org.openapitools.client.api.CourseCategoriesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CourseCategoriesApi apiInstance = new CourseCategoriesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

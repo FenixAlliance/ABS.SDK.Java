@@ -1,6 +1,6 @@
 # ItemTaxPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemTaxPoliciesAsync"></a>
 # **countItemTaxPoliciesAsync**
-> Int32Envelope countItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item tax policies
 
@@ -31,14 +31,15 @@ import org.openapitools.client.api.ItemTaxPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTaxPoliciesApi apiInstance = new ItemTaxPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTaxPoliciesApi#countItemTaxPoliciesAsync");
@@ -55,6 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -81,7 +83,7 @@ No authorization required
 
 <a id="getItemTaxPoliciesAsync"></a>
 # **getItemTaxPoliciesAsync**
-> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoListEnvelope getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item tax policies
 
@@ -99,14 +101,15 @@ import org.openapitools.client.api.ItemTaxPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTaxPoliciesApi apiInstance = new ItemTaxPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTaxPolicyDtoListEnvelope result = apiInstance.getItemTaxPoliciesAsync(itemId, apiVersion, xApiVersion);
+      ItemTaxPolicyDtoListEnvelope result = apiInstance.getItemTaxPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTaxPoliciesApi#getItemTaxPoliciesAsync");
@@ -123,6 +126,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -149,7 +153,7 @@ No authorization required
 
 <a id="getItemTaxPolicyByIdAsync"></a>
 # **getItemTaxPolicyByIdAsync**
-> ItemTaxPolicyDtoEnvelope getItemTaxPolicyByIdAsync(itemTaxPolicyId, itemId, apiVersion, xApiVersion)
+> ItemTaxPolicyDtoEnvelope getItemTaxPolicyByIdAsync(itemTaxPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item tax policy by ID
 
@@ -167,15 +171,16 @@ import org.openapitools.client.api.ItemTaxPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTaxPoliciesApi apiInstance = new ItemTaxPoliciesApi(defaultClient);
     UUID itemTaxPolicyId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTaxPolicyDtoEnvelope result = apiInstance.getItemTaxPolicyByIdAsync(itemTaxPolicyId, itemId, apiVersion, xApiVersion);
+      ItemTaxPolicyDtoEnvelope result = apiInstance.getItemTaxPolicyByIdAsync(itemTaxPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTaxPoliciesApi#getItemTaxPolicyByIdAsync");
@@ -193,6 +198,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemTaxPolicyId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -237,7 +243,7 @@ import org.openapitools.client.api.ItemTaxPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTaxPoliciesApi apiInstance = new ItemTaxPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +314,7 @@ import org.openapitools.client.api.ItemTaxPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTaxPoliciesApi apiInstance = new ItemTaxPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

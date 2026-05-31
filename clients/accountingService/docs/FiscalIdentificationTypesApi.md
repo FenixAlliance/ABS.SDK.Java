@@ -1,6 +1,6 @@
 # FiscalIdentificationTypesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     FiscalIdentificationTypeCreateDto fiscalIdentificationTypeCreateDto = new FiscalIdentificationTypeCreateDto(); // FiscalIdentificationTypeCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **fiscalIdentificationTypeCreateDto** | [**FiscalIdentificationTypeCreateDto**](FiscalIdentificationTypeCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID identificationTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **identificationTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -172,10 +172,10 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID identificationTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -198,7 +198,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **identificationTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -226,7 +226,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypes"></a>
 # **getFiscalIdentificationTypes**
-> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(authorityId, apiVersion, xApiVersion)
+> FiscalIdentificationTypeDtoListEnvelope getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion)
 
 Get fiscal identification types for an authority
 
@@ -244,14 +244,15 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID authorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      FiscalIdentificationTypeDtoListEnvelope result = apiInstance.getFiscalIdentificationTypes(authorityId, apiVersion, xApiVersion);
+      FiscalIdentificationTypeDtoListEnvelope result = apiInstance.getFiscalIdentificationTypes(tenantId, authorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalIdentificationTypesApi#getFiscalIdentificationTypes");
@@ -268,6 +269,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **authorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -294,7 +296,7 @@ No authorization required
 
 <a id="getFiscalIdentificationTypesCount"></a>
 # **getFiscalIdentificationTypesCount**
-> Int32Envelope getFiscalIdentificationTypesCount(authorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion)
 
 Get fiscal identification types count
 
@@ -312,14 +314,15 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID authorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getFiscalIdentificationTypesCount(authorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalIdentificationTypesCount(tenantId, authorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalIdentificationTypesApi#getFiscalIdentificationTypesCount");
@@ -336,6 +339,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **authorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -380,10 +384,10 @@ import org.openapitools.client.api.FiscalIdentificationTypesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalIdentificationTypesApi apiInstance = new FiscalIdentificationTypesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID identificationTypeId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -406,7 +410,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **identificationTypeId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

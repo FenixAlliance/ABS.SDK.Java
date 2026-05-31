@@ -1,6 +1,6 @@
 # ItemTagsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemTagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTagsApi apiInstance = new ItemTagsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -101,7 +101,7 @@ import org.openapitools.client.api.ItemTagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTagsApi apiInstance = new ItemTagsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getItemTagByIdAsync"></a>
 # **getItemTagByIdAsync**
-> ItemTagDtoEnvelope getItemTagByIdAsync(itemTagId, apiVersion, xApiVersion)
+> ItemTagDtoEnvelope getItemTagByIdAsync(itemTagId, tenantId, apiVersion, xApiVersion)
 
 Get item tag by ID
 
@@ -170,14 +170,15 @@ import org.openapitools.client.api.ItemTagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTagsApi apiInstance = new ItemTagsApi(defaultClient);
     UUID itemTagId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemTagDtoEnvelope result = apiInstance.getItemTagByIdAsync(itemTagId, apiVersion, xApiVersion);
+      ItemTagDtoEnvelope result = apiInstance.getItemTagByIdAsync(itemTagId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemTagsApi#getItemTagByIdAsync");
@@ -195,6 +196,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemTagId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -238,7 +240,7 @@ import org.openapitools.client.api.ItemTagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTagsApi apiInstance = new ItemTagsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -262,7 +264,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -306,7 +308,7 @@ import org.openapitools.client.api.ItemTagsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemTagsApi apiInstance = new ItemTagsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

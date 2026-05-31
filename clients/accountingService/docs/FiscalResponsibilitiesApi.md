@@ -1,6 +1,6 @@
 # FiscalResponsibilitiesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,10 +32,10 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     FiscalResponsibilityCreateDto fiscalResponsibilityCreateDto = new FiscalResponsibilityCreateDto(); // FiscalResponsibilityCreateDto | 
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **fiscalResponsibilityCreateDto** | [**FiscalResponsibilityCreateDto**](FiscalResponsibilityCreateDto.md)|  | [optional] |
@@ -102,10 +102,10 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -154,7 +154,7 @@ No authorization required
 
 <a id="getFiscalResponsibilities"></a>
 # **getFiscalResponsibilities**
-> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
+> FiscalResponsibilityDtoListEnvelope getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion)
 
 Get fiscal responsibilities for an authority
 
@@ -172,15 +172,16 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String authorityId = "authorityId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      FiscalResponsibilityDtoListEnvelope result = apiInstance.getFiscalResponsibilities(fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
+      FiscalResponsibilityDtoListEnvelope result = apiInstance.getFiscalResponsibilities(tenantId, fiscalAuthorityId, authorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilitiesApi#getFiscalResponsibilities");
@@ -197,6 +198,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **authorityId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -224,7 +226,7 @@ No authorization required
 
 <a id="getFiscalResponsibilitiesCount"></a>
 # **getFiscalResponsibilitiesCount**
-> Int32Envelope getFiscalResponsibilitiesCount(fiscalAuthorityId, apiVersion, xApiVersion)
+> Int32Envelope getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion)
 
 Get fiscal responsibilities count
 
@@ -242,14 +244,15 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getFiscalResponsibilitiesCount(fiscalAuthorityId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getFiscalResponsibilitiesCount(tenantId, fiscalAuthorityId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FiscalResponsibilitiesApi#getFiscalResponsibilitiesCount");
@@ -266,6 +269,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -310,10 +314,10 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalAuthorityId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
@@ -336,7 +340,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalAuthorityId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
@@ -382,10 +386,10 @@ import org.openapitools.client.api.FiscalResponsibilitiesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     FiscalResponsibilitiesApi apiInstance = new FiscalResponsibilitiesApi(defaultClient);
-    Object tenantId = null; // Object | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID fiscalResponsibilityId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
@@ -408,7 +412,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | [**Object**](.md)|  | |
+| **tenantId** | **UUID**|  | |
 | **fiscalResponsibilityId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

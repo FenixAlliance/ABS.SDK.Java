@@ -1,6 +1,6 @@
 # SocialGroupsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -82,7 +82,7 @@ No authorization required
 
 <a id="createSocialGroupAsync"></a>
 # **createSocialGroupAsync**
-> EmptyEnvelope createSocialGroupAsync(tenantId, apiVersion, xApiVersion, socialGroupCreateDto)
+> EmptyEnvelope createSocialGroupAsync(tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupCreateDto)
 
 Create a social group
 
@@ -100,15 +100,16 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     SocialGroupCreateDto socialGroupCreateDto = new SocialGroupCreateDto(); // SocialGroupCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.createSocialGroupAsync(tenantId, apiVersion, xApiVersion, socialGroupCreateDto);
+      EmptyEnvelope result = apiInstance.createSocialGroupAsync(tenantId, socialProfileId, apiVersion, xApiVersion, socialGroupCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#createSocialGroupAsync");
@@ -126,6 +127,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **socialGroupCreateDto** | [**SocialGroupCreateDto**](SocialGroupCreateDto.md)|  | [optional] |
@@ -152,7 +154,7 @@ No authorization required
 
 <a id="deleteSocialGroupAsync"></a>
 # **deleteSocialGroupAsync**
-> EmptyEnvelope deleteSocialGroupAsync(tenantId, socialGroupId, apiVersion, xApiVersion)
+> EmptyEnvelope deleteSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion)
 
 Delete a social group
 
@@ -170,15 +172,16 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
     UUID socialGroupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      EmptyEnvelope result = apiInstance.deleteSocialGroupAsync(tenantId, socialGroupId, apiVersion, xApiVersion);
+      EmptyEnvelope result = apiInstance.deleteSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#deleteSocialGroupAsync");
@@ -196,6 +199,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
 | **socialGroupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -240,7 +244,7 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -310,7 +314,7 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -360,7 +364,7 @@ No authorization required
 
 <a id="updateSocialGroupAsync"></a>
 # **updateSocialGroupAsync**
-> EmptyEnvelope updateSocialGroupAsync(tenantId, socialGroupId, apiVersion, xApiVersion, socialGroupUpdateDto)
+> EmptyEnvelope updateSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, socialGroupUpdateDto)
 
 Update a social group
 
@@ -378,16 +382,17 @@ import org.openapitools.client.api.SocialGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     SocialGroupsApi apiInstance = new SocialGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID socialProfileId = UUID.randomUUID(); // UUID | 
     UUID socialGroupId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     SocialGroupUpdateDto socialGroupUpdateDto = new SocialGroupUpdateDto(); // SocialGroupUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateSocialGroupAsync(tenantId, socialGroupId, apiVersion, xApiVersion, socialGroupUpdateDto);
+      EmptyEnvelope result = apiInstance.updateSocialGroupAsync(tenantId, socialProfileId, socialGroupId, apiVersion, xApiVersion, socialGroupUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SocialGroupsApi#updateSocialGroupAsync");
@@ -405,6 +410,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
+| **socialProfileId** | **UUID**|  | |
 | **socialGroupId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |

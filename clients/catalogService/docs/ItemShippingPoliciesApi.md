@@ -1,6 +1,6 @@
 # ItemShippingPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemShippingPoliciesAsync"></a>
 # **countItemShippingPoliciesAsync**
-> Int32Envelope countItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item shipping policies
 
@@ -31,14 +31,15 @@ import org.openapitools.client.api.ItemShippingPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemShippingPoliciesApi apiInstance = new ItemShippingPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#countItemShippingPoliciesAsync");
@@ -55,6 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -81,7 +83,7 @@ No authorization required
 
 <a id="getItemShippingPoliciesAsync"></a>
 # **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policies
 
@@ -99,14 +101,15 @@ import org.openapitools.client.api.ItemShippingPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemShippingPoliciesApi apiInstance = new ItemShippingPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemShippingPolicyDtoListEnvelope result = apiInstance.getItemShippingPoliciesAsync(itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoListEnvelope result = apiInstance.getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync");
@@ -123,6 +126,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -149,7 +153,7 @@ No authorization required
 
 <a id="getItemShippingPolicyByIdAsync"></a>
 # **getItemShippingPolicyByIdAsync**
-> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, itemId, apiVersion, xApiVersion)
+> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policy by ID
 
@@ -167,15 +171,16 @@ import org.openapitools.client.api.ItemShippingPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemShippingPoliciesApi apiInstance = new ItemShippingPoliciesApi(defaultClient);
     UUID itemShippingPolicyId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemShippingPolicyDtoEnvelope result = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoEnvelope result = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPolicyByIdAsync");
@@ -193,6 +198,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemShippingPolicyId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -237,7 +243,7 @@ import org.openapitools.client.api.ItemShippingPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemShippingPoliciesApi apiInstance = new ItemShippingPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +314,7 @@ import org.openapitools.client.api.ItemShippingPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemShippingPoliciesApi apiInstance = new ItemShippingPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

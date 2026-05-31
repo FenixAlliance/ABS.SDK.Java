@@ -1,6 +1,6 @@
 # ItemReturnPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemReturnPoliciesAsync"></a>
 # **countItemReturnPoliciesAsync**
-> Int32Envelope countItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item return policies
 
@@ -31,14 +31,15 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReturnPoliciesApi#countItemReturnPoliciesAsync");
@@ -55,6 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -81,7 +83,7 @@ No authorization required
 
 <a id="getItemReturnPoliciesAsync"></a>
 # **getItemReturnPoliciesAsync**
-> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoListEnvelope getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item return policies
 
@@ -99,14 +101,15 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemReturnPolicyDtoListEnvelope result = apiInstance.getItemReturnPoliciesAsync(itemId, apiVersion, xApiVersion);
+      ItemReturnPolicyDtoListEnvelope result = apiInstance.getItemReturnPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReturnPoliciesApi#getItemReturnPoliciesAsync");
@@ -123,6 +126,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -149,7 +153,7 @@ No authorization required
 
 <a id="getItemReturnPolicyByIdAsync"></a>
 # **getItemReturnPolicyByIdAsync**
-> ItemReturnPolicyDtoEnvelope getItemReturnPolicyByIdAsync(itemReturnPolicyId, itemId, apiVersion, xApiVersion)
+> ItemReturnPolicyDtoEnvelope getItemReturnPolicyByIdAsync(itemReturnPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item return policy by ID
 
@@ -167,15 +171,16 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID itemReturnPolicyId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemReturnPolicyDtoEnvelope result = apiInstance.getItemReturnPolicyByIdAsync(itemReturnPolicyId, itemId, apiVersion, xApiVersion);
+      ItemReturnPolicyDtoEnvelope result = apiInstance.getItemReturnPolicyByIdAsync(itemReturnPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReturnPoliciesApi#getItemReturnPolicyByIdAsync");
@@ -193,6 +198,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemReturnPolicyId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -237,7 +243,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +314,7 @@ import org.openapitools.client.api.ItemReturnPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReturnPoliciesApi apiInstance = new ItemReturnPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

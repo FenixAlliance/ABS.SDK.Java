@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**concurrencyToken** | **String** |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
 |**properties** | **String** |  |  [optional] |

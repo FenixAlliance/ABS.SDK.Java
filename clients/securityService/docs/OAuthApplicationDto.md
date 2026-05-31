@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**applicationType** | **String** |  |  [optional] |
 |**clientId** | **String** |  |  [optional] |
 |**concurrencyToken** | **String** |  |  [optional] |

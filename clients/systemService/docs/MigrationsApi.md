@@ -1,6 +1,6 @@
 # MigrationsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import org.openapitools.client.api.MigrationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     MigrationsApi apiInstance = new MigrationsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -94,7 +94,7 @@ import org.openapitools.client.api.MigrationsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     MigrationsApi apiInstance = new MigrationsApi(defaultClient);
     Boolean pending = true; // Boolean | 

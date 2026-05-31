@@ -1,6 +1,6 @@
 # CommissionsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -38,7 +38,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -108,7 +108,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -178,7 +178,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -248,7 +248,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -318,7 +318,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -388,7 +388,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -456,7 +456,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -524,7 +524,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -594,7 +594,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -662,7 +662,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -730,7 +730,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -802,7 +802,7 @@ import org.openapitools.client.api.CommissionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     CommissionsApi apiInstance = new CommissionsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

@@ -9,25 +9,19 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: CatalogService
-  version: 2.0.0.0
+  version: 2.1.2.5401
 servers:
-- description: Alliance Business Suite API
-  url: "{server}"
-  variables:
-    server:
-      default: https://absuite.net
-      description: ABS instance base URL
-      enum:
-      - https://absuite.net
-      - https://test.absuite.net
-      - https://dev.absuite.net
-      - https://localhost:44388
+- url: /
 tags:
-- name: FenixAlliance.ABS.Web
+- name: Completions
+- name: FenixAlliance.Portals.Website
 - name: ItemAttachments
+- name: ItemAttributeOptions
 - name: ItemAttributes
 - name: ItemBrands
+- name: ItemBundles
 - name: ItemCategories
+- name: ItemFamilies
 - name: ItemGoogleCategories
 - name: ItemImages
 - name: ItemQuestions
@@ -41,15 +35,338 @@ tags:
 - name: ItemTypes
 - name: ItemWarrantyPolicies
 - name: Merchants
-- name: PricingRules
 paths:
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /health:
@@ -58,7 +375,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /hello:
@@ -67,7 +384,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /register:
@@ -88,7 +405,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -123,7 +440,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -143,7 +460,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -176,7 +493,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -191,7 +508,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -213,7 +530,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -235,7 +552,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -263,7 +580,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -286,7 +603,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
       - application/problem+json
@@ -313,7 +630,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -342,7 +659,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -366,7 +683,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -390,7 +707,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -400,7 +717,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.ABS.Web
+      - FenixAlliance.Portals.Website
       x-accepts:
       - application/json
   /api/v2/CatalogService/ItemAttachments:
@@ -412,7 +729,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -607,6 +924,14 @@ paths:
       description: Retrieves a specific item attachment by its ID.
       operationId: GetItemAttachmentByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemAttachmentId
@@ -740,6 +1065,405 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/CatalogService/ItemAttributeOptions:
+    get:
+      description: Retrieves all item attribute options for the specified tenant using
+        OData query options.
+      operationId: GetItemAttributeOptionsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoListEnvelope'
+          description: OK
+      summary: Get all item attribute options
+      tags:
+      - ItemAttributeOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new item attribute option for the specified tenant.
+      operationId: CreateItemAttributeOptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemAttributeOptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemAttributeOptionCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+          description: Created
+      summary: Create a new item attribute option
+      tags:
+      - ItemAttributeOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemAttributeOptions/Count:
+    get:
+      description: Returns the count of item attribute options for the specified tenant.
+      operationId: GetItemAttributeOptionsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get item attribute options count
+      tags:
+      - ItemAttributeOptions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId}:
+    delete:
+      description: Deletes an item attribute option for the specified tenant.
+      operationId: DeleteItemAttributeOptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttributeOptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Delete an item attribute option
+      tags:
+      - ItemAttributeOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific item attribute option by its ID.
+      operationId: GetItemAttributeOptionByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttributeOptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+          description: OK
+      summary: Get item attribute option by ID
+      tags:
+      - ItemAttributeOptions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing item attribute option for the specified tenant.
+      operationId: UpdateItemAttributeOptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemAttributeOptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemAttributeOptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemAttributeOptionUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemAttributeOptionDtoEnvelope'
+          description: OK
+      summary: Update an item attribute option
+      tags:
+      - ItemAttributeOptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/CatalogService/ItemAttributes/Count:
     get:
       description: Counts all item attributes for the specified tenant.
@@ -748,7 +1472,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -810,7 +1534,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -998,6 +1722,14 @@ paths:
       description: Retrieves a specific item attribute by its ID.
       operationId: GetItemAttributeByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemAttributeId
@@ -1133,7 +1865,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -1321,6 +2053,14 @@ paths:
       description: Retrieves a specific item brand by its ID.
       operationId: GetItemBrandByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemBrandId
@@ -1454,6 +2194,405 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/CatalogService/ItemBundles:
+    get:
+      description: Retrieves all item bundles for the specified tenant using OData
+        query options.
+      operationId: GetItemBundlesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoListEnvelope'
+          description: OK
+      summary: Get all item bundles
+      tags:
+      - ItemBundles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new item bundle for the specified tenant.
+      operationId: CreateItemBundleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemBundleCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemBundleCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+          description: Created
+      summary: Create a new item bundle
+      tags:
+      - ItemBundles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemBundles/Count:
+    get:
+      description: Returns the count of item bundles for the specified tenant.
+      operationId: GetItemBundlesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get item bundles count
+      tags:
+      - ItemBundles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemBundles/{itemBundleId}:
+    delete:
+      description: Deletes an item bundle for the specified tenant.
+      operationId: DeleteItemBundleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemBundleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Delete an item bundle
+      tags:
+      - ItemBundles
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific item bundle by its ID.
+      operationId: GetItemBundleByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemBundleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+          description: OK
+      summary: Get item bundle by ID
+      tags:
+      - ItemBundles
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing item bundle for the specified tenant.
+      operationId: UpdateItemBundleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemBundleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemBundleUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemBundleUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemBundleDtoEnvelope'
+          description: OK
+      summary: Update an item bundle
+      tags:
+      - ItemBundles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/CatalogService/ItemCategories/Count:
     get:
       description: Counts all item categories for the specified tenant.
@@ -1462,7 +2601,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -1581,6 +2720,14 @@ paths:
       description: Retrieves a specific item category by its ID.
       operationId: GetItemCategoryByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemCategoryId
@@ -1716,7 +2863,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -1834,6 +2981,405 @@ paths:
       summary: Create a new item category
       tags:
       - ItemCategories
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemFamilies:
+    get:
+      description: Retrieves all item families for the specified tenant using OData
+        query options.
+      operationId: GetItemFamiliesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoListEnvelope'
+          description: OK
+      summary: Get all item families
+      tags:
+      - ItemFamilies
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new item family for the specified tenant.
+      operationId: CreateItemFamilyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemFamilyCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemFamilyCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+          description: Created
+      summary: Create a new item family
+      tags:
+      - ItemFamilies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemFamilies/Count:
+    get:
+      description: Returns the count of item families for the specified tenant.
+      operationId: GetItemFamiliesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get item families count
+      tags:
+      - ItemFamilies
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CatalogService/ItemFamilies/{itemFamilyId}:
+    delete:
+      description: Deletes an item family for the specified tenant.
+      operationId: DeleteItemFamilyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemFamilyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Delete an item family
+      tags:
+      - ItemFamilies
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific item family by its ID.
+      operationId: GetItemFamilyByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemFamilyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+          description: OK
+      summary: Get item family by ID
+      tags:
+      - ItemFamilies
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing item family for the specified tenant.
+      operationId: UpdateItemFamilyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: itemFamilyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemFamilyUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ItemFamilyUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ItemFamilyDtoEnvelope'
+          description: OK
+      summary: Update an item family
+      tags:
+      - ItemFamilies
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2294,7 +3840,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -2482,6 +4028,14 @@ paths:
       description: Retrieves a specific item image by its ID.
       operationId: GetItemImageByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemImageId
@@ -2617,7 +4171,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -2805,6 +4359,14 @@ paths:
       description: Retrieves a specific item question by its ID.
       operationId: GetItemQuestionByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemQuestionId
@@ -2938,6 +4500,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -3066,6 +4636,14 @@ paths:
       description: Counts all refund policies for a specific item.
       operationId: CountItemRefundPoliciesAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -3198,6 +4776,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -3265,6 +4851,14 @@ paths:
       description: Retrieves all return policies for a specific item.
       operationId: GetItemReturnPoliciesAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -3397,6 +4991,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -3525,6 +5127,14 @@ paths:
       description: Retrieves a specific return policy for an item.
       operationId: GetItemReturnPolicyByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -3786,6 +5396,14 @@ paths:
       description: Retrieves a specific item review by its ID.
       operationId: GetItemReviewByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemReviewId
@@ -4481,6 +6099,14 @@ paths:
       description: Retrieves all tags associated with a specific stock item.
       operationId: GetStockItemTagsByItemId
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemId
@@ -4542,6 +6168,14 @@ paths:
       description: Counts the number of tags associated with a specific stock item.
       operationId: CountStockItemTagsByItemId
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemId
@@ -4679,6 +6313,14 @@ paths:
       description: Retrieves a specific tag by ID for a stock item.
       operationId: GetStockItemTagById
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemId
@@ -4824,6 +6466,14 @@ paths:
       description: Retrieves all types associated with a specific stock item.
       operationId: GetStockItemTypesByItemId
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemId
@@ -4961,6 +6611,14 @@ paths:
       description: Retrieves a specific type by ID for a stock item.
       operationId: GetStockItemTypeById
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemId
@@ -9181,6 +10839,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -9309,6 +10975,14 @@ paths:
       description: Counts all shipping policies for a specific item.
       operationId: CountItemShippingPoliciesAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -9441,6 +11115,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -9512,7 +11194,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -9700,6 +11382,14 @@ paths:
       description: Retrieves a specific item tag by its ID.
       operationId: GetItemTagByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemTagId
@@ -9833,6 +11523,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -9961,6 +11659,14 @@ paths:
       description: Counts all tax policies for a specific item.
       operationId: CountItemTaxPoliciesAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -10093,6 +11799,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -10163,7 +11877,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -10225,7 +11939,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: true
+        required: false
         schema:
           format: uuid
           type: string
@@ -10420,6 +12134,14 @@ paths:
       description: Retrieves a specific item type by its ID.
       operationId: GetItemTypeByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: false
         in: path
         name: itemTypeID
@@ -10553,6 +12275,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -10683,6 +12413,14 @@ paths:
       parameters:
       - explode: true
         in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: itemId
         required: false
         schema:
@@ -10811,6 +12549,14 @@ paths:
       description: Retrieves a specific warranty policy for an item.
       operationId: GetItemWarrantyPolicyByIdAsync
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
       - explode: true
         in: query
         name: itemId
@@ -11040,331 +12786,6 @@ paths:
       summary: Get merchant by ID
       tags:
       - Merchants
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/CatalogService/PricingRules:
-    get:
-      description: "Retrieves all pricing rules for the specified tenant, with optional\
-        \ OData query options."
-      operationId: GetPricingRules
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoListEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoListEnvelope'
-          description: OK
-      summary: Get all pricing rules
-      tags:
-      - PricingRules
-      x-accepts:
-      - application/json
-      - application/xml
-    post:
-      description: Creates a new pricing rule for the specified tenant.
-      operationId: CreatePricingRule
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PricingRuleCreateDto'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/PricingRuleCreateDto'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
-          description: Created
-      summary: Create a new pricing rule
-      tags:
-      - PricingRules
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/CatalogService/PricingRules/{pricingRuleId}:
-    delete:
-      description: Deletes a pricing rule for the specified tenant and rule ID.
-      operationId: DeletePricingRule
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: pricingRuleId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      summary: Delete a pricing rule
-      tags:
-      - PricingRules
-      x-accepts:
-      - application/json
-      - application/xml
-    get:
-      description: Retrieves a pricing rule by its unique identifier.
-      operationId: GetPricingRuleById
-      parameters:
-      - explode: false
-        in: path
-        name: pricingRuleId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/PricingRuleDtoEnvelope'
-          description: OK
-      summary: Get pricing rule by ID
-      tags:
-      - PricingRules
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/CatalogService/PricingRules/Update:
-    put:
-      description: Updates an existing pricing rule for the specified tenant and rule
-        ID.
-      operationId: UpdatePricingRule
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: pricingRuleId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PricingRuleUpdateDto'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/PricingRuleUpdateDto'
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      summary: Update a pricing rule
-      tags:
-      - PricingRules
-      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -14777,9 +16198,41 @@ components:
           nullable: true
           type: array
       type: object
+    ItemAttributeOptionCreateDto:
+      additionalProperties: false
+      example:
+        itemAttributeId: itemAttributeId
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        itemAttributeId:
+          minLength: 1
+          type: string
+      required:
+      - itemAttributeId
+      - name
+      type: object
     ItemAttributeOptionDto:
       additionalProperties: false
       example:
+        itemAttributeId: itemAttributeId
         name: name
         businessID: businessID
         description: description
@@ -14799,6 +16252,9 @@ components:
         description:
           nullable: true
           type: string
+        itemAttributeId:
+          nullable: true
+          type: string
         businessID:
           nullable: true
           type: string
@@ -14807,6 +16263,7 @@ components:
       additionalProperties: false
       example:
         result:
+          itemAttributeId: itemAttributeId
           name: name
           businessID: businessID
           description: description
@@ -14842,12 +16299,14 @@ components:
       additionalProperties: false
       example:
         result:
-        - name: name
+        - itemAttributeId: itemAttributeId
+          name: name
           businessID: businessID
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - name: name
+        - itemAttributeId: itemAttributeId
+          name: name
           businessID: businessID
           description: description
           id: id
@@ -14880,6 +16339,24 @@ components:
             $ref: '#/components/schemas/ItemAttributeOptionDto'
           nullable: true
           type: array
+      type: object
+    ItemAttributeOptionUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
       type: object
     ItemAttributeUpdateDto:
       additionalProperties: false
@@ -15109,6 +16586,185 @@ components:
         featured:
           type: boolean
         trending:
+          type: boolean
+      required:
+      - name
+      type: object
+    ItemBundleCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        description: description
+        disabled: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        disabled:
+          type: boolean
+      required:
+      - name
+      type: object
+    ItemBundleDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        businessID: businessID
+        description: description
+        disabled: true
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        disabled:
+          type: boolean
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ItemBundleDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          name: name
+          businessID: businessID
+          description: description
+          disabled: true
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemBundleDto'
+      type: object
+    ItemBundleDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          name: name
+          businessID: businessID
+          description: description
+          disabled: true
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - code: code
+          name: name
+          businessID: businessID
+          description: description
+          disabled: true
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemBundleDto'
+          nullable: true
+          type: array
+      type: object
+    ItemBundleUpdateDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        description: description
+        disabled: true
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        disabled:
           type: boolean
       required:
       - name
@@ -15351,6 +17007,167 @@ components:
           type: boolean
       required:
       - title
+      type: object
+    ItemFamilyCreateDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        code:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ItemFamilyDto:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+        businessID: businessID
+        description: description
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        businessID:
+          nullable: true
+          type: string
+      type: object
+    ItemFamilyDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          code: code
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ItemFamilyDto'
+      type: object
+    ItemFamilyDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - code: code
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - code: code
+          name: name
+          businessID: businessID
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ItemFamilyDto'
+          nullable: true
+          type: array
+      type: object
+    ItemFamilyUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
       type: object
     ItemGoogleCategoryDto:
       additionalProperties: false
@@ -18521,98 +20338,6 @@ components:
         result:
           $ref: '#/components/schemas/Money'
       type: object
-    PricingRuleCreateDto:
-      additionalProperties: false
-      example:
-        reduce: true
-        allowInternational: true
-        hours: 0
-        code: code
-        weeks: 1
-        months: 5
-        customState: customState
-        description: description
-        countryStateID: countryStateID
-        cityID: cityID
-        title: title
-        customCity: customCity
-        years: 5
-        countryID: countryID
-        isDefault: true
-        isFree: true
-        isEnabled: true
-        percentage: 7.061401241503109
-        days: 6
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
-        value: 2.3021358869347655
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        id:
-          format: uuid
-          type: string
-        timestamp:
-          format: date-time
-          type: string
-        code:
-          nullable: true
-          type: string
-        title:
-          nullable: true
-          type: string
-        description:
-          nullable: true
-          type: string
-        isFree:
-          type: boolean
-        reduce:
-          type: boolean
-        isEnabled:
-          type: boolean
-        isDefault:
-          type: boolean
-        allowInternational:
-          type: boolean
-        hours:
-          format: int32
-          type: integer
-        days:
-          format: int32
-          type: integer
-        weeks:
-          format: int32
-          type: integer
-        months:
-          format: int32
-          type: integer
-        years:
-          format: int32
-          type: integer
-        value:
-          format: double
-          type: number
-        percentage:
-          format: double
-          type: number
-        currencyID:
-          nullable: true
-          type: string
-        countryID:
-          nullable: true
-          type: string
-        countryStateID:
-          nullable: true
-          type: string
-        customState:
-          nullable: true
-          type: string
-        customCity:
-          nullable: true
-          type: string
-        cityID:
-          nullable: true
-          type: string
-      type: object
     PricingRuleDto:
       additionalProperties: false
       example:
@@ -18844,86 +20569,6 @@ components:
             $ref: '#/components/schemas/PricingRuleDto'
           nullable: true
           type: array
-      type: object
-    PricingRuleUpdateDto:
-      additionalProperties: false
-      example:
-        reduce: true
-        allowInternational: true
-        hours: 0
-        weeks: 1
-        months: 5
-        customState: customState
-        description: description
-        countryStateID: countryStateID
-        cityID: cityID
-        title: title
-        customCity: customCity
-        years: 5
-        countryID: countryID
-        isDefault: true
-        isFree: true
-        isEnabled: true
-        percentage: 7.061401241503109
-        days: 6
-        currencyID: currencyID
-        value: 2.3021358869347655
-      properties:
-        title:
-          nullable: true
-          type: string
-        description:
-          nullable: true
-          type: string
-        isFree:
-          type: boolean
-        reduce:
-          type: boolean
-        isEnabled:
-          type: boolean
-        isDefault:
-          type: boolean
-        allowInternational:
-          type: boolean
-        hours:
-          format: int32
-          type: integer
-        days:
-          format: int32
-          type: integer
-        weeks:
-          format: int32
-          type: integer
-        months:
-          format: int32
-          type: integer
-        years:
-          format: int32
-          type: integer
-        value:
-          format: double
-          type: number
-        percentage:
-          format: double
-          type: number
-        currencyID:
-          nullable: true
-          type: string
-        countryID:
-          nullable: true
-          type: string
-        countryStateID:
-          nullable: true
-          type: string
-        customState:
-          nullable: true
-          type: string
-        customCity:
-          nullable: true
-          type: string
-        cityID:
-          nullable: true
-          type: string
       type: object
     RefreshRequest:
       additionalProperties: false

@@ -1,6 +1,6 @@
 # BudgetsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -12,6 +12,7 @@ All URIs are relative to *https://absuite.net*
 | [**getBudgetAccountEntryAsync**](BudgetsApi.md#getBudgetAccountEntryAsync) | **GET** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Gets a budget account entry by id |
 | [**getBudgetDetailsAsync**](BudgetsApi.md#getBudgetDetailsAsync) | **GET** /api/v2/AccountingService/Budgets/{budgetId} | Gets a budget by id |
 | [**getBudgetsAsync**](BudgetsApi.md#getBudgetsAsync) | **GET** /api/v2/AccountingService/Budgets | Gets all budgets |
+| [**getBudgetsCountAsync**](BudgetsApi.md#getBudgetsCountAsync) | **GET** /api/v2/AccountingService/Budgets/Count | Get the count of budgets |
 | [**updateBudgetAccountEntryAsync**](BudgetsApi.md#updateBudgetAccountEntryAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId}/AccountEntries/{entryId} | Updates a budget account entry |
 | [**updateBudgetAsync**](BudgetsApi.md#updateBudgetAsync) | **PUT** /api/v2/AccountingService/Budgets/{budgetId} | Updates a budget |
 
@@ -36,7 +37,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -108,7 +109,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -178,7 +179,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -250,7 +251,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -320,7 +321,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -390,7 +391,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -462,7 +463,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -532,7 +533,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -580,6 +581,74 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
+<a id="getBudgetsCountAsync"></a>
+# **getBudgetsCountAsync**
+> Int32Envelope getBudgetsCountAsync(tenantId, apiVersion, xApiVersion)
+
+Get the count of budgets
+
+Get the count of budgets.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.BudgetsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    BudgetsApi apiInstance = new BudgetsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getBudgetsCountAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BudgetsApi#getBudgetsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="updateBudgetAccountEntryAsync"></a>
 # **updateBudgetAccountEntryAsync**
 > EmptyEnvelope updateBudgetAccountEntryAsync(tenantId, budgetId, entryId, budgetAccountEntryUpdateDto, apiVersion, xApiVersion)
@@ -600,7 +669,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -674,7 +743,7 @@ import org.openapitools.client.api.BudgetsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     BudgetsApi apiInstance = new BudgetsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

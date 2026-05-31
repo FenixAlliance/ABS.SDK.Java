@@ -1,6 +1,6 @@
 # MerchantsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -29,7 +29,7 @@ import org.openapitools.client.api.MerchantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     MerchantsApi apiInstance = new MerchantsApi(defaultClient);
     UUID merchantId = UUID.randomUUID(); // UUID | 
@@ -97,7 +97,7 @@ import org.openapitools.client.api.MerchantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     MerchantsApi apiInstance = new MerchantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -163,7 +163,7 @@ import org.openapitools.client.api.MerchantsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     MerchantsApi apiInstance = new MerchantsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 

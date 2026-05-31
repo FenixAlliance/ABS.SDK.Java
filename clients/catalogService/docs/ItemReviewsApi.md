@@ -1,6 +1,6 @@
 # ItemReviewsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -101,7 +101,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getItemReviewByIdAsync"></a>
 # **getItemReviewByIdAsync**
-> ItemReviewDtoEnvelope getItemReviewByIdAsync(itemReviewId, apiVersion, xApiVersion)
+> ItemReviewDtoEnvelope getItemReviewByIdAsync(itemReviewId, tenantId, apiVersion, xApiVersion)
 
 Get item review by ID
 
@@ -170,14 +170,15 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID itemReviewId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemReviewDtoEnvelope result = apiInstance.getItemReviewByIdAsync(itemReviewId, apiVersion, xApiVersion);
+      ItemReviewDtoEnvelope result = apiInstance.getItemReviewByIdAsync(itemReviewId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemReviewsApi#getItemReviewByIdAsync");
@@ -195,6 +196,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemReviewId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -238,7 +240,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID itemId = UUID.randomUUID(); // UUID | 
@@ -306,7 +308,7 @@ import org.openapitools.client.api.ItemReviewsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemReviewsApi apiInstance = new ItemReviewsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

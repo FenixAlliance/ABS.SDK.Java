@@ -1,6 +1,6 @@
 # ItemBrandsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemBrandsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemBrandsApi apiInstance = new ItemBrandsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -101,7 +101,7 @@ import org.openapitools.client.api.ItemBrandsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemBrandsApi apiInstance = new ItemBrandsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getItemBrandByIdAsync"></a>
 # **getItemBrandByIdAsync**
-> ItemBrandDtoEnvelope getItemBrandByIdAsync(itemBrandId, apiVersion, xApiVersion)
+> ItemBrandDtoEnvelope getItemBrandByIdAsync(itemBrandId, tenantId, apiVersion, xApiVersion)
 
 Get item brand by ID
 
@@ -170,14 +170,15 @@ import org.openapitools.client.api.ItemBrandsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemBrandsApi apiInstance = new ItemBrandsApi(defaultClient);
     UUID itemBrandId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemBrandDtoEnvelope result = apiInstance.getItemBrandByIdAsync(itemBrandId, apiVersion, xApiVersion);
+      ItemBrandDtoEnvelope result = apiInstance.getItemBrandByIdAsync(itemBrandId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemBrandsApi#getItemBrandByIdAsync");
@@ -195,6 +196,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemBrandId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -238,7 +240,7 @@ import org.openapitools.client.api.ItemBrandsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemBrandsApi apiInstance = new ItemBrandsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -262,7 +264,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -306,7 +308,7 @@ import org.openapitools.client.api.ItemBrandsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemBrandsApi apiInstance = new ItemBrandsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

@@ -1,6 +1,6 @@
 # AntiforgeryApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import org.openapitools.client.api.AntiforgeryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AntiforgeryApi apiInstance = new AntiforgeryApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -91,7 +91,7 @@ import org.openapitools.client.api.AntiforgeryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     AntiforgeryApi apiInstance = new AntiforgeryApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 

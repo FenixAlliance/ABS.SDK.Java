@@ -1,6 +1,6 @@
 # ItemWarrantyPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *https://absuite.net*
 
 <a id="countItemWarrantyPoliciesAsync"></a>
 # **countItemWarrantyPoliciesAsync**
-> Int32Envelope countItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+> Int32Envelope countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Count item warranty policies
 
@@ -31,14 +31,15 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.countItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.countItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemWarrantyPoliciesApi#countItemWarrantyPoliciesAsync");
@@ -55,6 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -81,7 +83,7 @@ No authorization required
 
 <a id="getItemWarrantyPoliciesAsync"></a>
 # **getItemWarrantyPoliciesAsync**
-> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoListEnvelope getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item warranty policies
 
@@ -99,14 +101,15 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemWarrantyPolicyDtoListEnvelope result = apiInstance.getItemWarrantyPoliciesAsync(itemId, apiVersion, xApiVersion);
+      ItemWarrantyPolicyDtoListEnvelope result = apiInstance.getItemWarrantyPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemWarrantyPoliciesApi#getItemWarrantyPoliciesAsync");
@@ -123,6 +126,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -149,7 +153,7 @@ No authorization required
 
 <a id="getItemWarrantyPolicyByIdAsync"></a>
 # **getItemWarrantyPolicyByIdAsync**
-> ItemWarrantyPolicyDtoEnvelope getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, itemId, apiVersion, xApiVersion)
+> ItemWarrantyPolicyDtoEnvelope getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item warranty policy by ID
 
@@ -167,15 +171,16 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID itemWarrantyPolicyId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID itemId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemWarrantyPolicyDtoEnvelope result = apiInstance.getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, itemId, apiVersion, xApiVersion);
+      ItemWarrantyPolicyDtoEnvelope result = apiInstance.getItemWarrantyPolicyByIdAsync(itemWarrantyPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemWarrantyPoliciesApi#getItemWarrantyPolicyByIdAsync");
@@ -193,6 +198,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemWarrantyPolicyId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **itemId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
@@ -237,7 +243,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -308,7 +314,7 @@ import org.openapitools.client.api.ItemWarrantyPoliciesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemWarrantyPoliciesApi apiInstance = new ItemWarrantyPoliciesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

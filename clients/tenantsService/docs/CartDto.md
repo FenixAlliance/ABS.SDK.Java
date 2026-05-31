@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**ip** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**total** | **Double** |  |  [optional] |

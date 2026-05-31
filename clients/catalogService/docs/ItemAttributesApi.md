@@ -1,6 +1,6 @@
 # ItemAttributesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -100,7 +100,7 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -170,7 +170,7 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -221,7 +221,7 @@ No authorization required
 
 <a id="getItemAttributeByIdAsync"></a>
 # **getItemAttributeByIdAsync**
-> ItemAttributeDtoEnvelope getItemAttributeByIdAsync(itemAttributeId, apiVersion, xApiVersion)
+> ItemAttributeDtoEnvelope getItemAttributeByIdAsync(itemAttributeId, tenantId, apiVersion, xApiVersion)
 
 Get item attribute by ID
 
@@ -239,14 +239,15 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID itemAttributeId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemAttributeDtoEnvelope result = apiInstance.getItemAttributeByIdAsync(itemAttributeId, apiVersion, xApiVersion);
+      ItemAttributeDtoEnvelope result = apiInstance.getItemAttributeByIdAsync(itemAttributeId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemAttributesApi#getItemAttributeByIdAsync");
@@ -264,6 +265,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemAttributeId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -307,7 +309,7 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -331,7 +333,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -375,7 +377,7 @@ import org.openapitools.client.api.ItemAttributesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemAttributesApi apiInstance = new ItemAttributesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

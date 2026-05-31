@@ -33,6 +33,7 @@
 |**swaggerSpecs** | [**List&lt;ISwaggerSpec&gt;**](ISwaggerSpec.md) |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**assemblyPaths** | **List&lt;String&gt;** |  |  [optional] |
+|**requiredPermissions** | **List&lt;String&gt;** |  |  [optional] [readonly] |
 |**markedForDeletion** | **Boolean** |  |  [optional] |
 |**version** | **String** |  |  [optional] |
 

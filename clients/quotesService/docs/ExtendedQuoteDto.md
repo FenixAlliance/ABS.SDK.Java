@@ -34,6 +34,7 @@
 |**taxCalculationMethod** | [**TaxCalculationMethodEnum**](#TaxCalculationMethodEnum) |  |  [optional] |
 |**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**forexRate** | **Double** |  |  [optional] |
+|**forexRatesSnapshot** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**totalDetail** | **Double** |  |  [optional] |
 |**totalDetailCurrencyId** | **String** |  |  [optional] |

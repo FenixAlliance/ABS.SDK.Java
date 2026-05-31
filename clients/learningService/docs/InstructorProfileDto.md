@@ -9,12 +9,16 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**authorized** | **Boolean** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
 |**verified** | **Boolean** |  |  [optional] |
 |**submitted** | **Boolean** |  |  [optional] |
 |**avatarUrl** | **String** |  |  [optional] |
-|**qualifiedName** | **String** |  |  [optional] |
+|**contact** | [**ContactDto**](ContactDto.md) |  |  [optional] |
+|**qualifiedName** | **String** |  |  [optional] [readonly] |
 |**verificationTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**data** | **String** |  |  [optional] |
 |**dataLabel** | **String** |  |  [optional] |
@@ -36,6 +40,7 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
+|**authorized** | **Boolean** |  |  [optional] |
 |**businessID** | **String** |  |  [optional] |
 |**contactID** | **String** |  |  [optional] |
 |**businessProfileRecordID** | **String** |  |  [optional] |

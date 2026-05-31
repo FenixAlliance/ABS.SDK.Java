@@ -1,6 +1,6 @@
 # ItemImagesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -31,7 +31,7 @@ import org.openapitools.client.api.ItemImagesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemImagesApi apiInstance = new ItemImagesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -101,7 +101,7 @@ import org.openapitools.client.api.ItemImagesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemImagesApi apiInstance = new ItemImagesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -152,7 +152,7 @@ No authorization required
 
 <a id="getItemImageByIdAsync"></a>
 # **getItemImageByIdAsync**
-> ItemImageDtoEnvelope getItemImageByIdAsync(itemImageId, apiVersion, xApiVersion)
+> ItemImageDtoEnvelope getItemImageByIdAsync(itemImageId, tenantId, apiVersion, xApiVersion)
 
 Get item image by ID
 
@@ -170,14 +170,15 @@ import org.openapitools.client.api.ItemImagesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemImagesApi apiInstance = new ItemImagesApi(defaultClient);
     UUID itemImageId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemImageDtoEnvelope result = apiInstance.getItemImageByIdAsync(itemImageId, apiVersion, xApiVersion);
+      ItemImageDtoEnvelope result = apiInstance.getItemImageByIdAsync(itemImageId, tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ItemImagesApi#getItemImageByIdAsync");
@@ -195,6 +196,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **itemImageId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -238,7 +240,7 @@ import org.openapitools.client.api.ItemImagesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemImagesApi apiInstance = new ItemImagesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -262,7 +264,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -306,7 +308,7 @@ import org.openapitools.client.api.ItemImagesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
+    defaultClient.setBasePath("http://localhost");
 
     ItemImagesApi apiInstance = new ItemImagesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
