@@ -120,8 +120,6 @@
 |**businessProfileRecordId** | **String** |  |  [optional] |
 |**parentBillingItemRecordId** | **String** |  |  [optional] |
 |**cartId** | **String** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
-|**shippingAddressID** | **String** |  |  [optional] |
 
 
 

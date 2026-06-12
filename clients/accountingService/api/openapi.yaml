@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: AccountingService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -394,6 +394,87 @@ paths:
       summary: Gets the current tenant account group
       tags:
       - AccountGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an account group.
+      operationId: PatchAccountGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountGroupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an account group
+      tags:
+      - AccountGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -836,6 +917,87 @@ paths:
       summary: Gets the current tenant accounting period
       tags:
       - AccountingPeriods
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an accounting period.
+      operationId: PatchAccountingPeriodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountingPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an accounting period
+      tags:
+      - AccountingPeriods
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2126,6 +2288,95 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Patch account entry.
+      operationId: PatchAccountEntryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch account entry
+      tags:
+      - Accounts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update account entry.
       operationId: UpdateAccountEntryAsync
@@ -3128,6 +3379,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Patch account type.
+      operationId: PatchAccountTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch account type
+      tags:
+      - Accounts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update account type.
       operationId: UpdateAccountTypeAsync
@@ -3494,6 +3826,95 @@ paths:
       summary: Delete account relation
       tags:
       - Accounts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch account relation.
+      operationId: PatchAccountRelationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: accountRelationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch account relation
+      tags:
+      - Accounts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4051,6 +4472,105 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a bank using JSON Patch.
+      operationId: PatchBank
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: bankId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a bank
+      tags:
+      - Banking
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a bank.
       operationId: UpdateBank
@@ -4529,6 +5049,113 @@ paths:
       summary: Gets the current tenant bank account
       tags:
       - Banking
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially update a bank account using JSON Patch.
+      operationId: PatchBankAccount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: bankId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a bank account
+      tags:
+      - Banking
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5012,6 +5639,113 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a bank guarantee using JSON Patch.
+      operationId: PatchBankGuarantee
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: bankId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: guaranteeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a bank guarantee
+      tags:
+      - Banking
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a bank guarantee.
       operationId: UpdateBankGuarantee
@@ -5492,6 +6226,113 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a bank transaction using JSON Patch.
+      operationId: PatchBankTransaction
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: bankId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: transactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a bank transaction
+      tags:
+      - Banking
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a bank transaction.
       operationId: UpdateBankTransaction
@@ -5930,6 +6771,95 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a billable line tax.
+      operationId: PatchBillableLineTaxAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billableLineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: taxId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a billable line tax
+      tags:
+      - BillableLineTaxes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified tax entry for the billable line.
       operationId: UpdateBillableLineTax
@@ -6095,6 +7025,87 @@ paths:
       summary: Gets a billing profile by id
       tags:
       - BillingProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a billing profile.
+      operationId: PatchBillingProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billingProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a billing profile
+      tags:
+      - BillingProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6432,6 +7443,96 @@ paths:
       summary: Gets a budget by id
       tags:
       - Budgets
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially update a budget using JSON Patch.
+      operationId: PatchBudgetAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: budgetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      summary: Patches a budget
+      tags:
+      - Budgets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7005,6 +8106,104 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a budget account entry using JSON Patch.
+      operationId: PatchBudgetAccountEntryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: budgetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+      summary: Patches a budget account entry
+      tags:
+      - Budgets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a budget account entry
       operationId: UpdateBudgetAccountEntryAsync
@@ -7422,6 +8621,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing commission.
+      operationId: PatchCommissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commissionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a commission
+      tags:
+      - Commissions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing commission.
       operationId: UpdateCommissionAsync
@@ -7828,6 +9108,87 @@ paths:
       summary: Get a payment commission by id
       tags:
       - Commissions
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing payment commission.
+      operationId: PatchPaymentCommissionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: paymentCommissionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a payment commission
+      tags:
+      - Commissions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8564,6 +9925,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing cost centre.
+      operationId: PatchCostCentre
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: costCentreId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a cost centre
+      tags:
+      - CostCentres
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing cost centre.
       operationId: UpdateCostCentre
@@ -8973,6 +10415,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing cost centre group.
+      operationId: PatchCostCentreGroup
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a cost centre group
+      tags:
+      - CostCentres
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing cost centre group.
       operationId: UpdateCostCentreGroup
@@ -9317,6 +10840,87 @@ paths:
       summary: Get a cost centre budget by id
       tags:
       - CostCentres
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing cost centre budget.
+      operationId: PatchCostCentreBudget
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: budgetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a cost centre budget
+      tags:
+      - CostCentres
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9729,6 +11333,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing expense claim.
+      operationId: PatchExpenseClaim
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseClaimId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an expense claim
+      tags:
+      - ExpenseClaims
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing expense claim.
       operationId: UpdateExpenseClaim
@@ -10135,6 +11820,87 @@ paths:
       summary: Get an expense type by id
       tags:
       - ExpenseTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing expense type.
+      operationId: PatchExpenseType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: expenseTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an expense type
+      tags:
+      - ExpenseTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10951,6 +12717,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a financial book.
+      operationId: PatchFinancialBookAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: financialBookId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a financial book
+      tags:
+      - FinancialBooks
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing financial book.
       operationId: UpdateFinancialBookAsync
@@ -11365,6 +13212,87 @@ paths:
       summary: Get fiscal authority by ID
       tags:
       - FiscalAuthorities
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a fiscal authority.
+      operationId: PatchFiscalAuthorityAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: authorityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal authority
+      tags:
+      - FiscalAuthorities
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11809,6 +13737,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a fiscal authority year.
+      operationId: PatchFiscalAuthorityYearAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalYearId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal authority year
+      tags:
+      - FiscalAuthorityYears
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing fiscal year identified by its unique identifier.
       operationId: UpdateFiscalYear
@@ -12249,6 +14258,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an invoice enumeration range.
+      operationId: PatchFiscalEnumerationRangeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: enumerationRangeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice enumeration range
+      tags:
+      - FiscalEnumerationRanges
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing invoice enumeration range identified by its
         unique identifier.
@@ -12680,6 +14770,87 @@ paths:
       summary: Delete a fiscal identification type
       tags:
       - FiscalIdentificationTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a fiscal identification type.
+      operationId: PatchFiscalIdentificationTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: identificationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal identification type
+      tags:
+      - FiscalIdentificationTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -13149,6 +15320,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a fiscal period.
+      operationId: PatchFiscalPeriodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal period
+      tags:
+      - FiscalPeriods
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing fiscal period identified by its unique identifier.
       operationId: UpdateFiscalPeriod
@@ -13585,6 +15837,87 @@ paths:
       summary: Delete a fiscal regime
       tags:
       - FiscalRegimes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a fiscal regime.
+      operationId: PatchFiscalRegimeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: regimeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal regime
+      tags:
+      - FiscalRegimes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -14025,6 +16358,87 @@ paths:
       summary: Delete a fiscal responsibility
       tags:
       - FiscalResponsibilities
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a fiscal responsibility.
+      operationId: PatchFiscalResponsibilityAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalResponsibilityId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal responsibility
+      tags:
+      - FiscalResponsibilities
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -14488,6 +16902,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a fiscal responsibility record.
+      operationId: PatchFiscalResponsibilityRecordAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalResponsibilityRecordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal responsibility record
+      tags:
+      - FiscalResponsibilityRecords
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing fiscal responsibility record identified by
         its unique identifier.
@@ -14804,6 +17299,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a fiscal year.
+      operationId: PatchFiscalYearAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalYearId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a fiscal year
+      tags:
+      - FiscalYears
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing fiscal year identified by its ID.
       operationId: UpdateFiscalYearAsync
@@ -15098,6 +17674,87 @@ paths:
       summary: Get grant by ID
       tags:
       - Grants
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a grant.
+      operationId: PatchGrantAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: grantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a grant
+      tags:
+      - Grants
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -15460,6 +18117,87 @@ paths:
       summary: Get invoice enumeration range by ID
       tags:
       - InvoiceEnumerationRanges
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an invoice enumeration range.
+      operationId: PatchInvoiceEnumerationRangeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: rangeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an invoice enumeration range
+      tags:
+      - InvoiceEnumerationRanges
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -15875,6 +18613,87 @@ paths:
       summary: Get journal by ID
       tags:
       - Journals
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a journal.
+      operationId: PatchJournalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a journal
+      tags:
+      - Journals
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -16401,6 +19220,95 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a journal entry.
+      operationId: PatchJournalEntryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a journal entry
+      tags:
+      - Journals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates a specific journal entry.
       operationId: UpdateJournalEntryAsync
@@ -16584,6 +19492,87 @@ paths:
       summary: Retrieves a journal type by ID
       tags:
       - JournalTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a journal type.
+      operationId: PatchJournalTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a journal type
+      tags:
+      - JournalTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -17111,6 +20100,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Patches the specified ledger.
+      operationId: PatchLedgerAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: ledgerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a ledger
+      tags:
+      - Ledgers
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified ledger.
       operationId: UpdateLedgerAsync
@@ -17516,6 +20586,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified ledger type using a JSON Patch
+        document.
+      operationId: PatchLedgerTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: ledgerTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a ledger type
+      tags:
+      - LedgerTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified ledger type.
       operationId: UpdateLedgerTypeAsync
@@ -17727,6 +20879,87 @@ paths:
       summary: Gets a loan by ID
       tags:
       - Loans
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates the specified loan using a JSON Patch document.
+      operationId: PatchLoanAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loanId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a loan
+      tags:
+      - Loans
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -18329,6 +21562,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified loan application using a JSON Patch
+        document.
+      operationId: PatchLoanApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a loan application
+      tags:
+      - Loans
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified loan application.
       operationId: UpdateLoanApplicationAsync
@@ -18736,6 +22051,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified loan type using a JSON Patch document.
+      operationId: PatchLoanTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loanTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a loan type
+      tags:
+      - Loans
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified loan type.
       operationId: UpdateLoanTypeAsync
@@ -18981,6 +22377,73 @@ paths:
       summary: Gets details of a receipt
       tags:
       - Receipts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates the specified receipt using a JSON Patch document.
+      operationId: PatchReceiptAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: receiptId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a receipt
+      tags:
+      - Receipts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -19373,6 +22836,87 @@ paths:
       summary: Gets a share class by id
       tags:
       - Shares
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a share class using a JSON Patch document.
+      operationId: PatchShareClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shareClassId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a share class
+      tags:
+      - Shares
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -19817,6 +23361,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a share issuance using a JSON Patch document.
+      operationId: PatchShareIssuance
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: issuanceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a share issuance
+      tags:
+      - Shares
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing share issuance.
       operationId: UpdateShareIssuance
@@ -20255,6 +23880,87 @@ paths:
       summary: Gets a share transfer by id
       tags:
       - Shares
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a share transfer using a JSON Patch document.
+      operationId: PatchShareTransfer
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: transferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a share transfer
+      tags:
+      - Shares
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -20699,6 +24405,87 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a share transfer reason using a JSON Patch document.
+      operationId: PatchShareTransferReason
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: reasonId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a share transfer reason
+      tags:
+      - Shares
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing share transfer reason.
       operationId: UpdateShareTransferReason
@@ -21120,6 +24907,88 @@ paths:
       summary: Get tax class by ID
       tags:
       - TaxClasses
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing tax class identified by its unique
+        identifier.
+      operationId: PatchTaxClass
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch a tax class
+      tags:
+      - TaxClasses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -21599,6 +25468,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing tax policy identified by its unique
+        identifier.
+      operationId: PatchTaxPolicy
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch a tax policy
+      tags:
+      - TaxPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing tax policy identified by its unique identifier.
       operationId: UpdateTaxPolicy
@@ -21972,6 +25923,96 @@ paths:
       summary: Get item tax policy record by ID
       tags:
       - TaxPolicies
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing item tax policy record identified
+        by its unique identifier.
+      operationId: PatchItemTaxPolicyRecord
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: taxPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: itemTaxPolicyRecordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch an item tax policy record
+      tags:
+      - TaxPolicies
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -22431,6 +26472,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing applied tax policy record identified
+        by its unique identifier.
+      operationId: PatchAppliedTaxPolicyRecord
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: taxPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: appliedTaxPolicyRecordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch an applied tax policy record
+      tags:
+      - TaxPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing applied tax policy record identified by its
         unique identifier.
@@ -22843,6 +26974,88 @@ paths:
       summary: Get tax rate by ID
       tags:
       - TaxRates
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing tax rate identified by its unique
+        identifier.
+      operationId: PatchTaxRate
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch a tax rate
+      tags:
+      - TaxRates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -23277,6 +27490,88 @@ paths:
       summary: Get transaction by ID
       tags:
       - Transactions
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing transaction identified by its unique
+        identifier.
+      operationId: PatchTransaction
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: transactionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch a transaction
+      tags:
+      - Transactions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -23721,6 +28016,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing transaction category identified by
+        its unique identifier.
+      operationId: PatchTransactionCategory
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: No Content
+      summary: Patch a transaction category
+      tags:
+      - Transactions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing transaction category with the provided data.
       operationId: UpdateTransactionCategory
@@ -23863,14 +28240,15 @@ components:
     AccountCreateDto:
       additionalProperties: false
       example:
-        parentAccountId: parentAccountId
-        path: path
         code: code
-        accountTypeId: accountTypeId
+        contactId: contactId
         accountCategory: Assets
         prefix: prefix
-        name: name
         frozen: true
+        parentAccountId: parentAccountId
+        path: path
+        accountTypeId: accountTypeId
+        name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -23900,6 +28278,9 @@ components:
           type: string
         currencyId:
           minLength: 1
+          type: string
+        contactId:
+          nullable: true
           type: string
         accountTypeId:
           nullable: true
@@ -23955,6 +28336,7 @@ components:
         timestamp: 2000-01-23T04:56:07.000+00:00
         group: true
         enrollmentId: enrollmentId
+        contactId: contactId
         qualifiedName: qualifiedName
         debitsBalanceAmountInUsd:
           amount: 3.616076749251911
@@ -24015,6 +28397,9 @@ components:
           format: double
           type: number
         currencyId:
+          nullable: true
+          type: string
+        contactId:
           nullable: true
           type: string
         accountType:
@@ -24113,6 +28498,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
           enrollmentId: enrollmentId
+          contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
             amount: 3.616076749251911
@@ -24204,6 +28590,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
           enrollmentId: enrollmentId
+          contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
             amount: 3.616076749251911
@@ -24265,6 +28652,7 @@ components:
           timestamp: 2000-01-23T04:56:07.000+00:00
           group: true
           enrollmentId: enrollmentId
+          contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
             amount: 3.616076749251911
@@ -24500,6 +28888,7 @@ components:
       example:
         accountId: accountId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -24513,6 +28902,9 @@ components:
           minLength: 0
           nullable: true
           type: string
+        type:
+          nullable: true
+          type: string
       type: object
     AccountRelationDto:
       additionalProperties: false
@@ -24521,6 +28913,7 @@ components:
         enrollmentId: enrollmentId
         tenantId: tenantId
         id: id
+        type: type
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -24531,6 +28924,9 @@ components:
           nullable: true
           type: string
         accountId:
+          nullable: true
+          type: string
+        type:
           nullable: true
           type: string
         tenantId:
@@ -24548,11 +28944,13 @@ components:
           enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
+          type: type
           timestamp: 2000-01-23T04:56:07.000+00:00
         - accountId: accountId
           enrollmentId: enrollmentId
           tenantId: tenantId
           id: id
+          type: type
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -24587,10 +28985,14 @@ components:
       additionalProperties: false
       example:
         accountId: accountId
+        type: type
       properties:
         accountId:
           maxLength: 36
           minLength: 0
+          nullable: true
+          type: string
+        type:
           nullable: true
           type: string
       type: object
@@ -24754,6 +29156,7 @@ components:
         path: path
         code: code
         accountTypeId: accountTypeId
+        contactId: contactId
         accountCategory: Assets
         prefix: prefix
         name: name
@@ -24779,6 +29182,9 @@ components:
           type: string
         currencyId:
           minLength: 1
+          type: string
+        contactId:
+          nullable: true
           type: string
         accountTypeId:
           nullable: true
@@ -25695,8 +30101,8 @@ components:
       additionalProperties: false
       example:
         branchCode: branchCode
+        walletId: walletId
         bankId: bankId
-        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
@@ -25726,15 +30132,17 @@ components:
         bankAccountNumber:
           nullable: true
           type: string
-        qualifiedName:
-          nullable: true
-          type: string
         bankId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
         bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        walletId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -25904,8 +30312,8 @@ components:
       additionalProperties: false
       example:
         branchCode: branchCode
+        walletId: walletId
         bankId: bankId
-        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
@@ -25927,15 +30335,17 @@ components:
         bankAccountNumber:
           nullable: true
           type: string
-        qualifiedName:
-          nullable: true
-          type: string
         bankId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
         bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        walletId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -26883,9 +31293,20 @@ components:
     BankTransactionCreateDto:
       additionalProperties: false
       example:
+        quantity: 6.027456183070403
+        description: description
+        externalDescription: externalDescription
+        percent: 5.637376656633329
+        unitGroupId: unitGroupId
+        basisAmount: 5.962133916683182
+        price: 0.8008281904610115
         bankAccountId: bankAccountId
+        unitId: unitId
+        transactionCategoryId: transactionCategoryId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
         bankProfileId: bankProfileId
+        basisQuantity: 1.4658129805029452
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -26893,6 +31314,49 @@ components:
           type: string
         timestamp:
           format: date-time
+          type: string
+        description:
+          maxLength: 150
+          minLength: 0
+          nullable: true
+          type: string
+        price:
+          format: double
+          type: number
+        quantity:
+          format: double
+          type: number
+        externalDescription:
+          maxLength: 150
+          minLength: 0
+          nullable: true
+          type: string
+        basisQuantity:
+          format: double
+          type: number
+        basisAmount:
+          format: double
+          type: number
+        percent:
+          format: double
+          type: number
+        unitGroupId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        unitId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        transactionCategoryId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
           type: string
         bankProfileId:
           maxLength: 36
@@ -27193,6 +31657,7 @@ components:
         contactId: contactId
         address2: address2
         address1: address1
+        taxPayerType: Individual
         fiscalRegimeId: fiscalRegimeId
         postalCode: postalCode
         stateId: stateId
@@ -27257,6 +31722,11 @@ components:
           type: boolean
         isFactaCustomer:
           type: boolean
+        taxPayerType:
+          enum:
+          - Individual
+          - Business
+          type: string
         countryId:
           minLength: 1
           type: string
@@ -27998,6 +32468,7 @@ components:
         contactId: contactId
         address2: address2
         address1: address1
+        taxPayerType: Individual
         fiscalRegimeId: fiscalRegimeId
         postalCode: postalCode
         stateId: stateId
@@ -28054,6 +32525,11 @@ components:
           type: boolean
         isFactaCustomer:
           type: boolean
+        taxPayerType:
+          enum:
+          - Individual
+          - Business
+          type: string
         countryId:
           nullable: true
           type: string
@@ -29797,9 +34273,7 @@ components:
       additionalProperties: false
       example:
         dateTime: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         ledgerTypeId: ledgerTypeId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29823,16 +34297,6 @@ components:
           type: string
         dateTime:
           format: date-time
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
           type: string
         ledgerTypeId:
           maxLength: 36
@@ -30222,7 +34686,7 @@ components:
       additionalProperties: false
       example:
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -30240,7 +34704,7 @@ components:
         description:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -30249,7 +34713,7 @@ components:
       example:
         result:
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -30284,12 +34748,12 @@ components:
       example:
         result:
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -32164,9 +36628,11 @@ components:
     ItemTaxPolicyRecordDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         itemId: itemId
         taxPolicyId: taxPolicyId
         itemPriceId: itemPriceId
+        tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -32175,6 +36641,12 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         taxPolicyId:
@@ -32191,9 +36663,11 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           itemId: itemId
           taxPolicyId: taxPolicyId
           itemPriceId: itemPriceId
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -32226,14 +36700,18 @@ components:
       additionalProperties: false
       example:
         result:
-        - itemId: itemId
+        - enrollmentId: enrollmentId
+          itemId: itemId
           taxPolicyId: taxPolicyId
           itemPriceId: itemPriceId
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - itemId: itemId
+        - enrollmentId: enrollmentId
+          itemId: itemId
           taxPolicyId: taxPolicyId
           itemPriceId: itemPriceId
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -32271,15 +36749,7 @@ components:
         itemId: itemId
         taxPolicyId: taxPolicyId
         itemPriceId: itemPriceId
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
-        id:
-          format: uuid
-          type: string
-        timestamp:
-          format: date-time
-          type: string
         taxPolicyId:
           maxLength: 36
           minLength: 0
@@ -32300,12 +36770,12 @@ components:
       additionalProperties: false
       example:
         dateTime: 2000-01-23T04:56:07.000+00:00
-        ledgerID: ledgerID
-        parentJournalID: parentJournalID
+        ledgerId: ledgerId
+        parentJournalId: parentJournalId
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        journalTypeID: journalTypeID
+        journalTypeId: journalTypeId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -32326,17 +36796,17 @@ components:
         dateTime:
           format: date-time
           type: string
-        parentJournalID:
+        parentJournalId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
-        journalTypeID:
+        journalTypeId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
-        ledgerID:
+        ledgerId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -33003,11 +37473,11 @@ components:
       additionalProperties: false
       example:
         dateTime: 2000-01-23T04:56:07.000+00:00
-        ledgerID: ledgerID
-        parentJournalID: parentJournalID
+        ledgerId: ledgerId
+        parentJournalId: parentJournalId
         name: name
         description: description
-        journalTypeID: journalTypeID
+        journalTypeId: journalTypeId
       properties:
         name:
           maxLength: 255
@@ -33022,17 +37492,17 @@ components:
         dateTime:
           format: date-time
           type: string
-        parentJournalID:
+        parentJournalId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
-        journalTypeID:
+        journalTypeId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
-        ledgerID:
+        ledgerId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -33958,7 +38428,7 @@ components:
         addedPercent: 6.027456183070403
         emisorWalletAccountId: emisorWalletAccountId
         receiverWalletAccountId: receiverWalletAccountId
-        paymentID: paymentID
+        paymentId: paymentId
         tenantId: tenantId
         id: id
         salaryId: salaryId
@@ -34011,7 +38481,7 @@ components:
         receiverContactId:
           nullable: true
           type: string
-        paymentID:
+        paymentId:
           nullable: true
           type: string
       type: object
@@ -34029,7 +38499,7 @@ components:
           addedPercent: 6.027456183070403
           emisorWalletAccountId: emisorWalletAccountId
           receiverWalletAccountId: receiverWalletAccountId
-          paymentID: paymentID
+          paymentId: paymentId
           tenantId: tenantId
           id: id
           salaryId: salaryId
@@ -34075,7 +38545,7 @@ components:
           addedPercent: 6.027456183070403
           emisorWalletAccountId: emisorWalletAccountId
           receiverWalletAccountId: receiverWalletAccountId
-          paymentID: paymentID
+          paymentId: paymentId
           tenantId: tenantId
           id: id
           salaryId: salaryId
@@ -34091,7 +38561,7 @@ components:
           addedPercent: 6.027456183070403
           emisorWalletAccountId: emisorWalletAccountId
           receiverWalletAccountId: receiverWalletAccountId
-          paymentID: paymentID
+          paymentId: paymentId
           tenantId: tenantId
           id: id
           salaryId: salaryId
@@ -34428,7 +38898,6 @@ components:
     ReceiptDto:
       additionalProperties: false
       example:
-        accountHolderId: accountHolderId
         enrollmentId: enrollmentId
         receiptType: PaymentReceipt
         contactId: contactId
@@ -34438,6 +38907,7 @@ components:
         closed: true
         invoiceId: invoiceId
         id: id
+        userId: userId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -34455,7 +38925,7 @@ components:
           type: string
         closed:
           type: boolean
-        accountHolderId:
+        userId:
           nullable: true
           type: string
         contactId:
@@ -34480,7 +38950,6 @@ components:
       additionalProperties: false
       example:
         result:
-          accountHolderId: accountHolderId
           enrollmentId: enrollmentId
           receiptType: PaymentReceipt
           contactId: contactId
@@ -34490,6 +38959,7 @@ components:
           closed: true
           invoiceId: invoiceId
           id: id
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -34521,8 +38991,7 @@ components:
       additionalProperties: false
       example:
         result:
-        - accountHolderId: accountHolderId
-          enrollmentId: enrollmentId
+        - enrollmentId: enrollmentId
           receiptType: PaymentReceipt
           contactId: contactId
           orderId: orderId
@@ -34531,9 +39000,9 @@ components:
           closed: true
           invoiceId: invoiceId
           id: id
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - accountHolderId: accountHolderId
-          enrollmentId: enrollmentId
+        - enrollmentId: enrollmentId
           receiptType: PaymentReceipt
           contactId: contactId
           orderId: orderId
@@ -34542,6 +39011,7 @@ components:
           closed: true
           invoiceId: invoiceId
           id: id
+          userId: userId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -35694,6 +40164,7 @@ components:
         code: code
         weeks: 1
         customState: customState
+        fiscalAuthorityId: fiscalAuthorityId
         description: description
         countryStateId: countryStateId
         cityId: cityId
@@ -35713,7 +40184,6 @@ components:
         allowInternational: true
         hours: 0
         months: 5
-        fiscalAuthorityID: fiscalAuthorityID
         reduced: true
         isDefault: true
         isEnabled: true
@@ -35797,7 +40267,7 @@ components:
           type: boolean
         withholding:
           type: boolean
-        fiscalAuthorityID:
+        fiscalAuthorityId:
           nullable: true
           type: string
       type: object
@@ -35809,6 +40279,7 @@ components:
           code: code
           weeks: 1
           customState: customState
+          fiscalAuthorityId: fiscalAuthorityId
           description: description
           countryStateId: countryStateId
           cityId: cityId
@@ -35828,7 +40299,6 @@ components:
           allowInternational: true
           hours: 0
           months: 5
-          fiscalAuthorityID: fiscalAuthorityID
           reduced: true
           isDefault: true
           isEnabled: true
@@ -35868,6 +40338,7 @@ components:
           code: code
           weeks: 1
           customState: customState
+          fiscalAuthorityId: fiscalAuthorityId
           description: description
           countryStateId: countryStateId
           cityId: cityId
@@ -35887,7 +40358,6 @@ components:
           allowInternational: true
           hours: 0
           months: 5
-          fiscalAuthorityID: fiscalAuthorityID
           reduced: true
           isDefault: true
           isEnabled: true
@@ -35897,6 +40367,7 @@ components:
           code: code
           weeks: 1
           customState: customState
+          fiscalAuthorityId: fiscalAuthorityId
           description: description
           countryStateId: countryStateId
           cityId: cityId
@@ -35916,7 +40387,6 @@ components:
           allowInternational: true
           hours: 0
           months: 5
-          fiscalAuthorityID: fiscalAuthorityID
           reduced: true
           isDefault: true
           isEnabled: true
@@ -36972,9 +41442,7 @@ components:
     UpdateLedgerDto:
       additionalProperties: false
       example:
-        enrollmentId: enrollmentId
         name: name
-        tenantId: tenantId
         ledgerTypeId: ledgerTypeId
         description: description
       properties:
@@ -36985,16 +41453,6 @@ components:
           type: string
         description:
           maxLength: 1000
-          minLength: 0
-          nullable: true
-          type: string
-        tenantId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
-          type: string
-        enrollmentId:
-          maxLength: 36
           minLength: 0
           nullable: true
           type: string

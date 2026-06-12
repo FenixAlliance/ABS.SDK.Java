@@ -14,7 +14,7 @@
 |**fileUploadURL** | **String** |  |  |
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
-|**courseID** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

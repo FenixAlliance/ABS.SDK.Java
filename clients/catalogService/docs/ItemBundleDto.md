@@ -13,7 +13,7 @@
 |**code** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**disabled** | **Boolean** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 
 
 

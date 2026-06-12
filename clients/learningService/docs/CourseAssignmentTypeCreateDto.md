@@ -14,7 +14,7 @@
 |**weight** | **Double** |  |  [optional] |
 |**quantity** | **Integer** |  |  [optional] |
 |**excluded** | **Integer** |  |  [optional] |
-|**courseID** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

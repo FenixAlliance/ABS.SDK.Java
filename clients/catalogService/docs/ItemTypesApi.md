@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**deleteItemTypeAsync**](ItemTypesApi.md#deleteItemTypeAsync) | **DELETE** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Delete an item type |
 | [**getItemTypeByIdAsync**](ItemTypesApi.md#getItemTypeByIdAsync) | **GET** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Get item type by ID |
 | [**getItemTypesAsync**](ItemTypesApi.md#getItemTypesAsync) | **GET** /api/v2/CatalogService/ItemTypes | Get all item types |
+| [**patchItemTypeAsync**](ItemTypesApi.md#patchItemTypeAsync) | **PATCH** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Patch an item type |
 | [**updateItemTypeAsync**](ItemTypesApi.md#updateItemTypeAsync) | **PUT** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Update an item type |
 
 
@@ -349,6 +350,77 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchItemTypeAsync"></a>
+# **patchItemTypeAsync**
+> patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, operation)
+
+Patch an item type
+
+Partially updates an existing item type for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ItemTypesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ItemTypesApi apiInstance = new ItemTypesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID itemTypeID = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.patchItemTypeAsync(tenantId, itemTypeID, apiVersion, xApiVersion, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ItemTypesApi#patchItemTypeAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **itemTypeID** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

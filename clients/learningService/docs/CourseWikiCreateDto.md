@@ -11,8 +11,8 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  |
+|**courseUnitId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

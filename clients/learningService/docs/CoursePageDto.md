@@ -13,8 +13,9 @@
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**slug** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

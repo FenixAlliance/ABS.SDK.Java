@@ -18,9 +18,9 @@
 |**enableForLicenses** | **Boolean** |  |  [optional] |
 |**enableForServices** | **Boolean** |  |  [optional] |
 |**enableForSubscriptions** | **Boolean** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**parentItemCategoryID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**parentItemCategoryId** | **String** |  |  [optional] |
 
 
 

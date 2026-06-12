@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getJobOfferByIdAsync**](JobOffersApi.md#getJobOfferByIdAsync) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID |
 | [**getJobOffersAsync**](JobOffersApi.md#getJobOffersAsync) | **GET** /api/v2/HrmsService/JobOffers | Get job offers |
 | [**getJobOffersCountAsync**](JobOffersApi.md#getJobOffersCountAsync) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers |
+| [**patchJobOfferAsync**](JobOffersApi.md#patchJobOfferAsync) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer |
 | [**updateJobOfferAsync**](JobOffersApi.md#updateJobOfferAsync) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer |
 
 
@@ -360,9 +361,82 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="patchJobOfferAsync"></a>
+# **patchJobOfferAsync**
+> EmptyEnvelope patchJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, operation)
+
+Patch a job offer
+
+Partially updates an existing job offer for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JobOffersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    JobOffersApi apiInstance = new JobOffersApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID jobOfferId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JobOffersApi#patchJobOfferAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **jobOfferId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
 <a id="updateJobOfferAsync"></a>
 # **updateJobOfferAsync**
-> EmptyEnvelope updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body)
+> EmptyEnvelope updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, jobOfferUpdateDto)
 
 Update a job offer
 
@@ -387,9 +461,9 @@ public class Example {
     UUID jobOfferId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
-    Object body = null; // Object | 
+    JobOfferUpdateDto jobOfferUpdateDto = new JobOfferUpdateDto(); // JobOfferUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, body);
+      EmptyEnvelope result = apiInstance.updateJobOfferAsync(tenantId, jobOfferId, apiVersion, xApiVersion, jobOfferUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling JobOffersApi#updateJobOfferAsync");
@@ -410,7 +484,7 @@ public class Example {
 | **jobOfferId** | **UUID**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
-| **body** | **Object**|  | [optional] |
+| **jobOfferUpdateDto** | [**JobOfferUpdateDto**](JobOfferUpdateDto.md)|  | [optional] |
 
 ### Return type
 

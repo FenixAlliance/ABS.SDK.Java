@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **Object** |  |  [optional] |
+|**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessId** | **Object** |  |  [optional] |
-|**businessProfileRecordId** | **Object** |  |  [optional] |
-|**assetId** | **Object** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**assetId** | **String** |  |  [optional] |
 |**assetName** | **String** |  |  [optional] |
 |**repairStatus** | [**RepairStatusEnum**](#RepairStatusEnum) |  |  [optional] |
 |**scheduledDate** | **OffsetDateTime** |  |  [optional] |

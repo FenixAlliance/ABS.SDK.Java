@@ -16,6 +16,7 @@
 |**path** | **String** |  |  [optional] |
 |**prefix** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  |
+|**contactId** | **String** |  |  [optional] |
 |**accountTypeId** | **String** |  |  [optional] |
 |**parentAccountId** | **String** |  |  [optional] |
 |**accountCategory** | [**AccountCategoryEnum**](#AccountCategoryEnum) |  |  |

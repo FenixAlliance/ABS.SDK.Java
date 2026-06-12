@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getVesselByIdAsync**](VesselsApi.md#getVesselByIdAsync) | **GET** /api/v2/LogisticsService/Vessels/{vesselId} | Get vessel by ID |
 | [**getVesselsAsync**](VesselsApi.md#getVesselsAsync) | **GET** /api/v2/LogisticsService/Vessels | Get all vessels |
 | [**getVesselsCountAsync**](VesselsApi.md#getVesselsCountAsync) | **GET** /api/v2/LogisticsService/Vessels/Count | Get vessels count |
+| [**patchVesselAsync**](VesselsApi.md#patchVesselAsync) | **PATCH** /api/v2/LogisticsService/Vessels/{vesselId} | Patch a vessel |
 | [**updateVesselAsync**](VesselsApi.md#updateVesselAsync) | **PUT** /api/v2/LogisticsService/Vessels/{vesselId} | Update a vessel |
 
 
@@ -352,6 +353,79 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="patchVesselAsync"></a>
+# **patchVesselAsync**
+> EmptyEnvelope patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, operation)
+
+Patch a vessel
+
+Partially updates an existing vessel using JSON Patch.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.VesselsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    VesselsApi apiInstance = new VesselsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID vesselId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchVesselAsync(tenantId, vesselId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling VesselsApi#patchVesselAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **vesselId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updateVesselAsync"></a>

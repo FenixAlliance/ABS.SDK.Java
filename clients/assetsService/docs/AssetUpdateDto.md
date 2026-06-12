@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**assetType** | [**AssetTypeEnum**](#AssetTypeEnum) |  |  [optional] |
+|**assetClass** | [**AssetClassEnum**](#AssetClassEnum) |  |  [optional] |
 |**assetOwner** | [**AssetOwnerEnum**](#AssetOwnerEnum) |  |  [optional] |
 |**calculateDepreciation** | **Boolean** |  |  [optional] |
 |**allowMonthlyDepreciation** | **Boolean** |  |  [optional] |
@@ -17,8 +17,8 @@
 |**purchaseDate** | **OffsetDateTime** |  |  [optional] |
 |**purchasePrice** | **Double** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
-|**currencyCode** | **String** |  |  [optional] |
 |**itemId** | **String** |  |  [optional] |
+|**assetTypeId** | **String** |  |  [optional] |
 |**assetCategoryId** | **String** |  |  [optional] |
 |**purchaseInvoiceId** | **String** |  |  [optional] |
 |**purchaseReceiptId** | **String** |  |  [optional] |
@@ -28,7 +28,7 @@
 
 
 
-## Enum: AssetTypeEnum
+## Enum: AssetClassEnum
 
 | Name | Value |
 |---- | -----|

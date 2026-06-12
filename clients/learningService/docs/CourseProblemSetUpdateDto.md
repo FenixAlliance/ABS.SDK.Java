@@ -10,8 +10,8 @@
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**overallScore** | **Double** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
-|**courseGradingRubricID** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
+|**courseGradingRubricId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

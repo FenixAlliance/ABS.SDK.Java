@@ -12,8 +12,8 @@
 |**title** | **String** |  |  |
 |**needsRevision** | **Boolean** |  |  |
 |**question** | **String** |  |  |
-|**socialProfileID** | **String** |  |  [optional] |
-|**itemID** | **String** |  |  |
+|**socialProfileId** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  |
 
 
 

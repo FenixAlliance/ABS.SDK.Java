@@ -20,6 +20,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/OrderCreateDto.md
 docs/OrderDto.md
 docs/OrderDtoEnvelope.md
@@ -83,6 +84,7 @@ src/main/java/org/openapitools/client/model/InfoRequest.java
 src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/Int32Envelope.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/OrderCreateDto.java
 src/main/java/org/openapitools/client/model/OrderDto.java
 src/main/java/org/openapitools/client/model/OrderDtoEnvelope.java
@@ -102,5 +104,3 @@ src/main/java/org/openapitools/client/model/TenantEnrollmentDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UserDto.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

@@ -9,11 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**blogPostID** | **String** |  |  [optional] |
+|**blogPostId** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
-|**ownerSocialProfileID** | **String** |  |  [optional] |
-|**socialPostID** | **String** |  |  [optional] |
-|**parentCommentID** | **String** |  |  [optional] |
+|**ownerSocialProfileId** | **String** |  |  [optional] |
+|**socialPostId** | **String** |  |  [optional] |
+|**parentCommentId** | **String** |  |  [optional] |
 
 
 

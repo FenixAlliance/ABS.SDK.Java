@@ -31,6 +31,8 @@
 |**isDefaultSenderAddress** | **Boolean** |  |  [optional] |
 |**isDefaultReturnAddress** | **Boolean** |  |  [optional] |
 |**isDefaultSuppingLocation** | **Boolean** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

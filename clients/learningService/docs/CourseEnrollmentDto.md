@@ -9,11 +9,12 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseCohortID** | **String** |  |  [optional] |
-|**studentProfileID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**courseCompletionCertificateID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseCohortId** | **String** |  |  [optional] |
+|**studentProfileId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**courseCompletionCertificateId** | **String** |  |  [optional] |
 
 
 

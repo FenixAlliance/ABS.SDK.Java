@@ -12,9 +12,9 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**overallScore** | **Double** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**courseUnitID** | **String** |  |  [optional] |
-|**courseGradingRubricID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  |
+|**courseUnitId** | **String** |  |  [optional] |
+|**courseGradingRubricId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

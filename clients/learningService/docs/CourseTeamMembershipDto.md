@@ -9,10 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**instructorProfileID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**instructorProfileId** | **String** |  |  [optional] |
 |**courseTeamMembershipType** | [**CourseTeamMembershipTypeEnum**](#CourseTeamMembershipTypeEnum) |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

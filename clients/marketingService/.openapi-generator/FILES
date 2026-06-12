@@ -62,6 +62,7 @@ docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
+docs/Operation.md
 docs/OrderDto.md
 docs/OrderDtoEnvelope.md
 docs/RefreshRequest.md
@@ -170,6 +171,7 @@ src/main/java/org/openapitools/client/model/NewsletterCreateDto.java
 src/main/java/org/openapitools/client/model/NewsletterDto.java
 src/main/java/org/openapitools/client/model/NewsletterDtoEnvelope.java
 src/main/java/org/openapitools/client/model/NewsletterUpdateDto.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/OrderDto.java
 src/main/java/org/openapitools/client/model/OrderDtoEnvelope.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
@@ -188,17 +190,3 @@ src/main/java/org/openapitools/client/model/SocialPostBucketDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/SocialPostBucketUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/api/MarketingAreasApiTest.java
-src/test/java/org/openapitools/client/api/MarketingLeadsApiTest.java
-src/test/java/org/openapitools/client/model/MarketingAreaCreateDtoTest.java
-src/test/java/org/openapitools/client/model/MarketingAreaDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/MarketingAreaDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/MarketingAreaDtoTest.java
-src/test/java/org/openapitools/client/model/MarketingAreaUpdateDtoTest.java
-src/test/java/org/openapitools/client/model/MarketingLeadCreateDtoTest.java
-src/test/java/org/openapitools/client/model/MarketingLeadDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/MarketingLeadDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/MarketingLeadDtoTest.java
-src/test/java/org/openapitools/client/model/MarketingLeadUpdateDtoTest.java

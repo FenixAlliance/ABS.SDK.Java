@@ -11,7 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**businessName** | **String** |  |  [optional] |
-|**businessProfileRecordId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**assetClass** | [**AssetClassEnum**](#AssetClassEnum) |  |  [optional] |
@@ -26,6 +26,8 @@
 |**currencyCode** | **String** |  |  [optional] |
 |**itemId** | **String** |  |  [optional] |
 |**itemName** | **String** |  |  [optional] |
+|**assetTypeId** | **String** |  |  [optional] |
+|**assetTypeName** | **String** |  |  [optional] |
 |**assetCategoryId** | **String** |  |  [optional] |
 |**assetCategoryName** | **String** |  |  [optional] |
 |**purchaseInvoiceId** | **String** |  |  [optional] |

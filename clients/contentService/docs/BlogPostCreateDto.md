@@ -16,6 +16,7 @@
 |**markup** | **String** |  |  [optional] |
 |**featuredImageUrl** | **String** |  |  [optional] |
 |**codeType** | [**CodeTypeEnum**](#CodeTypeEnum) |  |  [optional] |
+|**slug** | **String** |  |  [optional] |
 |**blogPostCategoryId** | **String** |  |  [optional] |
 |**webTemplateId** | **String** |  |  [optional] |
 

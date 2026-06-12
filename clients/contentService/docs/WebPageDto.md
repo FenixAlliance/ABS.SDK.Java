@@ -66,7 +66,9 @@
 |**socialProfileId** | **String** |  |  [optional] |
 |**parentWebContentId** | **String** |  |  [optional] |
 |**parentWebContentVersionId** | **String** |  |  [optional] |
-|**webTemplateID** | **String** |  |  [optional] |
+|**webTemplateId** | **String** |  |  [optional] |
+|**authorName** | **String** |  |  [optional] |
+|**authorId** | **String** |  |  [optional] |
 |**isHomePage** | **Boolean** |  |  [optional] |
 |**isStorePage** | **Boolean** |  |  [optional] |
 |**isCartPage** | **Boolean** |  |  [optional] |

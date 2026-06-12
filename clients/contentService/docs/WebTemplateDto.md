@@ -20,6 +20,8 @@
 |**razorContent** | **String** |  |  [optional] |
 |**highlightImage** | **String** |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -12,8 +12,9 @@
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**enablePoints** | **Boolean** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

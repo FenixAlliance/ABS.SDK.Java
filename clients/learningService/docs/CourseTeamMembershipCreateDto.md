@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**instructorProfileID** | **String** |  |  |
+|**courseId** | **String** |  |  |
+|**instructorProfileId** | **String** |  |  |
 |**courseTeamMembershipType** | [**CourseTeamMembershipTypeEnum**](#CourseTeamMembershipTypeEnum) |  |  [optional] |
 
 

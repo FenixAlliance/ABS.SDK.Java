@@ -35,7 +35,7 @@
 |**zero** | **Boolean** |  |  [optional] |
 |**reduced** | **Boolean** |  |  [optional] |
 |**withholding** | **Boolean** |  |  [optional] |
-|**fiscalAuthorityID** | **String** |  |  [optional] |
+|**fiscalAuthorityId** | **String** |  |  [optional] |
 
 
 

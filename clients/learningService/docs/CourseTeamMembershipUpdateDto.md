@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**instructorProfileID** | **String** |  |  [optional] |
+|**instructorProfileId** | **String** |  |  [optional] |
 |**courseTeamMembershipType** | [**CourseTeamMembershipTypeEnum**](#CourseTeamMembershipTypeEnum) |  |  [optional] |
 
 

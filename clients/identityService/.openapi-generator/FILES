@@ -104,7 +104,3 @@ src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UserCreateDto.java
 src/main/java/org/openapitools/client/model/UserCreateDtoEnvelope.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/model/AuthResultEnvelopeTest.java
-src/test/java/org/openapitools/client/model/AuthResultTest.java

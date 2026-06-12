@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: HrmsService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -1570,6 +1570,97 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing employee appraisal session for the
+        specified tenant.
+      operationId: PatchEmployeeAppraisalSessionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an employee appraisal session
+      tags:
+      - EmployeeAppraisalSessions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing employee appraisal session for the specified
         tenant.
@@ -2000,6 +2091,96 @@ paths:
       summary: Get employee by ID
       tags:
       - Employees
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing employee for the specified tenant.
+      operationId: PatchEmployeeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: employeeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an employee
+      tags:
+      - Employees
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2435,6 +2616,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing employee type for the specified tenant.
+      operationId: PatchEmployeeTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: employeeTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an employee type
+      tags:
+      - EmployeeTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing employee type for the specified tenant.
       operationId: UpdateEmployeeTypeAsync
@@ -2864,6 +3135,96 @@ paths:
       summary: Get employer by ID
       tags:
       - Employers
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing employer for the specified tenant.
+      operationId: PatchEmployerAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: employerId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an employer
+      tags:
+      - Employers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3659,6 +4020,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing gig for the specified tenant.
+      operationId: PatchGigAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a gig
+      tags:
+      - Gigs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing gig for the specified tenant.
       operationId: UpdateGigAsync
@@ -4088,6 +4539,96 @@ paths:
       summary: Get job offer by ID
       tags:
       - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing job offer for the specified tenant.
+      operationId: PatchJobOfferAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job offer
+      tags:
+      - JobOffers
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4523,6 +5064,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing job title for the specified tenant.
+      operationId: PatchJobTitleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobTitleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job title
+      tags:
+      - JobTitles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing job title for the specified tenant.
       operationId: UpdateJobTitleAsync
@@ -4952,6 +5583,97 @@ paths:
       summary: Get leave application by ID
       tags:
       - LeaveApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing leave application for the specified
+        tenant.
+      operationId: PatchLeaveApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: leaveApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a leave application
+      tags:
+      - LeaveApplications
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6251,6 +6973,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing payroll for the specified tenant.
+      operationId: PatchPayrollAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: payrollId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a payroll
+      tags:
+      - Payrolls
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing payroll for the specified tenant.
       operationId: UpdatePayrollAsync
@@ -6680,6 +7492,96 @@ paths:
       summary: Get salary by ID
       tags:
       - Salaries
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing salary for the specified tenant.
+      operationId: PatchSalaryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: salaryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a salary
+      tags:
+      - Salaries
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7115,6 +8017,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing schedule for the specified tenant.
+      operationId: PatchScheduleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: scheduleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a schedule
+      tags:
+      - Schedules
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing schedule for the specified tenant.
       operationId: UpdateScheduleAsync
@@ -7544,6 +8536,96 @@ paths:
       summary: Get shift by ID
       tags:
       - Shifts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing shift for the specified tenant.
+      operationId: PatchShiftAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shiftId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shift
+      tags:
+      - Shifts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -7979,6 +9061,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing time interval for the specified tenant.
+      operationId: PatchTimeIntervalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: timeIntervalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a time interval
+      tags:
+      - TimeIntervals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing time interval for the specified tenant.
       operationId: UpdateTimeIntervalAsync
@@ -8411,6 +9583,97 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing training program course for the specified
+        tenant.
+      operationId: PatchTrainingProgramCourseAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a training program course
+      tags:
+      - TrainingProgramCourses
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing training program course for the specified tenant.
       operationId: UpdateTrainingProgramCourseAsync
@@ -8840,6 +10103,97 @@ paths:
       summary: Get training program event by ID
       tags:
       - TrainingProgramEvents
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing training program event for the specified
+        tenant.
+      operationId: PatchTrainingProgramEventAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: eventId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a training program event
+      tags:
+      - TrainingProgramEvents
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11933,15 +13287,42 @@ components:
     GigCreateDto:
       additionalProperties: false
       example:
-        skillsRequired: skillsRequired
-        endDate: 2000-01-23T04:56:07.000+00:00
+        employerProfileId: employerProfileId
+        data: data
+        data8Label: data8Label
         description: description
-        location: location
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        countryStateId: countryStateId
+        cityId: cityId
+        remote: true
+        type: type
         title: title
-        startDate: 2000-01-23T04:56:07.000+00:00
+        countryId: countryId
+        data5Label: data5Label
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        minBudget: 0.8008281904610115
+        currencyId: currencyId
+        data2Label: data2Label
         timestamp: 2000-01-23T04:56:07.000+00:00
-        budget: 0.8008281904610115
+        data9: data9
+        externalUrl: externalUrl
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        data4: data4
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        maxBudget: 6.027456183070403
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        location: location
+        data7Label: data7Label
       properties:
         id:
           format: uuid
@@ -11949,25 +13330,105 @@ components:
         timestamp:
           format: date-time
           type: string
+        remote:
+          type: boolean
+        type:
+          nullable: true
+          type: string
         title:
           nullable: true
           type: string
         description:
           nullable: true
           type: string
-        startDate:
+        expectedDeliveryDate:
           format: date-time
           type: string
-        endDate:
-          format: date-time
+        employerProfileId:
+          nullable: true
           type: string
-        budget:
+        minBudget:
           format: double
           type: number
+        maxBudget:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
         location:
           nullable: true
           type: string
-        skillsRequired:
+        externalUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
           nullable: true
           type: string
       type: object
@@ -12315,44 +13776,140 @@ components:
     GigUpdateDto:
       additionalProperties: false
       example:
-        endDate: 2000-01-23T04:56:07.000+00:00
-        price: 0.8008281904610115
+        employerProfileId: employerProfileId
+        data: data
+        data8Label: data8Label
         description: description
-        currency: currency
-        location: location
+        countryStateId: countryStateId
+        cityId: cityId
+        remote: true
+        type: type
         title: title
-        category: category
-        startDate: 2000-01-23T04:56:07.000+00:00
-        tags: tags
+        countryId: countryId
+        data5Label: data5Label
+        minBudget: 0.8008281904610115
+        currencyId: currencyId
+        data2Label: data2Label
+        data9: data9
+        externalUrl: externalUrl
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        data4: data4
+        expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        maxBudget: 6.027456183070403
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        location: location
+        data7Label: data7Label
       properties:
+        remote:
+          type: boolean
+        type:
+          nullable: true
+          type: string
         title:
           nullable: true
           type: string
         description:
           nullable: true
           type: string
-        price:
-          format: double
+        expectedDeliveryDate:
+          format: date-time
+          type: string
+        employerProfileId:
           nullable: true
+          type: string
+        minBudget:
+          format: double
           type: number
-        currency:
+        maxBudget:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          nullable: true
+          type: string
+        cityId:
           nullable: true
           type: string
         location:
           nullable: true
           type: string
-        startDate:
-          format: date-time
+        externalUrl:
           nullable: true
           type: string
-        endDate:
-          format: date-time
+        data:
           nullable: true
           type: string
-        category:
+        dataLabel:
           nullable: true
           type: string
-        tags:
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
           nullable: true
           type: string
       type: object
@@ -12449,14 +14006,197 @@ components:
     JobOfferCreateDto:
       additionalProperties: false
       example:
+        maxSalaryAmount: 5.962133916683182
+        data: data
+        data8Label: data8Label
+        isMidTimeJobOffer: true
+        cityId: cityId
+        remote: true
+        jobFieldId: jobFieldId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        data2Label: data2Label
+        projectExperience: projectExperience
+        minSalaryAmount: 1.4658129805029452
+        dataLabel: dataLabel
+        availiablePositionsCount: 6
+        isRemoteJobOffer: true
+        nonTechnicalSkills: nonTechnicalSkills
+        technologies: technologies
+        data1Label: data1Label
+        data4Label: data4Label
+        technicalSkills: technicalSkills
+        data7Label: data7Label
+        expectedHireDate: 2000-01-23T04:56:07.000+00:00
+        benefits: benefits
+        minOverallExperienceYears: 0
+        employerProfileId: employerProfileId
+        description: description
+        countryStateId: countryStateId
+        title: title
+        countryId: countryId
+        imageUrl: imageUrl
+        data5Label: data5Label
         timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        externalUrl: externalUrl
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        isOfficialJobOffer: true
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        data1: data1
+        certifications: certifications
+        data3Label: data3Label
+        data6Label: data6Label
+        isUndergraduateOption: true
+        location: location
       properties:
         id:
           format: uuid
           type: string
         timestamp:
           format: date-time
+          type: string
+        remote:
+          type: boolean
+        expectedHireDate:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        technicalSkills:
+          nullable: true
+          type: string
+        nonTechnicalSkills:
+          nullable: true
+          type: string
+        certifications:
+          nullable: true
+          type: string
+        projectExperience:
+          nullable: true
+          type: string
+        technologies:
+          nullable: true
+          type: string
+        benefits:
+          nullable: true
+          type: string
+        isOfficialJobOffer:
+          type: boolean
+        isRemoteJobOffer:
+          type: boolean
+        isMidTimeJobOffer:
+          type: boolean
+        isUndergraduateOption:
+          type: boolean
+        minOverallExperienceYears:
+          format: int32
+          type: integer
+        availiablePositionsCount:
+          format: int32
+          type: integer
+        minSalaryAmount:
+          format: double
+          type: number
+        maxSalaryAmount:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        jobFieldId:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        externalUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
           type: string
       type: object
     JobOfferDto:
@@ -12889,6 +14629,191 @@ components:
       type: object
     JobOfferUpdateDto:
       additionalProperties: false
+      example:
+        benefits: benefits
+        minOverallExperienceYears: 0
+        employerProfileId: employerProfileId
+        maxSalaryAmount: 5.962133916683182
+        data: data
+        data8Label: data8Label
+        description: description
+        isMidTimeJobOffer: true
+        countryStateId: countryStateId
+        cityId: cityId
+        remote: true
+        title: title
+        countryId: countryId
+        jobFieldId: jobFieldId
+        imageUrl: imageUrl
+        data5Label: data5Label
+        currencyId: currencyId
+        data2Label: data2Label
+        projectExperience: projectExperience
+        data9: data9
+        externalUrl: externalUrl
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        isOfficialJobOffer: true
+        data4: data4
+        minSalaryAmount: 1.4658129805029452
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        availiablePositionsCount: 6
+        certifications: certifications
+        isRemoteJobOffer: true
+        nonTechnicalSkills: nonTechnicalSkills
+        data3Label: data3Label
+        data6Label: data6Label
+        technologies: technologies
+        data1Label: data1Label
+        data4Label: data4Label
+        technicalSkills: technicalSkills
+        isUndergraduateOption: true
+        location: location
+        data7Label: data7Label
+        expectedHireDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        remote:
+          type: boolean
+        expectedHireDate:
+          format: date-time
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        technicalSkills:
+          nullable: true
+          type: string
+        nonTechnicalSkills:
+          nullable: true
+          type: string
+        certifications:
+          nullable: true
+          type: string
+        projectExperience:
+          nullable: true
+          type: string
+        technologies:
+          nullable: true
+          type: string
+        benefits:
+          nullable: true
+          type: string
+        isOfficialJobOffer:
+          type: boolean
+        isRemoteJobOffer:
+          type: boolean
+        isMidTimeJobOffer:
+          type: boolean
+        isUndergraduateOption:
+          type: boolean
+        minOverallExperienceYears:
+          format: int32
+          type: integer
+        availiablePositionsCount:
+          format: int32
+          type: integer
+        minSalaryAmount:
+          format: double
+          type: number
+        maxSalaryAmount:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        jobFieldId:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+        countryId:
+          nullable: true
+          type: string
+        countryStateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        externalUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
       type: object
     JobTitleCreateDto:
       additionalProperties: false
@@ -13310,10 +15235,8 @@ components:
           nullable: true
           type: string
         approved:
-          nullable: true
           type: boolean
         onReview:
-          nullable: true
           type: boolean
         leaveTypeId:
           nullable: true
@@ -13486,6 +15409,38 @@ components:
       required:
       - email
       - password
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     PayrollCreateDto:
       additionalProperties: false
@@ -14004,7 +15959,6 @@ components:
       properties:
         amount:
           format: double
-          nullable: true
           type: number
         currencyId:
           nullable: true

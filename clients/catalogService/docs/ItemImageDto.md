@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 |**isItemMozaicBG** | **Boolean** |  |  [optional] |
 |**mD5Hash** | **String** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
@@ -25,9 +25,9 @@
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
 |**validResponse** | **Boolean** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
-|**parentFileUploadID** | **String** |  |  [optional] |
-|**accountHolderID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
+|**parentFileUploadId** | **String** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
 
 
 

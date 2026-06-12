@@ -31,7 +31,6 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
 
 
 

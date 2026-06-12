@@ -16,7 +16,9 @@
 |**markup** | **String** |  |  [optional] |
 |**featuredImageUrl** | **String** |  |  [optional] |
 |**codeType** | [**CodeTypeEnum**](#CodeTypeEnum) |  |  [optional] |
-|**webTemplateID** | **String** |  |  [optional] |
+|**slug** | **String** |  |  [optional] |
+|**webTemplateId** | **String** |  |  [optional] |
+|**parentWebContentId** | **String** |  |  [optional] |
 
 
 

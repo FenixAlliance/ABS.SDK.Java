@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessId** | **String** |  |  [optional] |
-|**businessProfileRecordId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**assetId** | **String** |  |  [optional] |
 |**assetName** | **String** |  |  [optional] |
 |**isRootTransfer** | **Boolean** |  |  [optional] |

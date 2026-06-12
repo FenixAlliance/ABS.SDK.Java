@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getPricingRuleById**](PricingRulesApi.md#getPricingRuleById) | **GET** /api/v2/PricingService/PricingRules/{pricingRuleId} | Get pricing rule by ID |
 | [**getPricingRules**](PricingRulesApi.md#getPricingRules) | **GET** /api/v2/PricingService/PricingRules | Get all pricing rules |
 | [**getPricingRulesCountAsync**](PricingRulesApi.md#getPricingRulesCountAsync) | **GET** /api/v2/PricingService/PricingRules/Count | Counts pricing rules |
+| [**patchPricingRule**](PricingRulesApi.md#patchPricingRule) | **PATCH** /api/v2/PricingService/PricingRules/{pricingRuleId} | Patch a pricing rule |
 | [**updatePricingRule**](PricingRulesApi.md#updatePricingRule) | **PUT** /api/v2/PricingService/PricingRules/Update | Update a pricing rule |
 
 
@@ -354,6 +355,77 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="patchPricingRule"></a>
+# **patchPricingRule**
+> patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, operation)
+
+Patch a pricing rule
+
+Partially updates a pricing rule using a JSON Patch document.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PricingRulesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PricingRulesApi apiInstance = new PricingRulesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID pricingRuleId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.patchPricingRule(tenantId, pricingRuleId, apiVersion, xApiVersion, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PricingRulesApi#patchPricingRule");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **pricingRuleId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updatePricingRule"></a>

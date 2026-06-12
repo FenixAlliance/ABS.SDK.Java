@@ -1,0 +1,6341 @@
+openapi: 3.0.4
+info:
+  contact:
+    email: support@fenix-alliance.com
+    name: Fenix Alliance Inc.
+    url: https://fenixalliance.com.co/Support
+  license:
+    name: Fenix Alliance Inc.
+    url: https://fenix-alliance.com.co/Legal/Policies/eula
+  termsOfService: https://absuite.net/eula
+  title: BlockchainsService
+  version: 2.1.2.5532
+servers:
+- url: /
+tags:
+- name: Blockchains
+- name: Completions
+- name: FenixAlliance.Portals.Website
+- name: NonFungibleTokens
+paths:
+  /api/v2/BlockchainsService/Blockchains:
+    get:
+      description: Retrieves all blockchains for the specified tenant.
+      operationId: GetBlockchainsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/BlockchainDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockchainDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BlockchainDtoListEnvelope'
+          description: OK
+      summary: Get all blockchains
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new blockchain for the specified tenant.
+      operationId: CreateBlockchainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockchainCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BlockchainCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new blockchain
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/Blockchains/Count:
+    get:
+      description: Returns the count of blockchains for the specified tenant.
+      operationId: GetBlockchainsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/BlockchainDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get blockchains count
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/Blockchains/{id}:
+    delete:
+      description: Deletes a blockchain for the specified tenant.
+      operationId: DeleteBlockchainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a blockchain
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific blockchain by its identifier.
+      operationId: GetBlockchainByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockchainDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BlockchainDto'
+          description: OK
+      summary: Get blockchain by ID
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a blockchain
+      operationId: PatchBlockchainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a blockchain
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing blockchain for the specified tenant.
+      operationId: UpdateBlockchainAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockchainUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BlockchainUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a blockchain
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks:
+    get:
+      operationId: GetBlockchainBlocksAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/BlockchainBlockDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockchainBlockDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BlockchainBlockDtoListEnvelope'
+          description: OK
+      summary: Get blocks for a blockchain
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      operationId: CreateBlockchainBlockAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockchainBlockCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BlockchainBlockCreateDto'
+      responses:
+        "200":
+          description: OK
+      summary: Add a block to a blockchain
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/Count:
+    get:
+      operationId: GetBlockchainBlocksCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/BlockchainBlockDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get block count for a blockchain
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/Blockchains/{blockchainId}/Blocks/{blockId}:
+    delete:
+      operationId: DeleteBlockchainBlockAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: blockId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      summary: Delete a blockchain block
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+    get:
+      operationId: GetBlockchainBlockByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: blockId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockchainBlockDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BlockchainBlockDto'
+          description: OK
+      summary: Get a specific block
+      tags:
+      - Blockchains
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a blockchain block
+      operationId: PatchBlockchainBlockAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: blockId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a blockchain block
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      operationId: UpdateBlockchainBlockAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: blockchainId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: blockId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockchainBlockUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BlockchainBlockUpdateDto'
+      responses:
+        "200":
+          description: OK
+      summary: Update a blockchain block
+      tags:
+      - Blockchains
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v2/AiService/Completions/Complete:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: conversationId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      tags:
+      - Completions
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+      - text/xml
+  /version:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+  /health:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+  /hello:
+    get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+  /register:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /login:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: useCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: useSessionCookies
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /refresh:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /confirmEmail:
+    get:
+      operationId: MapIdentityApi-/confirmEmail
+      parameters:
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: changedEmail
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+  /resendConfirmationEmail:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResendConfirmationEmailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /forgotPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /resetPassword:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/problem+json
+  /manage/2fa:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFactorRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFactorResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /manage/info:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+      - application/problem+json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfoRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoResponse'
+          description: OK
+        "400":
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/HttpValidationProblemDetails'
+          description: Bad Request
+        "404":
+          description: Not Found
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/problem+json
+  /Account/PerformExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_PerformExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Logout:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              returnUrl:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Logout_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/LinkExternalLogin:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+          application/x-www-form-urlencoded:
+            encoding:
+              provider:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_Account_Manage_LinkExternalLogin_post_request'
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-content-type: multipart/form-data
+      x-accepts:
+      - application/json
+  /Account/Manage/DownloadPersonalData:
+    post:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.Portals.Website
+      x-accepts:
+      - application/json
+  /api/v2/BlockchainsService/NonFungibleTokens:
+    get:
+      description: Retrieves all NFTs for the specified tenant.
+      operationId: GetNonFungibleTokensAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/NonFungibleTokenDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonFungibleTokenDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NonFungibleTokenDtoListEnvelope'
+          description: OK
+      summary: Get all non-fungible tokens
+      tags:
+      - NonFungibleTokens
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new non-fungible token for the specified tenant.
+      operationId: CreateNonFungibleTokenAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NonFungibleTokenCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NonFungibleTokenCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new NFT
+      tags:
+      - NonFungibleTokens
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/NonFungibleTokens/Count:
+    get:
+      description: Returns the count of NFTs for the specified tenant.
+      operationId: GetNonFungibleTokensCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: oDataQueryOptions
+        required: false
+        schema:
+          $ref: '#/components/schemas/NonFungibleTokenDtoODataQueryOptions'
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get NFTs count
+      tags:
+      - NonFungibleTokens
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/BlockchainsService/NonFungibleTokens/{id}:
+    delete:
+      description: Deletes a non-fungible token for the specified tenant.
+      operationId: DeleteNonFungibleTokenAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete an NFT
+      tags:
+      - NonFungibleTokens
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific non-fungible token by its identifier.
+      operationId: GetNonFungibleTokenByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonFungibleTokenDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NonFungibleTokenDto'
+          description: OK
+      summary: Get NFT by ID
+      tags:
+      - NonFungibleTokens
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a non-fungible token
+      operationId: PatchNonFungibleTokenAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a non-fungible token
+      tags:
+      - NonFungibleTokens
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing non-fungible token for the specified tenant.
+      operationId: UpdateNonFungibleTokenAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NonFungibleTokenUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NonFungibleTokenUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update an NFT
+      tags:
+      - NonFungibleTokens
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+components:
+  schemas:
+    AccessTokenResponse:
+      additionalProperties: false
+      example:
+        expiresIn: 0
+        tokenType: tokenType
+        accessToken: accessToken
+        refreshToken: refreshToken
+      properties:
+        tokenType:
+          nullable: true
+          readOnly: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        expiresIn:
+          format: int64
+          type: integer
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - accessToken
+      - expiresIn
+      - refreshToken
+      type: object
+    ApplyClause:
+      additionalProperties: false
+      properties:
+        transformations:
+          items:
+            $ref: '#/components/schemas/TransformationNode'
+          nullable: true
+          type: array
+      type: object
+    ApplyQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        resultClrType:
+          $ref: '#/components/schemas/Type'
+        applyClause:
+          $ref: '#/components/schemas/ApplyClause'
+        rawValue:
+          nullable: true
+          type: string
+      type: object
+    AsnEncodedData:
+      additionalProperties: false
+      properties:
+        oid:
+          $ref: '#/components/schemas/Oid'
+        rawData:
+          format: byte
+          nullable: true
+          type: string
+      type: object
+    Assembly:
+      additionalProperties: false
+      properties:
+        definedTypes:
+          items:
+            $ref: '#/components/schemas/TypeInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        exportedTypes:
+          items:
+            $ref: '#/components/schemas/Type'
+          nullable: true
+          readOnly: true
+          type: array
+        codeBase:
+          deprecated: true
+          nullable: true
+          readOnly: true
+          type: string
+        entryPoint:
+          $ref: '#/components/schemas/MethodInfo'
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        imageRuntimeVersion:
+          nullable: true
+          readOnly: true
+          type: string
+        isDynamic:
+          readOnly: true
+          type: boolean
+        location:
+          nullable: true
+          readOnly: true
+          type: string
+        reflectionOnly:
+          readOnly: true
+          type: boolean
+        isCollectible:
+          readOnly: true
+          type: boolean
+        isFullyTrusted:
+          readOnly: true
+          type: boolean
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        escapedCodeBase:
+          deprecated: true
+          nullable: true
+          readOnly: true
+          type: string
+        manifestModule:
+          $ref: '#/components/schemas/Module'
+        modules:
+          items:
+            $ref: '#/components/schemas/Module'
+          nullable: true
+          readOnly: true
+          type: array
+        globalAssemblyCache:
+          deprecated: true
+          readOnly: true
+          type: boolean
+        hostContext:
+          format: int64
+          readOnly: true
+          type: integer
+        securityRuleSet:
+          enum:
+          - None
+          - Level1
+          - Level2
+          readOnly: true
+          type: string
+      type: object
+    AsymmetricAlgorithm:
+      additionalProperties: false
+      properties:
+        keySize:
+          format: int32
+          type: integer
+        legalKeySizes:
+          items:
+            $ref: '#/components/schemas/KeySizes'
+          nullable: true
+          readOnly: true
+          type: array
+        signatureAlgorithm:
+          nullable: true
+          readOnly: true
+          type: string
+        keyExchangeAlgorithm:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    BlockchainBlockCreateDto:
+      additionalProperties: false
+      example:
+        walletAccountId: walletAccountId
+        data: data
+        previousHash: previousHash
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        nonce: 0
+        blockchainId: blockchainId
+        hash: hash
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        hash:
+          minLength: 1
+          type: string
+        data:
+          nullable: true
+          type: string
+        nonce:
+          format: int64
+          type: integer
+        previousHash:
+          nullable: true
+          type: string
+        blockchainId:
+          minLength: 1
+          type: string
+        walletAccountId:
+          minLength: 1
+          type: string
+      required:
+      - blockchainId
+      - hash
+      - walletAccountId
+      type: object
+    BlockchainBlockDto:
+      additionalProperties: false
+      example:
+        walletAccountId: walletAccountId
+        data: data
+        previousHash: previousHash
+        tenantId: tenantId
+        index: 0
+        id: id
+        nonce: 6
+        blockchainId: blockchainId
+        hash: hash
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        index:
+          format: int32
+          type: integer
+        hash:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        nonce:
+          format: int64
+          type: integer
+        previousHash:
+          nullable: true
+          type: string
+        blockchainId:
+          nullable: true
+          type: string
+        walletAccountId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    BlockchainBlockDtoETag:
+      additionalProperties: false
+      properties:
+        isWellFormed:
+          type: boolean
+        entityType:
+          $ref: '#/components/schemas/Type'
+        isAny:
+          type: boolean
+        isIfNoneMatch:
+          type: boolean
+      type: object
+    BlockchainBlockDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - walletAccountId: walletAccountId
+          data: data
+          previousHash: previousHash
+          tenantId: tenantId
+          index: 0
+          id: id
+          nonce: 6
+          blockchainId: blockchainId
+          hash: hash
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - walletAccountId: walletAccountId
+          data: data
+          previousHash: previousHash
+          tenantId: tenantId
+          index: 0
+          id: id
+          nonce: 6
+          blockchainId: blockchainId
+          hash: hash
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BlockchainBlockDto'
+          nullable: true
+          type: array
+      type: object
+    BlockchainBlockDtoODataQueryOptions:
+      additionalProperties: false
+      properties:
+        request:
+          $ref: '#/components/schemas/HttpRequest'
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValues:
+          $ref: '#/components/schemas/ODataRawQueryOptions'
+        selectExpand:
+          $ref: '#/components/schemas/SelectExpandQueryOption'
+        apply:
+          $ref: '#/components/schemas/ApplyQueryOption'
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        filter:
+          $ref: '#/components/schemas/FilterQueryOption'
+        search:
+          $ref: '#/components/schemas/SearchQueryOption'
+        orderBy:
+          $ref: '#/components/schemas/OrderByQueryOption'
+        skip:
+          $ref: '#/components/schemas/SkipQueryOption'
+        skipToken:
+          $ref: '#/components/schemas/SkipTokenQueryOption'
+        top:
+          $ref: '#/components/schemas/TopQueryOption'
+        count:
+          $ref: '#/components/schemas/CountQueryOption'
+        validator:
+          additionalProperties: false
+          type: object
+        ifMatch:
+          $ref: '#/components/schemas/BlockchainBlockDtoETag'
+        ifNoneMatch:
+          $ref: '#/components/schemas/BlockchainBlockDtoETag'
+      type: object
+    BlockchainBlockUpdateDto:
+      additionalProperties: false
+      example:
+        data: data
+        nonce: 0
+      properties:
+        data:
+          nullable: true
+          type: string
+        nonce:
+          format: int64
+          nullable: true
+          type: integer
+      type: object
+    BlockchainCreateDto:
+      additionalProperties: false
+      example:
+        difficulty: 0
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        logoUrl: logoUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        logoUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        difficulty:
+          format: int32
+          type: integer
+      required:
+      - name
+      type: object
+    BlockchainDto:
+      additionalProperties: false
+      example:
+        difficulty: 0
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        logoUrl: logoUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        logoUrl:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        difficulty:
+          format: int32
+          type: integer
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    BlockchainDtoETag:
+      additionalProperties: false
+      properties:
+        isWellFormed:
+          type: boolean
+        entityType:
+          $ref: '#/components/schemas/Type'
+        isAny:
+          type: boolean
+        isIfNoneMatch:
+          type: boolean
+      type: object
+    BlockchainDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - difficulty: 0
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          logoUrl: logoUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - difficulty: 0
+          enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          logoUrl: logoUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BlockchainDto'
+          nullable: true
+          type: array
+      type: object
+    BlockchainDtoODataQueryOptions:
+      additionalProperties: false
+      properties:
+        request:
+          $ref: '#/components/schemas/HttpRequest'
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValues:
+          $ref: '#/components/schemas/ODataRawQueryOptions'
+        selectExpand:
+          $ref: '#/components/schemas/SelectExpandQueryOption'
+        apply:
+          $ref: '#/components/schemas/ApplyQueryOption'
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        filter:
+          $ref: '#/components/schemas/FilterQueryOption'
+        search:
+          $ref: '#/components/schemas/SearchQueryOption'
+        orderBy:
+          $ref: '#/components/schemas/OrderByQueryOption'
+        skip:
+          $ref: '#/components/schemas/SkipQueryOption'
+        skipToken:
+          $ref: '#/components/schemas/SkipTokenQueryOption'
+        top:
+          $ref: '#/components/schemas/TopQueryOption'
+        count:
+          $ref: '#/components/schemas/CountQueryOption'
+        validator:
+          additionalProperties: false
+          type: object
+        ifMatch:
+          $ref: '#/components/schemas/BlockchainDtoETag'
+        ifNoneMatch:
+          $ref: '#/components/schemas/BlockchainDtoETag'
+      type: object
+    BlockchainUpdateDto:
+      additionalProperties: false
+      example:
+        difficulty: 0
+        name: name
+        description: description
+        logoUrl: logoUrl
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        logoUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        difficulty:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    ByteReadOnlyMemory:
+      additionalProperties: false
+      properties:
+        length:
+          format: int32
+          readOnly: true
+          type: integer
+        isEmpty:
+          readOnly: true
+          type: boolean
+        span:
+          $ref: '#/components/schemas/ByteReadOnlySpan'
+      type: object
+    ByteReadOnlySpan:
+      additionalProperties: false
+      properties:
+        length:
+          format: int32
+          readOnly: true
+          type: integer
+        isEmpty:
+          readOnly: true
+          type: boolean
+      type: object
+    CancellationToken:
+      additionalProperties: false
+      properties:
+        isCancellationRequested:
+          readOnly: true
+          type: boolean
+        canBeCanceled:
+          readOnly: true
+          type: boolean
+        waitHandle:
+          $ref: '#/components/schemas/WaitHandle'
+      type: object
+    Claim:
+      additionalProperties: false
+      properties:
+        issuer:
+          nullable: true
+          readOnly: true
+          type: string
+        originalIssuer:
+          nullable: true
+          readOnly: true
+          type: string
+        properties:
+          additionalProperties:
+            type: string
+          nullable: true
+          readOnly: true
+          type: object
+        subject:
+          $ref: '#/components/schemas/ClaimsIdentity'
+        type:
+          nullable: true
+          readOnly: true
+          type: string
+        value:
+          nullable: true
+          readOnly: true
+          type: string
+        valueType:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ClaimsIdentity:
+      additionalProperties: false
+      properties:
+        authenticationType:
+          nullable: true
+          readOnly: true
+          type: string
+        isAuthenticated:
+          readOnly: true
+          type: boolean
+        actor:
+          $ref: '#/components/schemas/ClaimsIdentity'
+        bootstrapContext:
+          nullable: true
+        claims:
+          items:
+            $ref: '#/components/schemas/Claim'
+          nullable: true
+          readOnly: true
+          type: array
+        label:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        nameClaimType:
+          nullable: true
+          readOnly: true
+          type: string
+        roleClaimType:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ClaimsPrincipal:
+      additionalProperties: false
+      properties:
+        claims:
+          items:
+            $ref: '#/components/schemas/Claim'
+          nullable: true
+          readOnly: true
+          type: array
+        identities:
+          items:
+            $ref: '#/components/schemas/ClaimsIdentity'
+          nullable: true
+          readOnly: true
+          type: array
+        identity:
+          $ref: '#/components/schemas/IIdentity'
+      type: object
+    ComputeClause:
+      additionalProperties: false
+      properties:
+        computedItems:
+          items:
+            $ref: '#/components/schemas/ComputeExpression'
+          nullable: true
+          type: array
+      type: object
+    ComputeExpression:
+      additionalProperties: false
+      properties:
+        expression:
+          $ref: '#/components/schemas/SingleValueNode'
+        alias:
+          nullable: true
+          type: string
+        typeReference:
+          $ref: '#/components/schemas/IEdmTypeReference'
+      type: object
+    ComputeQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        resultClrType:
+          $ref: '#/components/schemas/Type'
+        computeClause:
+          $ref: '#/components/schemas/ComputeClause'
+        rawValue:
+          nullable: true
+          type: string
+        validator:
+          additionalProperties: false
+          type: object
+      type: object
+    ConnectionInfo:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        remoteIpAddress:
+          $ref: '#/components/schemas/IPAddress'
+        remotePort:
+          format: int32
+          type: integer
+        localIpAddress:
+          $ref: '#/components/schemas/IPAddress'
+        localPort:
+          format: int32
+          type: integer
+        clientCertificate:
+          $ref: '#/components/schemas/X509Certificate2'
+      type: object
+    ConstructorInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        attributes:
+          enum:
+          - PrivateScope
+          - Private
+          - FamANDAssem
+          - Assembly
+          - Family
+          - FamORAssem
+          - Public
+          - MemberAccessMask
+          - UnmanagedExport
+          - Static
+          - Final
+          - Virtual
+          - HideBySig
+          - NewSlot
+          - CheckAccessOnOverride
+          - Abstract
+          - SpecialName
+          - RTSpecialName
+          - PinvokeImpl
+          - HasSecurity
+          - RequireSecObject
+          - ReservedMask
+          readOnly: true
+          type: string
+        methodImplementationFlags:
+          enum:
+          - IL
+          - Native
+          - OPTIL
+          - CodeTypeMask
+          - ManagedMask
+          - NoInlining
+          - ForwardRef
+          - Synchronized
+          - NoOptimization
+          - PreserveSig
+          - AggressiveInlining
+          - AggressiveOptimization
+          - InternalCall
+          - Async
+          - MaxMethodImplVal
+          readOnly: true
+          type: string
+        callingConvention:
+          enum:
+          - Standard
+          - VarArgs
+          - Any
+          - HasThis
+          - ExplicitThis
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isConstructor:
+          readOnly: true
+          type: boolean
+        isFinal:
+          readOnly: true
+          type: boolean
+        isHideBySig:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isStatic:
+          readOnly: true
+          type: boolean
+        isVirtual:
+          readOnly: true
+          type: boolean
+        isAssembly:
+          readOnly: true
+          type: boolean
+        isFamily:
+          readOnly: true
+          type: boolean
+        isFamilyAndAssembly:
+          readOnly: true
+          type: boolean
+        isFamilyOrAssembly:
+          readOnly: true
+          type: boolean
+        isPrivate:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isConstructedGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethodDefinition:
+          readOnly: true
+          type: boolean
+        containsGenericParameters:
+          readOnly: true
+          type: boolean
+        methodHandle:
+          $ref: '#/components/schemas/RuntimeMethodHandle'
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+      type: object
+    CountQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValue:
+          nullable: true
+          type: string
+        value:
+          readOnly: true
+          type: boolean
+        validator:
+          additionalProperties: false
+          type: object
+      type: object
+    CustomAttributeData:
+      additionalProperties: false
+      properties:
+        attributeType:
+          $ref: '#/components/schemas/Type'
+        constructor:
+          $ref: '#/components/schemas/ConstructorInfo'
+        constructorArguments:
+          items:
+            $ref: '#/components/schemas/CustomAttributeTypedArgument'
+          nullable: true
+          readOnly: true
+          type: array
+        namedArguments:
+          items:
+            $ref: '#/components/schemas/CustomAttributeNamedArgument'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    CustomAttributeNamedArgument:
+      additionalProperties: false
+      properties:
+        memberInfo:
+          $ref: '#/components/schemas/MemberInfo'
+        typedValue:
+          $ref: '#/components/schemas/CustomAttributeTypedArgument'
+        memberName:
+          nullable: true
+          readOnly: true
+          type: string
+        isField:
+          readOnly: true
+          type: boolean
+      type: object
+    CustomAttributeTypedArgument:
+      additionalProperties: false
+      properties:
+        argumentType:
+          $ref: '#/components/schemas/Type'
+        value:
+          nullable: true
+      type: object
+    DefaultQueryConfigurations:
+      additionalProperties: false
+      properties:
+        enableExpand:
+          type: boolean
+        enableSelect:
+          type: boolean
+        enableCount:
+          type: boolean
+        enableOrderBy:
+          type: boolean
+        enableFilter:
+          type: boolean
+        maxTop:
+          format: int32
+          nullable: true
+          type: integer
+        enableSkipToken:
+          type: boolean
+      type: object
+    ETag:
+      additionalProperties: false
+      properties:
+        isWellFormed:
+          type: boolean
+        entityType:
+          $ref: '#/components/schemas/Type'
+        isAny:
+          type: boolean
+        isIfNoneMatch:
+          type: boolean
+      type: object
+    EdmReferentialConstraintPropertyPair:
+      additionalProperties: false
+      properties:
+        dependentProperty:
+          $ref: '#/components/schemas/IEdmStructuralProperty'
+        principalProperty:
+          $ref: '#/components/schemas/IEdmStructuralProperty'
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    ErrorEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    EventInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        attributes:
+          enum:
+          - None
+          - SpecialName
+          - RTSpecialName
+          readOnly: true
+          type: string
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        addMethod:
+          $ref: '#/components/schemas/MethodInfo'
+        removeMethod:
+          $ref: '#/components/schemas/MethodInfo'
+        raiseMethod:
+          $ref: '#/components/schemas/MethodInfo'
+        isMulticast:
+          readOnly: true
+          type: boolean
+        eventHandlerType:
+          $ref: '#/components/schemas/Type'
+      type: object
+    FieldInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        attributes:
+          enum:
+          - PrivateScope
+          - Private
+          - FamANDAssem
+          - Assembly
+          - Family
+          - FamORAssem
+          - Public
+          - FieldAccessMask
+          - Static
+          - InitOnly
+          - Literal
+          - NotSerialized
+          - HasFieldRVA
+          - SpecialName
+          - RTSpecialName
+          - HasFieldMarshal
+          - PinvokeImpl
+          - HasDefault
+          - ReservedMask
+          readOnly: true
+          type: string
+        fieldType:
+          $ref: '#/components/schemas/Type'
+        isInitOnly:
+          readOnly: true
+          type: boolean
+        isLiteral:
+          readOnly: true
+          type: boolean
+        isNotSerialized:
+          deprecated: true
+          readOnly: true
+          type: boolean
+        isPinvokeImpl:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isStatic:
+          readOnly: true
+          type: boolean
+        isAssembly:
+          readOnly: true
+          type: boolean
+        isFamily:
+          readOnly: true
+          type: boolean
+        isFamilyAndAssembly:
+          readOnly: true
+          type: boolean
+        isFamilyOrAssembly:
+          readOnly: true
+          type: boolean
+        isPrivate:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+        fieldHandle:
+          $ref: '#/components/schemas/RuntimeFieldHandle'
+      type: object
+    FilterClause:
+      additionalProperties: false
+      properties:
+        expression:
+          $ref: '#/components/schemas/SingleValueNode'
+        rangeVariable:
+          $ref: '#/components/schemas/RangeVariable'
+        itemType:
+          $ref: '#/components/schemas/IEdmTypeReference'
+      type: object
+    FilterQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        validator:
+          additionalProperties: false
+          type: object
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        filterClause:
+          $ref: '#/components/schemas/FilterClause'
+        rawValue:
+          nullable: true
+          type: string
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    HostString:
+      additionalProperties: false
+      properties:
+        value:
+          nullable: true
+          type: string
+        hasValue:
+          readOnly: true
+          type: boolean
+        host:
+          nullable: true
+          readOnly: true
+          type: string
+        port:
+          format: int32
+          nullable: true
+          readOnly: true
+          type: integer
+      type: object
+    HttpContext:
+      additionalProperties: false
+      properties:
+        features:
+          items:
+            $ref: '#/components/schemas/TypeObjectKeyValuePair'
+          nullable: true
+          readOnly: true
+          type: array
+        request:
+          $ref: '#/components/schemas/HttpRequest'
+        response:
+          $ref: '#/components/schemas/HttpResponse'
+        connection:
+          $ref: '#/components/schemas/ConnectionInfo'
+        webSockets:
+          $ref: '#/components/schemas/WebSocketManager'
+        user:
+          $ref: '#/components/schemas/ClaimsPrincipal'
+        items:
+          additionalProperties:
+            nullable: true
+          nullable: true
+          type: object
+        requestServices:
+          additionalProperties: false
+          type: object
+        requestAborted:
+          $ref: '#/components/schemas/CancellationToken'
+        traceIdentifier:
+          nullable: true
+          type: string
+        session:
+          $ref: '#/components/schemas/ISession'
+      type: object
+    HttpRequest:
+      additionalProperties: false
+      properties:
+        httpContext:
+          $ref: '#/components/schemas/HttpContext'
+        method:
+          nullable: true
+          type: string
+        scheme:
+          nullable: true
+          type: string
+        isHttps:
+          type: boolean
+        host:
+          $ref: '#/components/schemas/HostString'
+        pathBase:
+          $ref: '#/components/schemas/PathString'
+        path:
+          $ref: '#/components/schemas/PathString'
+        queryString:
+          $ref: '#/components/schemas/QueryString'
+        query:
+          items:
+            $ref: '#/components/schemas/StringStringValuesKeyValuePair'
+          nullable: true
+          type: array
+        protocol:
+          nullable: true
+          type: string
+        headers:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          readOnly: true
+          type: object
+        cookies:
+          items:
+            $ref: '#/components/schemas/StringStringKeyValuePair'
+          nullable: true
+          type: array
+        contentLength:
+          format: int64
+          nullable: true
+          type: integer
+        contentType:
+          nullable: true
+          type: string
+        body:
+          format: binary
+          nullable: true
+          type: string
+        bodyReader:
+          format: binary
+          nullable: true
+          readOnly: true
+          type: string
+        hasFormContentType:
+          readOnly: true
+          type: boolean
+        form:
+          items:
+            $ref: '#/components/schemas/StringStringValuesKeyValuePair'
+          nullable: true
+          type: array
+        routeValues:
+          additionalProperties: {}
+          nullable: true
+          type: object
+      type: object
+    HttpResponse:
+      additionalProperties: false
+      properties:
+        httpContext:
+          $ref: '#/components/schemas/HttpContext'
+        statusCode:
+          format: int32
+          type: integer
+        headers:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          readOnly: true
+          type: object
+        body:
+          format: binary
+          nullable: true
+          type: string
+        bodyWriter:
+          $ref: '#/components/schemas/PipeWriter'
+        contentLength:
+          format: int64
+          nullable: true
+          type: integer
+        contentType:
+          nullable: true
+          type: string
+        cookies:
+          additionalProperties: false
+          type: object
+        hasStarted:
+          readOnly: true
+          type: boolean
+      type: object
+    HttpValidationProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+        errors:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: object
+      type: object
+    IComputeQueryValidator:
+      additionalProperties: false
+      type: object
+    ICountQueryValidator:
+      additionalProperties: false
+      type: object
+    ICustomAttributeProvider:
+      additionalProperties: false
+      type: object
+    IEdmDirectValueAnnotationsManager:
+      additionalProperties: false
+      type: object
+    IEdmEntityContainer:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        schemaElementKind:
+          enum:
+          - None
+          - TypeDefinition
+          - Term
+          - Action
+          - EntityContainer
+          - Function
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+        elements:
+          items:
+            $ref: '#/components/schemas/IEdmEntityContainerElement'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IEdmEntityContainerElement:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        containerElementKind:
+          enum:
+          - None
+          - EntitySet
+          - ActionImport
+          - FunctionImport
+          - Singleton
+          readOnly: true
+          type: string
+        container:
+          $ref: '#/components/schemas/IEdmEntityContainer'
+      type: object
+    IEdmEntityType:
+      additionalProperties: false
+      properties:
+        typeKind:
+          enum:
+          - None
+          - Primitive
+          - Entity
+          - Complex
+          - Collection
+          - EntityReference
+          - Enum
+          - TypeDefinition
+          - Untyped
+          - Path
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isOpen:
+          readOnly: true
+          type: boolean
+        baseType:
+          $ref: '#/components/schemas/IEdmStructuredType'
+        declaredProperties:
+          items:
+            $ref: '#/components/schemas/IEdmProperty'
+          nullable: true
+          readOnly: true
+          type: array
+        schemaElementKind:
+          enum:
+          - None
+          - TypeDefinition
+          - Term
+          - Action
+          - EntityContainer
+          - Function
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+        declaredKey:
+          items:
+            $ref: '#/components/schemas/IEdmStructuralProperty'
+          nullable: true
+          readOnly: true
+          type: array
+        hasStream:
+          readOnly: true
+          type: boolean
+      type: object
+    IEdmExpression:
+      additionalProperties: false
+      properties:
+        expressionKind:
+          enum:
+          - None
+          - BinaryConstant
+          - BooleanConstant
+          - DateTimeOffsetConstant
+          - DecimalConstant
+          - FloatingConstant
+          - GuidConstant
+          - IntegerConstant
+          - StringConstant
+          - DurationConstant
+          - null
+          - Record
+          - Collection
+          - Path
+          - If
+          - Cast
+          - IsOf
+          - FunctionApplication
+          - LabeledExpressionReference
+          - Labeled
+          - PropertyPath
+          - NavigationPropertyPath
+          - DateConstant
+          - TimeOfDayConstant
+          - EnumMember
+          - AnnotationPath
+          readOnly: true
+          type: string
+      type: object
+    IEdmModel:
+      additionalProperties: false
+      properties:
+        schemaElements:
+          items:
+            $ref: '#/components/schemas/IEdmSchemaElement'
+          nullable: true
+          readOnly: true
+          type: array
+        vocabularyAnnotations:
+          items:
+            $ref: '#/components/schemas/IEdmVocabularyAnnotation'
+          nullable: true
+          readOnly: true
+          type: array
+        referencedModels:
+          items:
+            $ref: '#/components/schemas/IEdmModel'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredNamespaces:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        directValueAnnotationsManager:
+          additionalProperties: false
+          type: object
+        entityContainer:
+          $ref: '#/components/schemas/IEdmEntityContainer'
+      type: object
+    IEdmNavigationProperty:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        propertyKind:
+          enum:
+          - None
+          - Structural
+          - Navigation
+          readOnly: true
+          type: string
+        type:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        declaringType:
+          $ref: '#/components/schemas/IEdmStructuredType'
+        partner:
+          $ref: '#/components/schemas/IEdmNavigationProperty'
+        onDelete:
+          enum:
+          - None
+          - Cascade
+          readOnly: true
+          type: string
+        containsTarget:
+          readOnly: true
+          type: boolean
+        referentialConstraint:
+          $ref: '#/components/schemas/IEdmReferentialConstraint'
+      type: object
+    IEdmNavigationPropertyBinding:
+      additionalProperties: false
+      properties:
+        navigationProperty:
+          $ref: '#/components/schemas/IEdmNavigationProperty'
+        target:
+          $ref: '#/components/schemas/IEdmNavigationSource'
+        path:
+          $ref: '#/components/schemas/IEdmPathExpression'
+      type: object
+    IEdmNavigationSource:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        navigationPropertyBindings:
+          items:
+            $ref: '#/components/schemas/IEdmNavigationPropertyBinding'
+          nullable: true
+          readOnly: true
+          type: array
+        path:
+          $ref: '#/components/schemas/IEdmPathExpression'
+        type:
+          $ref: '#/components/schemas/IEdmType'
+        entityType:
+          $ref: '#/components/schemas/IEdmEntityType'
+      type: object
+    IEdmPathExpression:
+      additionalProperties: false
+      properties:
+        expressionKind:
+          enum:
+          - None
+          - BinaryConstant
+          - BooleanConstant
+          - DateTimeOffsetConstant
+          - DecimalConstant
+          - FloatingConstant
+          - GuidConstant
+          - IntegerConstant
+          - StringConstant
+          - DurationConstant
+          - null
+          - Record
+          - Collection
+          - Path
+          - If
+          - Cast
+          - IsOf
+          - FunctionApplication
+          - LabeledExpressionReference
+          - Labeled
+          - PropertyPath
+          - NavigationPropertyPath
+          - DateConstant
+          - TimeOfDayConstant
+          - EnumMember
+          - AnnotationPath
+          readOnly: true
+          type: string
+        pathSegments:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        path:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IEdmProperty:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        propertyKind:
+          enum:
+          - None
+          - Structural
+          - Navigation
+          readOnly: true
+          type: string
+        type:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        declaringType:
+          $ref: '#/components/schemas/IEdmStructuredType'
+      type: object
+    IEdmReferentialConstraint:
+      additionalProperties: false
+      properties:
+        propertyPairs:
+          items:
+            $ref: '#/components/schemas/EdmReferentialConstraintPropertyPair'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IEdmSchemaElement:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        schemaElementKind:
+          enum:
+          - None
+          - TypeDefinition
+          - Term
+          - Action
+          - EntityContainer
+          - Function
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IEdmStructuralProperty:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        propertyKind:
+          enum:
+          - None
+          - Structural
+          - Navigation
+          readOnly: true
+          type: string
+        type:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        declaringType:
+          $ref: '#/components/schemas/IEdmStructuredType'
+        defaultValueString:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IEdmStructuredType:
+      additionalProperties: false
+      properties:
+        typeKind:
+          enum:
+          - None
+          - Primitive
+          - Entity
+          - Complex
+          - Collection
+          - EntityReference
+          - Enum
+          - TypeDefinition
+          - Untyped
+          - Path
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isOpen:
+          readOnly: true
+          type: boolean
+        baseType:
+          $ref: '#/components/schemas/IEdmStructuredType'
+        declaredProperties:
+          items:
+            $ref: '#/components/schemas/IEdmProperty'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    IEdmTerm:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        schemaElementKind:
+          enum:
+          - None
+          - TypeDefinition
+          - Term
+          - Action
+          - EntityContainer
+          - Function
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+        type:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        appliesTo:
+          nullable: true
+          readOnly: true
+          type: string
+        defaultValue:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    IEdmType:
+      additionalProperties: false
+      properties:
+        typeKind:
+          enum:
+          - None
+          - Primitive
+          - Entity
+          - Complex
+          - Collection
+          - EntityReference
+          - Enum
+          - TypeDefinition
+          - Untyped
+          - Path
+          readOnly: true
+          type: string
+      type: object
+    IEdmTypeReference:
+      additionalProperties: false
+      properties:
+        isNullable:
+          readOnly: true
+          type: boolean
+        definition:
+          $ref: '#/components/schemas/IEdmType'
+      type: object
+    IEdmVocabularyAnnotatable:
+      additionalProperties: false
+      type: object
+    IEdmVocabularyAnnotation:
+      additionalProperties: false
+      properties:
+        qualifier:
+          nullable: true
+          readOnly: true
+          type: string
+        term:
+          $ref: '#/components/schemas/IEdmTerm'
+        target:
+          additionalProperties: false
+          type: object
+        value:
+          $ref: '#/components/schemas/IEdmExpression'
+        usesDefault:
+          readOnly: true
+          type: boolean
+      type: object
+    IFilterQueryValidator:
+      additionalProperties: false
+      type: object
+    IIdentity:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        authenticationType:
+          nullable: true
+          readOnly: true
+          type: string
+        isAuthenticated:
+          readOnly: true
+          type: boolean
+      type: object
+    IODataQueryValidator:
+      additionalProperties: false
+      type: object
+    IOrderByQueryValidator:
+      additionalProperties: false
+      type: object
+    IPAddress:
+      additionalProperties: false
+      properties:
+        addressFamily:
+          enum:
+          - Unspecified
+          - Unix
+          - InterNetwork
+          - ImpLink
+          - Pup
+          - Chaos
+          - NS
+          - Iso
+          - Ecma
+          - DataKit
+          - Ccitt
+          - Sna
+          - DecNet
+          - DataLink
+          - Lat
+          - HyperChannel
+          - AppleTalk
+          - NetBios
+          - VoiceView
+          - FireFox
+          - Banyan
+          - Atm
+          - InterNetworkV6
+          - Cluster
+          - Ieee12844
+          - Irda
+          - NetworkDesigners
+          - Max
+          - Packet
+          - ControllerAreaNetwork
+          - Unknown
+          readOnly: true
+          type: string
+        scopeId:
+          format: int64
+          type: integer
+        isIPv6Multicast:
+          readOnly: true
+          type: boolean
+        isIPv6LinkLocal:
+          readOnly: true
+          type: boolean
+        isIPv6SiteLocal:
+          readOnly: true
+          type: boolean
+        isIPv6Teredo:
+          readOnly: true
+          type: boolean
+        isIPv6UniqueLocal:
+          readOnly: true
+          type: boolean
+        isIPv4MappedToIPv6:
+          readOnly: true
+          type: boolean
+        address:
+          deprecated: true
+          format: int64
+          type: integer
+      type: object
+    IResponseCookies:
+      additionalProperties: false
+      type: object
+    ISelectExpandQueryValidator:
+      additionalProperties: false
+      type: object
+    IServiceProvider:
+      additionalProperties: false
+      type: object
+    ISession:
+      additionalProperties: false
+      properties:
+        isAvailable:
+          readOnly: true
+          type: boolean
+        id:
+          nullable: true
+          readOnly: true
+          type: string
+        keys:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    ISkipQueryValidator:
+      additionalProperties: false
+      type: object
+    ISkipTokenQueryValidator:
+      additionalProperties: false
+      type: object
+    ITopQueryValidator:
+      additionalProperties: false
+      type: object
+    InfoRequest:
+      additionalProperties: false
+      example:
+        oldPassword: oldPassword
+        newPassword: newPassword
+        newEmail: newEmail
+      properties:
+        newEmail:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+        oldPassword:
+          nullable: true
+          type: string
+      type: object
+    InfoResponse:
+      additionalProperties: false
+      example:
+        email: email
+        isEmailConfirmed: true
+      properties:
+        email:
+          nullable: true
+          type: string
+        isEmailConfirmed:
+          type: boolean
+      required:
+      - email
+      - isEmailConfirmed
+      type: object
+    Int32Envelope:
+      additionalProperties: false
+      example:
+        result: 0
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          format: int32
+          type: integer
+      type: object
+    IntPtr:
+      additionalProperties: false
+      type: object
+    KeySizes:
+      additionalProperties: false
+      properties:
+        minSize:
+          format: int32
+          type: integer
+        maxSize:
+          format: int32
+          type: integer
+        skipSize:
+          format: int32
+          type: integer
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        twoFactorRecoveryCode: twoFactorRecoveryCode
+        email: email
+        twoFactorCode: twoFactorCode
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        twoFactorCode:
+          nullable: true
+          type: string
+        twoFactorRecoveryCode:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    MemberInfo:
+      additionalProperties: false
+      properties:
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    MethodBase:
+      additionalProperties: false
+      properties:
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        attributes:
+          enum:
+          - PrivateScope
+          - Private
+          - FamANDAssem
+          - Assembly
+          - Family
+          - FamORAssem
+          - Public
+          - MemberAccessMask
+          - UnmanagedExport
+          - Static
+          - Final
+          - Virtual
+          - HideBySig
+          - NewSlot
+          - CheckAccessOnOverride
+          - Abstract
+          - SpecialName
+          - RTSpecialName
+          - PinvokeImpl
+          - HasSecurity
+          - RequireSecObject
+          - ReservedMask
+          readOnly: true
+          type: string
+        methodImplementationFlags:
+          enum:
+          - IL
+          - Native
+          - OPTIL
+          - CodeTypeMask
+          - ManagedMask
+          - NoInlining
+          - ForwardRef
+          - Synchronized
+          - NoOptimization
+          - PreserveSig
+          - AggressiveInlining
+          - AggressiveOptimization
+          - InternalCall
+          - Async
+          - MaxMethodImplVal
+          readOnly: true
+          type: string
+        callingConvention:
+          enum:
+          - Standard
+          - VarArgs
+          - Any
+          - HasThis
+          - ExplicitThis
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isConstructor:
+          readOnly: true
+          type: boolean
+        isFinal:
+          readOnly: true
+          type: boolean
+        isHideBySig:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isStatic:
+          readOnly: true
+          type: boolean
+        isVirtual:
+          readOnly: true
+          type: boolean
+        isAssembly:
+          readOnly: true
+          type: boolean
+        isFamily:
+          readOnly: true
+          type: boolean
+        isFamilyAndAssembly:
+          readOnly: true
+          type: boolean
+        isFamilyOrAssembly:
+          readOnly: true
+          type: boolean
+        isPrivate:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isConstructedGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethodDefinition:
+          readOnly: true
+          type: boolean
+        containsGenericParameters:
+          readOnly: true
+          type: boolean
+        methodHandle:
+          $ref: '#/components/schemas/RuntimeMethodHandle'
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+      type: object
+    MethodInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        attributes:
+          enum:
+          - PrivateScope
+          - Private
+          - FamANDAssem
+          - Assembly
+          - Family
+          - FamORAssem
+          - Public
+          - MemberAccessMask
+          - UnmanagedExport
+          - Static
+          - Final
+          - Virtual
+          - HideBySig
+          - NewSlot
+          - CheckAccessOnOverride
+          - Abstract
+          - SpecialName
+          - RTSpecialName
+          - PinvokeImpl
+          - HasSecurity
+          - RequireSecObject
+          - ReservedMask
+          readOnly: true
+          type: string
+        methodImplementationFlags:
+          enum:
+          - IL
+          - Native
+          - OPTIL
+          - CodeTypeMask
+          - ManagedMask
+          - NoInlining
+          - ForwardRef
+          - Synchronized
+          - NoOptimization
+          - PreserveSig
+          - AggressiveInlining
+          - AggressiveOptimization
+          - InternalCall
+          - Async
+          - MaxMethodImplVal
+          readOnly: true
+          type: string
+        callingConvention:
+          enum:
+          - Standard
+          - VarArgs
+          - Any
+          - HasThis
+          - ExplicitThis
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isConstructor:
+          readOnly: true
+          type: boolean
+        isFinal:
+          readOnly: true
+          type: boolean
+        isHideBySig:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isStatic:
+          readOnly: true
+          type: boolean
+        isVirtual:
+          readOnly: true
+          type: boolean
+        isAssembly:
+          readOnly: true
+          type: boolean
+        isFamily:
+          readOnly: true
+          type: boolean
+        isFamilyAndAssembly:
+          readOnly: true
+          type: boolean
+        isFamilyOrAssembly:
+          readOnly: true
+          type: boolean
+        isPrivate:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isConstructedGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethod:
+          readOnly: true
+          type: boolean
+        isGenericMethodDefinition:
+          readOnly: true
+          type: boolean
+        containsGenericParameters:
+          readOnly: true
+          type: boolean
+        methodHandle:
+          $ref: '#/components/schemas/RuntimeMethodHandle'
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        returnParameter:
+          $ref: '#/components/schemas/ParameterInfo'
+        returnType:
+          $ref: '#/components/schemas/Type'
+        returnTypeCustomAttributes:
+          additionalProperties: false
+          type: object
+      type: object
+    Module:
+      additionalProperties: false
+      properties:
+        assembly:
+          $ref: '#/components/schemas/Assembly'
+        fullyQualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        mdStreamVersion:
+          format: int32
+          readOnly: true
+          type: integer
+        moduleVersionId:
+          format: uuid
+          readOnly: true
+          type: string
+        scopeName:
+          nullable: true
+          readOnly: true
+          type: string
+        moduleHandle:
+          $ref: '#/components/schemas/ModuleHandle'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    ModuleHandle:
+      additionalProperties: false
+      properties:
+        mdStreamVersion:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    NonFungibleTokenCreateDto:
+      additionalProperties: false
+      example:
+        summary: summary
+        price: 0.8008281904610115
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        currencyId: currencyId
+        blockchainId: blockchainId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        title:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        summary:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        price:
+          format: double
+          nullable: true
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        blockchainId:
+          nullable: true
+          type: string
+      required:
+      - description
+      - title
+      type: object
+    NonFungibleTokenDto:
+      additionalProperties: false
+      example:
+        summary: summary
+        mintedTimestamp: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
+        primaryImageUrl: primaryImageUrl
+        blockchainBlockId: blockchainBlockId
+        mintTransactionHash: mintTransactionHash
+        description: description
+        published: true
+        title: title
+        coverUrl: coverUrl
+        price: 0.8008281904610115
+        tenantId: tenantId
+        minted: true
+        blockchainName: blockchainName
+        id: id
+        currencyId: currencyId
+        blockchainId: blockchainId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        summary:
+          nullable: true
+          type: string
+        price:
+          format: double
+          nullable: true
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        published:
+          type: boolean
+        minted:
+          type: boolean
+        blockchainId:
+          nullable: true
+          type: string
+        blockchainName:
+          nullable: true
+          type: string
+        mintedTimestamp:
+          format: date-time
+          type: string
+        mintTransactionHash:
+          nullable: true
+          type: string
+        blockchainBlockId:
+          nullable: true
+          type: string
+        primaryImageUrl:
+          nullable: true
+          type: string
+        coverUrl:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    NonFungibleTokenDtoETag:
+      additionalProperties: false
+      properties:
+        isWellFormed:
+          type: boolean
+        entityType:
+          $ref: '#/components/schemas/Type'
+        isAny:
+          type: boolean
+        isIfNoneMatch:
+          type: boolean
+      type: object
+    NonFungibleTokenDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - summary: summary
+          mintedTimestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          primaryImageUrl: primaryImageUrl
+          blockchainBlockId: blockchainBlockId
+          mintTransactionHash: mintTransactionHash
+          description: description
+          published: true
+          title: title
+          coverUrl: coverUrl
+          price: 0.8008281904610115
+          tenantId: tenantId
+          minted: true
+          blockchainName: blockchainName
+          id: id
+          currencyId: currencyId
+          blockchainId: blockchainId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - summary: summary
+          mintedTimestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          primaryImageUrl: primaryImageUrl
+          blockchainBlockId: blockchainBlockId
+          mintTransactionHash: mintTransactionHash
+          description: description
+          published: true
+          title: title
+          coverUrl: coverUrl
+          price: 0.8008281904610115
+          tenantId: tenantId
+          minted: true
+          blockchainName: blockchainName
+          id: id
+          currencyId: currencyId
+          blockchainId: blockchainId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/NonFungibleTokenDto'
+          nullable: true
+          type: array
+      type: object
+    NonFungibleTokenDtoODataQueryOptions:
+      additionalProperties: false
+      properties:
+        request:
+          $ref: '#/components/schemas/HttpRequest'
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValues:
+          $ref: '#/components/schemas/ODataRawQueryOptions'
+        selectExpand:
+          $ref: '#/components/schemas/SelectExpandQueryOption'
+        apply:
+          $ref: '#/components/schemas/ApplyQueryOption'
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        filter:
+          $ref: '#/components/schemas/FilterQueryOption'
+        search:
+          $ref: '#/components/schemas/SearchQueryOption'
+        orderBy:
+          $ref: '#/components/schemas/OrderByQueryOption'
+        skip:
+          $ref: '#/components/schemas/SkipQueryOption'
+        skipToken:
+          $ref: '#/components/schemas/SkipTokenQueryOption'
+        top:
+          $ref: '#/components/schemas/TopQueryOption'
+        count:
+          $ref: '#/components/schemas/CountQueryOption'
+        validator:
+          additionalProperties: false
+          type: object
+        ifMatch:
+          $ref: '#/components/schemas/NonFungibleTokenDtoETag'
+        ifNoneMatch:
+          $ref: '#/components/schemas/NonFungibleTokenDtoETag'
+      type: object
+    NonFungibleTokenUpdateDto:
+      additionalProperties: false
+      example:
+        summary: summary
+        blockchainBlockId: blockchainBlockId
+        price: 0.8008281904610115
+        mintTransactionHash: mintTransactionHash
+        description: description
+        minted: true
+        published: true
+        title: title
+        currencyId: currencyId
+      properties:
+        title:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 2000
+          minLength: 0
+          nullable: true
+          type: string
+        summary:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+        price:
+          format: double
+          nullable: true
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        published:
+          nullable: true
+          type: boolean
+        minted:
+          nullable: true
+          type: boolean
+        mintTransactionHash:
+          nullable: true
+          type: string
+        blockchainBlockId:
+          nullable: true
+          type: string
+      type: object
+    ODataPathSegment:
+      additionalProperties: false
+      properties:
+        edmType:
+          $ref: '#/components/schemas/IEdmType'
+        identifier:
+          nullable: true
+          type: string
+      type: object
+    ODataQueryContext:
+      additionalProperties: false
+      properties:
+        defaultQueryConfigurations:
+          $ref: '#/components/schemas/DefaultQueryConfigurations'
+        model:
+          $ref: '#/components/schemas/IEdmModel'
+        elementType:
+          $ref: '#/components/schemas/IEdmType'
+        navigationSource:
+          $ref: '#/components/schemas/IEdmNavigationSource'
+        elementClrType:
+          $ref: '#/components/schemas/Type'
+        path:
+          items:
+            $ref: '#/components/schemas/ODataPathSegment'
+          nullable: true
+          type: array
+        requestContainer:
+          additionalProperties: false
+          type: object
+      type: object
+    ODataRawQueryOptions:
+      additionalProperties: false
+      properties:
+        filter:
+          nullable: true
+          readOnly: true
+          type: string
+        apply:
+          nullable: true
+          readOnly: true
+          type: string
+        compute:
+          nullable: true
+          readOnly: true
+          type: string
+        search:
+          nullable: true
+          readOnly: true
+          type: string
+        orderBy:
+          nullable: true
+          readOnly: true
+          type: string
+        top:
+          nullable: true
+          readOnly: true
+          type: string
+        skip:
+          nullable: true
+          readOnly: true
+          type: string
+        select:
+          nullable: true
+          readOnly: true
+          type: string
+        expand:
+          nullable: true
+          readOnly: true
+          type: string
+        count:
+          nullable: true
+          readOnly: true
+          type: string
+        format:
+          nullable: true
+          readOnly: true
+          type: string
+        skipToken:
+          nullable: true
+          readOnly: true
+          type: string
+        deltaToken:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    Oid:
+      additionalProperties: false
+      properties:
+        value:
+          nullable: true
+          type: string
+        friendlyName:
+          nullable: true
+          type: string
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
+    OrderByClause:
+      additionalProperties: false
+      properties:
+        thenBy:
+          $ref: '#/components/schemas/OrderByClause'
+        expression:
+          $ref: '#/components/schemas/SingleValueNode'
+        direction:
+          enum:
+          - Ascending
+          - Descending
+          type: string
+        rangeVariable:
+          $ref: '#/components/schemas/RangeVariable'
+        itemType:
+          $ref: '#/components/schemas/IEdmTypeReference'
+      type: object
+    OrderByNode:
+      additionalProperties: false
+      properties:
+        direction:
+          enum:
+          - Ascending
+          - Descending
+          readOnly: true
+          type: string
+      type: object
+    OrderByQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        orderByNodes:
+          items:
+            $ref: '#/components/schemas/OrderByNode'
+          nullable: true
+          readOnly: true
+          type: array
+        rawValue:
+          nullable: true
+          type: string
+        validator:
+          additionalProperties: false
+          type: object
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        orderByClause:
+          $ref: '#/components/schemas/OrderByClause'
+      type: object
+    ParameterInfo:
+      additionalProperties: false
+      properties:
+        attributes:
+          enum:
+          - None
+          - In
+          - Out
+          - Lcid
+          - Retval
+          - Optional
+          - HasDefault
+          - HasFieldMarshal
+          - Reserved3
+          - Reserved4
+          - ReservedMask
+          readOnly: true
+          type: string
+        member:
+          $ref: '#/components/schemas/MemberInfo'
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        parameterType:
+          $ref: '#/components/schemas/Type'
+        position:
+          format: int32
+          readOnly: true
+          type: integer
+        isIn:
+          readOnly: true
+          type: boolean
+        isLcid:
+          readOnly: true
+          type: boolean
+        isOptional:
+          readOnly: true
+          type: boolean
+        isOut:
+          readOnly: true
+          type: boolean
+        isRetval:
+          readOnly: true
+          type: boolean
+        defaultValue:
+          nullable: true
+          readOnly: true
+        rawDefaultValue:
+          nullable: true
+          readOnly: true
+        hasDefaultValue:
+          readOnly: true
+          type: boolean
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    PathString:
+      additionalProperties: false
+      properties:
+        value:
+          nullable: true
+          type: string
+        hasValue:
+          readOnly: true
+          type: boolean
+      type: object
+    PipeWriter:
+      additionalProperties: false
+      properties:
+        canGetUnflushedBytes:
+          readOnly: true
+          type: boolean
+        unflushedBytes:
+          format: int64
+          readOnly: true
+          type: integer
+      type: object
+    PropertyInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        module:
+          $ref: '#/components/schemas/Module'
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        propertyType:
+          $ref: '#/components/schemas/Type'
+        attributes:
+          enum:
+          - None
+          - SpecialName
+          - RTSpecialName
+          - HasDefault
+          - Reserved2
+          - Reserved3
+          - Reserved4
+          - ReservedMask
+          readOnly: true
+          type: string
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        canRead:
+          readOnly: true
+          type: boolean
+        canWrite:
+          readOnly: true
+          type: boolean
+        getMethod:
+          $ref: '#/components/schemas/MethodInfo'
+        setMethod:
+          $ref: '#/components/schemas/MethodInfo'
+      type: object
+    PublicKey:
+      additionalProperties: false
+      properties:
+        encodedKeyValue:
+          $ref: '#/components/schemas/AsnEncodedData'
+        encodedParameters:
+          $ref: '#/components/schemas/AsnEncodedData'
+        key:
+          $ref: '#/components/schemas/AsymmetricAlgorithm'
+        oid:
+          $ref: '#/components/schemas/Oid'
+      type: object
+    QueryString:
+      additionalProperties: false
+      properties:
+        value:
+          nullable: true
+          type: string
+        hasValue:
+          readOnly: true
+          type: boolean
+      type: object
+    RangeVariable:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        typeReference:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        kind:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    RefreshRequest:
+      additionalProperties: false
+      example:
+        refreshToken: refreshToken
+      properties:
+        refreshToken:
+          nullable: true
+          type: string
+      required:
+      - refreshToken
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      example:
+        password: password
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      required:
+      - email
+      - password
+      type: object
+    ResendConfirmationEmailRequest:
+      additionalProperties: false
+      example:
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      example:
+        resetCode: resetCode
+        newPassword: newPassword
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        resetCode:
+          nullable: true
+          type: string
+        newPassword:
+          nullable: true
+          type: string
+      required:
+      - email
+      - newPassword
+      - resetCode
+      type: object
+    RuntimeFieldHandle:
+      additionalProperties: false
+      properties:
+        value:
+          additionalProperties: false
+          type: object
+      type: object
+    RuntimeMethodHandle:
+      additionalProperties: false
+      properties:
+        value:
+          additionalProperties: false
+          type: object
+      type: object
+    RuntimeTypeHandle:
+      additionalProperties: false
+      properties:
+        value:
+          additionalProperties: false
+          type: object
+      type: object
+    SafeWaitHandle:
+      additionalProperties: false
+      properties:
+        isClosed:
+          readOnly: true
+          type: boolean
+        isInvalid:
+          readOnly: true
+          type: boolean
+      type: object
+    SearchClause:
+      additionalProperties: false
+      properties:
+        expression:
+          $ref: '#/components/schemas/SingleValueNode'
+      type: object
+    SearchQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        resultClrType:
+          $ref: '#/components/schemas/Type'
+        searchClause:
+          $ref: '#/components/schemas/SearchClause'
+        rawValue:
+          nullable: true
+          type: string
+      type: object
+    SelectExpandClause:
+      additionalProperties: false
+      properties:
+        selectedItems:
+          items:
+            $ref: '#/components/schemas/SelectItem'
+          nullable: true
+          type: array
+        allSelected:
+          type: boolean
+      type: object
+    SelectExpandQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawSelect:
+          nullable: true
+          readOnly: true
+          type: string
+        rawExpand:
+          nullable: true
+          readOnly: true
+          type: string
+        compute:
+          $ref: '#/components/schemas/ComputeQueryOption'
+        validator:
+          additionalProperties: false
+          type: object
+        selectExpandClause:
+          $ref: '#/components/schemas/SelectExpandClause'
+        levelsMaxLiteralExpansionDepth:
+          format: int32
+          type: integer
+      type: object
+    SelectItem:
+      additionalProperties: false
+      type: object
+    SingleValueNode:
+      additionalProperties: false
+      properties:
+        typeReference:
+          $ref: '#/components/schemas/IEdmTypeReference'
+        kind:
+          enum:
+          - None
+          - Constant
+          - Convert
+          - NonResourceRangeVariableReference
+          - BinaryOperator
+          - UnaryOperator
+          - SingleValuePropertyAccess
+          - CollectionPropertyAccess
+          - SingleValueFunctionCall
+          - Any
+          - CollectionNavigationNode
+          - SingleNavigationNode
+          - SingleValueOpenPropertyAccess
+          - SingleResourceCast
+          - All
+          - CollectionResourceCast
+          - ResourceRangeVariableReference
+          - SingleResourceFunctionCall
+          - CollectionFunctionCall
+          - CollectionResourceFunctionCall
+          - NamedFunctionParameter
+          - ParameterAlias
+          - EntitySet
+          - KeyLookup
+          - SearchTerm
+          - CollectionOpenPropertyAccess
+          - CollectionComplexNode
+          - SingleComplexNode
+          - Count
+          - SingleValueCast
+          - CollectionPropertyNode
+          - AggregatedCollectionPropertyNode
+          - In
+          - CollectionConstant
+          - RootPath
+          - CustomQueryOption
+          readOnly: true
+          type: string
+      type: object
+    SkipQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValue:
+          nullable: true
+          type: string
+        value:
+          format: int32
+          readOnly: true
+          type: integer
+        validator:
+          additionalProperties: false
+          type: object
+      type: object
+    SkipTokenHandler:
+      additionalProperties: false
+      type: object
+    SkipTokenQueryOption:
+      additionalProperties: false
+      properties:
+        rawValue:
+          nullable: true
+          type: string
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        validator:
+          additionalProperties: false
+          type: object
+        handler:
+          additionalProperties: false
+          type: object
+      type: object
+    StringStringKeyValuePair:
+      additionalProperties: false
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    StringStringValuesKeyValuePair:
+      additionalProperties: false
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          items:
+            type: string
+          type: array
+      type: object
+    StructLayoutAttribute:
+      additionalProperties: false
+      properties:
+        typeId:
+          nullable: true
+          readOnly: true
+        value:
+          enum:
+          - Sequential
+          - Explicit
+          - Auto
+          readOnly: true
+          type: string
+      type: object
+    TopQueryOption:
+      additionalProperties: false
+      properties:
+        context:
+          $ref: '#/components/schemas/ODataQueryContext'
+        rawValue:
+          nullable: true
+          type: string
+        value:
+          format: int32
+          readOnly: true
+          type: integer
+        validator:
+          additionalProperties: false
+          type: object
+      type: object
+    TransformationNode:
+      additionalProperties: false
+      properties:
+        kind:
+          enum:
+          - Aggregate
+          - GroupBy
+          - Filter
+          - Compute
+          - Expand
+          readOnly: true
+          type: string
+      type: object
+    TwoFactorRequest:
+      additionalProperties: false
+      example:
+        resetRecoveryCodes: true
+        enable: true
+        resetSharedKey: true
+        forgetMachine: true
+        twoFactorCode: twoFactorCode
+      properties:
+        enable:
+          nullable: true
+          type: boolean
+        twoFactorCode:
+          nullable: true
+          type: string
+        resetSharedKey:
+          type: boolean
+        resetRecoveryCodes:
+          type: boolean
+        forgetMachine:
+          type: boolean
+      type: object
+    TwoFactorResponse:
+      additionalProperties: false
+      example:
+        sharedKey: sharedKey
+        isTwoFactorEnabled: true
+        isMachineRemembered: true
+        recoveryCodesLeft: 0
+        recoveryCodes:
+        - recoveryCodes
+        - recoveryCodes
+      properties:
+        sharedKey:
+          nullable: true
+          type: string
+        recoveryCodesLeft:
+          format: int32
+          type: integer
+        recoveryCodes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isTwoFactorEnabled:
+          type: boolean
+        isMachineRemembered:
+          type: boolean
+      required:
+      - isMachineRemembered
+      - isTwoFactorEnabled
+      - recoveryCodesLeft
+      - sharedKey
+      type: object
+    Type:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+        assemblyQualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        assembly:
+          $ref: '#/components/schemas/Assembly'
+        module:
+          $ref: '#/components/schemas/Module'
+        isInterface:
+          readOnly: true
+          type: boolean
+        isNested:
+          readOnly: true
+          type: boolean
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        declaringMethod:
+          $ref: '#/components/schemas/MethodBase'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        underlyingSystemType:
+          $ref: '#/components/schemas/Type'
+        isTypeDefinition:
+          readOnly: true
+          type: boolean
+        isArray:
+          readOnly: true
+          type: boolean
+        isByRef:
+          readOnly: true
+          type: boolean
+        isPointer:
+          readOnly: true
+          type: boolean
+        isConstructedGenericType:
+          readOnly: true
+          type: boolean
+        isGenericParameter:
+          readOnly: true
+          type: boolean
+        isGenericTypeParameter:
+          readOnly: true
+          type: boolean
+        isGenericMethodParameter:
+          readOnly: true
+          type: boolean
+        isGenericType:
+          readOnly: true
+          type: boolean
+        isGenericTypeDefinition:
+          readOnly: true
+          type: boolean
+        isSZArray:
+          readOnly: true
+          type: boolean
+        isVariableBoundArray:
+          readOnly: true
+          type: boolean
+        isByRefLike:
+          readOnly: true
+          type: boolean
+        isFunctionPointer:
+          readOnly: true
+          type: boolean
+        isUnmanagedFunctionPointer:
+          readOnly: true
+          type: boolean
+        hasElementType:
+          readOnly: true
+          type: boolean
+        genericTypeArguments:
+          items:
+            $ref: '#/components/schemas/Type'
+          nullable: true
+          readOnly: true
+          type: array
+        genericParameterPosition:
+          format: int32
+          readOnly: true
+          type: integer
+        genericParameterAttributes:
+          enum:
+          - None
+          - Covariant
+          - Contravariant
+          - VarianceMask
+          - ReferenceTypeConstraint
+          - NotNullableValueTypeConstraint
+          - DefaultConstructorConstraint
+          - SpecialConstraintMask
+          - AllowByRefLike
+          readOnly: true
+          type: string
+        attributes:
+          enum:
+          - NotPublic
+          - Public
+          - NestedPublic
+          - NestedPrivate
+          - NestedFamily
+          - NestedAssembly
+          - NestedFamANDAssem
+          - VisibilityMask
+          - SequentialLayout
+          - ExplicitLayout
+          - LayoutMask
+          - Interface
+          - Abstract
+          - Sealed
+          - SpecialName
+          - RTSpecialName
+          - Import
+          - Serializable
+          - WindowsRuntime
+          - UnicodeClass
+          - AutoClass
+          - StringFormatMask
+          - HasSecurity
+          - ReservedMask
+          - BeforeFieldInit
+          - CustomFormatMask
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isImport:
+          readOnly: true
+          type: boolean
+        isSealed:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isClass:
+          readOnly: true
+          type: boolean
+        isNestedAssembly:
+          readOnly: true
+          type: boolean
+        isNestedFamANDAssem:
+          readOnly: true
+          type: boolean
+        isNestedFamily:
+          readOnly: true
+          type: boolean
+        isNestedFamORAssem:
+          readOnly: true
+          type: boolean
+        isNestedPrivate:
+          readOnly: true
+          type: boolean
+        isNestedPublic:
+          readOnly: true
+          type: boolean
+        isNotPublic:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isAutoLayout:
+          readOnly: true
+          type: boolean
+        isExplicitLayout:
+          readOnly: true
+          type: boolean
+        isLayoutSequential:
+          readOnly: true
+          type: boolean
+        isAnsiClass:
+          readOnly: true
+          type: boolean
+        isAutoClass:
+          readOnly: true
+          type: boolean
+        isUnicodeClass:
+          readOnly: true
+          type: boolean
+        isCOMObject:
+          readOnly: true
+          type: boolean
+        isContextful:
+          readOnly: true
+          type: boolean
+        isEnum:
+          readOnly: true
+          type: boolean
+        isMarshalByRef:
+          readOnly: true
+          type: boolean
+        isPrimitive:
+          readOnly: true
+          type: boolean
+        isValueType:
+          readOnly: true
+          type: boolean
+        isSignatureType:
+          readOnly: true
+          type: boolean
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+        structLayoutAttribute:
+          $ref: '#/components/schemas/StructLayoutAttribute'
+        typeInitializer:
+          $ref: '#/components/schemas/ConstructorInfo'
+        typeHandle:
+          $ref: '#/components/schemas/RuntimeTypeHandle'
+        guid:
+          format: uuid
+          readOnly: true
+          type: string
+        baseType:
+          $ref: '#/components/schemas/Type'
+        isSerializable:
+          deprecated: true
+          readOnly: true
+          type: boolean
+        containsGenericParameters:
+          readOnly: true
+          type: boolean
+        isVisible:
+          readOnly: true
+          type: boolean
+      type: object
+    TypeInfo:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+        customAttributes:
+          items:
+            $ref: '#/components/schemas/CustomAttributeData'
+          nullable: true
+          readOnly: true
+          type: array
+        isCollectible:
+          readOnly: true
+          type: boolean
+        metadataToken:
+          format: int32
+          readOnly: true
+          type: integer
+        memberType:
+          enum:
+          - Constructor
+          - Event
+          - Field
+          - Method
+          - Property
+          - TypeInfo
+          - Custom
+          - NestedType
+          - All
+          readOnly: true
+          type: string
+        namespace:
+          nullable: true
+          readOnly: true
+          type: string
+        assemblyQualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        assembly:
+          $ref: '#/components/schemas/Assembly'
+        module:
+          $ref: '#/components/schemas/Module'
+        isInterface:
+          readOnly: true
+          type: boolean
+        isNested:
+          readOnly: true
+          type: boolean
+        declaringType:
+          $ref: '#/components/schemas/Type'
+        declaringMethod:
+          $ref: '#/components/schemas/MethodBase'
+        reflectedType:
+          $ref: '#/components/schemas/Type'
+        underlyingSystemType:
+          $ref: '#/components/schemas/Type'
+        isTypeDefinition:
+          readOnly: true
+          type: boolean
+        isArray:
+          readOnly: true
+          type: boolean
+        isByRef:
+          readOnly: true
+          type: boolean
+        isPointer:
+          readOnly: true
+          type: boolean
+        isConstructedGenericType:
+          readOnly: true
+          type: boolean
+        isGenericParameter:
+          readOnly: true
+          type: boolean
+        isGenericTypeParameter:
+          readOnly: true
+          type: boolean
+        isGenericMethodParameter:
+          readOnly: true
+          type: boolean
+        isGenericType:
+          readOnly: true
+          type: boolean
+        isGenericTypeDefinition:
+          readOnly: true
+          type: boolean
+        isSZArray:
+          readOnly: true
+          type: boolean
+        isVariableBoundArray:
+          readOnly: true
+          type: boolean
+        isByRefLike:
+          readOnly: true
+          type: boolean
+        isFunctionPointer:
+          readOnly: true
+          type: boolean
+        isUnmanagedFunctionPointer:
+          readOnly: true
+          type: boolean
+        hasElementType:
+          readOnly: true
+          type: boolean
+        genericTypeArguments:
+          items:
+            $ref: '#/components/schemas/Type'
+          nullable: true
+          readOnly: true
+          type: array
+        genericParameterPosition:
+          format: int32
+          readOnly: true
+          type: integer
+        genericParameterAttributes:
+          enum:
+          - None
+          - Covariant
+          - Contravariant
+          - VarianceMask
+          - ReferenceTypeConstraint
+          - NotNullableValueTypeConstraint
+          - DefaultConstructorConstraint
+          - SpecialConstraintMask
+          - AllowByRefLike
+          readOnly: true
+          type: string
+        attributes:
+          enum:
+          - NotPublic
+          - Public
+          - NestedPublic
+          - NestedPrivate
+          - NestedFamily
+          - NestedAssembly
+          - NestedFamANDAssem
+          - VisibilityMask
+          - SequentialLayout
+          - ExplicitLayout
+          - LayoutMask
+          - Interface
+          - Abstract
+          - Sealed
+          - SpecialName
+          - RTSpecialName
+          - Import
+          - Serializable
+          - WindowsRuntime
+          - UnicodeClass
+          - AutoClass
+          - StringFormatMask
+          - HasSecurity
+          - ReservedMask
+          - BeforeFieldInit
+          - CustomFormatMask
+          readOnly: true
+          type: string
+        isAbstract:
+          readOnly: true
+          type: boolean
+        isImport:
+          readOnly: true
+          type: boolean
+        isSealed:
+          readOnly: true
+          type: boolean
+        isSpecialName:
+          readOnly: true
+          type: boolean
+        isClass:
+          readOnly: true
+          type: boolean
+        isNestedAssembly:
+          readOnly: true
+          type: boolean
+        isNestedFamANDAssem:
+          readOnly: true
+          type: boolean
+        isNestedFamily:
+          readOnly: true
+          type: boolean
+        isNestedFamORAssem:
+          readOnly: true
+          type: boolean
+        isNestedPrivate:
+          readOnly: true
+          type: boolean
+        isNestedPublic:
+          readOnly: true
+          type: boolean
+        isNotPublic:
+          readOnly: true
+          type: boolean
+        isPublic:
+          readOnly: true
+          type: boolean
+        isAutoLayout:
+          readOnly: true
+          type: boolean
+        isExplicitLayout:
+          readOnly: true
+          type: boolean
+        isLayoutSequential:
+          readOnly: true
+          type: boolean
+        isAnsiClass:
+          readOnly: true
+          type: boolean
+        isAutoClass:
+          readOnly: true
+          type: boolean
+        isUnicodeClass:
+          readOnly: true
+          type: boolean
+        isCOMObject:
+          readOnly: true
+          type: boolean
+        isContextful:
+          readOnly: true
+          type: boolean
+        isEnum:
+          readOnly: true
+          type: boolean
+        isMarshalByRef:
+          readOnly: true
+          type: boolean
+        isPrimitive:
+          readOnly: true
+          type: boolean
+        isValueType:
+          readOnly: true
+          type: boolean
+        isSignatureType:
+          readOnly: true
+          type: boolean
+        isSecurityCritical:
+          readOnly: true
+          type: boolean
+        isSecuritySafeCritical:
+          readOnly: true
+          type: boolean
+        isSecurityTransparent:
+          readOnly: true
+          type: boolean
+        structLayoutAttribute:
+          $ref: '#/components/schemas/StructLayoutAttribute'
+        typeInitializer:
+          $ref: '#/components/schemas/ConstructorInfo'
+        typeHandle:
+          $ref: '#/components/schemas/RuntimeTypeHandle'
+        guid:
+          format: uuid
+          readOnly: true
+          type: string
+        baseType:
+          $ref: '#/components/schemas/Type'
+        isSerializable:
+          deprecated: true
+          readOnly: true
+          type: boolean
+        containsGenericParameters:
+          readOnly: true
+          type: boolean
+        isVisible:
+          readOnly: true
+          type: boolean
+        genericTypeParameters:
+          items:
+            $ref: '#/components/schemas/Type'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredConstructors:
+          items:
+            $ref: '#/components/schemas/ConstructorInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredEvents:
+          items:
+            $ref: '#/components/schemas/EventInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredFields:
+          items:
+            $ref: '#/components/schemas/FieldInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredMembers:
+          items:
+            $ref: '#/components/schemas/MemberInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredMethods:
+          items:
+            $ref: '#/components/schemas/MethodInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredNestedTypes:
+          items:
+            $ref: '#/components/schemas/TypeInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        declaredProperties:
+          items:
+            $ref: '#/components/schemas/PropertyInfo'
+          nullable: true
+          readOnly: true
+          type: array
+        implementedInterfaces:
+          items:
+            $ref: '#/components/schemas/Type'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TypeObjectKeyValuePair:
+      additionalProperties: false
+      properties:
+        key:
+          $ref: '#/components/schemas/Type'
+        value:
+          nullable: true
+      type: object
+    WaitHandle:
+      additionalProperties: false
+      properties:
+        handle:
+          additionalProperties: false
+          type: object
+        safeWaitHandle:
+          $ref: '#/components/schemas/SafeWaitHandle'
+      type: object
+    WebSocketManager:
+      additionalProperties: false
+      properties:
+        isWebSocketRequest:
+          readOnly: true
+          type: boolean
+        webSocketRequestedProtocols:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    X500DistinguishedName:
+      additionalProperties: false
+      properties:
+        oid:
+          $ref: '#/components/schemas/Oid'
+        rawData:
+          format: byte
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    X509Certificate2:
+      additionalProperties: false
+      properties:
+        handle:
+          additionalProperties: false
+          type: object
+        issuer:
+          nullable: true
+          readOnly: true
+          type: string
+        subject:
+          nullable: true
+          readOnly: true
+          type: string
+        serialNumberBytes:
+          $ref: '#/components/schemas/ByteReadOnlyMemory'
+        archived:
+          type: boolean
+        extensions:
+          items:
+            $ref: '#/components/schemas/X509Extension'
+          nullable: true
+          readOnly: true
+          type: array
+        friendlyName:
+          nullable: true
+          type: string
+        hasPrivateKey:
+          readOnly: true
+          type: boolean
+        privateKey:
+          $ref: '#/components/schemas/AsymmetricAlgorithm'
+        issuerName:
+          $ref: '#/components/schemas/X500DistinguishedName'
+        notAfter:
+          format: date-time
+          readOnly: true
+          type: string
+        notBefore:
+          format: date-time
+          readOnly: true
+          type: string
+        publicKey:
+          $ref: '#/components/schemas/PublicKey'
+        rawData:
+          format: byte
+          nullable: true
+          readOnly: true
+          type: string
+        rawDataMemory:
+          $ref: '#/components/schemas/ByteReadOnlyMemory'
+        serialNumber:
+          nullable: true
+          readOnly: true
+          type: string
+        signatureAlgorithm:
+          $ref: '#/components/schemas/Oid'
+        subjectName:
+          $ref: '#/components/schemas/X500DistinguishedName'
+        thumbprint:
+          nullable: true
+          readOnly: true
+          type: string
+        version:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+    X509Extension:
+      additionalProperties: false
+      properties:
+        oid:
+          $ref: '#/components/schemas/Oid'
+        rawData:
+          format: byte
+          nullable: true
+          type: string
+        critical:
+          type: boolean
+      type: object
+    _Account_PerformExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+        returnUrl:
+          type: string
+      type: object
+    _Account_Logout_post_request:
+      properties:
+        returnUrl:
+          type: string
+      type: object
+    _Account_Manage_LinkExternalLogin_post_request:
+      properties:
+        provider:
+          type: string
+      type: object
+

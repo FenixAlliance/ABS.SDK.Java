@@ -13,6 +13,8 @@
 |**invoiceId** | **String** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
+|**priority** | **Integer** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**surchargePercent** | **Double** |  |  [optional] |
 |**surchargeAmount** | **Double** |  |  [optional] |

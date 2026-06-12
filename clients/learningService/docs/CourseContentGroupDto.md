@@ -10,8 +10,9 @@
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

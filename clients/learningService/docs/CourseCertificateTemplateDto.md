@@ -9,14 +9,14 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**webPortalID** | **String** |  |  [optional] |
-|**websiteThemeID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
-|**parentWebContentID** | **String** |  |  [optional] |
-|**parentWebContentVersionID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**webPortalId** | **String** |  |  [optional] |
+|**websiteThemeId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
+|**parentWebContentId** | **String** |  |  [optional] |
+|**parentWebContentVersionId** | **String** |  |  [optional] |
 
 
 

@@ -19,7 +19,7 @@
 |**validResponse** | **Boolean** |  |  [optional] |
 |**parentFileUploadId** | **String** |  |  [optional] |
 |**filePath** | **String** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 
 
 

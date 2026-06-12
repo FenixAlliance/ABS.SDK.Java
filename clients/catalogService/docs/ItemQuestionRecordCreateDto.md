@@ -12,7 +12,7 @@
 |**title** | **String** |  |  |
 |**needsRevision** | **Boolean** |  |  |
 |**question** | **String** |  |  |
-|**socialProfileID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

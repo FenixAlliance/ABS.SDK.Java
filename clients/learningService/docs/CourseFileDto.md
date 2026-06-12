@@ -14,8 +14,9 @@
 |**fileUploadURL** | **String** |  |  [optional] |
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

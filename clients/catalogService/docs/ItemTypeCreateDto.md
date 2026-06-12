@@ -14,8 +14,8 @@
 |**description** | **String** |  |  [optional] |
 |**imageURL** | **URI** |  |  [optional] |
 |**googleCategoryTaxonomy** | **String** |  |  [optional] |
-|**itemCategoryID** | **String** |  |  |
-|**itemGoogleCategoryID** | **String** |  |  [optional] |
+|**itemCategoryId** | **String** |  |  |
+|**itemGoogleCategoryId** | **String** |  |  [optional] |
 
 
 

@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**deleteBillableLineTax**](BillableLineTaxesApi.md#deleteBillableLineTax) | **DELETE** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Delete a tax from a billable line. |
 | [**getBillableLineTaxes**](BillableLineTaxesApi.md#getBillableLineTaxes) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes | Get taxes for a billable line. |
 | [**getBillableLineTaxesCount**](BillableLineTaxesApi.md#getBillableLineTaxesCount) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/Count | Get the count of taxes for a billable line. |
+| [**patchBillableLineTaxAsync**](BillableLineTaxesApi.md#patchBillableLineTaxAsync) | **PATCH** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Patch a billable line tax |
 | [**updateBillableLineTax**](BillableLineTaxesApi.md#updateBillableLineTax) | **PUT** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Update a tax for a billable line. |
 
 
@@ -285,6 +286,80 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="patchBillableLineTaxAsync"></a>
+# **patchBillableLineTaxAsync**
+> EmptyEnvelope patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, operation)
+
+Patch a billable line tax
+
+Partially updates a billable line tax.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.BillableLineTaxesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    BillableLineTaxesApi apiInstance = new BillableLineTaxesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID billableLineId = UUID.randomUUID(); // UUID | 
+    UUID taxId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchBillableLineTaxAsync(tenantId, billableLineId, taxId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BillableLineTaxesApi#patchBillableLineTaxAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **billableLineId** | **UUID**|  | |
+| **taxId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updateBillableLineTax"></a>

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getTaxClass**](TaxClassesApi.md#getTaxClass) | **GET** /api/v2/AccountingService/TaxClasses/{id} | Get tax class by ID |
 | [**getTaxClasses**](TaxClassesApi.md#getTaxClasses) | **GET** /api/v2/AccountingService/TaxClasses | Get all tax classes for a tenant |
 | [**getTaxClassesCount**](TaxClassesApi.md#getTaxClassesCount) | **GET** /api/v2/AccountingService/TaxClasses/Count | Get tax classes count |
+| [**patchTaxClass**](TaxClassesApi.md#patchTaxClass) | **PATCH** /api/v2/AccountingService/TaxClasses/{id} | Patch a tax class |
 | [**updateTaxClass**](TaxClassesApi.md#updateTaxClass) | **PUT** /api/v2/AccountingService/TaxClasses/{id} | Update a tax class |
 
 
@@ -357,6 +358,78 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
+
+<a id="patchTaxClass"></a>
+# **patchTaxClass**
+> EmptyEnvelope patchTaxClass(tenantId, id, apiVersion, xApiVersion, operation)
+
+Patch a tax class
+
+Partially updates an existing tax class identified by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TaxClassesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    TaxClassesApi apiInstance = new TaxClassesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchTaxClass(tenantId, id, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TaxClassesApi#patchTaxClass");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **204** | No Content |  -  |
 
 <a id="updateTaxClass"></a>
 # **updateTaxClass**

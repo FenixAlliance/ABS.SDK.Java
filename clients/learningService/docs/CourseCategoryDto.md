@@ -14,6 +14,7 @@
 |**imageURL** | **String** |  |  [optional] |
 |**isFeatured** | **Boolean** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

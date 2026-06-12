@@ -37,6 +37,7 @@ docs/ItemPriceUpdateDto.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PriceListCreateDto.md
 docs/PriceListDto.md
 docs/PriceListDtoEnvelope.md
@@ -125,6 +126,7 @@ src/main/java/org/openapitools/client/model/ItemPriceUpdateDto.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/Money.java
 src/main/java/org/openapitools/client/model/MoneyEnvelope.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/PriceListCreateDto.java
 src/main/java/org/openapitools/client/model/PriceListDto.java
 src/main/java/org/openapitools/client/model/PriceListDtoEnvelope.java
@@ -146,17 +148,3 @@ src/main/java/org/openapitools/client/model/RoundingPolicyDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/RoundingPolicyUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/api/PricingRulesApiTest.java
-src/test/java/org/openapitools/client/api/RoundingPoliciesApiTest.java
-src/test/java/org/openapitools/client/model/PricingRuleCreateDtoTest.java
-src/test/java/org/openapitools/client/model/PricingRuleDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/PricingRuleDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/PricingRuleDtoTest.java
-src/test/java/org/openapitools/client/model/PricingRuleUpdateDtoTest.java
-src/test/java/org/openapitools/client/model/RoundingPolicyCreateDtoTest.java
-src/test/java/org/openapitools/client/model/RoundingPolicyDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/RoundingPolicyDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/RoundingPolicyDtoTest.java
-src/test/java/org/openapitools/client/model/RoundingPolicyUpdateDtoTest.java

@@ -12,7 +12,7 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

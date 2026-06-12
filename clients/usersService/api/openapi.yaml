@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: UsersService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -1018,6 +1018,79 @@ paths:
       summary: Retrieve a single user option by its ID
       tags:
       - Options
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a user option using a JSON Patch document
+      operationId: PatchUserOption
+      parameters:
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a user option
+      tags:
+      - Options
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2672,12 +2745,6 @@ components:
       additionalProperties: false
       example:
         isDefaultSuppingLocation: true
-        business: business
-        address3: address3
-        address2: address2
-        isDefaultReturnAddress: true
-        address1: address1
-        stateId: stateId
         postalCode: postalCode
         latitude: 6.027456183070403
         isGlobalPrimary: true
@@ -2687,14 +2754,22 @@ components:
         isCountryPrimary: true
         countryId: countryId
         isDefaultSenderAddress: true
-        unit: unit
-        canGenerateLabels: true
-        phone: phone
         id: id
         fax: fax
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         longitude: 0.8008281904610115
+        enrollmentId: enrollmentId
+        business: business
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
       properties:
         id:
           nullable: true
@@ -2762,18 +2837,18 @@ components:
           type: boolean
         isDefaultSuppingLocation:
           type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     AddressDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - isDefaultSuppingLocation: true
-          business: business
-          address3: address3
-          address2: address2
-          isDefaultReturnAddress: true
-          address1: address1
-          stateId: stateId
           postalCode: postalCode
           latitude: 6.027456183070403
           isGlobalPrimary: true
@@ -2783,21 +2858,23 @@ components:
           isCountryPrimary: true
           countryId: countryId
           isDefaultSenderAddress: true
-          unit: unit
-          canGenerateLabels: true
-          phone: phone
           id: id
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: 0.8008281904610115
+          enrollmentId: enrollmentId
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          tenantId: tenantId
         - isDefaultSuppingLocation: true
-          business: business
-          address3: address3
-          address2: address2
-          isDefaultReturnAddress: true
-          address1: address1
-          stateId: stateId
           postalCode: postalCode
           latitude: 6.027456183070403
           isGlobalPrimary: true
@@ -2807,14 +2884,22 @@ components:
           isCountryPrimary: true
           countryId: countryId
           isDefaultSenderAddress: true
-          unit: unit
-          canGenerateLabels: true
-          phone: phone
           id: id
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: 0.8008281904610115
+          enrollmentId: enrollmentId
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          tenantId: tenantId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4415,11 +4500,13 @@ components:
         readTimestamp: 2000-01-23T04:56:07.000+00:00
         read: true
         redirectUrl: redirectUrl
+        imageUrl: imageUrl
         icon: icon
         issuedTimestamp: 2000-01-23T04:56:07.000+00:00
         id: id
         message: message
-        socialProfileID: socialProfileID
+        type: Event
+        socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -4437,10 +4524,19 @@ components:
         message:
           nullable: true
           type: string
+        imageUrl:
+          nullable: true
+          type: string
         redirectUrl:
           nullable: true
           type: string
-        socialProfileID:
+        type:
+          enum:
+          - Event
+          - Alert
+          - Log
+          type: string
+        socialProfileId:
           nullable: true
           type: string
         readTimestamp:
@@ -4457,20 +4553,24 @@ components:
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           redirectUrl: redirectUrl
+          imageUrl: imageUrl
           icon: icon
           issuedTimestamp: 2000-01-23T04:56:07.000+00:00
           id: id
           message: message
-          socialProfileID: socialProfileID
+          type: Event
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - readTimestamp: 2000-01-23T04:56:07.000+00:00
           read: true
           redirectUrl: redirectUrl
+          imageUrl: imageUrl
           icon: icon
           issuedTimestamp: 2000-01-23T04:56:07.000+00:00
           id: id
           message: message
-          socialProfileID: socialProfileID
+          type: Event
+          socialProfileId: socialProfileId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage

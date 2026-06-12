@@ -41,9 +41,6 @@
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
 |**authorized** | **Boolean** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 
 
 

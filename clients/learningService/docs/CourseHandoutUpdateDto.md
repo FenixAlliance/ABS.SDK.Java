@@ -12,7 +12,7 @@
 |**content** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 
 
 

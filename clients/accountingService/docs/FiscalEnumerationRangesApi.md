@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getInvoiceEnumerationRange**](FiscalEnumerationRangesApi.md#getInvoiceEnumerationRange) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/EnumerationRanges/{enumerationRangeId} | Get invoice enumeration range by ID |
 | [**getInvoiceEnumerationRanges**](FiscalEnumerationRangesApi.md#getInvoiceEnumerationRanges) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/EnumerationRanges | Get invoice enumeration ranges for an authority |
 | [**getInvoiceEnumerationRangesCount**](FiscalEnumerationRangesApi.md#getInvoiceEnumerationRangesCount) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/EnumerationRanges/Count | Get invoice enumeration ranges count |
+| [**patchFiscalEnumerationRangeAsync**](FiscalEnumerationRangesApi.md#patchFiscalEnumerationRangeAsync) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/EnumerationRanges/{enumerationRangeId} | Patch an invoice enumeration range |
 | [**updateInvoiceEnumerationRange**](FiscalEnumerationRangesApi.md#updateInvoiceEnumerationRange) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/EnumerationRanges/{enumerationRangeId} | Update an invoice enumeration range |
 
 
@@ -357,6 +358,78 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchFiscalEnumerationRangeAsync"></a>
+# **patchFiscalEnumerationRangeAsync**
+> EmptyEnvelope patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, operation)
+
+Patch an invoice enumeration range
+
+Partially updates an invoice enumeration range.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.FiscalEnumerationRangesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    FiscalEnumerationRangesApi apiInstance = new FiscalEnumerationRangesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID enumerationRangeId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchFiscalEnumerationRangeAsync(tenantId, enumerationRangeId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FiscalEnumerationRangesApi#patchFiscalEnumerationRangeAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **enumerationRangeId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

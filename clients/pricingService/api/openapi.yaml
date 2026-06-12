@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: PricingService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -648,6 +648,83 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified discount list using a JSON Patch
+        document.
+      operationId: PatchDiscountList
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Patches a discount list
+      tags:
+      - DiscountLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified discount list.
       operationId: UpdateDiscountList
@@ -1061,6 +1138,91 @@ paths:
       summary: Gets a discount list entry by ID
       tags:
       - DiscountLists
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates the specified discount entry using a JSON Patch
+        document.
+      operationId: PatchDiscountListEntry
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: discountListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: discountListEntryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Patches a discount list entry
+      tags:
+      - DiscountLists
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1717,6 +1879,64 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified price list using a JSON Patch document.
+      operationId: PatchPriceListAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a price list
+      tags:
+      - PriceLists
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified price list.
       operationId: UpdatePriceListAsync
@@ -1983,6 +2203,73 @@ paths:
       summary: Gets a price list entry by ID
       tags:
       - PriceLists
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates the specified price entry in a price list using
+        a JSON Patch document.
+      operationId: PatchPriceListPriceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: priceListId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: priceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a price list entry
+      tags:
+      - PriceLists
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2576,6 +2863,80 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a pricing rule using a JSON Patch document.
+      operationId: PatchPricingRule
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pricingRuleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Patch a pricing rule
+      tags:
+      - PricingRules
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/PricingService/PricingRules/Count:
     get:
       description: Gets the count of pricing rules for the current tenant.
@@ -3030,6 +3391,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified rounding policy using a JSON Patch
+        document.
+      operationId: PatchRoundingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: roundingPolicyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Patches a rounding policy
+      tags:
+      - RoundingPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified rounding policy.
       operationId: UpdateRoundingPolicyAsync
@@ -3158,6 +3601,7 @@ components:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
+        itemId: itemId
         discountListId: discountListId
         beginQuantity: 0.8008281904610115
         description: description
@@ -3187,6 +3631,11 @@ components:
         value:
           format: double
           type: number
+        itemId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
         discountListId:
           maxLength: 36
           minLength: 0
@@ -3343,6 +3792,7 @@ components:
       additionalProperties: false
       example:
         name: name
+        discountListType: Amount
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -3358,6 +3808,11 @@ components:
           minLength: 0
           nullable: true
           type: string
+        discountListType:
+          enum:
+          - Amount
+          - Percentage
+          type: string
         currencyId:
           nullable: true
           type: string
@@ -3368,6 +3823,7 @@ components:
         enrollmentId: enrollmentId
         name: name
         tenantId: tenantId
+        discountListType: Amount
         id: id
         currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -3381,6 +3837,11 @@ components:
           type: string
         name:
           nullable: true
+          type: string
+        discountListType:
+          enum:
+          - Amount
+          - Percentage
           type: string
         currencyId:
           nullable: true
@@ -3399,6 +3860,7 @@ components:
           enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
+          discountListType: Amount
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -3435,12 +3897,14 @@ components:
         - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
+          discountListType: Amount
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - enrollmentId: enrollmentId
           name: name
           tenantId: tenantId
+          discountListType: Amount
           id: id
           currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -3477,12 +3941,18 @@ components:
       additionalProperties: false
       example:
         name: name
+        discountListType: Amount
         currencyId: currencyId
       properties:
         name:
           maxLength: 50
           minLength: 0
           nullable: true
+          type: string
+        discountListType:
+          enum:
+          - Amount
+          - Percentage
           type: string
         currencyId:
           nullable: true
@@ -3492,6 +3962,7 @@ components:
       additionalProperties: false
       example:
         endQuantity: 6.027456183070403
+        itemId: itemId
         discountListId: discountListId
         beginQuantity: 0.8008281904610115
         description: description
@@ -3513,6 +3984,11 @@ components:
         value:
           format: double
           type: number
+        itemId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
         discountListId:
           maxLength: 36
           minLength: 0
@@ -4284,12 +4760,47 @@ components:
         result:
           $ref: '#/components/schemas/Money'
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     PriceListCreateDto:
       additionalProperties: false
       example:
         unitGroupId: unitGroupId
+        partnerVisible: true
+        unitOfMeasureDependant: true
         endDate: 2000-01-23T04:56:07.000+00:00
         name: name
+        context: Sales
         description: description
         unitId: unitId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -4312,6 +4823,12 @@ components:
           maxLength: 500
           nullable: true
           type: string
+        context:
+          enum:
+          - Sales
+          - Purchase
+          - Cost
+          type: string
         startDate:
           format: date-time
           type: string
@@ -4327,6 +4844,10 @@ components:
         unitGroupId:
           nullable: true
           type: string
+        partnerVisible:
+          type: boolean
+        unitOfMeasureDependant:
+          type: boolean
       required:
       - name
       type: object
@@ -4340,6 +4861,7 @@ components:
         unitGroupId: unitGroupId
         unitOfMeasureDependant: true
         name: name
+        context: Sales
         tenantId: tenantId
         unitId: unitId
         id: id
@@ -4365,6 +4887,12 @@ components:
           type: string
         description:
           nullable: true
+          type: string
+        context:
+          enum:
+          - Sales
+          - Purchase
+          - Cost
           type: string
         currencyId:
           nullable: true
@@ -4397,6 +4925,7 @@ components:
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
           name: name
+          context: Sales
           tenantId: tenantId
           unitId: unitId
           id: id
@@ -4440,6 +4969,7 @@ components:
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
           name: name
+          context: Sales
           tenantId: tenantId
           unitId: unitId
           id: id
@@ -4453,6 +4983,7 @@ components:
           unitGroupId: unitGroupId
           unitOfMeasureDependant: true
           name: name
+          context: Sales
           tenantId: tenantId
           unitId: unitId
           id: id
@@ -4492,8 +5023,11 @@ components:
       additionalProperties: false
       example:
         unitGroupId: unitGroupId
+        partnerVisible: true
+        unitOfMeasureDependant: true
         endDate: 2000-01-23T04:56:07.000+00:00
         name: name
+        context: Sales
         description: description
         unitId: unitId
         currencyId: currencyId
@@ -4507,6 +5041,12 @@ components:
         description:
           maxLength: 500
           nullable: true
+          type: string
+        context:
+          enum:
+          - Sales
+          - Purchase
+          - Cost
           type: string
         startDate:
           format: date-time
@@ -4523,6 +5063,10 @@ components:
         unitGroupId:
           nullable: true
           type: string
+        partnerVisible:
+          type: boolean
+        unitOfMeasureDependant:
+          type: boolean
       required:
       - name
       type: object
@@ -4537,19 +5081,19 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -4599,13 +5143,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -4614,37 +5158,38 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
     PricingRuleDto:
       additionalProperties: false
       example:
-        reduce: true
-        allowInternational: true
-        hours: 0
         code: code
         weeks: 1
-        months: 5
         customState: customState
-        businessID: businessID
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
-        isDefault: true
+        countryId: countryId
         isFree: true
-        isEnabled: true
         percentage: 7.061401241503109
-        days: 6
         id: id
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
         timestamp: 2000-01-23T04:56:07.000+00:00
+        reduce: true
+        enrollmentId: enrollmentId
+        allowInternational: true
+        hours: 0
+        months: 5
+        isDefault: true
+        isEnabled: true
+        tenantId: tenantId
+        days: 6
       properties:
         id:
           nullable: true
@@ -4653,7 +5198,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        businessID:
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         code:
@@ -4696,13 +5244,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -4711,7 +5259,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object
@@ -4719,30 +5267,31 @@ components:
       additionalProperties: false
       example:
         result:
-          reduce: true
-          allowInternational: true
-          hours: 0
           code: code
           weeks: 1
-          months: 5
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4773,54 +5322,56 @@ components:
       additionalProperties: false
       example:
         result:
-        - reduce: true
-          allowInternational: true
-          hours: 0
-          code: code
+        - code: code
           weeks: 1
-          months: 5
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - reduce: true
+          reduce: true
+          enrollmentId: enrollmentId
           allowInternational: true
           hours: 0
-          code: code
-          weeks: 1
           months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
+        - code: code
+          weeks: 1
           customState: customState
-          businessID: businessID
           description: description
-          countryStateID: countryStateID
-          cityID: cityID
+          countryStateId: countryStateId
+          cityId: cityId
           title: title
           customCity: customCity
           years: 5
-          countryID: countryID
-          isDefault: true
+          countryId: countryId
           isFree: true
-          isEnabled: true
           percentage: 7.061401241503109
-          days: 6
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           value: 2.3021358869347655
           timestamp: 2000-01-23T04:56:07.000+00:00
+          reduce: true
+          enrollmentId: enrollmentId
+          allowInternational: true
+          hours: 0
+          months: 5
+          isDefault: true
+          isEnabled: true
+          tenantId: tenantId
+          days: 6
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4860,18 +5411,18 @@ components:
         months: 5
         customState: customState
         description: description
-        countryStateID: countryStateID
-        cityID: cityID
+        countryStateId: countryStateId
+        cityId: cityId
         title: title
         customCity: customCity
         years: 5
-        countryID: countryID
+        countryId: countryId
         isDefault: true
         isFree: true
         isEnabled: true
         percentage: 7.061401241503109
         days: 6
-        currencyID: currencyID
+        currencyId: currencyId
         value: 2.3021358869347655
       properties:
         title:
@@ -4911,13 +5462,13 @@ components:
         percentage:
           format: double
           type: number
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        countryStateID:
+        countryStateId:
           nullable: true
           type: string
         customState:
@@ -4926,7 +5477,7 @@ components:
         customCity:
           nullable: true
           type: string
-        cityID:
+        cityId:
           nullable: true
           type: string
       type: object

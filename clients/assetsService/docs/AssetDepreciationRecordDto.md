@@ -7,14 +7,20 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **Object** |  |  [optional] |
+|**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessId** | **Object** |  |  [optional] |
-|**businessProfileRecordId** | **Object** |  |  [optional] |
-|**assetId** | **Object** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**assetId** | **String** |  |  [optional] |
 |**assetName** | **String** |  |  [optional] |
 |**assetDepreciationPolicyId** | **String** |  |  [optional] |
 |**assetDepreciationPolicyName** | **String** |  |  [optional] |
+|**financialBookId** | **String** |  |  [optional] |
+|**startDate** | **OffsetDateTime** |  |  [optional] |
+|**totalDepreciations** | **Integer** |  |  [optional] |
+|**depreciationFrequency** | **Integer** |  |  [optional] |
+|**depreciationRate** | **Double** |  |  [optional] |
+|**expectedValueAUL** | **Double** |  |  [optional] |
 |**depreciationAmount** | **Double** |  |  [optional] |
 |**accumulatedDepreciation** | **Double** |  |  [optional] |
 |**bookValue** | **Double** |  |  [optional] |

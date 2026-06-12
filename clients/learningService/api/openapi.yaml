@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: LearningService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -631,6 +631,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course article for the specified tenant.
+      operationId: PatchCourseArticleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: articleId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course article
+      tags:
+      - CourseArticles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course article for the specified tenant.
       operationId: UpdateCourseArticleAsync
@@ -957,6 +1028,78 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course assignment component for the specified
+        tenant.
+      operationId: PatchCourseAssignmentComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: componentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course assignment component
+      tags:
+      - CourseAssignmentComponents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course assignment component.
       operationId: UpdateCourseAssignmentComponentAsync
@@ -1279,6 +1422,77 @@ paths:
       summary: Get course assignment by ID
       tags:
       - CourseAssignments
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course assignment for the specified tenant.
+      operationId: PatchCourseAssignmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assignmentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course assignment
+      tags:
+      - CourseAssignments
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1608,6 +1822,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course assignment type for the specified tenant.
+      operationId: PatchCourseAssignmentTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assignmentTypeId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course assignment type
+      tags:
+      - CourseAssignmentTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course assignment type.
       operationId: UpdateCourseAssignmentTypeAsync
@@ -1930,6 +2215,77 @@ paths:
       summary: Get course category by ID
       tags:
       - CourseCategories
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course category for the specified tenant.
+      operationId: PatchCourseCategoryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course category
+      tags:
+      - CourseCategories
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2268,6 +2624,78 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course certificate for the specified tenant.
+      operationId: PatchCourseCertificateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseCertificateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course certificate
+      tags:
+      - CourseCertificates
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course certificate for the specified tenant.
       operationId: UpdateCourseCertificateAsync
@@ -2547,6 +2975,79 @@ paths:
       summary: Get certificate template by ID
       tags:
       - CourseCertificates
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course certificate template for the specified
+        tenant.
+      operationId: PatchCourseCertificateTemplateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseCertificateTemplateId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a certificate template
+      tags:
+      - CourseCertificates
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2932,6 +3433,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course cohort for the specified tenant.
+      operationId: PatchCourseCohortAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: cohortId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course cohort
+      tags:
+      - CourseCohorts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course cohort for the specified tenant.
       operationId: UpdateCourseCohortAsync
@@ -3254,6 +3826,77 @@ paths:
       summary: Get course content group by ID
       tags:
       - CourseContentGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course content group for the specified tenant.
+      operationId: PatchCourseContentGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course content group
+      tags:
+      - CourseContentGroups
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3700,6 +4343,72 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing course enrollment for the specified
+        tenant.
+      operationId: PatchCourseEnrollmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseEnrollmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course enrollment
+      tags:
+      - CourseEnrollments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course enrollment for the specified tenant.
       operationId: UpdateCourseEnrollmentAsync
@@ -4090,6 +4799,70 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing course file for the specified tenant.
+      operationId: PatchCourseFileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course file
+      tags:
+      - CourseFiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course file for the specified tenant.
       operationId: UpdateCourseFileAsync
@@ -4419,6 +5192,70 @@ paths:
       summary: Get course forum by ID
       tags:
       - CourseForums
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing course forum.
+      operationId: PatchCourseForumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: forumId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course forum
+      tags:
+      - CourseForums
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4754,6 +5591,70 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing course grading rubric.
+      operationId: PatchCourseGradingRubricAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: rubricId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course grading rubric
+      tags:
+      - CourseGradingRubrics
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course grading rubric.
       operationId: UpdateCourseGradingRubricAsync
@@ -5083,6 +5984,70 @@ paths:
       summary: Get course handout by ID
       tags:
       - CourseHandouts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing course handout.
+      operationId: PatchCourseHandoutAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: handoutId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course handout
+      tags:
+      - CourseHandouts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5425,6 +6390,70 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing course library.
+      operationId: PatchCourseLibraryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: libraryId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course library
+      tags:
+      - CourseLibraries
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course library.
       operationId: UpdateCourseLibraryAsync
@@ -5757,6 +6786,70 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing course page for the specified tenant.
+      operationId: PatchCoursePageAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pageId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          description: OK
+      summary: Patch a course page
+      tags:
+      - CoursePages
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course page for the specified tenant.
       operationId: UpdateCoursePageAsync
@@ -6079,6 +7172,77 @@ paths:
       summary: Get course problem set by ID
       tags:
       - CourseProblemSets
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course problem set for the specified tenant.
+      operationId: PatchCourseProblemSetAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: problemSetId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course problem set
+      tags:
+      - CourseProblemSets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -6416,6 +7580,78 @@ paths:
       summary: Get course by ID
       tags:
       - Courses
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course for the specified tenant.
+      operationId: PatchCourseAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courseId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course
+      tags:
+      - Courses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8673,6 +9909,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course section for the specified tenant.
+      operationId: PatchCourseSectionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: sectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course section
+      tags:
+      - CourseSections
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course section for the specified tenant.
       operationId: UpdateCourseSectionAsync
@@ -8996,6 +10303,77 @@ paths:
       summary: Get course team membership by ID
       tags:
       - CourseTeamMemberships
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course team membership for the specified tenant.
+      operationId: PatchCourseTeamMembershipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: membershipId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course team membership
+      tags:
+      - CourseTeamMemberships
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9324,6 +10702,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course unit component for the specified tenant.
+      operationId: PatchCourseUnitComponentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: componentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course unit component
+      tags:
+      - CourseUnitComponents
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course unit component for the specified tenant.
       operationId: UpdateCourseUnitComponentAsync
@@ -9646,6 +11095,77 @@ paths:
       summary: Get course unit by ID
       tags:
       - CourseUnits
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course unit for the specified tenant.
+      operationId: PatchCourseUnitAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: unitId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course unit
+      tags:
+      - CourseUnits
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -9974,6 +11494,77 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates a course update for the specified tenant.
+      operationId: PatchCourseUpdateAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: updateId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course update
+      tags:
+      - CourseUpdates
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing course update for the specified tenant.
       operationId: UpdateCourseUpdateAsync
@@ -10296,6 +11887,77 @@ paths:
       summary: Get course wiki by ID
       tags:
       - CourseWikis
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates a course wiki for the specified tenant.
+      operationId: PatchCourseWikiAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: wikiId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a course wiki
+      tags:
+      - CourseWikis
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -10976,6 +12638,75 @@ paths:
           description: OK
       tags:
       - InstructorProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: instructorProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - InstructorProfiles
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -11954,6 +13685,75 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: studentProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      tags:
+      - StudentProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       parameters:
       - explode: true
@@ -12518,11 +14318,11 @@ components:
     CourseArticleCreateDto:
       additionalProperties: false
       example:
-        courseWikiID: courseWikiID
+        courseWikiId: courseWikiId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12541,26 +14341,27 @@ components:
         content:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseWikiID:
+        courseWikiId:
           minLength: 1
           type: string
       required:
-      - courseID
-      - courseWikiID
+      - courseId
+      - courseWikiId
       - title
       type: object
     CourseArticleDto:
       additionalProperties: false
       example:
-        courseWikiID: courseWikiID
+        enrollmentId: enrollmentId
+        courseWikiId: courseWikiId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -12580,13 +14381,16 @@ components:
         content:
           nullable: true
           type: string
-        courseWikiID:
+        courseWikiId:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -12610,11 +14414,11 @@ components:
     CourseAssignmentComponentCreateDto:
       additionalProperties: false
       example:
-        courseAssignmentID: courseAssignmentID
+        courseAssignmentId: courseAssignmentId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
         order: 0
@@ -12637,26 +14441,27 @@ components:
         order:
           format: int32
           type: integer
-        courseAssignmentID:
+        courseAssignmentId:
           minLength: 1
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseAssignmentID
-      - courseID
+      - courseAssignmentId
+      - courseId
       - title
       type: object
     CourseAssignmentComponentDto:
       additionalProperties: false
       example:
-        courseAssignmentID: courseAssignmentID
+        enrollmentId: enrollmentId
+        courseAssignmentId: courseAssignmentId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
         order: 0
@@ -12680,20 +14485,23 @@ components:
         order:
           format: int32
           type: integer
-        courseAssignmentID:
+        courseAssignmentId:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
     CourseAssignmentComponentUpdateDto:
       additionalProperties: false
       example:
-        courseAssignmentID: courseAssignmentID
+        courseAssignmentId: courseAssignmentId
         description: description
         title: title
         content: content
@@ -12712,7 +14520,7 @@ components:
           format: int32
           nullable: true
           type: integer
-        courseAssignmentID:
+        courseAssignmentId:
           nullable: true
           type: string
       type: object
@@ -12723,14 +14531,14 @@ components:
         description: description
         resources: resources
         title: title
-        courseCohortID: courseCohortID
+        courseCohortId: courseCohortId
         asignToAllCohorts: true
         points: 0.8008281904610115
-        courseAssignmentTypeID: courseAssignmentTypeID
-        courseUnitID: courseUnitID
+        courseAssignmentTypeId: courseAssignmentTypeId
+        courseUnitId: courseUnitId
         dueDateTime: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12751,16 +14559,16 @@ components:
         points:
           format: double
           type: number
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
-        courseCohortID:
+        courseCohortId:
           nullable: true
           type: string
-        courseAssignmentTypeID:
+        courseAssignmentTypeId:
           nullable: true
           type: string
         dueDateTime:
@@ -12773,23 +14581,28 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseAssignmentDto:
       additionalProperties: false
       example:
-        courseSectionID: courseSectionID
         instructions: instructions
-        dueDateTime: 2000-01-23T04:56:07.000+00:00
-        courseUnitID: courseUnitID
-        tenantId: tenantId
+        enrollmentId: enrollmentId
         description: description
-        id: id
+        resources: resources
         title: title
-        courseID: courseID
-        timestamp: 2000-01-23T04:56:07.000+00:00
+        courseCohortId: courseCohortId
+        asignToAllCohorts: true
         points: 0.8008281904610115
+        courseAssignmentTypeId: courseAssignmentTypeId
+        courseSectionId: courseSectionId
+        dueDateTime: 2000-01-23T04:56:07.000+00:00
+        courseUnitId: courseUnitId
+        tenantId: tenantId
+        id: id
+        courseId: courseId
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           nullable: true
@@ -12813,16 +14626,30 @@ components:
         dueDateTime:
           format: date-time
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
-        courseSectionID:
+        courseSectionId:
+          nullable: true
+          type: string
+        courseCohortId:
+          nullable: true
+          type: string
+        courseAssignmentTypeId:
+          nullable: true
+          type: string
+        asignToAllCohorts:
+          type: boolean
+        resources:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -12835,7 +14662,7 @@ components:
         weight: 0.8008281904610115
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         abbreviation: abbreviation
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12859,24 +14686,25 @@ components:
         excluded:
           format: int32
           type: integer
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - name
       type: object
     CourseAssignmentTypeDto:
       additionalProperties: false
       example:
         excluded: 1
+        enrollmentId: enrollmentId
         quantity: 6
         name: name
         tenantId: tenantId
         weight: 0.8008281904610115
         id: id
         abbreviation: abbreviation
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -12901,10 +14729,13 @@ components:
         excluded:
           format: int32
           type: integer
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -12940,15 +14771,15 @@ components:
       additionalProperties: false
       example:
         instructions: instructions
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         dueDateTime: 2000-01-23T04:56:07.000+00:00
         description: description
         resources: resources
         title: title
-        courseCohortID: courseCohortID
+        courseCohortId: courseCohortId
         asignToAllCohorts: true
         points: 0.8008281904610115
-        courseAssignmentTypeID: courseAssignmentTypeID
+        courseAssignmentTypeId: courseAssignmentTypeId
       properties:
         title:
           nullable: true
@@ -12962,13 +14793,13 @@ components:
         points:
           format: double
           type: number
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
-        courseCohortID:
+        courseCohortId:
           nullable: true
           type: string
-        courseAssignmentTypeID:
+        courseAssignmentTypeId:
           nullable: true
           type: string
         dueDateTime:
@@ -13014,6 +14845,7 @@ components:
     CourseCategoryDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         imageURL: imageURL
         tenantId: tenantId
         description: description
@@ -13041,6 +14873,9 @@ components:
         isFeatured:
           type: boolean
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -13068,14 +14903,14 @@ components:
     CourseCertificateTemplateCreateDto:
       additionalProperties: false
       example:
-        parentWebContentVersionID: parentWebContentVersionID
+        parentWebContentVersionId: parentWebContentVersionId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        socialProfileID: socialProfileID
-        parentWebContentID: parentWebContentID
-        courseID: courseID
-        webPortalID: webPortalID
+        socialProfileId: socialProfileId
+        parentWebContentId: parentWebContentId
+        courseId: courseId
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           format: uuid
@@ -13083,41 +14918,41 @@ components:
         timestamp:
           format: date-time
           type: string
-        courseID:
+        courseId:
           maxLength: 36
           minLength: 36
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
-        parentWebContentID:
+        parentWebContentId:
           nullable: true
           type: string
-        parentWebContentVersionID:
+        parentWebContentVersionId:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       type: object
     CourseCertificateTemplateDto:
       additionalProperties: false
       example:
-        businessID: businessID
-        parentWebContentVersionID: parentWebContentVersionID
+        enrollmentId: enrollmentId
+        tenantId: tenantId
+        parentWebContentVersionId: parentWebContentVersionId
         id: id
-        socialProfileID: socialProfileID
-        parentWebContentID: parentWebContentID
-        courseID: courseID
-        businessProfileRecordID: businessProfileRecordID
-        webPortalID: webPortalID
+        socialProfileId: socialProfileId
+        parentWebContentId: parentWebContentId
+        courseId: courseId
+        webPortalId: webPortalId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        websiteThemeID: websiteThemeID
+        websiteThemeId: websiteThemeId
       properties:
         id:
           nullable: true
@@ -13126,53 +14961,53 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
-        parentWebContentID:
+        parentWebContentId:
           nullable: true
           type: string
-        parentWebContentVersionID:
+        parentWebContentVersionId:
           nullable: true
           type: string
       type: object
     CourseCertificateTemplateUpdateDto:
       additionalProperties: false
       example:
-        parentWebContentVersionID: parentWebContentVersionID
-        socialProfileID: socialProfileID
-        parentWebContentID: parentWebContentID
-        webPortalID: webPortalID
-        websiteThemeID: websiteThemeID
+        parentWebContentVersionId: parentWebContentVersionId
+        socialProfileId: socialProfileId
+        parentWebContentId: parentWebContentId
+        webPortalId: webPortalId
+        websiteThemeId: websiteThemeId
       properties:
-        webPortalID:
+        webPortalId:
           nullable: true
           type: string
-        websiteThemeID:
+        websiteThemeId:
           nullable: true
           type: string
-        socialProfileID:
+        socialProfileId:
           nullable: true
           type: string
-        parentWebContentID:
+        parentWebContentId:
           nullable: true
           type: string
-        parentWebContentVersionID:
+        parentWebContentVersionId:
           nullable: true
           type: string
       type: object
@@ -13185,7 +15020,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         endDateTime: 2000-01-23T04:56:07.000+00:00
         expectedStartDateTime: 2000-01-23T04:56:07.000+00:00
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13197,7 +15032,7 @@ components:
         name:
           minLength: 1
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
         startDateTime:
@@ -13217,12 +15052,13 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - name
       type: object
     CourseCohortDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         startDateTime: 2000-01-23T04:56:07.000+00:00
         expectedEndDateTime: 2000-01-23T04:56:07.000+00:00
         name: name
@@ -13230,7 +15066,7 @@ components:
         id: id
         endDateTime: 2000-01-23T04:56:07.000+00:00
         expectedStartDateTime: 2000-01-23T04:56:07.000+00:00
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13255,10 +15091,13 @@ components:
         expectedEndDateTime:
           format: date-time
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -13294,11 +15133,11 @@ components:
     CourseCompletionCertificateCreateDto:
       additionalProperties: false
       example:
-        courseEnrollmentID: courseEnrollmentID
-        courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
+        courseEnrollmentId: courseEnrollmentId
+        courseCompletionCertificateTemplateId: courseCompletionCertificateTemplateId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        studentProfileID: studentProfileID
-        courseID: courseID
+        studentProfileId: studentProfileId
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13307,39 +15146,39 @@ components:
         timestamp:
           format: date-time
           type: string
-        studentProfileID:
+        studentProfileId:
           maxLength: 36
           minLength: 36
           type: string
-        courseEnrollmentID:
+        courseEnrollmentId:
           maxLength: 36
           minLength: 36
           type: string
-        courseCompletionCertificateTemplateID:
+        courseCompletionCertificateTemplateId:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
       required:
-      - courseEnrollmentID
-      - studentProfileID
+      - courseEnrollmentId
+      - studentProfileId
       type: object
     CourseCompletionCertificateDto:
       additionalProperties: false
       example:
         studentLastName: studentLastName
+        enrollmentId: enrollmentId
         instructorName: instructorName
-        businessID: businessID
-        courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
-        studentProfileID: studentProfileID
-        businessProfileRecordID: businessProfileRecordID
+        courseCompletionCertificateTemplateId: courseCompletionCertificateTemplateId
+        studentProfileId: studentProfileId
         courseTitle: courseTitle
-        courseEnrollmentID: courseEnrollmentID
+        courseEnrollmentId: courseEnrollmentId
         instructorLastName: instructorLastName
         studentName: studentName
+        tenantId: tenantId
         id: id
-        courseID: courseID
+        courseId: courseId
         totalEffortInHours: 0.8008281904610115
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -13350,22 +15189,22 @@ components:
           format: date-time
           nullable: true
           type: string
-        studentProfileID:
+        studentProfileId:
           nullable: true
           type: string
-        courseEnrollmentID:
+        courseEnrollmentId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
-        courseCompletionCertificateTemplateID:
+        courseCompletionCertificateTemplateId:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         studentName:
@@ -13393,31 +15232,31 @@ components:
       example:
         result:
         - studentLastName: studentLastName
+          enrollmentId: enrollmentId
           instructorName: instructorName
-          businessID: businessID
-          courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
-          studentProfileID: studentProfileID
-          businessProfileRecordID: businessProfileRecordID
+          courseCompletionCertificateTemplateId: courseCompletionCertificateTemplateId
+          studentProfileId: studentProfileId
           courseTitle: courseTitle
-          courseEnrollmentID: courseEnrollmentID
+          courseEnrollmentId: courseEnrollmentId
           instructorLastName: instructorLastName
           studentName: studentName
+          tenantId: tenantId
           id: id
-          courseID: courseID
+          courseId: courseId
           totalEffortInHours: 0.8008281904610115
           timestamp: 2000-01-23T04:56:07.000+00:00
         - studentLastName: studentLastName
+          enrollmentId: enrollmentId
           instructorName: instructorName
-          businessID: businessID
-          courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
-          studentProfileID: studentProfileID
-          businessProfileRecordID: businessProfileRecordID
+          courseCompletionCertificateTemplateId: courseCompletionCertificateTemplateId
+          studentProfileId: studentProfileId
           courseTitle: courseTitle
-          courseEnrollmentID: courseEnrollmentID
+          courseEnrollmentId: courseEnrollmentId
           instructorLastName: instructorLastName
           studentName: studentName
+          tenantId: tenantId
           id: id
-          courseID: courseID
+          courseId: courseId
           totalEffortInHours: 0.8008281904610115
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -13452,21 +15291,21 @@ components:
     CourseCompletionCertificateUpdateDto:
       additionalProperties: false
       example:
-        courseEnrollmentID: courseEnrollmentID
-        courseCompletionCertificateTemplateID: courseCompletionCertificateTemplateID
-        studentProfileID: studentProfileID
-        courseID: courseID
+        courseEnrollmentId: courseEnrollmentId
+        courseCompletionCertificateTemplateId: courseCompletionCertificateTemplateId
+        studentProfileId: studentProfileId
+        courseId: courseId
       properties:
-        studentProfileID:
+        studentProfileId:
           nullable: true
           type: string
-        courseEnrollmentID:
+        courseEnrollmentId:
           nullable: true
           type: string
-        courseCompletionCertificateTemplateID:
+        courseCompletionCertificateTemplateId:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
       type: object
@@ -13475,7 +15314,7 @@ components:
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13487,20 +15326,21 @@ components:
         name:
           minLength: 1
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - name
       type: object
     CourseContentGroupDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         name: name
-        businessID: businessID
+        tenantId: tenantId
         id: id
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -13513,10 +15353,13 @@ components:
         name:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -13524,12 +15367,12 @@ components:
       additionalProperties: false
       example:
         name: name
-        courseID: courseID
+        courseId: courseId
       properties:
         name:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
       type: object
@@ -13547,14 +15390,14 @@ components:
         endDateTime: 2000-01-23T04:56:07.000+00:00
         version: version
         startDateTime: 2000-01-23T04:56:07.000+00:00
-        courseCategoryID: courseCategoryID
+        courseCategoryId: courseCategoryId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         sku: sku
-        currencyID: currencyID
+        currencyId: currencyId
         totalEffortInHours: 5
         inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
-        instructorProfileID: instructorProfileID
+        instructorProfileId: instructorProfileId
         totalEffortInWeeks: 1
       properties:
         id:
@@ -13581,13 +15424,13 @@ components:
         version:
           nullable: true
           type: string
-        courseCategoryID:
+        courseCategoryId:
           nullable: true
           type: string
-        instructorProfileID:
+        instructorProfileId:
           nullable: true
           type: string
-        currencyID:
+        currencyId:
           nullable: true
           type: string
         regularPrice:
@@ -13650,6 +15493,7 @@ components:
         currencyId: currencyId
         isDeadlineDiscount: true
         height: 4.145608029883936
+        instructorProfileId: instructorProfileId
         totalEffortInWeeks: 3
         supportedOperatingSystem: supportedOperatingSystem
         onDiscount: true
@@ -13697,6 +15541,7 @@ components:
         discountPercentage: 1.1730742509559433
         ean: ean
         hasVariations: true
+        courseCategoryId: courseCategoryId
         unitId: unitId
         ingredients: ingredients
         onSale: true
@@ -13721,7 +15566,6 @@ components:
         deleted: true
         startDateTime: 2000-01-23T04:56:07.000+00:00
         series: series
-        courseCategoryID: courseCategoryID
         tenantId: tenantId
         width: 9.301444243932576
         publishedDate: 2000-01-23T04:56:07.000+00:00
@@ -13834,7 +15678,6 @@ components:
         mpNs: mpNs
         isOfficialChoice: true
         categoryId: categoryId
-        instructorProfileID: instructorProfileID
       properties:
         id:
           nullable: true
@@ -14357,13 +16200,13 @@ components:
         version:
           nullable: true
           type: string
-        courseCategoryID:
+        courseCategoryId:
           nullable: true
           type: string
         courseCategoryName:
           nullable: true
           type: string
-        instructorProfileID:
+        instructorProfileId:
           nullable: true
           type: string
         instructorProfileName:
@@ -14424,6 +16267,7 @@ components:
           currencyId: currencyId
           isDeadlineDiscount: true
           height: 4.145608029883936
+          instructorProfileId: instructorProfileId
           totalEffortInWeeks: 3
           supportedOperatingSystem: supportedOperatingSystem
           onDiscount: true
@@ -14471,6 +16315,7 @@ components:
           discountPercentage: 1.1730742509559433
           ean: ean
           hasVariations: true
+          courseCategoryId: courseCategoryId
           unitId: unitId
           ingredients: ingredients
           onSale: true
@@ -14495,7 +16340,6 @@ components:
           deleted: true
           startDateTime: 2000-01-23T04:56:07.000+00:00
           series: series
-          courseCategoryID: courseCategoryID
           tenantId: tenantId
           width: 9.301444243932576
           publishedDate: 2000-01-23T04:56:07.000+00:00
@@ -14608,7 +16452,6 @@ components:
           mpNs: mpNs
           isOfficialChoice: true
           categoryId: categoryId
-          instructorProfileID: instructorProfileID
         - trending: true
           totalHoursPerWeek: 3
           estimatedDefaultShippingTaxInUsd: 6.878052220127876
@@ -14631,6 +16474,7 @@ components:
           currencyId: currencyId
           isDeadlineDiscount: true
           height: 4.145608029883936
+          instructorProfileId: instructorProfileId
           totalEffortInWeeks: 3
           supportedOperatingSystem: supportedOperatingSystem
           onDiscount: true
@@ -14678,6 +16522,7 @@ components:
           discountPercentage: 1.1730742509559433
           ean: ean
           hasVariations: true
+          courseCategoryId: courseCategoryId
           unitId: unitId
           ingredients: ingredients
           onSale: true
@@ -14702,7 +16547,6 @@ components:
           deleted: true
           startDateTime: 2000-01-23T04:56:07.000+00:00
           series: series
-          courseCategoryID: courseCategoryID
           tenantId: tenantId
           width: 9.301444243932576
           publishedDate: 2000-01-23T04:56:07.000+00:00
@@ -14815,7 +16659,6 @@ components:
           mpNs: mpNs
           isOfficialChoice: true
           categoryId: categoryId
-          instructorProfileID: instructorProfileID
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -14849,10 +16692,10 @@ components:
       additionalProperties: false
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseCompletionCertificateID: courseCompletionCertificateID
-        studentProfileID: studentProfileID
-        courseID: courseID
-        courseCohortID: courseCohortID
+        courseCompletionCertificateId: courseCompletionCertificateId
+        studentProfileId: studentProfileId
+        courseId: courseId
+        courseCohortId: courseCohortId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14861,28 +16704,29 @@ components:
         timestamp:
           format: date-time
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseCohortID:
+        courseCohortId:
           nullable: true
           type: string
-        studentProfileID:
+        studentProfileId:
           nullable: true
           type: string
-        courseCompletionCertificateID:
+        courseCompletionCertificateId:
           nullable: true
           type: string
       type: object
     CourseEnrollmentDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         id: id
-        courseCompletionCertificateID: courseCompletionCertificateID
-        studentProfileID: studentProfileID
-        courseID: courseID
-        courseCohortID: courseCohortID
-        businessProfileRecordID: businessProfileRecordID
+        courseCompletionCertificateId: courseCompletionCertificateId
+        studentProfileId: studentProfileId
+        courseId: courseId
+        courseCohortId: courseCohortId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -14892,19 +16736,22 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseCohortID:
+        courseCohortId:
           nullable: true
           type: string
-        studentProfileID:
+        studentProfileId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        tenantId:
           nullable: true
           type: string
-        courseCompletionCertificateID:
+        enrollmentId:
+          nullable: true
+          type: string
+        courseCompletionCertificateId:
           nullable: true
           type: string
       type: object
@@ -14912,19 +16759,21 @@ components:
       additionalProperties: false
       example:
         result:
-        - id: id
-          courseCompletionCertificateID: courseCompletionCertificateID
-          studentProfileID: studentProfileID
-          courseID: courseID
-          courseCohortID: courseCohortID
-          businessProfileRecordID: businessProfileRecordID
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          id: id
+          courseCompletionCertificateId: courseCompletionCertificateId
+          studentProfileId: studentProfileId
+          courseId: courseId
+          courseCohortId: courseCohortId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - id: id
-          courseCompletionCertificateID: courseCompletionCertificateID
-          studentProfileID: studentProfileID
-          courseID: courseID
-          courseCohortID: courseCohortID
-          businessProfileRecordID: businessProfileRecordID
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          id: id
+          courseCompletionCertificateId: courseCompletionCertificateId
+          studentProfileId: studentProfileId
+          courseId: courseId
+          courseCohortId: courseCohortId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -14958,21 +16807,13 @@ components:
     CourseEnrollmentUpdateDto:
       additionalProperties: false
       example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseCompletionCertificateID: courseCompletionCertificateID
-        courseCohortID: courseCohortID
-        timestamp: 2000-01-23T04:56:07.000+00:00
+        courseCompletionCertificateId: courseCompletionCertificateId
+        courseCohortId: courseCohortId
       properties:
-        id:
-          format: uuid
-          type: string
-        timestamp:
-          format: date-time
-          type: string
-        courseCohortID:
+        courseCohortId:
           nullable: true
           type: string
-        courseCompletionCertificateID:
+        courseCompletionCertificateId:
           nullable: true
           type: string
       type: object
@@ -14984,7 +16825,7 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
         contentType: contentType
-        courseID: courseID
+        courseId: courseId
         fileLength: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15009,11 +16850,11 @@ components:
         fileLength:
           format: int64
           type: integer
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - fileName
       - fileUploadURL
       - title
@@ -15022,12 +16863,13 @@ components:
       additionalProperties: false
       example:
         fileUploadURL: fileUploadURL
+        enrollmentId: enrollmentId
         fileName: fileName
         tenantId: tenantId
         id: id
         title: title
         contentType: contentType
-        courseID: courseID
+        courseId: courseId
         fileLength: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15053,10 +16895,13 @@ components:
         fileLength:
           format: int64
           type: integer
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15092,7 +16937,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -15107,21 +16952,22 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseForumDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -15137,10 +16983,13 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15164,7 +17013,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -15181,22 +17030,23 @@ components:
           type: string
         enablePoints:
           type: boolean
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseGradingRubricDto:
       additionalProperties: false
       example:
         enablePoints: true
+        enrollmentId: enrollmentId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -15214,10 +17064,13 @@ components:
           type: string
         enablePoints:
           type: boolean
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15241,11 +17094,11 @@ components:
     CourseHandoutCreateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseID: courseID
+        courseId: courseId
         content: content
         url: url
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15273,25 +17126,26 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - name
       type: object
     CourseHandoutDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        enrollmentId: enrollmentId
+        courseUnitId: courseUnitId
         name: name
         tenantId: tenantId
         description: description
         id: id
-        courseID: courseID
+        courseId: courseId
         content: content
         url: url
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15320,20 +17174,23 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
     CourseHandoutUpdateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         name: name
         description: description
         content: content
@@ -15356,18 +17213,18 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
       type: object
     CourseLibraryCreateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15383,10 +17240,10 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15394,18 +17251,19 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseLibraryDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        enrollmentId: enrollmentId
+        courseUnitId: courseUnitId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15422,10 +17280,10 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15434,11 +17292,14 @@ components:
         tenantId:
           nullable: true
           type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     CourseLibraryUpdateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         title: title
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -15449,7 +17310,7 @@ components:
         description:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15463,7 +17324,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15482,21 +17343,22 @@ components:
         content:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseNewsDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15516,10 +17378,13 @@ components:
         content:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15546,7 +17411,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15569,21 +17434,22 @@ components:
         slug:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CoursePageDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -15607,10 +17473,13 @@ components:
         slug:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15638,13 +17507,13 @@ components:
     CourseProblemSetCreateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         overallScore: 0.8008281904610115
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
-        courseGradingRubricID: courseGradingRubricID
+        courseId: courseId
+        courseGradingRubricId: courseGradingRubricId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15663,13 +17532,13 @@ components:
         overallScore:
           format: double
           type: number
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
-        courseGradingRubricID:
+        courseGradingRubricId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15677,19 +17546,21 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseProblemSetDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        enrollmentId: enrollmentId
+        courseUnitId: courseUnitId
         overallScore: 0.8008281904610115
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
+        courseGradingRubricId: courseGradingRubricId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15709,10 +17580,13 @@ components:
         overallScore:
           format: double
           type: number
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
+          nullable: true
+          type: string
+        courseGradingRubricId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15721,15 +17595,18 @@ components:
         tenantId:
           nullable: true
           type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     CourseProblemSetUpdateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         overallScore: 0.8008281904610115
         description: description
         title: title
-        courseGradingRubricID: courseGradingRubricID
+        courseGradingRubricId: courseGradingRubricId
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
         title:
@@ -15742,10 +17619,10 @@ components:
           format: double
           nullable: true
           type: number
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
-        courseGradingRubricID:
+        courseGradingRubricId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15761,7 +17638,7 @@ components:
         icon: icon
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15780,7 +17657,7 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
         releaseDateTime:
@@ -15790,19 +17667,20 @@ components:
         hideFromStudents:
           type: boolean
       required:
-      - courseID
+      - courseId
       - name
       type: object
     CourseSectionDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         hideFromStudents: true
         icon: icon
         name: name
         tenantId: tenantId
         description: description
         id: id
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -15822,7 +17700,7 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
         releaseDateTime:
@@ -15831,6 +17709,9 @@ components:
         hideFromStudents:
           type: boolean
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -15864,9 +17745,9 @@ components:
       example:
         courseTeamMembershipType: Admin
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        instructorProfileID: instructorProfileID
+        instructorProfileId: instructorProfileId
       properties:
         id:
           format: uuid
@@ -15874,10 +17755,10 @@ components:
         timestamp:
           format: date-time
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        instructorProfileID:
+        instructorProfileId:
           minLength: 1
           type: string
         courseTeamMembershipType:
@@ -15886,18 +17767,19 @@ components:
           - Staff
           type: string
       required:
-      - courseID
-      - instructorProfileID
+      - courseId
+      - instructorProfileId
       type: object
     CourseTeamMembershipDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         courseTeamMembershipType: Admin
         tenantId: tenantId
         id: id
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        instructorProfileID: instructorProfileID
+        instructorProfileId: instructorProfileId
       properties:
         id:
           nullable: true
@@ -15906,10 +17788,10 @@ components:
           format: date-time
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        instructorProfileID:
+        instructorProfileId:
           nullable: true
           type: string
         courseTeamMembershipType:
@@ -15920,14 +17802,17 @@ components:
         tenantId:
           nullable: true
           type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     CourseTeamMembershipUpdateDto:
       additionalProperties: false
       example:
         courseTeamMembershipType: Admin
-        instructorProfileID: instructorProfileID
+        instructorProfileId: instructorProfileId
       properties:
-        instructorProfileID:
+        instructorProfileId:
           nullable: true
           type: string
         courseTeamMembershipType:
@@ -15940,11 +17825,11 @@ components:
     CourseUnitComponentCreateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
         order: 0
@@ -15967,25 +17852,26 @@ components:
         order:
           format: int32
           type: integer
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseUnitComponentDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        enrollmentId: enrollmentId
+        courseUnitId: courseUnitId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
         order: 0
@@ -16009,20 +17895,23 @@ components:
         order:
           format: int32
           type: integer
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
     CourseUnitComponentUpdateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         title: title
         content: content
@@ -16041,19 +17930,19 @@ components:
           format: int32
           nullable: true
           type: integer
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
       type: object
     CourseUnitCreateDto:
       additionalProperties: false
       example:
-        courseSectionID: courseSectionID
+        courseSectionId: courseSectionId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseContentGroupID: courseContentGroupID
-        courseID: courseID
+        courseContentGroupId: courseContentGroupId
+        courseId: courseId
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -16073,13 +17962,13 @@ components:
         content:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseSectionID:
+        courseSectionId:
           minLength: 1
           type: string
-        courseContentGroupID:
+        courseContentGroupId:
           nullable: true
           type: string
         releaseDateTime:
@@ -16087,85 +17976,101 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
-      - courseSectionID
+      - courseId
+      - courseSectionId
       - title
       type: object
     CourseUnitDto:
       additionalProperties: false
       example:
-        courseSectionID: courseSectionID
+        enrollmentId: enrollmentId
         courseComponents:
-        - courseUnitID: courseUnitID
+        - enrollmentId: enrollmentId
+          courseUnitId: courseUnitId
           tenantId: tenantId
           description: description
           id: id
           title: title
-          courseID: courseID
+          courseId: courseId
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
           order: 0
-        - courseUnitID: courseUnitID
+        - enrollmentId: enrollmentId
+          courseUnitId: courseUnitId
           tenantId: tenantId
           description: description
           id: id
           title: title
-          courseID: courseID
+          courseId: courseId
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
           order: 0
-        courseAssignments:
-        - courseSectionID: courseSectionID
-          instructions: instructions
-          dueDateTime: 2000-01-23T04:56:07.000+00:00
-          courseUnitID: courseUnitID
-          tenantId: tenantId
-          description: description
-          id: id
-          title: title
-          courseID: courseID
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          points: 0.8008281904610115
-        - courseSectionID: courseSectionID
-          instructions: instructions
-          dueDateTime: 2000-01-23T04:56:07.000+00:00
-          courseUnitID: courseUnitID
-          tenantId: tenantId
-          description: description
-          id: id
-          title: title
-          courseID: courseID
-          timestamp: 2000-01-23T04:56:07.000+00:00
-          points: 0.8008281904610115
-        tenantId: tenantId
         description: description
+        title: title
+        courseContentGroupId: courseContentGroupId
+        content: content
+        releaseDateTime: 2000-01-23T04:56:07.000+00:00
+        courseSectionId: courseSectionId
+        courseAssignments:
+        - instructions: instructions
+          enrollmentId: enrollmentId
+          description: description
+          resources: resources
+          title: title
+          courseCohortId: courseCohortId
+          asignToAllCohorts: true
+          points: 0.8008281904610115
+          courseAssignmentTypeId: courseAssignmentTypeId
+          courseSectionId: courseSectionId
+          dueDateTime: 2000-01-23T04:56:07.000+00:00
+          courseUnitId: courseUnitId
+          tenantId: tenantId
+          id: id
+          courseId: courseId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - instructions: instructions
+          enrollmentId: enrollmentId
+          description: description
+          resources: resources
+          title: title
+          courseCohortId: courseCohortId
+          asignToAllCohorts: true
+          points: 0.8008281904610115
+          courseAssignmentTypeId: courseAssignmentTypeId
+          courseSectionId: courseSectionId
+          dueDateTime: 2000-01-23T04:56:07.000+00:00
+          courseUnitId: courseUnitId
+          tenantId: tenantId
+          id: id
+          courseId: courseId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
         courseHandouts:
-        - courseUnitID: courseUnitID
+        - enrollmentId: enrollmentId
+          courseUnitId: courseUnitId
           name: name
           tenantId: tenantId
           description: description
           id: id
-          courseID: courseID
+          courseId: courseId
           content: content
           url: url
           timestamp: 2000-01-23T04:56:07.000+00:00
           releaseDateTime: 2000-01-23T04:56:07.000+00:00
-        - courseUnitID: courseUnitID
+        - enrollmentId: enrollmentId
+          courseUnitId: courseUnitId
           name: name
           tenantId: tenantId
           description: description
           id: id
-          courseID: courseID
+          courseId: courseId
           content: content
           url: url
           timestamp: 2000-01-23T04:56:07.000+00:00
           releaseDateTime: 2000-01-23T04:56:07.000+00:00
         id: id
-        title: title
-        courseID: courseID
-        content: content
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           nullable: true
@@ -16186,13 +18091,19 @@ components:
         content:
           nullable: true
           type: string
-        courseID:
+        courseId:
           nullable: true
           type: string
-        courseSectionID:
+        courseSectionId:
+          nullable: true
+          type: string
+        courseContentGroupId:
           nullable: true
           type: string
         tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         courseHandouts:
@@ -16216,7 +18127,7 @@ components:
       example:
         description: description
         title: title
-        courseContentGroupID: courseContentGroupID
+        courseContentGroupId: courseContentGroupId
         content: content
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16229,7 +18140,7 @@ components:
         content:
           nullable: true
           type: string
-        courseContentGroupID:
+        courseContentGroupId:
           nullable: true
           type: string
         releaseDateTime:
@@ -16252,12 +18163,12 @@ components:
         endDateTime: 2000-01-23T04:56:07.000+00:00
         version: version
         startDateTime: 2000-01-23T04:56:07.000+00:00
-        courseCategoryID: courseCategoryID
+        courseCategoryId: courseCategoryId
         sku: sku
-        currencyID: currencyID
+        currencyId: currencyId
         totalEffortInHours: 5
         inscriptionsStartDateTime: 2000-01-23T04:56:07.000+00:00
-        instructorProfileID: instructorProfileID
+        instructorProfileId: instructorProfileId
         totalEffortInWeeks: 1
       properties:
         title:
@@ -16278,13 +18189,13 @@ components:
         version:
           nullable: true
           type: string
-        courseCategoryID:
+        courseCategoryId:
           nullable: true
           type: string
-        instructorProfileID:
+        instructorProfileId:
           nullable: true
           type: string
-        currencyID:
+        currencyId:
           nullable: true
           type: string
         regularPrice:
@@ -16330,11 +18241,11 @@ components:
     CourseWikiCreateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16350,10 +18261,10 @@ components:
         description:
           nullable: true
           type: string
-        courseID:
+        courseId:
           minLength: 1
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         releaseDateTime:
@@ -16361,18 +18272,19 @@ components:
           nullable: true
           type: string
       required:
-      - courseID
+      - courseId
       - title
       type: object
     CourseWikiDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        enrollmentId: enrollmentId
+        courseUnitId: courseUnitId
         tenantId: tenantId
         description: description
         id: id
         title: title
-        courseID: courseID
+        courseId: courseId
         timestamp: 2000-01-23T04:56:07.000+00:00
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -16395,17 +18307,20 @@ components:
         tenantId:
           nullable: true
           type: string
-        courseID:
+        enrollmentId:
           nullable: true
           type: string
-        courseUnitID:
+        courseId:
+          nullable: true
+          type: string
+        courseUnitId:
           nullable: true
           type: string
       type: object
     CourseWikiUpdateDto:
       additionalProperties: false
       example:
-        courseUnitID: courseUnitID
+        courseUnitId: courseUnitId
         description: description
         title: title
         releaseDateTime: 2000-01-23T04:56:07.000+00:00
@@ -16416,12 +18331,39 @@ components:
         description:
           nullable: true
           type: string
-        courseUnitID:
+        courseUnitId:
           nullable: true
           type: string
         releaseDateTime:
           format: date-time
           nullable: true
+          type: string
+      type: object
+    EmptyEnvelope:
+      additionalProperties: false
+      example:
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
           type: string
       type: object
     ErrorEnvelope:
@@ -16525,7 +18467,6 @@ components:
       additionalProperties: false
       example:
         data: data
-        contactID: contactID
         about: about
         data8Label: data8Label
         type: type
@@ -16633,15 +18574,11 @@ components:
           type: string
         authorized:
           type: boolean
-        contactID:
-          nullable: true
-          type: string
       type: object
     InstructorProfileDto:
       additionalProperties: false
       example:
         data: data
-        contactID: contactID
         about: about
         data8Label: data8Label
         type: type
@@ -16727,10 +18664,8 @@ components:
         verified: true
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
@@ -16838,22 +18773,12 @@ components:
           type: string
         authorized:
           type: boolean
-        businessID:
-          nullable: true
-          type: string
-        contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
       type: object
     InstructorProfileDtoIReadOnlyListEnvelope:
       additionalProperties: false
       example:
         result:
         - data: data
-          contactID: contactID
           about: about
           data8Label: data8Label
           type: type
@@ -16939,17 +18864,14 @@ components:
           verified: true
           dataLabel: dataLabel
           data1: data1
-          businessID: businessID
           data3Label: data3Label
           data6Label: data6Label
-          businessProfileRecordID: businessProfileRecordID
           data1Label: data1Label
           data4Label: data4Label
           submitted: true
           tenantId: tenantId
           data7Label: data7Label
         - data: data
-          contactID: contactID
           about: about
           data8Label: data8Label
           type: type
@@ -17035,10 +18957,8 @@ components:
           verified: true
           dataLabel: dataLabel
           data1: data1
-          businessID: businessID
           data3Label: data3Label
           data6Label: data6Label
-          businessProfileRecordID: businessProfileRecordID
           data1Label: data1Label
           data4Label: data4Label
           submitted: true
@@ -17201,6 +19121,38 @@ components:
       - email
       - password
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     RefreshRequest:
       additionalProperties: false
       example:
@@ -17264,7 +19216,6 @@ components:
       additionalProperties: false
       example:
         data: data
-        contactID: contactID
         about: about
         data8Label: data8Label
         type: type
@@ -17369,15 +19320,11 @@ components:
         data9Label:
           nullable: true
           type: string
-        contactID:
-          nullable: true
-          type: string
       type: object
     StudentProfileDto:
       additionalProperties: false
       example:
         data: data
-        contactID: contactID
         about: about
         data8Label: data8Label
         type: type
@@ -17462,10 +19409,8 @@ components:
         verified: true
         dataLabel: dataLabel
         data1: data1
-        businessID: businessID
         data3Label: data3Label
         data6Label: data6Label
-        businessProfileRecordID: businessProfileRecordID
         data1Label: data1Label
         data4Label: data4Label
         submitted: true
@@ -17571,22 +19516,12 @@ components:
         data9Label:
           nullable: true
           type: string
-        businessID:
-          nullable: true
-          type: string
-        contactID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
-          nullable: true
-          type: string
       type: object
     StudentProfileDtoIReadOnlyListEnvelope:
       additionalProperties: false
       example:
         result:
         - data: data
-          contactID: contactID
           about: about
           data8Label: data8Label
           type: type
@@ -17671,17 +19606,14 @@ components:
           verified: true
           dataLabel: dataLabel
           data1: data1
-          businessID: businessID
           data3Label: data3Label
           data6Label: data6Label
-          businessProfileRecordID: businessProfileRecordID
           data1Label: data1Label
           data4Label: data4Label
           submitted: true
           tenantId: tenantId
           data7Label: data7Label
         - data: data
-          contactID: contactID
           about: about
           data8Label: data8Label
           type: type
@@ -17766,10 +19698,8 @@ components:
           verified: true
           dataLabel: dataLabel
           data1: data1
-          businessID: businessID
           data3Label: data3Label
           data6Label: data6Label
-          businessProfileRecordID: businessProfileRecordID
           data1Label: data1Label
           data4Label: data4Label
           submitted: true
@@ -17807,17 +19737,11 @@ components:
     StudentProfileUpdateDto:
       additionalProperties: false
       example:
-        data: data
-        contactID: contactID
-        about: about
-        data8Label: data8Label
-        type: type
-        data5Label: data5Label
-        data2Label: data2Label
         data9: data9
         data8: data8
         data7: data7
         data6: data6
+        data: data
         data5: data5
         contactId: contactId
         avatarUrl: avatarUrl
@@ -17825,12 +19749,17 @@ components:
         data3: data3
         data9Label: data9Label
         data2: data2
+        about: about
         dataLabel: dataLabel
         data1: data1
+        data8Label: data8Label
+        type: type
         data3Label: data3Label
         data6Label: data6Label
         data1Label: data1Label
         data4Label: data4Label
+        data5Label: data5Label
+        data2Label: data2Label
         data7Label: data7Label
       properties:
         type:
@@ -17903,9 +19832,6 @@ components:
           nullable: true
           type: string
         data9Label:
-          nullable: true
-          type: string
-        contactID:
           nullable: true
           type: string
       type: object

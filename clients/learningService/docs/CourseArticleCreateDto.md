@@ -12,8 +12,8 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**courseWikiID** | **String** |  |  |
+|**courseId** | **String** |  |  |
+|**courseWikiId** | **String** |  |  |
 
 
 

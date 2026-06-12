@@ -122,9 +122,3 @@ src/main/java/org/openapitools/client/model/TimezoneDtoEnvelope.java
 src/main/java/org/openapitools/client/model/TimezoneDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/api/MigrationsApiTest.java
-src/test/java/org/openapitools/client/model/ErrorTest.java
-src/test/java/org/openapitools/client/model/PaymentResponseTest.java
-src/test/java/org/openapitools/client/model/ResponseStatusTest.java

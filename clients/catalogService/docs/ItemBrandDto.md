@@ -16,7 +16,7 @@
 |**logoURL** | **String** |  |  [optional] |
 |**featured** | **Boolean** |  |  [optional] |
 |**trending** | **Boolean** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 
 
 

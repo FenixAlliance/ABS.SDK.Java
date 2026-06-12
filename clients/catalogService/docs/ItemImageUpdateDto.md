@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**itemID** | **String** |  |  |
+|**itemId** | **String** |  |  |
 |**isItemMozaicBG** | **Boolean** |  |  [optional] |
 |**mD5Hash** | **String** |  |  |
 |**metadata** | **String** |  |  [optional] |
@@ -21,7 +21,7 @@
 |**contentType** | **String** |  |  |
 |**fileLength** | **Long** |  |  [optional] |
 |**validResponse** | **Boolean** |  |  [optional] |
-|**parentFileUploadID** | **String** |  |  [optional] |
+|**parentFileUploadId** | **String** |  |  [optional] |
 
 
 

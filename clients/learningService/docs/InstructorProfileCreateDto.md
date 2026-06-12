@@ -34,7 +34,6 @@
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
 |**authorized** | **Boolean** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
 
 
 

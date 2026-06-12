@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2LearningServiceInstructorProfilesGet**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesGet) | **GET** /api/v2/LearningService/InstructorProfiles |  |
 | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdDelete**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesInstructorProfileIdDelete) | **DELETE** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} |  |
 | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdGet**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesInstructorProfileIdGet) | **GET** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} |  |
+| [**apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch) | **PATCH** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} |  |
 | [**apiV2LearningServiceInstructorProfilesInstructorProfileIdPut**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesInstructorProfileIdPut) | **PUT** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} |  |
 | [**apiV2LearningServiceInstructorProfilesPost**](InstructorProfilesApi.md#apiV2LearningServiceInstructorProfilesPost) | **POST** /api/v2/LearningService/InstructorProfiles |  |
 
@@ -267,6 +268,75 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch"></a>
+# **apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch**
+> EmptyEnvelope apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(tenantId, instructorProfileId, apiVersion, xApiVersion, operation)
+
+
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InstructorProfilesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    InstructorProfilesApi apiInstance = new InstructorProfilesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID instructorProfileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch(tenantId, instructorProfileId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InstructorProfilesApi#apiV2LearningServiceInstructorProfilesInstructorProfileIdPatch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **instructorProfileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

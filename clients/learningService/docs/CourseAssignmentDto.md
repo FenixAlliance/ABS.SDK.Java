@@ -14,10 +14,15 @@
 |**instructions** | **String** |  |  [optional] |
 |**points** | **Double** |  |  [optional] |
 |**dueDateTime** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
-|**courseSectionID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
+|**courseSectionId** | **String** |  |  [optional] |
+|**courseCohortId** | **String** |  |  [optional] |
+|**courseAssignmentTypeId** | **String** |  |  [optional] |
+|**asignToAllCohorts** | **Boolean** |  |  [optional] |
+|**resources** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -23,12 +23,22 @@
 |**duns** | **String** |  |  [optional] |
 |**isPublicCompany** | **Boolean** |  |  [optional] |
 |**isFactaCustomer** | **Boolean** |  |  [optional] |
+|**taxPayerType** | [**TaxPayerTypeEnum**](#TaxPayerTypeEnum) |  |  [optional] |
 |**countryId** | **String** |  |  |
 |**stateId** | **String** |  |  |
 |**cityId** | **String** |  |  |
 |**fiscalIdentificationTypeId** | **String** |  |  |
 |**fiscalAuthorityId** | **String** |  |  |
 |**fiscalRegimeId** | **String** |  |  |
+
+
+
+## Enum: TaxPayerTypeEnum
+
+| Name | Value |
+|---- | -----|
+| INDIVIDUAL | &quot;Individual&quot; |
+| BUSINESS | &quot;Business&quot; |
 
 
 

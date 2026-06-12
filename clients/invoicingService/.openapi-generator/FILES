@@ -49,6 +49,7 @@ docs/InvoicesApi.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PaymentDto.md
 docs/PaymentDtoIReadOnlyListEnvelope.md
 docs/RefreshRequest.md
@@ -132,6 +133,7 @@ src/main/java/org/openapitools/client/model/InvoiceUpdateDto.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/Money.java
 src/main/java/org/openapitools/client/model/MoneyEnvelope.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/PaymentDto.java
 src/main/java/org/openapitools/client/model/PaymentDtoIReadOnlyListEnvelope.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
@@ -144,5 +146,3 @@ src/main/java/org/openapitools/client/model/SimpleUserDto.java
 src/main/java/org/openapitools/client/model/TenantDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

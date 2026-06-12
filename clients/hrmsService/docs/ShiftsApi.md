@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getShiftByIdAsync**](ShiftsApi.md#getShiftByIdAsync) | **GET** /api/v2/HrmsService/Shifts/{shiftId} | Get shift by ID |
 | [**getShiftsAsync**](ShiftsApi.md#getShiftsAsync) | **GET** /api/v2/HrmsService/Shifts | Get shifts |
 | [**getShiftsCountAsync**](ShiftsApi.md#getShiftsCountAsync) | **GET** /api/v2/HrmsService/Shifts/Count | Count shifts |
+| [**patchShiftAsync**](ShiftsApi.md#patchShiftAsync) | **PATCH** /api/v2/HrmsService/Shifts/{shiftId} | Patch a shift |
 | [**updateShiftAsync**](ShiftsApi.md#updateShiftAsync) | **PUT** /api/v2/HrmsService/Shifts/{shiftId} | Update a shift |
 
 
@@ -358,6 +359,79 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchShiftAsync"></a>
+# **patchShiftAsync**
+> EmptyEnvelope patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, operation)
+
+Patch a shift
+
+Partially updates an existing shift for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ShiftsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ShiftsApi apiInstance = new ShiftsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID shiftId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchShiftAsync(tenantId, shiftId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ShiftsApi#patchShiftAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **shiftId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
 <a id="updateShiftAsync"></a>

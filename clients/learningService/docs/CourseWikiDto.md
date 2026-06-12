@@ -13,8 +13,9 @@
 |**description** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 
 
 

@@ -18,6 +18,7 @@
 |**prefix** | **String** |  |  [optional] |
 |**balance** | **Double** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
 |**accountType** | **String** |  |  [optional] |
 |**qualifiedName** | **String** |  |  [optional] |
 |**accountTypeId** | **String** |  |  [optional] |

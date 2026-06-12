@@ -13,10 +13,10 @@
 |**description** | **String** |  |  [optional] |
 |**instructions** | **String** |  |  [optional] |
 |**points** | **Double** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**courseUnitID** | **String** |  |  [optional] |
-|**courseCohortID** | **String** |  |  [optional] |
-|**courseAssignmentTypeID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  |
+|**courseUnitId** | **String** |  |  [optional] |
+|**courseCohortId** | **String** |  |  [optional] |
+|**courseAssignmentTypeId** | **String** |  |  [optional] |
 |**dueDateTime** | **OffsetDateTime** |  |  [optional] |
 |**asignToAllCohorts** | **Boolean** |  |  [optional] |
 |**resources** | **String** |  |  [optional] |

@@ -10,6 +10,8 @@
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
+|**priority** | **Integer** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**surchargePercent** | **Double** |  |  [optional] |
 |**surchargeAmount** | **Double** |  |  [optional] |

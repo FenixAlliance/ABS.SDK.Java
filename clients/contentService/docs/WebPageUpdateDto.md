@@ -61,6 +61,8 @@
 |**cornerstoneContent** | **Boolean** |  |  [optional] |
 |**isEssentialContent** | **Boolean** |  |  [optional] |
 |**allowSearchEngineIndexing** | **Boolean** |  |  [optional] |
+|**webTemplateId** | **String** |  |  [optional] |
+|**parentWebContentId** | **String** |  |  [optional] |
 |**isHomePage** | **Boolean** |  |  [optional] |
 |**isStorePage** | **Boolean** |  |  [optional] |
 |**isCartPage** | **Boolean** |  |  [optional] |

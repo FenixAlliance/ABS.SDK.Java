@@ -13,6 +13,7 @@
 |**startDate** | **OffsetDateTime** |  |  [optional] |
 |**endDate** | **OffsetDateTime** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**context** | [**ContextEnum**](#ContextEnum) |  |  [optional] |
 |**currencyId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**unitId** | **String** |  |  [optional] |
@@ -20,6 +21,16 @@
 |**partnerVisible** | **Boolean** |  |  [optional] |
 |**unitOfMeasureDependant** | **Boolean** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
+
+
+
+## Enum: ContextEnum
+
+| Name | Value |
+|---- | -----|
+| SALES | &quot;Sales&quot; |
+| PURCHASE | &quot;Purchase&quot; |
+| COST | &quot;Cost&quot; |
 
 
 

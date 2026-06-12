@@ -14,9 +14,10 @@
 |**content** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -10,7 +10,7 @@
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
-|**courseID** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

@@ -11,8 +11,8 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**shipmentID** | **String** |  |  [optional] |
-|**proofOfDeliveryID** | **String** |  |  [optional] |
+|**shipmentId** | **String** |  |  [optional] |
+|**proofOfDeliveryId** | **String** |  |  [optional] |
 
 
 

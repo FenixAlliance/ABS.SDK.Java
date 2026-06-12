@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getCourseLibrariesAsync**](CourseLibrariesApi.md#getCourseLibrariesAsync) | **GET** /api/v2/LearningService/CourseLibraries | Get all course libraries |
 | [**getCourseLibrariesCountAsync**](CourseLibrariesApi.md#getCourseLibrariesCountAsync) | **GET** /api/v2/LearningService/CourseLibraries/Count | Get course libraries count |
 | [**getCourseLibraryByIdAsync**](CourseLibrariesApi.md#getCourseLibraryByIdAsync) | **GET** /api/v2/LearningService/CourseLibraries/{libraryId} | Get course library by ID |
+| [**patchCourseLibraryAsync**](CourseLibrariesApi.md#patchCourseLibraryAsync) | **PATCH** /api/v2/LearningService/CourseLibraries/{libraryId} | Patch a course library |
 | [**updateCourseLibraryAsync**](CourseLibrariesApi.md#updateCourseLibraryAsync) | **PUT** /api/v2/LearningService/CourseLibraries/{libraryId} | Update a course library |
 
 
@@ -348,6 +349,76 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="patchCourseLibraryAsync"></a>
+# **patchCourseLibraryAsync**
+> patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, operation)
+
+Patch a course library
+
+Partially updates an existing course library.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CourseLibrariesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    CourseLibrariesApi apiInstance = new CourseLibrariesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String libraryId = "libraryId_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.patchCourseLibraryAsync(tenantId, libraryId, apiVersion, xApiVersion, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CourseLibrariesApi#patchCourseLibraryAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **libraryId** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
 | **200** | OK |  -  |
 
 <a id="updateCourseLibraryAsync"></a>

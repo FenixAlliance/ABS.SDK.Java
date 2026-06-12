@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getScheduleByIdAsync**](SchedulesApi.md#getScheduleByIdAsync) | **GET** /api/v2/HrmsService/Schedules/{scheduleId} | Get schedule by ID |
 | [**getSchedulesAsync**](SchedulesApi.md#getSchedulesAsync) | **GET** /api/v2/HrmsService/Schedules | Get schedules |
 | [**getSchedulesCountAsync**](SchedulesApi.md#getSchedulesCountAsync) | **GET** /api/v2/HrmsService/Schedules/Count | Count schedules |
+| [**patchScheduleAsync**](SchedulesApi.md#patchScheduleAsync) | **PATCH** /api/v2/HrmsService/Schedules/{scheduleId} | Patch a schedule |
 | [**updateScheduleAsync**](SchedulesApi.md#updateScheduleAsync) | **PUT** /api/v2/HrmsService/Schedules/{scheduleId} | Update a schedule |
 
 
@@ -358,6 +359,79 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchScheduleAsync"></a>
+# **patchScheduleAsync**
+> EmptyEnvelope patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, operation)
+
+Patch a schedule
+
+Partially updates an existing schedule for the specified tenant.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SchedulesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    SchedulesApi apiInstance = new SchedulesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID scheduleId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchScheduleAsync(tenantId, scheduleId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SchedulesApi#patchScheduleAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **scheduleId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
 <a id="updateScheduleAsync"></a>

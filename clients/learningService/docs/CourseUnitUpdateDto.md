@@ -10,7 +10,7 @@
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
-|**courseContentGroupID** | **String** |  |  [optional] |
+|**courseContentGroupId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

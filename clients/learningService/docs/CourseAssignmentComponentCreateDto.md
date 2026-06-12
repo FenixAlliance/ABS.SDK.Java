@@ -13,8 +13,8 @@
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
-|**courseAssignmentID** | **String** |  |  |
-|**courseID** | **String** |  |  |
+|**courseAssignmentId** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

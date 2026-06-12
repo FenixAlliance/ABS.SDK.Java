@@ -172,9 +172,9 @@
 |**selectedSellingMarginPolicies** | **List&lt;String&gt;** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 |**version** | **String** |  |  [optional] |
-|**courseCategoryID** | **String** |  |  [optional] |
+|**courseCategoryId** | **String** |  |  [optional] |
 |**courseCategoryName** | **String** |  |  [optional] |
-|**instructorProfileID** | **String** |  |  [optional] |
+|**instructorProfileId** | **String** |  |  [optional] |
 |**instructorProfileName** | **String** |  |  [optional] |
 |**maxCourseEnrollments** | **Integer** |  |  [optional] |
 |**totalEffortInWeeks** | **Integer** |  |  [optional] |

@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**webPortalID** | **String** |  |  [optional] |
-|**websiteThemeID** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
-|**parentWebContentID** | **String** |  |  [optional] |
-|**parentWebContentVersionID** | **String** |  |  [optional] |
+|**webPortalId** | **String** |  |  [optional] |
+|**websiteThemeId** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
+|**parentWebContentId** | **String** |  |  [optional] |
+|**parentWebContentVersionId** | **String** |  |  [optional] |
 
 
 

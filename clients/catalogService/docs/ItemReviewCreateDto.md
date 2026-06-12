@@ -9,10 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 |**reviewScore** | **Double** |  |  [optional] |
 |**reviewMessage** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

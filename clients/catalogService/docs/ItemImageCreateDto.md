@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 |**isItemMozaicBG** | **Boolean** |  |  [optional] |
 |**mD5Hash** | **String** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
@@ -23,8 +23,8 @@
 |**contentType** | **String** |  |  [optional] |
 |**fileLength** | **Long** |  |  [optional] |
 |**validResponse** | **Boolean** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
-|**parentFileUploadID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
+|**parentFileUploadId** | **String** |  |  [optional] |
 
 
 

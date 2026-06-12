@@ -14,6 +14,7 @@
 |**endQuantity** | **Double** |  |  [optional] |
 |**percent** | **Double** |  |  [optional] |
 |**value** | **Double** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 |**discountListId** | **String** |  |  [optional] |
 
 

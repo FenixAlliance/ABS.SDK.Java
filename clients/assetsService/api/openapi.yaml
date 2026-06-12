@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: AssetsService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -248,6 +248,92 @@ paths:
       summary: Gets a specific asset category
       tags:
       - AssetCategories
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing asset category for
+        the authenticated tenant.
+      operationId: PatchAssetCategory
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates an existing asset category
+      tags:
+      - AssetCategories
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -659,6 +745,92 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing asset for the authenticated
+        tenant.
+      operationId: PatchAsset
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates an existing asset
+      tags:
+      - Assets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing asset for the authenticated tenant.
       operationId: UpdateAsset
@@ -1016,6 +1188,92 @@ paths:
       summary: Gets a specific asset category
       tags:
       - Assets
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing asset category for
+        the authenticated tenant.
+      operationId: PatchAssetAssetCategory
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: categoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates an existing asset category
+      tags:
+      - Assets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1398,6 +1656,100 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing repair record for
+        the specified asset.
+      operationId: PatchAssetRepair
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: repairId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates a repair for an asset
+      tags:
+      - Assets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing repair record for the specified asset.
       operationId: UpdateAssetRepair
@@ -1766,6 +2118,100 @@ paths:
       summary: Gets a specific value amendment for an asset
       tags:
       - Assets
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing value amendment record
+        for the specified asset.
+      operationId: PatchAssetValueAmend
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: amendId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates a value amendment for an asset
+      tags:
+      - Assets
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2140,6 +2586,100 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing depreciation record
+        for the specified asset.
+      operationId: PatchAssetDepreciationRecord
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: recordId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates a depreciation record for an asset
+      tags:
+      - Assets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing depreciation record for the specified asset.
       operationId: UpdateAssetDepreciationRecord
@@ -2510,6 +3050,100 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing transfer record for
+        the specified asset.
+      operationId: PatchAssetTransfer
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: assetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: transferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates a transfer for an asset
+      tags:
+      - Assets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing transfer record for the specified asset.
       operationId: UpdateAssetTransfer
@@ -2841,6 +3475,92 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing asset transfer for
+        the authenticated tenant.
+      operationId: PatchAssetTransferAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: transferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates an existing asset transfer
+      tags:
+      - AssetTransfers
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing asset transfer for the authenticated tenant.
       operationId: UpdateAssetTransferAsync
@@ -3132,6 +3852,92 @@ paths:
       summary: Gets a specific asset type
       tags:
       - AssetTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Applies a JSON Patch document to an existing asset type for the
+        authenticated tenant.
+      operationId: PatchAssetType
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: typeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Partially updates an existing asset type
+      tags:
+      - AssetTypes
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -4140,6 +4946,7 @@ components:
         allowMonthlyDepreciation: true
         openingDepreciation: 0.8008281904610115
         purchaseDate: 2000-01-23T04:56:07.000+00:00
+        assetTypeId: assetTypeId
         purchaseReceiptId: purchaseReceiptId
         contactId: contactId
         description: description
@@ -4200,6 +5007,9 @@ components:
           nullable: true
           type: string
         itemId:
+          nullable: true
+          type: string
+        assetTypeId:
           nullable: true
           type: string
         assetCategoryId:
@@ -4270,40 +5080,42 @@ components:
       additionalProperties: false
       example:
         assetDepreciationPolicyId: assetDepreciationPolicyId
-        bookValue: 1.4658129805029452
+        bookValue: 7.061401241503109
+        enrollmentId: enrollmentId
         period: period
-        year: 5
-        businessId: "{}"
+        year: 9
+        depreciationFrequency: 6
+        expectedValueAUL: 5.962133916683182
         depreciationDate: 2000-01-23T04:56:07.000+00:00
         assetDepreciationPolicyName: assetDepreciationPolicyName
-        businessProfileRecordId: "{}"
-        accumulatedDepreciation: 6.027456183070403
-        month: 5
-        assetId: "{}"
+        financialBookId: financialBookId
+        accumulatedDepreciation: 2.3021358869347655
+        totalDepreciations: 0
+        month: 3
+        assetId: assetId
+        tenantId: tenantId
         assetName: assetName
-        depreciationAmount: 0.8008281904610115
-        id: "{}"
+        depreciationAmount: 5.637376656633329
+        id: id
+        depreciationRate: 1.4658129805029452
+        startDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         timestamp:
           format: date-time
           type: string
-        businessId:
-          additionalProperties: false
-          format: uuid
-          type: object
-        businessProfileRecordId:
-          additionalProperties: false
-          format: uuid
-          type: object
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         assetId:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         assetName:
           nullable: true
           type: string
@@ -4313,6 +5125,24 @@ components:
         assetDepreciationPolicyName:
           nullable: true
           type: string
+        financialBookId:
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        totalDepreciations:
+          format: int32
+          type: integer
+        depreciationFrequency:
+          format: int32
+          type: integer
+        depreciationRate:
+          format: double
+          type: number
+        expectedValueAUL:
+          format: double
+          type: number
         depreciationAmount:
           format: double
           type: number
@@ -4340,19 +5170,25 @@ components:
       example:
         result:
           assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 1.4658129805029452
+          bookValue: 7.061401241503109
+          enrollmentId: enrollmentId
           period: period
-          year: 5
-          businessId: "{}"
+          year: 9
+          depreciationFrequency: 6
+          expectedValueAUL: 5.962133916683182
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
-          businessProfileRecordId: "{}"
-          accumulatedDepreciation: 6.027456183070403
-          month: 5
-          assetId: "{}"
+          financialBookId: financialBookId
+          accumulatedDepreciation: 2.3021358869347655
+          totalDepreciations: 0
+          month: 3
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 0.8008281904610115
-          id: "{}"
+          depreciationAmount: 5.637376656633329
+          id: id
+          depreciationRate: 1.4658129805029452
+          startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -4385,34 +5221,46 @@ components:
       example:
         result:
         - assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 1.4658129805029452
+          bookValue: 7.061401241503109
+          enrollmentId: enrollmentId
           period: period
-          year: 5
-          businessId: "{}"
+          year: 9
+          depreciationFrequency: 6
+          expectedValueAUL: 5.962133916683182
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
-          businessProfileRecordId: "{}"
-          accumulatedDepreciation: 6.027456183070403
-          month: 5
-          assetId: "{}"
+          financialBookId: financialBookId
+          accumulatedDepreciation: 2.3021358869347655
+          totalDepreciations: 0
+          month: 3
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 0.8008281904610115
-          id: "{}"
+          depreciationAmount: 5.637376656633329
+          id: id
+          depreciationRate: 1.4658129805029452
+          startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         - assetDepreciationPolicyId: assetDepreciationPolicyId
-          bookValue: 1.4658129805029452
+          bookValue: 7.061401241503109
+          enrollmentId: enrollmentId
           period: period
-          year: 5
-          businessId: "{}"
+          year: 9
+          depreciationFrequency: 6
+          expectedValueAUL: 5.962133916683182
           depreciationDate: 2000-01-23T04:56:07.000+00:00
           assetDepreciationPolicyName: assetDepreciationPolicyName
-          businessProfileRecordId: "{}"
-          accumulatedDepreciation: 6.027456183070403
-          month: 5
-          assetId: "{}"
+          financialBookId: financialBookId
+          accumulatedDepreciation: 2.3021358869347655
+          totalDepreciations: 0
+          month: 3
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          depreciationAmount: 0.8008281904610115
-          id: "{}"
+          depreciationAmount: 5.637376656633329
+          id: id
+          depreciationRate: 1.4658129805029452
+          startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -4442,10 +5290,6 @@ components:
             $ref: '#/components/schemas/AssetDepreciationRecordDto'
           nullable: true
           type: array
-      type: object
-    AssetDepreciationRecordId:
-      additionalProperties: false
-      format: uuid
       type: object
     AssetDepreciationRecordUpdateDto:
       additionalProperties: false
@@ -4488,11 +5332,12 @@ components:
         isExistingAsset: true
         openingDepreciation: 0.8008281904610115
         purchaseDate: 2000-01-23T04:56:07.000+00:00
+        assetTypeId: assetTypeId
+        assetTypeName: assetTypeName
         businessName: businessName
         description: description
         assetClass: Fixed
         purchasePrice: 6.027456183070403
-        businessProfileRecordId: businessProfileRecordId
         assetLocationId: assetLocationId
         itemName: itemName
         assetLocationName: assetLocationName
@@ -4501,6 +5346,7 @@ components:
         currencyId: currencyId
         purchaseInvoiceId: purchaseInvoiceId
         timestamp: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
         allowMonthlyDepreciation: true
         purchaseReceiptId: purchaseReceiptId
         contactId: contactId
@@ -4529,7 +5375,7 @@ components:
         businessName:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
         name:
@@ -4577,6 +5423,12 @@ components:
         itemName:
           nullable: true
           type: string
+        assetTypeId:
+          nullable: true
+          type: string
+        assetTypeName:
+          nullable: true
+          type: string
         assetCategoryId:
           nullable: true
           type: string
@@ -4618,11 +5470,12 @@ components:
           isExistingAsset: true
           openingDepreciation: 0.8008281904610115
           purchaseDate: 2000-01-23T04:56:07.000+00:00
+          assetTypeId: assetTypeId
+          assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
           purchasePrice: 6.027456183070403
-          businessProfileRecordId: businessProfileRecordId
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -4631,6 +5484,7 @@ components:
           currencyId: currencyId
           purchaseInvoiceId: purchaseInvoiceId
           timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           allowMonthlyDepreciation: true
           purchaseReceiptId: purchaseReceiptId
           contactId: contactId
@@ -4678,11 +5532,12 @@ components:
         - isExistingAsset: true
           openingDepreciation: 0.8008281904610115
           purchaseDate: 2000-01-23T04:56:07.000+00:00
+          assetTypeId: assetTypeId
+          assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
           purchasePrice: 6.027456183070403
-          businessProfileRecordId: businessProfileRecordId
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -4691,6 +5546,7 @@ components:
           currencyId: currencyId
           purchaseInvoiceId: purchaseInvoiceId
           timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           allowMonthlyDepreciation: true
           purchaseReceiptId: purchaseReceiptId
           contactId: contactId
@@ -4708,11 +5564,12 @@ components:
         - isExistingAsset: true
           openingDepreciation: 0.8008281904610115
           purchaseDate: 2000-01-23T04:56:07.000+00:00
+          assetTypeId: assetTypeId
+          assetTypeName: assetTypeName
           businessName: businessName
           description: description
           assetClass: Fixed
           purchasePrice: 6.027456183070403
-          businessProfileRecordId: businessProfileRecordId
           assetLocationId: assetLocationId
           itemName: itemName
           assetLocationName: assetLocationName
@@ -4721,6 +5578,7 @@ components:
           currencyId: currencyId
           purchaseInvoiceId: purchaseInvoiceId
           timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
           allowMonthlyDepreciation: true
           purchaseReceiptId: purchaseReceiptId
           contactId: contactId
@@ -4763,10 +5621,6 @@ components:
             $ref: '#/components/schemas/AssetDto'
           nullable: true
           type: array
-      type: object
-    AssetId:
-      additionalProperties: false
-      format: uuid
       type: object
     AssetRepairCreateDto:
       additionalProperties: false
@@ -4834,43 +5688,39 @@ components:
     AssetRepairDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         notes: notes
         repairStatus: Scheduled
         problemDescription: problemDescription
-        businessId: "{}"
         scheduledDate: 2000-01-23T04:56:07.000+00:00
         estimatedCost: 0.8008281904610115
-        businessProfileRecordId: "{}"
-        assetId: "{}"
+        assetId: assetId
         reportedDate: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
         assetMaintenanceTeamId: assetMaintenanceTeamId
         assetName: assetName
         completionDate: 2000-01-23T04:56:07.000+00:00
-        id: "{}"
+        id: id
         assetMaintenanceTeamName: assetMaintenanceTeamName
         repairDescription: repairDescription
         timestamp: 2000-01-23T04:56:07.000+00:00
         actualCost: 6.027456183070403
       properties:
         id:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         timestamp:
           format: date-time
           type: string
-        businessId:
-          additionalProperties: false
-          format: uuid
-          type: object
-        businessProfileRecordId:
-          additionalProperties: false
-          format: uuid
-          type: object
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         assetId:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         assetName:
           nullable: true
           type: string
@@ -4918,19 +5768,19 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           notes: notes
           repairStatus: Scheduled
           problemDescription: problemDescription
-          businessId: "{}"
           scheduledDate: 2000-01-23T04:56:07.000+00:00
           estimatedCost: 0.8008281904610115
-          businessProfileRecordId: "{}"
-          assetId: "{}"
+          assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           assetMaintenanceTeamId: assetMaintenanceTeamId
           assetName: assetName
           completionDate: 2000-01-23T04:56:07.000+00:00
-          id: "{}"
+          id: id
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -4965,36 +5815,36 @@ components:
       additionalProperties: false
       example:
         result:
-        - notes: notes
+        - enrollmentId: enrollmentId
+          notes: notes
           repairStatus: Scheduled
           problemDescription: problemDescription
-          businessId: "{}"
           scheduledDate: 2000-01-23T04:56:07.000+00:00
           estimatedCost: 0.8008281904610115
-          businessProfileRecordId: "{}"
-          assetId: "{}"
+          assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           assetMaintenanceTeamId: assetMaintenanceTeamId
           assetName: assetName
           completionDate: 2000-01-23T04:56:07.000+00:00
-          id: "{}"
+          id: id
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
           actualCost: 6.027456183070403
-        - notes: notes
+        - enrollmentId: enrollmentId
+          notes: notes
           repairStatus: Scheduled
           problemDescription: problemDescription
-          businessId: "{}"
           scheduledDate: 2000-01-23T04:56:07.000+00:00
           estimatedCost: 0.8008281904610115
-          businessProfileRecordId: "{}"
-          assetId: "{}"
+          assetId: assetId
           reportedDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           assetMaintenanceTeamId: assetMaintenanceTeamId
           assetName: assetName
           completionDate: 2000-01-23T04:56:07.000+00:00
-          id: "{}"
+          id: id
           assetMaintenanceTeamName: assetMaintenanceTeamName
           repairDescription: repairDescription
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -5027,10 +5877,6 @@ components:
             $ref: '#/components/schemas/AssetRepairDto'
           nullable: true
           type: array
-      type: object
-    AssetRepairId:
-      additionalProperties: false
-      format: uuid
       type: object
     AssetRepairUpdateDto:
       additionalProperties: false
@@ -5145,14 +5991,13 @@ components:
     AssetTransferDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         sourceContactName: sourceContactName
         quantity: quantity
         destinationLocationId: destinationLocationId
         isRootTransfer: true
-        businessId: businessId
         destinationDepartmentName: destinationDepartmentName
         destinationContactName: destinationContactName
-        businessProfileRecordId: businessProfileRecordId
         sourceLocationId: sourceLocationId
         sourceLocationName: sourceLocationName
         sourceContactId: sourceContactId
@@ -5161,6 +6006,7 @@ components:
         assetId: assetId
         destinationContactId: destinationContactId
         destinationLocationName: destinationLocationName
+        tenantId: tenantId
         assetName: assetName
         previousAssetTransferId: previousAssetTransferId
         sourceDepartmentName: sourceDepartmentName
@@ -5175,10 +6021,10 @@ components:
         timestamp:
           format: date-time
           type: string
-        businessId:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordId:
+        enrollmentId:
           nullable: true
           type: string
         assetId:
@@ -5242,14 +6088,13 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           sourceContactName: sourceContactName
           quantity: quantity
           destinationLocationId: destinationLocationId
           isRootTransfer: true
-          businessId: businessId
           destinationDepartmentName: destinationDepartmentName
           destinationContactName: destinationContactName
-          businessProfileRecordId: businessProfileRecordId
           sourceLocationId: sourceLocationId
           sourceLocationName: sourceLocationName
           sourceContactId: sourceContactId
@@ -5258,6 +6103,7 @@ components:
           assetId: assetId
           destinationContactId: destinationContactId
           destinationLocationName: destinationLocationName
+          tenantId: tenantId
           assetName: assetName
           previousAssetTransferId: previousAssetTransferId
           sourceDepartmentName: sourceDepartmentName
@@ -5295,14 +6141,13 @@ components:
       additionalProperties: false
       example:
         result:
-        - sourceContactName: sourceContactName
+        - enrollmentId: enrollmentId
+          sourceContactName: sourceContactName
           quantity: quantity
           destinationLocationId: destinationLocationId
           isRootTransfer: true
-          businessId: businessId
           destinationDepartmentName: destinationDepartmentName
           destinationContactName: destinationContactName
-          businessProfileRecordId: businessProfileRecordId
           sourceLocationId: sourceLocationId
           sourceLocationName: sourceLocationName
           sourceContactId: sourceContactId
@@ -5311,6 +6156,7 @@ components:
           assetId: assetId
           destinationContactId: destinationContactId
           destinationLocationName: destinationLocationName
+          tenantId: tenantId
           assetName: assetName
           previousAssetTransferId: previousAssetTransferId
           sourceDepartmentName: sourceDepartmentName
@@ -5318,14 +6164,13 @@ components:
           destinationDepartmentId: destinationDepartmentId
           serialList: serialList
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - sourceContactName: sourceContactName
+        - enrollmentId: enrollmentId
+          sourceContactName: sourceContactName
           quantity: quantity
           destinationLocationId: destinationLocationId
           isRootTransfer: true
-          businessId: businessId
           destinationDepartmentName: destinationDepartmentName
           destinationContactName: destinationContactName
-          businessProfileRecordId: businessProfileRecordId
           sourceLocationId: sourceLocationId
           sourceLocationName: sourceLocationName
           sourceContactId: sourceContactId
@@ -5334,6 +6179,7 @@ components:
           assetId: assetId
           destinationContactId: destinationContactId
           destinationLocationName: destinationLocationName
+          tenantId: tenantId
           assetName: assetName
           previousAssetTransferId: previousAssetTransferId
           sourceDepartmentName: sourceDepartmentName
@@ -5563,11 +6409,12 @@ components:
         allowMonthlyDepreciation: true
         openingDepreciation: 0.8008281904610115
         purchaseDate: 2000-01-23T04:56:07.000+00:00
+        assetTypeId: assetTypeId
         purchaseReceiptId: purchaseReceiptId
         contactId: contactId
         description: description
+        assetClass: Fixed
         purchasePrice: 6.027456183070403
-        assetType: Fixed
         assetLocationId: assetLocationId
         itemId: itemId
         assetOwner: Business
@@ -5576,7 +6423,6 @@ components:
         assetCategoryId: assetCategoryId
         organizationDepartmentId: organizationDepartmentId
         currencyId: currencyId
-        currencyCode: currencyCode
         purchaseInvoiceId: purchaseInvoiceId
       properties:
         name:
@@ -5585,7 +6431,7 @@ components:
         description:
           nullable: true
           type: string
-        assetType:
+        assetClass:
           enum:
           - Fixed
           - Stock
@@ -5618,10 +6464,10 @@ components:
         currencyId:
           nullable: true
           type: string
-        currencyCode:
+        itemId:
           nullable: true
           type: string
-        itemId:
+        assetTypeId:
           nullable: true
           type: string
         assetCategoryId:
@@ -5649,10 +6495,9 @@ components:
         newValue: 6.027456183070403
         reason: reason
         amendmentDate: 2000-01-23T04:56:07.000+00:00
-        approvalDate: 2000-01-23T04:56:07.000+00:00
         assetId: assetId
-        approvedBy: approvedBy
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
         previousValue: 0.8008281904610115
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5677,50 +6522,41 @@ components:
         amendmentDate:
           format: date-time
           type: string
-        approvedBy:
-          nullable: true
-          type: string
-        approvalDate:
-          format: date-time
+        currencyId:
           nullable: true
           type: string
       type: object
     AssetValueAmendDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         newValue: 6.027456183070403
         reason: reason
         amendmentDate: 2000-01-23T04:56:07.000+00:00
         amendmentAmount: 1.4658129805029452
-        approvalDate: 2000-01-23T04:56:07.000+00:00
-        businessId: "{}"
-        approvedBy: approvedBy
-        businessProfileRecordId: "{}"
-        previousValue: 0.8008281904610115
-        assetId: "{}"
+        assetId: assetId
+        tenantId: tenantId
         assetName: assetName
-        id: "{}"
+        id: id
+        currencyId: currencyId
+        previousValue: 0.8008281904610115
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         timestamp:
           format: date-time
           type: string
-        businessId:
-          additionalProperties: false
-          format: uuid
-          type: object
-        businessProfileRecordId:
-          additionalProperties: false
-          format: uuid
-          type: object
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         assetId:
-          additionalProperties: false
-          format: uuid
-          type: object
+          nullable: true
+          type: string
         assetName:
           nullable: true
           type: string
@@ -5739,11 +6575,7 @@ components:
         amendmentDate:
           format: date-time
           type: string
-        approvedBy:
-          nullable: true
-          type: string
-        approvalDate:
-          format: date-time
+        currencyId:
           nullable: true
           type: string
       type: object
@@ -5751,18 +6583,17 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           newValue: 6.027456183070403
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
           amendmentAmount: 1.4658129805029452
-          approvalDate: 2000-01-23T04:56:07.000+00:00
-          businessId: "{}"
-          approvedBy: approvedBy
-          businessProfileRecordId: "{}"
-          previousValue: 0.8008281904610115
-          assetId: "{}"
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          id: "{}"
+          id: id
+          currencyId: currencyId
+          previousValue: 0.8008281904610115
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -5794,31 +6625,29 @@ components:
       additionalProperties: false
       example:
         result:
-        - newValue: 6.027456183070403
+        - enrollmentId: enrollmentId
+          newValue: 6.027456183070403
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
           amendmentAmount: 1.4658129805029452
-          approvalDate: 2000-01-23T04:56:07.000+00:00
-          businessId: "{}"
-          approvedBy: approvedBy
-          businessProfileRecordId: "{}"
-          previousValue: 0.8008281904610115
-          assetId: "{}"
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          id: "{}"
+          id: id
+          currencyId: currencyId
+          previousValue: 0.8008281904610115
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - newValue: 6.027456183070403
+        - enrollmentId: enrollmentId
+          newValue: 6.027456183070403
           reason: reason
           amendmentDate: 2000-01-23T04:56:07.000+00:00
           amendmentAmount: 1.4658129805029452
-          approvalDate: 2000-01-23T04:56:07.000+00:00
-          businessId: "{}"
-          approvedBy: approvedBy
-          businessProfileRecordId: "{}"
-          previousValue: 0.8008281904610115
-          assetId: "{}"
+          assetId: assetId
+          tenantId: tenantId
           assetName: assetName
-          id: "{}"
+          id: id
+          currencyId: currencyId
+          previousValue: 0.8008281904610115
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -5849,18 +6678,12 @@ components:
           nullable: true
           type: array
       type: object
-    AssetValueAmendId:
-      additionalProperties: false
-      format: uuid
-      type: object
     AssetValueAmendUpdateDto:
       additionalProperties: false
       example:
         newValue: 0.8008281904610115
         reason: reason
         amendmentDate: 2000-01-23T04:56:07.000+00:00
-        approvalDate: 2000-01-23T04:56:07.000+00:00
-        approvedBy: approvedBy
       properties:
         newValue:
           format: double
@@ -5870,13 +6693,6 @@ components:
           nullable: true
           type: string
         amendmentDate:
-          format: date-time
-          nullable: true
-          type: string
-        approvedBy:
-          nullable: true
-          type: string
-        approvalDate:
           format: date-time
           nullable: true
           type: string
@@ -5907,10 +6723,6 @@ components:
           nullable: true
           readOnly: true
           type: string
-      type: object
-    EnrollmentId:
-      additionalProperties: false
-      format: uuid
       type: object
     ErrorEnvelope:
       additionalProperties: false
@@ -6064,6 +6876,38 @@ components:
       - email
       - password
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     RefreshRequest:
       additionalProperties: false
       example:
@@ -6122,10 +6966,6 @@ components:
       - email
       - newPassword
       - resetCode
-      type: object
-    TenantId:
-      additionalProperties: false
-      format: uuid
       type: object
     TwoFactorRequest:
       additionalProperties: false

@@ -13,9 +13,9 @@
 |**summary** | **String** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 |**version** | **String** |  |  [optional] |
-|**courseCategoryID** | **String** |  |  [optional] |
-|**instructorProfileID** | **String** |  |  [optional] |
-|**currencyID** | **String** |  |  [optional] |
+|**courseCategoryId** | **String** |  |  [optional] |
+|**instructorProfileId** | **String** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
 |**regularPrice** | **Double** |  |  [optional] |
 |**maxCourseEnrollments** | **Integer** |  |  [optional] |
 |**totalEffortInWeeks** | **Integer** |  |  [optional] |

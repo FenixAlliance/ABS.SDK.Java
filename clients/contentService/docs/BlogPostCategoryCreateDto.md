@@ -21,7 +21,7 @@
 |**canonicalUrl** | **String** |  |  [optional] |
 |**imageURL** | **String** |  |  [optional] |
 |**image** | **String** |  |  [optional] |
-|**webPortalID** | **String** |  |  [optional] |
+|**webPortalId** | **String** |  |  [optional] |
 
 
 

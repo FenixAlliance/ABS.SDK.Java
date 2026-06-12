@@ -12,7 +12,7 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**imageURL** | **URI** |  |  [optional] |
-|**parentItemCategoryID** | **String** |  |  [optional] |
+|**parentItemCategoryId** | **String** |  |  [optional] |
 
 
 

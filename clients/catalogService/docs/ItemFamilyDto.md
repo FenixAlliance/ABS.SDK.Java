@@ -12,7 +12,7 @@
 |**name** | **String** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 
 
 

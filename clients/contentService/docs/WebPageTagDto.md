@@ -20,9 +20,9 @@
 |**canonicalUrl** | **String** |  |  [optional] |
 |**imageURL** | **String** |  |  [optional] |
 |**image** | **String** |  |  [optional] |
-|**webPortalID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**webPortalId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

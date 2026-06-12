@@ -146,5 +146,3 @@ src/main/java/org/openapitools/client/model/UserSettingsUpdateDto.java
 src/main/java/org/openapitools/client/model/UserUpdateDto.java
 src/main/java/org/openapitools/client/model/WalletDto.java
 src/main/java/org/openapitools/client/model/WalletDtoEnvelope.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

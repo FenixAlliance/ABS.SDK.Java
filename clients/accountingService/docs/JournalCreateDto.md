@@ -12,9 +12,9 @@
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**dateTime** | **OffsetDateTime** |  |  [optional] |
-|**parentJournalID** | **String** |  |  [optional] |
-|**journalTypeID** | **String** |  |  [optional] |
-|**ledgerID** | **String** |  |  [optional] |
+|**parentJournalId** | **String** |  |  [optional] |
+|**journalTypeId** | **String** |  |  [optional] |
+|**ledgerId** | **String** |  |  [optional] |
 
 
 

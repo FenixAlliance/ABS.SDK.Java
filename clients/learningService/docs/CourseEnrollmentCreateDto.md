@@ -9,10 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseCohortID** | **String** |  |  [optional] |
-|**studentProfileID** | **String** |  |  [optional] |
-|**courseCompletionCertificateID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseCohortId** | **String** |  |  [optional] |
+|**studentProfileId** | **String** |  |  [optional] |
+|**courseCompletionCertificateId** | **String** |  |  [optional] |
 
 
 

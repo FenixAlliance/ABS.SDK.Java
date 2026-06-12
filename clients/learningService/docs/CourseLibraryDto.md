@@ -11,10 +11,11 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

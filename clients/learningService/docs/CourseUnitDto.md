@@ -13,9 +13,11 @@
 |**description** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseSectionID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseSectionId** | **String** |  |  [optional] |
+|**courseContentGroupId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**courseHandouts** | [**List&lt;CourseHandoutDto&gt;**](CourseHandoutDto.md) |  |  [optional] |
 |**courseAssignments** | [**List&lt;CourseAssignmentDto&gt;**](CourseAssignmentDto.md) |  |  [optional] |
 |**courseComponents** | [**List&lt;CourseUnitComponentDto&gt;**](CourseUnitComponentDto.md) |  |  [optional] |

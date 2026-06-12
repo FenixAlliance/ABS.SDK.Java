@@ -22,7 +22,7 @@
 |**receiverWalletAccountId** | **String** |  |  [optional] |
 |**emisorContactId** | **String** |  |  [optional] |
 |**receiverContactId** | **String** |  |  [optional] |
-|**paymentID** | **String** |  |  [optional] |
+|**paymentId** | **String** |  |  [optional] |
 
 
 

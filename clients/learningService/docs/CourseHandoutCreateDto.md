@@ -14,8 +14,8 @@
 |**content** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  |
+|**courseUnitId** | **String** |  |  [optional] |
 
 
 

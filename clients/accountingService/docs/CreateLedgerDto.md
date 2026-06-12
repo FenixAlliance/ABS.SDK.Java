@@ -12,8 +12,6 @@
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**dateTime** | **OffsetDateTime** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
-|**enrollmentId** | **String** |  |  [optional] |
 |**ledgerTypeId** | **String** |  |  [optional] |
 
 

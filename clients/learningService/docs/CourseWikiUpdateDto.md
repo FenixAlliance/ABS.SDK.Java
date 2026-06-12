@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 |**releaseDateTime** | **OffsetDateTime** |  |  [optional] |
 
 

@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getLedgerDetailsAsync**](LedgersApi.md#getLedgerDetailsAsync) | **GET** /api/v2/AccountingService/Ledgers/{ledgerId} | Gets a ledger by ID |
 | [**getLedgersAsync**](LedgersApi.md#getLedgersAsync) | **GET** /api/v2/AccountingService/Ledgers | Retrieves all ledgers |
 | [**getLedgersCountAsync**](LedgersApi.md#getLedgersCountAsync) | **GET** /api/v2/AccountingService/Ledgers/Count | Counts ledgers |
+| [**patchLedgerAsync**](LedgersApi.md#patchLedgerAsync) | **PATCH** /api/v2/AccountingService/Ledgers/{ledgerId} | Patches a ledger |
 | [**updateLedgerAsync**](LedgersApi.md#updateLedgerAsync) | **PUT** /api/v2/AccountingService/Ledgers/{ledgerId} | Updates a ledger |
 
 
@@ -349,6 +350,78 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a id="patchLedgerAsync"></a>
+# **patchLedgerAsync**
+> EmptyEnvelope patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, operation)
+
+Patches a ledger
+
+Patches the specified ledger.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.LedgersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    LedgersApi apiInstance = new LedgersApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID ledgerId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchLedgerAsync(tenantId, ledgerId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LedgersApi#patchLedgerAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **ledgerId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

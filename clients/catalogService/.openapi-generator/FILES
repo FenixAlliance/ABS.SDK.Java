@@ -6,6 +6,8 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AccessTokenResponse.md
+docs/BatchStockItemUpdateRequest.md
+docs/BulkProduct.md
 docs/CatalogItemCreateDto.md
 docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
@@ -127,6 +129,7 @@ docs/MerchantDtoListEnvelope.md
 docs/MerchantsApi.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PricingRuleDto.md
 docs/PricingRuleDtoEnvelope.md
 docs/PricingRuleDtoListEnvelope.md
@@ -187,6 +190,8 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
+src/main/java/org/openapitools/client/model/BatchStockItemUpdateRequest.java
+src/main/java/org/openapitools/client/model/BulkProduct.java
 src/main/java/org/openapitools/client/model/CatalogItemCreateDto.java
 src/main/java/org/openapitools/client/model/CatalogItemDto.java
 src/main/java/org/openapitools/client/model/CatalogItemDtoEnvelope.java
@@ -286,6 +291,7 @@ src/main/java/org/openapitools/client/model/MerchantDtoEnvelope.java
 src/main/java/org/openapitools/client/model/MerchantDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/Money.java
 src/main/java/org/openapitools/client/model/MoneyEnvelope.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/PricingRuleDto.java
 src/main/java/org/openapitools/client/model/PricingRuleDtoEnvelope.java
 src/main/java/org/openapitools/client/model/PricingRuleDtoListEnvelope.java
@@ -296,20 +302,6 @@ src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UpdateProductPrimaryImageAsyncRequest.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/api/ItemAttributeOptionsApiTest.java
-src/test/java/org/openapitools/client/api/ItemBundlesApiTest.java
-src/test/java/org/openapitools/client/api/ItemFamiliesApiTest.java
-src/test/java/org/openapitools/client/model/ItemAttributeOptionCreateDtoTest.java
-src/test/java/org/openapitools/client/model/ItemAttributeOptionUpdateDtoTest.java
-src/test/java/org/openapitools/client/model/ItemBundleCreateDtoTest.java
-src/test/java/org/openapitools/client/model/ItemBundleDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ItemBundleDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ItemBundleDtoTest.java
-src/test/java/org/openapitools/client/model/ItemBundleUpdateDtoTest.java
-src/test/java/org/openapitools/client/model/ItemFamilyCreateDtoTest.java
-src/test/java/org/openapitools/client/model/ItemFamilyDtoEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ItemFamilyDtoListEnvelopeTest.java
-src/test/java/org/openapitools/client/model/ItemFamilyDtoTest.java
-src/test/java/org/openapitools/client/model/ItemFamilyUpdateDtoTest.java
+src/test/java/org/openapitools/client/model/BatchStockItemUpdateRequestTest.java
+src/test/java/org/openapitools/client/model/BulkProductTest.java
+src/test/java/org/openapitools/client/model/OperationTest.java

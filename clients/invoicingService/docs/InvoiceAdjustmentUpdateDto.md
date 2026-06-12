@@ -8,6 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**currencyId** | **String** |  |  [optional] |
+|**priority** | **Integer** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**surchargePercent** | **Double** |  |  [optional] |
 |**surchargeAmount** | **Double** |  |  [optional] |

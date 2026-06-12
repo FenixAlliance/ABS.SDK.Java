@@ -11,7 +11,7 @@
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
-|**courseAssignmentID** | **String** |  |  [optional] |
+|**courseAssignmentId** | **String** |  |  [optional] |
 
 
 

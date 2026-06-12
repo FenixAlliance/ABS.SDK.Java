@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**studentProfileID** | **String** |  |  [optional] |
-|**courseEnrollmentID** | **String** |  |  [optional] |
-|**courseCompletionCertificateTemplateID** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**studentProfileId** | **String** |  |  [optional] |
+|**courseEnrollmentId** | **String** |  |  [optional] |
+|**courseCompletionCertificateTemplateId** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 
 
 

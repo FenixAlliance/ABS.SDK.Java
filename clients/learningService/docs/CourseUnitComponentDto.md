@@ -13,9 +13,10 @@
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
 |**order** | **Integer** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
-|**courseUnitID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
+|**courseUnitId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

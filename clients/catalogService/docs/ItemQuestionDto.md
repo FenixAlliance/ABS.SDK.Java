@@ -12,9 +12,9 @@
 |**title** | **String** |  |  [optional] |
 |**needsRevision** | **Boolean** |  |  [optional] |
 |**question** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**itemID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**itemId** | **String** |  |  [optional] |
 
 
 

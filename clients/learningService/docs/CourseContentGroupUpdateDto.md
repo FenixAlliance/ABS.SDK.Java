@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 
 
 

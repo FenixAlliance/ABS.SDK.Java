@@ -12,7 +12,7 @@
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 |**enablePoints** | **Boolean** |  |  [optional] |
-|**courseID** | **String** |  |  |
+|**courseId** | **String** |  |  |
 
 
 

@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**shippingCourierID** | **String** |  |  [optional] |
+|**shippingCourierId** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
@@ -26,14 +26,14 @@
 |**years** | **Integer** |  |  [optional] |
 |**value** | **Double** |  |  [optional] |
 |**percentage** | **Double** |  |  [optional] |
-|**currencyID** | **String** |  |  [optional] |
-|**countryID** | **String** |  |  [optional] |
-|**countryStateID** | **String** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**countryId** | **String** |  |  [optional] |
+|**countryStateId** | **String** |  |  [optional] |
 |**customState** | **String** |  |  [optional] |
 |**customCity** | **String** |  |  [optional] |
-|**cityID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**cityId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

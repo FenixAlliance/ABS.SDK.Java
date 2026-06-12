@@ -12,9 +12,10 @@
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**content** | **String** |  |  [optional] |
-|**courseWikiID** | **String** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseWikiId** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

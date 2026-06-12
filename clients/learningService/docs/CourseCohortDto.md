@@ -14,8 +14,9 @@
 |**endDateTime** | **OffsetDateTime** |  |  [optional] |
 |**expectedStartDateTime** | **OffsetDateTime** |  |  [optional] |
 |**expectedEndDateTime** | **OffsetDateTime** |  |  [optional] |
-|**courseID** | **String** |  |  [optional] |
+|**courseId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

@@ -40,9 +40,6 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
 
 
 
