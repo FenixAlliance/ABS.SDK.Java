@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemTypeUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:00.564312500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:08:51.135309900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemTypeUpdateDto {
   public static final String SERIALIZED_NAME_PLURAL_TITLE = "pluralTitle";
   @SerializedName(SERIALIZED_NAME_PLURAL_TITLE)

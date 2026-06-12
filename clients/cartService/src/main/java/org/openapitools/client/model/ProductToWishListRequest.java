@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ProductToWishListRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:05:38.345869300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:08:24.708685100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProductToWishListRequest {
   public static final String SERIALIZED_NAME_WISH_LIST_ID = "wishListId";
   @SerializedName(SERIALIZED_NAME_WISH_LIST_ID)

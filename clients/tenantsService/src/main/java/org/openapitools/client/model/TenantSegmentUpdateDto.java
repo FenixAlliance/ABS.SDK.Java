@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * TenantSegmentUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:13.424297100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:19:05.940912100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TenantSegmentUpdateDto {
   public static final String SERIALIZED_NAME_MIN_EMPLOYEES = "minEmployees";
   @SerializedName(SERIALIZED_NAME_MIN_EMPLOYEES)

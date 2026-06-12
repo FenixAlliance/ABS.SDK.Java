@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * RegisterRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:03:38.548865400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:17:34.078649500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class RegisterRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

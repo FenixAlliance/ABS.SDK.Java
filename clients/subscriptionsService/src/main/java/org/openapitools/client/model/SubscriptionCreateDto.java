@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * SubscriptionCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:04:45.065543900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:18:25.177726-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SubscriptionCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

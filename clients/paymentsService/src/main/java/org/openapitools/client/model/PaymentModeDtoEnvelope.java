@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * PaymentModeDtoEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:01:23.735616800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:15:10.774958400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PaymentModeDtoEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

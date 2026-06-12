@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * JsonWebToken
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:57:24.170923700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:12:15.929211200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class JsonWebToken {
   public static final String SERIALIZED_NAME_HEADER = "header";
   @SerializedName(SERIALIZED_NAME_HEADER)

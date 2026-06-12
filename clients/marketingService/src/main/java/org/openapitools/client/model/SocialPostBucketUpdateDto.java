@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * SocialPostBucketUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:00:10.162063100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:14:12.021721-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialPostBucketUpdateDto {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

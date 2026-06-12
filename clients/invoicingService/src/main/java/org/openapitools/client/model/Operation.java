@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * Operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:58:25.872639100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:12:47.903167100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class Operation {
   /**
    * Gets or Sets operationType

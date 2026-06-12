@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * TrainingProgramCourseUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:56:43.143817800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:11:34.737584800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TrainingProgramCourseUpdateDto {
   public static final String SERIALIZED_NAME_TRAINING_PROGRAM_ID = "trainingProgramId";
   @SerializedName(SERIALIZED_NAME_TRAINING_PROGRAM_ID)

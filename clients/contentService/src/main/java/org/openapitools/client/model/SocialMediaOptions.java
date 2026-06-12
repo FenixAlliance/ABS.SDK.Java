@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * SocialMediaOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:09:16.703333400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SocialMediaOptions {
   public static final String SERIALIZED_NAME_FACEBOOK_PAGE_URL = "facebookPageUrl";
   @SerializedName(SERIALIZED_NAME_FACEBOOK_PAGE_URL)

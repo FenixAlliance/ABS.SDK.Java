@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * BlockchainDtoETag
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:57:06.341325100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:11:54.575020-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BlockchainDtoETag {
   public static final String SERIALIZED_NAME_IS_WELL_FORMED = "isWellFormed";
   @SerializedName(SERIALIZED_NAME_IS_WELL_FORMED)

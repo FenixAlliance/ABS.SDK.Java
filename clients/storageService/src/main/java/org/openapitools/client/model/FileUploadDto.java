@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * FileUploadDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:03:56.088399800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:17:55.621610600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FileUploadDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

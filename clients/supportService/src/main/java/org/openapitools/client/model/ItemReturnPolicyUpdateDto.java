@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemReturnPolicyUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:05:09.477035900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:18:38.522796400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemReturnPolicyUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * PriceCalculationOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:09:16.703333400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PriceCalculationOptions {
   public static final String SERIALIZED_NAME_PRICING_LIST_I_D = "pricingListID";
   @SerializedName(SERIALIZED_NAME_PRICING_LIST_I_D)
