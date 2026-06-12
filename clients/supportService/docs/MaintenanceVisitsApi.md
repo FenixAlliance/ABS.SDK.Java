@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getMaintenanceVisitAsync**](MaintenanceVisitsApi.md#getMaintenanceVisitAsync) | **GET** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Retrieve a maintenance visit by ID |
 | [**getMaintenanceVisitsAsync**](MaintenanceVisitsApi.md#getMaintenanceVisitsAsync) | **GET** /api/v2/SupportService/MaintenanceVisits | Retrieve maintenance visits |
 | [**getMaintenanceVisitsCountAsync**](MaintenanceVisitsApi.md#getMaintenanceVisitsCountAsync) | **GET** /api/v2/SupportService/MaintenanceVisits/Count | Get maintenance visits count |
+| [**patchMaintenanceVisitAsync**](MaintenanceVisitsApi.md#patchMaintenanceVisitAsync) | **PATCH** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Patch a maintenance visit |
 | [**updateMaintenanceVisitAsync**](MaintenanceVisitsApi.md#updateMaintenanceVisitAsync) | **PUT** /api/v2/SupportService/MaintenanceVisits/{maintenanceVisitId} | Update a maintenance visit |
 
 
@@ -336,6 +337,78 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="patchMaintenanceVisitAsync"></a>
+# **patchMaintenanceVisitAsync**
+> EmptyEnvelope patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, operation)
+
+Patch a maintenance visit
+
+Partially updates an existing maintenance visit by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.MaintenanceVisitsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    MaintenanceVisitsApi apiInstance = new MaintenanceVisitsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID maintenanceVisitId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchMaintenanceVisitAsync(tenantId, maintenanceVisitId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MaintenanceVisitsApi#patchMaintenanceVisitAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **maintenanceVisitId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updateMaintenanceVisitAsync"></a>

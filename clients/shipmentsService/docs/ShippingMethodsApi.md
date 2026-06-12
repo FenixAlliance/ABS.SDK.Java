@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getShippingMethodByIdAsync**](ShippingMethodsApi.md#getShippingMethodByIdAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Get shipping method by ID |
 | [**getShippingMethodsAsync**](ShippingMethodsApi.md#getShippingMethodsAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods | Get all shipping methods |
 | [**getShippingMethodsCountAsync**](ShippingMethodsApi.md#getShippingMethodsCountAsync) | **GET** /api/v2/ShipmentsService/ShippingMethods/Count | Get shipping methods count |
+| [**patchShippingMethodAsync**](ShippingMethodsApi.md#patchShippingMethodAsync) | **PATCH** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Patch a shipping method |
 | [**updateShippingMethodAsync**](ShippingMethodsApi.md#updateShippingMethodAsync) | **PUT** /api/v2/ShipmentsService/ShippingMethods/{methodId} | Update a shipping method |
 
 
@@ -349,6 +350,79 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="patchShippingMethodAsync"></a>
+# **patchShippingMethodAsync**
+> EmptyEnvelope patchShippingMethodAsync(tenantId, methodId, apiVersion, xApiVersion, operation)
+
+Patch a shipping method
+
+Partially updates an existing shipping method using JSON Patch.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ShippingMethodsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ShippingMethodsApi apiInstance = new ShippingMethodsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID methodId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchShippingMethodAsync(tenantId, methodId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ShippingMethodsApi#patchShippingMethodAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **methodId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updateShippingMethodAsync"></a>

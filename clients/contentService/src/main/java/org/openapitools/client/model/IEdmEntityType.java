@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * IEdmEntityType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:56.186474600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class IEdmEntityType {
   /**
    * Gets or Sets typeKind

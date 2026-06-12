@@ -14,7 +14,7 @@
 |**cost** | **Double** |  |  [optional] |
 |**taxable** | **Boolean** |  |  [optional] |
 |**taxIncluded** | **Boolean** |  |  [optional] |
-|**currencyID** | **String** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
 |**shippingClassCalculationType** | [**ShippingClassCalculationTypeEnum**](#ShippingClassCalculationTypeEnum) |  |  [optional] |
 
 

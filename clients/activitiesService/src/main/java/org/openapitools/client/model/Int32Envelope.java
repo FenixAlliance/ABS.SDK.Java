@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Int32Envelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:51:05.145792700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:04:56.806135200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class Int32Envelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

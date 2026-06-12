@@ -11,7 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**parentTerritoryID** | **String** |  |  [optional] |
+|**parentTerritoryId** | **String** |  |  [optional] |
 
 
 

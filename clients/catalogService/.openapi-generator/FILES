@@ -302,6 +302,3 @@ src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/UpdateProductPrimaryImageAsyncRequest.java
-src/test/java/org/openapitools/client/model/BatchStockItemUpdateRequestTest.java
-src/test/java/org/openapitools/client/model/BulkProductTest.java
-src/test/java/org/openapitools/client/model/OperationTest.java

@@ -10,8 +10,8 @@
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**disabled** | **Boolean** |  |  [optional] |
-|**organizationProfileID** | **String** |  |  [optional] |
-|**parentDepartmentID** | **String** |  |  [optional] |
+|**organizationProfileId** | **String** |  |  [optional] |
+|**parentDepartmentId** | **String** |  |  [optional] |
 
 
 

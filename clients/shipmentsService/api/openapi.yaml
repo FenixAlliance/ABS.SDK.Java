@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: ShipmentsService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -314,6 +314,96 @@ paths:
       summary: Get bill of lading by ID
       tags:
       - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing bill of lading using JSON Patch.
+      operationId: PatchBillOfLadingAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a bill of lading
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -696,6 +786,105 @@ paths:
       summary: Get bill of lading line by ID
       tags:
       - BillsOfLading
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing line on a bill of lading using JSON
+        Patch.
+      operationId: PatchBillOfLadingLineAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: billOfLadingId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: lineId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a bill of lading line
+      tags:
+      - BillsOfLading
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1728,6 +1917,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing item shipping policy using JSON Patch.
+      operationId: PatchItemShippingPolicyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: policyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch an item shipping policy
+      tags:
+      - ItemShippingPolicies
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing item shipping policy.
       operationId: UpdateItemShippingPolicyAsync
@@ -2067,6 +2346,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing shipment using JSON Patch.
+      operationId: PatchShipmentAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: shipmentId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipment
+      tags:
+      - Shipments
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing shipment.
       operationId: UpdateShipmentAsync
@@ -2394,6 +2763,96 @@ paths:
       summary: Get shipping class by ID
       tags:
       - ShippingClasses
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing shipping class using JSON Patch.
+      operationId: PatchShippingClassAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: classId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping class
+      tags:
+      - ShippingClasses
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2736,6 +3195,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing shipping courier using JSON Patch.
+      operationId: PatchShippingCourierAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: courierId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping courier
+      tags:
+      - ShippingCouriers
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing shipping courier.
       operationId: UpdateShippingCourierAsync
@@ -3063,6 +3612,96 @@ paths:
       summary: Get shipping label by ID
       tags:
       - ShippingLabels
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing shipping label using JSON Patch.
+      operationId: PatchShippingLabelAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: labelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping label
+      tags:
+      - ShippingLabels
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3396,6 +4035,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing shipping method using JSON Patch.
+      operationId: PatchShippingMethodAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: methodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping method
+      tags:
+      - ShippingMethods
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing shipping method.
       operationId: UpdateShippingMethodAsync
@@ -3726,6 +4455,96 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing shipping region using JSON Patch.
+      operationId: PatchShippingRegionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: regionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping region
+      tags:
+      - ShippingRegions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing shipping region.
       operationId: UpdateShippingRegionAsync
@@ -4053,6 +4872,96 @@ paths:
       summary: Get shipping zone by ID
       tags:
       - ShippingZones
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing shipping zone using JSON Patch.
+      operationId: PatchShippingZoneAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: zoneId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a shipping zone
+      tags:
+      - ShippingZones
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -5717,6 +6626,38 @@ components:
       - email
       - password
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     RefreshRequest:
       additionalProperties: false
       example:
@@ -5781,7 +6722,7 @@ components:
       example:
         expectedShippingDate: 2000-01-23T04:56:07.000+00:00
         isInternational: true
-        orderID: orderID
+        orderId: orderId
         expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
         shippingTerms: NC
         trackingCode: trackingCode
@@ -5820,7 +6761,7 @@ components:
           - DAP
           - DPU
           type: string
-        orderID:
+        orderId:
           nullable: true
           type: string
       type: object
@@ -5829,15 +6770,15 @@ components:
       example:
         shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
         expectedShippingDate: 2000-01-23T04:56:07.000+00:00
-        orderID: orderID
+        orderId: orderId
         expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-        businessID: businessID
         trackingCode: trackingCode
         delivered: true
         shipped: true
         isInternational: true
         deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
         shippingTerms: NC
+        tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -5884,10 +6825,10 @@ components:
           - DAP
           - DPU
           type: string
-        orderID:
+        orderId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -5897,15 +6838,15 @@ components:
         result:
           shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
           expectedShippingDate: 2000-01-23T04:56:07.000+00:00
-          orderID: orderID
+          orderId: orderId
           expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
           trackingCode: trackingCode
           delivered: true
           shipped: true
           isInternational: true
           deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
           shippingTerms: NC
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -5940,28 +6881,28 @@ components:
         result:
         - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
           expectedShippingDate: 2000-01-23T04:56:07.000+00:00
-          orderID: orderID
+          orderId: orderId
           expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
           trackingCode: trackingCode
           delivered: true
           shipped: true
           isInternational: true
           deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
           shippingTerms: NC
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
           expectedShippingDate: 2000-01-23T04:56:07.000+00:00
-          orderID: orderID
+          orderId: orderId
           expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
-          businessID: businessID
           trackingCode: trackingCode
           delivered: true
           shipped: true
           isInternational: true
           deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
           shippingTerms: NC
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -6000,7 +6941,7 @@ components:
         shipmentTimestamp: 2000-01-23T04:56:07.000+00:00
         expectedShippingDate: 2000-01-23T04:56:07.000+00:00
         isInternational: true
-        orderID: orderID
+        orderId: orderId
         deliveryTimestamp: 2000-01-23T04:56:07.000+00:00
         expectedDeliveryDate: 2000-01-23T04:56:07.000+00:00
         shippingTerms: NC
@@ -6043,7 +6984,7 @@ components:
           - DAP
           - DPU
           type: string
-        orderID:
+        orderId:
           nullable: true
           type: string
       type: object
@@ -6074,7 +7015,7 @@ components:
       additionalProperties: false
       example:
         name: name
-        businessID: businessID
+        tenantId: tenantId
         id: id
         slug: slug
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6092,7 +7033,7 @@ components:
         slug:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -6101,7 +7042,7 @@ components:
       example:
         result:
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6136,12 +7077,12 @@ components:
       example:
         result:
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
         - name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           slug: slug
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6192,9 +7133,8 @@ components:
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        businessProfileRecordID: businessProfileRecordID
         logoURL: logoURL
-        countryID: countryID
+        countryId: countryId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6209,10 +7149,7 @@ components:
         logoURL:
           nullable: true
           type: string
-        countryID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
+        countryId:
           nullable: true
           type: string
       required:
@@ -6221,12 +7158,12 @@ components:
     ShippingCourierDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
         name: name
-        businessID: businessID
+        tenantId: tenantId
         id: id
-        businessProfileRecordID: businessProfileRecordID
         logoURL: logoURL
-        countryID: countryID
+        countryId: countryId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6242,13 +7179,13 @@ components:
         logoURL:
           nullable: true
           type: string
-        countryID:
+        countryId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        businessProfileRecordID:
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -6256,12 +7193,12 @@ components:
       additionalProperties: false
       example:
         result:
+          enrollmentId: enrollmentId
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
-          businessProfileRecordID: businessProfileRecordID
           logoURL: logoURL
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -6293,19 +7230,19 @@ components:
       additionalProperties: false
       example:
         result:
-        - name: name
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
           id: id
-          businessProfileRecordID: businessProfileRecordID
           logoURL: logoURL
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - name: name
-          businessID: businessID
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
           id: id
-          businessProfileRecordID: businessProfileRecordID
           logoURL: logoURL
-          countryID: countryID
+          countryId: countryId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -6340,9 +7277,8 @@ components:
       additionalProperties: false
       example:
         name: name
-        businessProfileRecordID: businessProfileRecordID
         logoURL: logoURL
-        countryID: countryID
+        countryId: countryId
       properties:
         name:
           nullable: true
@@ -6350,10 +7286,7 @@ components:
         logoURL:
           nullable: true
           type: string
-        countryID:
-          nullable: true
-          type: string
-        businessProfileRecordID:
+        countryId:
           nullable: true
           type: string
       type: object
@@ -6361,9 +7294,9 @@ components:
       additionalProperties: false
       example:
         expectedDelivery: 2000-01-23T04:56:07.000+00:00
-        locationID: locationID
-        shipmentID: shipmentID
-        shippingCourierID: shippingCourierID
+        locationId: locationId
+        shipmentId: shipmentId
+        shippingCourierId: shippingCourierId
         trackingCode: trackingCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6380,13 +7313,13 @@ components:
         expectedDelivery:
           format: date-time
           type: string
-        locationID:
+        locationId:
           nullable: true
           type: string
-        shipmentID:
+        shipmentId:
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
       required:
@@ -6396,10 +7329,10 @@ components:
       additionalProperties: false
       example:
         expectedDelivery: 2000-01-23T04:56:07.000+00:00
-        locationID: locationID
-        shipmentID: shipmentID
-        shippingCourierID: shippingCourierID
-        businessID: businessID
+        locationId: locationId
+        shipmentId: shipmentId
+        shippingCourierId: shippingCourierId
+        tenantId: tenantId
         trackingCode: trackingCode
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6417,16 +7350,16 @@ components:
         expectedDelivery:
           format: date-time
           type: string
-        locationID:
+        locationId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
-        shipmentID:
+        shipmentId:
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
       type: object
@@ -6435,10 +7368,10 @@ components:
       example:
         result:
           expectedDelivery: 2000-01-23T04:56:07.000+00:00
-          locationID: locationID
-          shipmentID: shipmentID
-          shippingCourierID: shippingCourierID
-          businessID: businessID
+          locationId: locationId
+          shipmentId: shipmentId
+          shippingCourierId: shippingCourierId
+          tenantId: tenantId
           trackingCode: trackingCode
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6473,18 +7406,18 @@ components:
       example:
         result:
         - expectedDelivery: 2000-01-23T04:56:07.000+00:00
-          locationID: locationID
-          shipmentID: shipmentID
-          shippingCourierID: shippingCourierID
-          businessID: businessID
+          locationId: locationId
+          shipmentId: shipmentId
+          shippingCourierId: shippingCourierId
+          tenantId: tenantId
           trackingCode: trackingCode
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - expectedDelivery: 2000-01-23T04:56:07.000+00:00
-          locationID: locationID
-          shipmentID: shipmentID
-          shippingCourierID: shippingCourierID
-          businessID: businessID
+          locationId: locationId
+          shipmentId: shipmentId
+          shippingCourierId: shippingCourierId
+          tenantId: tenantId
           trackingCode: trackingCode
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
@@ -6521,9 +7454,9 @@ components:
       additionalProperties: false
       example:
         expectedDelivery: 2000-01-23T04:56:07.000+00:00
-        locationID: locationID
-        shipmentID: shipmentID
-        shippingCourierID: shippingCourierID
+        locationId: locationId
+        shipmentId: shipmentId
+        shippingCourierId: shippingCourierId
         trackingCode: trackingCode
       properties:
         trackingCode:
@@ -6532,13 +7465,13 @@ components:
         expectedDelivery:
           format: date-time
           type: string
-        locationID:
+        locationId:
           nullable: true
           type: string
-        shipmentID:
+        shipmentId:
           nullable: true
           type: string
-        shippingCourierID:
+        shippingCourierId:
           nullable: true
           type: string
       type: object
@@ -6552,7 +7485,7 @@ components:
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        currencyID: currencyID
+        currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6574,7 +7507,7 @@ components:
           type: boolean
         taxIncluded:
           type: boolean
-        currencyID:
+        currencyId:
           nullable: true
           type: string
         shippingClassCalculationType:
@@ -6593,10 +7526,10 @@ components:
         taxable: true
         shippingClassCalculationType: PerClass
         name: name
-        businessID: businessID
+        tenantId: tenantId
         description: description
         id: id
-        currencyID: currencyID
+        currencyId: currencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -6619,10 +7552,10 @@ components:
           type: boolean
         taxIncluded:
           type: boolean
-        currencyID:
+        currencyId:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
         shippingClassCalculationType:
@@ -6640,10 +7573,10 @@ components:
           taxable: true
           shippingClassCalculationType: PerClass
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -6680,20 +7613,20 @@ components:
           taxable: true
           shippingClassCalculationType: PerClass
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         - cost: 0.8008281904610115
           taxIncluded: true
           taxable: true
           shippingClassCalculationType: PerClass
           name: name
-          businessID: businessID
+          tenantId: tenantId
           description: description
           id: id
-          currencyID: currencyID
+          currencyId: currencyId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -6733,7 +7666,7 @@ components:
         shippingClassCalculationType: PerClass
         name: name
         description: description
-        currencyID: currencyID
+        currencyId: currencyId
       properties:
         name:
           nullable: true
@@ -6748,7 +7681,7 @@ components:
           type: boolean
         taxIncluded:
           type: boolean
-        currencyID:
+        currencyId:
           nullable: true
           type: string
         shippingClassCalculationType:
@@ -6785,7 +7718,7 @@ components:
       example:
         postalCodes: postalCodes
         name: name
-        businessID: businessID
+        tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6802,7 +7735,7 @@ components:
         postalCodes:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -6812,7 +7745,7 @@ components:
         result:
           postalCodes: postalCodes
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -6847,12 +7780,12 @@ components:
         result:
         - postalCodes: postalCodes
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - postalCodes: postalCodes
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -6938,7 +7871,7 @@ components:
         postalCodes: postalCodes
         everywhere: true
         name: name
-        businessID: businessID
+        tenantId: tenantId
         id: id
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -6962,7 +7895,7 @@ components:
         countryCodes:
           nullable: true
           type: string
-        businessID:
+        tenantId:
           nullable: true
           type: string
       type: object
@@ -6975,7 +7908,7 @@ components:
           postalCodes: postalCodes
           everywhere: true
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -7013,7 +7946,7 @@ components:
           postalCodes: postalCodes
           everywhere: true
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         - default: true
@@ -7021,7 +7954,7 @@ components:
           postalCodes: postalCodes
           everywhere: true
           name: name
-          businessID: businessID
+          tenantId: tenantId
           id: id
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId

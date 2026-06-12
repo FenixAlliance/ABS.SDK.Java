@@ -7,14 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  [optional] |
-|**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**avatarURL** | **String** |  |  [optional] |
+|**avatarUrl** | **String** |  |  [optional] |
 |**isPublic** | **Boolean** |  |  [optional] |
-|**businessUnitID** | **String** |  |  [optional] |
-|**organizationProfileID** | **String** |  |  [optional] |
+|**businessUnitId** | **String** |  |  [optional] |
+|**organizationProfileId** | **String** |  |  [optional] |
 
 
 

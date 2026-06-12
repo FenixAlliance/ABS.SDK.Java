@@ -11,7 +11,7 @@
 |**description** | **String** |  |  [optional] |
 |**approved** | **Boolean** |  |  [optional] |
 |**approvedTimestamp** | **OffsetDateTime** |  |  [optional] |
-|**supportEntitlementID** | **String** |  |  [optional] |
+|**supportEntitlementId** | **String** |  |  [optional] |
 
 
 

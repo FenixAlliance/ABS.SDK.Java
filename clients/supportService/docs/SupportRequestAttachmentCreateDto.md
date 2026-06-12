@@ -20,7 +20,7 @@
 |**parentFileUploadId** | **String** |  |  [optional] |
 |**filePath** | **String** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
-|**supportRequestID** | **String** |  |  [optional] |
+|**supportRequestId** | **String** |  |  [optional] |
 
 
 

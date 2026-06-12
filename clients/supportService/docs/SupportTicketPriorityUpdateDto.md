@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**supportEntitlementId** | **String** |  |  [optional] |
 
 
 

@@ -124,4 +124,3 @@ src/main/java/org/openapitools/client/model/WishListDto.java
 src/main/java/org/openapitools/client/model/WishListDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WishListItemRecordDto.java
 src/main/java/org/openapitools/client/model/WishListUpdateDto.java
-src/test/java/org/openapitools/client/model/OperationTest.java

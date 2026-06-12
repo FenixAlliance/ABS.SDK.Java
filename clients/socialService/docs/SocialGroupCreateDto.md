@@ -12,7 +12,7 @@
 |**name** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**avatarURL** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

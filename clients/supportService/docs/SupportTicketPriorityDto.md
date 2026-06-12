@@ -11,8 +11,8 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**supportEntitlementID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**supportEntitlementId** | **String** |  |  [optional] |
 
 
 

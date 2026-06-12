@@ -25,6 +25,7 @@ docs/LoginRequest.md
 docs/NotificationDto.md
 docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
+docs/Operation.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
 docs/PrivateMessageDtoListEnvelope.md
@@ -126,6 +127,7 @@ src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/NotificationDto.java
 src/main/java/org/openapitools/client/model/NotificationDtoEnvelope.java
 src/main/java/org/openapitools/client/model/NotificationDtoListEnvelope.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/PrivateMessageCreateDto.java
 src/main/java/org/openapitools/client/model/PrivateMessageDto.java
 src/main/java/org/openapitools/client/model/PrivateMessageDtoListEnvelope.java
@@ -172,6 +174,3 @@ src/main/java/org/openapitools/client/model/SocialReactionDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/SocialReactionUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java
-src/test/java/org/openapitools/client/model/NotificationDtoEnvelopeTest.java

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * TwoFactorResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:51:50.168047200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:27.765557-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TwoFactorResponse {
   public static final String SERIALIZED_NAME_SHARED_KEY = "sharedKey";
   @SerializedName(SERIALIZED_NAME_SHARED_KEY)

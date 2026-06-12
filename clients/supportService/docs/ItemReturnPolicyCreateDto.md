@@ -11,7 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
-|**shippingCourierID** | **String** |  |  [optional] |
+|**shippingCourierId** | **String** |  |  [optional] |
 |**isFree** | **Boolean** |  |  [optional] |
 |**reduce** | **Boolean** |  |  [optional] |
 |**isEnabled** | **Boolean** |  |  [optional] |
@@ -24,12 +24,12 @@
 |**years** | **Integer** |  |  [optional] |
 |**value** | **Double** |  |  [optional] |
 |**percentage** | **Double** |  |  [optional] |
-|**currencyID** | **String** |  |  [optional] |
-|**countryID** | **String** |  |  [optional] |
-|**countryStateID** | **String** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**countryId** | **String** |  |  [optional] |
+|**countryStateId** | **String** |  |  [optional] |
 |**customState** | **String** |  |  [optional] |
 |**customCity** | **String** |  |  [optional] |
-|**cityID** | **String** |  |  [optional] |
+|**cityId** | **String** |  |  [optional] |
 
 
 

@@ -11,6 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
 |**startDateTime** | **OffsetDateTime** |  |  [optional] |
 |**endDateTime** | **OffsetDateTime** |  |  [optional] |
 |**nextInvoiceDateTime** | **OffsetDateTime** |  |  [optional] |
@@ -48,15 +49,26 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
-|**accountHolderID** | **String** |  |  [optional] |
-|**individualID** | **String** |  |  [optional] |
-|**organizationID** | **String** |  |  [optional] |
-|**receiverBusinessID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**paymentTokenID** | **String** |  |  [optional] |
-|**walletAccountID** | **String** |  |  [optional] |
-|**securityCertificateID** | **String** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
+|**individualId** | **String** |  |  [optional] |
+|**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**paymentTokenId** | **String** |  |  [optional] |
+|**walletAccountId** | **String** |  |  [optional] |
+|**securityCertificateId** | **String** |  |  [optional] |
+
+
+
+## Enum: StatusEnum
+
+| Name | Value |
+|---- | -----|
+| ACTIVE | &quot;Active&quot; |
+| GRACE_PERIOD | &quot;GracePeriod&quot; |
+| DISABLED | &quot;Disabled&quot; |
+| DELETED | &quot;Deleted&quot; |
 
 
 

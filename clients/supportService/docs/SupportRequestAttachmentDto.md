@@ -29,7 +29,7 @@
 |**enrollmentId** | **String** |  |  [optional] |
 |**socialProfileId** | **String** |  |  [optional] |
 |**folderPath** | **String** |  |  [optional] |
-|**supportRequestID** | **String** |  |  [optional] |
+|**supportRequestId** | **String** |  |  [optional] |
 
 
 

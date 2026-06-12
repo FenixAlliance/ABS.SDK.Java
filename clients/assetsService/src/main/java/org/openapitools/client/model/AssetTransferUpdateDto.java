@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * AssetTransferUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:51:19.635730700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:05:15.214630-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AssetTransferUpdateDto {
   public static final String SERIALIZED_NAME_SERIAL_LIST = "serialList";
   @SerializedName(SERIALIZED_NAME_SERIAL_LIST)

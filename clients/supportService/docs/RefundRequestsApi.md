@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**getRefundRequestAsync**](RefundRequestsApi.md#getRefundRequestAsync) | **GET** /api/v2/SupportService/RefundRequests/{refundRequestId} | Retrieve a refund request by ID |
 | [**getRefundRequestsAsync**](RefundRequestsApi.md#getRefundRequestsAsync) | **GET** /api/v2/SupportService/RefundRequests | Retrieve refund requests |
 | [**getRefundRequestsCountAsync**](RefundRequestsApi.md#getRefundRequestsCountAsync) | **GET** /api/v2/SupportService/RefundRequests/Count | Get refund requests count |
+| [**patchRefundRequestAsync**](RefundRequestsApi.md#patchRefundRequestAsync) | **PATCH** /api/v2/SupportService/RefundRequests/{refundRequestId} | Patch a refund request |
 | [**updateRefundRequestAsync**](RefundRequestsApi.md#updateRefundRequestAsync) | **PUT** /api/v2/SupportService/RefundRequests/{refundRequestId} | Update a refund request |
 
 
@@ -336,6 +337,78 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="patchRefundRequestAsync"></a>
+# **patchRefundRequestAsync**
+> EmptyEnvelope patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, operation)
+
+Patch a refund request
+
+Partially updates an existing refund request by its unique identifier.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.RefundRequestsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    RefundRequestsApi apiInstance = new RefundRequestsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID refundRequestId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchRefundRequestAsync(tenantId, refundRequestId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RefundRequestsApi#patchRefundRequestAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **refundRequestId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="updateRefundRequestAsync"></a>

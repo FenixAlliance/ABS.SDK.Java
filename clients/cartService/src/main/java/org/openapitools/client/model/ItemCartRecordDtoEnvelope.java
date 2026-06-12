@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ItemCartRecordDtoEnvelope
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:08.458713900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:05:38.345869300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ItemCartRecordDtoEnvelope {
   public static final String SERIALIZED_NAME_IS_SUCCESS = "isSuccess";
   @SerializedName(SERIALIZED_NAME_IS_SUCCESS)

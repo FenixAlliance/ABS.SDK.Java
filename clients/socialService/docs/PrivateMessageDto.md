@@ -14,7 +14,7 @@
 |**message** | **String** |  |  [optional] |
 |**conversationId** | **String** |  |  [optional] |
 |**senderSocialProfileId** | **String** |  |  [optional] |
-|**receiverSocialProfileID** | **String** |  |  [optional] |
+|**receiverSocialProfileId** | **String** |  |  [optional] |
 |**sentTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**readTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**receivedTimestamp** | **OffsetDateTime** |  |  [optional] |

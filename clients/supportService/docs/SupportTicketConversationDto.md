@@ -9,11 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**supportTicketID** | **String** |  |  [optional] |
+|**supportTicketId** | **String** |  |  [optional] |
 |**topic** | **String** |  |  [optional] |
 |**closed** | **Boolean** |  |  [optional] |
 |**closedTimestamp** | **OffsetDateTime** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

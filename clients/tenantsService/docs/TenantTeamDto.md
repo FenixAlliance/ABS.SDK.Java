@@ -9,14 +9,14 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**avatarURL** | **String** |  |  [optional] |
+|**avatarUrl** | **String** |  |  [optional] |
 |**isPublic** | **Boolean** |  |  [optional] |
-|**businessUnitID** | **String** |  |  [optional] |
-|**organizationProfileID** | **String** |  |  [optional] |
+|**businessUnitId** | **String** |  |  [optional] |
+|**organizationProfileId** | **String** |  |  [optional] |
 
 
 

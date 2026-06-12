@@ -9,8 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**logoURL** | **String** |  |  [optional] |
-|**countryID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**countryId** | **String** |  |  [optional] |
 
 
 

@@ -9,11 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**parentTerritoryID** | **String** |  |  [optional] |
+|**parentTerritoryId** | **String** |  |  [optional] |
 
 
 

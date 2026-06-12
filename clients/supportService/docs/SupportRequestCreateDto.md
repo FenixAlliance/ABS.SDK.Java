@@ -13,8 +13,8 @@
 |**description** | **String** |  |  [optional] |
 |**approved** | **Boolean** |  |  [optional] |
 |**approvedTimestamp** | **OffsetDateTime** |  |  [optional] |
-|**supportEntitlementID** | **String** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
+|**supportEntitlementId** | **String** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
 
 
 

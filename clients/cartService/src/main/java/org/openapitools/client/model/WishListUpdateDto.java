@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * WishListUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:08.458713900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:05:38.345869300-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class WishListUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)

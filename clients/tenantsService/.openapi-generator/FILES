@@ -340,5 +340,3 @@ src/main/java/org/openapitools/client/model/WalletDto.java
 src/main/java/org/openapitools/client/model/WalletDtoEnvelope.java
 src/main/java/org/openapitools/client/model/WebPortalDto.java
 src/main/java/org/openapitools/client/model/WebPortalDtoListEnvelope.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

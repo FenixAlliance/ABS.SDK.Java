@@ -11,8 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**logoURL** | **String** |  |  [optional] |
-|**countryID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**countryId** | **String** |  |  [optional] |
 
 
 

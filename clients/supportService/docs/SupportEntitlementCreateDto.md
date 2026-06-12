@@ -48,12 +48,12 @@
 |**data8Label** | **String** |  |  [optional] |
 |**data9** | **String** |  |  [optional] |
 |**data9Label** | **String** |  |  [optional] |
-|**individualID** | **String** |  |  [optional] |
-|**organizationID** | **String** |  |  [optional] |
-|**receiverBusinessID** | **String** |  |  [optional] |
-|**paymentTokenID** | **String** |  |  [optional] |
-|**walletAccountID** | **String** |  |  [optional] |
-|**securityCertificateID** | **String** |  |  [optional] |
+|**individualId** | **String** |  |  [optional] |
+|**organizationId** | **String** |  |  [optional] |
+|**receiverTenantId** | **String** |  |  [optional] |
+|**paymentTokenId** | **String** |  |  [optional] |
+|**walletAccountId** | **String** |  |  [optional] |
+|**securityCertificateId** | **String** |  |  [optional] |
 
 
 

@@ -9,9 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
-|**parentBusinessIndustryID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
+|**parentBusinessIndustryId** | **String** |  |  [optional] |
 
 
 

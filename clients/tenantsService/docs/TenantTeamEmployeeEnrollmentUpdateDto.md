@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**businessTeamID** | **String** |  |  [optional] |
-|**employeeProfileID** | **String** |  |  [optional] |
+|**businessTeamId** | **String** |  |  [optional] |
+|**employeeProfileId** | **String** |  |  [optional] |
 
 
 

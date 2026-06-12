@@ -16,7 +16,7 @@
 |**expectedShippingDate** | **OffsetDateTime** |  |  [optional] |
 |**expectedDeliveryDate** | **OffsetDateTime** |  |  [optional] |
 |**shippingTerms** | [**ShippingTermsEnum**](#ShippingTermsEnum) |  |  [optional] |
-|**orderID** | **String** |  |  [optional] |
+|**orderId** | **String** |  |  [optional] |
 
 
 

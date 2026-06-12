@@ -11,6 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 
 
 

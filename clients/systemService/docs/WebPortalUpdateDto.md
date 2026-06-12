@@ -12,9 +12,9 @@
 |**domain** | **String** |  |  [optional] |
 |**disabled** | **Boolean** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**websiteThemeID** | **String** |  |  [optional] |
-|**businessDomainID** | **String** |  |  [optional] |
-|**businessPortalApplicationID** | **String** |  |  [optional] |
+|**websiteThemeId** | **String** |  |  [optional] |
+|**businessDomainId** | **String** |  |  [optional] |
+|**businessPortalApplicationId** | **String** |  |  [optional] |
 
 
 

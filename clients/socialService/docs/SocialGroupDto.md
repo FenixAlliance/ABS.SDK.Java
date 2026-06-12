@@ -12,9 +12,9 @@
 |**name** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**avatarURL** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**businessProfileRecordID** | **String** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

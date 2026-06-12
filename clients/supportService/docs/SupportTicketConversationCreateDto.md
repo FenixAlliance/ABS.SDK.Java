@@ -12,7 +12,7 @@
 |**topic** | **String** |  |  [optional] |
 |**closed** | **Boolean** |  |  [optional] |
 |**closedTimestamp** | **OffsetDateTime** |  |  [optional] |
-|**socialProfileID** | **String** |  |  [optional] |
+|**socialProfileId** | **String** |  |  [optional] |
 
 
 

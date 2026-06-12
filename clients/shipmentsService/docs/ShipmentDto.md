@@ -18,8 +18,8 @@
 |**expectedShippingDate** | **OffsetDateTime** |  |  [optional] |
 |**expectedDeliveryDate** | **OffsetDateTime** |  |  [optional] |
 |**shippingTerms** | [**ShippingTermsEnum**](#ShippingTermsEnum) |  |  [optional] |
-|**orderID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**orderId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 
 
 

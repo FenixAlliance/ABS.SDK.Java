@@ -14,8 +14,8 @@
 |**cost** | **Double** |  |  [optional] |
 |**taxable** | **Boolean** |  |  [optional] |
 |**taxIncluded** | **Boolean** |  |  [optional] |
-|**currencyID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**currencyId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 |**shippingClassCalculationType** | [**ShippingClassCalculationTypeEnum**](#ShippingClassCalculationTypeEnum) |  |  [optional] |
 
 

@@ -14,7 +14,7 @@
 |**everywhere** | **Boolean** |  |  [optional] |
 |**postalCodes** | **String** |  |  [optional] |
 |**countryCodes** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 
 
 

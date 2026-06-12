@@ -11,10 +11,10 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**trackingCode** | **String** |  |  [optional] |
 |**expectedDelivery** | **OffsetDateTime** |  |  [optional] |
-|**locationID** | **String** |  |  [optional] |
-|**businessID** | **String** |  |  [optional] |
-|**shipmentID** | **String** |  |  [optional] |
-|**shippingCourierID** | **String** |  |  [optional] |
+|**locationId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**shipmentId** | **String** |  |  [optional] |
+|**shippingCourierId** | **String** |  |  [optional] |
 
 
 

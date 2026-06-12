@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * WebSocketManager
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:56.186474600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class WebSocketManager {
   public static final String SERIALIZED_NAME_IS_WEB_SOCKET_REQUEST = "isWebSocketRequest";
   @SerializedName(SERIALIZED_NAME_IS_WEB_SOCKET_REQUEST)

@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * ForumOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:56.186474600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ForumOptions {
   public static final String SERIALIZED_NAME_FORUMS_PER_PAGE = "forumsPerPage";
   @SerializedName(SERIALIZED_NAME_FORUMS_PER_PAGE)

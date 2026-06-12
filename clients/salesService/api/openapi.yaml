@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SalesService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -920,6 +920,65 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing loyalty program using a JSON Patch
+        document.
+      operationId: PatchLoyaltyProgramAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: loyaltyProgramId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a loyalty program
+      tags:
+      - LoyaltyPrograms
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing loyalty program by its unique identifier.
       operationId: UpdateLoyaltyProgramAsync
@@ -1221,6 +1280,65 @@ paths:
       summary: Get point of sale by ID
       tags:
       - PointOfSales
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing point of sale using a JSON Patch
+        document.
+      operationId: PatchPointOfSaleAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: pointOfSaleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a point of sale
+      tags:
+      - PointOfSales
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1532,6 +1650,65 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates an existing sales literature using a JSON Patch
+        document.
+      operationId: PatchSalesLiteratureAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: salesLiteratureId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a sales literature
+      tags:
+      - SalesLiteratures
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates an existing sales literature by its unique identifier.
       operationId: UpdateSalesLiteratureAsync
@@ -1798,6 +1975,64 @@ paths:
       summary: Get store by ID
       tags:
       - Stores
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing store using a JSON Patch document.
+      operationId: PatchStoreAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: storeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a store
+      tags:
+      - Stores
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2461,6 +2696,38 @@ components:
         priceListId:
           nullable: true
           type: string
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     PointOfSaleCreateDto:
       additionalProperties: false

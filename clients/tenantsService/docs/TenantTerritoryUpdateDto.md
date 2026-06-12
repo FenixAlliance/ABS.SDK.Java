@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**parentTerritoryId** | **String** |  |  [optional] |
 
 
 

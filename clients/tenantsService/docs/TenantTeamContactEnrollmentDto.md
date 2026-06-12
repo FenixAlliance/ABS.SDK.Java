@@ -12,7 +12,7 @@
 |**teamId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
-|**contactID** | **String** |  |  [optional] |
+|**contactId** | **String** |  |  [optional] |
 
 
 

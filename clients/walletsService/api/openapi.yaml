@@ -9,7 +9,7 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: WalletsService
-  version: 2.1.2.5401
+  version: 2.1.2.5532
 servers:
 - url: /
 tags:
@@ -2601,6 +2601,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a specific bank account of a specific wallet by
+        ID.
+      operationId: PatchWalletBankAccountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch Wallet Bank Account
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a specific bank account of a specific wallet by ID.
       operationId: UpdateWalletBankAccountAsync
@@ -3563,6 +3645,88 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially update a specific payment token of a specific wallet
+        by ID.
+      operationId: PatchWalletTokenAsync
+      parameters:
+      - explode: false
+        in: path
+        name: walletId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch Wallet Token
+      tags:
+      - Wallets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a specific payment token of a specific wallet by ID.
       operationId: UpdateWalletTokenAsync
@@ -3672,8 +3836,8 @@ components:
       additionalProperties: false
       example:
         branchCode: branchCode
+        walletId: walletId
         bankId: bankId
-        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
@@ -3703,15 +3867,17 @@ components:
         bankAccountNumber:
           nullable: true
           type: string
-        qualifiedName:
-          nullable: true
-          type: string
         bankId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
         bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        walletId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -3881,8 +4047,8 @@ components:
       additionalProperties: false
       example:
         branchCode: branchCode
+        walletId: walletId
         bankId: bankId
-        qualifiedName: qualifiedName
         iban: iban
         name: name
         bankAccountNumber: bankAccountNumber
@@ -3904,15 +4070,17 @@ components:
         bankAccountNumber:
           nullable: true
           type: string
-        qualifiedName:
-          nullable: true
-          type: string
         bankId:
           maxLength: 36
           minLength: 0
           nullable: true
           type: string
         bankProfileId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        walletId:
           maxLength: 36
           minLength: 0
           nullable: true
@@ -6307,12 +6475,6 @@ components:
       additionalProperties: false
       example:
         isDefaultSuppingLocation: true
-        business: business
-        address3: address3
-        address2: address2
-        isDefaultReturnAddress: true
-        address1: address1
-        stateId: stateId
         postalCode: postalCode
         latitude: 6.027456183070403
         isGlobalPrimary: true
@@ -6322,14 +6484,22 @@ components:
         isCountryPrimary: true
         countryId: countryId
         isDefaultSenderAddress: true
-        unit: unit
-        canGenerateLabels: true
-        phone: phone
         id: id
         fax: fax
         email: email
         timestamp: 2000-01-23T04:56:07.000+00:00
         longitude: 0.8008281904610115
+        enrollmentId: enrollmentId
+        business: business
+        address3: address3
+        address2: address2
+        isDefaultReturnAddress: true
+        address1: address1
+        stateId: stateId
+        unit: unit
+        canGenerateLabels: true
+        phone: phone
+        tenantId: tenantId
       properties:
         id:
           nullable: true
@@ -6397,18 +6567,18 @@ components:
           type: boolean
         isDefaultSuppingLocation:
           type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     LocationDtoEnvelope:
       additionalProperties: false
       example:
         result:
           isDefaultSuppingLocation: true
-          business: business
-          address3: address3
-          address2: address2
-          isDefaultReturnAddress: true
-          address1: address1
-          stateId: stateId
           postalCode: postalCode
           latitude: 6.027456183070403
           isGlobalPrimary: true
@@ -6418,14 +6588,22 @@ components:
           isCountryPrimary: true
           countryId: countryId
           isDefaultSenderAddress: true
-          unit: unit
-          canGenerateLabels: true
-          phone: phone
           id: id
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: 0.8008281904610115
+          enrollmentId: enrollmentId
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          tenantId: tenantId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -6457,12 +6635,6 @@ components:
       example:
         result:
         - isDefaultSuppingLocation: true
-          business: business
-          address3: address3
-          address2: address2
-          isDefaultReturnAddress: true
-          address1: address1
-          stateId: stateId
           postalCode: postalCode
           latitude: 6.027456183070403
           isGlobalPrimary: true
@@ -6472,21 +6644,23 @@ components:
           isCountryPrimary: true
           countryId: countryId
           isDefaultSenderAddress: true
-          unit: unit
-          canGenerateLabels: true
-          phone: phone
           id: id
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: 0.8008281904610115
+          enrollmentId: enrollmentId
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          tenantId: tenantId
         - isDefaultSuppingLocation: true
-          business: business
-          address3: address3
-          address2: address2
-          isDefaultReturnAddress: true
-          address1: address1
-          stateId: stateId
           postalCode: postalCode
           latitude: 6.027456183070403
           isGlobalPrimary: true
@@ -6496,14 +6670,22 @@ components:
           isCountryPrimary: true
           countryId: countryId
           isDefaultSenderAddress: true
-          unit: unit
-          canGenerateLabels: true
-          phone: phone
           id: id
           fax: fax
           email: email
           timestamp: 2000-01-23T04:56:07.000+00:00
           longitude: 0.8008281904610115
+          enrollmentId: enrollmentId
+          business: business
+          address3: address3
+          address2: address2
+          isDefaultReturnAddress: true
+          address1: address1
+          stateId: stateId
+          unit: unit
+          canGenerateLabels: true
+          phone: phone
+          tenantId: tenantId
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -6638,6 +6820,38 @@ components:
       required:
       - email
       - password
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
       type: object
     OrderDto:
       additionalProperties: false
@@ -7580,6 +7794,8 @@ components:
         signatureMismatch: true
         authorization: authorization
         lastUpdated: 2000-01-23T04:56:07.000+00:00
+        emisorWalletAccountId: emisorWalletAccountId
+        receiverWalletAccountId: receiverWalletAccountId
         id: id
         currencyId: currencyId
         enrollmentId: enrollmentId
@@ -7823,6 +8039,12 @@ components:
         paymentTokenId:
           nullable: true
           type: string
+        emisorWalletAccountId:
+          nullable: true
+          type: string
+        receiverWalletAccountId:
+          nullable: true
+          type: string
       type: object
     PaymentDtoListEnvelope:
       additionalProperties: false
@@ -7835,6 +8057,8 @@ components:
           signatureMismatch: true
           authorization: authorization
           lastUpdated: 2000-01-23T04:56:07.000+00:00
+          emisorWalletAccountId: emisorWalletAccountId
+          receiverWalletAccountId: receiverWalletAccountId
           id: id
           currencyId: currencyId
           enrollmentId: enrollmentId
@@ -7894,6 +8118,8 @@ components:
           signatureMismatch: true
           authorization: authorization
           lastUpdated: 2000-01-23T04:56:07.000+00:00
+          emisorWalletAccountId: emisorWalletAccountId
+          receiverWalletAccountId: receiverWalletAccountId
           id: id
           currencyId: currencyId
           enrollmentId: enrollmentId

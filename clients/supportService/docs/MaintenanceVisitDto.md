@@ -10,7 +10,7 @@
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**businessProfileRecordId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

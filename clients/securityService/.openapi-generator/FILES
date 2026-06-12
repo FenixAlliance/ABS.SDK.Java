@@ -38,6 +38,7 @@ docs/OAuthApplicationsApi.md
 docs/OAuthAuthorizationDto.md
 docs/OAuthAuthorizationDtoEnvelope.md
 docs/OAuthAuthorizationDtoListEnvelope.md
+docs/Operation.md
 docs/PermissionsApi.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
@@ -130,6 +131,7 @@ src/main/java/org/openapitools/client/model/OAuthApplicationUpdateDto.java
 src/main/java/org/openapitools/client/model/OAuthAuthorizationDto.java
 src/main/java/org/openapitools/client/model/OAuthAuthorizationDtoEnvelope.java
 src/main/java/org/openapitools/client/model/OAuthAuthorizationDtoListEnvelope.java
+src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
 src/main/java/org/openapitools/client/model/RegisterRequest.java
 src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
@@ -152,5 +154,3 @@ src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
 src/main/java/org/openapitools/client/model/WebhookRequestDto.java
 src/main/java/org/openapitools/client/model/WebhookRequestDtoListEnvelope.java
-src/test/java/org/openapitools/client/api/CompletionsApiTest.java
-src/test/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApiTest.java

@@ -20,8 +20,8 @@
 |**phone** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
-|**businessProfileRecordId** | **String** |  |  [optional] |
-|**accountHolderId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
 |**socialProfileId** | **String** |  |  [optional] |
 
 

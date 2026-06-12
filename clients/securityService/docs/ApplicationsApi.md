@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getBusinessApplicationsCountAsync**](ApplicationsApi.md#getBusinessApplicationsCountAsync) | **GET** /api/v2/SecurityService/Applications/Count | Get business applications count |
 | [**getPermissionsByApplicationAsync**](ApplicationsApi.md#getPermissionsByApplicationAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Permissions | Get permissions by application |
 | [**getRolesByApplicationAsync**](ApplicationsApi.md#getRolesByApplicationAsync) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Roles | Get roles by application |
+| [**patchBusinessApplicationAsync**](ApplicationsApi.md#patchBusinessApplicationAsync) | **PATCH** /api/v2/SecurityService/Applications/{applicationId} | Patch an existing business application |
 | [**updateBusinessApplicationAsync**](ApplicationsApi.md#updateBusinessApplicationAsync) | **PUT** /api/v2/SecurityService/Applications/{applicationId} | Update an existing business application |
 
 
@@ -500,6 +501,79 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchBusinessApplicationAsync"></a>
+# **patchBusinessApplicationAsync**
+> EmptyEnvelope patchBusinessApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion)
+
+Patch an existing business application
+
+Partially updates an existing business application using a JSON Patch document.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ApplicationsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    ApplicationsApi apiInstance = new ApplicationsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String applicationId = "applicationId_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.patchBusinessApplicationAsync(tenantId, applicationId, operation, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ApplicationsApi#patchBusinessApplicationAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **applicationId** | **String**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 | **200** | OK |  -  |
 
 <a id="updateBusinessApplicationAsync"></a>

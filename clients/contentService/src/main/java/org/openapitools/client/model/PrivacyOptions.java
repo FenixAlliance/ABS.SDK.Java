@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * PrivacyOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T03:53:56.186474600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-12T04:06:30.226434500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PrivacyOptions {
   public static final String SERIALIZED_NAME_COOKIES_NOTICE_MESSAGE = "cookiesNoticeMessage";
   @SerializedName(SERIALIZED_NAME_COOKIES_NOTICE_MESSAGE)

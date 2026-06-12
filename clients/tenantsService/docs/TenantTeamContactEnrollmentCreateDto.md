@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**businessTeamID** | **String** |  |  |
-|**contactID** | **String** |  |  |
+|**businessTeamId** | **String** |  |  |
+|**contactId** | **String** |  |  |
 
 
 

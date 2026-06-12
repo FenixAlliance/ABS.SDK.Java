@@ -11,10 +11,10 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**avatarURL** | **URI** |  |  [optional] |
+|**avatarUrl** | **URI** |  |  [optional] |
 |**isPublic** | **Boolean** |  |  [optional] |
-|**businessUnitID** | **String** |  |  [optional] |
-|**organizationProfileID** | **String** |  |  [optional] |
+|**businessUnitId** | **String** |  |  [optional] |
+|**organizationProfileId** | **String** |  |  [optional] |
 
 
 

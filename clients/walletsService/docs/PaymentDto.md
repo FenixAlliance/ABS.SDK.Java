@@ -66,6 +66,8 @@
 |**enrollmentId** | **String** |  |  [optional] |
 |**bankId** | **String** |  |  [optional] |
 |**paymentTokenId** | **String** |  |  [optional] |
+|**emisorWalletAccountId** | **String** |  |  [optional] |
+|**receiverWalletAccountId** | **String** |  |  [optional] |
 
 
 

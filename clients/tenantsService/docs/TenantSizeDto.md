@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**employeeLowRangeValue** | **Integer** |  |  [optional] |
 |**employeeHighRangeValue** | **Integer** |  |  [optional] |
