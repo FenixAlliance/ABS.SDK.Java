@@ -11,6 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
+|**paymentMeansCode** | **String** |  |  [optional] |
 
 
 

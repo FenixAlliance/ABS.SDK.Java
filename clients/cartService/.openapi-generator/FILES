@@ -13,7 +13,6 @@ docs/CartDtoEnvelope.md
 docs/CartUpdateRequest.md
 docs/CartsApi.md
 docs/CompareApi.md
-docs/CompletionsApi.md
 docs/CountryDto.md
 docs/CountryDtoEnvelope.md
 docs/CountrySwitchRequest.md
@@ -22,7 +21,7 @@ docs/CurrencyDtoEnvelope.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -75,8 +74,7 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/CartsApi.java
 src/main/java/org/openapitools/client/api/CompareApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/RecordsApi.java
 src/main/java/org/openapitools/client/api/WishListsApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java

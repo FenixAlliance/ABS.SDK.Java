@@ -1,6 +1,6 @@
 # PointOfSalesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -33,7 +33,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -96,7 +96,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -161,7 +161,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -226,7 +226,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -291,7 +291,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -354,7 +354,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -421,7 +421,7 @@ import org.openapitools.client.api.PointOfSalesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PointOfSalesApi apiInstance = new PointOfSalesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

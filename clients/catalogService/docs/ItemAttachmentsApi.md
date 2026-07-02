@@ -1,6 +1,6 @@
 # ItemAttachmentsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -102,7 +102,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -172,7 +172,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID itemAttachmentId = UUID.randomUUID(); // UUID | 
@@ -242,7 +242,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -310,7 +310,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -382,7 +382,7 @@ import org.openapitools.client.api.ItemAttachmentsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemAttachmentsApi apiInstance = new ItemAttachmentsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

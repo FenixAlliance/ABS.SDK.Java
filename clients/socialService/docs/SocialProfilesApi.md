@@ -1,6 +1,6 @@
 # SocialProfilesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -51,7 +51,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -119,7 +119,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -187,7 +187,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -255,7 +255,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -323,7 +323,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -391,7 +391,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -461,7 +461,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -529,7 +529,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -595,7 +595,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -665,7 +665,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -737,7 +737,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -809,7 +809,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -879,7 +879,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -949,7 +949,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1017,7 +1017,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1085,7 +1085,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1153,7 +1153,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1221,7 +1221,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1289,7 +1289,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1359,7 +1359,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1429,7 +1429,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1497,7 +1497,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1565,7 +1565,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -1631,7 +1631,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -1701,7 +1701,7 @@ import org.openapitools.client.api.SocialProfilesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     SocialProfilesApi apiInstance = new SocialProfilesApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 

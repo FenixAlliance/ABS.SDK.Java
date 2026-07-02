@@ -17,10 +17,9 @@ docs/BillOfLadingLineDtoListEnvelope.md
 docs/BillOfLadingLineUpdateDto.md
 docs/BillOfLadingUpdateDto.md
 docs/BillsOfLadingApi.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -105,8 +104,7 @@ src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/BillsOfLadingApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/ItemShippingPoliciesApi.java
 src/main/java/org/openapitools/client/api/ShipmentsApi.java
 src/main/java/org/openapitools/client/api/ShippingClassesApi.java

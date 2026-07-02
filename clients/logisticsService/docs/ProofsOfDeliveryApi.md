@@ -1,6 +1,6 @@
 # ProofsOfDeliveryApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -46,7 +46,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -117,7 +117,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -188,7 +188,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -257,7 +257,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -326,7 +326,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -397,7 +397,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -468,7 +468,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -537,7 +537,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -606,7 +606,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -675,7 +675,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -744,7 +744,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -813,7 +813,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -881,7 +881,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -948,7 +948,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1021,7 +1021,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1096,7 +1096,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1167,7 +1167,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1238,7 +1238,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1309,7 +1309,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1380,7 +1380,7 @@ import org.openapitools.client.api.ProofsOfDeliveryApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ProofsOfDeliveryApi apiInstance = new ProofsOfDeliveryApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

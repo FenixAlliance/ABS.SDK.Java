@@ -19,6 +19,11 @@
 |**postalCode** | **String** |  |  |
 |**businessName** | **String** |  |  |
 |**commercialName** | **String** |  |  |
+|**verificationDigit** | **String** |  |  [optional] |
+|**economicActivityCode** | **String** |  |  [optional] |
+|**economicActivityScheme** | **String** |  |  [optional] |
+|**isPrimary** | **Boolean** |  |  [optional] |
+|**establishmentCode** | **String** |  |  [optional] |
 |**ticker** | **String** |  |  [optional] |
 |**duns** | **String** |  |  [optional] |
 |**isPublicCompany** | **Boolean** |  |  [optional] |

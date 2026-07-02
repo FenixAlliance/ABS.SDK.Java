@@ -9,12 +9,21 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: CatalogService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
-- name: Completions
-- name: FenixAlliance.Portals.Website
+- name: FenixAlliance.ABS.Web
 - name: ItemAttachments
 - name: ItemAttributeOptions
 - name: ItemAttributes
@@ -36,337 +45,13 @@ tags:
 - name: ItemWarrantyPolicies
 - name: Merchants
 paths:
-  /api/v2/AiService/Completions/Complete:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: conversationId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "403":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      tags:
-      - Completions
-      x-accepts:
-      - application/json
-      - application/json;IEEE754Compatible=false
-      - application/json;IEEE754Compatible=true
-      - application/json;odata.metadata=full
-      - application/json;odata.metadata=full;IEEE754Compatible=false
-      - application/json;odata.metadata=full;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=true
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal
-      - application/json;odata.metadata=minimal;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=true
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=none
-      - application/json;odata.metadata=none;IEEE754Compatible=false
-      - application/json;odata.metadata=none;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=true
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.streaming=false
-      - application/json;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.streaming=true
-      - application/json;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.streaming=true;IEEE754Compatible=true
-      - application/octet-stream
-      - application/xml
-      - text/json
-      - text/plain
-      - text/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /health:
@@ -375,7 +60,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /hello:
@@ -384,7 +69,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /register:
@@ -405,7 +90,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -440,7 +125,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -460,7 +145,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -493,7 +178,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -508,7 +193,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -530,7 +215,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -552,7 +237,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -580,7 +265,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -603,7 +288,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
       - application/problem+json
@@ -630,7 +315,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -659,7 +344,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -683,7 +368,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -707,7 +392,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -717,7 +402,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /api/v2/CatalogService/ItemAttachments:
@@ -17101,6 +16786,7 @@ components:
         itemId: itemId
         isFolder: true
         parentFileUploadId: parentFileUploadId
+        publicAccessType: "false"
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -17138,6 +16824,13 @@ components:
         filePath:
           nullable: true
           type: string
+        publicAccessType:
+          enum:
+          - "false"
+          - Container
+          - Blob
+          - Unknown
+          type: string
         itemId:
           nullable: true
           type: string
@@ -17145,29 +16838,39 @@ components:
     ItemAttachmentDto:
       additionalProperties: false
       example:
-        keyWords: keyWords
         validResponse: true
-        enrollmentId: enrollmentId
         fileName: fileName
         metadata: metadata
         notes: notes
-        author: author
-        filePath: filePath
-        abstract: abstract
         title: title
-        userId: userId
         folderPath: folderPath
-        itemId: itemId
-        isFolder: true
+        publicAccessType: "false"
         parentFileId: parentFileId
-        tenantId: tenantId
         fileUrl: fileUrl
         id: id
+        thumbnailContentType: thumbnailContentType
         socialProfileId: socialProfileId
         contentType: contentType
-        hash: hash
+        thumbnailHeight: 1
         fileLength: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
+        keyWords: keyWords
+        enrollmentId: enrollmentId
+        hasThumbnail: true
+        author: author
+        filePath: filePath
+        scanStatus: NotRequired
+        thumbnailStorageKey: thumbnailStorageKey
+        abstract: abstract
+        thumbnailWidth: 6
+        storageKey: storageKey
+        userId: userId
+        itemId: itemId
+        isFolder: true
+        storageProviderKey: storageProviderKey
+        tenantId: tenantId
+        thumbnailStatus: NotRequired
+        hash: hash
       properties:
         id:
           nullable: true
@@ -17194,6 +16897,12 @@ components:
           nullable: true
           type: string
         filePath:
+          nullable: true
+          type: string
+        storageKey:
+          nullable: true
+          type: string
+        storageProviderKey:
           nullable: true
           type: string
         fileName:
@@ -17234,6 +16943,45 @@ components:
         folderPath:
           nullable: true
           type: string
+        scanStatus:
+          enum:
+          - NotRequired
+          - Pending
+          - Clean
+          - Infected
+          - Failed
+          - Quarantined
+          type: string
+        thumbnailStatus:
+          enum:
+          - NotRequired
+          - Pending
+          - Ready
+          - Failed
+          - Unsupported
+          type: string
+        hasThumbnail:
+          readOnly: true
+          type: boolean
+        thumbnailStorageKey:
+          nullable: true
+          type: string
+        thumbnailContentType:
+          nullable: true
+          type: string
+        thumbnailWidth:
+          format: int32
+          type: integer
+        thumbnailHeight:
+          format: int32
+          type: integer
+        publicAccessType:
+          enum:
+          - "false"
+          - Container
+          - Blob
+          - Unknown
+          type: string
         itemId:
           nullable: true
           type: string
@@ -17242,29 +16990,39 @@ components:
       additionalProperties: false
       example:
         result:
-          keyWords: keyWords
           validResponse: true
-          enrollmentId: enrollmentId
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          itemId: itemId
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
+          keyWords: keyWords
+          enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          itemId: itemId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -17295,52 +17053,72 @@ components:
       additionalProperties: false
       example:
         result:
-        - keyWords: keyWords
-          validResponse: true
-          enrollmentId: enrollmentId
+        - validResponse: true
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          itemId: itemId
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - keyWords: keyWords
-          validResponse: true
+          keyWords: keyWords
           enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          itemId: itemId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
+        - validResponse: true
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          itemId: itemId
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
+          keyWords: keyWords
+          enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          itemId: itemId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId

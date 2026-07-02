@@ -9,25 +9,40 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: HrmsService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
 - name: AppraisalStages
 - name: AppraisalWorkflows
-- name: Completions
 - name: EmployeeAppraisalSessions
 - name: Employees
 - name: EmployeeTypes
 - name: Employers
-- name: FenixAlliance.Portals.Website
+- name: FenixAlliance.ABS.Web
+- name: GigApplications
 - name: Gigs
+- name: JobApplicants
+- name: JobApplications
+- name: JobFields
+- name: JobOfferFields
 - name: JobOffers
 - name: JobTitles
 - name: LeaveApplications
 - name: LeaveTypes
 - name: PayrollPeriods
 - name: Payrolls
+- name: RequiredSkills
 - name: Salaries
 - name: Schedules
 - name: Shifts
@@ -900,330 +915,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/AiService/Completions/Complete:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: conversationId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "403":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      tags:
-      - Completions
-      x-accepts:
-      - application/json
-      - application/json;IEEE754Compatible=false
-      - application/json;IEEE754Compatible=true
-      - application/json;odata.metadata=full
-      - application/json;odata.metadata=full;IEEE754Compatible=false
-      - application/json;odata.metadata=full;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=true
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal
-      - application/json;odata.metadata=minimal;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=true
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=none
-      - application/json;odata.metadata=none;IEEE754Compatible=false
-      - application/json;odata.metadata=none;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=true
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.streaming=false
-      - application/json;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.streaming=true
-      - application/json;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.streaming=true;IEEE754Compatible=true
-      - application/octet-stream
-      - application/xml
-      - text/json
-      - text/plain
-      - text/xml
   /api/v2/HrmsService/EmployeeAppraisalSessions:
     get:
       description: Retrieves employee appraisal sessions for the specified tenant.
@@ -3320,7 +3011,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /health:
@@ -3329,7 +3020,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /hello:
@@ -3338,7 +3029,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /register:
@@ -3359,7 +3050,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -3394,7 +3085,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3414,7 +3105,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3447,7 +3138,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -3462,7 +3153,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3484,7 +3175,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -3506,7 +3197,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -3534,7 +3225,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3557,7 +3248,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
       - application/problem+json
@@ -3584,7 +3275,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3613,7 +3304,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -3637,7 +3328,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -3661,7 +3352,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -3671,9 +3362,606 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/HrmsService/GigApplications:
+    get:
+      description: Retrieves proposals submitted against the tenant's gigs. Filter
+        with `$filter=GigId eq '...'` or `JobApplicantProfileId eq '...'`.
+      operationId: GetGigApplicationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GigApplicationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GigApplicationDtoListEnvelope'
+          description: OK
+      summary: Get gig applications
+      tags:
+      - GigApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Records a candidate's proposal against one of the tenant's gigs.
+        The targeted gig must belong to the tenant.
+      operationId: CreateGigApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigApplicationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigApplicationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a gig application
+      tags:
+      - GigApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/GigApplications/Count:
+    get:
+      description: Counts proposals submitted against the tenant's gigs.
+      operationId: GetGigApplicationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count gig applications
+      tags:
+      - GigApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/GigApplications/{gigApplicationId}:
+    delete:
+      description: Removes a proposal submitted against one of the tenant's gigs.
+      operationId: DeleteGigApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a gig application
+      tags:
+      - GigApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific proposal submitted against one of the tenant's
+        gigs.
+      operationId: GetGigApplicationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GigApplicationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GigApplicationDtoEnvelope'
+          description: OK
+      summary: Get gig application by ID
+      tags:
+      - GigApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing proposal submitted against one of
+        the tenant's gigs.
+      operationId: PatchGigApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a gig application
+      tags:
+      - GigApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing proposal submitted against one of the tenant's
+        gigs (e.g. accept it).
+      operationId: UpdateGigApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GigApplicationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GigApplicationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a gig application
+      tags:
+      - GigApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/GigApplications/{gigApplicationId}/Accept:
+    post:
+      description: "Accepts the candidate's gig proposal, forming an engagement (raises\
+        \ GigApplicationAccepted). A proposal cannot be accepted twice."
+      operationId: AcceptGigApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: gigApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Accept a gig application
+      tags:
+      - GigApplications
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/HrmsService/Gigs:
     get:
       description: Retrieves gigs for the specified tenant.
@@ -4192,6 +4480,2194 @@ paths:
       summary: Update a gig
       tags:
       - Gigs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplicants:
+    get:
+      description: Retrieves job applicant (candidate) profiles for the specified
+        tenant.
+      operationId: GetJobApplicantsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplicantProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobApplicantProfileDtoListEnvelope'
+          description: OK
+      summary: Get job applicants
+      tags:
+      - JobApplicants
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new job applicant (candidate) profile for the specified
+        tenant.
+      operationId: CreateJobApplicantAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a job applicant
+      tags:
+      - JobApplicants
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplicants/Count:
+    get:
+      description: Counts job applicant profiles for the specified tenant.
+      operationId: GetJobApplicantsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count job applicants
+      tags:
+      - JobApplicants
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplicants/{jobApplicantId}:
+    delete:
+      description: Deletes a job applicant (candidate) profile for the specified tenant.
+      operationId: DeleteJobApplicantAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a job applicant
+      tags:
+      - JobApplicants
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific job applicant (candidate) profile by its identifier.
+      operationId: GetJobApplicantByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobApplicantProfileDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobApplicantProfileDtoEnvelope'
+          description: OK
+      summary: Get job applicant by ID
+      tags:
+      - JobApplicants
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing job applicant (candidate) profile
+        for the specified tenant.
+      operationId: PatchJobApplicantAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job applicant
+      tags:
+      - JobApplicants
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing job applicant (candidate) profile for the specified
+        tenant.
+      operationId: UpdateJobApplicantAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobApplicantProfileUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a job applicant
+      tags:
+      - JobApplicants
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplications:
+    get:
+      description: Retrieves applications submitted against the tenant's job offers.
+        Filter with `$filter=JobOfferId eq '...'` or `JobApplicantProfileId eq '...'`.
+      operationId: GetJobApplicationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferApplicationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferApplicationDtoListEnvelope'
+          description: OK
+      summary: Get job applications
+      tags:
+      - JobApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Records a candidate's application against one of the tenant's job
+        offers. The targeted job offer must belong to the tenant.
+      operationId: CreateJobApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a job application
+      tags:
+      - JobApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplications/Count:
+    get:
+      description: Counts applications submitted against the tenant's job offers.
+      operationId: GetJobApplicationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count job applications
+      tags:
+      - JobApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplications/{jobApplicationId}:
+    delete:
+      description: Removes an application submitted against one of the tenant's job
+        offers.
+      operationId: DeleteJobApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a job application
+      tags:
+      - JobApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific application submitted against one of the tenant's
+        job offers.
+      operationId: GetJobApplicationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferApplicationDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferApplicationDtoEnvelope'
+          description: OK
+      summary: Get job application by ID
+      tags:
+      - JobApplications
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing application submitted against one
+        of the tenant's job offers.
+      operationId: PatchJobApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job application
+      tags:
+      - JobApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing application submitted against one of the tenant's
+        job offers.
+      operationId: UpdateJobApplicationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferApplicationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a job application
+      tags:
+      - JobApplications
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobApplications/{jobApplicationId}/Status:
+    post:
+      description: "Transitions the application to a new funnel status (e.g. UnderReview,\
+        \ Interviewing, Offered, Hired, Rejected). Raises JobApplicationStatusChanged;\
+        \ terminal statuses are immutable."
+      operationId: ChangeJobApplicationStatusAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobApplicationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: status
+        required: true
+        schema:
+          enum:
+          - Submitted
+          - UnderReview
+          - Interviewing
+          - Offered
+          - Hired
+          - Rejected
+          - Withdrawn
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Change job application status
+      tags:
+      - JobApplications
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobFields:
+    get:
+      description: Retrieves job field (role domain) taxonomy entries for the specified
+        tenant.
+      operationId: GetJobFieldsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobFieldDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobFieldDtoListEnvelope'
+          description: OK
+      summary: Get job fields
+      tags:
+      - JobFields
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new job field (role domain) for the specified tenant.
+      operationId: CreateJobFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobFieldCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobFieldCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a job field
+      tags:
+      - JobFields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobFields/Count:
+    get:
+      description: Counts job field taxonomy entries for the specified tenant.
+      operationId: GetJobFieldsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count job fields
+      tags:
+      - JobFields
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobFields/{jobFieldId}:
+    delete:
+      description: Deletes a job field for the specified tenant.
+      operationId: DeleteJobFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a job field
+      tags:
+      - JobFields
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific job field by its identifier.
+      operationId: GetJobFieldByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobFieldDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobFieldDtoEnvelope'
+          description: OK
+      summary: Get job field by ID
+      tags:
+      - JobFields
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing job field for the specified tenant.
+      operationId: PatchJobFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job field
+      tags:
+      - JobFields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing job field for the specified tenant.
+      operationId: UpdateJobFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobFieldUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobFieldUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a job field
+      tags:
+      - JobFields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOfferFields:
+    get:
+      description: Retrieves job-offer field link records for the tenant. Filter with
+        `$filter=JobOfferId eq '...'` or `JobFieldId eq '...'`.
+      operationId: GetJobOfferFieldsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferFieldRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferFieldRecordDtoListEnvelope'
+          description: OK
+      summary: Get job offer fields
+      tags:
+      - JobOfferFields
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Links a job field to a job offer for the specified tenant.
+      operationId: CreateJobOfferFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a job offer field
+      tags:
+      - JobOfferFields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOfferFields/Count:
+    get:
+      description: Counts job-offer field link records for the specified tenant.
+      operationId: GetJobOfferFieldsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count job offer fields
+      tags:
+      - JobOfferFields
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOfferFields/{jobOfferFieldId}:
+    delete:
+      description: Removes a job-offer field link record for the specified tenant.
+      operationId: DeleteJobOfferFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a job offer field
+      tags:
+      - JobOfferFields
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific job-offer field link record by its identifier.
+      operationId: GetJobOfferFieldByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferFieldRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferFieldRecordDtoEnvelope'
+          description: OK
+      summary: Get job offer field by ID
+      tags:
+      - JobOfferFields
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing job-offer field link record for the
+        specified tenant.
+      operationId: PatchJobOfferFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a job offer field
+      tags:
+      - JobOfferFields
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing job-offer field link record for the specified
+        tenant.
+      operationId: UpdateJobOfferFieldAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/JobOfferFieldRecordUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a job offer field
+      tags:
+      - JobOfferFields
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -4715,6 +7191,382 @@ paths:
       tags:
       - JobOffers
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/Public:
+    get:
+      description: Retrieves published job offers for the Talent Portal. Anonymous;
+        optionally scoped to a single tenant.
+      operationId: GetPublicJobOffersAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferDtoListEnvelope'
+          description: OK
+      summary: Get public job offers
+      tags:
+      - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/Public/Count:
+    get:
+      description: Counts published job offers for the Talent Portal. Anonymous; optionally
+        scoped to a single tenant.
+      operationId: GetPublicJobOffersCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count public job offers
+      tags:
+      - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/Public/{jobOfferId}:
+    get:
+      description: Retrieves a published job offer by its identifier for the Talent
+        Portal. Anonymous; optionally scoped to a tenant.
+      operationId: GetPublicJobOfferByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: jobOfferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobOfferDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JobOfferDtoEnvelope'
+          description: OK
+      summary: Get public job offer by ID
+      tags:
+      - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/{jobOfferId}/Publish:
+    post:
+      description: Publishes the job offer to the public Talent Portal (raises JobOfferPublished).
+      operationId: PublishJobOfferAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Publish a job offer
+      tags:
+      - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/{jobOfferId}/Close:
+    post:
+      description: Closes the job offer without a hire and removes it from the public
+        board (raises JobOfferClosed).
+      operationId: CloseJobOfferAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Close a job offer
+      tags:
+      - JobOffers
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/JobOffers/{jobOfferId}/Fill:
+    post:
+      description: Marks the offer filled — converted to a hire — and removes it from
+        the public board (raises JobOfferFilled).
+      operationId: FillJobOfferAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: jobOfferId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Mark a job offer filled
+      tags:
+      - JobOffers
       x-accepts:
       - application/json
       - application/xml
@@ -7145,6 +9997,530 @@ paths:
       summary: Update a payroll
       tags:
       - Payrolls
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/RequiredSkills:
+    get:
+      description: Retrieves required-skill records for the specified tenant. Filter
+        by `$filter=JobOfferId eq '...'` or `EmployerProfileId eq '...'`.
+      operationId: GetRequiredSkillsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredSkillRecordDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RequiredSkillRecordDtoListEnvelope'
+          description: OK
+      summary: Get required skills
+      tags:
+      - RequiredSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new required-skill record for the specified tenant.
+      operationId: CreateRequiredSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a required skill
+      tags:
+      - RequiredSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/RequiredSkills/Count:
+    get:
+      description: Counts required-skill records for the specified tenant.
+      operationId: GetRequiredSkillsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count required skills
+      tags:
+      - RequiredSkills
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/HrmsService/RequiredSkills/{requiredSkillId}:
+    delete:
+      description: Deletes a required-skill record for the specified tenant.
+      operationId: DeleteRequiredSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: requiredSkillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a required skill
+      tags:
+      - RequiredSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific required-skill record by its identifier.
+      operationId: GetRequiredSkillByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: requiredSkillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredSkillRecordDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RequiredSkillRecordDtoEnvelope'
+          description: OK
+      summary: Get required skill by ID
+      tags:
+      - RequiredSkills
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing required-skill record for the specified
+        tenant.
+      operationId: PatchRequiredSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: requiredSkillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a required skill
+      tags:
+      - RequiredSkills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing required-skill record for the specified tenant.
+      operationId: UpdateRequiredSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: requiredSkillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RequiredSkillRecordUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a required skill
+      tags:
+      - RequiredSkills
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -11058,6 +14434,202 @@ components:
           nullable: true
           type: string
       type: object
+    ContactCreateDto:
+      additionalProperties: false
+      example:
+        birthday: 2000-01-23T04:56:07.000+00:00
+        streetLine2: streetLine2
+        lastName: lastName
+        streetLine1: streetLine1
+        postalCode: postalCode
+        jobTitle: jobTitle
+        twitterUrl: twitterUrl
+        about: about
+        tikTokUrl: tikTokUrl
+        cityId: cityId
+        type: Individual
+        countryId: countryId
+        redditUrl: redditUrl
+        stackOverflowUrl: stackOverflowUrl
+        facebookUrl: facebookUrl
+        stackExchangeUrl: stackExchangeUrl
+        websiteUrl: websiteUrl
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        email: email
+        gitHubUrl: gitHubUrl
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        parentContactId: parentContactId
+        linkedInUrl: linkedInUrl
+        qualifiedName: qualifiedName
+        stateId: stateId
+        languageId: languageId
+        twitchUrl: twitchUrl
+        tikTokUsername: tikTokUsername
+        primaryContactId: primaryContactId
+        firstName: firstName
+        githubUsername: githubUsername
+        instagramUsername: instagramUsername
+        mobilePhone: mobilePhone
+        taxId: taxId
+        webUrl: webUrl
+        duns: duns
+        timezoneId: timezoneId
+        faxNumber: faxNumber
+        instagramUrl: instagramUrl
+        businessPhone: businessPhone
+        youTubeUrl: youTubeUrl
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          enum:
+          - Individual
+          - Organization
+          type: string
+        firstName:
+          maxLength: 50
+          minLength: 1
+          type: string
+        lastName:
+          maxLength: 50
+          nullable: true
+          type: string
+        email:
+          format: email
+          minLength: 1
+          type: string
+        taxId:
+          maxLength: 20
+          minLength: 0
+          nullable: true
+          type: string
+        primaryContactId:
+          maxLength: 36
+          minLength: 0
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        about:
+          maxLength: 500
+          nullable: true
+          type: string
+        countryId:
+          maxLength: 3
+          minLength: 0
+          nullable: true
+          type: string
+        stateId:
+          nullable: true
+          type: string
+        cityId:
+          nullable: true
+          type: string
+        mobilePhone:
+          format: tel
+          nullable: true
+          type: string
+        businessPhone:
+          format: tel
+          nullable: true
+          type: string
+        postalCode:
+          nullable: true
+          pattern: "^[\\w\\s-]{3,10}$"
+          type: string
+        duns:
+          maxLength: 9
+          minLength: 0
+          nullable: true
+          type: string
+        jobTitle:
+          nullable: true
+          type: string
+        webUrl:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        languageId:
+          nullable: true
+          type: string
+        timezoneId:
+          nullable: true
+          type: string
+        birthday:
+          format: date-time
+          nullable: true
+          type: string
+        streetLine1:
+          nullable: true
+          type: string
+        streetLine2:
+          nullable: true
+          type: string
+        gitHubUrl:
+          nullable: true
+          type: string
+        twitchUrl:
+          nullable: true
+          type: string
+        redditUrl:
+          nullable: true
+          type: string
+        tikTokUrl:
+          nullable: true
+          type: string
+        websiteUrl:
+          nullable: true
+          type: string
+        twitterUrl:
+          nullable: true
+          type: string
+        facebookUrl:
+          nullable: true
+          type: string
+        youTubeUrl:
+          nullable: true
+          type: string
+        linkedInUrl:
+          nullable: true
+          type: string
+        instagramUrl:
+          nullable: true
+          type: string
+        githubUsername:
+          nullable: true
+          type: string
+        instagramUsername:
+          nullable: true
+          type: string
+        tikTokUsername:
+          nullable: true
+          type: string
+        stackExchangeUrl:
+          nullable: true
+          type: string
+        stackOverflowUrl:
+          nullable: true
+          type: string
+        parentContactId:
+          nullable: true
+          type: string
+        faxNumber:
+          nullable: true
+          type: string
+      required:
+      - email
+      - firstName
+      - type
+      type: object
     ContactDto:
       additionalProperties: false
       example:
@@ -11490,6 +15062,49 @@ components:
         data8Label: data8Label
         type: type
         employeeTypeId: employeeTypeId
+        contact:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          streetLine2: streetLine2
+          lastName: lastName
+          streetLine1: streetLine1
+          postalCode: postalCode
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          about: about
+          tikTokUrl: tikTokUrl
+          cityId: cityId
+          type: Individual
+          countryId: countryId
+          redditUrl: redditUrl
+          stackOverflowUrl: stackOverflowUrl
+          facebookUrl: facebookUrl
+          stackExchangeUrl: stackExchangeUrl
+          websiteUrl: websiteUrl
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          parentContactId: parentContactId
+          linkedInUrl: linkedInUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          languageId: languageId
+          twitchUrl: twitchUrl
+          tikTokUsername: tikTokUsername
+          primaryContactId: primaryContactId
+          firstName: firstName
+          githubUsername: githubUsername
+          instagramUsername: instagramUsername
+          mobilePhone: mobilePhone
+          taxId: taxId
+          webUrl: webUrl
+          duns: duns
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
         grossPay: 0.8008281904610115
         data5Label: data5Label
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -11528,6 +15143,8 @@ components:
         contactId:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactCreateDto'
         about:
           nullable: true
           type: string
@@ -12481,6 +16098,49 @@ components:
         about: about
         data8Label: data8Label
         type: type
+        contact:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          streetLine2: streetLine2
+          lastName: lastName
+          streetLine1: streetLine1
+          postalCode: postalCode
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          about: about
+          tikTokUrl: tikTokUrl
+          cityId: cityId
+          type: Individual
+          countryId: countryId
+          redditUrl: redditUrl
+          stackOverflowUrl: stackOverflowUrl
+          facebookUrl: facebookUrl
+          stackExchangeUrl: stackExchangeUrl
+          websiteUrl: websiteUrl
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          parentContactId: parentContactId
+          linkedInUrl: linkedInUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          languageId: languageId
+          twitchUrl: twitchUrl
+          tikTokUsername: tikTokUsername
+          primaryContactId: primaryContactId
+          firstName: firstName
+          githubUsername: githubUsername
+          instagramUsername: instagramUsername
+          mobilePhone: mobilePhone
+          taxId: taxId
+          webUrl: webUrl
+          duns: duns
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
         data5Label: data5Label
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         data2Label: data2Label
@@ -12516,6 +16176,8 @@ components:
         contactId:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactCreateDto'
         about:
           nullable: true
           type: string
@@ -13284,6 +16946,218 @@ components:
       required:
       - email
       type: object
+    GigApplicationCreateDto:
+      additionalProperties: false
+      example:
+        proposal: proposal
+        curriculumCoverId: curriculumCoverId
+        cost: 0.8008281904610115
+        jobApplicantProfileId: jobApplicantProfileId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        gigId: gigId
+        currencyId: currencyId
+        curriculumId: curriculumId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        proposal:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        gigId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+      type: object
+    GigApplicationDto:
+      additionalProperties: false
+      example:
+        proposal: proposal
+        curriculumCoverId: curriculumCoverId
+        cost: 0.8008281904610115
+        jobApplicantProfileId: jobApplicantProfileId
+        acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
+        accepted: true
+        id: id
+        gigId: gigId
+        currencyId: currencyId
+        curriculumId: curriculumId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        acceptedTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        accepted:
+          type: boolean
+        proposal:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        gigId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+      type: object
+    GigApplicationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          proposal: proposal
+          curriculumCoverId: curriculumCoverId
+          cost: 0.8008281904610115
+          jobApplicantProfileId: jobApplicantProfileId
+          acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
+          accepted: true
+          id: id
+          gigId: gigId
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/GigApplicationDto'
+      type: object
+    GigApplicationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - proposal: proposal
+          curriculumCoverId: curriculumCoverId
+          cost: 0.8008281904610115
+          jobApplicantProfileId: jobApplicantProfileId
+          acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
+          accepted: true
+          id: id
+          gigId: gigId
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - proposal: proposal
+          curriculumCoverId: curriculumCoverId
+          cost: 0.8008281904610115
+          jobApplicantProfileId: jobApplicantProfileId
+          acceptedTimestamp: 2000-01-23T04:56:07.000+00:00
+          accepted: true
+          id: id
+          gigId: gigId
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/GigApplicationDto'
+          nullable: true
+          type: array
+      type: object
+    GigApplicationUpdateDto:
+      additionalProperties: false
+      example:
+        proposal: proposal
+        curriculumCoverId: curriculumCoverId
+        cost: 0.8008281904610115
+        currencyId: currencyId
+        curriculumId: curriculumId
+      properties:
+        proposal:
+          nullable: true
+          type: string
+        cost:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+      type: object
     GigCreateDto:
       additionalProperties: false
       example:
@@ -14003,6 +17877,1324 @@ components:
           format: int32
           type: integer
       type: object
+    JobApplicantProfileCreateDto:
+      additionalProperties: false
+      example:
+        data: data
+        currentSalary: 6.027456183070403
+        experienceInYears: 0
+        about: about
+        data8Label: data8Label
+        type: type
+        contact:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          streetLine2: streetLine2
+          lastName: lastName
+          streetLine1: streetLine1
+          postalCode: postalCode
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          about: about
+          tikTokUrl: tikTokUrl
+          cityId: cityId
+          type: Individual
+          countryId: countryId
+          redditUrl: redditUrl
+          stackOverflowUrl: stackOverflowUrl
+          facebookUrl: facebookUrl
+          stackExchangeUrl: stackExchangeUrl
+          websiteUrl: websiteUrl
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          parentContactId: parentContactId
+          linkedInUrl: linkedInUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          languageId: languageId
+          twitchUrl: twitchUrl
+          tikTokUsername: tikTokUsername
+          primaryContactId: primaryContactId
+          firstName: firstName
+          githubUsername: githubUsername
+          instagramUsername: instagramUsername
+          mobilePhone: mobilePhone
+          taxId: taxId
+          webUrl: webUrl
+          duns: duns
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+        data5Label: data5Label
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        currencyId: currencyId
+        data2Label: data2Label
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        maxSalaryExpectation: 5.962133916683182
+        availableForHire: true
+        careerLevel: Junior
+        minSalaryExpectation: 1.4658129805029452
+        data7Label: data7Label
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactCreateDto'
+        about:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        availableForHire:
+          type: boolean
+        careerLevel:
+          enum:
+          - Junior
+          - Intermediate
+          - MidLevel
+          - Executive
+          - Senior
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        currentSalary:
+          format: double
+          type: number
+        minSalaryExpectation:
+          format: double
+          type: number
+        maxSalaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    JobApplicantProfileDto:
+      additionalProperties: false
+      example:
+        data: data
+        currentSalary: 6.027456183070403
+        experienceInYears: 0
+        about: about
+        data8Label: data8Label
+        type: type
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
+        data5Label: data5Label
+        id: id
+        currencyId: currencyId
+        data2Label: data2Label
+        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        enrollmentId: enrollmentId
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        qualifiedName: qualifiedName
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        verified: true
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        maxSalaryExpectation: 5.962133916683182
+        submitted: true
+        availableForHire: true
+        careerLevel: Junior
+        tenantId: tenantId
+        minSalaryExpectation: 1.4658129805029452
+        data7Label: data7Label
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        submitted:
+          type: boolean
+        avatarUrl:
+          nullable: true
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
+        qualifiedName:
+          nullable: true
+          readOnly: true
+          type: string
+        verificationTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        availableForHire:
+          type: boolean
+        careerLevel:
+          enum:
+          - Junior
+          - Intermediate
+          - MidLevel
+          - Executive
+          - Senior
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        currentSalary:
+          format: double
+          type: number
+        minSalaryExpectation:
+          format: double
+          type: number
+        maxSalaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    JobApplicantProfileDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          data: data
+          currentSalary: 6.027456183070403
+          experienceInYears: 0
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          maxSalaryExpectation: 5.962133916683182
+          submitted: true
+          availableForHire: true
+          careerLevel: Junior
+          tenantId: tenantId
+          minSalaryExpectation: 1.4658129805029452
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JobApplicantProfileDto'
+      type: object
+    JobApplicantProfileDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - data: data
+          currentSalary: 6.027456183070403
+          experienceInYears: 0
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          maxSalaryExpectation: 5.962133916683182
+          submitted: true
+          availableForHire: true
+          careerLevel: Junior
+          tenantId: tenantId
+          minSalaryExpectation: 1.4658129805029452
+          data7Label: data7Label
+        - data: data
+          currentSalary: 6.027456183070403
+          experienceInYears: 0
+          about: about
+          data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          data5Label: data5Label
+          id: id
+          currencyId: currencyId
+          data2Label: data2Label
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          data9: data9
+          enrollmentId: enrollmentId
+          data8: data8
+          data7: data7
+          data6: data6
+          data5: data5
+          contactId: contactId
+          avatarUrl: avatarUrl
+          data4: data4
+          qualifiedName: qualifiedName
+          data3: data3
+          data9Label: data9Label
+          data2: data2
+          verified: true
+          dataLabel: dataLabel
+          data1: data1
+          data3Label: data3Label
+          data6Label: data6Label
+          data1Label: data1Label
+          data4Label: data4Label
+          maxSalaryExpectation: 5.962133916683182
+          submitted: true
+          availableForHire: true
+          careerLevel: Junior
+          tenantId: tenantId
+          minSalaryExpectation: 1.4658129805029452
+          data7Label: data7Label
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/JobApplicantProfileDto'
+          nullable: true
+          type: array
+      type: object
+    JobApplicantProfileUpdateDto:
+      additionalProperties: false
+      example:
+        data: data
+        currentSalary: 6.027456183070403
+        experienceInYears: 0
+        about: about
+        data8Label: data8Label
+        type: type
+        data5Label: data5Label
+        currencyId: currencyId
+        data2Label: data2Label
+        data9: data9
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        maxSalaryExpectation: 5.962133916683182
+        availableForHire: true
+        careerLevel: Junior
+        minSalaryExpectation: 1.4658129805029452
+        data7Label: data7Label
+      properties:
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+        availableForHire:
+          type: boolean
+        careerLevel:
+          enum:
+          - Junior
+          - Intermediate
+          - MidLevel
+          - Executive
+          - Senior
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        currentSalary:
+          format: double
+          type: number
+        minSalaryExpectation:
+          format: double
+          type: number
+        maxSalaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+      type: object
+    JobFieldCreateDto:
+      additionalProperties: false
+      example:
+        imageUrl: imageUrl
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    JobFieldDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        imageUrl: imageUrl
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    JobFieldDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          imageUrl: imageUrl
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JobFieldDto'
+      type: object
+    JobFieldDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          imageUrl: imageUrl
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          imageUrl: imageUrl
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/JobFieldDto'
+          nullable: true
+          type: array
+      type: object
+    JobFieldUpdateDto:
+      additionalProperties: false
+      example:
+        imageUrl: imageUrl
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          nullable: true
+          type: string
+        imageUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    JobOfferApplicationCreateDto:
+      additionalProperties: false
+      example:
+        curriculumCoverId: curriculumCoverId
+        partnerProfileId: partnerProfileId
+        jobApplicantProfileId: jobApplicantProfileId
+        jobOfferId: jobOfferId
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        salaryExpectation: 0.8008281904610115
+        currencyId: currencyId
+        curriculumId: curriculumId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        start:
+          format: date-time
+          type: string
+        end:
+          format: date-time
+          type: string
+        salaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+      type: object
+    JobOfferApplicationDto:
+      additionalProperties: false
+      example:
+        curriculumCoverId: curriculumCoverId
+        partnerProfileId: partnerProfileId
+        jobApplicantProfileId: jobApplicantProfileId
+        jobOfferId: jobOfferId
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        id: id
+        salaryExpectation: 0.8008281904610115
+        currencyId: currencyId
+        curriculumId: curriculumId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        status: Submitted
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          enum:
+          - Submitted
+          - UnderReview
+          - Interviewing
+          - Offered
+          - Hired
+          - Rejected
+          - Withdrawn
+          type: string
+        start:
+          format: date-time
+          type: string
+        end:
+          format: date-time
+          type: string
+        salaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+      type: object
+    JobOfferApplicationDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          curriculumCoverId: curriculumCoverId
+          partnerProfileId: partnerProfileId
+          jobApplicantProfileId: jobApplicantProfileId
+          jobOfferId: jobOfferId
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          id: id
+          salaryExpectation: 0.8008281904610115
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          status: Submitted
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JobOfferApplicationDto'
+      type: object
+    JobOfferApplicationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - curriculumCoverId: curriculumCoverId
+          partnerProfileId: partnerProfileId
+          jobApplicantProfileId: jobApplicantProfileId
+          jobOfferId: jobOfferId
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          id: id
+          salaryExpectation: 0.8008281904610115
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          status: Submitted
+        - curriculumCoverId: curriculumCoverId
+          partnerProfileId: partnerProfileId
+          jobApplicantProfileId: jobApplicantProfileId
+          jobOfferId: jobOfferId
+          start: 2000-01-23T04:56:07.000+00:00
+          end: 2000-01-23T04:56:07.000+00:00
+          id: id
+          salaryExpectation: 0.8008281904610115
+          currencyId: currencyId
+          curriculumId: curriculumId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          status: Submitted
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/JobOfferApplicationDto'
+          nullable: true
+          type: array
+      type: object
+    JobOfferApplicationUpdateDto:
+      additionalProperties: false
+      example:
+        curriculumCoverId: curriculumCoverId
+        partnerProfileId: partnerProfileId
+        start: 2000-01-23T04:56:07.000+00:00
+        end: 2000-01-23T04:56:07.000+00:00
+        salaryExpectation: 0.8008281904610115
+        currencyId: currencyId
+        curriculumId: curriculumId
+      properties:
+        start:
+          format: date-time
+          type: string
+        end:
+          format: date-time
+          type: string
+        salaryExpectation:
+          format: double
+          type: number
+        currencyId:
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        curriculumCoverId:
+          nullable: true
+          type: string
+        partnerProfileId:
+          nullable: true
+          type: string
+      type: object
     JobOfferCreateDto:
       additionalProperties: false
       example:
@@ -14226,6 +19418,7 @@ components:
         technicalSkills: technicalSkills
         data7Label: data7Label
         expectedHireDate: 2000-01-23T04:56:07.000+00:00
+        status: Draft
         benefits: benefits
         minOverallExperienceYears: 0
         employerProfileId: employerProfileId
@@ -14261,6 +19454,13 @@ components:
         timestamp:
           format: date-time
           nullable: true
+          type: string
+        status:
+          enum:
+          - Draft
+          - Published
+          - Closed
+          - Filled
           type: string
         remote:
           type: boolean
@@ -14436,6 +19636,7 @@ components:
           technicalSkills: technicalSkills
           data7Label: data7Label
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
+          status: Draft
           benefits: benefits
           minOverallExperienceYears: 0
           employerProfileId: employerProfileId
@@ -14518,6 +19719,7 @@ components:
           technicalSkills: technicalSkills
           data7Label: data7Label
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
+          status: Draft
           benefits: benefits
           minOverallExperienceYears: 0
           employerProfileId: employerProfileId
@@ -14570,6 +19772,7 @@ components:
           technicalSkills: technicalSkills
           data7Label: data7Label
           expectedHireDate: 2000-01-23T04:56:07.000+00:00
+          status: Draft
           benefits: benefits
           minOverallExperienceYears: 0
           employerProfileId: employerProfileId
@@ -14626,6 +19829,152 @@ components:
             $ref: '#/components/schemas/JobOfferDto'
           nullable: true
           type: array
+      type: object
+    JobOfferFieldRecordCreateDto:
+      additionalProperties: false
+      example:
+        jobFieldId: jobFieldId
+        jobOfferId: jobOfferId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        jobFieldId:
+          minLength: 1
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+      required:
+      - jobFieldId
+      type: object
+    JobOfferFieldRecordDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        jobFieldId: jobFieldId
+        jobOfferId: jobOfferId
+        tenantId: tenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        jobFieldId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    JobOfferFieldRecordDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          jobFieldId: jobFieldId
+          jobOfferId: jobOfferId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JobOfferFieldRecordDto'
+      type: object
+    JobOfferFieldRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          jobFieldId: jobFieldId
+          jobOfferId: jobOfferId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          jobFieldId: jobFieldId
+          jobOfferId: jobOfferId
+          tenantId: tenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/JobOfferFieldRecordDto'
+          nullable: true
+          type: array
+      type: object
+    JobOfferFieldRecordUpdateDto:
+      additionalProperties: false
+      example:
+        jobFieldId: jobFieldId
+        jobOfferId: jobOfferId
+      properties:
+        jobFieldId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
       type: object
     JobOfferUpdateDto:
       additionalProperties: false
@@ -15770,6 +21119,218 @@ components:
       required:
       - email
       - password
+      type: object
+    RequiredSkillRecordCreateDto:
+      additionalProperties: false
+      example:
+        requiredSkillRecordType: MustHave
+        skillId: skillId
+        employerProfileId: employerProfileId
+        jobOfferId: jobOfferId
+        experienceInYears: 0
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        priority: 6.027456183070403
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        skillId:
+          minLength: 1
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        priority:
+          format: double
+          type: number
+        requiredSkillRecordType:
+          enum:
+          - MustHave
+          - Optional
+          type: string
+      required:
+      - skillId
+      type: object
+    RequiredSkillRecordDto:
+      additionalProperties: false
+      example:
+        requiredSkillRecordType: MustHave
+        skillId: skillId
+        enrollmentId: enrollmentId
+        employerProfileId: employerProfileId
+        jobOfferId: jobOfferId
+        experienceInYears: 0
+        tenantId: tenantId
+        id: id
+        priority: 6.027456183070403
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        priority:
+          format: double
+          type: number
+        requiredSkillRecordType:
+          enum:
+          - MustHave
+          - Optional
+          type: string
+        skillId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    RequiredSkillRecordDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          requiredSkillRecordType: MustHave
+          skillId: skillId
+          enrollmentId: enrollmentId
+          employerProfileId: employerProfileId
+          jobOfferId: jobOfferId
+          experienceInYears: 0
+          tenantId: tenantId
+          id: id
+          priority: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/RequiredSkillRecordDto'
+      type: object
+    RequiredSkillRecordDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - requiredSkillRecordType: MustHave
+          skillId: skillId
+          enrollmentId: enrollmentId
+          employerProfileId: employerProfileId
+          jobOfferId: jobOfferId
+          experienceInYears: 0
+          tenantId: tenantId
+          id: id
+          priority: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - requiredSkillRecordType: MustHave
+          skillId: skillId
+          enrollmentId: enrollmentId
+          employerProfileId: employerProfileId
+          jobOfferId: jobOfferId
+          experienceInYears: 0
+          tenantId: tenantId
+          id: id
+          priority: 6.027456183070403
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/RequiredSkillRecordDto'
+          nullable: true
+          type: array
+      type: object
+    RequiredSkillRecordUpdateDto:
+      additionalProperties: false
+      example:
+        requiredSkillRecordType: MustHave
+        skillId: skillId
+        employerProfileId: employerProfileId
+        jobOfferId: jobOfferId
+        experienceInYears: 0
+        priority: 6.027456183070403
+      properties:
+        skillId:
+          nullable: true
+          type: string
+        jobOfferId:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+        experienceInYears:
+          format: int32
+          type: integer
+        priority:
+          format: double
+          type: number
+        requiredSkillRecordType:
+          enum:
+          - MustHave
+          - Optional
+          type: string
       type: object
     ResendConfirmationEmailRequest:
       additionalProperties: false

@@ -8,7 +8,7 @@ build.sbt
 docs/AccessTokenResponse.md
 docs/AverageDto.md
 docs/AverageDtoEnvelope.md
-docs/CompletionsApi.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/CountDto.md
 docs/CountDtoEnvelope.md
@@ -112,7 +112,7 @@ docs/CourseWikisApi.md
 docs/CoursesApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -158,7 +158,6 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
 src/main/java/org/openapitools/client/api/CourseArticlesApi.java
 src/main/java/org/openapitools/client/api/CourseAssignmentComponentsApi.java
 src/main/java/org/openapitools/client/api/CourseAssignmentTypesApi.java
@@ -182,7 +181,7 @@ src/main/java/org/openapitools/client/api/CourseUnitsApi.java
 src/main/java/org/openapitools/client/api/CourseUpdatesApi.java
 src/main/java/org/openapitools/client/api/CourseWikisApi.java
 src/main/java/org/openapitools/client/api/CoursesApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/InstructorProfilesApi.java
 src/main/java/org/openapitools/client/api/MeApi.java
 src/main/java/org/openapitools/client/api/StudentProfilesApi.java
@@ -194,6 +193,7 @@ src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
 src/main/java/org/openapitools/client/model/AverageDto.java
 src/main/java/org/openapitools/client/model/AverageDtoEnvelope.java
+src/main/java/org/openapitools/client/model/ContactCreateDto.java
 src/main/java/org/openapitools/client/model/ContactDto.java
 src/main/java/org/openapitools/client/model/CountDto.java
 src/main/java/org/openapitools/client/model/CountDtoEnvelope.java
@@ -294,3 +294,4 @@ src/main/java/org/openapitools/client/model/StudentProfileDtoIReadOnlyListEnvelo
 src/main/java/org/openapitools/client/model/StudentProfileUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/model/ContactCreateDtoTest.java

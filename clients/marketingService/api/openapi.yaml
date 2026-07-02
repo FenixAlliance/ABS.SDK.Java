@@ -9,348 +9,34 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: MarketingService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
-- name: Completions
 - name: EmailGroups
 - name: EmailSignatures
 - name: EmailTemplates
-- name: FenixAlliance.Portals.Website
+- name: FenixAlliance.ABS.Web
 - name: MarketingAreas
 - name: MarketingCampaigns
 - name: MarketingLeads
 - name: MarketingLists
 - name: Newsletters
+- name: NewsletterSubscriptions
 - name: SocialMediaPosts
 - name: SocialPostBuckets
 - name: TrackingPixels
 paths:
-  /api/v2/AiService/Completions/Complete:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: conversationId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "403":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          description: OK
-      tags:
-      - Completions
-      x-accepts:
-      - application/json
-      - application/json;IEEE754Compatible=false
-      - application/json;IEEE754Compatible=true
-      - application/json;odata.metadata=full
-      - application/json;odata.metadata=full;IEEE754Compatible=false
-      - application/json;odata.metadata=full;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=true
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal
-      - application/json;odata.metadata=minimal;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=true
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=none
-      - application/json;odata.metadata=none;IEEE754Compatible=false
-      - application/json;odata.metadata=none;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=true
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.streaming=false
-      - application/json;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.streaming=true
-      - application/json;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.streaming=true;IEEE754Compatible=true
-      - application/octet-stream
-      - application/xml
-      - text/json
-      - text/plain
-      - text/xml
   /api/v2/MarketingService/EmailGroups:
     get:
       description: Retrieves a collection of email groups for the specified tenant
@@ -1962,7 +1648,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /health:
@@ -1971,7 +1657,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /hello:
@@ -1980,7 +1666,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /register:
@@ -2001,7 +1687,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -2036,7 +1722,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2056,7 +1742,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2089,7 +1775,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -2104,7 +1790,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2126,7 +1812,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -2148,7 +1834,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -2176,7 +1862,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2199,7 +1885,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
       - application/problem+json
@@ -2226,7 +1912,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2255,7 +1941,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -2279,7 +1965,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -2303,7 +1989,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -2313,7 +1999,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /api/v2/MarketingService/MarketingAreas:
@@ -4807,6 +4493,77 @@ paths:
       tags:
       - Newsletters
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/NewsletterSubscriptions/Count:
+    get:
+      description: Returns the count of newsletter subscriptions for the specified
+        tenant using OData query options.
+      operationId: GetNewsletterSubscriptionsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get newsletter subscriptions count
+      tags:
+      - NewsletterSubscriptions
       x-accepts:
       - application/json
       - application/xml
@@ -8963,11 +8720,13 @@ components:
         totalSurchargesInUsd: 7.457744773683766
         billingEmail: billingEmail
         parentOrderId: parentOrderId
+        buyerBillingProfileId: buyerBillingProfileId
         totalDiscountsCurrencyId: totalDiscountsCurrencyId
         receiverTenantId: receiverTenantId
         customTotalAmount: 6.965117697638846
         timestamp: 2000-01-23T04:56:07.000+00:00
         paymentTermId: paymentTermId
+        sellerBillingProfileId: sellerBillingProfileId
         totalTaxes: 7.061401241503109
         totalWithheldTax: 2.027123023002322
         stateId: stateId
@@ -9208,6 +8967,12 @@ components:
         qualifiedIdentifier:
           nullable: true
           type: string
+        sellerBillingProfileId:
+          nullable: true
+          type: string
+        buyerBillingProfileId:
+          nullable: true
+          type: string
         costCalculationMethod:
           enum:
           - Automatic
@@ -9329,11 +9094,13 @@ components:
           totalSurchargesInUsd: 7.457744773683766
           billingEmail: billingEmail
           parentOrderId: parentOrderId
+          buyerBillingProfileId: buyerBillingProfileId
           totalDiscountsCurrencyId: totalDiscountsCurrencyId
           receiverTenantId: receiverTenantId
           customTotalAmount: 6.965117697638846
           timestamp: 2000-01-23T04:56:07.000+00:00
           paymentTermId: paymentTermId
+          sellerBillingProfileId: sellerBillingProfileId
           totalTaxes: 7.061401241503109
           totalWithheldTax: 2.027123023002322
           stateId: stateId

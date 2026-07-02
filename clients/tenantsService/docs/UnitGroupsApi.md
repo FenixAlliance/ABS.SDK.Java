@@ -1,6 +1,6 @@
 # UnitGroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -40,11 +40,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     UnitCreateDto unitCreateDto = new UnitCreateDto(); // UnitCreateDto | 
@@ -67,7 +67,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **unitCreateDto** | [**UnitCreateDto**](UnitCreateDto.md)|  | [optional] |
@@ -112,7 +112,7 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -182,12 +182,12 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
-    UUID unitId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
+    String unitId = "unitId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -209,8 +209,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
-| **unitId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
+| **unitId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -254,11 +254,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -280,7 +280,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -324,12 +324,12 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
-    UUID unitId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
+    String unitId = "unitId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -351,8 +351,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
-| **unitId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
+| **unitId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -396,11 +396,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -422,7 +422,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -466,7 +466,7 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -534,7 +534,7 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -602,11 +602,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -628,7 +628,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -672,11 +672,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -698,7 +698,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -742,12 +742,12 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
-    UUID unitId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
+    String unitId = "unitId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     List<Operation> operation = Arrays.asList(); // List<Operation> | 
@@ -770,8 +770,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
-| **unitId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
+| **unitId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
@@ -816,11 +816,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     List<Operation> operation = Arrays.asList(); // List<Operation> | 
@@ -843,7 +843,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
@@ -888,12 +888,12 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
-    UUID unitId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
+    String unitId = "unitId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     UnitUpdateDto unitUpdateDto = new UnitUpdateDto(); // UnitUpdateDto | 
@@ -916,8 +916,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
-| **unitId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
+| **unitId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **unitUpdateDto** | [**UnitUpdateDto**](UnitUpdateDto.md)|  | [optional] |
@@ -962,11 +962,11 @@ import org.openapitools.client.api.UnitGroupsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UnitGroupsApi apiInstance = new UnitGroupsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID unitGroupId = UUID.randomUUID(); // UUID | 
+    String unitGroupId = "unitGroupId_example"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     UnitGroupUpdateDto unitGroupUpdateDto = new UnitGroupUpdateDto(); // UnitGroupUpdateDto | 
@@ -989,7 +989,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **unitGroupId** | **UUID**|  | |
+| **unitGroupId** | **String**|  | |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **unitGroupUpdateDto** | [**UnitGroupUpdateDto**](UnitGroupUpdateDto.md)|  | [optional] |

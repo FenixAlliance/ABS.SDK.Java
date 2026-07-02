@@ -10,6 +10,7 @@
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**qualifiedName** | **String** |  |  [optional] [readonly] |
+|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
 |**taxId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
 |**walletId** | **String** |  |  [optional] |
@@ -45,6 +46,15 @@
 |**businessName** | **String** |  |  [optional] [readonly] |
 |**businessLegalName** | **String** |  |  [optional] [readonly] |
 |**twitterUsername** | **String** |  |  [optional] |
+
+
+
+## Enum: KindEnum
+
+| Name | Value |
+|---- | -----|
+| ORGANIZATION | &quot;Organization&quot; |
+| INDIVIDUAL | &quot;Individual&quot; |
 
 
 

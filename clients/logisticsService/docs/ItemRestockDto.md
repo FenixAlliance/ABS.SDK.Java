@@ -13,6 +13,8 @@
 |**description** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**entryCount** | **Integer** |  |  [optional] |
+|**sellerBillingProfileId** | **String** |  |  [optional] |
+|**buyerBillingProfileId** | **String** |  |  [optional] |
 
 
 

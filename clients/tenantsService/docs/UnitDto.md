@@ -10,6 +10,7 @@
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
+|**unECECode** | **String** |  |  [optional] |
 |**unitGroupId** | **String** |  |  [optional] |
 |**baseUnitAmount** | **Double** |  |  [optional] |
 |**baseUnitId** | **String** |  |  [optional] |

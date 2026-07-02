@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**paymentMeansCode** | **String** |  |  [optional] |
 
 
 

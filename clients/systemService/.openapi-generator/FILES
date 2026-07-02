@@ -6,7 +6,6 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AccessTokenResponse.md
-docs/AdditionalAttribute.md
 docs/AntiforgeryApi.md
 docs/BooleanEnvelope.md
 docs/BusinessDomainDto.md
@@ -17,7 +16,6 @@ docs/CartDto.md
 docs/CartDtoEnvelope.md
 docs/CartDtoListEnvelope.md
 docs/CartsApi.md
-docs/CompletionsApi.md
 docs/ContactOptionsApi.md
 docs/EmailDispatchRequest.md
 docs/EmailsApi.md
@@ -29,7 +27,7 @@ docs/ExtendedTenantDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
 docs/ExtendedUserDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IPLookupDto.md
@@ -45,14 +43,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/IpLookupsApi.md
-docs/LicenseAttributesListEnvelope.md
-docs/LicenseFeature.md
-docs/LicenseKey.md
-docs/LicenseKeyRequest.md
-docs/LicenseValidationError.md
-docs/LicenseValidationErrorListEnvelope.md
 docs/LicenseValidationRequest.md
-docs/LicensesApi.md
 docs/LicensingApi.md
 docs/LoginRequest.md
 docs/MigrationsApi.md
@@ -74,7 +65,6 @@ docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
 docs/ResetPasswordRequest.md
 docs/SocialProfileDto.md
-docs/StringEnvelope.md
 docs/StringListEnvelope.md
 docs/StudioModule.md
 docs/StudioModuleListEnvelope.md
@@ -133,12 +123,10 @@ src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AntiforgeryApi.java
 src/main/java/org/openapitools/client/api/BusinessDomainsApi.java
 src/main/java/org/openapitools/client/api/CartsApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
 src/main/java/org/openapitools/client/api/ContactOptionsApi.java
 src/main/java/org/openapitools/client/api/EmailsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/IpLookupsApi.java
-src/main/java/org/openapitools/client/api/LicensesApi.java
 src/main/java/org/openapitools/client/api/LicensingApi.java
 src/main/java/org/openapitools/client/api/MigrationsApi.java
 src/main/java/org/openapitools/client/api/ModulesApi.java
@@ -155,7 +143,6 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
-src/main/java/org/openapitools/client/model/AdditionalAttribute.java
 src/main/java/org/openapitools/client/model/BooleanEnvelope.java
 src/main/java/org/openapitools/client/model/BusinessDomainDto.java
 src/main/java/org/openapitools/client/model/BusinessDomainDtoEnvelope.java
@@ -186,12 +173,6 @@ src/main/java/org/openapitools/client/model/IValidationFailureListEnvelope.java
 src/main/java/org/openapitools/client/model/InfoRequest.java
 src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/Int32Envelope.java
-src/main/java/org/openapitools/client/model/LicenseAttributesListEnvelope.java
-src/main/java/org/openapitools/client/model/LicenseFeature.java
-src/main/java/org/openapitools/client/model/LicenseKey.java
-src/main/java/org/openapitools/client/model/LicenseKeyRequest.java
-src/main/java/org/openapitools/client/model/LicenseValidationError.java
-src/main/java/org/openapitools/client/model/LicenseValidationErrorListEnvelope.java
 src/main/java/org/openapitools/client/model/LicenseValidationRequest.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
 src/main/java/org/openapitools/client/model/Module.java
@@ -208,7 +189,6 @@ src/main/java/org/openapitools/client/model/RegisterRequest.java
 src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
 src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/SocialProfileDto.java
-src/main/java/org/openapitools/client/model/StringEnvelope.java
 src/main/java/org/openapitools/client/model/StringListEnvelope.java
 src/main/java/org/openapitools/client/model/StudioModule.java
 src/main/java/org/openapitools/client/model/StudioModuleListEnvelope.java

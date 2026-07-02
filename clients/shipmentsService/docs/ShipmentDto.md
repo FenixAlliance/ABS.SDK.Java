@@ -20,6 +20,8 @@
 |**shippingTerms** | [**ShippingTermsEnum**](#ShippingTermsEnum) |  |  [optional] |
 |**orderId** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
+|**sellerBillingProfileId** | **String** |  |  [optional] |
+|**buyerBillingProfileId** | **String** |  |  [optional] |
 
 
 

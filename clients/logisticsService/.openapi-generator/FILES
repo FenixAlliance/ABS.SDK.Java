@@ -12,7 +12,7 @@ docs/AirwayBillDtoEnvelope.md
 docs/AirwayBillDtoListEnvelope.md
 docs/AirwayBillUpdateDto.md
 docs/AirwayBillsApi.md
-docs/CompletionsApi.md
+docs/ContactCreateDto.md
 docs/ContactDto.md
 docs/DeliveryNoteCreateDto.md
 docs/DeliveryNoteDto.md
@@ -23,7 +23,7 @@ docs/DeliveryNotesApi.md
 docs/DisputeProofOfDeliveryRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -183,9 +183,8 @@ src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AirwayBillsApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
 src/main/java/org/openapitools/client/api/DeliveryNotesApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/ItemPackingSlipsApi.java
 src/main/java/org/openapitools/client/api/ItemPickListsApi.java
 src/main/java/org/openapitools/client/api/ItemRestocksApi.java
@@ -212,6 +211,7 @@ src/main/java/org/openapitools/client/model/AirwayBillDto.java
 src/main/java/org/openapitools/client/model/AirwayBillDtoEnvelope.java
 src/main/java/org/openapitools/client/model/AirwayBillDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/AirwayBillUpdateDto.java
+src/main/java/org/openapitools/client/model/ContactCreateDto.java
 src/main/java/org/openapitools/client/model/ContactDto.java
 src/main/java/org/openapitools/client/model/DeliveryNoteCreateDto.java
 src/main/java/org/openapitools/client/model/DeliveryNoteDto.java
@@ -342,3 +342,4 @@ src/main/java/org/openapitools/client/model/WaybillLineCreateDto.java
 src/main/java/org/openapitools/client/model/WaybillLineDto.java
 src/main/java/org/openapitools/client/model/WaybillLineDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/WaybillLineUpdateDto.java
+src/test/java/org/openapitools/client/model/ContactCreateDtoTest.java

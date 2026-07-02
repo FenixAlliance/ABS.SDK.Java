@@ -6,15 +6,15 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/CurrencyId.md
+docs/DecimalEnvelope.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -84,8 +84,7 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/InvoicesApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
@@ -94,6 +93,7 @@ src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AccessTokenResponse.java
 src/main/java/org/openapitools/client/model/CurrencyId.java
+src/main/java/org/openapitools/client/model/DecimalEnvelope.java
 src/main/java/org/openapitools/client/model/EmailDispatchRequest.java
 src/main/java/org/openapitools/client/model/EmptyEnvelope.java
 src/main/java/org/openapitools/client/model/Envelope.java
@@ -146,3 +146,4 @@ src/main/java/org/openapitools/client/model/SimpleUserDto.java
 src/main/java/org/openapitools/client/model/TenantDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/model/DecimalEnvelopeTest.java

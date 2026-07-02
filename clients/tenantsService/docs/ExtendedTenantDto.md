@@ -10,6 +10,7 @@
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**qualifiedName** | **String** |  |  [optional] [readonly] |
+|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
 |**taxId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
 |**walletId** | **String** |  |  [optional] |
@@ -48,6 +49,15 @@
 |**cart** | [**CartDto**](CartDto.md) |  |  [optional] |
 |**wallet** | [**WalletDto**](WalletDto.md) |  |  [optional] |
 |**socialProfile** | [**SocialProfileDto**](SocialProfileDto.md) |  |  [optional] |
+
+
+
+## Enum: KindEnum
+
+| Name | Value |
+|---- | -----|
+| ORGANIZATION | &quot;Organization&quot; |
+| INDIVIDUAL | &quot;Individual&quot; |
 
 
 

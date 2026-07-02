@@ -10,6 +10,7 @@
 |**name** | **String** |  |  [optional] |
 |**baseUnitAmount** | **Double** |  |  [optional] |
 |**baseUnitId** | **String** |  |  [optional] |
+|**unECECode** | **String** |  |  [optional] |
 
 
 

@@ -80,6 +80,8 @@
 |**billingLocationId** | **String** |  |  [optional] |
 |**shippingLocationId** | **String** |  |  [optional] |
 |**qualifiedIdentifier** | **String** |  |  [optional] |
+|**sellerBillingProfileId** | **String** |  |  [optional] |
+|**buyerBillingProfileId** | **String** |  |  [optional] |
 |**costCalculationMethod** | [**CostCalculationMethodEnum**](#CostCalculationMethodEnum) |  |  [optional] |
 |**freightTerms** | [**FreightTermsEnum**](#FreightTermsEnum) |  |  [optional] |
 |**orderStatus** | [**OrderStatusEnum**](#OrderStatusEnum) |  |  [optional] |

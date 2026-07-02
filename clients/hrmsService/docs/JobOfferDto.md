@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) |  |  [optional] |
 |**remote** | **Boolean** |  |  [optional] |
 |**expectedHireDate** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
@@ -59,6 +60,17 @@
 |**countryId** | **String** |  |  [optional] |
 |**countryStateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
+
+
+
+## Enum: StatusEnum
+
+| Name | Value |
+|---- | -----|
+| DRAFT | &quot;Draft&quot; |
+| PUBLISHED | &quot;Published&quot; |
+| CLOSED | &quot;Closed&quot; |
+| FILLED | &quot;Filled&quot; |
 
 
 

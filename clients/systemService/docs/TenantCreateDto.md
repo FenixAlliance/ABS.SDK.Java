@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
 |**name** | **String** |  |  |
 |**legalName** | **String** |  |  [optional] |
 |**email** | **String** |  |  |
@@ -30,6 +31,15 @@
 |**businessSegmentId** | **String** |  |  [optional] |
 |**businessIndustryId** | **String** |  |  [optional] |
 |**businessSizeId** | **String** |  |  [optional] |
+
+
+
+## Enum: KindEnum
+
+| Name | Value |
+|---- | -----|
+| ORGANIZATION | &quot;Organization&quot; |
+| INDIVIDUAL | &quot;Individual&quot; |
 
 
 

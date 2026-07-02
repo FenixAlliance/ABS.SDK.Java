@@ -9,23 +9,46 @@ info:
     url: https://fenix-alliance.com.co/Legal/Policies/eula
   termsOfService: https://absuite.net/eula
   title: SocialService
-  version: 2.1.2.5532
+  version: 2.0.0.0
 servers:
-- url: /
+- description: Alliance Business Suite API
+  url: "{server}"
+  variables:
+    server:
+      default: https://absuite.net
+      description: ABS instance base URL
+      enum:
+      - https://absuite.net
+      - https://test.absuite.net
+      - https://dev.absuite.net
+      - https://localhost:44388
 tags:
-- name: Completions
-- name: FenixAlliance.Portals.Website
+- name: CurriculumExperiences
+- name: Curriculums
+- name: FenixAlliance.ABS.Web
+- name: Skills
 - name: SocialFeeds
 - name: SocialGroups
 - name: SocialPosts
 - name: SocialProfiles
 paths:
-  /api/v2/AiService/Completions/Complete:
+  /api/v2/SocialService/Curriculums/{curriculumId}/Experiences:
     get:
+      description: Retrieves the work-experience records of a curriculum authored
+        on the specified social profile.
+      operationId: GetCurriculumExperiencesAsync
       parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
       - explode: true
         in: query
-        name: tenantId
+        name: socialProfileId
         required: true
         schema:
           format: uuid
@@ -33,324 +56,1208 @@ paths:
         style: form
       - explode: true
         in: query
-        name: conversationId
+        name: tenantId
         required: false
         schema:
+          format: uuid
           type: string
         style: form
       - explode: true
         in: query
-        name: message
+        name: api-version
         required: false
         schema:
           type: string
         style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "403":
           content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
             application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
         "401":
           content:
-            application/json;odata.metadata=minimal;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
             application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=minimal;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=full;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.metadata=none;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=true;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;odata.streaming=false;IEEE754Compatible=true:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=false:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/json;IEEE754Compatible=true:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
             application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            text/plain:
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurriculumExperienceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurriculumExperienceDtoListEnvelope'
+          description: OK
+      summary: Get curriculum experiences
+      tags:
+      - CurriculumExperiences
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Adds a work-experience record to a curriculum authored on the specified
+        social profile.
+      operationId: CreateCurriculumExperienceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            application/octet-stream:
+            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            text/json:
+          description: Forbidden
+        "401":
+          content:
+            application/json:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
-            text/xml:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a curriculum experience
+      tags:
+      - CurriculumExperiences
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/Count:
+    get:
+      description: Returns the count of work-experience records of a curriculum.
+      operationId: GetCurriculumExperiencesCountAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Unauthorized
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
           description: OK
+      summary: Count curriculum experiences
       tags:
-      - Completions
+      - CurriculumExperiences
       x-accepts:
       - application/json
-      - application/json;IEEE754Compatible=false
-      - application/json;IEEE754Compatible=true
-      - application/json;odata.metadata=full
-      - application/json;odata.metadata=full;IEEE754Compatible=false
-      - application/json;odata.metadata=full;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=full;odata.streaming=true
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal
-      - application/json;odata.metadata=minimal;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=minimal;odata.streaming=true
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.metadata=none
-      - application/json;odata.metadata=none;IEEE754Compatible=false
-      - application/json;odata.metadata=none;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.metadata=none;odata.streaming=true
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
-      - application/json;odata.streaming=false
-      - application/json;odata.streaming=false;IEEE754Compatible=false
-      - application/json;odata.streaming=false;IEEE754Compatible=true
-      - application/json;odata.streaming=true
-      - application/json;odata.streaming=true;IEEE754Compatible=false
-      - application/json;odata.streaming=true;IEEE754Compatible=true
-      - application/octet-stream
       - application/xml
-      - text/json
-      - text/plain
-      - text/xml
+  /api/v2/SocialService/Curriculums/{curriculumId}/Experiences/{experienceId}:
+    delete:
+      description: Removes a work-experience record from a curriculum.
+      operationId: DeleteCurriculumExperienceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: experienceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a curriculum experience
+      tags:
+      - CurriculumExperiences
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific work-experience record of a curriculum.
+      operationId: GetCurriculumExperienceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: experienceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurriculumExperienceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurriculumExperienceDtoEnvelope'
+          description: OK
+      summary: Get curriculum experience by ID
+      tags:
+      - CurriculumExperiences
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing work-experience record of a curriculum.
+      operationId: PatchCurriculumExperienceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: experienceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a curriculum experience
+      tags:
+      - CurriculumExperiences
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing work-experience record of a curriculum.
+      operationId: UpdateCurriculumExperienceAsync
+      parameters:
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: experienceId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumExperienceUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a curriculum experience
+      tags:
+      - CurriculumExperiences
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Curriculums:
+    get:
+      description: Retrieves the curricula (CVs) authored on the specified social
+        profile.
+      operationId: GetCurriculumsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurriculumDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurriculumDtoListEnvelope'
+          description: OK
+      summary: Get curricula
+      tags:
+      - Curriculums
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a curriculum (CV) on the specified social profile.
+      operationId: CreateCurriculumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a curriculum
+      tags:
+      - Curriculums
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Curriculums/Count:
+    get:
+      description: Returns the count of curricula authored on the specified social
+        profile.
+      operationId: GetCurriculumsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count curricula
+      tags:
+      - Curriculums
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Curriculums/{curriculumId}:
+    delete:
+      description: Deletes a curriculum authored on the specified social profile.
+      operationId: DeleteCurriculumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a curriculum
+      tags:
+      - Curriculums
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific curriculum authored on the specified social
+        profile.
+      operationId: GetCurriculumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurriculumDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CurriculumDtoEnvelope'
+          description: OK
+      summary: Get curriculum by ID
+      tags:
+      - Curriculums
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing curriculum authored on the specified
+        social profile.
+      operationId: PatchCurriculumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a curriculum
+      tags:
+      - Curriculums
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing curriculum authored on the specified social
+        profile.
+      operationId: UpdateCurriculumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: socialProfileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: curriculumId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurriculumUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CurriculumUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a curriculum
+      tags:
+      - Curriculums
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /version:
     get:
       responses:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /health:
@@ -359,7 +1266,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /hello:
@@ -368,7 +1275,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /register:
@@ -389,7 +1296,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -424,7 +1331,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -444,7 +1351,7 @@ paths:
                 $ref: '#/components/schemas/AccessTokenResponse'
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -477,7 +1384,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
   /resendConfirmationEmail:
@@ -492,7 +1399,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -514,7 +1421,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -536,7 +1443,7 @@ paths:
                 $ref: '#/components/schemas/HttpValidationProblemDetails'
           description: Bad Request
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/problem+json
@@ -564,7 +1471,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -587,7 +1494,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
       - application/problem+json
@@ -614,7 +1521,7 @@ paths:
         "404":
           description: Not Found
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -643,7 +1550,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -667,7 +1574,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -691,7 +1598,7 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-content-type: multipart/form-data
       x-accepts:
       - application/json
@@ -701,9 +1608,531 @@ paths:
         "200":
           description: OK
       tags:
-      - FenixAlliance.Portals.Website
+      - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/SocialService/Skills:
+    get:
+      description: Retrieves the skill catalog for the specified tenant.
+      operationId: GetSkillsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SkillDtoListEnvelope'
+          description: OK
+      summary: Get skills
+      tags:
+      - Skills
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new skill catalog entry for the specified tenant.
+      operationId: CreateSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SkillCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a skill
+      tags:
+      - Skills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Skills/Count:
+    get:
+      description: Counts skill catalog entries for the specified tenant.
+      operationId: GetSkillsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count skills
+      tags:
+      - Skills
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/SocialService/Skills/{skillId}:
+    delete:
+      description: Deletes a skill for the specified tenant.
+      operationId: DeleteSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: skillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a skill
+      tags:
+      - Skills
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific skill by its identifier.
+      operationId: GetSkillByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: skillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SkillDtoEnvelope'
+          description: OK
+      summary: Get skill by ID
+      tags:
+      - Skills
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing skill for the specified tenant.
+      operationId: PatchSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: skillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a skill
+      tags:
+      - Skills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing skill for the specified tenant.
+      operationId: UpdateSkillAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: skillId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SkillUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SkillUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a skill
+      tags:
+      - Skills
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/SocialService/SocialFeeds:
     get:
       description: Retrieves a list of social feeds for the specified social profile.
@@ -5561,6 +6990,767 @@ components:
           nullable: true
           type: array
       type: object
+    CurriculumCreateDto:
+      additionalProperties: false
+      example:
+        commercial: true
+        education: true
+        softwareEngineering: true
+        certifiedProfessional: true
+        firstLevelSupport: true
+        customerSuccessRepresentative: true
+        advocate: true
+        sales: true
+        research: true
+        executive: true
+        cloudEngineering: true
+        graphicDesign: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        socialProfileId: socialProfileId
+        startupSuccessRepresentative: true
+        others: true
+        soundEngineering: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        jobApplicantProfileId: jobApplicantProfileId
+        humanResources: true
+        sustainability: true
+        secondLevelSupport: true
+        partnerAccountRepresentative: true
+        marketing: true
+        administrative: true
+        undergraduate: true
+        finance: true
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+        undergraduate:
+          type: boolean
+        certifiedProfessional:
+          type: boolean
+        sales:
+          type: boolean
+        others:
+          type: boolean
+        finance:
+          type: boolean
+        research:
+          type: boolean
+        advocate:
+          type: boolean
+        marketing:
+          type: boolean
+        education:
+          type: boolean
+        executive:
+          type: boolean
+        commercial:
+          type: boolean
+        graphicDesign:
+          type: boolean
+        sustainability:
+          type: boolean
+        administrative:
+          type: boolean
+        humanResources:
+          type: boolean
+        soundEngineering:
+          type: boolean
+        cloudEngineering:
+          type: boolean
+        firstLevelSupport:
+          type: boolean
+        secondLevelSupport:
+          type: boolean
+        softwareEngineering:
+          type: boolean
+        partnerAccountRepresentative:
+          type: boolean
+        startupSuccessRepresentative:
+          type: boolean
+        customerSuccessRepresentative:
+          type: boolean
+      type: object
+    CurriculumDto:
+      additionalProperties: false
+      example:
+        commercial: true
+        education: true
+        softwareEngineering: true
+        certifiedProfessional: true
+        firstLevelSupport: true
+        customerSuccessRepresentative: true
+        advocate: true
+        sales: true
+        research: true
+        executive: true
+        cloudEngineering: true
+        graphicDesign: true
+        id: id
+        socialProfileId: socialProfileId
+        startupSuccessRepresentative: true
+        others: true
+        soundEngineering: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        jobApplicantProfileId: jobApplicantProfileId
+        humanResources: true
+        sustainability: true
+        secondLevelSupport: true
+        partnerAccountRepresentative: true
+        marketing: true
+        administrative: true
+        undergraduate: true
+        finance: true
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        socialProfileId:
+          nullable: true
+          type: string
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+        undergraduate:
+          type: boolean
+        certifiedProfessional:
+          type: boolean
+        sales:
+          type: boolean
+        others:
+          type: boolean
+        finance:
+          type: boolean
+        research:
+          type: boolean
+        advocate:
+          type: boolean
+        marketing:
+          type: boolean
+        education:
+          type: boolean
+        executive:
+          type: boolean
+        commercial:
+          type: boolean
+        graphicDesign:
+          type: boolean
+        sustainability:
+          type: boolean
+        administrative:
+          type: boolean
+        humanResources:
+          type: boolean
+        soundEngineering:
+          type: boolean
+        cloudEngineering:
+          type: boolean
+        firstLevelSupport:
+          type: boolean
+        secondLevelSupport:
+          type: boolean
+        softwareEngineering:
+          type: boolean
+        partnerAccountRepresentative:
+          type: boolean
+        startupSuccessRepresentative:
+          type: boolean
+        customerSuccessRepresentative:
+          type: boolean
+      type: object
+    CurriculumDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          commercial: true
+          education: true
+          softwareEngineering: true
+          certifiedProfessional: true
+          firstLevelSupport: true
+          customerSuccessRepresentative: true
+          advocate: true
+          sales: true
+          research: true
+          executive: true
+          cloudEngineering: true
+          graphicDesign: true
+          id: id
+          socialProfileId: socialProfileId
+          startupSuccessRepresentative: true
+          others: true
+          soundEngineering: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          jobApplicantProfileId: jobApplicantProfileId
+          humanResources: true
+          sustainability: true
+          secondLevelSupport: true
+          partnerAccountRepresentative: true
+          marketing: true
+          administrative: true
+          undergraduate: true
+          finance: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CurriculumDto'
+      type: object
+    CurriculumDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - commercial: true
+          education: true
+          softwareEngineering: true
+          certifiedProfessional: true
+          firstLevelSupport: true
+          customerSuccessRepresentative: true
+          advocate: true
+          sales: true
+          research: true
+          executive: true
+          cloudEngineering: true
+          graphicDesign: true
+          id: id
+          socialProfileId: socialProfileId
+          startupSuccessRepresentative: true
+          others: true
+          soundEngineering: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          jobApplicantProfileId: jobApplicantProfileId
+          humanResources: true
+          sustainability: true
+          secondLevelSupport: true
+          partnerAccountRepresentative: true
+          marketing: true
+          administrative: true
+          undergraduate: true
+          finance: true
+        - commercial: true
+          education: true
+          softwareEngineering: true
+          certifiedProfessional: true
+          firstLevelSupport: true
+          customerSuccessRepresentative: true
+          advocate: true
+          sales: true
+          research: true
+          executive: true
+          cloudEngineering: true
+          graphicDesign: true
+          id: id
+          socialProfileId: socialProfileId
+          startupSuccessRepresentative: true
+          others: true
+          soundEngineering: true
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          jobApplicantProfileId: jobApplicantProfileId
+          humanResources: true
+          sustainability: true
+          secondLevelSupport: true
+          partnerAccountRepresentative: true
+          marketing: true
+          administrative: true
+          undergraduate: true
+          finance: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CurriculumDto'
+          nullable: true
+          type: array
+      type: object
+    CurriculumExperienceCreateDto:
+      additionalProperties: false
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        featured: true
+        proficiencyRatingModelId: proficiencyRatingModelId
+        achievements: achievements
+        employerProfileId: employerProfileId
+        proficiencyRatingValueId: proficiencyRatingValueId
+        description: description
+        curriculumId: curriculumId
+        title: title
+        priority: 0.8008281904610115
+        dateFrom: 2000-01-23T04:56:07.000+00:00
+        countryLanguageId: countryLanguageId
+        current: true
+        responsibilities: responsibilities
+        validated: true
+        organization: organization
+        imageUrl: imageUrl
+        dateTo: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priority:
+          format: double
+          type: number
+        organization:
+          nullable: true
+          type: string
+        featured:
+          type: boolean
+        current:
+          type: boolean
+        validated:
+          type: boolean
+        imageUrl:
+          nullable: true
+          type: string
+        dateFrom:
+          format: date-time
+          type: string
+        dateTo:
+          format: date-time
+          type: string
+        date:
+          format: date-time
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+        proficiencyRatingValueId:
+          nullable: true
+          type: string
+        proficiencyRatingModelId:
+          nullable: true
+          type: string
+        achievements:
+          nullable: true
+          type: string
+        responsibilities:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+      type: object
+    CurriculumExperienceDto:
+      additionalProperties: false
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        featured: true
+        proficiencyRatingModelId: proficiencyRatingModelId
+        achievements: achievements
+        employerProfileId: employerProfileId
+        proficiencyRatingValueId: proficiencyRatingValueId
+        description: description
+        curriculumId: curriculumId
+        title: title
+        priority: 0.8008281904610115
+        dateFrom: 2000-01-23T04:56:07.000+00:00
+        countryLanguageId: countryLanguageId
+        current: true
+        responsibilities: responsibilities
+        validated: true
+        organization: organization
+        imageUrl: imageUrl
+        dateTo: 2000-01-23T04:56:07.000+00:00
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        curriculumId:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priority:
+          format: double
+          type: number
+        organization:
+          nullable: true
+          type: string
+        featured:
+          type: boolean
+        current:
+          type: boolean
+        validated:
+          type: boolean
+        imageUrl:
+          nullable: true
+          type: string
+        dateFrom:
+          format: date-time
+          type: string
+        dateTo:
+          format: date-time
+          type: string
+        date:
+          format: date-time
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+        proficiencyRatingValueId:
+          nullable: true
+          type: string
+        proficiencyRatingModelId:
+          nullable: true
+          type: string
+        achievements:
+          nullable: true
+          type: string
+        responsibilities:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+      type: object
+    CurriculumExperienceDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          date: 2000-01-23T04:56:07.000+00:00
+          featured: true
+          proficiencyRatingModelId: proficiencyRatingModelId
+          achievements: achievements
+          employerProfileId: employerProfileId
+          proficiencyRatingValueId: proficiencyRatingValueId
+          description: description
+          curriculumId: curriculumId
+          title: title
+          priority: 0.8008281904610115
+          dateFrom: 2000-01-23T04:56:07.000+00:00
+          countryLanguageId: countryLanguageId
+          current: true
+          responsibilities: responsibilities
+          validated: true
+          organization: organization
+          imageUrl: imageUrl
+          dateTo: 2000-01-23T04:56:07.000+00:00
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/CurriculumExperienceDto'
+      type: object
+    CurriculumExperienceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - date: 2000-01-23T04:56:07.000+00:00
+          featured: true
+          proficiencyRatingModelId: proficiencyRatingModelId
+          achievements: achievements
+          employerProfileId: employerProfileId
+          proficiencyRatingValueId: proficiencyRatingValueId
+          description: description
+          curriculumId: curriculumId
+          title: title
+          priority: 0.8008281904610115
+          dateFrom: 2000-01-23T04:56:07.000+00:00
+          countryLanguageId: countryLanguageId
+          current: true
+          responsibilities: responsibilities
+          validated: true
+          organization: organization
+          imageUrl: imageUrl
+          dateTo: 2000-01-23T04:56:07.000+00:00
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - date: 2000-01-23T04:56:07.000+00:00
+          featured: true
+          proficiencyRatingModelId: proficiencyRatingModelId
+          achievements: achievements
+          employerProfileId: employerProfileId
+          proficiencyRatingValueId: proficiencyRatingValueId
+          description: description
+          curriculumId: curriculumId
+          title: title
+          priority: 0.8008281904610115
+          dateFrom: 2000-01-23T04:56:07.000+00:00
+          countryLanguageId: countryLanguageId
+          current: true
+          responsibilities: responsibilities
+          validated: true
+          organization: organization
+          imageUrl: imageUrl
+          dateTo: 2000-01-23T04:56:07.000+00:00
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/CurriculumExperienceDto'
+          nullable: true
+          type: array
+      type: object
+    CurriculumExperienceUpdateDto:
+      additionalProperties: false
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        featured: true
+        proficiencyRatingModelId: proficiencyRatingModelId
+        achievements: achievements
+        employerProfileId: employerProfileId
+        proficiencyRatingValueId: proficiencyRatingValueId
+        description: description
+        title: title
+        priority: 0.8008281904610115
+        dateFrom: 2000-01-23T04:56:07.000+00:00
+        countryLanguageId: countryLanguageId
+        current: true
+        responsibilities: responsibilities
+        validated: true
+        organization: organization
+        imageUrl: imageUrl
+        dateTo: 2000-01-23T04:56:07.000+00:00
+      properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        priority:
+          format: double
+          type: number
+        organization:
+          nullable: true
+          type: string
+        featured:
+          type: boolean
+        current:
+          type: boolean
+        validated:
+          type: boolean
+        imageUrl:
+          nullable: true
+          type: string
+        dateFrom:
+          format: date-time
+          type: string
+        dateTo:
+          format: date-time
+          type: string
+        date:
+          format: date-time
+          type: string
+        countryLanguageId:
+          nullable: true
+          type: string
+        proficiencyRatingValueId:
+          nullable: true
+          type: string
+        proficiencyRatingModelId:
+          nullable: true
+          type: string
+        achievements:
+          nullable: true
+          type: string
+        responsibilities:
+          nullable: true
+          type: string
+        employerProfileId:
+          nullable: true
+          type: string
+      type: object
+    CurriculumUpdateDto:
+      additionalProperties: false
+      example:
+        commercial: true
+        jobApplicantProfileId: jobApplicantProfileId
+        education: true
+        softwareEngineering: true
+        certifiedProfessional: true
+        firstLevelSupport: true
+        customerSuccessRepresentative: true
+        advocate: true
+        humanResources: true
+        sustainability: true
+        sales: true
+        research: true
+        secondLevelSupport: true
+        partnerAccountRepresentative: true
+        marketing: true
+        executive: true
+        cloudEngineering: true
+        administrative: true
+        graphicDesign: true
+        startupSuccessRepresentative: true
+        undergraduate: true
+        others: true
+        finance: true
+        soundEngineering: true
+      properties:
+        jobApplicantProfileId:
+          nullable: true
+          type: string
+        undergraduate:
+          type: boolean
+        certifiedProfessional:
+          type: boolean
+        sales:
+          type: boolean
+        others:
+          type: boolean
+        finance:
+          type: boolean
+        research:
+          type: boolean
+        advocate:
+          type: boolean
+        marketing:
+          type: boolean
+        education:
+          type: boolean
+        executive:
+          type: boolean
+        commercial:
+          type: boolean
+        graphicDesign:
+          type: boolean
+        sustainability:
+          type: boolean
+        administrative:
+          type: boolean
+        humanResources:
+          type: boolean
+        soundEngineering:
+          type: boolean
+        cloudEngineering:
+          type: boolean
+        firstLevelSupport:
+          type: boolean
+        secondLevelSupport:
+          type: boolean
+        softwareEngineering:
+          type: boolean
+        partnerAccountRepresentative:
+          type: boolean
+        startupSuccessRepresentative:
+          type: boolean
+        customerSuccessRepresentative:
+          type: boolean
+      type: object
     EmptyEnvelope:
       additionalProperties: false
       example:
@@ -6203,6 +8393,225 @@ components:
       - newPassword
       - resetCode
       type: object
+    SkillCreateDto:
+      additionalProperties: false
+      example:
+        skillType: Skill
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        iconUrl: iconUrl
+        type: type
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+        url:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        iconUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+        skillType:
+          enum:
+          - Skill
+          - Certification
+          type: string
+      required:
+      - name
+      type: object
+    SkillDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        skillType: Skill
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        iconUrl: iconUrl
+        type: type
+        url: url
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        iconUrl:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        skillType:
+          enum:
+          - Skill
+          - Certification
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    SkillDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          skillType: Skill
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          iconUrl: iconUrl
+          type: type
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/SkillDto'
+      type: object
+    SkillDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          skillType: Skill
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          iconUrl: iconUrl
+          type: type
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          skillType: Skill
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          iconUrl: iconUrl
+          type: type
+          url: url
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SkillDto'
+          nullable: true
+          type: array
+      type: object
+    SkillUpdateDto:
+      additionalProperties: false
+      example:
+        skillType: Skill
+        name: name
+        description: description
+        iconUrl: iconUrl
+        type: type
+        url: url
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        iconUrl:
+          nullable: true
+          type: string
+        description:
+          maxLength: 500
+          minLength: 0
+          nullable: true
+          type: string
+        skillType:
+          enum:
+          - Skill
+          - Certification
+          type: string
+      type: object
     SocialFeedDto:
       additionalProperties: false
       example:
@@ -6665,6 +9074,7 @@ components:
         title: title
         isFolder: true
         parentFileUploadId: parentFileUploadId
+        publicAccessType: "false"
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
@@ -6703,6 +9113,13 @@ components:
         filePath:
           nullable: true
           type: string
+        publicAccessType:
+          enum:
+          - "false"
+          - Container
+          - Blob
+          - Unknown
+          type: string
         socialPostId:
           nullable: true
           type: string
@@ -6710,29 +9127,39 @@ components:
     SocialPostAttachmentDto:
       additionalProperties: false
       example:
-        keyWords: keyWords
         validResponse: true
-        enrollmentId: enrollmentId
         fileName: fileName
         metadata: metadata
         notes: notes
-        author: author
-        filePath: filePath
-        abstract: abstract
         title: title
-        userId: userId
         folderPath: folderPath
-        isFolder: true
+        publicAccessType: "false"
         parentFileId: parentFileId
-        tenantId: tenantId
         fileUrl: fileUrl
         id: id
+        thumbnailContentType: thumbnailContentType
         socialProfileId: socialProfileId
         contentType: contentType
-        hash: hash
+        thumbnailHeight: 1
         fileLength: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
+        keyWords: keyWords
+        enrollmentId: enrollmentId
+        hasThumbnail: true
+        author: author
+        filePath: filePath
+        scanStatus: NotRequired
+        thumbnailStorageKey: thumbnailStorageKey
+        abstract: abstract
+        thumbnailWidth: 6
+        storageKey: storageKey
+        userId: userId
+        isFolder: true
+        storageProviderKey: storageProviderKey
+        tenantId: tenantId
+        thumbnailStatus: NotRequired
+        hash: hash
       properties:
         id:
           nullable: true
@@ -6759,6 +9186,12 @@ components:
           nullable: true
           type: string
         filePath:
+          nullable: true
+          type: string
+        storageKey:
+          nullable: true
+          type: string
+        storageProviderKey:
           nullable: true
           type: string
         fileName:
@@ -6799,6 +9232,45 @@ components:
         folderPath:
           nullable: true
           type: string
+        scanStatus:
+          enum:
+          - NotRequired
+          - Pending
+          - Clean
+          - Infected
+          - Failed
+          - Quarantined
+          type: string
+        thumbnailStatus:
+          enum:
+          - NotRequired
+          - Pending
+          - Ready
+          - Failed
+          - Unsupported
+          type: string
+        hasThumbnail:
+          readOnly: true
+          type: boolean
+        thumbnailStorageKey:
+          nullable: true
+          type: string
+        thumbnailContentType:
+          nullable: true
+          type: string
+        thumbnailWidth:
+          format: int32
+          type: integer
+        thumbnailHeight:
+          format: int32
+          type: integer
+        publicAccessType:
+          enum:
+          - "false"
+          - Container
+          - Blob
+          - Unknown
+          type: string
         socialPostId:
           nullable: true
           type: string
@@ -6807,29 +9279,39 @@ components:
       additionalProperties: false
       example:
         result:
-          keyWords: keyWords
           validResponse: true
-          enrollmentId: enrollmentId
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
+          keyWords: keyWords
+          enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -6860,52 +9342,72 @@ components:
       additionalProperties: false
       example:
         result:
-        - keyWords: keyWords
-          validResponse: true
-          enrollmentId: enrollmentId
+        - validResponse: true
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
-        - keyWords: keyWords
-          validResponse: true
+          keyWords: keyWords
           enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
+        - validResponse: true
           fileName: fileName
           metadata: metadata
           notes: notes
-          author: author
-          filePath: filePath
-          abstract: abstract
           title: title
-          userId: userId
           folderPath: folderPath
-          isFolder: true
+          publicAccessType: "false"
           parentFileId: parentFileId
-          tenantId: tenantId
           fileUrl: fileUrl
           id: id
+          thumbnailContentType: thumbnailContentType
           socialProfileId: socialProfileId
           contentType: contentType
-          hash: hash
+          thumbnailHeight: 1
           fileLength: 0
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
+          keyWords: keyWords
+          enrollmentId: enrollmentId
+          hasThumbnail: true
+          author: author
+          filePath: filePath
+          scanStatus: NotRequired
+          thumbnailStorageKey: thumbnailStorageKey
+          abstract: abstract
+          thumbnailWidth: 6
+          storageKey: storageKey
+          userId: userId
+          isFolder: true
+          storageProviderKey: storageProviderKey
+          tenantId: tenantId
+          thumbnailStatus: NotRequired
+          hash: hash
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -6987,8 +9489,10 @@ components:
       example:
         socialFeedPostId: socialFeedPostId
         parentCommentId: parentCommentId
+        bodyHtml: bodyHtml
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         message: message
+        bodyFormat: PlainText
         socialProfileId: socialProfileId
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
@@ -7003,6 +9507,16 @@ components:
           maxLength: 280
           minLength: 1
           pattern: "^[\\w\\s\\.\\,\\!\\?\\-\\(\\)\\[\\]\\{\\}\\'\\\"\\:\\;]{1,280}$"
+          type: string
+        bodyHtml:
+          maxLength: 8000
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
           type: string
         parentCommentId:
           nullable: true
@@ -7026,9 +9540,11 @@ components:
         socialProfileName: socialProfileName
         socialProfileAvatarUrl: socialProfileAvatarUrl
         parentCommentId: parentCommentId
+        bodyHtml: bodyHtml
         id: id
         message: message
         socialProfileId: socialProfileId
+        bodyFormat: PlainText
         timestamp: 2000-01-23T04:56:07.000+00:00
         socialPostId: socialPostId
       properties:
@@ -7057,6 +9573,15 @@ components:
         socialProfileAvatarUrl:
           nullable: true
           type: string
+        bodyHtml:
+          nullable: true
+          type: string
+        bodyFormat:
+          enum:
+          - PlainText
+          - Html
+          nullable: true
+          type: string
         socialPostId:
           nullable: true
           type: string
@@ -7069,9 +9594,11 @@ components:
           socialProfileName: socialProfileName
           socialProfileAvatarUrl: socialProfileAvatarUrl
           parentCommentId: parentCommentId
+          bodyHtml: bodyHtml
           id: id
           message: message
           socialProfileId: socialProfileId
+          bodyFormat: PlainText
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         activityId: activityId
@@ -7108,18 +9635,22 @@ components:
           socialProfileName: socialProfileName
           socialProfileAvatarUrl: socialProfileAvatarUrl
           parentCommentId: parentCommentId
+          bodyHtml: bodyHtml
           id: id
           message: message
           socialProfileId: socialProfileId
+          bodyFormat: PlainText
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         - socialFeedPostId: socialFeedPostId
           socialProfileName: socialProfileName
           socialProfileAvatarUrl: socialProfileAvatarUrl
           parentCommentId: parentCommentId
+          bodyHtml: bodyHtml
           id: id
           message: message
           socialProfileId: socialProfileId
+          bodyFormat: PlainText
           timestamp: 2000-01-23T04:56:07.000+00:00
           socialPostId: socialPostId
         activityId: activityId

@@ -1,6 +1,6 @@
 # InvoicesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -40,6 +40,8 @@ All URIs are relative to *http://localhost*
 | [**getInvoiceReferencesCount**](InvoicesApi.md#getInvoiceReferencesCount) | **GET** /api/v2/InvoicingService/Invoices/{invoiceId}/References/Count | Get the count of invoice references. |
 | [**getInvoices**](InvoicesApi.md#getInvoices) | **GET** /api/v2/InvoicingService/Invoices | Get a list of invoices. |
 | [**getInvoicesCount**](InvoicesApi.md#getInvoicesCount) | **GET** /api/v2/InvoicingService/Invoices/Count | Get the count of invoices. |
+| [**getPurchaseInvoicesSum**](InvoicesApi.md#getPurchaseInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/PurchaseInvoices/Sum | Sum tenant purchase-invoice totals. |
+| [**getSalesInvoicesSum**](InvoicesApi.md#getSalesInvoicesSum) | **GET** /api/v2/InvoicingService/Invoices/SalesInvoices/Sum | Sum tenant sales-invoice totals. |
 | [**patchInvoice**](InvoicesApi.md#patchInvoice) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId} | Patch an invoice. |
 | [**patchInvoiceAdjustment**](InvoicesApi.md#patchInvoiceAdjustment) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Adjustments/{invoiceAdjustmentId} | Patch an invoice adjustment. |
 | [**patchInvoiceLine**](InvoicesApi.md#patchInvoiceLine) | **PATCH** /api/v2/InvoicingService/Invoices/{invoiceId}/Lines/{invoiceLineId} | Patch an invoice line. |
@@ -74,7 +76,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -140,7 +142,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -206,7 +208,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -272,7 +274,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -338,7 +340,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -404,7 +406,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -469,7 +471,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -535,7 +537,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -600,7 +602,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -666,7 +668,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -732,7 +734,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -800,7 +802,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -866,7 +868,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -931,7 +933,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -997,7 +999,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1063,7 +1065,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1131,7 +1133,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1197,7 +1199,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1262,7 +1264,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1325,7 +1327,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1388,7 +1390,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1453,7 +1455,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1519,7 +1521,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1583,7 +1585,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1647,7 +1649,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1713,7 +1715,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1779,7 +1781,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1845,7 +1847,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1911,7 +1913,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -1975,7 +1977,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2039,7 +2041,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2103,7 +2105,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2169,7 +2171,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2233,7 +2235,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2297,7 +2299,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2360,7 +2362,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2403,6 +2405,134 @@ No authorization required
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
+<a id="getPurchaseInvoicesSum"></a>
+# **getPurchaseInvoicesSum**
+> DecimalEnvelope getPurchaseInvoicesSum(tenantId)
+
+Sum tenant purchase-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      DecimalEnvelope result = apiInstance.getPurchaseInvoicesSum(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getPurchaseInvoicesSum");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="getSalesInvoicesSum"></a>
+# **getSalesInvoicesSum**
+> DecimalEnvelope getSalesInvoicesSum(tenantId)
+
+Sum tenant sales-invoice totals.
+
+Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.InvoicesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    InvoicesApi apiInstance = new InvoicesApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      DecimalEnvelope result = apiInstance.getSalesInvoicesSum(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling InvoicesApi#getSalesInvoicesSum");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**DecimalEnvelope**](DecimalEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
 <a id="patchInvoice"></a>
 # **patchInvoice**
 > EmptyEnvelope patchInvoice(tenantId, invoiceId, operation)
@@ -2423,7 +2553,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2490,7 +2620,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2559,7 +2689,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2628,7 +2758,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2698,7 +2828,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2766,7 +2896,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID invoiceId = UUID.randomUUID(); // UUID | 
@@ -2831,7 +2961,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2897,7 +3027,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -2964,7 +3094,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3032,7 +3162,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3100,7 +3230,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -3170,7 +3300,7 @@ import org.openapitools.client.api.InvoicesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

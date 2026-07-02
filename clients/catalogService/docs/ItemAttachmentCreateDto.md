@@ -19,7 +19,19 @@
 |**validResponse** | **Boolean** |  |  [optional] |
 |**parentFileUploadId** | **String** |  |  [optional] |
 |**filePath** | **String** |  |  [optional] |
+|**publicAccessType** | [**PublicAccessTypeEnum**](#PublicAccessTypeEnum) |  |  [optional] |
 |**itemId** | **String** |  |  [optional] |
+
+
+
+## Enum: PublicAccessTypeEnum
+
+| Name | Value |
+|---- | -----|
+| FALSE | &quot;false&quot; |
+| CONTAINER | &quot;Container&quot; |
+| BLOB | &quot;Blob&quot; |
+| UNKNOWN | &quot;Unknown&quot; |
 
 
 

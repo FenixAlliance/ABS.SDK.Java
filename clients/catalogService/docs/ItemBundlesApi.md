@@ -1,6 +1,6 @@
 # ItemBundlesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -33,7 +33,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -103,7 +103,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -172,7 +172,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID itemBundleId = UUID.randomUUID(); // UUID | 
@@ -242,7 +242,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -310,7 +310,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -378,7 +378,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -450,7 +450,7 @@ import org.openapitools.client.api.ItemBundlesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     ItemBundlesApi apiInstance = new ItemBundlesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

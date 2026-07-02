@@ -1,6 +1,6 @@
 # PriceListsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**getPriceListAsync**](PriceListsApi.md#getPriceListAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId} | Gets a price list by ID |
 | [**getPriceListPriceAsync**](PriceListsApi.md#getPriceListPriceAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/{priceId} | Gets a price list entry by ID |
 | [**getPriceListPricesAsync**](PriceListsApi.md#getPriceListPricesAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices | Retrieves prices in a price list |
+| [**getPriceListPricesCountAsync**](PriceListsApi.md#getPriceListPricesCountAsync) | **GET** /api/v2/PricingService/PriceLists/{priceListId}/Prices/Count | Counts prices in a price list |
 | [**getPriceListsAsync**](PriceListsApi.md#getPriceListsAsync) | **GET** /api/v2/PricingService/PriceLists | Retrieves all price lists |
 | [**getPriceListsCountAsync**](PriceListsApi.md#getPriceListsCountAsync) | **GET** /api/v2/PricingService/PriceLists/Count | Counts price lists |
 | [**patchPriceListAsync**](PriceListsApi.md#patchPriceListAsync) | **PATCH** /api/v2/PricingService/PriceLists/{priceListId} | Patches a price list |
@@ -39,7 +40,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -104,7 +105,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -171,7 +172,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -236,7 +237,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -303,7 +304,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -368,7 +369,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -435,7 +436,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -482,6 +483,71 @@ No authorization required
 | **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
+<a id="getPriceListPricesCountAsync"></a>
+# **getPriceListPricesCountAsync**
+> Int32Envelope getPriceListPricesCountAsync(tenantId, priceListId)
+
+Counts prices in a price list
+
+Gets the count of price entries for a specific price list.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.PriceListsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    PriceListsApi apiInstance = new PriceListsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID priceListId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getPriceListPricesCountAsync(tenantId, priceListId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PriceListsApi#getPriceListPricesCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **priceListId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
 <a id="getPriceListsAsync"></a>
 # **getPriceListsAsync**
 > PriceListDtoListEnvelope getPriceListsAsync(tenantId)
@@ -502,7 +568,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -565,7 +631,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -628,7 +694,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -695,7 +761,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -764,7 +830,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -831,7 +897,7 @@ import org.openapitools.client.api.PriceListsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     PriceListsApi apiInstance = new PriceListsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 

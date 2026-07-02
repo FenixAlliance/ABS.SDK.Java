@@ -61,6 +61,7 @@
 |**cornerstoneContent** | **Boolean** |  |  [optional] |
 |**isEssentialContent** | **Boolean** |  |  [optional] |
 |**allowSearchEngineIndexing** | **Boolean** |  |  [optional] |
+|**webPortalId** | **String** |  |  [optional] |
 |**webTemplateId** | **String** |  |  [optional] |
 |**parentWebContentId** | **String** |  |  [optional] |
 |**isHomePage** | **Boolean** |  |  [optional] |

@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
 |**name** | **String** |  |  |
 |**legalName** | **String** |  |  [optional] |
 |**email** | **String** |  |  |
@@ -33,6 +34,15 @@
 |**languageId** | **String** |  |  [optional] |
 |**stateId** | **String** |  |  [optional] |
 |**cityId** | **String** |  |  [optional] |
+
+
+
+## Enum: KindEnum
+
+| Name | Value |
+|---- | -----|
+| ORGANIZATION | &quot;Organization&quot; |
+| INDIVIDUAL | &quot;Individual&quot; |
 
 
 

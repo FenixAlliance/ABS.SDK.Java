@@ -11,6 +11,7 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**paymentMeansCode** | **String** |  |  [optional] |
 |**tenantId** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
 

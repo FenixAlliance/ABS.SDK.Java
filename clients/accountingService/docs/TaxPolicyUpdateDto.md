@@ -31,6 +31,8 @@
 |**zero** | **Boolean** |  |  [optional] |
 |**reduced** | **Boolean** |  |  [optional] |
 |**withholding** | **Boolean** |  |  [optional] |
+|**taxSchemeCode** | **String** |  |  [optional] |
+|**taxCategoryCode** | **String** |  |  [optional] |
 |**fiscalAuthorityId** | **String** |  |  [optional] |
 
 

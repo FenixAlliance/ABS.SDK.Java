@@ -11,13 +11,12 @@ docs/BankAccountDto.md
 docs/BankAccountDtoEnvelope.md
 docs/BankAccountDtoListEnvelope.md
 docs/BankAccountUpdateDto.md
-docs/CompletionsApi.md
 docs/ContactDto.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedOrderDto.md
 docs/ExtendedOrderDtoListEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -87,8 +86,7 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/WalletsApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java

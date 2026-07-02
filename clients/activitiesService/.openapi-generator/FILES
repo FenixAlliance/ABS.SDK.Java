@@ -15,16 +15,16 @@ docs/ActivityRecordDto.md
 docs/ActivityRecordDtoEnvelope.md
 docs/ActivityRecordDtoListEnvelope.md
 docs/ActivityRecordUpdateDto.md
+docs/ActivityRecordsApi.md
 docs/ActivityTypeCreateDto.md
 docs/ActivityTypeDto.md
 docs/ActivityTypeDtoEnvelope.md
 docs/ActivityTypeDtoListEnvelope.md
 docs/ActivityTypeUpdateDto.md
-docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -61,8 +61,8 @@ src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/ActivityFeedsApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/ActivityRecordsApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
 src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
@@ -98,3 +98,5 @@ src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
 src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/ActivityRecordsApiTest.java
+src/test/java/org/openapitools/client/api/FenixAllianceAbsWebApiTest.java
