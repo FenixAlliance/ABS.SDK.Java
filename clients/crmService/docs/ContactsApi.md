@@ -5,7 +5,11 @@ All URIs are relative to *https://absuite.net*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createContactAsync**](ContactsApi.md#createContactAsync) | **POST** /api/v2/CrmService/Contacts | Create a new contact |
+| [**createContactEmailAsync**](ContactsApi.md#createContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses | Add an email address to a contact |
+| [**createProfileForContactAsync**](ContactsApi.md#createProfileForContactAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Profiles | Create a contact profile |
 | [**deleteContactAsync**](ContactsApi.md#deleteContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId} | Delete a contact |
+| [**deleteContactEmailAsync**](ContactsApi.md#deleteContactEmailAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Delete a contact email address |
+| [**deleteProfileForContactAsync**](ContactsApi.md#deleteProfileForContactAsync) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Delete a contact profile |
 | [**getBusinessOwnedIndividualAsync**](ContactsApi.md#getBusinessOwnedIndividualAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId} | Get a Contact of type Individual by ID |
 | [**getBusinessOwnedIndividualsAsync**](ContactsApi.md#getBusinessOwnedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals | Get all contacts of type individual |
 | [**getBusinessOwnedIndividualsCountAsync**](ContactsApi.md#getBusinessOwnedIndividualsCountAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/Count | Get all contacts of type individual count |
@@ -15,7 +19,8 @@ All URIs are relative to *https://absuite.net*
 | [**getContactAsync**](ContactsApi.md#getContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId} | Get a contact by ID |
 | [**getContactAvatarAsync**](ContactsApi.md#getContactAvatarAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Avatar | Get a contact&#39;s avatar |
 | [**getContactCartAsync**](ContactsApi.md#getContactCartAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Cart | Get a contact&#39;s cart |
-| [**getContactProfilesAsync**](ContactsApi.md#getContactProfilesAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles |
+| [**getContactEmailsAsync**](ContactsApi.md#getContactEmailsAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails | Get a contact&#39;s email addresses |
+| [**getContactEmailsCountAsync**](ContactsApi.md#getContactEmailsCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails/Count | Get contact email addresses count |
 | [**getContactSocialProfileAsync**](ContactsApi.md#getContactSocialProfileAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/SocialProfile | Get a contact&#39;s social profile |
 | [**getContactWalletAsync**](ContactsApi.md#getContactWalletAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Wallet | Get a contact&#39;s wallet |
 | [**getContactsAsync**](ContactsApi.md#getContactsAsync) | **GET** /api/v2/CrmService/Contacts | Get all business owned contacts |
@@ -28,13 +33,19 @@ All URIs are relative to *https://absuite.net*
 | [**getIndividualRelatedOrganizationsAsync**](ContactsApi.md#getIndividualRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations | Get individual related organizations |
 | [**getOrganizationRelatedIndividualsAsync**](ContactsApi.md#getOrganizationRelatedIndividualsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals |
 | [**getOrganizationRelatedOrganizationsAsync**](ContactsApi.md#getOrganizationRelatedOrganizationsAsync) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations |
+| [**getProfilesForContactAsync**](ContactsApi.md#getProfilesForContactAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact&#39;s social profiles |
+| [**getProfilesForContactCountAsync**](ContactsApi.md#getProfilesForContactCountAsync) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles/Count | Get contact profiles count |
 | [**patchContactAsync**](ContactsApi.md#patchContactAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId} | Patch a contact |
+| [**patchContactEmailAsync**](ContactsApi.md#patchContactEmailAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Patch a contact email address |
 | [**previewContactEmailTemplate**](ContactsApi.md#previewContactEmailTemplate) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact. |
 | [**sendContactEmail**](ContactsApi.md#sendContactEmail) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact. |
 | [**updateContactAsync**](ContactsApi.md#updateContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId} | Update a contact |
 | [**updateContactAvatarAsync**](ContactsApi.md#updateContactAvatarAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact&#39;s avatar |
+| [**updateContactEmailAsync**](ContactsApi.md#updateContactEmailAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Update a contact email address |
+| [**updateProfileForContactAsync**](ContactsApi.md#updateProfileForContactAsync) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Update a contact profile |
 | [**upsertTenantOntoAnotherTenantContactListAsync**](ContactsApi.md#upsertTenantOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant&#39;s contact list |
 | [**upsertUserOntoAnotherTenantContactListAsync**](ContactsApi.md#upsertUserOntoAnotherTenantContactListAsync) | **POST** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant&#39;s contact list |
+| [**verifyContactEmailAsync**](ContactsApi.md#verifyContactEmailAsync) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify | Verify a contact email address |
 
 
 <a id="createContactAsync"></a>
@@ -107,6 +118,148 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="createContactEmailAsync"></a>
+# **createContactEmailAsync**
+> createContactEmailAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto)
+
+Add an email address to a contact
+
+Creates a new email address for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ContactEmailCreateDto contactEmailCreateDto = new ContactEmailCreateDto(); // ContactEmailCreateDto | 
+    try {
+      apiInstance.createContactEmailAsync(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#createContactEmailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **contactEmailCreateDto** | [**ContactEmailCreateDto**](ContactEmailCreateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
+<a id="createProfileForContactAsync"></a>
+# **createProfileForContactAsync**
+> createProfileForContactAsync(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto)
+
+Create a contact profile
+
+Creates a new profile for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileCreateDto contactProfileCreateDto = new ContactProfileCreateDto(); // ContactProfileCreateDto | 
+    try {
+      apiInstance.createProfileForContactAsync(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#createProfileForContactAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **contactProfileCreateDto** | [**ContactProfileCreateDto**](ContactProfileCreateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
+| **200** | OK |  -  |
+
 <a id="deleteContactAsync"></a>
 # **deleteContactAsync**
 > EmptyEnvelope deleteContactAsync(tenantId, contactId, apiVersion, xApiVersion)
@@ -175,6 +328,148 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteContactEmailAsync"></a>
+# **deleteContactEmailAsync**
+> deleteContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion)
+
+Delete a contact email address
+
+Deletes an email address from the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID emailId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      apiInstance.deleteContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#deleteContactEmailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **emailId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="deleteProfileForContactAsync"></a>
+# **deleteProfileForContactAsync**
+> deleteProfileForContactAsync(tenantId, contactId, profileId, apiVersion, xApiVersion)
+
+Delete a contact profile
+
+Deletes a profile for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID profileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      apiInstance.deleteProfileForContactAsync(tenantId, contactId, profileId, apiVersion, xApiVersion);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#deleteProfileForContactAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **profileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
 <a id="getBusinessOwnedIndividualAsync"></a>
@@ -802,13 +1097,13 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="getContactProfilesAsync"></a>
-# **getContactProfilesAsync**
-> ContactProfileDtoListEnvelope getContactProfilesAsync(tenantId, contactId, apiVersion, xApiVersion)
+<a id="getContactEmailsAsync"></a>
+# **getContactEmailsAsync**
+> ContactEmailDtoListEnvelope getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion)
 
-Get a contact&#39;s social profiles
+Get a contact&#39;s email addresses
 
-Get a contact&#39;s social profiles
+Get all email addresses for the specified contact.
 
 ### Example
 ```java
@@ -830,10 +1125,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ContactProfileDtoListEnvelope result = apiInstance.getContactProfilesAsync(tenantId, contactId, apiVersion, xApiVersion);
+      ContactEmailDtoListEnvelope result = apiInstance.getContactEmailsAsync(tenantId, contactId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ContactsApi#getContactProfilesAsync");
+      System.err.println("Exception when calling ContactsApi#getContactEmailsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -854,7 +1149,7 @@ public class Example {
 
 ### Return type
 
-[**ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+[**ContactEmailDtoListEnvelope**](ContactEmailDtoListEnvelope.md)
 
 ### Authorization
 
@@ -868,9 +1163,77 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | Not Found |  -  |
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getContactEmailsCountAsync"></a>
+# **getContactEmailsCountAsync**
+> Int32Envelope getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion)
+
+Get contact email addresses count
+
+Returns the count of email addresses for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getContactEmailsCountAsync(tenantId, contactId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#getContactEmailsCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
 | **200** | OK |  -  |
 
 <a id="getContactSocialProfileAsync"></a>
@@ -1705,6 +2068,146 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getProfilesForContactAsync"></a>
+# **getProfilesForContactAsync**
+> ContactProfileDtoListEnvelope getProfilesForContactAsync(tenantId, contactId, apiVersion, xApiVersion)
+
+Get a contact&#39;s social profiles
+
+Get a contact&#39;s social profiles
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      ContactProfileDtoListEnvelope result = apiInstance.getProfilesForContactAsync(tenantId, contactId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#getProfilesForContactAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **404** | Not Found |  -  |
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getProfilesForContactCountAsync"></a>
+# **getProfilesForContactCountAsync**
+> Int32Envelope getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion)
+
+Get contact profiles count
+
+Returns the count of profiles for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      Int32Envelope result = apiInstance.getProfilesForContactCountAsync(tenantId, contactId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#getProfilesForContactCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
 <a id="patchContactAsync"></a>
 # **patchContactAsync**
 > EmptyEnvelope patchContactAsync(tenantId, contactId, apiVersion, xApiVersion, operation)
@@ -1775,6 +2278,79 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchContactEmailAsync"></a>
+# **patchContactEmailAsync**
+> patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, operation)
+
+Patch a contact email address
+
+Partially updates an existing email address for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID emailId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      apiInstance.patchContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, operation);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#patchContactEmailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **emailId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **200** | OK |  -  |
 
 <a id="previewContactEmailTemplate"></a>
@@ -2055,6 +2631,152 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 
+<a id="updateContactEmailAsync"></a>
+# **updateContactEmailAsync**
+> updateContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto)
+
+Update a contact email address
+
+Updates an existing email address for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID emailId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ContactEmailUpdateDto contactEmailUpdateDto = new ContactEmailUpdateDto(); // ContactEmailUpdateDto | 
+    try {
+      apiInstance.updateContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#updateContactEmailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **emailId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **contactEmailUpdateDto** | [**ContactEmailUpdateDto**](ContactEmailUpdateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+<a id="updateProfileForContactAsync"></a>
+# **updateProfileForContactAsync**
+> updateProfileForContactAsync(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto)
+
+Update a contact profile
+
+Updates an existing profile for the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID profileId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ContactProfileUpdateDto contactProfileUpdateDto = new ContactProfileUpdateDto(); // ContactProfileUpdateDto | 
+    try {
+      apiInstance.updateProfileForContactAsync(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#updateProfileForContactAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **profileId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **contactProfileUpdateDto** | [**ContactProfileUpdateDto**](ContactProfileUpdateDto.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
 <a id="upsertTenantOntoAnotherTenantContactListAsync"></a>
 # **upsertTenantOntoAnotherTenantContactListAsync**
 > ContactDtoEnvelope upsertTenantOntoAnotherTenantContactListAsync(tenantId, relatedTenantId, apiVersion, xApiVersion)
@@ -2193,5 +2915,77 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="verifyContactEmailAsync"></a>
+# **verifyContactEmailAsync**
+> verifyContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion)
+
+Verify a contact email address
+
+Marks an email address as verified on the specified contact.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ContactsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID emailId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      apiInstance.verifyContactEmailAsync(tenantId, contactId, emailId, apiVersion, xApiVersion);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ContactsApi#verifyContactEmailAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **emailId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **200** | OK |  -  |
 

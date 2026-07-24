@@ -294,4 +294,3 @@ src/main/java/org/openapitools/client/model/StudentProfileDtoIReadOnlyListEnvelo
 src/main/java/org/openapitools/client/model/StudentProfileUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/model/ContactCreateDtoTest.java

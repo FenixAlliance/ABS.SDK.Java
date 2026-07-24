@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * SalaryUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:58:35.502765100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:01:53.803270800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class SalaryUpdateDto {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)

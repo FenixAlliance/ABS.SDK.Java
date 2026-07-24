@@ -49,11 +49,15 @@ import org.openapitools.client.JSON;
 /**
  * TaskTypeUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TaskTypeUpdateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
+
+  public static final String SERIALIZED_NAME_TASK_CATEGORY_ID = "taskCategoryId";
+  @SerializedName(SERIALIZED_NAME_TASK_CATEGORY_ID)
+  private String taskCategoryId;
 
   public static final String SERIALIZED_NAME_DISPLAY_IN_TIME_TRACKER = "displayInTimeTracker";
   @SerializedName(SERIALIZED_NAME_DISPLAY_IN_TIME_TRACKER)
@@ -82,6 +86,25 @@ public class TaskTypeUpdateDto {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+
+  public TaskTypeUpdateDto taskCategoryId(String taskCategoryId) {
+    this.taskCategoryId = taskCategoryId;
+    return this;
+  }
+
+  /**
+   * Get taskCategoryId
+   * @return taskCategoryId
+   */
+  @javax.annotation.Nullable
+  public String getTaskCategoryId() {
+    return taskCategoryId;
+  }
+
+  public void setTaskCategoryId(String taskCategoryId) {
+    this.taskCategoryId = taskCategoryId;
   }
 
 
@@ -134,6 +157,7 @@ public class TaskTypeUpdateDto {
     }
     TaskTypeUpdateDto taskTypeUpdateDto = (TaskTypeUpdateDto) o;
     return Objects.equals(this.title, taskTypeUpdateDto.title) &&
+        Objects.equals(this.taskCategoryId, taskTypeUpdateDto.taskCategoryId) &&
         Objects.equals(this.displayInTimeTracker, taskTypeUpdateDto.displayInTimeTracker) &&
         Objects.equals(this.requiresDescription, taskTypeUpdateDto.requiresDescription);
   }
@@ -144,7 +168,7 @@ public class TaskTypeUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, displayInTimeTracker, requiresDescription);
+    return Objects.hash(title, taskCategoryId, displayInTimeTracker, requiresDescription);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -159,6 +183,7 @@ public class TaskTypeUpdateDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskTypeUpdateDto {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    taskCategoryId: ").append(toIndentedString(taskCategoryId)).append("\n");
     sb.append("    displayInTimeTracker: ").append(toIndentedString(displayInTimeTracker)).append("\n");
     sb.append("    requiresDescription: ").append(toIndentedString(requiresDescription)).append("\n");
     sb.append("}");
@@ -184,6 +209,7 @@ public class TaskTypeUpdateDto {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("title");
+    openapiFields.add("taskCategoryId");
     openapiFields.add("displayInTimeTracker");
     openapiFields.add("requiresDescription");
 
@@ -214,6 +240,9 @@ public class TaskTypeUpdateDto {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("taskCategoryId") != null && !jsonObj.get("taskCategoryId").isJsonNull()) && !jsonObj.get("taskCategoryId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `taskCategoryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taskCategoryId").toString()));
       }
   }
 

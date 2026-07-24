@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectPeriodCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectPeriodCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -69,9 +69,9 @@ public class ProjectPeriodCreateDto {
   @SerializedName(SERIALIZED_NAME_PERIOD_END_DATE)
   private OffsetDateTime periodEndDate;
 
-  public static final String SERIALIZED_NAME_PROJECT_I_D = "projectID";
-  @SerializedName(SERIALIZED_NAME_PROJECT_I_D)
-  private String projectID;
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
 
   public ProjectPeriodCreateDto() {
   }
@@ -152,22 +152,22 @@ public class ProjectPeriodCreateDto {
   }
 
 
-  public ProjectPeriodCreateDto projectID(String projectID) {
-    this.projectID = projectID;
+  public ProjectPeriodCreateDto projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
   /**
-   * Get projectID
-   * @return projectID
+   * Get projectId
+   * @return projectId
    */
   @javax.annotation.Nullable
-  public String getProjectID() {
-    return projectID;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -185,7 +185,7 @@ public class ProjectPeriodCreateDto {
         Objects.equals(this.timestamp, projectPeriodCreateDto.timestamp) &&
         Objects.equals(this.periodStartDate, projectPeriodCreateDto.periodStartDate) &&
         Objects.equals(this.periodEndDate, projectPeriodCreateDto.periodEndDate) &&
-        Objects.equals(this.projectID, projectPeriodCreateDto.projectID);
+        Objects.equals(this.projectId, projectPeriodCreateDto.projectId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -194,7 +194,7 @@ public class ProjectPeriodCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, periodStartDate, periodEndDate, projectID);
+    return Objects.hash(id, timestamp, periodStartDate, periodEndDate, projectId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +212,7 @@ public class ProjectPeriodCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    periodStartDate: ").append(toIndentedString(periodStartDate)).append("\n");
     sb.append("    periodEndDate: ").append(toIndentedString(periodEndDate)).append("\n");
-    sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,7 +239,7 @@ public class ProjectPeriodCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("periodStartDate");
     openapiFields.add("periodEndDate");
-    openapiFields.add("projectID");
+    openapiFields.add("projectId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -269,8 +269,8 @@ public class ProjectPeriodCreateDto {
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("projectID") != null && !jsonObj.get("projectID").isJsonNull()) && !jsonObj.get("projectID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectID").toString()));
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
   }
 

@@ -11,7 +11,9 @@
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**periodStartDate** | **OffsetDateTime** |  |  [optional] |
 |**periodEndDate** | **OffsetDateTime** |  |  [optional] |
-|**projectID** | **String** |  |  [optional] |
+|**projectId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**enrollmentId** | **String** |  |  [optional] |
 
 
 

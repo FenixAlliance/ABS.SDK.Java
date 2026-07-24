@@ -362,7 +362,7 @@ No authorization required
 
 <a id="getBlockchainBlocksAsync"></a>
 # **getBlockchainBlocksAsync**
-> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(tenantId, blockchainId, oDataQueryOptions, apiVersion, xApiVersion)
+> BlockchainBlockDtoListEnvelope getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion)
 
 Get blocks for a blockchain
 
@@ -383,11 +383,10 @@ public class Example {
     BlockchainsApi apiInstance = new BlockchainsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID blockchainId = UUID.randomUUID(); // UUID | 
-    BlockchainBlockDtoODataQueryOptions oDataQueryOptions = new BlockchainBlockDtoODataQueryOptions(); // BlockchainBlockDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      BlockchainBlockDtoListEnvelope result = apiInstance.getBlockchainBlocksAsync(tenantId, blockchainId, oDataQueryOptions, apiVersion, xApiVersion);
+      BlockchainBlockDtoListEnvelope result = apiInstance.getBlockchainBlocksAsync(tenantId, blockchainId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainBlocksAsync");
@@ -406,7 +405,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **blockchainId** | **UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainBlockDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -430,7 +428,7 @@ No authorization required
 
 <a id="getBlockchainBlocksCountAsync"></a>
 # **getBlockchainBlocksCountAsync**
-> Int32Envelope getBlockchainBlocksCountAsync(tenantId, blockchainId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion)
 
 Get block count for a blockchain
 
@@ -451,11 +449,10 @@ public class Example {
     BlockchainsApi apiInstance = new BlockchainsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID blockchainId = UUID.randomUUID(); // UUID | 
-    BlockchainBlockDtoODataQueryOptions oDataQueryOptions = new BlockchainBlockDtoODataQueryOptions(); // BlockchainBlockDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getBlockchainBlocksCountAsync(tenantId, blockchainId, oDataQueryOptions, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBlockchainBlocksCountAsync(tenantId, blockchainId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainBlocksCountAsync");
@@ -474,7 +471,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **blockchainId** | **UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainBlockDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -568,7 +564,7 @@ No authorization required
 
 <a id="getBlockchainsAsync"></a>
 # **getBlockchainsAsync**
-> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> BlockchainDtoListEnvelope getBlockchainsAsync(tenantId, apiVersion, xApiVersion)
 
 Get all blockchains
 
@@ -590,11 +586,10 @@ public class Example {
 
     BlockchainsApi apiInstance = new BlockchainsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    BlockchainDtoODataQueryOptions oDataQueryOptions = new BlockchainDtoODataQueryOptions(); // BlockchainDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      BlockchainDtoListEnvelope result = apiInstance.getBlockchainsAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      BlockchainDtoListEnvelope result = apiInstance.getBlockchainsAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainsAsync");
@@ -612,7 +607,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -637,7 +631,7 @@ No authorization required
 
 <a id="getBlockchainsCountAsync"></a>
 # **getBlockchainsCountAsync**
-> Int32Envelope getBlockchainsCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get blockchains count
 
@@ -659,11 +653,10 @@ public class Example {
 
     BlockchainsApi apiInstance = new BlockchainsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    BlockchainDtoODataQueryOptions oDataQueryOptions = new BlockchainDtoODataQueryOptions(); // BlockchainDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getBlockchainsCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getBlockchainsCountAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BlockchainsApi#getBlockchainsCountAsync");
@@ -681,7 +674,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**BlockchainDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

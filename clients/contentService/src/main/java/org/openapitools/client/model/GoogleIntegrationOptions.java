@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * GoogleIntegrationOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:55:23.067957400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:59:49.931797400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class GoogleIntegrationOptions {
   public static final String SERIALIZED_NAME_ENABLE = "enable";
   @SerializedName(SERIALIZED_NAME_ENABLE)

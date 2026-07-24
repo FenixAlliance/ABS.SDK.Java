@@ -4,12 +4,12 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getLatestCurrencyRatesModelAsync**](ThemesApi.md#getLatestCurrencyRatesModelAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
+| [**updateThemesAsync**](ThemesApi.md#updateThemesAsync) | **GET** /api/v2/ContentService/Themes/Update | Update base web content themes |
 
 
-<a id="getLatestCurrencyRatesModelAsync"></a>
-# **getLatestCurrencyRatesModelAsync**
-> getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion)
+<a id="updateThemesAsync"></a>
+# **updateThemesAsync**
+> updateThemesAsync(apiVersion, xApiVersion)
 
 Update base web content themes
 
@@ -33,9 +33,9 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      apiInstance.getLatestCurrencyRatesModelAsync(apiVersion, xApiVersion);
+      apiInstance.updateThemesAsync(apiVersion, xApiVersion);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ThemesApi#getLatestCurrencyRatesModelAsync");
+      System.err.println("Exception when calling ThemesApi#updateThemesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

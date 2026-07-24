@@ -76,7 +76,7 @@ No authorization required
 
 <a id="getAvailableModules"></a>
 # **getAvailableModules**
-> ModuleListEnvelope getAvailableModules(tenantId, apiVersion, xApiVersion)
+> SuiteModuleListEnvelope getAvailableModules(tenantId, apiVersion, xApiVersion)
 
 Get all modules available to a tenant user.
 
@@ -99,7 +99,7 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ModuleListEnvelope result = apiInstance.getAvailableModules(tenantId, apiVersion, xApiVersion);
+      SuiteModuleListEnvelope result = apiInstance.getAvailableModules(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ModulesApi#getAvailableModules");
@@ -122,7 +122,7 @@ public class Example {
 
 ### Return type
 
-[**ModuleListEnvelope**](ModuleListEnvelope.md)
+[**SuiteModuleListEnvelope**](SuiteModuleListEnvelope.md)
 
 ### Authorization
 

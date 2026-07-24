@@ -14,9 +14,12 @@ All URIs are relative to *https://absuite.net*
 | [**getJournalDetailsAsync**](JournalsApi.md#getJournalDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId} | Get journal by ID |
 | [**getJournalEntriesAsync**](JournalsApi.md#getJournalEntriesAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries | Get journal entries |
 | [**getJournalEntriesCountAsync**](JournalsApi.md#getJournalEntriesCountAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Count | Count journal entries |
+| [**getJournalEntryDetailsAsync**](JournalsApi.md#getJournalEntryDetailsAsync) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Get journal entry by ID |
 | [**getJournalsAsync**](JournalsApi.md#getJournalsAsync) | **GET** /api/v2/AccountingService/Journals | Get all journals |
 | [**patchJournalAsync**](JournalsApi.md#patchJournalAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId} | Patch a journal |
 | [**patchJournalEntryAsync**](JournalsApi.md#patchJournalEntryAsync) | **PATCH** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Patch a journal entry |
+| [**postJournalEntryAsync**](JournalsApi.md#postJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post | Post a draft journal entry |
+| [**reverseJournalEntryAsync**](JournalsApi.md#reverseJournalEntryAsync) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse | Reverse a posted journal entry |
 | [**updateJournalAsync**](JournalsApi.md#updateJournalAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId} | Update journal |
 | [**updateJournalEntryAsync**](JournalsApi.md#updateJournalEntryAsync) | **PUT** /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId} | Update journal entry |
 
@@ -46,7 +49,7 @@ public class Example {
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID journalId = UUID.randomUUID(); // UUID | 
-    String currencyId = "currencyId_example"; // String | 
+    String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -69,7 +72,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **journalId** | **UUID**|  | |
-| **currencyId** | **String**|  | [optional] |
+| **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -118,7 +121,7 @@ public class Example {
     JournalsApi apiInstance = new JournalsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     UUID journalId = UUID.randomUUID(); // UUID | 
-    String currencyId = "currencyId_example"; // String | 
+    String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -141,7 +144,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
 | **journalId** | **UUID**|  | |
-| **currencyId** | **String**|  | [optional] |
+| **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -727,6 +730,78 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
+<a id="getJournalEntryDetailsAsync"></a>
+# **getJournalEntryDetailsAsync**
+> JournalEntryDtoEnvelope getJournalEntryDetailsAsync(tenantId, journalId, entryId, apiVersion, xApiVersion)
+
+Get journal entry by ID
+
+Retrieves a single journal entry WITH its hydrated posting lines — each line&#39;s account, direction, description and currency facets (transaction / functional / account / USD).
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    UUID entryId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      JournalEntryDtoEnvelope result = apiInstance.getJournalEntryDetailsAsync(tenantId, journalId, entryId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#getJournalEntryDetailsAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **entryId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**JournalEntryDtoEnvelope**](JournalEntryDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
 <a id="getJournalsAsync"></a>
 # **getJournalsAsync**
 > JournalDtoIReadOnlyListEnvelope getJournalsAsync(tenantId, apiVersion, xApiVersion)
@@ -940,6 +1015,155 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
+
+<a id="postJournalEntryAsync"></a>
+# **postJournalEntryAsync**
+> EmptyEnvelope postJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion)
+
+Post a draft journal entry
+
+Posts a DRAFT journal entry into its own open fiscal period. Enforces the balanced-entry invariant and the open-period gate, then seals the entry (immutable — correct via reversal, never edit/delete). An unbalanced draft or a closed period is rejected. Requires the journals_post permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    UUID entryId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      EmptyEnvelope result = apiInstance.postJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#postJournalEntryAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **entryId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
+
+<a id="reverseJournalEntryAsync"></a>
+# **reverseJournalEntryAsync**
+> EmptyEnvelope reverseJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, reverseJournalEntryRequest)
+
+Reverse a posted journal entry
+
+Reverses a POSTED journal entry by writing a balanced compensating counter-entry into the supplied open fiscal period and marking the original Reversed — one atomic operation (append-only audit trail). Requires the journals_reverse permission.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.JournalsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    JournalsApi apiInstance = new JournalsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID journalId = UUID.randomUUID(); // UUID | 
+    UUID entryId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    ReverseJournalEntryRequest reverseJournalEntryRequest = new ReverseJournalEntryRequest(); // ReverseJournalEntryRequest | 
+    try {
+      EmptyEnvelope result = apiInstance.reverseJournalEntryAsync(tenantId, journalId, entryId, apiVersion, xApiVersion, reverseJournalEntryRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling JournalsApi#reverseJournalEntryAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **journalId** | **UUID**|  | |
+| **entryId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **reverseJournalEntryRequest** | [**ReverseJournalEntryRequest**](ReverseJournalEntryRequest.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="updateJournalAsync"></a>
 # **updateJournalAsync**

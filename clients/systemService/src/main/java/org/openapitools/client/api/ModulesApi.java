@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ErrorEnvelope;
-import org.openapitools.client.model.ModuleListEnvelope;
 import org.openapitools.client.model.StudioModuleListEnvelope;
+import org.openapitools.client.model.SuiteModuleListEnvelope;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -311,7 +311,7 @@ public class ModulesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ModuleListEnvelope
+     * @return SuiteModuleListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -321,8 +321,8 @@ public class ModulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ModuleListEnvelope getAvailableModules(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ModuleListEnvelope> localVarResp = getAvailableModulesWithHttpInfo(tenantId, apiVersion, xApiVersion);
+    public SuiteModuleListEnvelope getAvailableModules(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<SuiteModuleListEnvelope> localVarResp = getAvailableModulesWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -332,7 +332,7 @@ public class ModulesApi {
      * @param tenantId  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;ModuleListEnvelope&gt;
+     * @return ApiResponse&lt;SuiteModuleListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -342,9 +342,9 @@ public class ModulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModuleListEnvelope> getAvailableModulesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+    public ApiResponse<SuiteModuleListEnvelope> getAvailableModulesWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
         okhttp3.Call localVarCall = getAvailableModulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<ModuleListEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SuiteModuleListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -365,10 +365,10 @@ public class ModulesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAvailableModulesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<ModuleListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getAvailableModulesAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<SuiteModuleListEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAvailableModulesValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<ModuleListEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<SuiteModuleListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

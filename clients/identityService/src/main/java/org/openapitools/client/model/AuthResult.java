@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * AuthResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:59:14.211985600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:02:32.233434-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AuthResult {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)

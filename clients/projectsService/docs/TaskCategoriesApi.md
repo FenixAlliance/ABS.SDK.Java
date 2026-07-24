@@ -10,6 +10,7 @@ All URIs are relative to *https://absuite.net*
 | [**getTaskCategoryByIdAsync**](TaskCategoriesApi.md#getTaskCategoryByIdAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID |
 | [**getTaskCategoryTaskTypesAsync**](TaskCategoriesApi.md#getTaskCategoryTaskTypesAsync) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category |
 | [**getTenantTaskCategoriesAsync**](TaskCategoriesApi.md#getTenantTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories |
+| [**patchTaskCategoryAsync**](TaskCategoriesApi.md#patchTaskCategoryAsync) | **PATCH** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Patches a task category |
 | [**updateTaskCategoryAsync**](TaskCategoriesApi.md#updateTaskCategoryAsync) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category |
 
 
@@ -396,6 +397,74 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchTaskCategoryAsync"></a>
+# **patchTaskCategoryAsync**
+> EmptyEnvelope patchTaskCategoryAsync(taskCategoryId, tenantId, operation)
+
+Patches a task category
+
+Partially updates the specified task category.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TaskCategoriesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TaskCategoriesApi apiInstance = new TaskCategoriesApi(defaultClient);
+    UUID taskCategoryId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchTaskCategoryAsync(taskCategoryId, tenantId, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TaskCategoriesApi#patchTaskCategoryAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taskCategoryId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

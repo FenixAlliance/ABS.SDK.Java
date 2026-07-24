@@ -1260,6 +1260,23 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
   /hello:
     get:
       responses:
@@ -2823,7 +2840,7 @@ paths:
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes:
     get:
       description: Retrieves all additional attributes for a given license.
-      operationId: GetLicenseAttributesAsync
+      operationId: GetAttributesForLicenseAsync
       parameters:
       - explode: true
         in: query
@@ -3156,7 +3173,7 @@ paths:
   /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features:
     get:
       description: Retrieves all features for a given license.
-      operationId: GetLicenseFeaturesAsync
+      operationId: GetFeaturesForLicenseAsync
       parameters:
       - explode: true
         in: query
@@ -4947,10 +4964,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModuleListEnvelope'
+                $ref: '#/components/schemas/SuiteModuleListEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/ModuleListEnvelope'
+                $ref: '#/components/schemas/SuiteModuleListEnvelope'
           description: OK
       summary: Get all modules available to a tenant user.
       tags:
@@ -10108,6 +10125,97 @@ components:
           nullable: true
           type: object
       type: object
+    IOpenApiContact:
+      additionalProperties: false
+      example:
+        name: name
+        email: email
+        url: url
+      properties:
+        name:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+      type: object
+    IOpenApiDefinitionSpec:
+      additionalProperties: false
+      example:
+        license:
+          name: name
+          url: url
+        openApiEndpoint:
+          enable: true
+          name: name
+          url: url
+        enable: true
+        name: name
+        description: description
+        openApiContact:
+          name: name
+          email: email
+          url: url
+        termsOfService: termsOfService
+        title: title
+        version: version
+      properties:
+        enable:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        termsOfService:
+          nullable: true
+          type: string
+        openApiEndpoint:
+          $ref: '#/components/schemas/IOpenApiEndpoint'
+        openApiContact:
+          $ref: '#/components/schemas/IOpenApiContact'
+        license:
+          $ref: '#/components/schemas/IOpenApiLicense'
+      type: object
+    IOpenApiEndpoint:
+      additionalProperties: false
+      example:
+        enable: true
+        name: name
+        url: url
+      properties:
+        enable:
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+      type: object
+    IOpenApiLicense:
+      additionalProperties: false
+      example:
+        name: name
+        url: url
+      properties:
+        name:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+      type: object
     IPLookupDto:
       additionalProperties: false
       example:
@@ -10211,97 +10319,6 @@ components:
             $ref: '#/components/schemas/IPLookupDto'
           nullable: true
           type: array
-      type: object
-    ISwaggerContact:
-      additionalProperties: false
-      example:
-        name: name
-        email: email
-        url: url
-      properties:
-        name:
-          nullable: true
-          type: string
-        email:
-          nullable: true
-          type: string
-        url:
-          nullable: true
-          type: string
-      type: object
-    ISwaggerEndpoint:
-      additionalProperties: false
-      example:
-        enable: true
-        name: name
-        url: url
-      properties:
-        enable:
-          type: boolean
-        name:
-          nullable: true
-          type: string
-        url:
-          nullable: true
-          type: string
-      type: object
-    ISwaggerLicense:
-      additionalProperties: false
-      example:
-        name: name
-        url: url
-      properties:
-        name:
-          nullable: true
-          type: string
-        url:
-          nullable: true
-          type: string
-      type: object
-    ISwaggerSpec:
-      additionalProperties: false
-      example:
-        license:
-          name: name
-          url: url
-        enable: true
-        name: name
-        description: description
-        openApiContact:
-          name: name
-          email: email
-          url: url
-        termsOfService: termsOfService
-        title: title
-        version: version
-        swaggerEndpoint:
-          enable: true
-          name: name
-          url: url
-      properties:
-        enable:
-          type: boolean
-        name:
-          nullable: true
-          type: string
-        title:
-          nullable: true
-          type: string
-        version:
-          nullable: true
-          type: string
-        description:
-          nullable: true
-          type: string
-        termsOfService:
-          nullable: true
-          type: string
-        swaggerEndpoint:
-          $ref: '#/components/schemas/ISwaggerEndpoint'
-        openApiContact:
-          $ref: '#/components/schemas/ISwaggerContact'
-        license:
-          $ref: '#/components/schemas/ISwaggerLicense'
       type: object
     IValidationFailure:
       additionalProperties: false
@@ -10451,392 +10468,6 @@ components:
       required:
       - email
       - password
-      type: object
-    Module:
-      additionalProperties: false
-      example:
-        configuration: configuration
-        assemblyPaths:
-        - assemblyPaths
-        - assemblyPaths
-        icon: icon
-        description: description
-        type: Module
-        repository: repository
-        markedForDeletion: true
-        requiredPermissions:
-        - requiredPermissions
-        - requiredPermissions
-        path: path
-        enable: true
-        authorUrl: authorUrl
-        logo: logo
-        id: id
-        swaggerSpecs:
-        - license:
-            name: name
-            url: url
-          enable: true
-          name: name
-          description: description
-          openApiContact:
-            name: name
-            email: email
-            url: url
-          termsOfService: termsOfService
-          title: title
-          version: version
-          swaggerEndpoint:
-            enable: true
-            name: name
-            url: url
-        - license:
-            name: name
-            url: url
-          enable: true
-          name: name
-          description: description
-          openApiContact:
-            name: name
-            email: email
-            url: url
-          termsOfService: termsOfService
-          title: title
-          version: version
-          swaggerEndpoint:
-            enable: true
-            name: name
-            url: url
-        order: 0
-        image: image
-        website: website
-        nuSpecPath: nuSpecPath
-        author: author
-        manifest: manifest
-        documentation: documentation
-        active: true
-        fullName: fullName
-        version: version
-        url: url
-        license: license
-        swaggerSpec:
-          license:
-            name: name
-            url: url
-          enable: true
-          name: name
-          description: description
-          openApiContact:
-            name: name
-            email: email
-            url: url
-          termsOfService: termsOfService
-          title: title
-          version: version
-          swaggerEndpoint:
-            enable: true
-            name: name
-            url: url
-        name: name
-        requireLicenseAcceptance: true
-      properties:
-        enable:
-          type: boolean
-        active:
-          readOnly: true
-          type: boolean
-        order:
-          format: int32
-          type: integer
-        id:
-          nullable: true
-          type: string
-        name:
-          nullable: true
-          type: string
-        fullName:
-          nullable: true
-          readOnly: true
-          type: string
-        description:
-          nullable: true
-          type: string
-        type:
-          enum:
-          - Module
-          - Integration
-          - StudioModule
-          - StudioIntegration
-          type: string
-        configuration:
-          nullable: true
-          type: string
-        author:
-          nullable: true
-          type: string
-        authorUrl:
-          nullable: true
-          type: string
-        license:
-          nullable: true
-          type: string
-        requireLicenseAcceptance:
-          nullable: true
-          type: boolean
-        repository:
-          nullable: true
-          type: string
-        path:
-          nullable: true
-          type: string
-        icon:
-          nullable: true
-          type: string
-        image:
-          nullable: true
-          type: string
-        nuSpecPath:
-          nullable: true
-          type: string
-        manifest:
-          nullable: true
-          type: string
-        documentation:
-          nullable: true
-          type: string
-        website:
-          nullable: true
-          type: string
-        logo:
-          nullable: true
-          type: string
-        swaggerSpec:
-          $ref: '#/components/schemas/ISwaggerSpec'
-        swaggerSpecs:
-          items:
-            $ref: '#/components/schemas/ISwaggerSpec'
-          nullable: true
-          type: array
-        url:
-          nullable: true
-          type: string
-        assemblyPaths:
-          items:
-            type: string
-          nullable: true
-          type: array
-        requiredPermissions:
-          items:
-            type: string
-          nullable: true
-          readOnly: true
-          type: array
-        markedForDeletion:
-          type: boolean
-        version:
-          nullable: true
-          type: string
-      type: object
-    ModuleListEnvelope:
-      additionalProperties: false
-      example:
-        result:
-        - configuration: configuration
-          assemblyPaths:
-          - assemblyPaths
-          - assemblyPaths
-          icon: icon
-          description: description
-          type: Module
-          repository: repository
-          markedForDeletion: true
-          requiredPermissions:
-          - requiredPermissions
-          - requiredPermissions
-          path: path
-          enable: true
-          authorUrl: authorUrl
-          logo: logo
-          id: id
-          swaggerSpecs:
-          - license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          - license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          order: 0
-          image: image
-          website: website
-          nuSpecPath: nuSpecPath
-          author: author
-          manifest: manifest
-          documentation: documentation
-          active: true
-          fullName: fullName
-          version: version
-          url: url
-          license: license
-          swaggerSpec:
-            license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          name: name
-          requireLicenseAcceptance: true
-        - configuration: configuration
-          assemblyPaths:
-          - assemblyPaths
-          - assemblyPaths
-          icon: icon
-          description: description
-          type: Module
-          repository: repository
-          markedForDeletion: true
-          requiredPermissions:
-          - requiredPermissions
-          - requiredPermissions
-          path: path
-          enable: true
-          authorUrl: authorUrl
-          logo: logo
-          id: id
-          swaggerSpecs:
-          - license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          - license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          order: 0
-          image: image
-          website: website
-          nuSpecPath: nuSpecPath
-          author: author
-          manifest: manifest
-          documentation: documentation
-          active: true
-          fullName: fullName
-          version: version
-          url: url
-          license: license
-          swaggerSpec:
-            license:
-              name: name
-              url: url
-            enable: true
-            name: name
-            description: description
-            openApiContact:
-              name: name
-              email: email
-              url: url
-            termsOfService: termsOfService
-            title: title
-            version: version
-            swaggerEndpoint:
-              enable: true
-              name: name
-              url: url
-          name: name
-          requireLicenseAcceptance: true
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          items:
-            $ref: '#/components/schemas/Module'
-          nullable: true
-          type: array
       type: object
     ObjectEmailDispatchRequest:
       additionalProperties: false
@@ -11648,6 +11279,417 @@ components:
         result:
           items:
             $ref: '#/components/schemas/SuiteLicenseDto'
+          nullable: true
+          type: array
+      type: object
+    SuiteModule:
+      additionalProperties: false
+      example:
+        configuration: configuration
+        assemblyPaths:
+        - assemblyPaths
+        - assemblyPaths
+        icon: icon
+        description: description
+        markedForDeletion: true
+        type: Module
+        repository: repository
+        requiredPermissions:
+        - requiredPermissions
+        - requiredPermissions
+        path: path
+        enable: true
+        authorUrl: authorUrl
+        logo: logo
+        id: id
+        swaggerSpecs:
+        - license:
+            name: name
+            url: url
+          openApiEndpoint:
+            enable: true
+            name: name
+            url: url
+          enable: true
+          name: name
+          description: description
+          openApiContact:
+            name: name
+            email: email
+            url: url
+          termsOfService: termsOfService
+          title: title
+          version: version
+        - license:
+            name: name
+            url: url
+          openApiEndpoint:
+            enable: true
+            name: name
+            url: url
+          enable: true
+          name: name
+          description: description
+          openApiContact:
+            name: name
+            email: email
+            url: url
+          termsOfService: termsOfService
+          title: title
+          version: version
+        order: 0
+        image: image
+        openApiDefinitionSpec:
+          license:
+            name: name
+            url: url
+          openApiEndpoint:
+            enable: true
+            name: name
+            url: url
+          enable: true
+          name: name
+          description: description
+          openApiContact:
+            name: name
+            email: email
+            url: url
+          termsOfService: termsOfService
+          title: title
+          version: version
+        website: website
+        nuSpecPath: nuSpecPath
+        author: author
+        manifest: manifest
+        documentation: documentation
+        active: true
+        fullName: fullName
+        version: version
+        url: url
+        license: license
+        name: name
+        requireLicenseAcceptance: true
+        category: Other
+      properties:
+        enable:
+          type: boolean
+        markedForDeletion:
+          type: boolean
+        active:
+          readOnly: true
+          type: boolean
+        order:
+          format: int32
+          type: integer
+        id:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          readOnly: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - Module
+          - Integration
+          - StudioModule
+          - StudioIntegration
+          - WasmModule
+          - WasmIntegration
+          type: string
+        category:
+          enum:
+          - Other
+          - FinanceAndAccounting
+          - SalesAndCommerce
+          - MarketingAndEngagement
+          - CustomerRelations
+          - OperationsAndSupplyChain
+          - ProjectsAndProductivity
+          - PeopleAndWorkforce
+          - LearningAndEducation
+          - ContentAndWeb
+          - DataAndAnalytics
+          - ArtificialIntelligence
+          - SecurityAndIdentity
+          - TrustAndCompliance
+          - Communication
+          - DeveloperAndPlatform
+          - IndustrySolutions
+          type: string
+        configuration:
+          nullable: true
+          type: string
+        author:
+          nullable: true
+          type: string
+        authorUrl:
+          nullable: true
+          type: string
+        license:
+          nullable: true
+          type: string
+        requireLicenseAcceptance:
+          nullable: true
+          type: boolean
+        repository:
+          nullable: true
+          type: string
+        icon:
+          nullable: true
+          type: string
+        image:
+          nullable: true
+          type: string
+        nuSpecPath:
+          nullable: true
+          type: string
+        manifest:
+          nullable: true
+          type: string
+        logo:
+          nullable: true
+          type: string
+        website:
+          nullable: true
+          type: string
+        documentation:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        openApiDefinitionSpec:
+          $ref: '#/components/schemas/IOpenApiDefinitionSpec'
+        swaggerSpecs:
+          items:
+            $ref: '#/components/schemas/IOpenApiDefinitionSpec'
+          nullable: true
+          type: array
+        assemblyPaths:
+          items:
+            type: string
+          nullable: true
+          type: array
+        requiredPermissions:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        version:
+          nullable: true
+          type: string
+      type: object
+    SuiteModuleListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - configuration: configuration
+          assemblyPaths:
+          - assemblyPaths
+          - assemblyPaths
+          icon: icon
+          description: description
+          markedForDeletion: true
+          type: Module
+          repository: repository
+          requiredPermissions:
+          - requiredPermissions
+          - requiredPermissions
+          path: path
+          enable: true
+          authorUrl: authorUrl
+          logo: logo
+          id: id
+          swaggerSpecs:
+          - license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          - license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          order: 0
+          image: image
+          openApiDefinitionSpec:
+            license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          website: website
+          nuSpecPath: nuSpecPath
+          author: author
+          manifest: manifest
+          documentation: documentation
+          active: true
+          fullName: fullName
+          version: version
+          url: url
+          license: license
+          name: name
+          requireLicenseAcceptance: true
+          category: Other
+        - configuration: configuration
+          assemblyPaths:
+          - assemblyPaths
+          - assemblyPaths
+          icon: icon
+          description: description
+          markedForDeletion: true
+          type: Module
+          repository: repository
+          requiredPermissions:
+          - requiredPermissions
+          - requiredPermissions
+          path: path
+          enable: true
+          authorUrl: authorUrl
+          logo: logo
+          id: id
+          swaggerSpecs:
+          - license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          - license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          order: 0
+          image: image
+          openApiDefinitionSpec:
+            license:
+              name: name
+              url: url
+            openApiEndpoint:
+              enable: true
+              name: name
+              url: url
+            enable: true
+            name: name
+            description: description
+            openApiContact:
+              name: name
+              email: email
+              url: url
+            termsOfService: termsOfService
+            title: title
+            version: version
+          website: website
+          nuSpecPath: nuSpecPath
+          author: author
+          manifest: manifest
+          documentation: documentation
+          active: true
+          fullName: fullName
+          version: version
+          url: url
+          license: license
+          name: name
+          requireLicenseAcceptance: true
+          category: Other
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/SuiteModule'
           nullable: true
           type: array
       type: object

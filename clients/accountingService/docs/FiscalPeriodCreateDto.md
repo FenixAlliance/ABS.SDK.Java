@@ -9,10 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**fromDate** | **OffsetDateTime** |  |  [optional] |
 |**toDate** | **OffsetDateTime** |  |  [optional] |
-|**fiscalYearId** | **String** |  |  [optional] |
+|**fiscalYearId** | **String** |  |  |
 
 
 

@@ -24,8 +24,8 @@ servers:
       - https://localhost:44388
 tags:
 - name: AccountGroups
-- name: AccountingEntries
 - name: AccountingPeriods
+- name: AccountingSummary
 - name: Accounts
 - name: Banking
 - name: BankProfiles
@@ -49,13 +49,13 @@ tags:
 - name: FiscalYears
 - name: Grants
 - name: InvoiceEnumerationRanges
-- name: JournalEntries
 - name: Journals
 - name: JournalTypes
 - name: Ledgers
 - name: LedgerTypes
 - name: Loans
 - name: Receipts
+- name: Reports
 - name: Shares
 - name: TaxClasses
 - name: TaxPolicies
@@ -584,130 +584,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/AccountingService/AccountingEntries/Debits/Sum:
-    get:
-      description: "Returns SUM(AccountingEntry.Debit) for the tenant, filtered by\
-        \ the supplied OData date range."
-      operationId: GetDebitsSumAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Sum tenant accounting-entry debits
-      tags:
-      - AccountingEntries
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/AccountingService/AccountingEntries/Credits/Sum:
-    get:
-      description: "Returns SUM(AccountingEntry.Credit) for the tenant, filtered by\
-        \ the supplied OData date range."
-      operationId: GetCreditsSumAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Sum tenant accounting-entry credits
-      tags:
-      - AccountingEntries
-      x-accepts:
-      - application/json
-      - application/xml
   /api/v2/AccountingService/AccountingPeriods:
     get:
       description: Retrieves all accounting periods for the specified tenant using
@@ -1219,6 +1095,254 @@ paths:
       tags:
       - AccountingPeriods
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Summary/Incomes/Sum:
+    get:
+      description: "Returns SUM(JournalEntry.Credit) for Credit-direction journal\
+        \ entries in the tenant, filtered by the supplied OData date range."
+      operationId: GetIncomesSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant incomes
+      tags:
+      - AccountingSummary
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Summary/Expenses/Sum:
+    get:
+      description: "Returns SUM(JournalEntry.Debit) for Debit-direction journal entries\
+        \ in the tenant, filtered by the supplied OData date range."
+      operationId: GetExpensesSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant expenses
+      tags:
+      - AccountingSummary
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Summary/Debits/Sum:
+    get:
+      description: "Returns SUM(AccountingEntry.Debit) for the tenant, filtered by\
+        \ the supplied OData date range."
+      operationId: GetDebitsSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant accounting-entry debits
+      tags:
+      - AccountingSummary
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Summary/Credits/Sum:
+    get:
+      description: "Returns SUM(AccountingEntry.Credit) for the tenant, filtered by\
+        \ the supplied OData date range."
+      operationId: GetCreditsSumAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DecimalEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Sum tenant accounting-entry credits
+      tags:
+      - AccountingSummary
       x-accepts:
       - application/json
       - application/xml
@@ -3055,6 +3179,7 @@ paths:
         name: currencyId
         required: false
         schema:
+          default: USD.USA
           type: string
         style: form
       - explode: true
@@ -3123,6 +3248,7 @@ paths:
         name: currencyId
         required: false
         schema:
+          default: USD.USA
           type: string
         style: form
       - explode: true
@@ -11811,6 +11937,23 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
   /hello:
     get:
       responses:
@@ -15289,6 +15432,164 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Open:
+    post:
+      description: Opens a closed fiscal period so journal entries can post into it.
+        Rejects reopening a locked or an already-open period.
+      operationId: OpenFiscalPeriod
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Open a fiscal period
+      tags:
+      - FiscalPeriods
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Close:
+    post:
+      description: Closes a fiscal period so no further journal entries can post into
+        it. Rejects closing a locked (hard-sealed) period.
+      operationId: CloseFiscalPeriod
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: fiscalPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Close a fiscal period
+      tags:
+      - FiscalPeriods
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/FiscalRegimes:
     get:
       description: Retrieves all fiscal regimes for the specified fiscal authority.
@@ -18099,130 +18400,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/AccountingService/JournalEntries/Incomes/Sum:
-    get:
-      description: "Returns SUM(JournalEntry.Credit) for Credit-direction journal\
-        \ entries in the tenant, filtered by the supplied OData date range."
-      operationId: GetIncomesSumAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Sum tenant incomes
-      tags:
-      - JournalEntries
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/AccountingService/JournalEntries/Expenses/Sum:
-    get:
-      description: "Returns SUM(JournalEntry.Debit) for Debit-direction journal entries\
-        \ in the tenant, filtered by the supplied OData date range."
-      operationId: GetExpensesSumAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Sum tenant expenses
-      tags:
-      - JournalEntries
-      x-accepts:
-      - application/json
-      - application/xml
   /api/v2/AccountingService/Journals:
     get:
       description: Retrieves all journals for the specified tenant.
@@ -18924,160 +19101,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits:
-    get:
-      description: "Returns the sum of all debit amounts for entries in the specified\
-        \ journal, normalized to the target currency."
-      operationId: AggregateJournalEntryDebitsAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: journalId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: currencyId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MoneyEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/MoneyEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Aggregate journal entry debits
-      tags:
-      - Journals
-      x-accepts:
-      - application/json
-      - application/xml
-  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits:
-    get:
-      description: "Returns the sum of all credit amounts for entries in the specified\
-        \ journal, normalized to the target currency."
-      operationId: AggregateJournalEntryCreditsAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: journalId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: currencyId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MoneyEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/MoneyEnvelope'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-      summary: Aggregate journal entry credits
-      tags:
-      - Journals
-      x-accepts:
-      - application/json
-      - application/xml
   /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}:
     delete:
       description: Deletes a specific journal entry.
@@ -19150,6 +19173,84 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
       summary: Delete journal entry
+      tags:
+      - Journals
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: "Retrieves a single journal entry WITH its hydrated posting lines\
+        \ — each line's account, direction, description and currency facets (transaction\
+        \ / functional / account / USD)."
+      operationId: GetJournalEntryDetailsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JournalEntryDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JournalEntryDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Get journal entry by ID
       tags:
       - Journals
       x-accepts:
@@ -19323,6 +19424,358 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
           description: Forbidden
       summary: Update journal entry
+      tags:
+      - Journals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits:
+    get:
+      description: "Returns the sum of all debit amounts for entries in the specified\
+        \ journal, normalized to the target currency."
+      operationId: AggregateJournalEntryDebitsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Aggregate journal entry debits
+      tags:
+      - Journals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits:
+    get:
+      description: "Returns the sum of all credit amounts for entries in the specified\
+        \ journal, normalized to the target currency."
+      operationId: AggregateJournalEntryCreditsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MoneyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Aggregate journal entry credits
+      tags:
+      - Journals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post:
+    post:
+      description: "Posts a DRAFT journal entry into its own open fiscal period. Enforces\
+        \ the balanced-entry invariant and the open-period gate, then seals the entry\
+        \ (immutable — correct via reversal, never edit/delete). An unbalanced draft\
+        \ or a closed period is rejected. Requires the journals_post permission."
+      operationId: PostJournalEntryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+      summary: Post a draft journal entry
+      tags:
+      - Journals
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse:
+    post:
+      description: Reverses a POSTED journal entry by writing a balanced compensating
+        counter-entry into the supplied open fiscal period and marking the original
+        Reversed — one atomic operation (append-only audit trail). Requires the journals_reverse
+        permission.
+      operationId: ReverseJournalEntryAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: journalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReverseJournalEntryRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReverseJournalEntryRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unprocessable Content
+      summary: Reverse a posted journal entry
       tags:
       - Journals
       x-content-type: application/json
@@ -22425,6 +22878,94 @@ paths:
       tags:
       - Receipts
       x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/AccountingService/Reports/TrialBalance:
+    get:
+      description: "Returns the per-account posted debit/credit totals for the given\
+        \ fiscal period (optionally scoped to a single financial book), plus grand\
+        \ totals and the Σdebits == Σcredits balanced flag. Amounts are normalized\
+        \ to the target currency (default USD) from the stored USD reporting amounts."
+      operationId: GetTrialBalanceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fiscalPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: financialBookId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currencyId
+        required: false
+        schema:
+          default: USD.USA
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrialBalanceDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TrialBalanceDtoEnvelope'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+      summary: Trial balance for a fiscal period
+      tags:
+      - Reports
       x-accepts:
       - application/json
       - application/xml
@@ -28241,10 +28782,13 @@ components:
         contactId: contactId
         accountCategory: Assets
         prefix: prefix
+        isContra: true
         frozen: true
         parentAccountId: parentAccountId
         path: path
+        isMonetary: true
         accountTypeId: accountTypeId
+        incomeStatementSubType: OperatingRevenue
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         currencyId: currencyId
@@ -28293,6 +28837,18 @@ components:
           - Expense
           - Liabilities
           type: string
+        isContra:
+          type: boolean
+        isMonetary:
+          type: boolean
+        incomeStatementSubType:
+          enum:
+          - OperatingRevenue
+          - Gain
+          - OperatingExpense
+          - Loss
+          nullable: true
+          type: string
       required:
       - accountCategory
       - currencyId
@@ -28304,10 +28860,11 @@ components:
         code: code
         accountCategory: Assets
         prefix: prefix
+        isContra: true
         balanceInUsd: 5.962133916683182
         title: title
         creditsBalanceAmount:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
@@ -28316,14 +28873,14 @@ components:
         parentAccountId: parentAccountId
         path: path
         debitsBalanceAmount:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
             value: value
         balance: 0.8008281904610115
         balanceAmountInUsd:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
@@ -28336,13 +28893,13 @@ components:
         contactId: contactId
         qualifiedName: qualifiedName
         debitsBalanceAmountInUsd:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
             value: value
         creditsBalanceAmountInUsd:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
@@ -28350,17 +28907,20 @@ components:
         accountType: accountType
         debitsBalanceInUsd: 5.637376656633329
         frozen: true
+        normalBalance: Debit
         balanceAmount:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
             value: value
         creditsBalance: 1.4658129805029452
+        isMonetary: true
         creditsBalanceInUsd: 2.3021358869347655
         accountTypeId: accountTypeId
         forexRate: 7.061401241503109
         childrenAccountsCount: 9
+        incomeStatementSubType: OperatingRevenue
         name: name
         tenantId: tenantId
       properties:
@@ -28446,6 +29006,23 @@ components:
           - Expense
           - Liabilities
           type: string
+        isContra:
+          type: boolean
+        isMonetary:
+          type: boolean
+        incomeStatementSubType:
+          enum:
+          - OperatingRevenue
+          - Gain
+          - OperatingExpense
+          - Loss
+          nullable: true
+          type: string
+        normalBalance:
+          enum:
+          - Debit
+          - Credit
+          type: string
         balanceAmount:
           $ref: '#/components/schemas/Money'
         creditsBalanceAmount:
@@ -28466,10 +29043,11 @@ components:
           code: code
           accountCategory: Assets
           prefix: prefix
+          isContra: true
           balanceInUsd: 5.962133916683182
           title: title
           creditsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28478,14 +29056,14 @@ components:
           parentAccountId: parentAccountId
           path: path
           debitsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           balance: 0.8008281904610115
           balanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28498,13 +29076,13 @@ components:
           contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28512,17 +29090,20 @@ components:
           accountType: accountType
           debitsBalanceInUsd: 5.637376656633329
           frozen: true
+          normalBalance: Debit
           balanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalance: 1.4658129805029452
+          isMonetary: true
           creditsBalanceInUsd: 2.3021358869347655
           accountTypeId: accountTypeId
           forexRate: 7.061401241503109
           childrenAccountsCount: 9
+          incomeStatementSubType: OperatingRevenue
           name: name
           tenantId: tenantId
         activityId: activityId
@@ -28558,10 +29139,11 @@ components:
         - code: code
           accountCategory: Assets
           prefix: prefix
+          isContra: true
           balanceInUsd: 5.962133916683182
           title: title
           creditsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28570,14 +29152,14 @@ components:
           parentAccountId: parentAccountId
           path: path
           debitsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           balance: 0.8008281904610115
           balanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28590,13 +29172,13 @@ components:
           contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28604,26 +29186,30 @@ components:
           accountType: accountType
           debitsBalanceInUsd: 5.637376656633329
           frozen: true
+          normalBalance: Debit
           balanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalance: 1.4658129805029452
+          isMonetary: true
           creditsBalanceInUsd: 2.3021358869347655
           accountTypeId: accountTypeId
           forexRate: 7.061401241503109
           childrenAccountsCount: 9
+          incomeStatementSubType: OperatingRevenue
           name: name
           tenantId: tenantId
         - code: code
           accountCategory: Assets
           prefix: prefix
+          isContra: true
           balanceInUsd: 5.962133916683182
           title: title
           creditsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28632,14 +29218,14 @@ components:
           parentAccountId: parentAccountId
           path: path
           debitsBalanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           balance: 0.8008281904610115
           balanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28652,13 +29238,13 @@ components:
           contactId: contactId
           qualifiedName: qualifiedName
           debitsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalanceAmountInUsd:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
@@ -28666,17 +29252,20 @@ components:
           accountType: accountType
           debitsBalanceInUsd: 5.637376656633329
           frozen: true
+          normalBalance: Debit
           balanceAmount:
-            amount: 3.616076749251911
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
           creditsBalance: 1.4658129805029452
+          isMonetary: true
           creditsBalanceInUsd: 2.3021358869347655
           accountTypeId: accountTypeId
           forexRate: 7.061401241503109
           childrenAccountsCount: 9
+          incomeStatementSubType: OperatingRevenue
           name: name
           tenantId: tenantId
         activityId: activityId
@@ -29149,15 +29738,18 @@ components:
     AccountUpdateDto:
       additionalProperties: false
       example:
-        parentAccountId: parentAccountId
-        path: path
         code: code
-        accountTypeId: accountTypeId
         contactId: contactId
         accountCategory: Assets
         prefix: prefix
-        name: name
+        isContra: true
         frozen: true
+        parentAccountId: parentAccountId
+        path: path
+        isMonetary: true
+        accountTypeId: accountTypeId
+        incomeStatementSubType: OperatingRevenue
+        name: name
         currencyId: currencyId
         group: true
       properties:
@@ -29197,6 +29789,18 @@ components:
           - Expense
           - Liabilities
           type: string
+        isContra:
+          type: boolean
+        isMonetary:
+          type: boolean
+        incomeStatementSubType:
+          enum:
+          - OperatingRevenue
+          - Gain
+          - OperatingExpense
+          - Loss
+          nullable: true
+          type: string
       required:
       - currencyId
       - name
@@ -29204,16 +29808,14 @@ components:
     AccountingEntryCreateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        amount: 0.8008281904610115
+        accountId: accountId
         journalEntryId: journalEntryId
+        transactionAmount: 80082819046101140000
         description: description
-        debitAccountId: debitAccountId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        creditAccountId: creditAccountId
-        currencyId: currencyId
-        accountingEntryType: None
+        transactionCurrencyId: transactionCurrencyId
         timestamp: 2000-01-23T04:56:07.000+00:00
+        direction: Debit
       properties:
         id:
           format: uuid
@@ -29221,73 +29823,131 @@ components:
         timestamp:
           format: date-time
           type: string
+        journalEntryId:
+          minLength: 1
+          type: string
+        accountId:
+          minLength: 1
+          type: string
+        direction:
+          enum:
+          - Debit
+          - Credit
+          type: string
+        transactionAmount:
+          format: double
+          maximum: 999999999999999900000
+          minimum: 0.00000000000000010
+          type: number
+        transactionCurrencyId:
+          minLength: 1
+          type: string
         description:
           maxLength: 300
           minLength: 1
           type: string
-        date:
-          format: date-time
-          nullable: true
-          type: string
+      required:
+      - accountId
+      - description
+      - direction
+      - journalEntryId
+      - transactionCurrencyId
+      type: object
+    AccountingEntryDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        forexRatesSnapshot: forexRatesSnapshot
         amount:
-          format: double
-          type: number
-        currencyId:
-          minLength: 1
-          type: string
-        debitAccountId:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+            value: value
+        accountName: accountName
+        functionalAmount: 6.027456183070403
+        description: description
+        costCentreId: costCentreId
+        accountId: accountId
+        journalEntryId: journalEntryId
+        amountInUsd:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+            value: value
+        forexRate: 5.637376656633329
+        transactionAmount: 0.8008281904610115
+        tenantId: tenantId
+        functionalCurrencyId: functionalCurrencyId
+        id: id
+        reportingAmountInUsd: 5.962133916683182
+        debit: 2.3021358869347655
+        credit: 7.061401241503109
+        transactionCurrencyId: transactionCurrencyId
+        accountCurrencyId: accountCurrencyId
+        projectId: projectId
+        accountAmount: 1.4658129805029452
+        direction: Debit
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
           nullable: true
           type: string
-        creditAccountId:
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
         journalEntryId:
           nullable: true
           type: string
-        accountingEntryType:
+        accountId:
+          nullable: true
+          type: string
+        accountName:
+          nullable: true
+          type: string
+        direction:
           enum:
-          - None
           - Debit
           - Credit
           type: string
-      required:
-      - currencyId
-      - description
-      type: object
-    AccountingEntryDto:
-      additionalProperties: false
-      example:
-        date: 2000-01-23T04:56:07.000+00:00
-        enrollmentId: enrollmentId
-        creditAccountName: creditAccountName
-        description: description
-        debitAccountId: debitAccountId
-        debitAmount:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
-        accountId: accountId
-        journalEntryId: journalEntryId
-        forexRate: 1.4658129805029452
-        tenantId: tenantId
-        debitAccountName: debitAccountName
-        id: id
-        creditAccountId: creditAccountId
-        debit: 0.8008281904610115
-        credit: 6.027456183070403
-        currencyId: currencyId
-        creditAmount:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
-        accountingEntryType: None
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        id:
+        description:
+          nullable: true
+          type: string
+        transactionAmount:
+          format: double
+          type: number
+        transactionCurrencyId:
+          nullable: true
+          type: string
+        functionalAmount:
+          format: double
+          type: number
+        functionalCurrencyId:
+          nullable: true
+          type: string
+        accountAmount:
+          format: double
+          type: number
+        accountCurrencyId:
+          nullable: true
+          type: string
+        reportingAmountInUsd:
+          format: double
+          type: number
+        forexRate:
+          format: double
+          type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        costCentreId:
+          nullable: true
+          type: string
+        projectId:
           nullable: true
           type: string
         timestamp:
@@ -29296,90 +29956,54 @@ components:
           type: string
         debit:
           format: double
+          readOnly: true
           type: number
         credit:
           format: double
+          readOnly: true
           type: number
-        description:
-          nullable: true
-          type: string
-        forexRate:
-          format: double
-          type: number
-        accountId:
-          nullable: true
-          type: string
-        tenantId:
-          nullable: true
-          type: string
-        date:
-          format: date-time
-          nullable: true
-          type: string
-        enrollmentId:
-          nullable: true
-          type: string
-        currencyId:
-          nullable: true
-          type: string
-        debitAccountId:
-          nullable: true
-          type: string
-        creditAccountId:
-          nullable: true
-          type: string
-        journalEntryId:
-          nullable: true
-          type: string
-        debitAccountName:
-          nullable: true
-          type: string
-        creditAccountName:
-          nullable: true
-          type: string
-        accountingEntryType:
-          enum:
-          - None
-          - Debit
-          - Credit
-          type: string
-        debitAmount:
+        amount:
           $ref: '#/components/schemas/Money'
-        creditAmount:
+        amountInUsd:
           $ref: '#/components/schemas/Money'
       type: object
     AccountingEntryDtoEnvelope:
       additionalProperties: false
       example:
         result:
-          date: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
-          description: description
-          debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
+          forexRatesSnapshot: forexRatesSnapshot
+          amount:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
+          accountName: accountName
+          functionalAmount: 6.027456183070403
+          description: description
+          costCentreId: costCentreId
           accountId: accountId
           journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
-          id: id
-          creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
-          currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          amountInUsd:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
+          forexRate: 5.637376656633329
+          transactionAmount: 0.8008281904610115
+          tenantId: tenantId
+          functionalCurrencyId: functionalCurrencyId
+          id: id
+          reportingAmountInUsd: 5.962133916683182
+          debit: 2.3021358869347655
+          credit: 7.061401241503109
+          transactionCurrencyId: transactionCurrencyId
+          accountCurrencyId: accountCurrencyId
+          projectId: projectId
+          accountAmount: 1.4658129805029452
+          direction: Debit
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -29411,63 +30035,73 @@ components:
       additionalProperties: false
       example:
         result:
-        - date: 2000-01-23T04:56:07.000+00:00
-          enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
-          description: description
-          debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
+        - enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          amount:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
+          accountName: accountName
+          functionalAmount: 6.027456183070403
+          description: description
+          costCentreId: costCentreId
           accountId: accountId
           journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
-          id: id
-          creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
-          currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          amountInUsd:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
+          forexRate: 5.637376656633329
+          transactionAmount: 0.8008281904610115
+          tenantId: tenantId
+          functionalCurrencyId: functionalCurrencyId
+          id: id
+          reportingAmountInUsd: 5.962133916683182
+          debit: 2.3021358869347655
+          credit: 7.061401241503109
+          transactionCurrencyId: transactionCurrencyId
+          accountCurrencyId: accountCurrencyId
+          projectId: projectId
+          accountAmount: 1.4658129805029452
+          direction: Debit
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - date: 2000-01-23T04:56:07.000+00:00
-          enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
-          description: description
-          debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
+        - enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          amount:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
+          accountName: accountName
+          functionalAmount: 6.027456183070403
+          description: description
+          costCentreId: costCentreId
           accountId: accountId
           journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
-          id: id
-          creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
-          currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          amountInUsd:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
+          forexRate: 5.637376656633329
+          transactionAmount: 0.8008281904610115
+          tenantId: tenantId
+          functionalCurrencyId: functionalCurrencyId
+          id: id
+          reportingAmountInUsd: 5.962133916683182
+          debit: 2.3021358869347655
+          credit: 7.061401241503109
+          transactionCurrencyId: transactionCurrencyId
+          accountCurrencyId: accountCurrencyId
+          projectId: projectId
+          accountAmount: 1.4658129805029452
+          direction: Debit
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -29501,50 +30135,36 @@ components:
     AccountingEntryUpdateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        amount: 80082819046101.08
+        accountId: accountId
         journalEntryId: journalEntryId
+        transactionAmount: 80082819046101140000
         description: description
-        debitAccountId: debitAccountId
-        creditAccountId: creditAccountId
-        currencyId: currencyId
-        accountingEntryType: None
+        transactionCurrencyId: transactionCurrencyId
+        direction: Debit
       properties:
-        description:
-          maxLength: 1000
-          minLength: 1
-          nullable: true
-          type: string
-        amount:
-          format: double
-          maximum: 999999999999999
-          minimum: 0.01
-          type: number
-        date:
-          format: date-time
-          nullable: true
-          type: string
-        currencyId:
-          nullable: true
-          type: string
-        debitAccountId:
-          nullable: true
-          type: string
-        creditAccountId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
         journalEntryId:
-          maxLength: 36
-          minLength: 36
           nullable: true
           type: string
-        accountingEntryType:
+        accountId:
+          nullable: true
+          type: string
+        direction:
           enum:
-          - None
           - Debit
           - Credit
+          type: string
+        transactionAmount:
+          format: double
+          maximum: 999999999999999900000
+          minimum: 0.00000000000000010
+          type: number
+        transactionCurrencyId:
+          nullable: true
+          type: string
+        description:
+          maxLength: 300
+          minLength: 1
+          nullable: true
           type: string
       type: object
     AccountingPeriodCreateDto:
@@ -32624,16 +33244,13 @@ components:
     BudgetAccountEntryCreateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        amount: 0.8008281904610115
-        journalEntryId: journalEntryId
         description: description
         debitAccountId: debitAccountId
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        plannedAmount: 0.8008281904610115
         creditAccountId: creditAccountId
         budgetId: budgetId
         currencyId: currencyId
-        accountingEntryType: None
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -32646,38 +33263,26 @@ components:
           maxLength: 300
           minLength: 1
           type: string
-        date:
-          format: date-time
-          nullable: true
-          type: string
-        amount:
+        plannedAmount:
           format: double
           type: number
         currencyId:
           minLength: 1
           type: string
         debitAccountId:
-          nullable: true
+          minLength: 1
           type: string
         creditAccountId:
-          nullable: true
-          type: string
-        journalEntryId:
-          nullable: true
-          type: string
-        accountingEntryType:
-          enum:
-          - None
-          - Debit
-          - Credit
+          minLength: 1
           type: string
         budgetId:
-          maxLength: 36
-          minLength: 0
-          nullable: true
+          minLength: 1
           type: string
       required:
+      - budgetId
+      - creditAccountId
       - currencyId
+      - debitAccountId
       - description
       type: object
     BudgetAccountEntryDto:
@@ -32685,33 +33290,20 @@ components:
       example:
         date: 2000-01-23T04:56:07.000+00:00
         enrollmentId: enrollmentId
-        creditAccountName: creditAccountName
+        tenantId: tenantId
         description: description
         debitAccountId: debitAccountId
-        debitAmount:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
-        budgetId: budgetId
-        accountId: accountId
-        journalEntryId: journalEntryId
-        forexRate: 1.4658129805029452
-        tenantId: tenantId
-        debitAccountName: debitAccountName
         id: id
+        plannedAmount: 0.8008281904610115
         creditAccountId: creditAccountId
-        debit: 0.8008281904610115
-        credit: 6.027456183070403
+        budgetId: budgetId
         currencyId: currencyId
-        creditAmount:
-          amount: 3.616076749251911
+        plannedAmountMoney:
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
             value: value
-        accountingEntryType: None
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -32721,31 +33313,18 @@ components:
           format: date-time
           nullable: true
           type: string
-        debit:
-          format: double
-          type: number
-        credit:
-          format: double
-          type: number
-        description:
-          nullable: true
-          type: string
-        forexRate:
-          format: double
-          type: number
-        accountId:
-          nullable: true
-          type: string
         tenantId:
-          nullable: true
-          type: string
-        date:
-          format: date-time
           nullable: true
           type: string
         enrollmentId:
           nullable: true
           type: string
+        description:
+          nullable: true
+          type: string
+        plannedAmount:
+          format: double
+          type: number
         currencyId:
           nullable: true
           type: string
@@ -32755,28 +33334,15 @@ components:
         creditAccountId:
           nullable: true
           type: string
-        journalEntryId:
-          nullable: true
-          type: string
-        debitAccountName:
-          nullable: true
-          type: string
-        creditAccountName:
-          nullable: true
-          type: string
-        accountingEntryType:
-          enum:
-          - None
-          - Debit
-          - Credit
-          type: string
-        debitAmount:
-          $ref: '#/components/schemas/Money'
-        creditAmount:
-          $ref: '#/components/schemas/Money'
         budgetId:
           nullable: true
           type: string
+        date:
+          format: date-time
+          nullable: true
+          type: string
+        plannedAmountMoney:
+          $ref: '#/components/schemas/Money'
       type: object
     BudgetAccountEntryDtoEnvelope:
       additionalProperties: false
@@ -32784,33 +33350,20 @@ components:
         result:
           date: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
+          tenantId: tenantId
           description: description
           debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          budgetId: budgetId
-          accountId: accountId
-          journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
           id: id
+          plannedAmount: 0.8008281904610115
           creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
+          budgetId: budgetId
           currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          plannedAmountMoney:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -32844,63 +33397,37 @@ components:
         result:
         - date: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
+          tenantId: tenantId
           description: description
           debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          budgetId: budgetId
-          accountId: accountId
-          journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
           id: id
+          plannedAmount: 0.8008281904610115
           creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
+          budgetId: budgetId
           currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          plannedAmountMoney:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
           timestamp: 2000-01-23T04:56:07.000+00:00
         - date: 2000-01-23T04:56:07.000+00:00
           enrollmentId: enrollmentId
-          creditAccountName: creditAccountName
+          tenantId: tenantId
           description: description
           debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          budgetId: budgetId
-          accountId: accountId
-          journalEntryId: journalEntryId
-          forexRate: 1.4658129805029452
-          tenantId: tenantId
-          debitAccountName: debitAccountName
           id: id
+          plannedAmount: 0.8008281904610115
           creditAccountId: creditAccountId
-          debit: 0.8008281904610115
-          credit: 6.027456183070403
+          budgetId: budgetId
           currencyId: currencyId
-          creditAmount:
-            amount: 3.616076749251911
+          plannedAmountMoney:
+            amount: 0.8008281904610115
             currency:
               country: country
               code: code
               value: value
-          accountingEntryType: None
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -32934,30 +33461,21 @@ components:
     BudgetAccountEntryUpdateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        amount: 80082819046101.08
-        journalEntryId: journalEntryId
         description: description
         debitAccountId: debitAccountId
+        plannedAmount: 0.8008281904610115
         creditAccountId: creditAccountId
         budgetId: budgetId
         currencyId: currencyId
-        accountingEntryType: None
       properties:
         description:
-          maxLength: 1000
+          maxLength: 300
           minLength: 1
           nullable: true
           type: string
-        amount:
+        plannedAmount:
           format: double
-          maximum: 999999999999999
-          minimum: 0.01
           type: number
-        date:
-          format: date-time
-          nullable: true
-          type: string
         currencyId:
           nullable: true
           type: string
@@ -32965,24 +33483,9 @@ components:
           nullable: true
           type: string
         creditAccountId:
-          maxLength: 36
-          minLength: 36
           nullable: true
-          type: string
-        journalEntryId:
-          maxLength: 36
-          minLength: 36
-          nullable: true
-          type: string
-        accountingEntryType:
-          enum:
-          - None
-          - Debit
-          - Credit
           type: string
         budgetId:
-          maxLength: 36
-          minLength: 0
           nullable: true
           type: string
       type: object
@@ -35283,7 +35786,6 @@ components:
         name:
           maxLength: 50
           minLength: 0
-          nullable: true
           type: string
         fromDate:
           format: date-time
@@ -35294,8 +35796,10 @@ components:
         fiscalYearId:
           maxLength: 36
           minLength: 0
-          nullable: true
           type: string
+      required:
+      - fiscalYearId
+      - name
       type: object
     FiscalPeriodDto:
       additionalProperties: false
@@ -35433,7 +35937,6 @@ components:
         name:
           maxLength: 50
           minLength: 0
-          nullable: true
           type: string
         fromDate:
           format: date-time
@@ -35444,8 +35947,10 @@ components:
         fiscalYearId:
           maxLength: 36
           minLength: 0
-          nullable: true
           type: string
+      required:
+      - fiscalYearId
+      - name
       type: object
     FiscalRegimeCreateDto:
       additionalProperties: false
@@ -35955,7 +36460,7 @@ components:
           format: date-time
           type: string
         name:
-          nullable: true
+          minLength: 1
           type: string
         description:
           nullable: true
@@ -35969,8 +36474,11 @@ components:
           format: date-time
           type: string
         fiscalAuthorityId:
-          nullable: true
+          minLength: 1
           type: string
+      required:
+      - fiscalAuthorityId
+      - name
       type: object
     FiscalYearDto:
       additionalProperties: false
@@ -36174,7 +36682,7 @@ components:
         startDate: 2000-01-23T04:56:07.000+00:00
       properties:
         name:
-          nullable: true
+          minLength: 1
           type: string
         description:
           nullable: true
@@ -36188,8 +36696,11 @@ components:
           format: date-time
           type: string
         fiscalAuthorityId:
-          nullable: true
+          minLength: 1
           type: string
+      required:
+      - fiscalAuthorityId
+      - name
       type: object
     ForgotPasswordRequest:
       additionalProperties: false
@@ -37059,20 +37570,33 @@ components:
     JournalEntryCreateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
+        sourceDocumentType: sourceDocumentType
+        idempotencyKey: idempotencyKey
+        accountingEntries:
+        - accountId: accountId
+          journalEntryId: journalEntryId
+          transactionAmount: 80082819046101140000
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          transactionCurrencyId: transactionCurrencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          direction: Debit
+        - accountId: accountId
+          journalEntryId: journalEntryId
+          transactionAmount: 80082819046101140000
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          transactionCurrencyId: transactionCurrencyId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          direction: Debit
         journalId: journalId
         description: description
-        debitAccountId: debitAccountId
-        opening: true
-        invoiceCode: invoiceCode
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        creditAccountId: creditAccountId
-        debit: 0.8008281904610115
-        credit: 6.027456183070403
-        currencyId: currencyId
-        parentJournalEntryId: parentJournalEntryId
+        isOpeningBalance: true
+        transactionCurrencyId: transactionCurrencyId
+        sourceDocumentId: sourceDocumentId
+        fiscalPeriodId: fiscalPeriodId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        group: true
       properties:
         id:
           format: uuid
@@ -37080,137 +37604,153 @@ components:
         timestamp:
           format: date-time
           type: string
-        group:
-          type: boolean
-        opening:
-          type: boolean
-        description:
-          minLength: 1
-          type: string
-        date:
-          format: date-time
-          type: string
-        debit:
-          format: double
-          type: number
-        credit:
-          format: double
-          type: number
         journalId:
           minLength: 1
           type: string
-        currencyId:
+        fiscalPeriodId:
           minLength: 1
           type: string
-        debitAccountId:
+        transactionCurrencyId:
           minLength: 1
           type: string
-        creditAccountId:
+        description:
+          maxLength: 300
           minLength: 1
           type: string
-        parentJournalEntryId:
+        sourceDocumentType:
           nullable: true
           type: string
-        invoiceCode:
+        sourceDocumentId:
           nullable: true
           type: string
+        idempotencyKey:
+          nullable: true
+          type: string
+        isOpeningBalance:
+          type: boolean
+        accountingEntries:
+          items:
+            $ref: '#/components/schemas/AccountingEntryCreateDto'
+          nullable: true
+          type: array
       required:
-      - creditAccountId
-      - currencyId
-      - date
-      - debitAccountId
       - description
+      - fiscalPeriodId
       - journalId
+      - transactionCurrencyId
       type: object
     JournalEntryDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        creditAccountName: creditAccountName
         journalName: journalName
         journalId: journalId
         description: description
+        postingDate: 2000-01-23T04:56:07.000+00:00
+        isOpeningBalance: true
+        totalDebitAmount:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+            value: value
+        postedBy: postedBy
         journalCode: journalCode
+        totalCreditAmount:
+          amount: 0.8008281904610115
+          currency:
+            country: country
+            code: code
+            value: value
         id: id
-        creditInUsd: 5.962133916683182
-        credit: 6.027456183070403
-        debit: 1.4658129805029452
-        currencyId: currencyId
+        creditInUsd: 1.4658129805029452
+        sourceDocumentId: sourceDocumentId
+        reversalOfJournalEntryId: reversalOfJournalEntryId
+        fiscalPeriodId: fiscalPeriodId
         timestamp: 2000-01-23T04:56:07.000+00:00
-        group: true
         enrollmentId: enrollmentId
+        entryType: Simple
         forexRatesSnapshot: forexRatesSnapshot
-        creditAmountInUsd:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
-        debitAccountId: debitAccountId
-        debitAmount:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
-        opening: true
-        invoiceCode: invoiceCode
-        debitInUsd: 5.637376656633329
-        debitAmountInUsd:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
+        totalCredit: 5.637376656633329
+        idempotencyKey: idempotencyKey
+        accountingEntries:
+        - enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          amount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          accountName: accountName
+          functionalAmount: 6.027456183070403
+          description: description
+          costCentreId: costCentreId
+          accountId: accountId
+          journalEntryId: journalEntryId
+          amountInUsd:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          forexRate: 5.637376656633329
+          transactionAmount: 0.8008281904610115
+          tenantId: tenantId
+          functionalCurrencyId: functionalCurrencyId
+          id: id
+          reportingAmountInUsd: 5.962133916683182
+          debit: 2.3021358869347655
+          credit: 7.061401241503109
+          transactionCurrencyId: transactionCurrencyId
+          accountCurrencyId: accountCurrencyId
+          projectId: projectId
+          accountAmount: 1.4658129805029452
+          direction: Debit
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          forexRatesSnapshot: forexRatesSnapshot
+          amount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          accountName: accountName
+          functionalAmount: 6.027456183070403
+          description: description
+          costCentreId: costCentreId
+          accountId: accountId
+          journalEntryId: journalEntryId
+          amountInUsd:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          forexRate: 5.637376656633329
+          transactionAmount: 0.8008281904610115
+          tenantId: tenantId
+          functionalCurrencyId: functionalCurrencyId
+          id: id
+          reportingAmountInUsd: 5.962133916683182
+          debit: 2.3021358869347655
+          credit: 7.061401241503109
+          transactionCurrencyId: transactionCurrencyId
+          accountCurrencyId: accountCurrencyId
+          projectId: projectId
+          accountAmount: 1.4658129805029452
+          direction: Debit
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        financialBookId: financialBookId
+        debitInUsd: 6.027456183070403
+        sourceDocumentType: sourceDocumentType
         forexRate: 0.8008281904610115
         tenantId: tenantId
-        debitAccountName: debitAccountName
-        creditAccountId: creditAccountId
-        parentJournalEntryId: parentJournalEntryId
-        creditAmount:
-          amount: 3.616076749251911
-          currency:
-            country: country
-            code: code
-            value: value
+        totalDebit: 5.962133916683182
+        transactionCurrencyId: transactionCurrencyId
+        status: Draft
       properties:
         id:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          nullable: true
-          type: string
-        group:
-          type: boolean
-        opening:
-          type: boolean
-        description:
-          nullable: true
-          type: string
-        date:
-          format: date-time
-          nullable: true
-          type: string
-        forexRatesSnapshot:
-          nullable: true
-          type: string
-        forexRate:
-          format: double
-          type: number
-        credit:
-          format: double
-          type: number
-        debit:
-          format: double
-          type: number
-        creditInUsd:
-          format: double
-          type: number
-        debitInUsd:
-          format: double
-          type: number
-        currencyId:
           nullable: true
           type: string
         tenantId:
@@ -37228,133 +37768,442 @@ components:
         journalCode:
           nullable: true
           type: string
-        creditAccountId:
+        fiscalPeriodId:
           nullable: true
           type: string
-        creditAccountName:
+        financialBookId:
           nullable: true
           type: string
-        debitAccountId:
+        description:
           nullable: true
           type: string
-        debitAccountName:
+        entryType:
+          enum:
+          - Simple
+          - Compound
+          - Adjusting
+          - Reversing
+          type: string
+        status:
+          enum:
+          - Draft
+          - Posted
+          - Reversed
+          - Voided
+          type: string
+        postingDate:
+          format: date-time
           nullable: true
           type: string
-        invoiceCode:
+        isOpeningBalance:
+          type: boolean
+        transactionCurrencyId:
           nullable: true
           type: string
-        parentJournalEntryId:
+        sourceDocumentType:
           nullable: true
           type: string
-        creditAmount:
+        sourceDocumentId:
+          nullable: true
+          type: string
+        idempotencyKey:
+          nullable: true
+          type: string
+        reversalOfJournalEntryId:
+          nullable: true
+          type: string
+        postedBy:
+          nullable: true
+          type: string
+        forexRate:
+          format: double
+          type: number
+        forexRatesSnapshot:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        debitInUsd:
+          format: double
+          type: number
+        creditInUsd:
+          format: double
+          type: number
+        accountingEntries:
+          items:
+            $ref: '#/components/schemas/AccountingEntryDto'
+          nullable: true
+          type: array
+        totalDebit:
+          format: double
+          readOnly: true
+          type: number
+        totalCredit:
+          format: double
+          readOnly: true
+          type: number
+        totalDebitAmount:
           $ref: '#/components/schemas/Money'
-        debitAmount:
+        totalCreditAmount:
           $ref: '#/components/schemas/Money'
-        creditAmountInUsd:
-          $ref: '#/components/schemas/Money'
-        debitAmountInUsd:
-          $ref: '#/components/schemas/Money'
+      type: object
+    JournalEntryDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          journalName: journalName
+          journalId: journalId
+          description: description
+          postingDate: 2000-01-23T04:56:07.000+00:00
+          isOpeningBalance: true
+          totalDebitAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          postedBy: postedBy
+          journalCode: journalCode
+          totalCreditAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          id: id
+          creditInUsd: 1.4658129805029452
+          sourceDocumentId: sourceDocumentId
+          reversalOfJournalEntryId: reversalOfJournalEntryId
+          fiscalPeriodId: fiscalPeriodId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          entryType: Simple
+          forexRatesSnapshot: forexRatesSnapshot
+          totalCredit: 5.637376656633329
+          idempotencyKey: idempotencyKey
+          accountingEntries:
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          financialBookId: financialBookId
+          debitInUsd: 6.027456183070403
+          sourceDocumentType: sourceDocumentType
+          forexRate: 0.8008281904610115
+          tenantId: tenantId
+          totalDebit: 5.962133916683182
+          transactionCurrencyId: transactionCurrencyId
+          status: Draft
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/JournalEntryDto'
       type: object
     JournalEntryDtoIReadOnlyListEnvelope:
       additionalProperties: false
       example:
         result:
-        - date: 2000-01-23T04:56:07.000+00:00
-          creditAccountName: creditAccountName
-          journalName: journalName
+        - journalName: journalName
           journalId: journalId
           description: description
+          postingDate: 2000-01-23T04:56:07.000+00:00
+          isOpeningBalance: true
+          totalDebitAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          postedBy: postedBy
           journalCode: journalCode
+          totalCreditAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
           id: id
-          creditInUsd: 5.962133916683182
-          credit: 6.027456183070403
-          debit: 1.4658129805029452
-          currencyId: currencyId
+          creditInUsd: 1.4658129805029452
+          sourceDocumentId: sourceDocumentId
+          reversalOfJournalEntryId: reversalOfJournalEntryId
+          fiscalPeriodId: fiscalPeriodId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
           enrollmentId: enrollmentId
+          entryType: Simple
           forexRatesSnapshot: forexRatesSnapshot
-          creditAmountInUsd:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          opening: true
-          invoiceCode: invoiceCode
-          debitInUsd: 5.637376656633329
-          debitAmountInUsd:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
+          totalCredit: 5.637376656633329
+          idempotencyKey: idempotencyKey
+          accountingEntries:
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          financialBookId: financialBookId
+          debitInUsd: 6.027456183070403
+          sourceDocumentType: sourceDocumentType
           forexRate: 0.8008281904610115
           tenantId: tenantId
-          debitAccountName: debitAccountName
-          creditAccountId: creditAccountId
-          parentJournalEntryId: parentJournalEntryId
-          creditAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-        - date: 2000-01-23T04:56:07.000+00:00
-          creditAccountName: creditAccountName
-          journalName: journalName
+          totalDebit: 5.962133916683182
+          transactionCurrencyId: transactionCurrencyId
+          status: Draft
+        - journalName: journalName
           journalId: journalId
           description: description
+          postingDate: 2000-01-23T04:56:07.000+00:00
+          isOpeningBalance: true
+          totalDebitAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
+          postedBy: postedBy
           journalCode: journalCode
+          totalCreditAmount:
+            amount: 0.8008281904610115
+            currency:
+              country: country
+              code: code
+              value: value
           id: id
-          creditInUsd: 5.962133916683182
-          credit: 6.027456183070403
-          debit: 1.4658129805029452
-          currencyId: currencyId
+          creditInUsd: 1.4658129805029452
+          sourceDocumentId: sourceDocumentId
+          reversalOfJournalEntryId: reversalOfJournalEntryId
+          fiscalPeriodId: fiscalPeriodId
           timestamp: 2000-01-23T04:56:07.000+00:00
-          group: true
           enrollmentId: enrollmentId
+          entryType: Simple
           forexRatesSnapshot: forexRatesSnapshot
-          creditAmountInUsd:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          debitAccountId: debitAccountId
-          debitAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
-          opening: true
-          invoiceCode: invoiceCode
-          debitInUsd: 5.637376656633329
-          debitAmountInUsd:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
+          totalCredit: 5.637376656633329
+          idempotencyKey: idempotencyKey
+          accountingEntries:
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          - enrollmentId: enrollmentId
+            forexRatesSnapshot: forexRatesSnapshot
+            amount:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            accountName: accountName
+            functionalAmount: 6.027456183070403
+            description: description
+            costCentreId: costCentreId
+            accountId: accountId
+            journalEntryId: journalEntryId
+            amountInUsd:
+              amount: 0.8008281904610115
+              currency:
+                country: country
+                code: code
+                value: value
+            forexRate: 5.637376656633329
+            transactionAmount: 0.8008281904610115
+            tenantId: tenantId
+            functionalCurrencyId: functionalCurrencyId
+            id: id
+            reportingAmountInUsd: 5.962133916683182
+            debit: 2.3021358869347655
+            credit: 7.061401241503109
+            transactionCurrencyId: transactionCurrencyId
+            accountCurrencyId: accountCurrencyId
+            projectId: projectId
+            accountAmount: 1.4658129805029452
+            direction: Debit
+            timestamp: 2000-01-23T04:56:07.000+00:00
+          financialBookId: financialBookId
+          debitInUsd: 6.027456183070403
+          sourceDocumentType: sourceDocumentType
           forexRate: 0.8008281904610115
           tenantId: tenantId
-          debitAccountName: debitAccountName
-          creditAccountId: creditAccountId
-          parentJournalEntryId: parentJournalEntryId
-          creditAmount:
-            amount: 3.616076749251911
-            currency:
-              country: country
-              code: code
-              value: value
+          totalDebit: 5.962133916683182
+          transactionCurrencyId: transactionCurrencyId
+          status: Draft
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -37387,60 +38236,35 @@ components:
     JournalEntryUpdateDto:
       additionalProperties: false
       example:
-        date: 2000-01-23T04:56:07.000+00:00
-        journalId: journalId
+        sourceDocumentType: sourceDocumentType
         description: description
-        debitAccountId: debitAccountId
-        creditAccountId: creditAccountId
-        debit: 0.8008281904610115
-        credit: 6.027456183070403
-        currencyId: currencyId
-        parentJournalEntryId: parentJournalEntryId
-        opening: true
-        invoiceCode: invoiceCode
-        group: true
+        isOpeningBalance: true
+        transactionCurrencyId: transactionCurrencyId
+        sourceDocumentId: sourceDocumentId
+        fiscalPeriodId: fiscalPeriodId
       properties:
-        group:
-          type: boolean
-        opening:
-          type: boolean
+        fiscalPeriodId:
+          minLength: 1
+          type: string
+        transactionCurrencyId:
+          minLength: 1
+          type: string
         description:
+          maxLength: 300
           minLength: 1
           type: string
-        date:
-          format: date-time
-          type: string
-        debit:
-          format: double
-          type: number
-        credit:
-          format: double
-          type: number
-        journalId:
-          minLength: 1
-          type: string
-        currencyId:
-          minLength: 1
-          type: string
-        invoiceCode:
+        sourceDocumentType:
           nullable: true
           type: string
-        debitAccountId:
-          minLength: 1
-          type: string
-        creditAccountId:
-          minLength: 1
-          type: string
-        parentJournalEntryId:
+        sourceDocumentId:
           nullable: true
           type: string
+        isOpeningBalance:
+          type: boolean
       required:
-      - creditAccountId
-      - currencyId
-      - date
-      - debitAccountId
       - description
-      - journalId
+      - fiscalPeriodId
+      - transactionCurrencyId
       type: object
     JournalTypeCreateDto:
       additionalProperties: false
@@ -37758,10 +38582,8 @@ components:
           enum:
           - Assets
           - Equity
-          - Gains
-          - Losses
           - Revenue
-          - Expenses
+          - Expense
           - Liabilities
           type: string
       required:
@@ -37791,10 +38613,8 @@ components:
           enum:
           - Assets
           - Equity
-          - Gains
-          - Losses
           - Revenue
-          - Expenses
+          - Expense
           - Liabilities
           type: string
         tenantId:
@@ -37900,10 +38720,8 @@ components:
           enum:
           - Assets
           - Equity
-          - Gains
-          - Losses
           - Revenue
-          - Expenses
+          - Expense
           - Liabilities
           nullable: true
           type: string
@@ -38420,7 +39238,7 @@ components:
     Money:
       additionalProperties: false
       example:
-        amount: 3.616076749251911
+        amount: 0.8008281904610115
         currency:
           country: country
           code: code
@@ -38436,7 +39254,7 @@ components:
       additionalProperties: false
       example:
         result:
-          amount: 3.616076749251911
+          amount: 0.8008281904610115
           currency:
             country: country
             code: code
@@ -39243,6 +40061,17 @@ components:
       - email
       - newPassword
       - resetCode
+      type: object
+    ReverseJournalEntryRequest:
+      additionalProperties: false
+      example:
+        reversalPeriodId: reversalPeriodId
+      properties:
+        reversalPeriodId:
+          minLength: 1
+          type: string
+      required:
+      - reversalPeriodId
       type: object
     SeedChartOfAccountsRequest:
       additionalProperties: false
@@ -41517,6 +42346,132 @@ components:
         currencyId:
           nullable: true
           type: string
+      type: object
+    TrialBalanceDto:
+      additionalProperties: false
+      example:
+        totalCredit: 5.962133916683182
+        totalDebit: 1.4658129805029452
+        currencyId: currencyId
+        rows:
+        - accountId: accountId
+          code: code
+          name: name
+          normalBalance: Debit
+          debit: 0.8008281904610115
+          credit: 6.027456183070403
+        - accountId: accountId
+          code: code
+          name: name
+          normalBalance: Debit
+          debit: 0.8008281904610115
+          credit: 6.027456183070403
+        financialBookId: financialBookId
+        fiscalPeriodId: fiscalPeriodId
+        isBalanced: true
+      properties:
+        fiscalPeriodId:
+          nullable: true
+          type: string
+        financialBookId:
+          nullable: true
+          type: string
+        currencyId:
+          nullable: true
+          type: string
+        rows:
+          items:
+            $ref: '#/components/schemas/TrialBalanceRowDto'
+          nullable: true
+          type: array
+        totalDebit:
+          format: double
+          type: number
+        totalCredit:
+          format: double
+          type: number
+        isBalanced:
+          type: boolean
+      type: object
+    TrialBalanceDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          totalCredit: 5.962133916683182
+          totalDebit: 1.4658129805029452
+          currencyId: currencyId
+          rows:
+          - accountId: accountId
+            code: code
+            name: name
+            normalBalance: Debit
+            debit: 0.8008281904610115
+            credit: 6.027456183070403
+          - accountId: accountId
+            code: code
+            name: name
+            normalBalance: Debit
+            debit: 0.8008281904610115
+            credit: 6.027456183070403
+          financialBookId: financialBookId
+          fiscalPeriodId: fiscalPeriodId
+          isBalanced: true
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/TrialBalanceDto'
+      type: object
+    TrialBalanceRowDto:
+      additionalProperties: false
+      example:
+        accountId: accountId
+        code: code
+        name: name
+        normalBalance: Debit
+        debit: 0.8008281904610115
+        credit: 6.027456183070403
+      properties:
+        accountId:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        normalBalance:
+          enum:
+          - Debit
+          - Credit
+          type: string
+        debit:
+          format: double
+          type: number
+        credit:
+          format: double
+          type: number
       type: object
     TwoFactorRequest:
       additionalProperties: false

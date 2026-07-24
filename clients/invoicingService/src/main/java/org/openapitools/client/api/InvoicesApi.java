@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.DecimalEnvelope;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.Envelope;
@@ -5301,7 +5300,7 @@ public class InvoicesApi {
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
-     * @return DecimalEnvelope
+     * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5311,8 +5310,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public DecimalEnvelope getPurchaseInvoicesSum(UUID tenantId) throws ApiException {
-        ApiResponse<DecimalEnvelope> localVarResp = getPurchaseInvoicesSumWithHttpInfo(tenantId);
+    public MoneyEnvelope getPurchaseInvoicesSum(UUID tenantId) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getPurchaseInvoicesSumWithHttpInfo(tenantId);
         return localVarResp.getData();
     }
 
@@ -5320,7 +5319,7 @@ public class InvoicesApi {
      * Sum tenant purchase-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; PurchaseInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
-     * @return ApiResponse&lt;DecimalEnvelope&gt;
+     * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5330,9 +5329,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecimalEnvelope> getPurchaseInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
+    public ApiResponse<MoneyEnvelope> getPurchaseInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
         okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5351,10 +5350,10 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPurchaseInvoicesSumAsync(UUID tenantId, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getPurchaseInvoicesSumAsync(UUID tenantId, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPurchaseInvoicesSumValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5436,7 +5435,7 @@ public class InvoicesApi {
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
-     * @return DecimalEnvelope
+     * @return MoneyEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5446,8 +5445,8 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public DecimalEnvelope getSalesInvoicesSum(UUID tenantId) throws ApiException {
-        ApiResponse<DecimalEnvelope> localVarResp = getSalesInvoicesSumWithHttpInfo(tenantId);
+    public MoneyEnvelope getSalesInvoicesSum(UUID tenantId) throws ApiException {
+        ApiResponse<MoneyEnvelope> localVarResp = getSalesInvoicesSumWithHttpInfo(tenantId);
         return localVarResp.getData();
     }
 
@@ -5455,7 +5454,7 @@ public class InvoicesApi {
      * Sum tenant sales-invoice totals.
      * Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType &#x3D;&#x3D; SalesInvoice, filtered by the supplied OData date range.
      * @param tenantId  (required)
-     * @return ApiResponse&lt;DecimalEnvelope&gt;
+     * @return ApiResponse&lt;MoneyEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -5465,9 +5464,9 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecimalEnvelope> getSalesInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
+    public ApiResponse<MoneyEnvelope> getSalesInvoicesSumWithHttpInfo(UUID tenantId) throws ApiException {
         okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5486,10 +5485,10 @@ public class InvoicesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSalesInvoicesSumAsync(UUID tenantId, final ApiCallback<DecimalEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getSalesInvoicesSumAsync(UUID tenantId, final ApiCallback<MoneyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSalesInvoicesSumValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<DecimalEnvelope>(){}.getType();
+        Type localVarReturnType = new TypeToken<MoneyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

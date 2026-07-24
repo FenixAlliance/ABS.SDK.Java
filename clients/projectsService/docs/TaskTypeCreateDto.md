@@ -10,7 +10,7 @@
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
-|**taskCategoryID** | **String** |  |  [optional] |
+|**taskCategoryId** | **String** |  |  [optional] |
 |**displayInTimeTracker** | **Boolean** |  |  [optional] |
 |**requiresDescription** | **Boolean** |  |  [optional] |
 

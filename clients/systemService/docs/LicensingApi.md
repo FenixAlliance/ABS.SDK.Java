@@ -4,23 +4,23 @@ All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**getAttributesForLicenseAsync**](LicensingApi.md#getAttributesForLicenseAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes |
+| [**getFeaturesForLicenseAsync**](LicensingApi.md#getFeaturesForLicenseAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features |
 | [**getLicenseAssignmentsAsync**](LicensingApi.md#getLicenseAssignmentsAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | Retrieve license assignments |
-| [**getLicenseAttributesAsync**](LicensingApi.md#getLicenseAttributesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes |
 | [**getLicenseByIdAsync**](LicensingApi.md#getLicenseByIdAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId} | Retrieve a license by ID |
-| [**getLicenseFeaturesAsync**](LicensingApi.md#getLicenseFeaturesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features |
 | [**getLicenseRecordsQuotaAsync**](LicensingApi.md#getLicenseRecordsQuotaAsync) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota | Retrieve license record quota |
 | [**getLicensesAsync**](LicensingApi.md#getLicensesAsync) | **GET** /api/v2/SystemService/Licensing/Licenses | Retrieve a list of licenses |
 | [**redeemLicenseAsync**](LicensingApi.md#redeemLicenseAsync) | **POST** /api/v2/SystemService/Licensing/Licenses/Redeem | Redeem a license |
 | [**validateLicenseAsync**](LicensingApi.md#validateLicenseAsync) | **POST** /api/v2/SystemService/Licensing/Licenses/Validate | Validate a license |
 
 
-<a id="getLicenseAssignmentsAsync"></a>
-# **getLicenseAssignmentsAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion)
+<a id="getAttributesForLicenseAsync"></a>
+# **getAttributesForLicenseAsync**
+> SuiteLicenseAssignmentDtoListEnvelope getAttributesForLicenseAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
-Retrieve license assignments
+Retrieve license attributes
 
-Retrieves all license assignments for a given license.
+Retrieves all additional attributes for a given license.
 
 ### Example
 ```java
@@ -42,10 +42,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getAttributesForLicenseAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LicensingApi#getLicenseAssignmentsAsync");
+      System.err.println("Exception when calling LicensingApi#getAttributesForLicenseAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -83,13 +83,13 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **200** | OK |  -  |
 
-<a id="getLicenseAttributesAsync"></a>
-# **getLicenseAttributesAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseAttributesAsync(tenantId, licenseId, apiVersion, xApiVersion)
+<a id="getFeaturesForLicenseAsync"></a>
+# **getFeaturesForLicenseAsync**
+> SuiteLicenseAssignmentDtoListEnvelope getFeaturesForLicenseAsync(tenantId, licenseId, apiVersion, xApiVersion)
 
-Retrieve license attributes
+Retrieve license features
 
-Retrieves all additional attributes for a given license.
+Retrieves all features for a given license.
 
 ### Example
 ```java
@@ -111,10 +111,79 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAttributesAsync(tenantId, licenseId, apiVersion, xApiVersion);
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getFeaturesForLicenseAsync(tenantId, licenseId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling LicensingApi#getLicenseAttributesAsync");
+      System.err.println("Exception when calling LicensingApi#getFeaturesForLicenseAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **licenseId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**SuiteLicenseAssignmentDtoListEnvelope**](SuiteLicenseAssignmentDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json;odata.metadata=minimal;odata.streaming=true, application/json;odata.metadata=minimal;odata.streaming=false, application/json;odata.metadata=minimal, application/json;odata.metadata=full;odata.streaming=true, application/json;odata.metadata=full;odata.streaming=false, application/json;odata.metadata=full, application/json;odata.metadata=none;odata.streaming=true, application/json;odata.metadata=none;odata.streaming=false, application/json;odata.metadata=none, application/json;odata.streaming=true, application/json;odata.streaming=false, application/json, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=minimal;IEEE754Compatible=false, application/json;odata.metadata=minimal;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=full;IEEE754Compatible=false, application/json;odata.metadata=full;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=true, application/json;odata.streaming=true;IEEE754Compatible=false, application/json;odata.streaming=true;IEEE754Compatible=true, application/json;odata.streaming=false;IEEE754Compatible=false, application/json;odata.streaming=false;IEEE754Compatible=true, application/json;IEEE754Compatible=false, application/json;IEEE754Compatible=true, application/xml, text/plain, application/octet-stream, text/json, text/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="getLicenseAssignmentsAsync"></a>
+# **getLicenseAssignmentsAsync**
+> SuiteLicenseAssignmentDtoListEnvelope getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion)
+
+Retrieve license assignments
+
+Retrieves all license assignments for a given license.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.LicensingApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    LicensingApi apiInstance = new LicensingApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID licenseId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseAssignmentsAsync(tenantId, licenseId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LicensingApi#getLicenseAssignmentsAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -205,75 +274,6 @@ public class Example {
 ### Return type
 
 [**SuiteLicenseDtoEnvelope**](SuiteLicenseDtoEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json;odata.metadata=minimal;odata.streaming=true, application/json;odata.metadata=minimal;odata.streaming=false, application/json;odata.metadata=minimal, application/json;odata.metadata=full;odata.streaming=true, application/json;odata.metadata=full;odata.streaming=false, application/json;odata.metadata=full, application/json;odata.metadata=none;odata.streaming=true, application/json;odata.metadata=none;odata.streaming=false, application/json;odata.metadata=none, application/json;odata.streaming=true, application/json;odata.streaming=false, application/json, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=minimal;IEEE754Compatible=false, application/json;odata.metadata=minimal;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=full;IEEE754Compatible=false, application/json;odata.metadata=full;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=true, application/json;odata.streaming=true;IEEE754Compatible=false, application/json;odata.streaming=true;IEEE754Compatible=true, application/json;odata.streaming=false;IEEE754Compatible=false, application/json;odata.streaming=false;IEEE754Compatible=true, application/json;IEEE754Compatible=false, application/json;IEEE754Compatible=true, application/xml, text/plain, application/octet-stream, text/json, text/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **200** | OK |  -  |
-
-<a id="getLicenseFeaturesAsync"></a>
-# **getLicenseFeaturesAsync**
-> SuiteLicenseAssignmentDtoListEnvelope getLicenseFeaturesAsync(tenantId, licenseId, apiVersion, xApiVersion)
-
-Retrieve license features
-
-Retrieves all features for a given license.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.LicensingApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    LicensingApi apiInstance = new LicensingApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    UUID licenseId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      SuiteLicenseAssignmentDtoListEnvelope result = apiInstance.getLicenseFeaturesAsync(tenantId, licenseId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling LicensingApi#getLicenseFeaturesAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **licenseId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**SuiteLicenseAssignmentDtoListEnvelope**](SuiteLicenseAssignmentDtoListEnvelope.md)
 
 ### Authorization
 

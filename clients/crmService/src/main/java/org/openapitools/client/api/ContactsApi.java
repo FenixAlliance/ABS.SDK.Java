@@ -32,7 +32,12 @@ import org.openapitools.client.model.ContactCreateDto;
 import org.openapitools.client.model.ContactDto;
 import org.openapitools.client.model.ContactDtoEnvelope;
 import org.openapitools.client.model.ContactDtoListEnvelope;
+import org.openapitools.client.model.ContactEmailCreateDto;
+import org.openapitools.client.model.ContactEmailDtoListEnvelope;
+import org.openapitools.client.model.ContactEmailUpdateDto;
+import org.openapitools.client.model.ContactProfileCreateDto;
 import org.openapitools.client.model.ContactProfileDtoListEnvelope;
+import org.openapitools.client.model.ContactProfileUpdateDto;
 import org.openapitools.client.model.ContactUpdateDto;
 import org.openapitools.client.model.EmailDispatchRequest;
 import org.openapitools.client.model.EmptyEnvelope;
@@ -40,6 +45,7 @@ import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.ExtendedContactDtoEnvelope;
 import org.openapitools.client.model.ExtendedContactDtoListEnvelope;
 import java.io.File;
+import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.Operation;
 import org.openapitools.client.model.SocialProfileDtoEnvelope;
 import java.util.UUID;
@@ -241,6 +247,332 @@ public class ContactsApi {
         return localVarCall;
     }
     /**
+     * Build call for createContactEmailAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailCreateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createContactEmailAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactEmailCreateDto contactEmailCreateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactEmailCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/Addresses"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createContactEmailAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactEmailCreateDto contactEmailCreateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling createContactEmailAsync(Async)");
+        }
+
+        return createContactEmailAsyncCall(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto, _callback);
+
+    }
+
+    /**
+     * Add an email address to a contact
+     * Creates a new email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailCreateDto  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void createContactEmailAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactEmailCreateDto contactEmailCreateDto) throws ApiException {
+        createContactEmailAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto);
+    }
+
+    /**
+     * Add an email address to a contact
+     * Creates a new email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailCreateDto  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> createContactEmailAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactEmailCreateDto contactEmailCreateDto) throws ApiException {
+        okhttp3.Call localVarCall = createContactEmailAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Add an email address to a contact (asynchronously)
+     * Creates a new email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailCreateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createContactEmailAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactEmailCreateDto contactEmailCreateDto, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createContactEmailAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, contactEmailCreateDto, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createProfileForContactAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileCreateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createProfileForContactAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactProfileCreateDto contactProfileCreateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactProfileCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createProfileForContactAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactProfileCreateDto contactProfileCreateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createProfileForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling createProfileForContactAsync(Async)");
+        }
+
+        return createProfileForContactAsyncCall(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto, _callback);
+
+    }
+
+    /**
+     * Create a contact profile
+     * Creates a new profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileCreateDto  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void createProfileForContactAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactProfileCreateDto contactProfileCreateDto) throws ApiException {
+        createProfileForContactAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto);
+    }
+
+    /**
+     * Create a contact profile
+     * Creates a new profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileCreateDto  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> createProfileForContactAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactProfileCreateDto contactProfileCreateDto) throws ApiException {
+        okhttp3.Call localVarCall = createProfileForContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Create a contact profile (asynchronously)
+     * Creates a new profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileCreateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createProfileForContactAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, ContactProfileCreateDto contactProfileCreateDto, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createProfileForContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, contactProfileCreateDto, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteContactAsync
      * @param tenantId  (required)
      * @param contactId  (required)
@@ -399,6 +731,340 @@ public class ContactsApi {
         okhttp3.Call localVarCall = deleteContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteContactEmailAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteContactEmailAsyncCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "emailId" + "}", localVarApiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteContactEmailAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling deleteContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling deleteContactEmailAsync(Async)");
+        }
+
+        return deleteContactEmailAsyncCall(tenantId, contactId, emailId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete a contact email address
+     * Deletes an email address from the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteContactEmailAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion) throws ApiException {
+        deleteContactEmailAsyncWithHttpInfo(tenantId, contactId, emailId, apiVersion, xApiVersion);
+    }
+
+    /**
+     * Delete a contact email address
+     * Deletes an email address from the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteContactEmailAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete a contact email address (asynchronously)
+     * Deletes an email address from the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteContactEmailAsyncAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteProfileForContactAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteProfileForContactAsyncCall(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "profileId" + "}", localVarApiClient.escapeString(profileId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteProfileForContactAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteProfileForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling deleteProfileForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'profileId' is set
+        if (profileId == null) {
+            throw new ApiException("Missing the required parameter 'profileId' when calling deleteProfileForContactAsync(Async)");
+        }
+
+        return deleteProfileForContactAsyncCall(tenantId, contactId, profileId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete a contact profile
+     * Deletes a profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteProfileForContactAsync(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion) throws ApiException {
+        deleteProfileForContactAsyncWithHttpInfo(tenantId, contactId, profileId, apiVersion, xApiVersion);
+    }
+
+    /**
+     * Delete a contact profile
+     * Deletes a profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteProfileForContactAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteProfileForContactAsyncValidateBeforeCall(tenantId, contactId, profileId, apiVersion, xApiVersion, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete a contact profile (asynchronously)
+     * Deletes a profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteProfileForContactAsyncAsync(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteProfileForContactAsyncValidateBeforeCall(tenantId, contactId, profileId, apiVersion, xApiVersion, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1823,7 +2489,7 @@ public class ContactsApi {
         return localVarCall;
     }
     /**
-     * Build call for getContactProfilesAsync
+     * Build call for getContactEmailsAsync
      * @param tenantId  (required)
      * @param contactId  (required)
      * @param apiVersion  (optional)
@@ -1834,13 +2500,12 @@ public class ContactsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContactEmailsAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1857,7 +2522,7 @@ public class ContactsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails"
             .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1899,71 +2564,69 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContactProfilesAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getContactEmailsAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getContactProfilesAsync(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getContactEmailsAsync(Async)");
         }
 
         // verify the required parameter 'contactId' is set
         if (contactId == null) {
-            throw new ApiException("Missing the required parameter 'contactId' when calling getContactProfilesAsync(Async)");
+            throw new ApiException("Missing the required parameter 'contactId' when calling getContactEmailsAsync(Async)");
         }
 
-        return getContactProfilesAsyncCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+        return getContactEmailsAsyncCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
 
     }
 
     /**
-     * Get a contact&#39;s social profiles
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
+     * Get all email addresses for the specified contact.
      * @param tenantId  (required)
      * @param contactId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ContactProfileDtoListEnvelope
+     * @return ContactEmailDtoListEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ContactProfileDtoListEnvelope getContactProfilesAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ContactProfileDtoListEnvelope> localVarResp = getContactProfilesAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion);
+    public ContactEmailDtoListEnvelope getContactEmailsAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<ContactEmailDtoListEnvelope> localVarResp = getContactEmailsAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
     /**
-     * Get a contact&#39;s social profiles
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses
+     * Get all email addresses for the specified contact.
      * @param tenantId  (required)
      * @param contactId  (required)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;ContactProfileDtoListEnvelope&gt;
+     * @return ApiResponse&lt;ContactEmailDtoListEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ContactProfileDtoListEnvelope> getContactProfilesAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
+    public ApiResponse<ContactEmailDtoListEnvelope> getContactEmailsAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getContactEmailsAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<ContactEmailDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get a contact&#39;s social profiles (asynchronously)
-     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s email addresses (asynchronously)
+     * Get all email addresses for the specified contact.
      * @param tenantId  (required)
      * @param contactId  (required)
      * @param apiVersion  (optional)
@@ -1974,16 +2637,172 @@ public class ContactsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContactProfilesAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback<ContactProfileDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getContactEmailsAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback<ContactEmailDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContactProfilesAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
+        okhttp3.Call localVarCall = getContactEmailsAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<ContactEmailDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getContactEmailsCountAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContactEmailsCountAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/Count"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getContactEmailsCountAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getContactEmailsCountAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling getContactEmailsCountAsync(Async)");
+        }
+
+        return getContactEmailsCountAsyncCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get contact email addresses count
+     * Returns the count of email addresses for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getContactEmailsCountAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getContactEmailsCountAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get contact email addresses count
+     * Returns the count of email addresses for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getContactEmailsCountAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getContactEmailsCountAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get contact email addresses count (asynchronously)
+     * Returns the count of email addresses for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContactEmailsCountAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getContactEmailsCountAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3878,6 +4697,328 @@ public class ContactsApi {
         return localVarCall;
     }
     /**
+     * Build call for getProfilesForContactAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getProfilesForContactAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProfilesForContactAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getProfilesForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling getProfilesForContactAsync(Async)");
+        }
+
+        return getProfilesForContactAsyncCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s social profiles
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ContactProfileDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ContactProfileDtoListEnvelope getProfilesForContactAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<ContactProfileDtoListEnvelope> localVarResp = getProfilesForContactAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a contact&#39;s social profiles
+     * Get a contact&#39;s social profiles
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;ContactProfileDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ContactProfileDtoListEnvelope> getProfilesForContactAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getProfilesForContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a contact&#39;s social profiles (asynchronously)
+     * Get a contact&#39;s social profiles
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getProfilesForContactAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback<ContactProfileDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getProfilesForContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<ContactProfileDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getProfilesForContactCountAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getProfilesForContactCountAsyncCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles/Count"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProfilesForContactCountAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getProfilesForContactCountAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling getProfilesForContactCountAsync(Async)");
+        }
+
+        return getProfilesForContactCountAsyncCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get contact profiles count
+     * Returns the count of profiles for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getProfilesForContactCountAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getProfilesForContactCountAsyncWithHttpInfo(tenantId, contactId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get contact profiles count
+     * Returns the count of profiles for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getProfilesForContactCountAsyncWithHttpInfo(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getProfilesForContactCountAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get contact profiles count (asynchronously)
+     * Returns the count of profiles for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getProfilesForContactCountAsyncAsync(UUID tenantId, UUID contactId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getProfilesForContactCountAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for patchContactAsync
      * @param tenantId  (required)
      * @param contactId  (required)
@@ -4042,6 +5183,179 @@ public class ContactsApi {
         okhttp3.Call localVarCall = patchContactAsyncValidateBeforeCall(tenantId, contactId, apiVersion, xApiVersion, operation, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patchContactEmailAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactEmailAsyncCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = operation;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "emailId" + "}", localVarApiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchContactEmailAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling patchContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling patchContactEmailAsync(Async)");
+        }
+
+        return patchContactEmailAsyncCall(tenantId, contactId, emailId, apiVersion, xApiVersion, operation, _callback);
+
+    }
+
+    /**
+     * Patch a contact email address
+     * Partially updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void patchContactEmailAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        patchContactEmailAsyncWithHttpInfo(tenantId, contactId, emailId, apiVersion, xApiVersion, operation);
+    }
+
+    /**
+     * Patch a contact email address
+     * Partially updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> patchContactEmailAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, operation, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Patch a contact email address (asynchronously)
+     * Partially updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactEmailAsyncAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, operation, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -4659,6 +5973,352 @@ public class ContactsApi {
         return localVarCall;
     }
     /**
+     * Build call for updateContactEmailAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailUpdateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateContactEmailAsyncCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, ContactEmailUpdateDto contactEmailUpdateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactEmailUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "emailId" + "}", localVarApiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateContactEmailAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, ContactEmailUpdateDto contactEmailUpdateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling updateContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling updateContactEmailAsync(Async)");
+        }
+
+        return updateContactEmailAsyncCall(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto, _callback);
+
+    }
+
+    /**
+     * Update a contact email address
+     * Updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailUpdateDto  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void updateContactEmailAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, ContactEmailUpdateDto contactEmailUpdateDto) throws ApiException {
+        updateContactEmailAsyncWithHttpInfo(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto);
+    }
+
+    /**
+     * Update a contact email address
+     * Updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailUpdateDto  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> updateContactEmailAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, ContactEmailUpdateDto contactEmailUpdateDto) throws ApiException {
+        okhttp3.Call localVarCall = updateContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Update a contact email address (asynchronously)
+     * Updates an existing email address for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactEmailUpdateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateContactEmailAsyncAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, ContactEmailUpdateDto contactEmailUpdateDto, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, contactEmailUpdateDto, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateProfileForContactAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileUpdateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfileForContactAsyncCall(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, ContactProfileUpdateDto contactProfileUpdateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = contactProfileUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "profileId" + "}", localVarApiClient.escapeString(profileId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateProfileForContactAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, ContactProfileUpdateDto contactProfileUpdateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateProfileForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling updateProfileForContactAsync(Async)");
+        }
+
+        // verify the required parameter 'profileId' is set
+        if (profileId == null) {
+            throw new ApiException("Missing the required parameter 'profileId' when calling updateProfileForContactAsync(Async)");
+        }
+
+        return updateProfileForContactAsyncCall(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto, _callback);
+
+    }
+
+    /**
+     * Update a contact profile
+     * Updates an existing profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileUpdateDto  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void updateProfileForContactAsync(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, ContactProfileUpdateDto contactProfileUpdateDto) throws ApiException {
+        updateProfileForContactAsyncWithHttpInfo(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto);
+    }
+
+    /**
+     * Update a contact profile
+     * Updates an existing profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileUpdateDto  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> updateProfileForContactAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, ContactProfileUpdateDto contactProfileUpdateDto) throws ApiException {
+        okhttp3.Call localVarCall = updateProfileForContactAsyncValidateBeforeCall(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Update a contact profile (asynchronously)
+     * Updates an existing profile for the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param profileId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param contactProfileUpdateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfileForContactAsyncAsync(UUID tenantId, UUID contactId, UUID profileId, String apiVersion, String xApiVersion, ContactProfileUpdateDto contactProfileUpdateDto, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateProfileForContactAsyncValidateBeforeCall(tenantId, contactId, profileId, apiVersion, xApiVersion, contactProfileUpdateDto, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for upsertTenantOntoAnotherTenantContactListAsync
      * @param tenantId  (required)
      * @param relatedTenantId  (required)
@@ -4984,6 +6644,177 @@ public class ContactsApi {
         okhttp3.Call localVarCall = upsertUserOntoAnotherTenantContactListAsyncValidateBeforeCall(tenantId, relatedUserId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<ContactDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for verifyContactEmailAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call verifyContactEmailAsyncCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "emailId" + "}", localVarApiClient.escapeString(emailId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call verifyContactEmailAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling verifyContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling verifyContactEmailAsync(Async)");
+        }
+
+        // verify the required parameter 'emailId' is set
+        if (emailId == null) {
+            throw new ApiException("Missing the required parameter 'emailId' when calling verifyContactEmailAsync(Async)");
+        }
+
+        return verifyContactEmailAsyncCall(tenantId, contactId, emailId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Verify a contact email address
+     * Marks an email address as verified on the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public void verifyContactEmailAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion) throws ApiException {
+        verifyContactEmailAsyncWithHttpInfo(tenantId, contactId, emailId, apiVersion, xApiVersion);
+    }
+
+    /**
+     * Verify a contact email address
+     * Marks an email address as verified on the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> verifyContactEmailAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = verifyContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Verify a contact email address (asynchronously)
+     * Marks an email address as verified on the specified contact.
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param emailId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call verifyContactEmailAsyncAsync(UUID tenantId, UUID contactId, UUID emailId, String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = verifyContactEmailAsyncValidateBeforeCall(tenantId, contactId, emailId, apiVersion, xApiVersion, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

@@ -852,6 +852,154 @@ public class TenantsApi {
         return localVarCall;
     }
     /**
+     * Build call for getCartForTenantAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCartForTenantAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Cart"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCartForTenantAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCartForTenantAsync(Async)");
+        }
+
+        return getCartForTenantAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get a tenant&#39;s default cart
+     * Get a tenant&#39;s default cart
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return CartDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public CartDtoEnvelope getCartForTenantAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<CartDtoEnvelope> localVarResp = getCartForTenantAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a tenant&#39;s default cart
+     * Get a tenant&#39;s default cart
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;CartDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CartDtoEnvelope> getCartForTenantAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getCartForTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<CartDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a tenant&#39;s default cart (asynchronously)
+     * Get a tenant&#39;s default cart
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCartForTenantAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CartDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCartForTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<CartDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getCurrentTenantAsync
      * @param tenantId  (required)
      * @param apiVersion  (optional)
@@ -2223,154 +2371,6 @@ public class TenantsApi {
 
         okhttp3.Call localVarCall = getTenantAvatarAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getTenantCartAsync
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTenantCartAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Cart"
-            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantCartAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantCartAsync(Async)");
-        }
-
-        return getTenantCartAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Get a tenant&#39;s default cart
-     * Get a tenant&#39;s default cart
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return CartDtoEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public CartDtoEnvelope getTenantCartAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<CartDtoEnvelope> localVarResp = getTenantCartAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a tenant&#39;s default cart
-     * Get a tenant&#39;s default cart
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;CartDtoEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CartDtoEnvelope> getTenantCartAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getTenantCartAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<CartDtoEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get a tenant&#39;s default cart (asynchronously)
-     * Get a tenant&#39;s default cart
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTenantCartAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<CartDtoEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getTenantCartAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<CartDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4779,166 +4779,6 @@ public class TenantsApi {
         return localVarCall;
     }
     /**
-     * Build call for updateAvatarAsync
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param avatar  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateAvatarAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Avatar"
-            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (avatar != null) {
-            localVarFormParams.put("avatar", avatar);
-        }
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "image/png",
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data",
-            "application/json",
-            "application/xml"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAvatarAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling updateAvatarAsync(Async)");
-        }
-
-        return updateAvatarAsyncCall(tenantId, apiVersion, xApiVersion, avatar, _callback);
-
-    }
-
-    /**
-     * Update a tenant&#39;s avatar
-     * Update a tenant&#39;s avatar
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param avatar  (optional)
-     * @return EmptyEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-     */
-    public EmptyEnvelope updateAvatarAsync(UUID tenantId, String apiVersion, String xApiVersion, File avatar) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = updateAvatarAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, avatar);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a tenant&#39;s avatar
-     * Update a tenant&#39;s avatar
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param avatar  (optional)
-     * @return ApiResponse&lt;EmptyEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EmptyEnvelope> updateAvatarAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, File avatar) throws ApiException {
-        okhttp3.Call localVarCall = updateAvatarAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, avatar, null);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Update a tenant&#39;s avatar (asynchronously)
-     * Update a tenant&#39;s avatar
-     * @param tenantId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param avatar  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateAvatarAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateAvatarAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, avatar, _callback);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for updateTenantAsync
      * @param tenantId  (required)
      * @param apiVersion  (optional)
@@ -5088,6 +4928,166 @@ public class TenantsApi {
     public okhttp3.Call updateTenantAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, TenantUpdateDto tenantUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, tenantUpdateDto, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateTenantAvatarAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param avatar  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTenantAvatarAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/Tenants/{tenantId}/Avatar"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (avatar != null) {
+            localVarFormParams.put("avatar", avatar);
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "image/png",
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data",
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateTenantAvatarAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateTenantAvatarAsync(Async)");
+        }
+
+        return updateTenantAvatarAsyncCall(tenantId, apiVersion, xApiVersion, avatar, _callback);
+
+    }
+
+    /**
+     * Update a tenant&#39;s avatar
+     * Update a tenant&#39;s avatar
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param avatar  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope updateTenantAvatarAsync(UUID tenantId, String apiVersion, String xApiVersion, File avatar) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateTenantAvatarAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion, avatar);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a tenant&#39;s avatar
+     * Update a tenant&#39;s avatar
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param avatar  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> updateTenantAvatarAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion, File avatar) throws ApiException {
+        okhttp3.Call localVarCall = updateTenantAvatarAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, avatar, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a tenant&#39;s avatar (asynchronously)
+     * Update a tenant&#39;s avatar
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param avatar  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTenantAvatarAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, File avatar, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateTenantAvatarAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, avatar, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -1,6 +1,6 @@
 # UploadsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost*
 
 <a id="saveFileAsync"></a>
 # **saveFileAsync**
-> EmptyEnvelope saveFileAsync(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp)
+> EmptyEnvelope saveFileAsync(tenantId, apiVersion, xApiVersion, _file, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, publicAccessType, purpose, socialProfileIdValue, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp)
 
 Upload a file
 
-Uploads a file to tenant or user storage.
+Uploads a file to tenant or user storage, scanned and catalogued through the storage spine.
 
 ### Example
 ```java
@@ -27,12 +27,13 @@ import org.openapitools.client.api.UploadsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     UploadsApi apiInstance = new UploadsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
+    File _file = new File("/path/to/file"); // File | 
     String notes = "notes_example"; // String | 
     String title = "title_example"; // String | 
     String author = "author_example"; // String | 
@@ -43,6 +44,9 @@ public class Example {
     Boolean validResponse = true; // Boolean | 
     String parentFileUploadId = "parentFileUploadId_example"; // String | 
     String filePath = "filePath_example"; // String | 
+    String publicAccessType = "false"; // String | 
+    String purpose = "Unknown"; // String | 
+    UUID socialProfileIdValue = UUID.randomUUID(); // UUID | 
     byte[] appFileContent = null; // byte[] | 
     String appFileSha256 = "appFileSha256_example"; // String | 
     OffsetDateTime appFileCreatedAtUtc = OffsetDateTime.now(); // OffsetDateTime | 
@@ -61,7 +65,7 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | 
     OffsetDateTime timestamp = OffsetDateTime.now(); // OffsetDateTime | 
     try {
-      EmptyEnvelope result = apiInstance.saveFileAsync(tenantId, apiVersion, xApiVersion, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp);
+      EmptyEnvelope result = apiInstance.saveFileAsync(tenantId, apiVersion, xApiVersion, _file, notes, title, author, isFolder, fileName, _abstract, keyWords, validResponse, parentFileUploadId, filePath, publicAccessType, purpose, socialProfileIdValue, appFileContent, appFileSha256, appFileCreatedAtUtc, appFileUserIdValue, appFileTenantIdValue, appFileEnrollmentIdValue, appFileSource, appFileLength, appFileName, appFileFileName, appFileLastModified, appFileSize, appFileContentType, appFileContentDisposition, appFileHeaders, id, timestamp);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UploadsApi#saveFileAsync");
@@ -81,6 +85,7 @@ public class Example {
 | **tenantId** | **UUID**|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
+| **_file** | **File**|  | [optional] |
 | **notes** | **String**|  | [optional] |
 | **title** | **String**|  | [optional] |
 | **author** | **String**|  | [optional] |
@@ -91,6 +96,9 @@ public class Example {
 | **validResponse** | **Boolean**|  | [optional] |
 | **parentFileUploadId** | **String**|  | [optional] |
 | **filePath** | **String**|  | [optional] |
+| **publicAccessType** | **String**|  | [optional] [enum: false, Container, Blob, Unknown] |
+| **purpose** | **String**|  | [optional] [enum: Unknown, IdentityAvatar, IdentityBanner, ProfileAsset, EngagementInline, EngagementAttachment, MessageAttachment, SocialPost, RecordAttachment, AiGenerated, SystemArtifact, Temporary] |
+| **socialProfileIdValue** | **UUID**|  | [optional] |
 | **appFileContent** | **byte[]**|  | [optional] |
 | **appFileSha256** | **String**|  | [optional] |
 | **appFileCreatedAtUtc** | **OffsetDateTime**|  | [optional] |

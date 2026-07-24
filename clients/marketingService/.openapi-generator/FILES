@@ -59,6 +59,11 @@ docs/MarketingListsApi.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionCreateDto.md
+docs/NewsletterSubscriptionDto.md
+docs/NewsletterSubscriptionDtoEnvelope.md
+docs/NewsletterSubscriptionDtoListEnvelope.md
+docs/NewsletterSubscriptionUpdateDto.md
 docs/NewsletterSubscriptionsApi.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
@@ -170,6 +175,11 @@ src/main/java/org/openapitools/client/model/MarketingListUpdateDto.java
 src/main/java/org/openapitools/client/model/NewsletterCreateDto.java
 src/main/java/org/openapitools/client/model/NewsletterDto.java
 src/main/java/org/openapitools/client/model/NewsletterDtoEnvelope.java
+src/main/java/org/openapitools/client/model/NewsletterSubscriptionCreateDto.java
+src/main/java/org/openapitools/client/model/NewsletterSubscriptionDto.java
+src/main/java/org/openapitools/client/model/NewsletterSubscriptionDtoEnvelope.java
+src/main/java/org/openapitools/client/model/NewsletterSubscriptionDtoListEnvelope.java
+src/main/java/org/openapitools/client/model/NewsletterSubscriptionUpdateDto.java
 src/main/java/org/openapitools/client/model/NewsletterUpdateDto.java
 src/main/java/org/openapitools/client/model/Operation.java
 src/main/java/org/openapitools/client/model/OrderDto.java
@@ -190,4 +200,8 @@ src/main/java/org/openapitools/client/model/SocialPostBucketDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/SocialPostBucketUpdateDto.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
-src/test/java/org/openapitools/client/api/NewsletterSubscriptionsApiTest.java
+src/test/java/org/openapitools/client/model/NewsletterSubscriptionCreateDtoTest.java
+src/test/java/org/openapitools/client/model/NewsletterSubscriptionDtoEnvelopeTest.java
+src/test/java/org/openapitools/client/model/NewsletterSubscriptionDtoListEnvelopeTest.java
+src/test/java/org/openapitools/client/model/NewsletterSubscriptionDtoTest.java
+src/test/java/org/openapitools/client/model/NewsletterSubscriptionUpdateDtoTest.java

@@ -1660,6 +1660,23 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
   /hello:
     get:
       responses:
@@ -4496,6 +4513,156 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/MarketingService/NewsletterSubscriptions:
+    get:
+      description: Retrieves a collection of newsletter subscriptions for the specified
+        tenant using OData query options.
+      operationId: GetNewsletterSubscriptionsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsletterSubscriptionDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NewsletterSubscriptionDtoListEnvelope'
+          description: OK
+      summary: Get newsletter subscriptions
+      tags:
+      - NewsletterSubscriptions
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new newsletter subscription for the specified tenant.
+      operationId: CreateNewsletterSubscriptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a newsletter subscription
+      tags:
+      - NewsletterSubscriptions
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/MarketingService/NewsletterSubscriptions/Count:
     get:
       description: Returns the count of newsletter subscriptions for the specified
@@ -4564,6 +4731,249 @@ paths:
       summary: Get newsletter subscriptions count
       tags:
       - NewsletterSubscriptions
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}:
+    delete:
+      description: Deletes a newsletter subscription by its ID.
+      operationId: DeleteNewsletterSubscriptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterSubscriptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a newsletter subscription
+      tags:
+      - NewsletterSubscriptions
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves the details of a specific newsletter subscription by
+        its ID.
+      operationId: GetNewsletterSubscriptionByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterSubscriptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsletterSubscriptionDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NewsletterSubscriptionDtoEnvelope'
+          description: OK
+      summary: Get newsletter subscription by ID
+      tags:
+      - NewsletterSubscriptions
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing newsletter subscription by its ID.
+      operationId: UpdateNewsletterSubscriptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: newsletterSubscriptionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewsletterSubscriptionUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a newsletter subscription
+      tags:
+      - NewsletterSubscriptions
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -8604,6 +9014,185 @@ components:
           type: string
         result:
           $ref: '#/components/schemas/NewsletterDto'
+      type: object
+    NewsletterSubscriptionCreateDto:
+      additionalProperties: false
+      example:
+        contactId: contactId
+        verified: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        newsletterId: newsletterId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        email:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        newsletterId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+      type: object
+    NewsletterSubscriptionDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        contactId: contactId
+        verified: true
+        tenantId: tenantId
+        id: id
+        userId: userId
+        newsletterId: newsletterId
+        email: email
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        contactId:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        newsletterId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    NewsletterSubscriptionDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          enrollmentId: enrollmentId
+          contactId: contactId
+          verified: true
+          tenantId: tenantId
+          id: id
+          userId: userId
+          newsletterId: newsletterId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/NewsletterSubscriptionDto'
+      type: object
+    NewsletterSubscriptionDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          contactId: contactId
+          verified: true
+          tenantId: tenantId
+          id: id
+          userId: userId
+          newsletterId: newsletterId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          contactId: contactId
+          verified: true
+          tenantId: tenantId
+          id: id
+          userId: userId
+          newsletterId: newsletterId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/NewsletterSubscriptionDto'
+          nullable: true
+          type: array
+      type: object
+    NewsletterSubscriptionUpdateDto:
+      additionalProperties: false
+      example:
+        contactId: contactId
+        verified: true
+        newsletterId: newsletterId
+        email: email
+      properties:
+        email:
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        newsletterId:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
       type: object
     NewsletterUpdateDto:
       additionalProperties: false

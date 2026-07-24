@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.Operation;
 import org.openapitools.client.model.OptionCreateDto;
 import org.openapitools.client.model.OptionDtoEnvelope;
 import org.openapitools.client.model.OptionDtoListEnvelope;
@@ -1123,6 +1124,360 @@ public class OptionsApi {
 
         okhttp3.Call localVarCall = getContactOptionsCountValidateBeforeCall(tenantId, contactId, portalId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patchContactOptionAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param optionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactOptionAsyncCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = operation;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options/{optionId}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "optionId" + "}", localVarApiClient.escapeString(optionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchContactOptionAsyncValidateBeforeCall(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactOptionAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling patchContactOptionAsync(Async)");
+        }
+
+        // verify the required parameter 'optionId' is set
+        if (optionId == null) {
+            throw new ApiException("Missing the required parameter 'optionId' when calling patchContactOptionAsync(Async)");
+        }
+
+        return patchContactOptionAsyncCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, _callback);
+
+    }
+
+    /**
+     * Patch a contact option
+     * Patch a contact option
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param optionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope patchContactOptionAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionAsyncWithHttpInfo(tenantId, contactId, optionId, apiVersion, xApiVersion, operation);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Patch a contact option
+     * Patch a contact option
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param optionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> patchContactOptionAsyncWithHttpInfo(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Patch a contact option (asynchronously)
+     * Patch a contact option
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param optionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactOptionAsyncAsync(UUID tenantId, UUID contactId, UUID optionId, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchContactOptionAsyncValidateBeforeCall(tenantId, contactId, optionId, apiVersion, xApiVersion, operation, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patchContactOptionByKeyAsync
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param key  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactOptionByKeyAsyncCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = operation;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/CrmService/Contacts/{contactId}/Options/Key/{key}"
+            .replace("{" + "contactId" + "}", localVarApiClient.escapeString(contactId.toString()))
+            .replace("{" + "key" + "}", localVarApiClient.escapeString(key.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchContactOptionByKeyAsyncValidateBeforeCall(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchContactOptionByKeyAsync(Async)");
+        }
+
+        // verify the required parameter 'contactId' is set
+        if (contactId == null) {
+            throw new ApiException("Missing the required parameter 'contactId' when calling patchContactOptionByKeyAsync(Async)");
+        }
+
+        // verify the required parameter 'key' is set
+        if (key == null) {
+            throw new ApiException("Missing the required parameter 'key' when calling patchContactOptionByKeyAsync(Async)");
+        }
+
+        return patchContactOptionByKeyAsyncCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, _callback);
+
+    }
+
+    /**
+     * Patch a contact option by key
+     * Patch a contact option by key
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param key  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope patchContactOptionByKeyAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = patchContactOptionByKeyAsyncWithHttpInfo(tenantId, contactId, key, apiVersion, xApiVersion, operation);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Patch a contact option by key
+     * Patch a contact option by key
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param key  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> patchContactOptionByKeyAsyncWithHttpInfo(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation) throws ApiException {
+        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Patch a contact option by key (asynchronously)
+     * Patch a contact option by key
+     * @param tenantId  (required)
+     * @param contactId  (required)
+     * @param key  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param operation  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchContactOptionByKeyAsyncAsync(UUID tenantId, UUID contactId, String key, String apiVersion, String xApiVersion, List<Operation> operation, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchContactOptionByKeyAsyncValidateBeforeCall(tenantId, contactId, key, apiVersion, xApiVersion, operation, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

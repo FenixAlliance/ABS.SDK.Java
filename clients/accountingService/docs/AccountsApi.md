@@ -72,7 +72,7 @@ public class Example {
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String currencyId = "currencyId_example"; // String | 
+    String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
@@ -94,7 +94,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **currencyId** | **String**|  | [optional] |
+| **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -994,7 +994,7 @@ public class Example {
 
     AccountsApi apiInstance = new AccountsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    String currencyId = "currencyId_example"; // String | 
+    String currencyId = "USD.USA"; // String | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     List<AccountDto> accountDto = Arrays.asList(); // List<AccountDto> | 
@@ -1017,7 +1017,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **currencyId** | **String**|  | [optional] |
+| **currencyId** | **String**|  | [optional] [default to USD.USA] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 | **accountDto** | [**List&lt;AccountDto&gt;**](AccountDto.md)|  | [optional] |

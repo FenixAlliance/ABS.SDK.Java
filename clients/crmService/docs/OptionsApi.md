@@ -10,6 +10,8 @@ All URIs are relative to *https://absuite.net*
 | [**getContactOptionByKey**](OptionsApi.md#getContactOptionByKey) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Retrieve a single contact option by its key |
 | [**getContactOptions**](OptionsApi.md#getContactOptions) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options | Retrieve a list of contact options |
 | [**getContactOptionsCount**](OptionsApi.md#getContactOptionsCount) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Count | Get the count of contact options |
+| [**patchContactOptionAsync**](OptionsApi.md#patchContactOptionAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Patch a contact option |
+| [**patchContactOptionByKeyAsync**](OptionsApi.md#patchContactOptionByKeyAsync) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Patch a contact option by key |
 | [**updateContactOption**](OptionsApi.md#updateContactOption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Update a contact option |
 | [**upsertContactOption**](OptionsApi.md#upsertContactOption) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key} | Create or update a contact option by key |
 
@@ -443,6 +445,154 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchContactOptionAsync"></a>
+# **patchContactOptionAsync**
+> EmptyEnvelope patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, operation)
+
+Patch a contact option
+
+Patch a contact option
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.OptionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    OptionsApi apiInstance = new OptionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    UUID optionId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchContactOptionAsync(tenantId, contactId, optionId, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OptionsApi#patchContactOptionAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **optionId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchContactOptionByKeyAsync"></a>
+# **patchContactOptionByKeyAsync**
+> EmptyEnvelope patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, operation)
+
+Patch a contact option by key
+
+Patch a contact option by key
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.OptionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    OptionsApi apiInstance = new OptionsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    UUID contactId = UUID.randomUUID(); // UUID | 
+    String key = "key_example"; // String | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchContactOptionByKeyAsync(tenantId, contactId, key, apiVersion, xApiVersion, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OptionsApi#patchContactOptionByKeyAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **contactId** | **UUID**|  | |
+| **key** | **String**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details

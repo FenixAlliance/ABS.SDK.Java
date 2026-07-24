@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**fromDate** | **OffsetDateTime** |  |  [optional] |
 |**toDate** | **OffsetDateTime** |  |  [optional] |
-|**fiscalYearId** | **String** |  |  [optional] |
+|**fiscalYearId** | **String** |  |  |
 
 
 

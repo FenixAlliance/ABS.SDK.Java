@@ -9,14 +9,16 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
-|**tenantId** | **String** |  |  [optional] |
 |**contactId** | **String** |  |  [optional] |
+|**tenantId** | **String** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 |**enrollmentId** | **String** |  |  [optional] |
 |**about** | **String** |  |  [optional] |
 |**verified** | **Boolean** |  |  [optional] |
 |**submitted** | **Boolean** |  |  [optional] |
 |**avatarUrl** | **String** |  |  [optional] |
-|**qualifiedName** | **String** |  |  [optional] |
+|**contact** | [**ContactDto**](ContactDto.md) |  |  [optional] |
+|**qualifiedName** | **String** |  |  [optional] [readonly] |
 |**verificationTimestamp** | **OffsetDateTime** |  |  [optional] |
 |**data** | **String** |  |  [optional] |
 |**dataLabel** | **String** |  |  [optional] |

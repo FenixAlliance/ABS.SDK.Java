@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectTaskCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectTaskCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -77,9 +77,9 @@ public class ProjectTaskCreateDto {
   @SerializedName(SERIALIZED_NAME_DUE_LINE)
   private OffsetDateTime dueLine;
 
-  public static final String SERIALIZED_NAME_PROJECT_I_D = "projectID";
-  @SerializedName(SERIALIZED_NAME_PROJECT_I_D)
-  private String projectID;
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
 
   public ProjectTaskCreateDto() {
   }
@@ -198,22 +198,22 @@ public class ProjectTaskCreateDto {
   }
 
 
-  public ProjectTaskCreateDto projectID(String projectID) {
-    this.projectID = projectID;
+  public ProjectTaskCreateDto projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
   /**
-   * Get projectID
-   * @return projectID
+   * Get projectId
+   * @return projectId
    */
   @javax.annotation.Nullable
-  public String getProjectID() {
-    return projectID;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -233,7 +233,7 @@ public class ProjectTaskCreateDto {
         Objects.equals(this.description, projectTaskCreateDto.description) &&
         Objects.equals(this.startDate, projectTaskCreateDto.startDate) &&
         Objects.equals(this.dueLine, projectTaskCreateDto.dueLine) &&
-        Objects.equals(this.projectID, projectTaskCreateDto.projectID);
+        Objects.equals(this.projectId, projectTaskCreateDto.projectId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +242,7 @@ public class ProjectTaskCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, startDate, dueLine, projectID);
+    return Objects.hash(id, timestamp, title, description, startDate, dueLine, projectId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -262,7 +262,7 @@ public class ProjectTaskCreateDto {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    dueLine: ").append(toIndentedString(dueLine)).append("\n");
-    sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -291,7 +291,7 @@ public class ProjectTaskCreateDto {
     openapiFields.add("description");
     openapiFields.add("startDate");
     openapiFields.add("dueLine");
-    openapiFields.add("projectID");
+    openapiFields.add("projectId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -327,8 +327,8 @@ public class ProjectTaskCreateDto {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("projectID") != null && !jsonObj.get("projectID").isJsonNull()) && !jsonObj.get("projectID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectID").toString()));
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
   }
 

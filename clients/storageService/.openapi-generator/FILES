@@ -10,10 +10,10 @@ docs/AvatarsApi.md
 docs/Blob.md
 docs/BlobEnvelope.md
 docs/BlobsApi.md
-docs/CompletionsApi.md
+docs/EditorAssetsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/FileUploadDto.md
 docs/FileUploadDtoEnvelope.md
 docs/FilesApi.md
@@ -22,6 +22,7 @@ docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
 docs/InfoResponse.md
 docs/LoginRequest.md
+docs/ProblemDetails.md
 docs/RadzenEditorApi.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
@@ -54,8 +55,8 @@ src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AvatarsApi.java
 src/main/java/org/openapitools/client/api/BlobsApi.java
-src/main/java/org/openapitools/client/api/CompletionsApi.java
-src/main/java/org/openapitools/client/api/FenixAlliancePortalsWebsiteApi.java
+src/main/java/org/openapitools/client/api/EditorAssetsApi.java
+src/main/java/org/openapitools/client/api/FenixAllianceAbsWebApi.java
 src/main/java/org/openapitools/client/api/FilesApi.java
 src/main/java/org/openapitools/client/api/RadzenEditorApi.java
 src/main/java/org/openapitools/client/api/UploadsApi.java
@@ -76,9 +77,12 @@ src/main/java/org/openapitools/client/model/HttpValidationProblemDetails.java
 src/main/java/org/openapitools/client/model/InfoRequest.java
 src/main/java/org/openapitools/client/model/InfoResponse.java
 src/main/java/org/openapitools/client/model/LoginRequest.java
+src/main/java/org/openapitools/client/model/ProblemDetails.java
 src/main/java/org/openapitools/client/model/RefreshRequest.java
 src/main/java/org/openapitools/client/model/RegisterRequest.java
 src/main/java/org/openapitools/client/model/ResendConfirmationEmailRequest.java
 src/main/java/org/openapitools/client/model/ResetPasswordRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorRequest.java
 src/main/java/org/openapitools/client/model/TwoFactorResponse.java
+src/test/java/org/openapitools/client/api/EditorAssetsApiTest.java
+src/test/java/org/openapitools/client/model/ProblemDetailsTest.java

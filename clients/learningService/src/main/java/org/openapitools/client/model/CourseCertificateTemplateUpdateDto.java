@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * CourseCertificateTemplateUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:00:00.056815-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:03:19.243167100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class CourseCertificateTemplateUpdateDto {
   public static final String SERIALIZED_NAME_WEB_PORTAL_ID = "webPortalId";
   @SerializedName(SERIALIZED_NAME_WEB_PORTAL_ID)

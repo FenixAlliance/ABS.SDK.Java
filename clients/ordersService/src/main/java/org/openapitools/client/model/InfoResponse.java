@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * InfoResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:01:57.877801800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:04:46.528394700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InfoResponse {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * InfoRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:57:34.819886700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:00:58.198145800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class InfoRequest {
   public static final String SERIALIZED_NAME_NEW_EMAIL = "newEmail";
   @SerializedName(SERIALIZED_NAME_NEW_EMAIL)

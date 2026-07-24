@@ -7,22 +7,19 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** |  |  [optional] |
-|**amount** | **Double** |  |  [optional] |
-|**date** | **OffsetDateTime** |  |  [optional] |
-|**currencyId** | **String** |  |  [optional] |
-|**debitAccountId** | **String** |  |  [optional] |
-|**creditAccountId** | **String** |  |  [optional] |
 |**journalEntryId** | **String** |  |  [optional] |
-|**accountingEntryType** | [**AccountingEntryTypeEnum**](#AccountingEntryTypeEnum) |  |  [optional] |
+|**accountId** | **String** |  |  [optional] |
+|**direction** | [**DirectionEnum**](#DirectionEnum) |  |  [optional] |
+|**transactionAmount** | **Double** |  |  [optional] |
+|**transactionCurrencyId** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 
 
 
-## Enum: AccountingEntryTypeEnum
+## Enum: DirectionEnum
 
 | Name | Value |
 |---- | -----|
-| NONE | &quot;None&quot; |
 | DEBIT | &quot;Debit&quot; |
 | CREDIT | &quot;Credit&quot; |
 

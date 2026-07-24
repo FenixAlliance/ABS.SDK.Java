@@ -9,6 +9,7 @@ All URIs are relative to *https://absuite.net*
 | [**deSelectTenantAsync**](TenantsApi.md#deSelectTenantAsync) | **POST** /api/v2/TenantsService/Tenants/Deselect | Deselect the user&#39;s default tenant |
 | [**deleteTenantAsync**](TenantsApi.md#deleteTenantAsync) | **DELETE** /api/v2/TenantsService/Tenants | Delete a tenant |
 | [**getAccessibleFeaturesAsync**](TenantsApi.md#getAccessibleFeaturesAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Features | Get the list of features accessible to a specific enrollment |
+| [**getCartForTenantAsync**](TenantsApi.md#getCartForTenantAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart |
 | [**getCurrentTenantAsync**](TenantsApi.md#getCurrentTenantAsync) | **GET** /api/v2/TenantsService/Tenants/Current | Get the user&#39;s current default tenant |
 | [**getEnrollmentLicenseByIdAsync**](TenantsApi.md#getEnrollmentLicenseByIdAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Get a specific license for an enrollment |
 | [**getEnrollmentLicensesAsync**](TenantsApi.md#getEnrollmentLicensesAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses | Get the list of licenses available to a specific enrollment |
@@ -18,7 +19,6 @@ All URIs are relative to *https://absuite.net*
 | [**getRootTenantAsync**](TenantsApi.md#getRootTenantAsync) | **GET** /api/v2/TenantsService/Tenants/Root | Get the root tenant of the platform |
 | [**getTenantAsync**](TenantsApi.md#getTenantAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId} | Get a specific tenant by ID |
 | [**getTenantAvatarAsync**](TenantsApi.md#getTenantAvatarAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Get a tenant&#39;s avatar |
-| [**getTenantCartAsync**](TenantsApi.md#getTenantCartAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant&#39;s default cart |
 | [**getTenantEnrollmentAsync**](TenantsApi.md#getTenantEnrollmentAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId} | Get a specific tenant enrollment |
 | [**getTenantEnrollmentsAsync**](TenantsApi.md#getTenantEnrollmentsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments | Get the list of user enrollments for a tenant |
 | [**getTenantInvitationsAsync**](TenantsApi.md#getTenantInvitationsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Invitations | Get the list of invitations issued by a tenant |
@@ -35,8 +35,8 @@ All URIs are relative to *https://absuite.net*
 | [**patchTenantAsync**](TenantsApi.md#patchTenantAsync) | **PATCH** /api/v2/TenantsService/Tenants/{tenantId} | Patch a tenant&#39;s profile |
 | [**revokeLicenseAsync**](TenantsApi.md#revokeLicenseAsync) | **DELETE** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Revoke a license from a specific enrollment |
 | [**selectTenantAsync**](TenantsApi.md#selectTenantAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Select | Select a business tenant as the user&#39;s default tenant |
-| [**updateAvatarAsync**](TenantsApi.md#updateAvatarAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar |
 | [**updateTenantAsync**](TenantsApi.md#updateTenantAsync) | **PUT** /api/v2/TenantsService/Tenants/{tenantId} | Update a tenant&#39;s profile |
+| [**updateTenantAvatarAsync**](TenantsApi.md#updateTenantAvatarAsync) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant&#39;s avatar |
 | [**validateEnrollmentFeatureAccess**](TenantsApi.md#validateEnrollmentFeatureAccess) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/HasAccess | Validate the access to a specific feature for a specific enrollment |
 | [**validateEnrollmentPermissionsAsync**](TenantsApi.md#validateEnrollmentPermissionsAsync) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Permissions/Validate | Validate the existence of a list of roles and permissions for a specific enrollment |
 
@@ -382,6 +382,74 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+
+<a id="getCartForTenantAsync"></a>
+# **getCartForTenantAsync**
+> CartDtoEnvelope getCartForTenantAsync(tenantId, apiVersion, xApiVersion)
+
+Get a tenant&#39;s default cart
+
+Get a tenant&#39;s default cart
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TenantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TenantsApi apiInstance = new TenantsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    try {
+      CartDtoEnvelope result = apiInstance.getCartForTenantAsync(tenantId, apiVersion, xApiVersion);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantsApi#getCartForTenantAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+
+### Return type
+
+[**CartDtoEnvelope**](CartDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
 <a id="getCurrentTenantAsync"></a>
@@ -1003,74 +1071,6 @@ No authorization required
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
-
-<a id="getTenantCartAsync"></a>
-# **getTenantCartAsync**
-> CartDtoEnvelope getTenantCartAsync(tenantId, apiVersion, xApiVersion)
-
-Get a tenant&#39;s default cart
-
-Get a tenant&#39;s default cart
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TenantsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    TenantsApi apiInstance = new TenantsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    try {
-      CartDtoEnvelope result = apiInstance.getTenantCartAsync(tenantId, apiVersion, xApiVersion);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TenantsApi#getTenantCartAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-
-### Return type
-
-[**CartDtoEnvelope**](CartDtoEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
 
 <a id="getTenantEnrollmentAsync"></a>
 # **getTenantEnrollmentAsync**
@@ -2168,76 +2168,6 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 
-<a id="updateAvatarAsync"></a>
-# **updateAvatarAsync**
-> EmptyEnvelope updateAvatarAsync(tenantId, apiVersion, xApiVersion, avatar)
-
-Update a tenant&#39;s avatar
-
-Update a tenant&#39;s avatar
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.TenantsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    TenantsApi apiInstance = new TenantsApi(defaultClient);
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    String apiVersion = "apiVersion_example"; // String | 
-    String xApiVersion = "xApiVersion_example"; // String | 
-    File avatar = new File("/path/to/file"); // File | 
-    try {
-      EmptyEnvelope result = apiInstance.updateAvatarAsync(tenantId, apiVersion, xApiVersion, avatar);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TenantsApi#updateAvatarAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **UUID**|  | |
-| **apiVersion** | **String**|  | [optional] |
-| **xApiVersion** | **String**|  | [optional] |
-| **avatar** | **File**|  | [optional] |
-
-### Return type
-
-[**EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data, application/json, application/xml
- - **Accept**: image/png, application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-
 <a id="updateTenantAsync"></a>
 # **updateTenantAsync**
 > EmptyEnvelope updateTenantAsync(tenantId, apiVersion, xApiVersion, tenantUpdateDto)
@@ -2307,6 +2237,76 @@ No authorization required
 | **403** | Forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
+
+<a id="updateTenantAvatarAsync"></a>
+# **updateTenantAvatarAsync**
+> EmptyEnvelope updateTenantAvatarAsync(tenantId, apiVersion, xApiVersion, avatar)
+
+Update a tenant&#39;s avatar
+
+Update a tenant&#39;s avatar
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TenantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TenantsApi apiInstance = new TenantsApi(defaultClient);
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    String apiVersion = "apiVersion_example"; // String | 
+    String xApiVersion = "xApiVersion_example"; // String | 
+    File avatar = new File("/path/to/file"); // File | 
+    try {
+      EmptyEnvelope result = apiInstance.updateTenantAvatarAsync(tenantId, apiVersion, xApiVersion, avatar);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantsApi#updateTenantAvatarAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **UUID**|  | |
+| **apiVersion** | **String**|  | [optional] |
+| **xApiVersion** | **String**|  | [optional] |
+| **avatar** | **File**|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data, application/json, application/xml
+ - **Accept**: image/png, application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
 
 <a id="validateEnrollmentFeatureAccess"></a>
 # **validateEnrollmentFeatureAccess**

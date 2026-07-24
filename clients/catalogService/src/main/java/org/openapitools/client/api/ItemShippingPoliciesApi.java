@@ -231,7 +231,7 @@ public class ItemShippingPoliciesApi {
         return localVarCall;
     }
     /**
-     * Build call for getItemShippingPoliciesAsync
+     * Build call for getCatalogItemShippingPoliciesAsync
      * @param tenantId  (optional)
      * @param itemId  (optional)
      * @param apiVersion  (optional)
@@ -247,7 +247,7 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemShippingPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCatalogItemShippingPoliciesAsyncCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -309,8 +309,8 @@ public class ItemShippingPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemShippingPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getItemShippingPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+    private okhttp3.Call getCatalogItemShippingPoliciesAsyncValidateBeforeCall(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        return getCatalogItemShippingPoliciesAsyncCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -331,8 +331,8 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemShippingPolicyDtoListEnvelope> localVarResp = getItemShippingPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion);
+    public ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<ItemShippingPolicyDtoListEnvelope> localVarResp = getCatalogItemShippingPoliciesAsyncWithHttpInfo(tenantId, itemId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -353,8 +353,8 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemShippingPolicyDtoListEnvelope> getItemShippingPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemShippingPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemShippingPolicyDtoListEnvelope> getCatalogItemShippingPoliciesAsyncWithHttpInfo(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getCatalogItemShippingPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<ItemShippingPolicyDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -377,15 +377,15 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemShippingPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemShippingPolicyDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCatalogItemShippingPoliciesAsyncAsync(UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemShippingPolicyDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemShippingPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCatalogItemShippingPoliciesAsyncValidateBeforeCall(tenantId, itemId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<ItemShippingPolicyDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for getItemShippingPolicyByIdAsync
+     * Build call for getCatalogItemShippingPolicyByIdAsync
      * @param itemShippingPolicyId  (required)
      * @param tenantId  (optional)
      * @param itemId  (optional)
@@ -402,7 +402,7 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemShippingPolicyByIdAsyncCall(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCatalogItemShippingPolicyByIdAsyncCall(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -465,13 +465,13 @@ public class ItemShippingPoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemShippingPolicyByIdAsyncValidateBeforeCall(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCatalogItemShippingPolicyByIdAsyncValidateBeforeCall(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'itemShippingPolicyId' is set
         if (itemShippingPolicyId == null) {
-            throw new ApiException("Missing the required parameter 'itemShippingPolicyId' when calling getItemShippingPolicyByIdAsync(Async)");
+            throw new ApiException("Missing the required parameter 'itemShippingPolicyId' when calling getCatalogItemShippingPolicyByIdAsync(Async)");
         }
 
-        return getItemShippingPolicyByIdAsyncCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, _callback);
+        return getCatalogItemShippingPolicyByIdAsyncCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -493,8 +493,8 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<ItemShippingPolicyDtoEnvelope> localVarResp = getItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion);
+    public ItemShippingPolicyDtoEnvelope getCatalogItemShippingPolicyByIdAsync(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<ItemShippingPolicyDtoEnvelope> localVarResp = getCatalogItemShippingPolicyByIdAsyncWithHttpInfo(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -516,8 +516,8 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ItemShippingPolicyDtoEnvelope> getItemShippingPolicyByIdAsyncWithHttpInfo(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getItemShippingPolicyByIdAsyncValidateBeforeCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, null);
+    public ApiResponse<ItemShippingPolicyDtoEnvelope> getCatalogItemShippingPolicyByIdAsyncWithHttpInfo(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getCatalogItemShippingPolicyByIdAsyncValidateBeforeCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<ItemShippingPolicyDtoEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -541,9 +541,9 @@ public class ItemShippingPoliciesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getItemShippingPolicyByIdAsyncAsync(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemShippingPolicyDtoEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getCatalogItemShippingPolicyByIdAsyncAsync(UUID itemShippingPolicyId, UUID tenantId, UUID itemId, String apiVersion, String xApiVersion, final ApiCallback<ItemShippingPolicyDtoEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getItemShippingPolicyByIdAsyncValidateBeforeCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getCatalogItemShippingPolicyByIdAsyncValidateBeforeCall(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<ItemShippingPolicyDtoEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

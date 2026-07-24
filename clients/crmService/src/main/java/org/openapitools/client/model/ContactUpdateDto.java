@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ContactUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T20:59:28.113293900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:00:14.508187900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ContactUpdateDto {
   /**
    * Gets or Sets type
@@ -163,14 +163,6 @@ public class ContactUpdateDto {
   public static final String SERIALIZED_NAME_PARENT_CONTACT_ID = "parentContactId";
   @SerializedName(SERIALIZED_NAME_PARENT_CONTACT_ID)
   private String parentContactId;
-
-  public static final String SERIALIZED_NAME_ADDRESS_LINE1 = "addressLine1";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_LINE1)
-  private String addressLine1;
-
-  public static final String SERIALIZED_NAME_ADDRESS_LINE2 = "addressLine2";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_LINE2)
-  private String addressLine2;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postalCode";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -556,44 +548,6 @@ public class ContactUpdateDto {
 
   public void setParentContactId(String parentContactId) {
     this.parentContactId = parentContactId;
-  }
-
-
-  public ContactUpdateDto addressLine1(String addressLine1) {
-    this.addressLine1 = addressLine1;
-    return this;
-  }
-
-  /**
-   * Get addressLine1
-   * @return addressLine1
-   */
-  @javax.annotation.Nullable
-  public String getAddressLine1() {
-    return addressLine1;
-  }
-
-  public void setAddressLine1(String addressLine1) {
-    this.addressLine1 = addressLine1;
-  }
-
-
-  public ContactUpdateDto addressLine2(String addressLine2) {
-    this.addressLine2 = addressLine2;
-    return this;
-  }
-
-  /**
-   * Get addressLine2
-   * @return addressLine2
-   */
-  @javax.annotation.Nullable
-  public String getAddressLine2() {
-    return addressLine2;
-  }
-
-  public void setAddressLine2(String addressLine2) {
-    this.addressLine2 = addressLine2;
   }
 
 
@@ -1097,8 +1051,6 @@ public class ContactUpdateDto {
         Objects.equals(this.jobTitle, contactUpdateDto.jobTitle) &&
         Objects.equals(this.countryId, contactUpdateDto.countryId) &&
         Objects.equals(this.parentContactId, contactUpdateDto.parentContactId) &&
-        Objects.equals(this.addressLine1, contactUpdateDto.addressLine1) &&
-        Objects.equals(this.addressLine2, contactUpdateDto.addressLine2) &&
         Objects.equals(this.postalCode, contactUpdateDto.postalCode) &&
         Objects.equals(this.stateId, contactUpdateDto.stateId) &&
         Objects.equals(this.cityId, contactUpdateDto.cityId) &&
@@ -1132,7 +1084,7 @@ public class ContactUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, birthday, duns, taxId, email, firstName, lastName, primaryContactId, qualifiedName, about, mobilePhone, businessPhone, jobTitle, countryId, parentContactId, addressLine1, addressLine2, postalCode, stateId, cityId, streetLine1, streetLine2, currencyId, languageId, timezoneId, coverUrl, githubUsername, instagramUsername, webUrl, twitchUrl, redditUrl, gitHubUrl, tikTokUrl, twitterUrl, youTubeUrl, facebookUrl, linkedInUrl, instagramUrl, tikTokUsername, stackExchangeUrl, stackOverflowUrl, faxNumber);
+    return Objects.hash(type, birthday, duns, taxId, email, firstName, lastName, primaryContactId, qualifiedName, about, mobilePhone, businessPhone, jobTitle, countryId, parentContactId, postalCode, stateId, cityId, streetLine1, streetLine2, currencyId, languageId, timezoneId, coverUrl, githubUsername, instagramUsername, webUrl, twitchUrl, redditUrl, gitHubUrl, tikTokUrl, twitterUrl, youTubeUrl, facebookUrl, linkedInUrl, instagramUrl, tikTokUsername, stackExchangeUrl, stackOverflowUrl, faxNumber);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1161,8 +1113,6 @@ public class ContactUpdateDto {
     sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
     sb.append("    countryId: ").append(toIndentedString(countryId)).append("\n");
     sb.append("    parentContactId: ").append(toIndentedString(parentContactId)).append("\n");
-    sb.append("    addressLine1: ").append(toIndentedString(addressLine1)).append("\n");
-    sb.append("    addressLine2: ").append(toIndentedString(addressLine2)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    stateId: ").append(toIndentedString(stateId)).append("\n");
     sb.append("    cityId: ").append(toIndentedString(cityId)).append("\n");
@@ -1225,8 +1175,6 @@ public class ContactUpdateDto {
     openapiFields.add("jobTitle");
     openapiFields.add("countryId");
     openapiFields.add("parentContactId");
-    openapiFields.add("addressLine1");
-    openapiFields.add("addressLine2");
     openapiFields.add("postalCode");
     openapiFields.add("stateId");
     openapiFields.add("cityId");
@@ -1331,12 +1279,6 @@ public class ContactUpdateDto {
       }
       if ((jsonObj.get("parentContactId") != null && !jsonObj.get("parentContactId").isJsonNull()) && !jsonObj.get("parentContactId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentContactId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentContactId").toString()));
-      }
-      if ((jsonObj.get("addressLine1") != null && !jsonObj.get("addressLine1").isJsonNull()) && !jsonObj.get("addressLine1").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `addressLine1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addressLine1").toString()));
-      }
-      if ((jsonObj.get("addressLine2") != null && !jsonObj.get("addressLine2").isJsonNull()) && !jsonObj.get("addressLine2").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `addressLine2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addressLine2").toString()));
       }
       if ((jsonObj.get("postalCode") != null && !jsonObj.get("postalCode").isJsonNull()) && !jsonObj.get("postalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postalCode").toString()));

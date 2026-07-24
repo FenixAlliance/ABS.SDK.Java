@@ -6,23 +6,26 @@ All URIs are relative to *https://absuite.net*
 |------------- | ------------- | -------------|
 | [**createProjectAsync**](ProjectsApi.md#createProjectAsync) | **POST** /api/v2/ProjectsService/Projects | Creates a new project |
 | [**createProjectPeriodAsync**](ProjectsApi.md#createProjectPeriodAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period |
-| [**createProjectTaskAsync**](ProjectsApi.md#createProjectTaskAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task |
+| [**createTaskForProjectAsync**](ProjectsApi.md#createTaskForProjectAsync) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task |
 | [**deleteProjectAsync**](ProjectsApi.md#deleteProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project |
 | [**deleteProjectPeriodAsync**](ProjectsApi.md#deleteProjectPeriodAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period |
-| [**deleteProjectTaskAsync**](ProjectsApi.md#deleteProjectTaskAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task |
+| [**deleteTaskForProjectAsync**](ProjectsApi.md#deleteTaskForProjectAsync) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task |
 | [**getProjectByIdAsync**](ProjectsApi.md#getProjectByIdAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID |
 | [**getProjectPeriodsAsync**](ProjectsApi.md#getProjectPeriodsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods |
 | [**getProjectTaskCategoriesAsync**](ProjectsApi.md#getProjectTaskCategoriesAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories |
 | [**getProjectTaskCategoriesCountAsync**](ProjectsApi.md#getProjectTaskCategoriesCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories |
-| [**getProjectTasksAsync**](ProjectsApi.md#getProjectTasksAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks |
-| [**getProjectTasksCountAsync**](ProjectsApi.md#getProjectTasksCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks |
-| [**getProjectTimeLogsAsync**](ProjectsApi.md#getProjectTimeLogsAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs |
 | [**getProjectTimeLogsCountAsync**](ProjectsApi.md#getProjectTimeLogsCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs |
 | [**getProjectsByTenantIdAsync**](ProjectsApi.md#getProjectsByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects |
 | [**getProjectsCountByTenantIdAsync**](ProjectsApi.md#getProjectsCountByTenantIdAsync) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects |
+| [**getTasksForProjectAsync**](ProjectsApi.md#getTasksForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks |
+| [**getTasksForProjectCountAsync**](ProjectsApi.md#getTasksForProjectCountAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks |
+| [**getTimeLogsForProjectAsync**](ProjectsApi.md#getTimeLogsForProjectAsync) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs |
+| [**patchProjectAsync**](ProjectsApi.md#patchProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId} | Patches a project |
+| [**patchProjectPeriodAsync**](ProjectsApi.md#patchProjectPeriodAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Patches a project period |
+| [**patchTaskForProjectAsync**](ProjectsApi.md#patchTaskForProjectAsync) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Patches a project task |
 | [**updateProjectAsync**](ProjectsApi.md#updateProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project |
 | [**updateProjectPeriodAsync**](ProjectsApi.md#updateProjectPeriodAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period |
-| [**updateProjectTaskAsync**](ProjectsApi.md#updateProjectTaskAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task |
+| [**updateTaskForProjectAsync**](ProjectsApi.md#updateTaskForProjectAsync) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task |
 
 
 <a id="createProjectAsync"></a>
@@ -159,9 +162,9 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="createProjectTaskAsync"></a>
-# **createProjectTaskAsync**
-> EmptyEnvelope createProjectTaskAsync(projectId, tenantId, projectTaskCreateDto)
+<a id="createTaskForProjectAsync"></a>
+# **createTaskForProjectAsync**
+> EmptyEnvelope createTaskForProjectAsync(projectId, tenantId, projectTaskCreateDto)
 
 Creates a project task
 
@@ -186,10 +189,10 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     ProjectTaskCreateDto projectTaskCreateDto = new ProjectTaskCreateDto(); // ProjectTaskCreateDto | 
     try {
-      EmptyEnvelope result = apiInstance.createProjectTaskAsync(projectId, tenantId, projectTaskCreateDto);
+      EmptyEnvelope result = apiInstance.createTaskForProjectAsync(projectId, tenantId, projectTaskCreateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#createProjectTaskAsync");
+      System.err.println("Exception when calling ProjectsApi#createTaskForProjectAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -361,9 +364,9 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="deleteProjectTaskAsync"></a>
-# **deleteProjectTaskAsync**
-> EmptyEnvelope deleteProjectTaskAsync(tenantId, projectId, projectTaskId)
+<a id="deleteTaskForProjectAsync"></a>
+# **deleteTaskForProjectAsync**
+> EmptyEnvelope deleteTaskForProjectAsync(tenantId, projectId, projectTaskId)
 
 Deletes a project task
 
@@ -388,10 +391,10 @@ public class Example {
     UUID projectId = UUID.randomUUID(); // UUID | 
     UUID projectTaskId = UUID.randomUUID(); // UUID | 
     try {
-      EmptyEnvelope result = apiInstance.deleteProjectTaskAsync(tenantId, projectId, projectTaskId);
+      EmptyEnvelope result = apiInstance.deleteTaskForProjectAsync(tenantId, projectId, projectTaskId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#deleteProjectTaskAsync");
+      System.err.println("Exception when calling ProjectsApi#deleteTaskForProjectAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -693,204 +696,6 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="getProjectTasksAsync"></a>
-# **getProjectTasksAsync**
-> ProjectTaskDtoListEnvelope getProjectTasksAsync(projectId, tenantId)
-
-Retrieves project tasks
-
-Gets all tasks for a specific project with OData support.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    UUID projectId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      ProjectTaskDtoListEnvelope result = apiInstance.getProjectTasksAsync(projectId, tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#getProjectTasksAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **projectId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="getProjectTasksCountAsync"></a>
-# **getProjectTasksCountAsync**
-> Int32Envelope getProjectTasksCountAsync(projectId, tenantId)
-
-Counts project tasks
-
-Gets the count of tasks for a specific project.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    UUID projectId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      Int32Envelope result = apiInstance.getProjectTasksCountAsync(projectId, tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#getProjectTasksCountAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **projectId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
-<a id="getProjectTimeLogsAsync"></a>
-# **getProjectTimeLogsAsync**
-> ProjectTimeLogDtoListEnvelope getProjectTimeLogsAsync(projectId, tenantId)
-
-Retrieves project time logs
-
-Gets all time log entries for a specific project with OData support.
-
-### Example
-```java
-// Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.ProjectsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://absuite.net");
-
-    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    UUID projectId = UUID.randomUUID(); // UUID | 
-    UUID tenantId = UUID.randomUUID(); // UUID | 
-    try {
-      ProjectTimeLogDtoListEnvelope result = apiInstance.getProjectTimeLogsAsync(projectId, tenantId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#getProjectTimeLogsAsync");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **projectId** | **UUID**|  | |
-| **tenantId** | **UUID**|  | |
-
-### Return type
-
-[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
-
 <a id="getProjectTimeLogsCountAsync"></a>
 # **getProjectTimeLogsCountAsync**
 > Int32Envelope getProjectTimeLogsCountAsync(projectId, tenantId)
@@ -1085,6 +890,412 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
+<a id="getTasksForProjectAsync"></a>
+# **getTasksForProjectAsync**
+> ProjectTaskDtoListEnvelope getTasksForProjectAsync(projectId, tenantId)
+
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      ProjectTaskDtoListEnvelope result = apiInstance.getTasksForProjectAsync(projectId, tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getTasksForProjectAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getTasksForProjectCountAsync"></a>
+# **getTasksForProjectCountAsync**
+> Int32Envelope getTasksForProjectCountAsync(projectId, tenantId)
+
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      Int32Envelope result = apiInstance.getTasksForProjectCountAsync(projectId, tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getTasksForProjectCountAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="getTimeLogsForProjectAsync"></a>
+# **getTimeLogsForProjectAsync**
+> ProjectTimeLogDtoListEnvelope getTimeLogsForProjectAsync(projectId, tenantId)
+
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    try {
+      ProjectTimeLogDtoListEnvelope result = apiInstance.getTimeLogsForProjectAsync(projectId, tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#getTimeLogsForProjectAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+
+### Return type
+
+[**ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchProjectAsync"></a>
+# **patchProjectAsync**
+> EmptyEnvelope patchProjectAsync(projectId, tenantId, operation)
+
+Patches a project
+
+Partially updates the specified project.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchProjectAsync(projectId, tenantId, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#patchProjectAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchProjectPeriodAsync"></a>
+# **patchProjectPeriodAsync**
+> EmptyEnvelope patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation)
+
+Patches a project period
+
+Partially updates the specified period for a project.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID projectPeriodId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchProjectPeriodAsync(projectId, projectPeriodId, tenantId, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#patchProjectPeriodAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **projectPeriodId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchTaskForProjectAsync"></a>
+# **patchTaskForProjectAsync**
+> EmptyEnvelope patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation)
+
+Patches a project task
+
+Partially updates the specified task in a project.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.ProjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+    UUID projectId = UUID.randomUUID(); // UUID | 
+    UUID projectTaskId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchTaskForProjectAsync(projectId, projectTaskId, tenantId, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProjectsApi#patchTaskForProjectAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **UUID**|  | |
+| **projectTaskId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
 <a id="updateProjectAsync"></a>
 # **updateProjectAsync**
 > EmptyEnvelope updateProjectAsync(projectId, tenantId, projectUpdateDto)
@@ -1223,9 +1434,9 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="updateProjectTaskAsync"></a>
-# **updateProjectTaskAsync**
-> EmptyEnvelope updateProjectTaskAsync(projectId, projectTaskId, tenantId, projectTaskUpdateDto)
+<a id="updateTaskForProjectAsync"></a>
+# **updateTaskForProjectAsync**
+> EmptyEnvelope updateTaskForProjectAsync(projectId, projectTaskId, tenantId, projectTaskUpdateDto)
 
 Updates a project task
 
@@ -1251,10 +1462,10 @@ public class Example {
     UUID tenantId = UUID.randomUUID(); // UUID | 
     ProjectTaskUpdateDto projectTaskUpdateDto = new ProjectTaskUpdateDto(); // ProjectTaskUpdateDto | 
     try {
-      EmptyEnvelope result = apiInstance.updateProjectTaskAsync(projectId, projectTaskId, tenantId, projectTaskUpdateDto);
+      EmptyEnvelope result = apiInstance.updateTaskForProjectAsync(projectId, projectTaskId, tenantId, projectTaskUpdateDto);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectsApi#updateProjectTaskAsync");
+      System.err.println("Exception when calling ProjectsApi#updateTaskForProjectAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

@@ -27,6 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.BusinessRelationshipCreateDto;
+import org.openapitools.client.model.BusinessRelationshipDtoEnvelope;
+import org.openapitools.client.model.BusinessRelationshipDtoListEnvelope;
+import org.openapitools.client.model.BusinessRelationshipUpdateDto;
+import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
 import java.util.UUID;
@@ -74,6 +79,657 @@ public class BusinessRelationshipsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createBusinessRelationshipAsync
+     * @param tenantId  (required)
+     * @param businessRelationshipCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createBusinessRelationshipAsyncCall(UUID tenantId, BusinessRelationshipCreateDto businessRelationshipCreateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = businessRelationshipCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/BusinessRelationships";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createBusinessRelationshipAsyncValidateBeforeCall(UUID tenantId, BusinessRelationshipCreateDto businessRelationshipCreateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createBusinessRelationshipAsync(Async)");
+        }
+
+        // verify the required parameter 'businessRelationshipCreateDto' is set
+        if (businessRelationshipCreateDto == null) {
+            throw new ApiException("Missing the required parameter 'businessRelationshipCreateDto' when calling createBusinessRelationshipAsync(Async)");
+        }
+
+        return createBusinessRelationshipAsyncCall(tenantId, businessRelationshipCreateDto, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Create a business relationship
+     * Creates a new business relationship owned by the specified parent tenant.
+     * @param tenantId  (required)
+     * @param businessRelationshipCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope createBusinessRelationshipAsync(UUID tenantId, BusinessRelationshipCreateDto businessRelationshipCreateDto, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = createBusinessRelationshipAsyncWithHttpInfo(tenantId, businessRelationshipCreateDto, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a business relationship
+     * Creates a new business relationship owned by the specified parent tenant.
+     * @param tenantId  (required)
+     * @param businessRelationshipCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> createBusinessRelationshipAsyncWithHttpInfo(UUID tenantId, BusinessRelationshipCreateDto businessRelationshipCreateDto, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = createBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipCreateDto, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a business relationship (asynchronously)
+     * Creates a new business relationship owned by the specified parent tenant.
+     * @param tenantId  (required)
+     * @param businessRelationshipCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createBusinessRelationshipAsyncAsync(UUID tenantId, BusinessRelationshipCreateDto businessRelationshipCreateDto, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipCreateDto, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteBusinessRelationshipAsync
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteBusinessRelationshipAsyncCall(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+            .replace("{" + "businessRelationshipId" + "}", localVarApiClient.escapeString(businessRelationshipId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteBusinessRelationshipAsyncValidateBeforeCall(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteBusinessRelationshipAsync(Async)");
+        }
+
+        // verify the required parameter 'businessRelationshipId' is set
+        if (businessRelationshipId == null) {
+            throw new ApiException("Missing the required parameter 'businessRelationshipId' when calling deleteBusinessRelationshipAsync(Async)");
+        }
+
+        return deleteBusinessRelationshipAsyncCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete a business relationship
+     * Deletes a business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope deleteBusinessRelationshipAsync(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = deleteBusinessRelationshipAsyncWithHttpInfo(tenantId, businessRelationshipId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a business relationship
+     * Deletes a business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> deleteBusinessRelationshipAsyncWithHttpInfo(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a business relationship (asynchronously)
+     * Deletes a business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteBusinessRelationshipAsyncAsync(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getBusinessRelationshipByIdAsync
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBusinessRelationshipByIdAsyncCall(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+            .replace("{" + "businessRelationshipId" + "}", localVarApiClient.escapeString(businessRelationshipId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBusinessRelationshipByIdAsyncValidateBeforeCall(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessRelationshipByIdAsync(Async)");
+        }
+
+        // verify the required parameter 'businessRelationshipId' is set
+        if (businessRelationshipId == null) {
+            throw new ApiException("Missing the required parameter 'businessRelationshipId' when calling getBusinessRelationshipByIdAsync(Async)");
+        }
+
+        return getBusinessRelationshipByIdAsyncCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get business relationship by ID
+     * Retrieves the details of a specific business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return BusinessRelationshipDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public BusinessRelationshipDtoEnvelope getBusinessRelationshipByIdAsync(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<BusinessRelationshipDtoEnvelope> localVarResp = getBusinessRelationshipByIdAsyncWithHttpInfo(tenantId, businessRelationshipId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get business relationship by ID
+     * Retrieves the details of a specific business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;BusinessRelationshipDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BusinessRelationshipDtoEnvelope> getBusinessRelationshipByIdAsyncWithHttpInfo(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessRelationshipByIdAsyncValidateBeforeCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<BusinessRelationshipDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get business relationship by ID (asynchronously)
+     * Retrieves the details of a specific business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBusinessRelationshipByIdAsyncAsync(UUID tenantId, UUID businessRelationshipId, String apiVersion, String xApiVersion, final ApiCallback<BusinessRelationshipDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBusinessRelationshipByIdAsyncValidateBeforeCall(tenantId, businessRelationshipId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<BusinessRelationshipDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getBusinessRelationshipsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBusinessRelationshipsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/BusinessRelationships";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBusinessRelationshipsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getBusinessRelationshipsAsync(Async)");
+        }
+
+        return getBusinessRelationshipsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get business relationships
+     * Retrieves the child business relationships owned by the specified parent tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return BusinessRelationshipDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public BusinessRelationshipDtoListEnvelope getBusinessRelationshipsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<BusinessRelationshipDtoListEnvelope> localVarResp = getBusinessRelationshipsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get business relationships
+     * Retrieves the child business relationships owned by the specified parent tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;BusinessRelationshipDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BusinessRelationshipDtoListEnvelope> getBusinessRelationshipsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<BusinessRelationshipDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get business relationships (asynchronously)
+     * Retrieves the child business relationships owned by the specified parent tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBusinessRelationshipsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<BusinessRelationshipDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBusinessRelationshipsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<BusinessRelationshipDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getBusinessRelationshipsCountAsync
      * @param tenantId  (required)
@@ -222,6 +878,182 @@ public class BusinessRelationshipsApi {
 
         okhttp3.Call localVarCall = getBusinessRelationshipsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateBusinessRelationshipAsync
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param businessRelationshipUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBusinessRelationshipAsyncCall(UUID tenantId, UUID businessRelationshipId, BusinessRelationshipUpdateDto businessRelationshipUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = businessRelationshipUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}"
+            .replace("{" + "businessRelationshipId" + "}", localVarApiClient.escapeString(businessRelationshipId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateBusinessRelationshipAsyncValidateBeforeCall(UUID tenantId, UUID businessRelationshipId, BusinessRelationshipUpdateDto businessRelationshipUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateBusinessRelationshipAsync(Async)");
+        }
+
+        // verify the required parameter 'businessRelationshipId' is set
+        if (businessRelationshipId == null) {
+            throw new ApiException("Missing the required parameter 'businessRelationshipId' when calling updateBusinessRelationshipAsync(Async)");
+        }
+
+        // verify the required parameter 'businessRelationshipUpdateDto' is set
+        if (businessRelationshipUpdateDto == null) {
+            throw new ApiException("Missing the required parameter 'businessRelationshipUpdateDto' when calling updateBusinessRelationshipAsync(Async)");
+        }
+
+        return updateBusinessRelationshipAsyncCall(tenantId, businessRelationshipId, businessRelationshipUpdateDto, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Update a business relationship
+     * Updates an existing business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param businessRelationshipUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope updateBusinessRelationshipAsync(UUID tenantId, UUID businessRelationshipId, BusinessRelationshipUpdateDto businessRelationshipUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateBusinessRelationshipAsyncWithHttpInfo(tenantId, businessRelationshipId, businessRelationshipUpdateDto, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a business relationship
+     * Updates an existing business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param businessRelationshipUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> updateBusinessRelationshipAsyncWithHttpInfo(UUID tenantId, UUID businessRelationshipId, BusinessRelationshipUpdateDto businessRelationshipUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = updateBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipId, businessRelationshipUpdateDto, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a business relationship (asynchronously)
+     * Updates an existing business relationship by its ID.
+     * @param tenantId  (required)
+     * @param businessRelationshipId  (required)
+     * @param businessRelationshipUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateBusinessRelationshipAsyncAsync(UUID tenantId, UUID businessRelationshipId, BusinessRelationshipUpdateDto businessRelationshipUpdateDto, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateBusinessRelationshipAsyncValidateBeforeCall(tenantId, businessRelationshipId, businessRelationshipUpdateDto, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -80,6 +80,398 @@ public class LicensingApi {
     }
 
     /**
+     * Build call for getAttributesForLicenseAsync
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAttributesForLicenseAsyncCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes"
+            .replace("{" + "licenseId" + "}", localVarApiClient.escapeString(licenseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json;odata.metadata=minimal;odata.streaming=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false",
+            "application/json;odata.metadata=minimal",
+            "application/json;odata.metadata=full;odata.streaming=true",
+            "application/json;odata.metadata=full;odata.streaming=false",
+            "application/json;odata.metadata=full",
+            "application/json;odata.metadata=none;odata.streaming=true",
+            "application/json;odata.metadata=none;odata.streaming=false",
+            "application/json;odata.metadata=none",
+            "application/json;odata.streaming=true",
+            "application/json;odata.streaming=false",
+            "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
+            "application/xml",
+            "text/plain",
+            "application/octet-stream",
+            "text/json",
+            "text/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAttributesForLicenseAsyncValidateBeforeCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getAttributesForLicenseAsync(Async)");
+        }
+
+        // verify the required parameter 'licenseId' is set
+        if (licenseId == null) {
+            throw new ApiException("Missing the required parameter 'licenseId' when calling getAttributesForLicenseAsync(Async)");
+        }
+
+        return getAttributesForLicenseAsyncCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Retrieve license attributes
+     * Retrieves all additional attributes for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SuiteLicenseAssignmentDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SuiteLicenseAssignmentDtoListEnvelope getAttributesForLicenseAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> localVarResp = getAttributesForLicenseAsyncWithHttpInfo(tenantId, licenseId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve license attributes
+     * Retrieves all additional attributes for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;SuiteLicenseAssignmentDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> getAttributesForLicenseAsyncWithHttpInfo(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getAttributesForLicenseAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve license attributes (asynchronously)
+     * Retrieves all additional attributes for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAttributesForLicenseAsyncAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback<SuiteLicenseAssignmentDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAttributesForLicenseAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFeaturesForLicenseAsync
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFeaturesForLicenseAsyncCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features"
+            .replace("{" + "licenseId" + "}", localVarApiClient.escapeString(licenseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json;odata.metadata=minimal;odata.streaming=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false",
+            "application/json;odata.metadata=minimal",
+            "application/json;odata.metadata=full;odata.streaming=true",
+            "application/json;odata.metadata=full;odata.streaming=false",
+            "application/json;odata.metadata=full",
+            "application/json;odata.metadata=none;odata.streaming=true",
+            "application/json;odata.metadata=none;odata.streaming=false",
+            "application/json;odata.metadata=none",
+            "application/json;odata.streaming=true",
+            "application/json;odata.streaming=false",
+            "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
+            "application/xml",
+            "text/plain",
+            "application/octet-stream",
+            "text/json",
+            "text/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFeaturesForLicenseAsyncValidateBeforeCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getFeaturesForLicenseAsync(Async)");
+        }
+
+        // verify the required parameter 'licenseId' is set
+        if (licenseId == null) {
+            throw new ApiException("Missing the required parameter 'licenseId' when calling getFeaturesForLicenseAsync(Async)");
+        }
+
+        return getFeaturesForLicenseAsyncCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Retrieve license features
+     * Retrieves all features for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return SuiteLicenseAssignmentDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SuiteLicenseAssignmentDtoListEnvelope getFeaturesForLicenseAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> localVarResp = getFeaturesForLicenseAsyncWithHttpInfo(tenantId, licenseId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve license features
+     * Retrieves all features for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;SuiteLicenseAssignmentDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> getFeaturesForLicenseAsyncWithHttpInfo(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getFeaturesForLicenseAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve license features (asynchronously)
+     * Retrieves all features for a given license.
+     * @param tenantId  (required)
+     * @param licenseId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFeaturesForLicenseAsyncAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback<SuiteLicenseAssignmentDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFeaturesForLicenseAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getLicenseAssignmentsAsync
      * @param tenantId  (required)
      * @param licenseId  (required)
@@ -271,202 +663,6 @@ public class LicensingApi {
     public okhttp3.Call getLicenseAssignmentsAsyncAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback<SuiteLicenseAssignmentDtoListEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLicenseAssignmentsAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getLicenseAttributesAsync
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getLicenseAttributesAsyncCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes"
-            .replace("{" + "licenseId" + "}", localVarApiClient.escapeString(licenseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (tenantId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
-        }
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json;odata.metadata=minimal;odata.streaming=true",
-            "application/json;odata.metadata=minimal;odata.streaming=false",
-            "application/json;odata.metadata=minimal",
-            "application/json;odata.metadata=full;odata.streaming=true",
-            "application/json;odata.metadata=full;odata.streaming=false",
-            "application/json;odata.metadata=full",
-            "application/json;odata.metadata=none;odata.streaming=true",
-            "application/json;odata.metadata=none;odata.streaming=false",
-            "application/json;odata.metadata=none",
-            "application/json;odata.streaming=true",
-            "application/json;odata.streaming=false",
-            "application/json",
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;IEEE754Compatible=true",
-            "application/json;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;IEEE754Compatible=false",
-            "application/json;IEEE754Compatible=true",
-            "application/xml",
-            "text/plain",
-            "application/octet-stream",
-            "text/json",
-            "text/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLicenseAttributesAsyncValidateBeforeCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getLicenseAttributesAsync(Async)");
-        }
-
-        // verify the required parameter 'licenseId' is set
-        if (licenseId == null) {
-            throw new ApiException("Missing the required parameter 'licenseId' when calling getLicenseAttributesAsync(Async)");
-        }
-
-        return getLicenseAttributesAsyncCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Retrieve license attributes
-     * Retrieves all additional attributes for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SuiteLicenseAssignmentDtoListEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public SuiteLicenseAssignmentDtoListEnvelope getLicenseAttributesAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> localVarResp = getLicenseAttributesAsyncWithHttpInfo(tenantId, licenseId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve license attributes
-     * Retrieves all additional attributes for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;SuiteLicenseAssignmentDtoListEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> getLicenseAttributesAsyncWithHttpInfo(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLicenseAttributesAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Retrieve license attributes (asynchronously)
-     * Retrieves all additional attributes for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getLicenseAttributesAsyncAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback<SuiteLicenseAssignmentDtoListEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getLicenseAttributesAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -664,202 +860,6 @@ public class LicensingApi {
 
         okhttp3.Call localVarCall = getLicenseByIdAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<SuiteLicenseDtoEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getLicenseFeaturesAsync
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getLicenseFeaturesAsyncCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features"
-            .replace("{" + "licenseId" + "}", localVarApiClient.escapeString(licenseId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (tenantId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
-        }
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json;odata.metadata=minimal;odata.streaming=true",
-            "application/json;odata.metadata=minimal;odata.streaming=false",
-            "application/json;odata.metadata=minimal",
-            "application/json;odata.metadata=full;odata.streaming=true",
-            "application/json;odata.metadata=full;odata.streaming=false",
-            "application/json;odata.metadata=full",
-            "application/json;odata.metadata=none;odata.streaming=true",
-            "application/json;odata.metadata=none;odata.streaming=false",
-            "application/json;odata.metadata=none",
-            "application/json;odata.streaming=true",
-            "application/json;odata.streaming=false",
-            "application/json",
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
-            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=full;IEEE754Compatible=false",
-            "application/json;odata.metadata=full;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;IEEE754Compatible=false",
-            "application/json;odata.metadata=none;IEEE754Compatible=true",
-            "application/json;odata.streaming=true;IEEE754Compatible=false",
-            "application/json;odata.streaming=true;IEEE754Compatible=true",
-            "application/json;odata.streaming=false;IEEE754Compatible=false",
-            "application/json;odata.streaming=false;IEEE754Compatible=true",
-            "application/json;IEEE754Compatible=false",
-            "application/json;IEEE754Compatible=true",
-            "application/xml",
-            "text/plain",
-            "application/octet-stream",
-            "text/json",
-            "text/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLicenseFeaturesAsyncValidateBeforeCall(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getLicenseFeaturesAsync(Async)");
-        }
-
-        // verify the required parameter 'licenseId' is set
-        if (licenseId == null) {
-            throw new ApiException("Missing the required parameter 'licenseId' when calling getLicenseFeaturesAsync(Async)");
-        }
-
-        return getLicenseFeaturesAsyncCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Retrieve license features
-     * Retrieves all features for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return SuiteLicenseAssignmentDtoListEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public SuiteLicenseAssignmentDtoListEnvelope getLicenseFeaturesAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> localVarResp = getLicenseFeaturesAsyncWithHttpInfo(tenantId, licenseId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve license features
-     * Retrieves all features for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;SuiteLicenseAssignmentDtoListEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<SuiteLicenseAssignmentDtoListEnvelope> getLicenseFeaturesAsyncWithHttpInfo(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLicenseFeaturesAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Retrieve license features (asynchronously)
-     * Retrieves all features for a given license.
-     * @param tenantId  (required)
-     * @param licenseId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getLicenseFeaturesAsyncAsync(UUID tenantId, UUID licenseId, String apiVersion, String xApiVersion, final ApiCallback<SuiteLicenseAssignmentDtoListEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getLicenseFeaturesAsyncValidateBeforeCall(tenantId, licenseId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<SuiteLicenseAssignmentDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

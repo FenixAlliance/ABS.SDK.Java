@@ -342,4 +342,3 @@ src/main/java/org/openapitools/client/model/WaybillLineCreateDto.java
 src/main/java/org/openapitools/client/model/WaybillLineDto.java
 src/main/java/org/openapitools/client/model/WaybillLineDtoListEnvelope.java
 src/main/java/org/openapitools/client/model/WaybillLineUpdateDto.java
-src/test/java/org/openapitools/client/model/ContactCreateDtoTest.java

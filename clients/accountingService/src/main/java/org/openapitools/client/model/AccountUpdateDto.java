@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * AccountUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AccountUpdateDto {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -152,6 +152,74 @@ public class AccountUpdateDto {
   public static final String SERIALIZED_NAME_ACCOUNT_CATEGORY = "accountCategory";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_CATEGORY)
   private AccountCategoryEnum accountCategory;
+
+  public static final String SERIALIZED_NAME_IS_CONTRA = "isContra";
+  @SerializedName(SERIALIZED_NAME_IS_CONTRA)
+  private Boolean isContra;
+
+  public static final String SERIALIZED_NAME_IS_MONETARY = "isMonetary";
+  @SerializedName(SERIALIZED_NAME_IS_MONETARY)
+  private Boolean isMonetary;
+
+  /**
+   * Gets or Sets incomeStatementSubType
+   */
+  @JsonAdapter(IncomeStatementSubTypeEnum.Adapter.class)
+  public enum IncomeStatementSubTypeEnum {
+    OPERATING_REVENUE("OperatingRevenue"),
+    
+    GAIN("Gain"),
+    
+    OPERATING_EXPENSE("OperatingExpense"),
+    
+    LOSS("Loss");
+
+    private String value;
+
+    IncomeStatementSubTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static IncomeStatementSubTypeEnum fromValue(String value) {
+      for (IncomeStatementSubTypeEnum b : IncomeStatementSubTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<IncomeStatementSubTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IncomeStatementSubTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public IncomeStatementSubTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return IncomeStatementSubTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      IncomeStatementSubTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_INCOME_STATEMENT_SUB_TYPE = "incomeStatementSubType";
+  @SerializedName(SERIALIZED_NAME_INCOME_STATEMENT_SUB_TYPE)
+  private IncomeStatementSubTypeEnum incomeStatementSubType;
 
   public AccountUpdateDto() {
   }
@@ -365,6 +433,63 @@ public class AccountUpdateDto {
   }
 
 
+  public AccountUpdateDto isContra(Boolean isContra) {
+    this.isContra = isContra;
+    return this;
+  }
+
+  /**
+   * Get isContra
+   * @return isContra
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsContra() {
+    return isContra;
+  }
+
+  public void setIsContra(Boolean isContra) {
+    this.isContra = isContra;
+  }
+
+
+  public AccountUpdateDto isMonetary(Boolean isMonetary) {
+    this.isMonetary = isMonetary;
+    return this;
+  }
+
+  /**
+   * Get isMonetary
+   * @return isMonetary
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsMonetary() {
+    return isMonetary;
+  }
+
+  public void setIsMonetary(Boolean isMonetary) {
+    this.isMonetary = isMonetary;
+  }
+
+
+  public AccountUpdateDto incomeStatementSubType(IncomeStatementSubTypeEnum incomeStatementSubType) {
+    this.incomeStatementSubType = incomeStatementSubType;
+    return this;
+  }
+
+  /**
+   * Get incomeStatementSubType
+   * @return incomeStatementSubType
+   */
+  @javax.annotation.Nullable
+  public IncomeStatementSubTypeEnum getIncomeStatementSubType() {
+    return incomeStatementSubType;
+  }
+
+  public void setIncomeStatementSubType(IncomeStatementSubTypeEnum incomeStatementSubType) {
+    this.incomeStatementSubType = incomeStatementSubType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -385,7 +510,10 @@ public class AccountUpdateDto {
         Objects.equals(this.contactId, accountUpdateDto.contactId) &&
         Objects.equals(this.accountTypeId, accountUpdateDto.accountTypeId) &&
         Objects.equals(this.parentAccountId, accountUpdateDto.parentAccountId) &&
-        Objects.equals(this.accountCategory, accountUpdateDto.accountCategory);
+        Objects.equals(this.accountCategory, accountUpdateDto.accountCategory) &&
+        Objects.equals(this.isContra, accountUpdateDto.isContra) &&
+        Objects.equals(this.isMonetary, accountUpdateDto.isMonetary) &&
+        Objects.equals(this.incomeStatementSubType, accountUpdateDto.incomeStatementSubType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -394,7 +522,7 @@ public class AccountUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, frozen, name, code, path, prefix, currencyId, contactId, accountTypeId, parentAccountId, accountCategory);
+    return Objects.hash(group, frozen, name, code, path, prefix, currencyId, contactId, accountTypeId, parentAccountId, accountCategory, isContra, isMonetary, incomeStatementSubType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -419,6 +547,9 @@ public class AccountUpdateDto {
     sb.append("    accountTypeId: ").append(toIndentedString(accountTypeId)).append("\n");
     sb.append("    parentAccountId: ").append(toIndentedString(parentAccountId)).append("\n");
     sb.append("    accountCategory: ").append(toIndentedString(accountCategory)).append("\n");
+    sb.append("    isContra: ").append(toIndentedString(isContra)).append("\n");
+    sb.append("    isMonetary: ").append(toIndentedString(isMonetary)).append("\n");
+    sb.append("    incomeStatementSubType: ").append(toIndentedString(incomeStatementSubType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -452,6 +583,9 @@ public class AccountUpdateDto {
     openapiFields.add("accountTypeId");
     openapiFields.add("parentAccountId");
     openapiFields.add("accountCategory");
+    openapiFields.add("isContra");
+    openapiFields.add("isMonetary");
+    openapiFields.add("incomeStatementSubType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -517,6 +651,13 @@ public class AccountUpdateDto {
       // validate the optional field `accountCategory`
       if (jsonObj.get("accountCategory") != null && !jsonObj.get("accountCategory").isJsonNull()) {
         AccountCategoryEnum.validateJsonElement(jsonObj.get("accountCategory"));
+      }
+      if ((jsonObj.get("incomeStatementSubType") != null && !jsonObj.get("incomeStatementSubType").isJsonNull()) && !jsonObj.get("incomeStatementSubType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `incomeStatementSubType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("incomeStatementSubType").toString()));
+      }
+      // validate the optional field `incomeStatementSubType`
+      if (jsonObj.get("incomeStatementSubType") != null && !jsonObj.get("incomeStatementSubType").isJsonNull()) {
+        IncomeStatementSubTypeEnum.validateJsonElement(jsonObj.get("incomeStatementSubType"));
       }
   }
 

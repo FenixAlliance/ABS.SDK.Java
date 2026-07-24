@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * TaskCategoryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class TaskCategoryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,6 +64,10 @@ public class TaskCategoryCreateDto {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
 
   public TaskCategoryCreateDto() {
   }
@@ -125,6 +129,25 @@ public class TaskCategoryCreateDto {
   }
 
 
+  public TaskCategoryCreateDto projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Get projectId
+   * @return projectId
+   */
+  @javax.annotation.Nullable
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -137,7 +160,8 @@ public class TaskCategoryCreateDto {
     TaskCategoryCreateDto taskCategoryCreateDto = (TaskCategoryCreateDto) o;
     return Objects.equals(this.id, taskCategoryCreateDto.id) &&
         Objects.equals(this.timestamp, taskCategoryCreateDto.timestamp) &&
-        Objects.equals(this.title, taskCategoryCreateDto.title);
+        Objects.equals(this.title, taskCategoryCreateDto.title) &&
+        Objects.equals(this.projectId, taskCategoryCreateDto.projectId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -146,7 +170,7 @@ public class TaskCategoryCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title);
+    return Objects.hash(id, timestamp, title, projectId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -163,6 +187,7 @@ public class TaskCategoryCreateDto {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -188,6 +213,7 @@ public class TaskCategoryCreateDto {
     openapiFields.add("id");
     openapiFields.add("timestamp");
     openapiFields.add("title");
+    openapiFields.add("projectId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -219,6 +245,9 @@ public class TaskCategoryCreateDto {
       }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
       }
   }
 

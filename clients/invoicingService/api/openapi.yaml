@@ -44,6 +44,23 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
   /hello:
     get:
       responses:
@@ -2604,10 +2621,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
+                $ref: '#/components/schemas/MoneyEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
+                $ref: '#/components/schemas/MoneyEnvelope'
           description: OK
       summary: Sum tenant sales-invoice totals.
       tags:
@@ -2652,10 +2669,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
+                $ref: '#/components/schemas/MoneyEnvelope'
             application/xml:
               schema:
-                $ref: '#/components/schemas/DecimalEnvelope'
+                $ref: '#/components/schemas/MoneyEnvelope'
           description: OK
       summary: Sum tenant purchase-invoice totals.
       tags:
@@ -2792,37 +2809,6 @@ components:
         country:
           nullable: true
           type: string
-      type: object
-    DecimalEnvelope:
-      additionalProperties: false
-      example:
-        result: 0.8008281904610115
-        activityId: activityId
-        errorMessage: errorMessage
-        correlationId: correlationId
-        isSuccess: true
-        timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        isSuccess:
-          readOnly: true
-          type: boolean
-        errorMessage:
-          nullable: true
-          type: string
-        correlationId:
-          nullable: true
-          type: string
-        timestamp:
-          format: date-time
-          readOnly: true
-          type: string
-        activityId:
-          nullable: true
-          readOnly: true
-          type: string
-        result:
-          format: double
-          type: number
       type: object
     EmailDispatchRequest:
       additionalProperties: false

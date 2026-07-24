@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * AccountingEntryCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class AccountingEntryCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,48 +60,26 @@ public class AccountingEntryCreateDto {
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  private OffsetDateTime date;
-
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Double amount;
-
-  public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
-  @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
-  private String currencyId;
-
-  public static final String SERIALIZED_NAME_DEBIT_ACCOUNT_ID = "debitAccountId";
-  @SerializedName(SERIALIZED_NAME_DEBIT_ACCOUNT_ID)
-  private String debitAccountId;
-
-  public static final String SERIALIZED_NAME_CREDIT_ACCOUNT_ID = "creditAccountId";
-  @SerializedName(SERIALIZED_NAME_CREDIT_ACCOUNT_ID)
-  private String creditAccountId;
-
   public static final String SERIALIZED_NAME_JOURNAL_ENTRY_ID = "journalEntryId";
   @SerializedName(SERIALIZED_NAME_JOURNAL_ENTRY_ID)
   private String journalEntryId;
 
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
   /**
-   * Gets or Sets accountingEntryType
+   * Gets or Sets direction
    */
-  @JsonAdapter(AccountingEntryTypeEnum.Adapter.class)
-  public enum AccountingEntryTypeEnum {
-    NONE("None"),
-    
+  @JsonAdapter(DirectionEnum.Adapter.class)
+  public enum DirectionEnum {
     DEBIT("Debit"),
     
     CREDIT("Credit");
 
     private String value;
 
-    AccountingEntryTypeEnum(String value) {
+    DirectionEnum(String value) {
       this.value = value;
     }
 
@@ -115,8 +92,8 @@ public class AccountingEntryCreateDto {
       return String.valueOf(value);
     }
 
-    public static AccountingEntryTypeEnum fromValue(String value) {
-      for (AccountingEntryTypeEnum b : AccountingEntryTypeEnum.values()) {
+    public static DirectionEnum fromValue(String value) {
+      for (DirectionEnum b : DirectionEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -124,28 +101,40 @@ public class AccountingEntryCreateDto {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<AccountingEntryTypeEnum> {
+    public static class Adapter extends TypeAdapter<DirectionEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final AccountingEntryTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final DirectionEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public AccountingEntryTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public DirectionEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return AccountingEntryTypeEnum.fromValue(value);
+        return DirectionEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      AccountingEntryTypeEnum.fromValue(value);
+      DirectionEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_ACCOUNTING_ENTRY_TYPE = "accountingEntryType";
-  @SerializedName(SERIALIZED_NAME_ACCOUNTING_ENTRY_TYPE)
-  private AccountingEntryTypeEnum accountingEntryType;
+  public static final String SERIALIZED_NAME_DIRECTION = "direction";
+  @SerializedName(SERIALIZED_NAME_DIRECTION)
+  private DirectionEnum direction;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_AMOUNT = "transactionAmount";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_AMOUNT)
+  private Double transactionAmount;
+
+  public static final String SERIALIZED_NAME_TRANSACTION_CURRENCY_ID = "transactionCurrencyId";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_CURRENCY_ID)
+  private String transactionCurrencyId;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
   public AccountingEntryCreateDto() {
   }
@@ -188,6 +177,103 @@ public class AccountingEntryCreateDto {
   }
 
 
+  public AccountingEntryCreateDto journalEntryId(String journalEntryId) {
+    this.journalEntryId = journalEntryId;
+    return this;
+  }
+
+  /**
+   * Get journalEntryId
+   * @return journalEntryId
+   */
+  @javax.annotation.Nonnull
+  public String getJournalEntryId() {
+    return journalEntryId;
+  }
+
+  public void setJournalEntryId(String journalEntryId) {
+    this.journalEntryId = journalEntryId;
+  }
+
+
+  public AccountingEntryCreateDto accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+  /**
+   * Get accountId
+   * @return accountId
+   */
+  @javax.annotation.Nonnull
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+
+  public AccountingEntryCreateDto direction(DirectionEnum direction) {
+    this.direction = direction;
+    return this;
+  }
+
+  /**
+   * Get direction
+   * @return direction
+   */
+  @javax.annotation.Nonnull
+  public DirectionEnum getDirection() {
+    return direction;
+  }
+
+  public void setDirection(DirectionEnum direction) {
+    this.direction = direction;
+  }
+
+
+  public AccountingEntryCreateDto transactionAmount(Double transactionAmount) {
+    this.transactionAmount = transactionAmount;
+    return this;
+  }
+
+  /**
+   * Get transactionAmount
+   * minimum: 1.0E-16
+   * maximum: 9.999999999999999E+20
+   * @return transactionAmount
+   */
+  @javax.annotation.Nullable
+  public Double getTransactionAmount() {
+    return transactionAmount;
+  }
+
+  public void setTransactionAmount(Double transactionAmount) {
+    this.transactionAmount = transactionAmount;
+  }
+
+
+  public AccountingEntryCreateDto transactionCurrencyId(String transactionCurrencyId) {
+    this.transactionCurrencyId = transactionCurrencyId;
+    return this;
+  }
+
+  /**
+   * Get transactionCurrencyId
+   * @return transactionCurrencyId
+   */
+  @javax.annotation.Nonnull
+  public String getTransactionCurrencyId() {
+    return transactionCurrencyId;
+  }
+
+  public void setTransactionCurrencyId(String transactionCurrencyId) {
+    this.transactionCurrencyId = transactionCurrencyId;
+  }
+
+
   public AccountingEntryCreateDto description(String description) {
     this.description = description;
     return this;
@@ -207,139 +293,6 @@ public class AccountingEntryCreateDto {
   }
 
 
-  public AccountingEntryCreateDto date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
-  }
-
-
-  public AccountingEntryCreateDto amount(Double amount) {
-    this.amount = amount;
-    return this;
-  }
-
-  /**
-   * Get amount
-   * @return amount
-   */
-  @javax.annotation.Nullable
-  public Double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
-
-
-  public AccountingEntryCreateDto currencyId(String currencyId) {
-    this.currencyId = currencyId;
-    return this;
-  }
-
-  /**
-   * Get currencyId
-   * @return currencyId
-   */
-  @javax.annotation.Nonnull
-  public String getCurrencyId() {
-    return currencyId;
-  }
-
-  public void setCurrencyId(String currencyId) {
-    this.currencyId = currencyId;
-  }
-
-
-  public AccountingEntryCreateDto debitAccountId(String debitAccountId) {
-    this.debitAccountId = debitAccountId;
-    return this;
-  }
-
-  /**
-   * Get debitAccountId
-   * @return debitAccountId
-   */
-  @javax.annotation.Nullable
-  public String getDebitAccountId() {
-    return debitAccountId;
-  }
-
-  public void setDebitAccountId(String debitAccountId) {
-    this.debitAccountId = debitAccountId;
-  }
-
-
-  public AccountingEntryCreateDto creditAccountId(String creditAccountId) {
-    this.creditAccountId = creditAccountId;
-    return this;
-  }
-
-  /**
-   * Get creditAccountId
-   * @return creditAccountId
-   */
-  @javax.annotation.Nullable
-  public String getCreditAccountId() {
-    return creditAccountId;
-  }
-
-  public void setCreditAccountId(String creditAccountId) {
-    this.creditAccountId = creditAccountId;
-  }
-
-
-  public AccountingEntryCreateDto journalEntryId(String journalEntryId) {
-    this.journalEntryId = journalEntryId;
-    return this;
-  }
-
-  /**
-   * Get journalEntryId
-   * @return journalEntryId
-   */
-  @javax.annotation.Nullable
-  public String getJournalEntryId() {
-    return journalEntryId;
-  }
-
-  public void setJournalEntryId(String journalEntryId) {
-    this.journalEntryId = journalEntryId;
-  }
-
-
-  public AccountingEntryCreateDto accountingEntryType(AccountingEntryTypeEnum accountingEntryType) {
-    this.accountingEntryType = accountingEntryType;
-    return this;
-  }
-
-  /**
-   * Get accountingEntryType
-   * @return accountingEntryType
-   */
-  @javax.annotation.Nullable
-  public AccountingEntryTypeEnum getAccountingEntryType() {
-    return accountingEntryType;
-  }
-
-  public void setAccountingEntryType(AccountingEntryTypeEnum accountingEntryType) {
-    this.accountingEntryType = accountingEntryType;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -352,30 +305,17 @@ public class AccountingEntryCreateDto {
     AccountingEntryCreateDto accountingEntryCreateDto = (AccountingEntryCreateDto) o;
     return Objects.equals(this.id, accountingEntryCreateDto.id) &&
         Objects.equals(this.timestamp, accountingEntryCreateDto.timestamp) &&
-        Objects.equals(this.description, accountingEntryCreateDto.description) &&
-        Objects.equals(this.date, accountingEntryCreateDto.date) &&
-        Objects.equals(this.amount, accountingEntryCreateDto.amount) &&
-        Objects.equals(this.currencyId, accountingEntryCreateDto.currencyId) &&
-        Objects.equals(this.debitAccountId, accountingEntryCreateDto.debitAccountId) &&
-        Objects.equals(this.creditAccountId, accountingEntryCreateDto.creditAccountId) &&
         Objects.equals(this.journalEntryId, accountingEntryCreateDto.journalEntryId) &&
-        Objects.equals(this.accountingEntryType, accountingEntryCreateDto.accountingEntryType);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.accountId, accountingEntryCreateDto.accountId) &&
+        Objects.equals(this.direction, accountingEntryCreateDto.direction) &&
+        Objects.equals(this.transactionAmount, accountingEntryCreateDto.transactionAmount) &&
+        Objects.equals(this.transactionCurrencyId, accountingEntryCreateDto.transactionCurrencyId) &&
+        Objects.equals(this.description, accountingEntryCreateDto.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, description, date, amount, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, timestamp, journalEntryId, accountId, direction, transactionAmount, transactionCurrencyId, description);
   }
 
   @Override
@@ -384,14 +324,12 @@ public class AccountingEntryCreateDto {
     sb.append("class AccountingEntryCreateDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
-    sb.append("    debitAccountId: ").append(toIndentedString(debitAccountId)).append("\n");
-    sb.append("    creditAccountId: ").append(toIndentedString(creditAccountId)).append("\n");
     sb.append("    journalEntryId: ").append(toIndentedString(journalEntryId)).append("\n");
-    sb.append("    accountingEntryType: ").append(toIndentedString(accountingEntryType)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    transactionAmount: ").append(toIndentedString(transactionAmount)).append("\n");
+    sb.append("    transactionCurrencyId: ").append(toIndentedString(transactionCurrencyId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -416,19 +354,20 @@ public class AccountingEntryCreateDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
-    openapiFields.add("description");
-    openapiFields.add("date");
-    openapiFields.add("amount");
-    openapiFields.add("currencyId");
-    openapiFields.add("debitAccountId");
-    openapiFields.add("creditAccountId");
     openapiFields.add("journalEntryId");
-    openapiFields.add("accountingEntryType");
+    openapiFields.add("accountId");
+    openapiFields.add("direction");
+    openapiFields.add("transactionAmount");
+    openapiFields.add("transactionCurrencyId");
+    openapiFields.add("description");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("journalEntryId");
+    openapiRequiredFields.add("accountId");
+    openapiRequiredFields.add("direction");
+    openapiRequiredFields.add("transactionCurrencyId");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("currencyId");
   }
 
   /**
@@ -462,27 +401,22 @@ public class AccountingEntryCreateDto {
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (!jsonObj.get("currencyId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `currencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyId").toString()));
-      }
-      if ((jsonObj.get("debitAccountId") != null && !jsonObj.get("debitAccountId").isJsonNull()) && !jsonObj.get("debitAccountId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `debitAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debitAccountId").toString()));
-      }
-      if ((jsonObj.get("creditAccountId") != null && !jsonObj.get("creditAccountId").isJsonNull()) && !jsonObj.get("creditAccountId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `creditAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creditAccountId").toString()));
-      }
-      if ((jsonObj.get("journalEntryId") != null && !jsonObj.get("journalEntryId").isJsonNull()) && !jsonObj.get("journalEntryId").isJsonPrimitive()) {
+      if (!jsonObj.get("journalEntryId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `journalEntryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("journalEntryId").toString()));
       }
-      if ((jsonObj.get("accountingEntryType") != null && !jsonObj.get("accountingEntryType").isJsonNull()) && !jsonObj.get("accountingEntryType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountingEntryType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountingEntryType").toString()));
+      if (!jsonObj.get("accountId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountId").toString()));
       }
-      // validate the optional field `accountingEntryType`
-      if (jsonObj.get("accountingEntryType") != null && !jsonObj.get("accountingEntryType").isJsonNull()) {
-        AccountingEntryTypeEnum.validateJsonElement(jsonObj.get("accountingEntryType"));
+      if (!jsonObj.get("direction").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `direction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("direction").toString()));
+      }
+      // validate the required field `direction`
+      DirectionEnum.validateJsonElement(jsonObj.get("direction"));
+      if (!jsonObj.get("transactionCurrencyId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transactionCurrencyId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transactionCurrencyId").toString()));
+      }
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 

@@ -27,8 +27,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.EmptyEnvelope;
 import org.openapitools.client.model.ErrorEnvelope;
 import org.openapitools.client.model.Int32Envelope;
+import org.openapitools.client.model.NewsletterSubscriptionCreateDto;
+import org.openapitools.client.model.NewsletterSubscriptionDtoEnvelope;
+import org.openapitools.client.model.NewsletterSubscriptionDtoListEnvelope;
+import org.openapitools.client.model.NewsletterSubscriptionUpdateDto;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -74,6 +79,657 @@ public class NewsletterSubscriptionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for createNewsletterSubscriptionAsync
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createNewsletterSubscriptionAsyncCall(UUID tenantId, NewsletterSubscriptionCreateDto newsletterSubscriptionCreateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = newsletterSubscriptionCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/MarketingService/NewsletterSubscriptions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createNewsletterSubscriptionAsyncValidateBeforeCall(UUID tenantId, NewsletterSubscriptionCreateDto newsletterSubscriptionCreateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createNewsletterSubscriptionAsync(Async)");
+        }
+
+        // verify the required parameter 'newsletterSubscriptionCreateDto' is set
+        if (newsletterSubscriptionCreateDto == null) {
+            throw new ApiException("Missing the required parameter 'newsletterSubscriptionCreateDto' when calling createNewsletterSubscriptionAsync(Async)");
+        }
+
+        return createNewsletterSubscriptionAsyncCall(tenantId, newsletterSubscriptionCreateDto, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Create a newsletter subscription
+     * Creates a new newsletter subscription for the specified tenant.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope createNewsletterSubscriptionAsync(UUID tenantId, NewsletterSubscriptionCreateDto newsletterSubscriptionCreateDto, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = createNewsletterSubscriptionAsyncWithHttpInfo(tenantId, newsletterSubscriptionCreateDto, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a newsletter subscription
+     * Creates a new newsletter subscription for the specified tenant.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> createNewsletterSubscriptionAsyncWithHttpInfo(UUID tenantId, NewsletterSubscriptionCreateDto newsletterSubscriptionCreateDto, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = createNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionCreateDto, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a newsletter subscription (asynchronously)
+     * Creates a new newsletter subscription for the specified tenant.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionCreateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createNewsletterSubscriptionAsyncAsync(UUID tenantId, NewsletterSubscriptionCreateDto newsletterSubscriptionCreateDto, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionCreateDto, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteNewsletterSubscriptionAsync
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteNewsletterSubscriptionAsyncCall(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+            .replace("{" + "newsletterSubscriptionId" + "}", localVarApiClient.escapeString(newsletterSubscriptionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteNewsletterSubscriptionAsyncValidateBeforeCall(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteNewsletterSubscriptionAsync(Async)");
+        }
+
+        // verify the required parameter 'newsletterSubscriptionId' is set
+        if (newsletterSubscriptionId == null) {
+            throw new ApiException("Missing the required parameter 'newsletterSubscriptionId' when calling deleteNewsletterSubscriptionAsync(Async)");
+        }
+
+        return deleteNewsletterSubscriptionAsyncCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete a newsletter subscription
+     * Deletes a newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope deleteNewsletterSubscriptionAsync(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = deleteNewsletterSubscriptionAsyncWithHttpInfo(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a newsletter subscription
+     * Deletes a newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> deleteNewsletterSubscriptionAsyncWithHttpInfo(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a newsletter subscription (asynchronously)
+     * Deletes a newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteNewsletterSubscriptionAsyncAsync(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getNewsletterSubscriptionByIdAsync
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getNewsletterSubscriptionByIdAsyncCall(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+            .replace("{" + "newsletterSubscriptionId" + "}", localVarApiClient.escapeString(newsletterSubscriptionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getNewsletterSubscriptionByIdAsyncValidateBeforeCall(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getNewsletterSubscriptionByIdAsync(Async)");
+        }
+
+        // verify the required parameter 'newsletterSubscriptionId' is set
+        if (newsletterSubscriptionId == null) {
+            throw new ApiException("Missing the required parameter 'newsletterSubscriptionId' when calling getNewsletterSubscriptionByIdAsync(Async)");
+        }
+
+        return getNewsletterSubscriptionByIdAsyncCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get newsletter subscription by ID
+     * Retrieves the details of a specific newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return NewsletterSubscriptionDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public NewsletterSubscriptionDtoEnvelope getNewsletterSubscriptionByIdAsync(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<NewsletterSubscriptionDtoEnvelope> localVarResp = getNewsletterSubscriptionByIdAsyncWithHttpInfo(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get newsletter subscription by ID
+     * Retrieves the details of a specific newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;NewsletterSubscriptionDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<NewsletterSubscriptionDtoEnvelope> getNewsletterSubscriptionByIdAsyncWithHttpInfo(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getNewsletterSubscriptionByIdAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<NewsletterSubscriptionDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get newsletter subscription by ID (asynchronously)
+     * Retrieves the details of a specific newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getNewsletterSubscriptionByIdAsyncAsync(UUID tenantId, UUID newsletterSubscriptionId, String apiVersion, String xApiVersion, final ApiCallback<NewsletterSubscriptionDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getNewsletterSubscriptionByIdAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<NewsletterSubscriptionDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getNewsletterSubscriptionsAsync
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getNewsletterSubscriptionsAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/MarketingService/NewsletterSubscriptions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getNewsletterSubscriptionsAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getNewsletterSubscriptionsAsync(Async)");
+        }
+
+        return getNewsletterSubscriptionsAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get newsletter subscriptions
+     * Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return NewsletterSubscriptionDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public NewsletterSubscriptionDtoListEnvelope getNewsletterSubscriptionsAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<NewsletterSubscriptionDtoListEnvelope> localVarResp = getNewsletterSubscriptionsAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get newsletter subscriptions
+     * Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;NewsletterSubscriptionDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<NewsletterSubscriptionDtoListEnvelope> getNewsletterSubscriptionsAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getNewsletterSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<NewsletterSubscriptionDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get newsletter subscriptions (asynchronously)
+     * Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
+     * @param tenantId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getNewsletterSubscriptionsAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<NewsletterSubscriptionDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getNewsletterSubscriptionsAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<NewsletterSubscriptionDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getNewsletterSubscriptionsCountAsync
      * @param tenantId  (required)
@@ -226,6 +882,182 @@ public class NewsletterSubscriptionsApi {
 
         okhttp3.Call localVarCall = getNewsletterSubscriptionsCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateNewsletterSubscriptionAsync
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param newsletterSubscriptionUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateNewsletterSubscriptionAsyncCall(UUID tenantId, UUID newsletterSubscriptionId, NewsletterSubscriptionUpdateDto newsletterSubscriptionUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = newsletterSubscriptionUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}"
+            .replace("{" + "newsletterSubscriptionId" + "}", localVarApiClient.escapeString(newsletterSubscriptionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateNewsletterSubscriptionAsyncValidateBeforeCall(UUID tenantId, UUID newsletterSubscriptionId, NewsletterSubscriptionUpdateDto newsletterSubscriptionUpdateDto, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateNewsletterSubscriptionAsync(Async)");
+        }
+
+        // verify the required parameter 'newsletterSubscriptionId' is set
+        if (newsletterSubscriptionId == null) {
+            throw new ApiException("Missing the required parameter 'newsletterSubscriptionId' when calling updateNewsletterSubscriptionAsync(Async)");
+        }
+
+        // verify the required parameter 'newsletterSubscriptionUpdateDto' is set
+        if (newsletterSubscriptionUpdateDto == null) {
+            throw new ApiException("Missing the required parameter 'newsletterSubscriptionUpdateDto' when calling updateNewsletterSubscriptionAsync(Async)");
+        }
+
+        return updateNewsletterSubscriptionAsyncCall(tenantId, newsletterSubscriptionId, newsletterSubscriptionUpdateDto, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Update a newsletter subscription
+     * Updates an existing newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param newsletterSubscriptionUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope updateNewsletterSubscriptionAsync(UUID tenantId, UUID newsletterSubscriptionId, NewsletterSubscriptionUpdateDto newsletterSubscriptionUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateNewsletterSubscriptionAsyncWithHttpInfo(tenantId, newsletterSubscriptionId, newsletterSubscriptionUpdateDto, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a newsletter subscription
+     * Updates an existing newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param newsletterSubscriptionUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> updateNewsletterSubscriptionAsyncWithHttpInfo(UUID tenantId, UUID newsletterSubscriptionId, NewsletterSubscriptionUpdateDto newsletterSubscriptionUpdateDto, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = updateNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, newsletterSubscriptionUpdateDto, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a newsletter subscription (asynchronously)
+     * Updates an existing newsletter subscription by its ID.
+     * @param tenantId  (required)
+     * @param newsletterSubscriptionId  (required)
+     * @param newsletterSubscriptionUpdateDto  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateNewsletterSubscriptionAsyncAsync(UUID tenantId, UUID newsletterSubscriptionId, NewsletterSubscriptionUpdateDto newsletterSubscriptionUpdateDto, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateNewsletterSubscriptionAsyncValidateBeforeCall(tenantId, newsletterSubscriptionId, newsletterSubscriptionUpdateDto, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

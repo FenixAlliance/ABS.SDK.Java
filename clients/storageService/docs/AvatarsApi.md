@@ -1,6 +1,6 @@
 # AvatarsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -32,7 +32,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID socialProfileId = UUID.randomUUID(); // UUID | 
@@ -77,8 +77,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 
 <a id="getContactAvatar"></a>
 # **getContactAvatar**
@@ -98,7 +96,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID contactId = UUID.randomUUID(); // UUID | 
@@ -143,8 +141,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 
 <a id="getCurrentUserAvatar"></a>
 # **getCurrentUserAvatar**
@@ -164,7 +160,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 
@@ -207,8 +203,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 
 <a id="getTenantAvatar"></a>
 # **getTenantAvatar**
@@ -228,7 +222,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -273,8 +267,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 
 <a id="getUserAvatar"></a>
 # **getUserAvatar**
@@ -294,7 +286,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID userId = UUID.randomUUID(); // UUID | 
@@ -339,8 +331,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **401** | Unauthorized |  -  |
 
 <a id="updateContactAvatar"></a>
 # **updateContactAvatar**
@@ -360,7 +350,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID contactId = UUID.randomUUID(); // UUID | 
@@ -431,7 +421,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
@@ -500,7 +490,7 @@ import org.openapitools.client.api.AvatarsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://absuite.net");
 
     AvatarsApi apiInstance = new AvatarsApi(defaultClient);
     String apiVersion = "apiVersion_example"; // String | 

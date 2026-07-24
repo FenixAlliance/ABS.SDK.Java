@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * FiscalPeriodCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FiscalPeriodCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -127,7 +126,7 @@ public class FiscalPeriodCreateDto {
    * Get name
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -184,7 +183,7 @@ public class FiscalPeriodCreateDto {
    * Get fiscalYearId
    * @return fiscalYearId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getFiscalYearId() {
     return fiscalYearId;
   }
@@ -212,20 +211,9 @@ public class FiscalPeriodCreateDto {
         Objects.equals(this.fiscalYearId, fiscalPeriodCreateDto.fiscalYearId);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, timestamp, name, fromDate, toDate, fiscalYearId);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -269,6 +257,8 @@ public class FiscalPeriodCreateDto {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("fiscalYearId");
   }
 
   /**
@@ -291,14 +281,21 @@ public class FiscalPeriodCreateDto {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FiscalPeriodCreateDto` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : FiscalPeriodCreateDto.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("fiscalYearId") != null && !jsonObj.get("fiscalYearId").isJsonNull()) && !jsonObj.get("fiscalYearId").isJsonPrimitive()) {
+      if (!jsonObj.get("fiscalYearId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalYearId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalYearId").toString()));
       }
   }

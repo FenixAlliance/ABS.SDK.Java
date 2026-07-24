@@ -7,18 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**group** | **Boolean** |  |  [optional] |
-|**opening** | **Boolean** |  |  [optional] |
+|**fiscalPeriodId** | **String** |  |  |
+|**transactionCurrencyId** | **String** |  |  |
 |**description** | **String** |  |  |
-|**date** | **OffsetDateTime** |  |  |
-|**debit** | **Double** |  |  [optional] |
-|**credit** | **Double** |  |  [optional] |
-|**journalId** | **String** |  |  |
-|**currencyId** | **String** |  |  |
-|**invoiceCode** | **String** |  |  [optional] |
-|**debitAccountId** | **String** |  |  |
-|**creditAccountId** | **String** |  |  |
-|**parentJournalEntryId** | **String** |  |  [optional] |
+|**sourceDocumentType** | **String** |  |  [optional] |
+|**sourceDocumentId** | **String** |  |  [optional] |
+|**isOpeningBalance** | **Boolean** |  |  [optional] |
 
 
 

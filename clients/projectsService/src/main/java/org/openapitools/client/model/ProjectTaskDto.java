@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectTaskDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectTaskDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,6 +60,14 @@ public class ProjectTaskDto {
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private OffsetDateTime timestamp;
 
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
@@ -68,13 +76,21 @@ public class ProjectTaskDto {
   @SerializedName(SERIALIZED_NAME_DUE_LINE)
   private OffsetDateTime dueLine;
 
-  public static final String SERIALIZED_NAME_PROJECT_I_D = "projectID";
-  @SerializedName(SERIALIZED_NAME_PROJECT_I_D)
-  private String projectID;
+  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  private String projectId;
 
-  public static final String SERIALIZED_NAME_PROJECT_TASK_BUCKET_I_D = "projectTaskBucketID";
-  @SerializedName(SERIALIZED_NAME_PROJECT_TASK_BUCKET_I_D)
-  private String projectTaskBucketID;
+  public static final String SERIALIZED_NAME_PROJECT_TASK_BUCKET_ID = "projectTaskBucketId";
+  @SerializedName(SERIALIZED_NAME_PROJECT_TASK_BUCKET_ID)
+  private String projectTaskBucketId;
+
+  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
+  @SerializedName(SERIALIZED_NAME_TENANT_ID)
+  private String tenantId;
+
+  public static final String SERIALIZED_NAME_ENROLLMENT_ID = "enrollmentId";
+  @SerializedName(SERIALIZED_NAME_ENROLLMENT_ID)
+  private String enrollmentId;
 
   public ProjectTaskDto() {
   }
@@ -117,6 +133,44 @@ public class ProjectTaskDto {
   }
 
 
+  public ProjectTaskDto title(String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Get title
+   * @return title
+   */
+  @javax.annotation.Nullable
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public ProjectTaskDto description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public ProjectTaskDto startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
@@ -155,41 +209,79 @@ public class ProjectTaskDto {
   }
 
 
-  public ProjectTaskDto projectID(String projectID) {
-    this.projectID = projectID;
+  public ProjectTaskDto projectId(String projectId) {
+    this.projectId = projectId;
     return this;
   }
 
   /**
-   * Get projectID
-   * @return projectID
+   * Get projectId
+   * @return projectId
    */
   @javax.annotation.Nullable
-  public String getProjectID() {
-    return projectID;
+  public String getProjectId() {
+    return projectId;
   }
 
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
 
-  public ProjectTaskDto projectTaskBucketID(String projectTaskBucketID) {
-    this.projectTaskBucketID = projectTaskBucketID;
+  public ProjectTaskDto projectTaskBucketId(String projectTaskBucketId) {
+    this.projectTaskBucketId = projectTaskBucketId;
     return this;
   }
 
   /**
-   * Get projectTaskBucketID
-   * @return projectTaskBucketID
+   * Get projectTaskBucketId
+   * @return projectTaskBucketId
    */
   @javax.annotation.Nullable
-  public String getProjectTaskBucketID() {
-    return projectTaskBucketID;
+  public String getProjectTaskBucketId() {
+    return projectTaskBucketId;
   }
 
-  public void setProjectTaskBucketID(String projectTaskBucketID) {
-    this.projectTaskBucketID = projectTaskBucketID;
+  public void setProjectTaskBucketId(String projectTaskBucketId) {
+    this.projectTaskBucketId = projectTaskBucketId;
+  }
+
+
+  public ProjectTaskDto tenantId(String tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * Get tenantId
+   * @return tenantId
+   */
+  @javax.annotation.Nullable
+  public String getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+
+  public ProjectTaskDto enrollmentId(String enrollmentId) {
+    this.enrollmentId = enrollmentId;
+    return this;
+  }
+
+  /**
+   * Get enrollmentId
+   * @return enrollmentId
+   */
+  @javax.annotation.Nullable
+  public String getEnrollmentId() {
+    return enrollmentId;
+  }
+
+  public void setEnrollmentId(String enrollmentId) {
+    this.enrollmentId = enrollmentId;
   }
 
 
@@ -205,10 +297,14 @@ public class ProjectTaskDto {
     ProjectTaskDto projectTaskDto = (ProjectTaskDto) o;
     return Objects.equals(this.id, projectTaskDto.id) &&
         Objects.equals(this.timestamp, projectTaskDto.timestamp) &&
+        Objects.equals(this.title, projectTaskDto.title) &&
+        Objects.equals(this.description, projectTaskDto.description) &&
         Objects.equals(this.startDate, projectTaskDto.startDate) &&
         Objects.equals(this.dueLine, projectTaskDto.dueLine) &&
-        Objects.equals(this.projectID, projectTaskDto.projectID) &&
-        Objects.equals(this.projectTaskBucketID, projectTaskDto.projectTaskBucketID);
+        Objects.equals(this.projectId, projectTaskDto.projectId) &&
+        Objects.equals(this.projectTaskBucketId, projectTaskDto.projectTaskBucketId) &&
+        Objects.equals(this.tenantId, projectTaskDto.tenantId) &&
+        Objects.equals(this.enrollmentId, projectTaskDto.enrollmentId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -217,7 +313,7 @@ public class ProjectTaskDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, startDate, dueLine, projectID, projectTaskBucketID);
+    return Objects.hash(id, timestamp, title, description, startDate, dueLine, projectId, projectTaskBucketId, tenantId, enrollmentId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,10 +329,14 @@ public class ProjectTaskDto {
     sb.append("class ProjectTaskDto {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    dueLine: ").append(toIndentedString(dueLine)).append("\n");
-    sb.append("    projectID: ").append(toIndentedString(projectID)).append("\n");
-    sb.append("    projectTaskBucketID: ").append(toIndentedString(projectTaskBucketID)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    projectTaskBucketId: ").append(toIndentedString(projectTaskBucketId)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    enrollmentId: ").append(toIndentedString(enrollmentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -261,10 +361,14 @@ public class ProjectTaskDto {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("timestamp");
+    openapiFields.add("title");
+    openapiFields.add("description");
     openapiFields.add("startDate");
     openapiFields.add("dueLine");
-    openapiFields.add("projectID");
-    openapiFields.add("projectTaskBucketID");
+    openapiFields.add("projectId");
+    openapiFields.add("projectTaskBucketId");
+    openapiFields.add("tenantId");
+    openapiFields.add("enrollmentId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -294,11 +398,23 @@ public class ProjectTaskDto {
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("projectID") != null && !jsonObj.get("projectID").isJsonNull()) && !jsonObj.get("projectID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectID").toString()));
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("projectTaskBucketID") != null && !jsonObj.get("projectTaskBucketID").isJsonNull()) && !jsonObj.get("projectTaskBucketID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectTaskBucketID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectTaskBucketID").toString()));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("projectId") != null && !jsonObj.get("projectId").isJsonNull()) && !jsonObj.get("projectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
+      }
+      if ((jsonObj.get("projectTaskBucketId") != null && !jsonObj.get("projectTaskBucketId").isJsonNull()) && !jsonObj.get("projectTaskBucketId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectTaskBucketId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectTaskBucketId").toString()));
+      }
+      if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      if ((jsonObj.get("enrollmentId") != null && !jsonObj.get("enrollmentId").isJsonNull()) && !jsonObj.get("enrollmentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enrollmentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentId").toString()));
       }
   }
 

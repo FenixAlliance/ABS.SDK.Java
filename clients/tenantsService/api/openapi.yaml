@@ -44,6 +44,157 @@ tags:
 - name: UnitGroups
 - name: Units
 paths:
+  /api/v2/TenantsService/BusinessRelationships:
+    get:
+      description: Retrieves the child business relationships owned by the specified
+        parent tenant using OData query options.
+      operationId: GetBusinessRelationshipsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessRelationshipDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessRelationshipDtoListEnvelope'
+          description: OK
+      summary: Get business relationships
+      tags:
+      - BusinessRelationships
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new business relationship owned by the specified parent
+        tenant.
+      operationId: CreateBusinessRelationshipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessRelationshipCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessRelationshipCreateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: Created
+      summary: Create a business relationship
+      tags:
+      - BusinessRelationships
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/TenantsService/BusinessRelationships/Count:
     get:
       description: Returns the count of child business relationships owned by the
@@ -103,6 +254,249 @@ paths:
       summary: Get business relationships count
       tags:
       - BusinessRelationships
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}:
+    delete:
+      description: Deletes a business relationship by its ID.
+      operationId: DeleteBusinessRelationshipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a business relationship
+      tags:
+      - BusinessRelationships
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves the details of a specific business relationship by its
+        ID.
+      operationId: GetBusinessRelationshipByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessRelationshipDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BusinessRelationshipDtoEnvelope'
+          description: OK
+      summary: Get business relationship by ID
+      tags:
+      - BusinessRelationships
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing business relationship by its ID.
+      operationId: UpdateBusinessRelationshipAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: businessRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessRelationshipUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BusinessRelationshipUpdateDto'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a business relationship
+      tags:
+      - BusinessRelationships
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1705,6 +2099,23 @@ paths:
       - application/json
   /health:
     get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: OK
@@ -7511,7 +7922,7 @@ paths:
       - application/xml
     post:
       description: Update a tenant's avatar
-      operationId: UpdateAvatarAsync
+      operationId: UpdateTenantAvatarAsync
       parameters:
       - explode: false
         in: path
@@ -7542,19 +7953,19 @@ paths:
               avatar:
                 style: form
             schema:
-              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+              $ref: '#/components/schemas/UpdateTenantAvatarAsync_request'
           application/json:
             encoding:
               avatar:
                 style: form
             schema:
-              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+              $ref: '#/components/schemas/UpdateTenantAvatarAsync_request'
           application/xml:
             encoding:
               avatar:
                 style: form
             schema:
-              $ref: '#/components/schemas/UpdateAvatarAsync_request'
+              $ref: '#/components/schemas/UpdateTenantAvatarAsync_request'
       responses:
         "200":
           content:
@@ -7725,7 +8136,7 @@ paths:
   /api/v2/TenantsService/Tenants/{tenantId}/Cart:
     get:
       description: Get a tenant's default cart
-      operationId: GetTenantCartAsync
+      operationId: GetCartForTenantAsync
       parameters:
       - explode: false
         in: path
@@ -11881,6 +12292,144 @@ components:
           type: string
         result:
           type: boolean
+      type: object
+    BusinessRelationshipCreateDto:
+      additionalProperties: false
+      example:
+        childTenantId: childTenantId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        ownershipPercentage: 0.8008281904610115
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        childTenantId:
+          nullable: true
+          type: string
+        ownershipPercentage:
+          format: double
+          type: number
+      type: object
+    BusinessRelationshipDto:
+      additionalProperties: false
+      example:
+        parentTenantId: parentTenantId
+        childTenantId: childTenantId
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        ownershipPercentage: 0.8008281904610115
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        parentTenantId:
+          nullable: true
+          type: string
+        childTenantId:
+          nullable: true
+          type: string
+        ownershipPercentage:
+          format: double
+          type: number
+      type: object
+    BusinessRelationshipDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          parentTenantId: parentTenantId
+          childTenantId: childTenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          ownershipPercentage: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/BusinessRelationshipDto'
+      type: object
+    BusinessRelationshipDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - parentTenantId: parentTenantId
+          childTenantId: childTenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          ownershipPercentage: 0.8008281904610115
+        - parentTenantId: parentTenantId
+          childTenantId: childTenantId
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          ownershipPercentage: 0.8008281904610115
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/BusinessRelationshipDto'
+          nullable: true
+          type: array
+      type: object
+    BusinessRelationshipUpdateDto:
+      additionalProperties: false
+      example:
+        childTenantId: childTenantId
+        ownershipPercentage: 0.8008281904610115
+      properties:
+        childTenantId:
+          nullable: true
+          type: string
+        ownershipPercentage:
+          format: double
+          type: number
       type: object
     CartDto:
       additionalProperties: false
@@ -17447,7 +17996,7 @@ components:
         provider:
           type: string
       type: object
-    UpdateAvatarAsync_request:
+    UpdateTenantAvatarAsync_request:
       properties:
         avatar:
           format: binary

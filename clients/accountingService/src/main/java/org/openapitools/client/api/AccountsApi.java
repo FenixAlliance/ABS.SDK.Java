@@ -98,7 +98,7 @@ public class AccountsApi {
     /**
      * Build call for aggregateAccountsBalanceAsync
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -188,7 +188,7 @@ public class AccountsApi {
      * Aggregate accounts balance
      * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return MoneyEnvelope
@@ -210,7 +210,7 @@ public class AccountsApi {
      * Aggregate accounts balance
      * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;MoneyEnvelope&gt;
@@ -233,7 +233,7 @@ public class AccountsApi {
      * Aggregate accounts balance (asynchronously)
      * Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2229,7 +2229,7 @@ public class AccountsApi {
     /**
      * Build call for getAccountAggregateAsync
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)
@@ -2322,7 +2322,7 @@ public class AccountsApi {
      * Get account aggregate
      * Get account aggregate.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)
@@ -2345,7 +2345,7 @@ public class AccountsApi {
      * Get account aggregate
      * Get account aggregate.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)
@@ -2369,7 +2369,7 @@ public class AccountsApi {
      * Get account aggregate (asynchronously)
      * Get account aggregate.
      * @param tenantId  (required)
-     * @param currencyId  (optional)
+     * @param currencyId  (optional, default to USD.USA)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param accountDto  (optional)

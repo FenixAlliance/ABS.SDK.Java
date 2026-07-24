@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * QuoteLineUpsertDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:03:15.824048400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:58.934060500-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class QuoteLineUpsertDto {
   public static final String SERIALIZED_NAME_CLOSED = "closed";
   @SerializedName(SERIALIZED_NAME_CLOSED)

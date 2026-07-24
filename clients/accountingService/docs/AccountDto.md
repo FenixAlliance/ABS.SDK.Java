@@ -33,6 +33,10 @@
 |**enrollmentId** | **String** |  |  [optional] |
 |**childrenAccountsCount** | **Integer** |  |  [optional] |
 |**accountCategory** | [**AccountCategoryEnum**](#AccountCategoryEnum) |  |  [optional] |
+|**isContra** | **Boolean** |  |  [optional] |
+|**isMonetary** | **Boolean** |  |  [optional] |
+|**incomeStatementSubType** | [**IncomeStatementSubTypeEnum**](#IncomeStatementSubTypeEnum) |  |  [optional] |
+|**normalBalance** | [**NormalBalanceEnum**](#NormalBalanceEnum) |  |  [optional] |
 |**balanceAmount** | [**Money**](Money.md) |  |  [optional] |
 |**creditsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
 |**debitsBalanceAmount** | [**Money**](Money.md) |  |  [optional] |
@@ -51,6 +55,26 @@
 | REVENUE | &quot;Revenue&quot; |
 | EXPENSE | &quot;Expense&quot; |
 | LIABILITIES | &quot;Liabilities&quot; |
+
+
+
+## Enum: IncomeStatementSubTypeEnum
+
+| Name | Value |
+|---- | -----|
+| OPERATING_REVENUE | &quot;OperatingRevenue&quot; |
+| GAIN | &quot;Gain&quot; |
+| OPERATING_EXPENSE | &quot;OperatingExpense&quot; |
+| LOSS | &quot;Loss&quot; |
+
+
+
+## Enum: NormalBalanceEnum
+
+| Name | Value |
+|---- | -----|
+| DEBIT | &quot;Debit&quot; |
+| CREDIT | &quot;Credit&quot; |
 
 
 

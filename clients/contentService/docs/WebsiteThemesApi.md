@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getWebsiteThemesAsync"></a>
 # **getWebsiteThemesAsync**
-> WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion)
 
 Get all website themes
 
@@ -245,11 +245,10 @@ public class Example {
 
     WebsiteThemesApi apiInstance = new WebsiteThemesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    WebsiteThemeDtoODataQueryOptions oDataQueryOptions = new WebsiteThemeDtoODataQueryOptions(); // WebsiteThemeDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      WebsiteThemeDtoListEnvelope result = apiInstance.getWebsiteThemesAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      WebsiteThemeDtoListEnvelope result = apiInstance.getWebsiteThemesAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebsiteThemesApi#getWebsiteThemesAsync");
@@ -267,7 +266,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**WebsiteThemeDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -292,7 +290,7 @@ No authorization required
 
 <a id="getWebsiteThemesCountAsync"></a>
 # **getWebsiteThemesCountAsync**
-> Int32Envelope getWebsiteThemesCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get website themes count
 
@@ -314,11 +312,10 @@ public class Example {
 
     WebsiteThemesApi apiInstance = new WebsiteThemesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    WebsiteThemeDtoODataQueryOptions oDataQueryOptions = new WebsiteThemeDtoODataQueryOptions(); // WebsiteThemeDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getWebsiteThemesCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getWebsiteThemesCountAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebsiteThemesApi#getWebsiteThemesCountAsync");
@@ -336,7 +333,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**WebsiteThemeDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

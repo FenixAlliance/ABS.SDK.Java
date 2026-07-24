@@ -73,7 +73,7 @@ public class ThemesApi {
     }
 
     /**
-     * Build call for getLatestCurrencyRatesModelAsync
+     * Build call for updateThemesAsync
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -86,7 +86,7 @@ public class ThemesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLatestCurrencyRatesModelAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateThemesAsyncCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,8 +140,8 @@ public class ThemesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLatestCurrencyRatesModelAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        return getLatestCurrencyRatesModelAsyncCall(apiVersion, xApiVersion, _callback);
+    private okhttp3.Call updateThemesAsyncValidateBeforeCall(String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        return updateThemesAsyncCall(apiVersion, xApiVersion, _callback);
 
     }
 
@@ -158,8 +158,8 @@ public class ThemesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void getLatestCurrencyRatesModelAsync(String apiVersion, String xApiVersion) throws ApiException {
-        getLatestCurrencyRatesModelAsyncWithHttpInfo(apiVersion, xApiVersion);
+    public void updateThemesAsync(String apiVersion, String xApiVersion) throws ApiException {
+        updateThemesAsyncWithHttpInfo(apiVersion, xApiVersion);
     }
 
     /**
@@ -176,8 +176,8 @@ public class ThemesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getLatestCurrencyRatesModelAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getLatestCurrencyRatesModelAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
+    public ApiResponse<Void> updateThemesAsyncWithHttpInfo(String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = updateThemesAsyncValidateBeforeCall(apiVersion, xApiVersion, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -196,9 +196,9 @@ public class ThemesApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLatestCurrencyRatesModelAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateThemesAsyncAsync(String apiVersion, String xApiVersion, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLatestCurrencyRatesModelAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = updateThemesAsyncValidateBeforeCall(apiVersion, xApiVersion, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

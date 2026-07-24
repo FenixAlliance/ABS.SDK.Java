@@ -63,6 +63,23 @@ paths:
       - FenixAlliance.ABS.Web
       x-accepts:
       - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
   /hello:
     get:
       responses:
@@ -11572,7 +11589,7 @@ paths:
   /api/v2/CatalogService/ItemShippingPolicies:
     get:
       description: Retrieves all shipping policies for a specific item.
-      operationId: GetItemShippingPoliciesAsync
+      operationId: GetCatalogItemShippingPoliciesAsync
       parameters:
       - explode: true
         in: query
@@ -11848,7 +11865,7 @@ paths:
       - application/xml
     get:
       description: Retrieves a specific shipping policy for an item.
-      operationId: GetItemShippingPolicyByIdAsync
+      operationId: GetCatalogItemShippingPolicyByIdAsync
       parameters:
       - explode: true
         in: query

@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * ProjectCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-24T21:03:09.264356200-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:40.778095600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ProjectCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,6 +68,14 @@ public class ProjectCreateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_INDIVIDUAL_ID = "individualId";
+  @SerializedName(SERIALIZED_NAME_INDIVIDUAL_ID)
+  private String individualId;
+
+  public static final String SERIALIZED_NAME_ORGANIZATION_ID = "organizationId";
+  @SerializedName(SERIALIZED_NAME_ORGANIZATION_ID)
+  private String organizationId;
 
   public static final String SERIALIZED_NAME_PROJECT_START_DATE = "projectStartDate";
   @SerializedName(SERIALIZED_NAME_PROJECT_START_DATE)
@@ -156,6 +164,44 @@ public class ProjectCreateDto {
   }
 
 
+  public ProjectCreateDto individualId(String individualId) {
+    this.individualId = individualId;
+    return this;
+  }
+
+  /**
+   * Get individualId
+   * @return individualId
+   */
+  @javax.annotation.Nullable
+  public String getIndividualId() {
+    return individualId;
+  }
+
+  public void setIndividualId(String individualId) {
+    this.individualId = individualId;
+  }
+
+
+  public ProjectCreateDto organizationId(String organizationId) {
+    this.organizationId = organizationId;
+    return this;
+  }
+
+  /**
+   * Get organizationId
+   * @return organizationId
+   */
+  @javax.annotation.Nullable
+  public String getOrganizationId() {
+    return organizationId;
+  }
+
+  public void setOrganizationId(String organizationId) {
+    this.organizationId = organizationId;
+  }
+
+
   public ProjectCreateDto projectStartDate(OffsetDateTime projectStartDate) {
     this.projectStartDate = projectStartDate;
     return this;
@@ -208,6 +254,8 @@ public class ProjectCreateDto {
         Objects.equals(this.timestamp, projectCreateDto.timestamp) &&
         Objects.equals(this.title, projectCreateDto.title) &&
         Objects.equals(this.description, projectCreateDto.description) &&
+        Objects.equals(this.individualId, projectCreateDto.individualId) &&
+        Objects.equals(this.organizationId, projectCreateDto.organizationId) &&
         Objects.equals(this.projectStartDate, projectCreateDto.projectStartDate) &&
         Objects.equals(this.projectEndDate, projectCreateDto.projectEndDate);
   }
@@ -218,7 +266,7 @@ public class ProjectCreateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, timestamp, title, description, projectStartDate, projectEndDate);
+    return Objects.hash(id, timestamp, title, description, individualId, organizationId, projectStartDate, projectEndDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -236,6 +284,8 @@ public class ProjectCreateDto {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    individualId: ").append(toIndentedString(individualId)).append("\n");
+    sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    projectStartDate: ").append(toIndentedString(projectStartDate)).append("\n");
     sb.append("    projectEndDate: ").append(toIndentedString(projectEndDate)).append("\n");
     sb.append("}");
@@ -264,6 +314,8 @@ public class ProjectCreateDto {
     openapiFields.add("timestamp");
     openapiFields.add("title");
     openapiFields.add("description");
+    openapiFields.add("individualId");
+    openapiFields.add("organizationId");
     openapiFields.add("projectStartDate");
     openapiFields.add("projectEndDate");
 
@@ -300,6 +352,12 @@ public class ProjectCreateDto {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("individualId") != null && !jsonObj.get("individualId").isJsonNull()) && !jsonObj.get("individualId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `individualId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("individualId").toString()));
+      }
+      if ((jsonObj.get("organizationId") != null && !jsonObj.get("organizationId").isJsonNull()) && !jsonObj.get("organizationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `organizationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organizationId").toString()));
       }
   }
 

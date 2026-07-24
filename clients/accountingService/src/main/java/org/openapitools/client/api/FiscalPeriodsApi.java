@@ -81,6 +81,171 @@ public class FiscalPeriodsApi {
     }
 
     /**
+     * Build call for closeFiscalPeriod
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call closeFiscalPeriodCall(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Close"
+            .replace("{" + "fiscalPeriodId" + "}", localVarApiClient.escapeString(fiscalPeriodId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call closeFiscalPeriodValidateBeforeCall(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling closeFiscalPeriod(Async)");
+        }
+
+        // verify the required parameter 'fiscalPeriodId' is set
+        if (fiscalPeriodId == null) {
+            throw new ApiException("Missing the required parameter 'fiscalPeriodId' when calling closeFiscalPeriod(Async)");
+        }
+
+        return closeFiscalPeriodCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Close a fiscal period
+     * Closes a fiscal period so no further journal entries can post into it. Rejects closing a locked (hard-sealed) period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope closeFiscalPeriod(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = closeFiscalPeriodWithHttpInfo(tenantId, fiscalPeriodId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Close a fiscal period
+     * Closes a fiscal period so no further journal entries can post into it. Rejects closing a locked (hard-sealed) period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> closeFiscalPeriodWithHttpInfo(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = closeFiscalPeriodValidateBeforeCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Close a fiscal period (asynchronously)
+     * Closes a fiscal period so no further journal entries can post into it. Rejects closing a locked (hard-sealed) period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call closeFiscalPeriodAsync(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = closeFiscalPeriodValidateBeforeCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createFiscalPeriod
      * @param tenantId  (required)
      * @param apiVersion  (optional)
@@ -931,6 +1096,171 @@ public class FiscalPeriodsApi {
 
         okhttp3.Call localVarCall = getFiscalPeriodsCountValidateBeforeCall(tenantId, fiscalAuthorityId, fiscalYearId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for openFiscalPeriod
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call openFiscalPeriodCall(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Open"
+            .replace("{" + "fiscalPeriodId" + "}", localVarApiClient.escapeString(fiscalPeriodId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call openFiscalPeriodValidateBeforeCall(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling openFiscalPeriod(Async)");
+        }
+
+        // verify the required parameter 'fiscalPeriodId' is set
+        if (fiscalPeriodId == null) {
+            throw new ApiException("Missing the required parameter 'fiscalPeriodId' when calling openFiscalPeriod(Async)");
+        }
+
+        return openFiscalPeriodCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Open a fiscal period
+     * Opens a closed fiscal period so journal entries can post into it. Rejects reopening a locked or an already-open period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope openFiscalPeriod(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = openFiscalPeriodWithHttpInfo(tenantId, fiscalPeriodId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Open a fiscal period
+     * Opens a closed fiscal period so journal entries can post into it. Rejects reopening a locked or an already-open period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> openFiscalPeriodWithHttpInfo(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = openFiscalPeriodValidateBeforeCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Open a fiscal period (asynchronously)
+     * Opens a closed fiscal period so journal entries can post into it. Rejects reopening a locked or an already-open period.
+     * @param tenantId  (required)
+     * @param fiscalPeriodId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call openFiscalPeriodAsync(UUID tenantId, UUID fiscalPeriodId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = openFiscalPeriodValidateBeforeCall(tenantId, fiscalPeriodId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

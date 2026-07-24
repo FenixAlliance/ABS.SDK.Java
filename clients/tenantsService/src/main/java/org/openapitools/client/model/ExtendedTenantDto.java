@@ -53,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * ExtendedTenantDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:06:05.793583400-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:08:50.723508900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class ExtendedTenantDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

@@ -9,22 +9,19 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
+|**journalEntryId** | **String** |  |  |
+|**accountId** | **String** |  |  |
+|**direction** | [**DirectionEnum**](#DirectionEnum) |  |  |
+|**transactionAmount** | **Double** |  |  [optional] |
+|**transactionCurrencyId** | **String** |  |  |
 |**description** | **String** |  |  |
-|**date** | **OffsetDateTime** |  |  [optional] |
-|**amount** | **Double** |  |  [optional] |
-|**currencyId** | **String** |  |  |
-|**debitAccountId** | **String** |  |  [optional] |
-|**creditAccountId** | **String** |  |  [optional] |
-|**journalEntryId** | **String** |  |  [optional] |
-|**accountingEntryType** | [**AccountingEntryTypeEnum**](#AccountingEntryTypeEnum) |  |  [optional] |
 
 
 
-## Enum: AccountingEntryTypeEnum
+## Enum: DirectionEnum
 
 | Name | Value |
 |---- | -----|
-| NONE | &quot;None&quot; |
 | DEBIT | &quot;Debit&quot; |
 | CREDIT | &quot;Credit&quot; |
 

@@ -2407,7 +2407,7 @@ No authorization required
 
 <a id="getPurchaseInvoicesSum"></a>
 # **getPurchaseInvoicesSum**
-> DecimalEnvelope getPurchaseInvoicesSum(tenantId)
+> MoneyEnvelope getPurchaseInvoicesSum(tenantId)
 
 Sum tenant purchase-invoice totals.
 
@@ -2430,7 +2430,7 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
-      DecimalEnvelope result = apiInstance.getPurchaseInvoicesSum(tenantId);
+      MoneyEnvelope result = apiInstance.getPurchaseInvoicesSum(tenantId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getPurchaseInvoicesSum");
@@ -2451,7 +2451,7 @@ public class Example {
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
@@ -2471,7 +2471,7 @@ No authorization required
 
 <a id="getSalesInvoicesSum"></a>
 # **getSalesInvoicesSum**
-> DecimalEnvelope getSalesInvoicesSum(tenantId)
+> MoneyEnvelope getSalesInvoicesSum(tenantId)
 
 Sum tenant sales-invoice totals.
 
@@ -2494,7 +2494,7 @@ public class Example {
     InvoicesApi apiInstance = new InvoicesApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
     try {
-      DecimalEnvelope result = apiInstance.getSalesInvoicesSum(tenantId);
+      MoneyEnvelope result = apiInstance.getSalesInvoicesSum(tenantId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InvoicesApi#getSalesInvoicesSum");
@@ -2515,7 +2515,7 @@ public class Example {
 
 ### Return type
 
-[**DecimalEnvelope**](DecimalEnvelope.md)
+[**MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 

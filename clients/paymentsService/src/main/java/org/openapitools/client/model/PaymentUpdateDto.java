@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * PaymentUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:02:22.754471600-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:05:02.684208700-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class PaymentUpdateDto {
   public static final String SERIALIZED_NAME_INVOICE_ID = "invoiceId";
   @SerializedName(SERIALIZED_NAME_INVOICE_ID)

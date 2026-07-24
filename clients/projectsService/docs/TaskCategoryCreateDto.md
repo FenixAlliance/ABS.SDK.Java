@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  [optional] |
 |**timestamp** | **OffsetDateTime** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
+|**projectId** | **String** |  |  [optional] |
 
 
 

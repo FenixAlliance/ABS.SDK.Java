@@ -23,11 +23,1911 @@ servers:
       - https://dev.absuite.net
       - https://localhost:44388
 tags:
+- name: ContactGroups
+- name: ContactProfiles
+- name: ContactRelations
+- name: ContactRelationTypes
 - name: Contacts
+- name: ContactSources
 - name: FenixAlliance.ABS.Web
 - name: Options
 - name: Sync
 paths:
+  /api/v2/CrmService/ContactGroups:
+    get:
+      description: Retrieves all contact groups for the specified tenant.
+      operationId: GetContactGroupsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsGroupDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactsGroupDtoListEnvelope'
+          description: OK
+      summary: Get all contact groups
+      tags:
+      - ContactGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new contact group for the specified tenant.
+      operationId: CreateContactGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new contact group
+      tags:
+      - ContactGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactGroups/Count:
+    get:
+      description: Returns the count of contact groups for the specified tenant.
+      operationId: GetContactGroupsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact groups count
+      tags:
+      - ContactGroups
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactGroups/{id}:
+    delete:
+      description: Deletes a contact group for the specified tenant.
+      operationId: DeleteContactGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact group
+      tags:
+      - ContactGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific contact group by its identifier.
+      operationId: GetContactGroupByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsGroupDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactsGroupDto'
+          description: OK
+      summary: Get contact group by ID
+      tags:
+      - ContactGroups
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact group
+      operationId: PatchContactGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact group
+      tags:
+      - ContactGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing contact group for the specified tenant.
+      operationId: UpdateContactGroupAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactsGroupUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact group
+      tags:
+      - ContactGroups
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactProfiles:
+    get:
+      description: Retrieves all contact profiles for the specified tenant.
+      operationId: GetContactProfilesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDtoListEnvelope'
+          description: OK
+      summary: Get all contact profiles
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new contact profile for the specified tenant. The ContactId
+        must be provided in the request body.
+      operationId: CreateContactProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new contact profile
+      tags:
+      - ContactProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactProfiles/Count:
+    get:
+      description: Returns the count of contact profiles for the specified tenant.
+      operationId: GetContactProfilesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact profiles count
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactProfiles/Patients/Count:
+    get:
+      description: Returns the count of patient contact profiles for the specified
+        tenant.
+      operationId: GetPatientProfilesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get patient profiles count
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactProfiles/Partners/Count:
+    get:
+      description: Returns the count of partner contact profiles for the specified
+        tenant.
+      operationId: GetPartnerProfilesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get partner profiles count
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactProfiles/{id}:
+    delete:
+      description: Deletes a contact profile for the specified tenant.
+      operationId: DeleteContactProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact profile
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific contact profile by its identifier.
+      operationId: GetContactProfileByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactProfileDto'
+          description: OK
+      summary: Get contact profile by ID
+      tags:
+      - ContactProfiles
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact profile
+      operationId: PatchContactProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact profile
+      tags:
+      - ContactProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing contact profile for the specified tenant.
+      operationId: UpdateContactProfileAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact profile
+      tags:
+      - ContactProfiles
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelations:
+    get:
+      description: Retrieves all contact relations for the specified tenant.
+      operationId: GetContactRelationsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactRelationDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactRelationDtoListEnvelope'
+          description: OK
+      summary: Get all contact relations
+      tags:
+      - ContactRelations
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new contact relation for the specified tenant.
+      operationId: CreateContactRelationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new contact relation
+      tags:
+      - ContactRelations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelations/Count:
+    get:
+      description: Returns the count of contact relations for the specified tenant.
+      operationId: GetContactRelationsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact relations count
+      tags:
+      - ContactRelations
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelations/{id}:
+    delete:
+      description: Deletes a contact relation for the specified tenant.
+      operationId: DeleteContactRelationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact relation
+      tags:
+      - ContactRelations
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific contact relation by its identifier.
+      operationId: GetContactRelationByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactRelationDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactRelationDto'
+          description: OK
+      summary: Get contact relation by ID
+      tags:
+      - ContactRelations
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact relation
+      operationId: PatchContactRelationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact relation
+      tags:
+      - ContactRelations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing contact relation for the specified tenant.
+      operationId: UpdateContactRelationAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact relation
+      tags:
+      - ContactRelations
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelationTypes:
+    get:
+      description: Retrieves all contact relation types for the specified tenant.
+      operationId: GetContactRelationTypesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactRelationTypeDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactRelationTypeDtoListEnvelope'
+          description: OK
+      summary: Get all contact relation types
+      tags:
+      - ContactRelationTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new contact relation type for the specified tenant.
+      operationId: CreateContactRelationTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new contact relation type
+      tags:
+      - ContactRelationTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelationTypes/Count:
+    get:
+      description: Returns the count of contact relation types for the specified tenant.
+      operationId: GetContactRelationTypesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact relation types count
+      tags:
+      - ContactRelationTypes
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactRelationTypes/{id}:
+    delete:
+      description: Deletes a contact relation type for the specified tenant.
+      operationId: DeleteContactRelationTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact relation type
+      tags:
+      - ContactRelationTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific contact relation type by its identifier.
+      operationId: GetContactRelationTypeByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactRelationTypeDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactRelationTypeDto'
+          description: OK
+      summary: Get contact relation type by ID
+      tags:
+      - ContactRelationTypes
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact relation type
+      operationId: PatchContactRelationTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact relation type
+      tags:
+      - ContactRelationTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing contact relation type for the specified tenant.
+      operationId: UpdateContactRelationTypeAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactRelationTypeUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact relation type
+      tags:
+      - ContactRelationTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/CrmService/Contacts:
     get:
       description: Get all business owned contacts
@@ -1487,7 +3387,7 @@ paths:
   /api/v2/CrmService/Contacts/{contactId}/Profiles:
     get:
       description: Get a contact's social profiles
-      operationId: GetContactProfilesAsync
+      operationId: GetProfilesForContactAsync
       parameters:
       - explode: true
         in: query
@@ -1559,6 +3459,284 @@ paths:
       summary: Get a contact's social profiles
       tags:
       - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new profile for the specified contact.
+      operationId: CreateProfileForContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a contact profile
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Profiles/Count:
+    get:
+      description: Returns the count of profiles for the specified contact.
+      operationId: GetProfilesForContactCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact profiles count
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}:
+    delete:
+      description: Deletes a profile for the specified contact.
+      operationId: DeleteProfileForContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: profileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact profile
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing profile for the specified contact.
+      operationId: UpdateProfileForContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: profileId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactProfileUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactProfileUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact profile
+      tags:
+      - Contacts
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -2144,6 +4322,962 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v2/CrmService/Contacts/{contactId}/Emails:
+    get:
+      description: Get all email addresses for the specified contact.
+      operationId: GetContactEmailsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactEmailDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactEmailDtoListEnvelope'
+          description: OK
+      summary: Get a contact's email addresses
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Emails/Count:
+    get:
+      description: Returns the count of email addresses for the specified contact.
+      operationId: GetContactEmailsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact email addresses count
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses:
+    post:
+      description: Creates a new email address for the specified contact.
+      operationId: CreateContactEmailAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactEmailCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactEmailCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Add an email address to a contact
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}:
+    delete:
+      description: Deletes an email address from the specified contact.
+      operationId: DeleteContactEmailAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: emailId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact email address
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing email address for the specified contact.
+      operationId: PatchContactEmailAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: emailId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Patch a contact email address
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing email address for the specified contact.
+      operationId: UpdateContactEmailAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: emailId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactEmailUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactEmailUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact email address
+      tags:
+      - Contacts
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify:
+    post:
+      description: Marks an email address as verified on the specified contact.
+      operationId: VerifyContactEmailAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: emailId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Conflict
+        "200":
+          description: OK
+      summary: Verify a contact email address
+      tags:
+      - Contacts
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactSources:
+    get:
+      description: Retrieves all contact sources for the specified tenant.
+      operationId: GetContactSourcesAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSourceDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactSourceDtoListEnvelope'
+          description: OK
+      summary: Get all contact sources
+      tags:
+      - ContactSources
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new contact source for the specified tenant.
+      operationId: CreateContactSourceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSourceCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactSourceCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          description: OK
+      summary: Create a new contact source
+      tags:
+      - ContactSources
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactSources/Count:
+    get:
+      description: Returns the count of contact sources for the specified tenant.
+      operationId: GetContactSourcesCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get contact sources count
+      tags:
+      - ContactSources
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/CrmService/ContactSources/{id}:
+    delete:
+      description: Deletes a contact source for the specified tenant.
+      operationId: DeleteContactSourceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Delete a contact source
+      tags:
+      - ContactSources
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific contact source by its identifier.
+      operationId: GetContactSourceByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactSourceDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ContactSourceDto'
+          description: OK
+      summary: Get contact source by ID
+      tags:
+      - ContactSources
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact source
+      operationId: PatchContactSourceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact source
+      tags:
+      - ContactSources
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing contact source for the specified tenant.
+      operationId: UpdateContactSourceAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactSourceUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContactSourceUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          description: OK
+      summary: Update a contact source
+      tags:
+      - ContactSources
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
   /version:
     get:
       responses:
@@ -2155,6 +5289,23 @@ paths:
       - application/json
   /health:
     get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: OK
@@ -2903,6 +6054,95 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Patch a contact option
+      operationId: PatchContactOptionAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optionId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact option
+      tags:
+      - Options
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Update a contact option
       operationId: UpdateContactOption
@@ -3069,6 +6309,94 @@ paths:
       summary: Retrieve a single contact option by its key
       tags:
       - Options
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Patch a contact option by key
+      operationId: PatchContactOptionByKeyAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a contact option by key
+      tags:
+      - Options
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -3469,8 +6797,13 @@ components:
         type: type
         currencyId: currencyId
         countryId: countryId
+        timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
           nullable: true
           type: string
         ip:
@@ -3521,6 +6854,7 @@ components:
           type: type
           currencyId: currencyId
           countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
         correlationId: correlationId
@@ -4242,12 +7576,552 @@ components:
           nullable: true
           type: array
       type: object
+    ContactEmailCreateDto:
+      additionalProperties: false
+      example:
+        address: address
+        contactId: contactId
+        isPrimary: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        label: label
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        address:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        isPrimary:
+          type: boolean
+      type: object
+    ContactEmailDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        address: address
+        verifiedTimestamp: 2000-01-23T04:56:07.000+00:00
+        contactId: contactId
+        isVerified: true
+        isPrimary: true
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
+        tenantId: tenantId
+        id: id
+        label: label
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+        address:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        isPrimary:
+          type: boolean
+        isVerified:
+          type: boolean
+        verifiedTimestamp:
+          format: date-time
+          nullable: true
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
+      type: object
+    ContactEmailDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          address: address
+          verifiedTimestamp: 2000-01-23T04:56:07.000+00:00
+          contactId: contactId
+          isVerified: true
+          isPrimary: true
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          tenantId: tenantId
+          id: id
+          label: label
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          address: address
+          verifiedTimestamp: 2000-01-23T04:56:07.000+00:00
+          contactId: contactId
+          isVerified: true
+          isPrimary: true
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
+          tenantId: tenantId
+          id: id
+          label: label
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactEmailDto'
+          nullable: true
+          type: array
+      type: object
+    ContactEmailUpdateDto:
+      additionalProperties: false
+      example:
+        address: address
+        isPrimary: true
+        label: label
+      properties:
+        address:
+          nullable: true
+          type: string
+        label:
+          nullable: true
+          type: string
+        isPrimary:
+          nullable: true
+          type: boolean
+      type: object
+    ContactProfileCreateDto:
+      additionalProperties: false
+      example:
+        data: data
+        about: about
+        data8Label: data8Label
+        type: type
+        contact:
+          birthday: 2000-01-23T04:56:07.000+00:00
+          streetLine2: streetLine2
+          lastName: lastName
+          streetLine1: streetLine1
+          postalCode: postalCode
+          jobTitle: jobTitle
+          twitterUrl: twitterUrl
+          about: about
+          tikTokUrl: tikTokUrl
+          cityId: cityId
+          type: Individual
+          countryId: countryId
+          redditUrl: redditUrl
+          stackOverflowUrl: stackOverflowUrl
+          facebookUrl: facebookUrl
+          stackExchangeUrl: stackExchangeUrl
+          websiteUrl: websiteUrl
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          currencyId: currencyId
+          email: email
+          gitHubUrl: gitHubUrl
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          parentContactId: parentContactId
+          linkedInUrl: linkedInUrl
+          qualifiedName: qualifiedName
+          stateId: stateId
+          languageId: languageId
+          twitchUrl: twitchUrl
+          tikTokUsername: tikTokUsername
+          primaryContactId: primaryContactId
+          firstName: firstName
+          githubUsername: githubUsername
+          instagramUsername: instagramUsername
+          mobilePhone: mobilePhone
+          taxId: taxId
+          webUrl: webUrl
+          duns: duns
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: instagramUrl
+          businessPhone: businessPhone
+          youTubeUrl: youTubeUrl
+        data5Label: data5Label
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        data2Label: data2Label
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        data9: data9
+        data8: data8
+        data7: data7
+        data6: data6
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        dataLabel: dataLabel
+        data1: data1
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        data7Label: data7Label
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        contact:
+          $ref: '#/components/schemas/ContactCreateDto'
+        about:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+      type: object
     ContactProfileDto:
       additionalProperties: false
       example:
         data: data
         about: about
         data8Label: data8Label
+        type: type
+        contact:
+          streetLine2: streetLine2
+          zipCode: zipCode
+          streetLine1: streetLine1
+          jobTitle: jobTitle
+          twitterUrl: https://openapi-generator.tech
+          postalCode: postalCode
+          tikTokUrl: https://openapi-generator.tech
+          about: about
+          cityId: cityId
+          type: Individual
+          identityProvider: identityProvider
+          publicName: publicName
+          id: id
+          currencyId: currencyId
+          gitHubUrl: https://openapi-generator.tech
+          walletId: walletId
+          enrollmentId: enrollmentId
+          parentContactId: parentContactId
+          activeDirectoryId: activeDirectoryId
+          linkedInUrl: https://openapi-generator.tech
+          avatarUrl: avatarUrl
+          qualifiedName: qualifiedName
+          cartId: cartId
+          relatedTenantId: relatedTenantId
+          twitchUrl: https://openapi-generator.tech
+          ownerContactId: ownerContactId
+          coverUrl: coverUrl
+          firstName: firstName
+          activityFeedId: activityFeedId
+          mobilePhone: mobilePhone
+          phone: phone
+          webUrl: https://openapi-generator.tech
+          taxId: taxId
+          duns: duns
+          businessPhone: businessPhone
+          youTubeUrl: https://openapi-generator.tech
+          annualRevenue: annualRevenue
+          birthday: 2000-01-23T04:56:07.000+00:00
+          lastName: lastName
+          relatedUserId: relatedUserId
+          countryId: countryId
+          redditUrl: https://openapi-generator.tech
+          facebookUrl: https://openapi-generator.tech
+          websiteUrl: https://openapi-generator.tech
+          street: street
+          territoryId: territoryId
+          socialProfileId: socialProfileId
+          email: email
+          timestamp: 2000-01-23T04:56:07.000+00:00
+          partnerProfileId: partnerProfileId
+          stateId: stateId
+          languageId: languageId
+          primaryContactId: primaryContactId
+          identityProviderAccessToken: identityProviderAccessToken
+          githubUsername: githubUsername
+          tenantId: tenantId
+          timezoneId: timezoneId
+          faxNumber: faxNumber
+          instagramUrl: https://openapi-generator.tech
         data5Label: data5Label
         id: id
         data2Label: data2Label
@@ -4282,11 +8156,15 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
           type: string
         tenantId:
           nullable: true
           type: string
-        contactId:
+        type:
           nullable: true
           type: string
         enrollmentId:
@@ -4302,8 +8180,11 @@ components:
         avatarUrl:
           nullable: true
           type: string
+        contact:
+          $ref: '#/components/schemas/ContactDto'
         qualifiedName:
           nullable: true
+          readOnly: true
           type: string
         verificationTimestamp:
           format: date-time
@@ -4377,6 +8258,67 @@ components:
         - data: data
           about: about
           data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
           data5Label: data5Label
           id: id
           data2Label: data2Label
@@ -4408,6 +8350,67 @@ components:
         - data: data
           about: about
           data8Label: data8Label
+          type: type
+          contact:
+            streetLine2: streetLine2
+            zipCode: zipCode
+            streetLine1: streetLine1
+            jobTitle: jobTitle
+            twitterUrl: https://openapi-generator.tech
+            postalCode: postalCode
+            tikTokUrl: https://openapi-generator.tech
+            about: about
+            cityId: cityId
+            type: Individual
+            identityProvider: identityProvider
+            publicName: publicName
+            id: id
+            currencyId: currencyId
+            gitHubUrl: https://openapi-generator.tech
+            walletId: walletId
+            enrollmentId: enrollmentId
+            parentContactId: parentContactId
+            activeDirectoryId: activeDirectoryId
+            linkedInUrl: https://openapi-generator.tech
+            avatarUrl: avatarUrl
+            qualifiedName: qualifiedName
+            cartId: cartId
+            relatedTenantId: relatedTenantId
+            twitchUrl: https://openapi-generator.tech
+            ownerContactId: ownerContactId
+            coverUrl: coverUrl
+            firstName: firstName
+            activityFeedId: activityFeedId
+            mobilePhone: mobilePhone
+            phone: phone
+            webUrl: https://openapi-generator.tech
+            taxId: taxId
+            duns: duns
+            businessPhone: businessPhone
+            youTubeUrl: https://openapi-generator.tech
+            annualRevenue: annualRevenue
+            birthday: 2000-01-23T04:56:07.000+00:00
+            lastName: lastName
+            relatedUserId: relatedUserId
+            countryId: countryId
+            redditUrl: https://openapi-generator.tech
+            facebookUrl: https://openapi-generator.tech
+            websiteUrl: https://openapi-generator.tech
+            street: street
+            territoryId: territoryId
+            socialProfileId: socialProfileId
+            email: email
+            timestamp: 2000-01-23T04:56:07.000+00:00
+            partnerProfileId: partnerProfileId
+            stateId: stateId
+            languageId: languageId
+            primaryContactId: primaryContactId
+            identityProviderAccessToken: identityProviderAccessToken
+            githubUsername: githubUsername
+            tenantId: tenantId
+            timezoneId: timezoneId
+            faxNumber: faxNumber
+            instagramUrl: https://openapi-generator.tech
           data5Label: data5Label
           id: id
           data2Label: data2Label
@@ -4465,6 +8468,492 @@ components:
           nullable: true
           type: array
       type: object
+    ContactProfileUpdateDto:
+      additionalProperties: false
+      example:
+        data9: data9
+        data8: data8
+        data7: data7
+        data6: data6
+        data: data
+        data5: data5
+        contactId: contactId
+        avatarUrl: avatarUrl
+        data4: data4
+        data3: data3
+        data9Label: data9Label
+        data2: data2
+        about: about
+        dataLabel: dataLabel
+        data1: data1
+        data8Label: data8Label
+        type: type
+        data3Label: data3Label
+        data6Label: data6Label
+        data1Label: data1Label
+        data4Label: data4Label
+        data5Label: data5Label
+        data2Label: data2Label
+        data7Label: data7Label
+      properties:
+        type:
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        about:
+          nullable: true
+          type: string
+        avatarUrl:
+          nullable: true
+          type: string
+        data:
+          nullable: true
+          type: string
+        dataLabel:
+          nullable: true
+          type: string
+        data1:
+          nullable: true
+          type: string
+        data1Label:
+          nullable: true
+          type: string
+        data2:
+          nullable: true
+          type: string
+        data2Label:
+          nullable: true
+          type: string
+        data3:
+          nullable: true
+          type: string
+        data3Label:
+          nullable: true
+          type: string
+        data4:
+          nullable: true
+          type: string
+        data4Label:
+          nullable: true
+          type: string
+        data5:
+          nullable: true
+          type: string
+        data5Label:
+          nullable: true
+          type: string
+        data6:
+          nullable: true
+          type: string
+        data6Label:
+          nullable: true
+          type: string
+        data7:
+          nullable: true
+          type: string
+        data7Label:
+          nullable: true
+          type: string
+        data8:
+          nullable: true
+          type: string
+        data8Label:
+          nullable: true
+          type: string
+        data9:
+          nullable: true
+          type: string
+        data9Label:
+          nullable: true
+          type: string
+      type: object
+    ContactRelationCreateDto:
+      additionalProperties: false
+      example:
+        contactId: contactId
+        relatedContactId: relatedContactId
+        contactRelationTypeId: contactRelationTypeId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        relatedContactId:
+          nullable: true
+          type: string
+        contactRelationTypeId:
+          nullable: true
+          type: string
+      type: object
+    ContactRelationDto:
+      additionalProperties: false
+      example:
+        relatedContactName: relatedContactName
+        contactId: contactId
+        contactName: contactName
+        relatedContactId: relatedContactId
+        qualifiedName: qualifiedName
+        tenantId: tenantId
+        contactRelationTypeId: contactRelationTypeId
+        id: id
+        contactRelationTypeName: contactRelationTypeName
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        contactId:
+          nullable: true
+          type: string
+        contactName:
+          nullable: true
+          type: string
+        relatedContactId:
+          nullable: true
+          type: string
+        relatedContactName:
+          nullable: true
+          type: string
+        contactRelationTypeId:
+          nullable: true
+          type: string
+        contactRelationTypeName:
+          nullable: true
+          type: string
+        qualifiedName:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    ContactRelationDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - relatedContactName: relatedContactName
+          contactId: contactId
+          contactName: contactName
+          relatedContactId: relatedContactId
+          qualifiedName: qualifiedName
+          tenantId: tenantId
+          contactRelationTypeId: contactRelationTypeId
+          id: id
+          contactRelationTypeName: contactRelationTypeName
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - relatedContactName: relatedContactName
+          contactId: contactId
+          contactName: contactName
+          relatedContactId: relatedContactId
+          qualifiedName: qualifiedName
+          tenantId: tenantId
+          contactRelationTypeId: contactRelationTypeId
+          id: id
+          contactRelationTypeName: contactRelationTypeName
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactRelationDto'
+          nullable: true
+          type: array
+      type: object
+    ContactRelationTypeCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+        backName: backName
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        backName:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ContactRelationTypeDto:
+      additionalProperties: false
+      example:
+        name: name
+        tenantId: tenantId
+        description: description
+        backName: backName
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        backName:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    ContactRelationTypeDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          tenantId: tenantId
+          description: description
+          backName: backName
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          tenantId: tenantId
+          description: description
+          backName: backName
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactRelationTypeDto'
+          nullable: true
+          type: array
+      type: object
+    ContactRelationTypeUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+        backName: backName
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        backName:
+          maxLength: 255
+          minLength: 0
+          nullable: true
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ContactRelationUpdateDto:
+      additionalProperties: false
+      example:
+        contactId: contactId
+        relatedContactId: relatedContactId
+        contactRelationTypeId: contactRelationTypeId
+      properties:
+        contactId:
+          nullable: true
+          type: string
+        relatedContactId:
+          nullable: true
+          type: string
+        contactRelationTypeId:
+          nullable: true
+          type: string
+      type: object
+    ContactSourceCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ContactSourceDto:
+      additionalProperties: false
+      example:
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+      type: object
+    ContactSourceDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactSourceDto'
+          nullable: true
+          type: array
+      type: object
+    ContactSourceUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
     ContactUpdateDto:
       additionalProperties: false
       example:
@@ -4484,8 +8973,6 @@ components:
         stackOverflowUrl: stackOverflowUrl
         facebookUrl: facebookUrl
         stackExchangeUrl: stackExchangeUrl
-        addressLine1: addressLine1
-        addressLine2: addressLine2
         currencyId: currencyId
         email: email
         gitHubUrl: gitHubUrl
@@ -4575,12 +9062,6 @@ components:
         parentContactId:
           nullable: true
           type: string
-        addressLine1:
-          nullable: true
-          type: string
-        addressLine2:
-          nullable: true
-          type: string
         postalCode:
           nullable: true
           type: string
@@ -4660,6 +9141,125 @@ components:
       - email
       - firstName
       - type
+      type: object
+    ContactsGroupCreateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
+      type: object
+    ContactsGroupDto:
+      additionalProperties: false
+      example:
+        enrollmentId: enrollmentId
+        name: name
+        tenantId: tenantId
+        description: description
+        id: id
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    ContactsGroupDtoListEnvelope:
+      additionalProperties: false
+      example:
+        result:
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        - enrollmentId: enrollmentId
+          name: name
+          tenantId: tenantId
+          description: description
+          id: id
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          items:
+            $ref: '#/components/schemas/ContactsGroupDto'
+          nullable: true
+          type: array
+      type: object
+    ContactsGroupUpdateDto:
+      additionalProperties: false
+      example:
+        name: name
+        description: description
+      properties:
+        name:
+          maxLength: 255
+          minLength: 0
+          type: string
+        description:
+          maxLength: 1000
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - name
       type: object
     EmailDispatchRequest:
       additionalProperties: false
@@ -4869,6 +9469,7 @@ components:
           type: type
           currencyId: currencyId
           countryId: countryId
+          timestamp: 2000-01-23T04:56:07.000+00:00
         publicName: publicName
         id: id
         currencyId: currencyId
@@ -5254,6 +9855,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           publicName: publicName
           id: id
           currencyId: currencyId
@@ -5458,6 +10060,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           publicName: publicName
           id: id
           currencyId: currencyId
@@ -5632,6 +10235,7 @@ components:
             type: type
             currencyId: currencyId
             countryId: countryId
+            timestamp: 2000-01-23T04:56:07.000+00:00
           publicName: publicName
           id: id
           currencyId: currencyId
@@ -6620,6 +11224,7 @@ components:
           type: string
         timestamp:
           format: date-time
+          nullable: true
           type: string
         balance:
           format: double

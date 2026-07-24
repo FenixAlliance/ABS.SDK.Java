@@ -223,7 +223,7 @@ No authorization required
 
 <a id="getNonFungibleTokensAsync"></a>
 # **getNonFungibleTokensAsync**
-> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion)
 
 Get all non-fungible tokens
 
@@ -245,11 +245,10 @@ public class Example {
 
     NonFungibleTokensApi apiInstance = new NonFungibleTokensApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    NonFungibleTokenDtoODataQueryOptions oDataQueryOptions = new NonFungibleTokenDtoODataQueryOptions(); // NonFungibleTokenDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      NonFungibleTokenDtoListEnvelope result = apiInstance.getNonFungibleTokensAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      NonFungibleTokenDtoListEnvelope result = apiInstance.getNonFungibleTokensAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NonFungibleTokensApi#getNonFungibleTokensAsync");
@@ -267,7 +266,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**NonFungibleTokenDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 
@@ -292,7 +290,7 @@ No authorization required
 
 <a id="getNonFungibleTokensCountAsync"></a>
 # **getNonFungibleTokensCountAsync**
-> Int32Envelope getNonFungibleTokensCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion)
+> Int32Envelope getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion)
 
 Get NFTs count
 
@@ -314,11 +312,10 @@ public class Example {
 
     NonFungibleTokensApi apiInstance = new NonFungibleTokensApi(defaultClient);
     UUID tenantId = UUID.randomUUID(); // UUID | 
-    NonFungibleTokenDtoODataQueryOptions oDataQueryOptions = new NonFungibleTokenDtoODataQueryOptions(); // NonFungibleTokenDtoODataQueryOptions | 
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      Int32Envelope result = apiInstance.getNonFungibleTokensCountAsync(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+      Int32Envelope result = apiInstance.getNonFungibleTokensCountAsync(tenantId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NonFungibleTokensApi#getNonFungibleTokensCountAsync");
@@ -336,7 +333,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **UUID**|  | |
-| **oDataQueryOptions** | [**NonFungibleTokenDtoODataQueryOptions**](.md)|  | [optional] |
 | **apiVersion** | **String**|  | [optional] |
 | **xApiVersion** | **String**|  | [optional] |
 

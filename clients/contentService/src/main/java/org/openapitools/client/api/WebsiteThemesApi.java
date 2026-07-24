@@ -34,7 +34,6 @@ import java.util.UUID;
 import org.openapitools.client.model.WebsiteThemeCreateDto;
 import org.openapitools.client.model.WebsiteThemeDto;
 import org.openapitools.client.model.WebsiteThemeDtoListEnvelope;
-import org.openapitools.client.model.WebsiteThemeDtoODataQueryOptions;
 import org.openapitools.client.model.WebsiteThemeUpdateDto;
 
 import java.lang.reflect.Type;
@@ -554,7 +553,6 @@ public class WebsiteThemesApi {
     /**
      * Build call for getWebsiteThemesAsync
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -567,7 +565,7 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebsiteThemesAsyncCall(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebsiteThemesAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -596,10 +594,6 @@ public class WebsiteThemesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
 
-        if (oDataQueryOptions != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oDataQueryOptions", oDataQueryOptions));
-        }
-
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -629,13 +623,13 @@ public class WebsiteThemesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebsiteThemesAsyncValidateBeforeCall(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebsiteThemesAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebsiteThemesAsync(Async)");
         }
 
-        return getWebsiteThemesAsyncCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        return getWebsiteThemesAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -643,7 +637,6 @@ public class WebsiteThemesApi {
      * Get all website themes
      * Retrieves all website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return WebsiteThemeDtoListEnvelope
@@ -655,8 +648,8 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<WebsiteThemeDtoListEnvelope> localVarResp = getWebsiteThemesAsyncWithHttpInfo(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+    public WebsiteThemeDtoListEnvelope getWebsiteThemesAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<WebsiteThemeDtoListEnvelope> localVarResp = getWebsiteThemesAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -664,7 +657,6 @@ public class WebsiteThemesApi {
      * Get all website themes
      * Retrieves all website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;WebsiteThemeDtoListEnvelope&gt;
@@ -676,8 +668,8 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebsiteThemeDtoListEnvelope> getWebsiteThemesAsyncWithHttpInfo(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebsiteThemesAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, null);
+    public ApiResponse<WebsiteThemeDtoListEnvelope> getWebsiteThemesAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getWebsiteThemesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<WebsiteThemeDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -686,7 +678,6 @@ public class WebsiteThemesApi {
      * Get all website themes (asynchronously)
      * Retrieves all website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -699,9 +690,9 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebsiteThemesAsyncAsync(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback<WebsiteThemeDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getWebsiteThemesAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<WebsiteThemeDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebsiteThemesAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebsiteThemesAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<WebsiteThemeDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -709,7 +700,6 @@ public class WebsiteThemesApi {
     /**
      * Build call for getWebsiteThemesCountAsync
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -722,7 +712,7 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebsiteThemesCountAsyncCall(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWebsiteThemesCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -751,10 +741,6 @@ public class WebsiteThemesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
 
-        if (oDataQueryOptions != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oDataQueryOptions", oDataQueryOptions));
-        }
-
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -784,13 +770,13 @@ public class WebsiteThemesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWebsiteThemesCountAsyncValidateBeforeCall(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebsiteThemesCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getWebsiteThemesCountAsync(Async)");
         }
 
-        return getWebsiteThemesCountAsyncCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        return getWebsiteThemesCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -798,7 +784,6 @@ public class WebsiteThemesApi {
      * Get website themes count
      * Returns the count of website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -810,8 +795,8 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getWebsiteThemesCountAsync(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWebsiteThemesCountAsyncWithHttpInfo(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+    public Int32Envelope getWebsiteThemesCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getWebsiteThemesCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -819,7 +804,6 @@ public class WebsiteThemesApi {
      * Get website themes count
      * Returns the count of website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
@@ -831,8 +815,8 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getWebsiteThemesCountAsyncWithHttpInfo(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWebsiteThemesCountAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getWebsiteThemesCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getWebsiteThemesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -841,7 +825,6 @@ public class WebsiteThemesApi {
      * Get website themes count (asynchronously)
      * Returns the count of website themes for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -854,9 +837,9 @@ public class WebsiteThemesApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWebsiteThemesCountAsyncAsync(UUID tenantId, WebsiteThemeDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getWebsiteThemesCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWebsiteThemesCountAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getWebsiteThemesCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

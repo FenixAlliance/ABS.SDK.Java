@@ -24,7 +24,6 @@ servers:
       - https://localhost:44388
 tags:
 - name: ActivityFeeds
-- name: ActivityRecords
 - name: FenixAlliance.ABS.Web
 paths:
   /api/v2/ActivitiesService/ActivityFeeds:
@@ -760,6 +759,68 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+  /api/v2/ActivitiesService/Activities/Count:
+    get:
+      description: Returns the tenant-wide count of activity records across all feeds
+        owned by the tenant.
+      operationId: GetActivityRecordsCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Count activity records
+      tags:
+      - ActivityFeeds
+      x-accepts:
+      - application/json
+      - application/xml
   /api/v2/ActivitiesService/ActivityTypes:
     get:
       description: Get a list of activity types for the current tenant.
@@ -1246,68 +1307,6 @@ paths:
       x-accepts:
       - application/json
       - application/xml
-  /api/v2/ActivitiesService/ActivityRecords/Count:
-    get:
-      description: Returns the tenant-wide count of activity records across all feeds
-        owned by the tenant.
-      operationId: GetActivityRecordsCountAsync
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: api-version
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: header
-        name: x-api-version
-        required: false
-        schema:
-          type: string
-        style: simple
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Forbidden
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorEnvelope'
-          description: Unauthorized
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Int32Envelope'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Int32Envelope'
-          description: OK
-      summary: Count activity records
-      tags:
-      - ActivityRecords
-      x-accepts:
-      - application/json
-      - application/xml
   /version:
     get:
       responses:
@@ -1319,6 +1318,23 @@ paths:
       - application/json
   /health:
     get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: OK

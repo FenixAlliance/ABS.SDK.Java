@@ -33,7 +33,6 @@ import org.openapitools.client.model.Int32Envelope;
 import org.openapitools.client.model.NonFungibleTokenCreateDto;
 import org.openapitools.client.model.NonFungibleTokenDto;
 import org.openapitools.client.model.NonFungibleTokenDtoListEnvelope;
-import org.openapitools.client.model.NonFungibleTokenDtoODataQueryOptions;
 import org.openapitools.client.model.NonFungibleTokenUpdateDto;
 import org.openapitools.client.model.Operation;
 import java.util.UUID;
@@ -555,7 +554,6 @@ public class NonFungibleTokensApi {
     /**
      * Build call for getNonFungibleTokensAsync
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -568,7 +566,7 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNonFungibleTokensAsyncCall(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNonFungibleTokensAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -597,10 +595,6 @@ public class NonFungibleTokensApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
 
-        if (oDataQueryOptions != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oDataQueryOptions", oDataQueryOptions));
-        }
-
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -630,13 +624,13 @@ public class NonFungibleTokensApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNonFungibleTokensAsyncValidateBeforeCall(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNonFungibleTokensAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getNonFungibleTokensAsync(Async)");
         }
 
-        return getNonFungibleTokensAsyncCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        return getNonFungibleTokensAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -644,7 +638,6 @@ public class NonFungibleTokensApi {
      * Get all non-fungible tokens
      * Retrieves all NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return NonFungibleTokenDtoListEnvelope
@@ -656,8 +649,8 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<NonFungibleTokenDtoListEnvelope> localVarResp = getNonFungibleTokensAsyncWithHttpInfo(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+    public NonFungibleTokenDtoListEnvelope getNonFungibleTokensAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<NonFungibleTokenDtoListEnvelope> localVarResp = getNonFungibleTokensAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -665,7 +658,6 @@ public class NonFungibleTokensApi {
      * Get all non-fungible tokens
      * Retrieves all NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;NonFungibleTokenDtoListEnvelope&gt;
@@ -677,8 +669,8 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NonFungibleTokenDtoListEnvelope> getNonFungibleTokensAsyncWithHttpInfo(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getNonFungibleTokensAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, null);
+    public ApiResponse<NonFungibleTokenDtoListEnvelope> getNonFungibleTokensAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getNonFungibleTokensAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<NonFungibleTokenDtoListEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -687,7 +679,6 @@ public class NonFungibleTokensApi {
      * Get all non-fungible tokens (asynchronously)
      * Retrieves all NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -700,9 +691,9 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNonFungibleTokensAsyncAsync(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback<NonFungibleTokenDtoListEnvelope> _callback) throws ApiException {
+    public okhttp3.Call getNonFungibleTokensAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<NonFungibleTokenDtoListEnvelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNonFungibleTokensAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getNonFungibleTokensAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<NonFungibleTokenDtoListEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -710,7 +701,6 @@ public class NonFungibleTokensApi {
     /**
      * Build call for getNonFungibleTokensCountAsync
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback Callback for upload/download progress
@@ -723,7 +713,7 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNonFungibleTokensCountAsyncCall(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNonFungibleTokensCountAsyncCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -752,10 +742,6 @@ public class NonFungibleTokensApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
         }
 
-        if (oDataQueryOptions != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("oDataQueryOptions", oDataQueryOptions));
-        }
-
         if (apiVersion != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
         }
@@ -785,13 +771,13 @@ public class NonFungibleTokensApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNonFungibleTokensCountAsyncValidateBeforeCall(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNonFungibleTokensCountAsyncValidateBeforeCall(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getNonFungibleTokensCountAsync(Async)");
         }
 
-        return getNonFungibleTokensCountAsyncCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        return getNonFungibleTokensCountAsyncCall(tenantId, apiVersion, xApiVersion, _callback);
 
     }
 
@@ -799,7 +785,6 @@ public class NonFungibleTokensApi {
      * Get NFTs count
      * Returns the count of NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return Int32Envelope
@@ -811,8 +796,8 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Int32Envelope getNonFungibleTokensCountAsync(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getNonFungibleTokensCountAsyncWithHttpInfo(tenantId, oDataQueryOptions, apiVersion, xApiVersion);
+    public Int32Envelope getNonFungibleTokensCountAsync(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getNonFungibleTokensCountAsyncWithHttpInfo(tenantId, apiVersion, xApiVersion);
         return localVarResp.getData();
     }
 
@@ -820,7 +805,6 @@ public class NonFungibleTokensApi {
      * Get NFTs count
      * Returns the count of NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @return ApiResponse&lt;Int32Envelope&gt;
@@ -832,8 +816,8 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Int32Envelope> getNonFungibleTokensCountAsyncWithHttpInfo(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getNonFungibleTokensCountAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, null);
+    public ApiResponse<Int32Envelope> getNonFungibleTokensCountAsyncWithHttpInfo(UUID tenantId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getNonFungibleTokensCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, null);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -842,7 +826,6 @@ public class NonFungibleTokensApi {
      * Get NFTs count (asynchronously)
      * Returns the count of NFTs for the specified tenant.
      * @param tenantId  (required)
-     * @param oDataQueryOptions  (optional)
      * @param apiVersion  (optional)
      * @param xApiVersion  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -855,9 +838,9 @@ public class NonFungibleTokensApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNonFungibleTokensCountAsyncAsync(UUID tenantId, NonFungibleTokenDtoODataQueryOptions oDataQueryOptions, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+    public okhttp3.Call getNonFungibleTokensCountAsyncAsync(UUID tenantId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNonFungibleTokensCountAsyncValidateBeforeCall(tenantId, oDataQueryOptions, apiVersion, xApiVersion, _callback);
+        okhttp3.Call localVarCall = getNonFungibleTokensCountAsyncValidateBeforeCall(tenantId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

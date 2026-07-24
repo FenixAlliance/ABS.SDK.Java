@@ -5,8 +5,8 @@ All URIs are relative to *https://absuite.net*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**countItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#countItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies |
-| [**getItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#getItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
-| [**getItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#getItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
+| [**getCatalogItemShippingPoliciesAsync**](ItemShippingPoliciesApi.md#getCatalogItemShippingPoliciesAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies |
+| [**getCatalogItemShippingPolicyByIdAsync**](ItemShippingPoliciesApi.md#getCatalogItemShippingPolicyByIdAsync) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID |
 | [**relateItemToShippingPolicyAsync**](ItemShippingPoliciesApi.md#relateItemToShippingPolicyAsync) | **POST** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy |
 | [**removeShippingPolicyFromItemAsync**](ItemShippingPoliciesApi.md#removeShippingPolicyFromItemAsync) | **DELETE** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item |
 
@@ -81,9 +81,9 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="getItemShippingPoliciesAsync"></a>
-# **getItemShippingPoliciesAsync**
-> ItemShippingPolicyDtoListEnvelope getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
+<a id="getCatalogItemShippingPoliciesAsync"></a>
+# **getCatalogItemShippingPoliciesAsync**
+> ItemShippingPolicyDtoListEnvelope getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policies
 
@@ -109,10 +109,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemShippingPolicyDtoListEnvelope result = apiInstance.getItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoListEnvelope result = apiInstance.getCatalogItemShippingPoliciesAsync(tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPoliciesAsync");
+      System.err.println("Exception when calling ItemShippingPoliciesApi#getCatalogItemShippingPoliciesAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -151,9 +151,9 @@ No authorization required
 | **401** | Unauthorized |  -  |
 | **200** | OK |  -  |
 
-<a id="getItemShippingPolicyByIdAsync"></a>
-# **getItemShippingPolicyByIdAsync**
-> ItemShippingPolicyDtoEnvelope getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
+<a id="getCatalogItemShippingPolicyByIdAsync"></a>
+# **getCatalogItemShippingPolicyByIdAsync**
+> ItemShippingPolicyDtoEnvelope getCatalogItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion)
 
 Get item shipping policy by ID
 
@@ -180,10 +180,10 @@ public class Example {
     String apiVersion = "apiVersion_example"; // String | 
     String xApiVersion = "xApiVersion_example"; // String | 
     try {
-      ItemShippingPolicyDtoEnvelope result = apiInstance.getItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion);
+      ItemShippingPolicyDtoEnvelope result = apiInstance.getCatalogItemShippingPolicyByIdAsync(itemShippingPolicyId, tenantId, itemId, apiVersion, xApiVersion);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ItemShippingPoliciesApi#getItemShippingPolicyByIdAsync");
+      System.err.println("Exception when calling ItemShippingPoliciesApi#getCatalogItemShippingPolicyByIdAsync");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

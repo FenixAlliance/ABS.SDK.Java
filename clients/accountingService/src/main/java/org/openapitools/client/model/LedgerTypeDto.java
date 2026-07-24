@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * LedgerTypeDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class LedgerTypeDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -73,13 +73,9 @@ public class LedgerTypeDto {
     
     EQUITY("Equity"),
     
-    GAINS("Gains"),
-    
-    LOSSES("Losses"),
-    
     REVENUE("Revenue"),
     
-    EXPENSES("Expenses"),
+    EXPENSE("Expense"),
     
     LIABILITIES("Liabilities");
 

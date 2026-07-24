@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -50,19 +49,15 @@ import org.openapitools.client.JSON;
 /**
  * BudgetAccountEntryUpdateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class BudgetAccountEntryUpdateDto {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Double amount;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  private OffsetDateTime date;
+  public static final String SERIALIZED_NAME_PLANNED_AMOUNT = "plannedAmount";
+  @SerializedName(SERIALIZED_NAME_PLANNED_AMOUNT)
+  private Double plannedAmount;
 
   public static final String SERIALIZED_NAME_CURRENCY_ID = "currencyId";
   @SerializedName(SERIALIZED_NAME_CURRENCY_ID)
@@ -75,68 +70,6 @@ public class BudgetAccountEntryUpdateDto {
   public static final String SERIALIZED_NAME_CREDIT_ACCOUNT_ID = "creditAccountId";
   @SerializedName(SERIALIZED_NAME_CREDIT_ACCOUNT_ID)
   private String creditAccountId;
-
-  public static final String SERIALIZED_NAME_JOURNAL_ENTRY_ID = "journalEntryId";
-  @SerializedName(SERIALIZED_NAME_JOURNAL_ENTRY_ID)
-  private String journalEntryId;
-
-  /**
-   * Gets or Sets accountingEntryType
-   */
-  @JsonAdapter(AccountingEntryTypeEnum.Adapter.class)
-  public enum AccountingEntryTypeEnum {
-    NONE("None"),
-    
-    DEBIT("Debit"),
-    
-    CREDIT("Credit");
-
-    private String value;
-
-    AccountingEntryTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static AccountingEntryTypeEnum fromValue(String value) {
-      for (AccountingEntryTypeEnum b : AccountingEntryTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<AccountingEntryTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AccountingEntryTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AccountingEntryTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AccountingEntryTypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      AccountingEntryTypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_ACCOUNTING_ENTRY_TYPE = "accountingEntryType";
-  @SerializedName(SERIALIZED_NAME_ACCOUNTING_ENTRY_TYPE)
-  private AccountingEntryTypeEnum accountingEntryType;
 
   public static final String SERIALIZED_NAME_BUDGET_ID = "budgetId";
   @SerializedName(SERIALIZED_NAME_BUDGET_ID)
@@ -164,43 +97,22 @@ public class BudgetAccountEntryUpdateDto {
   }
 
 
-  public BudgetAccountEntryUpdateDto amount(Double amount) {
-    this.amount = amount;
+  public BudgetAccountEntryUpdateDto plannedAmount(Double plannedAmount) {
+    this.plannedAmount = plannedAmount;
     return this;
   }
 
   /**
-   * Get amount
-   * minimum: 0.01
-   * maximum: 999999999999999
-   * @return amount
+   * Get plannedAmount
+   * @return plannedAmount
    */
   @javax.annotation.Nullable
-  public Double getAmount() {
-    return amount;
+  public Double getPlannedAmount() {
+    return plannedAmount;
   }
 
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
-
-
-  public BudgetAccountEntryUpdateDto date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
+  public void setPlannedAmount(Double plannedAmount) {
+    this.plannedAmount = plannedAmount;
   }
 
 
@@ -261,44 +173,6 @@ public class BudgetAccountEntryUpdateDto {
   }
 
 
-  public BudgetAccountEntryUpdateDto journalEntryId(String journalEntryId) {
-    this.journalEntryId = journalEntryId;
-    return this;
-  }
-
-  /**
-   * Get journalEntryId
-   * @return journalEntryId
-   */
-  @javax.annotation.Nullable
-  public String getJournalEntryId() {
-    return journalEntryId;
-  }
-
-  public void setJournalEntryId(String journalEntryId) {
-    this.journalEntryId = journalEntryId;
-  }
-
-
-  public BudgetAccountEntryUpdateDto accountingEntryType(AccountingEntryTypeEnum accountingEntryType) {
-    this.accountingEntryType = accountingEntryType;
-    return this;
-  }
-
-  /**
-   * Get accountingEntryType
-   * @return accountingEntryType
-   */
-  @javax.annotation.Nullable
-  public AccountingEntryTypeEnum getAccountingEntryType() {
-    return accountingEntryType;
-  }
-
-  public void setAccountingEntryType(AccountingEntryTypeEnum accountingEntryType) {
-    this.accountingEntryType = accountingEntryType;
-  }
-
-
   public BudgetAccountEntryUpdateDto budgetId(String budgetId) {
     this.budgetId = budgetId;
     return this;
@@ -329,13 +203,10 @@ public class BudgetAccountEntryUpdateDto {
     }
     BudgetAccountEntryUpdateDto budgetAccountEntryUpdateDto = (BudgetAccountEntryUpdateDto) o;
     return Objects.equals(this.description, budgetAccountEntryUpdateDto.description) &&
-        Objects.equals(this.amount, budgetAccountEntryUpdateDto.amount) &&
-        Objects.equals(this.date, budgetAccountEntryUpdateDto.date) &&
+        Objects.equals(this.plannedAmount, budgetAccountEntryUpdateDto.plannedAmount) &&
         Objects.equals(this.currencyId, budgetAccountEntryUpdateDto.currencyId) &&
         Objects.equals(this.debitAccountId, budgetAccountEntryUpdateDto.debitAccountId) &&
         Objects.equals(this.creditAccountId, budgetAccountEntryUpdateDto.creditAccountId) &&
-        Objects.equals(this.journalEntryId, budgetAccountEntryUpdateDto.journalEntryId) &&
-        Objects.equals(this.accountingEntryType, budgetAccountEntryUpdateDto.accountingEntryType) &&
         Objects.equals(this.budgetId, budgetAccountEntryUpdateDto.budgetId);
   }
 
@@ -345,7 +216,7 @@ public class BudgetAccountEntryUpdateDto {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, amount, date, currencyId, debitAccountId, creditAccountId, journalEntryId, accountingEntryType, budgetId);
+    return Objects.hash(description, plannedAmount, currencyId, debitAccountId, creditAccountId, budgetId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -360,13 +231,10 @@ public class BudgetAccountEntryUpdateDto {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetAccountEntryUpdateDto {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    plannedAmount: ").append(toIndentedString(plannedAmount)).append("\n");
     sb.append("    currencyId: ").append(toIndentedString(currencyId)).append("\n");
     sb.append("    debitAccountId: ").append(toIndentedString(debitAccountId)).append("\n");
     sb.append("    creditAccountId: ").append(toIndentedString(creditAccountId)).append("\n");
-    sb.append("    journalEntryId: ").append(toIndentedString(journalEntryId)).append("\n");
-    sb.append("    accountingEntryType: ").append(toIndentedString(accountingEntryType)).append("\n");
     sb.append("    budgetId: ").append(toIndentedString(budgetId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -391,13 +259,10 @@ public class BudgetAccountEntryUpdateDto {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("description");
-    openapiFields.add("amount");
-    openapiFields.add("date");
+    openapiFields.add("plannedAmount");
     openapiFields.add("currencyId");
     openapiFields.add("debitAccountId");
     openapiFields.add("creditAccountId");
-    openapiFields.add("journalEntryId");
-    openapiFields.add("accountingEntryType");
     openapiFields.add("budgetId");
 
     // a set of required properties/fields (JSON key names)
@@ -436,16 +301,6 @@ public class BudgetAccountEntryUpdateDto {
       }
       if ((jsonObj.get("creditAccountId") != null && !jsonObj.get("creditAccountId").isJsonNull()) && !jsonObj.get("creditAccountId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `creditAccountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creditAccountId").toString()));
-      }
-      if ((jsonObj.get("journalEntryId") != null && !jsonObj.get("journalEntryId").isJsonNull()) && !jsonObj.get("journalEntryId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `journalEntryId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("journalEntryId").toString()));
-      }
-      if ((jsonObj.get("accountingEntryType") != null && !jsonObj.get("accountingEntryType").isJsonNull()) && !jsonObj.get("accountingEntryType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountingEntryType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountingEntryType").toString()));
-      }
-      // validate the optional field `accountingEntryType`
-      if (jsonObj.get("accountingEntryType") != null && !jsonObj.get("accountingEntryType").isJsonNull()) {
-        AccountingEntryTypeEnum.validateJsonElement(jsonObj.get("accountingEntryType"));
       }
       if ((jsonObj.get("budgetId") != null && !jsonObj.get("budgetId").isJsonNull()) && !jsonObj.get("budgetId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `budgetId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("budgetId").toString()));

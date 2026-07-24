@@ -20,10 +20,8 @@
 |---- | -----|
 | ASSETS | &quot;Assets&quot; |
 | EQUITY | &quot;Equity&quot; |
-| GAINS | &quot;Gains&quot; |
-| LOSSES | &quot;Losses&quot; |
 | REVENUE | &quot;Revenue&quot; |
-| EXPENSES | &quot;Expenses&quot; |
+| EXPENSE | &quot;Expense&quot; |
 | LIABILITIES | &quot;Liabilities&quot; |
 
 

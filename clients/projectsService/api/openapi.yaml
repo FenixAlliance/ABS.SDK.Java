@@ -25,8 +25,11 @@ servers:
 tags:
 - name: FenixAlliance.ABS.Web
 - name: Projects
+- name: ProjectTasks
 - name: TaskCategories
 - name: TaskTypes
+- name: TimeLogApprovals
+- name: TimeLogs
 paths:
   /version:
     get:
@@ -39,6 +42,23 @@ paths:
       - application/json
   /health:
     get:
+      responses:
+        "200":
+          description: OK
+      tags:
+      - FenixAlliance.ABS.Web
+      x-accepts:
+      - application/json
+  /api/v2/AIService/Agents/{agentId}/agui:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: agentId
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: OK
@@ -646,6 +666,73 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified project.
+      operationId: PatchProjectAsync
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a project
+      tags:
+      - Projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified project.
       operationId: UpdateProjectAsync
@@ -890,6 +977,81 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified period for a project.
+      operationId: PatchProjectPeriodAsync
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: projectPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a project period
+      tags:
+      - Projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified period for a project.
       operationId: UpdateProjectPeriodAsync
@@ -964,7 +1126,7 @@ paths:
   /api/v2/ProjectsService/Projects/{projectId}/TimeLogs:
     get:
       description: Gets all time log entries for a specific project with OData support.
-      operationId: GetProjectTimeLogsAsync
+      operationId: GetTimeLogsForProjectAsync
       parameters:
       - explode: false
         in: path
@@ -1074,7 +1236,7 @@ paths:
   /api/v2/ProjectsService/Projects/{projectId}/Tasks:
     get:
       description: Gets all tasks for a specific project with OData support.
-      operationId: GetProjectTasksAsync
+      operationId: GetTasksForProjectAsync
       parameters:
       - explode: false
         in: path
@@ -1128,7 +1290,7 @@ paths:
       - application/xml
     post:
       description: Creates a new task for the specified project.
-      operationId: CreateProjectTaskAsync
+      operationId: CreateTaskForProjectAsync
       parameters:
       - explode: false
         in: path
@@ -1192,7 +1354,7 @@ paths:
   /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count:
     get:
       description: Gets the count of tasks for a specific project.
-      operationId: GetProjectTasksCountAsync
+      operationId: GetTasksForProjectCountAsync
       parameters:
       - explode: false
         in: path
@@ -1247,7 +1409,7 @@ paths:
   /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}:
     delete:
       description: Deletes the specified task from a project.
-      operationId: DeleteProjectTaskAsync
+      operationId: DeleteTaskForProjectAsync
       parameters:
       - explode: true
         in: query
@@ -1307,9 +1469,84 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified task in a project.
+      operationId: PatchTaskForProjectAsync
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: projectTaskId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a project task
+      tags:
+      - Projects
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified task in a project.
-      operationId: UpdateProjectTaskAsync
+      operationId: UpdateTaskForProjectAsync
       parameters:
       - explode: false
         in: path
@@ -1485,6 +1722,429 @@ paths:
       summary: Counts project task categories
       tags:
       - Projects
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/ProjectTasks:
+    get:
+      description: Retrieves all project tasks for the specified tenant.
+      operationId: GetProjectTasksAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTaskDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTaskDtoListEnvelope'
+          description: OK
+      summary: Get all project tasks
+      tags:
+      - ProjectTasks
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new project task.
+      operationId: CreateProjectTaskAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTaskCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTaskCreateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Create a project task
+      tags:
+      - ProjectTasks
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/ProjectTasks/Count:
+    get:
+      description: Returns the count of project tasks for the specified tenant.
+      operationId: GetProjectTasksCountAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get project tasks count
+      tags:
+      - ProjectTasks
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/ProjectTasks/{projectTaskId}:
+    delete:
+      description: Deletes a project task.
+      operationId: DeleteProjectTaskAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: projectTaskId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Delete a project task
+      tags:
+      - ProjectTasks
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a specific project task.
+      operationId: GetProjectTaskByIdAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: projectTaskId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTaskDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTaskDtoEnvelope'
+          description: OK
+      summary: Get project task by ID
+      tags:
+      - ProjectTasks
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing project task.
+      operationId: PatchProjectTaskAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: projectTaskId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patch a project task
+      tags:
+      - ProjectTasks
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing project task.
+      operationId: UpdateProjectTaskAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: projectTaskId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTaskUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTaskUpdateDto'
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Update a project task
+      tags:
+      - ProjectTasks
+      x-content-type: application/json
       x-accepts:
       - application/json
       - application/xml
@@ -1746,6 +2406,73 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified task category.
+      operationId: PatchTaskCategoryAsync
+      parameters:
+      - explode: false
+        in: path
+        name: taskCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a task category
+      tags:
+      - TaskCategories
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified task category.
       operationId: UpdateTaskCategoryAsync
@@ -1973,6 +2700,73 @@ paths:
       x-accepts:
       - application/json
       - application/xml
+    patch:
+      description: Partially updates the specified task type.
+      operationId: PatchTaskTypeAsync
+      parameters:
+      - explode: false
+        in: path
+        name: taskTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmptyEnvelope'
+          description: OK
+      summary: Patches a task type
+      tags:
+      - TaskTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
     put:
       description: Updates the specified task type.
       operationId: UpdateTaskTypeAsync
@@ -2088,6 +2882,895 @@ paths:
       summary: Creates a new task type
       tags:
       - TaskTypes
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogApprovals:
+    post:
+      description: Creates a new project hours approval request.
+      operationId: RequestProjectHoursApprovalAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalCreateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Request project hours approval
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogApprovals/{approvalId}/Status:
+    put:
+      description: Updates the status of an existing project hours approval.
+      operationId: UpdateProjectHoursApprovalStatusAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: approvalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalStatusUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalStatusUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Update approval status
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogApprovals/{approvalId}/Approver:
+    put:
+      description: Updates the approver of an existing project hours approval.
+      operationId: UpdateProjectHoursApprovalApproverAsync
+      parameters:
+      - explode: false
+        in: path
+        name: approvalId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalApproverUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectHoursApprovalApproverUpdateDto'
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          description: OK
+      summary: Update approval approver
+      tags:
+      - TimeLogApprovals
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs:
+    get:
+      description: Retrieves a list of time logs for a specific project period with
+        OData query support.
+      operationId: GetProjectPeriodTimeLogsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: projectPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      summary: Retrieve project period time logs
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    post:
+      description: Creates a new project time log entry.
+      operationId: CreateProjectTimeLogAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogCreateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogCreateDto'
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Create a new project time log
+      tags:
+      - TimeLogs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs/Count:
+    get:
+      description: Returns the total count of time logs for a specific project period
+        with OData query support.
+      operationId: CountProjectPeriodTimeLogsAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: projectPeriodId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Int32Envelope'
+          description: OK
+      summary: Get the count of project period time logs
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs/ByResponsibleContact:
+    get:
+      description: Retrieves time logs where the specified contact is the responsible
+        party.
+      operationId: GetProjectTimeLogsByResponsibleContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      summary: Retrieve time logs by responsible contact
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs/CreatedByContact:
+    get:
+      description: Retrieves time logs that were created by the specified contact.
+      operationId: GetProjectTimeLogsCreatedByContactAsync
+      parameters:
+      - explode: true
+        in: query
+        name: contactId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      summary: Retrieve time logs created by a contact
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs/ForProject/{projectId}:
+    get:
+      description: Retrieves all time logs associated with the specified project.
+      operationId: GetProjectTimeLogsAsync
+      parameters:
+      - explode: false
+        in: path
+        name: projectId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoListEnvelope'
+          description: OK
+      summary: Retrieve time logs for a project
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+  /api/v2/ProjectsService/TimeLogs/{timeLogId}:
+    delete:
+      description: Deletes a project time log entry.
+      operationId: DeleteProjectTimeLogAsync
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Delete a project time log
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    get:
+      description: Retrieves a single project time log by its unique identifier.
+      operationId: GetProjectTimeLogByIdAsync
+      parameters:
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProjectTimeLogDtoEnvelope'
+          description: OK
+      summary: Retrieve a project time log by ID
+      tags:
+      - TimeLogs
+      x-accepts:
+      - application/json
+      - application/xml
+    patch:
+      description: Partially updates an existing project time log entry.
+      operationId: PatchProjectTimeLogAsync
+      parameters:
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/xml:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Patch a project time log
+      tags:
+      - TimeLogs
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+      - application/xml
+    put:
+      description: Updates an existing project time log entry.
+      operationId: UpdateProjectTimeLogAsync
+      parameters:
+      - explode: false
+        in: path
+        name: timeLogId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: header
+        name: x-api-version
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogUpdateDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProjectTimeLogUpdateDto'
+      responses:
+        "200":
+          description: OK
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Forbidden
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: Unauthorized
+      summary: Update a project time log
+      tags:
+      - TimeLogs
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2299,13 +3982,47 @@ components:
       - email
       - password
       type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        operationType: Add
+        from: from
+        value: ""
+      properties:
+        operationType:
+          enum:
+          - Add
+          - Remove
+          - Replace
+          - Move
+          - Copy
+          - Test
+          - Invalid
+          readOnly: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
     ProjectCreateDto:
       additionalProperties: false
       example:
+        organizationId: organizationId
         projectStartDate: 2000-01-23T04:56:07.000+00:00
         projectEndDate: 2000-01-23T04:56:07.000+00:00
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        individualId: individualId
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2321,6 +4038,12 @@ components:
         description:
           nullable: true
           type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
         projectStartDate:
           format: date-time
           type: string
@@ -2331,10 +4054,14 @@ components:
     ProjectDto:
       additionalProperties: false
       example:
+        organizationId: organizationId
+        enrollmentId: enrollmentId
         projectStartDate: 2000-01-23T04:56:07.000+00:00
         projectEndDate: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
         description: description
         id: id
+        individualId: individualId
         title: title
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2351,6 +4078,18 @@ components:
         description:
           nullable: true
           type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
         projectStartDate:
           format: date-time
           type: string
@@ -2362,10 +4101,14 @@ components:
       additionalProperties: false
       example:
         result:
+          organizationId: organizationId
+          enrollmentId: enrollmentId
           projectStartDate: 2000-01-23T04:56:07.000+00:00
           projectEndDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           description: description
           id: id
+          individualId: individualId
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -2398,16 +4141,24 @@ components:
       additionalProperties: false
       example:
         result:
-        - projectStartDate: 2000-01-23T04:56:07.000+00:00
+        - organizationId: organizationId
+          enrollmentId: enrollmentId
+          projectStartDate: 2000-01-23T04:56:07.000+00:00
           projectEndDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           description: description
           id: id
+          individualId: individualId
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - projectStartDate: 2000-01-23T04:56:07.000+00:00
+        - organizationId: organizationId
+          enrollmentId: enrollmentId
+          projectStartDate: 2000-01-23T04:56:07.000+00:00
           projectEndDate: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
           description: description
           id: id
+          individualId: individualId
           title: title
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -2439,12 +4190,66 @@ components:
           nullable: true
           type: array
       type: object
+    ProjectHoursApprovalApproverUpdateDto:
+      additionalProperties: false
+      example:
+        approverContactId: approverContactId
+      properties:
+        approverContactId:
+          nullable: true
+          type: string
+      type: object
+    ProjectHoursApprovalCreateDto:
+      additionalProperties: false
+      example:
+        comments: comments
+        approverContactId: approverContactId
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        projectPeriodId: projectPeriodId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+        requesterContactId: requesterContactId
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        requesterContactId:
+          nullable: true
+          type: string
+        approverContactId:
+          nullable: true
+          type: string
+        projectPeriodId:
+          nullable: true
+          type: string
+        comments:
+          nullable: true
+          type: string
+      type: object
+    ProjectHoursApprovalStatusUpdateDto:
+      additionalProperties: false
+      example:
+        approvalStatus: Pending
+        comments: comments
+      properties:
+        approvalStatus:
+          enum:
+          - Pending
+          - Approved
+          - Rejected
+          type: string
+        comments:
+          nullable: true
+          type: string
+      type: object
     ProjectPeriodCreateDto:
       additionalProperties: false
       example:
         periodStartDate: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        projectID: projectID
+        projectId: projectId
         periodEndDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2460,7 +4265,7 @@ components:
         periodEndDate:
           format: date-time
           type: string
-        projectID:
+        projectId:
           nullable: true
           type: string
       type: object
@@ -2468,8 +4273,10 @@ components:
       additionalProperties: false
       example:
         periodStartDate: 2000-01-23T04:56:07.000+00:00
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         id: id
-        projectID: projectID
+        projectId: projectId
         periodEndDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2486,7 +4293,13 @@ components:
         periodEndDate:
           format: date-time
           type: string
-        projectID:
+        projectId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
           nullable: true
           type: string
       type: object
@@ -2495,13 +4308,17 @@ components:
       example:
         result:
         - periodStartDate: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           id: id
-          projectID: projectID
+          projectId: projectId
           periodEndDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         - periodStartDate: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          tenantId: tenantId
           id: id
-          projectID: projectID
+          projectId: projectId
           periodEndDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -2553,7 +4370,7 @@ components:
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        projectID: projectID
+        projectId: projectId
         startDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2575,7 +4392,7 @@ components:
         dueLine:
           format: date-time
           type: string
-        projectID:
+        projectId:
           nullable: true
           type: string
       type: object
@@ -2583,9 +4400,13 @@ components:
       additionalProperties: false
       example:
         dueLine: 2000-01-23T04:56:07.000+00:00
-        projectTaskBucketID: projectTaskBucketID
+        enrollmentId: enrollmentId
+        projectTaskBucketId: projectTaskBucketId
+        tenantId: tenantId
+        description: description
         id: id
-        projectID: projectID
+        title: title
+        projectId: projectId
         startDate: 2000-01-23T04:56:07.000+00:00
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2596,33 +4417,93 @@ components:
           format: date-time
           nullable: true
           type: string
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
         startDate:
           format: date-time
           type: string
         dueLine:
           format: date-time
           type: string
-        projectID:
+        projectId:
           nullable: true
           type: string
-        projectTaskBucketID:
+        projectTaskBucketId:
           nullable: true
           type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
+      type: object
+    ProjectTaskDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          dueLine: 2000-01-23T04:56:07.000+00:00
+          enrollmentId: enrollmentId
+          projectTaskBucketId: projectTaskBucketId
+          tenantId: tenantId
+          description: description
+          id: id
+          title: title
+          projectId: projectId
+          startDate: 2000-01-23T04:56:07.000+00:00
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ProjectTaskDto'
       type: object
     ProjectTaskDtoListEnvelope:
       additionalProperties: false
       example:
         result:
         - dueLine: 2000-01-23T04:56:07.000+00:00
-          projectTaskBucketID: projectTaskBucketID
+          enrollmentId: enrollmentId
+          projectTaskBucketId: projectTaskBucketId
+          tenantId: tenantId
+          description: description
           id: id
-          projectID: projectID
+          title: title
+          projectId: projectId
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         - dueLine: 2000-01-23T04:56:07.000+00:00
-          projectTaskBucketID: projectTaskBucketID
+          enrollmentId: enrollmentId
+          projectTaskBucketId: projectTaskBucketId
+          tenantId: tenantId
+          description: description
           id: id
-          projectID: projectID
+          title: title
+          projectId: projectId
           startDate: 2000-01-23T04:56:07.000+00:00
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
@@ -2658,14 +4539,69 @@ components:
       additionalProperties: false
       example:
         dueLine: 2000-01-23T04:56:07.000+00:00
+        description: description
+        title: title
         startDate: 2000-01-23T04:56:07.000+00:00
       properties:
+        title:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
         startDate:
           format: date-time
           type: string
         dueLine:
           format: date-time
           type: string
+      type: object
+    ProjectTimeLogCreateDto:
+      additionalProperties: false
+      example:
+        projectTaskId: projectTaskId
+        comments: comments
+        logDate: 2000-01-23T04:56:07.000+00:00
+        projectTimeLogRecordType: RegularHours
+        timeSpan: timeSpan
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        projectId: projectId
+        projectPeriodId: projectPeriodId
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+        timeSpan:
+          format: date-span
+          type: string
+        logDate:
+          format: date-time
+          type: string
+        comments:
+          nullable: true
+          type: string
+        projectTaskId:
+          minLength: 1
+          type: string
+        projectPeriodId:
+          minLength: 1
+          type: string
+        projectTimeLogRecordType:
+          enum:
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
+          type: string
+        projectId:
+          nullable: true
+          type: string
+      required:
+      - projectPeriodId
+      - projectTaskId
       type: object
     ProjectTimeLogDto:
       additionalProperties: false
@@ -2728,6 +4664,49 @@ components:
           nullable: true
           type: string
       type: object
+    ProjectTimeLogDtoEnvelope:
+      additionalProperties: false
+      example:
+        result:
+          comments: comments
+          logDate: 2000-01-23T04:56:07.000+00:00
+          recordType: RegularHours
+          type: type
+          projectPeriodId: projectPeriodId
+          projectTaskId: projectTaskId
+          responsibleContactId: responsibleContactId
+          timeSpan: timeSpan
+          id: id
+          taskCategoryId: taskCategoryId
+          projectId: projectId
+          creatorContactId: creatorContactId
+          timestamp: 2000-01-23T04:56:07.000+00:00
+        activityId: activityId
+        errorMessage: errorMessage
+        correlationId: correlationId
+        isSuccess: true
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isSuccess:
+          readOnly: true
+          type: boolean
+        errorMessage:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          readOnly: true
+          type: string
+        activityId:
+          nullable: true
+          readOnly: true
+          type: string
+        result:
+          $ref: '#/components/schemas/ProjectTimeLogDto'
+      type: object
     ProjectTimeLogDtoListEnvelope:
       additionalProperties: false
       example:
@@ -2787,18 +4766,58 @@ components:
           nullable: true
           type: array
       type: object
+    ProjectTimeLogUpdateDto:
+      additionalProperties: false
+      example:
+        projectTaskId: projectTaskId
+        comments: comments
+        logDate: 2000-01-23T04:56:07.000+00:00
+        projectTimeLogRecordType: RegularHours
+        timeSpan: timeSpan
+        projectPeriodId: projectPeriodId
+      properties:
+        logDate:
+          format: date-time
+          type: string
+        timeSpan:
+          format: date-span
+          type: string
+        comments:
+          nullable: true
+          type: string
+        projectTaskId:
+          nullable: true
+          type: string
+        projectPeriodId:
+          nullable: true
+          type: string
+        projectTimeLogRecordType:
+          enum:
+          - RegularHours
+          - OvertimeToPay
+          - OvertimeToCompensate
+          type: string
+      type: object
     ProjectUpdateDto:
       additionalProperties: false
       example:
+        organizationId: organizationId
         projectStartDate: 2000-01-23T04:56:07.000+00:00
         projectEndDate: 2000-01-23T04:56:07.000+00:00
         description: description
+        individualId: individualId
         title: title
       properties:
         title:
           nullable: true
           type: string
         description:
+          nullable: true
+          type: string
+        individualId:
+          nullable: true
+          type: string
+        organizationId:
           nullable: true
           type: string
         projectStartDate:
@@ -2872,6 +4891,7 @@ components:
       example:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
+        projectId: projectId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -2883,12 +4903,18 @@ components:
         title:
           nullable: true
           type: string
+        projectId:
+          nullable: true
+          type: string
       type: object
     TaskCategoryDto:
       additionalProperties: false
       example:
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         id: id
         title: title
+        projectId: projectId
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -2901,16 +4927,31 @@ components:
         title:
           nullable: true
           type: string
+        projectId:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     TaskCategoryDtoListEnvelope:
       additionalProperties: false
       example:
         result:
-        - id: id
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          id: id
           title: title
+          projectId: projectId
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - id: id
+        - enrollmentId: enrollmentId
+          tenantId: tenantId
+          id: id
           title: title
+          projectId: projectId
           timestamp: 2000-01-23T04:56:07.000+00:00
         activityId: activityId
         errorMessage: errorMessage
@@ -2945,8 +4986,12 @@ components:
       additionalProperties: false
       example:
         title: title
+        projectId: projectId
       properties:
         title:
+          nullable: true
+          type: string
+        projectId:
           nullable: true
           type: string
       type: object
@@ -2956,7 +5001,7 @@ components:
         displayInTimeTracker: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         title: title
-        taskCategoryID: taskCategoryID
+        taskCategoryId: taskCategoryId
         requiresDescription: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2969,7 +5014,7 @@ components:
         title:
           nullable: true
           type: string
-        taskCategoryID:
+        taskCategoryId:
           nullable: true
           type: string
         displayInTimeTracker:
@@ -2981,9 +5026,11 @@ components:
       additionalProperties: false
       example:
         displayInTimeTracker: true
+        enrollmentId: enrollmentId
+        tenantId: tenantId
         id: id
         title: title
-        taskCategoryID: taskCategoryID
+        taskCategoryId: taskCategoryId
         requiresDescription: true
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -2997,22 +5044,32 @@ components:
         title:
           nullable: true
           type: string
-        taskCategoryID:
+        taskCategoryId:
           nullable: true
           type: string
         displayInTimeTracker:
           type: boolean
         requiresDescription:
           type: boolean
+        tenantId:
+          nullable: true
+          type: string
+        enrollmentId:
+          nullable: true
+          type: string
       type: object
     TaskTypeUpdateDto:
       additionalProperties: false
       example:
         displayInTimeTracker: true
         title: title
+        taskCategoryId: taskCategoryId
         requiresDescription: true
       properties:
         title:
+          nullable: true
+          type: string
+        taskCategoryId:
           nullable: true
           type: string
         displayInTimeTracker:

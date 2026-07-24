@@ -101,6 +101,160 @@ public class WalletsApi {
     }
 
     /**
+     * Build call for createLocationForWalletAsync
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createLocationForWalletAsyncCall(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = locationCreateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createLocationForWalletAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling createLocationForWalletAsync(Async)");
+        }
+
+        return createLocationForWalletAsyncCall(walletId, apiVersion, xApiVersion, locationCreateDto, _callback);
+
+    }
+
+    /**
+     * Create Wallet Location
+     * Create a new location for a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope createLocationForWalletAsync(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = createLocationForWalletAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, locationCreateDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Wallet Location
+     * Create a new location for a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> createLocationForWalletAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto) throws ApiException {
+        okhttp3.Call localVarCall = createLocationForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationCreateDto, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Wallet Location (asynchronously)
+     * Create a new location for a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationCreateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createLocationForWalletAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createLocationForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationCreateDto, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createWalletBankAccountAsync
      * @param walletId  (required)
      * @param apiVersion  (optional)
@@ -250,160 +404,6 @@ public class WalletsApi {
     public okhttp3.Call createWalletBankAccountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, BankAccountCreateDto bankAccountCreateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createWalletBankAccountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, bankAccountCreateDto, _callback);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createWalletLocationAsync
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createWalletLocationAsyncCall(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = locationCreateDto;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createWalletLocationAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling createWalletLocationAsync(Async)");
-        }
-
-        return createWalletLocationAsyncCall(walletId, apiVersion, xApiVersion, locationCreateDto, _callback);
-
-    }
-
-    /**
-     * Create Wallet Location
-     * Create a new location for a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public EmptyEnvelope createWalletLocationAsync(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = createWalletLocationAsyncWithHttpInfo(walletId, apiVersion, xApiVersion, locationCreateDto);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Wallet Location
-     * Create a new location for a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @return ApiResponse&lt;EmptyEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EmptyEnvelope> createWalletLocationAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto) throws ApiException {
-        okhttp3.Call localVarCall = createWalletLocationAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationCreateDto, null);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Wallet Location (asynchronously)
-     * Create a new location for a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationCreateDto  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createWalletLocationAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, LocationCreateDto locationCreateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createWalletLocationAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, locationCreateDto, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -871,6 +871,164 @@ public class WalletsApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteLocationForWalletAsync
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteLocationForWalletAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
+            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteLocationForWalletAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling deleteLocationForWalletAsync(Async)");
+        }
+
+        // verify the required parameter 'locationId' is set
+        if (locationId == null) {
+            throw new ApiException("Missing the required parameter 'locationId' when calling deleteLocationForWalletAsync(Async)");
+        }
+
+        return deleteLocationForWalletAsyncCall(walletId, locationId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Delete Wallet Location
+     * Delete a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope deleteLocationForWalletAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = deleteLocationForWalletAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Wallet Location
+     * Delete a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> deleteLocationForWalletAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = deleteLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Wallet Location (asynchronously)
+     * Delete a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteLocationForWalletAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteWalletBankAccountAsync
      * @param walletId  (required)
      * @param bankAccountId  (required)
@@ -1024,164 +1182,6 @@ public class WalletsApi {
     public okhttp3.Call deleteWalletBankAccountAsyncAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteWalletLocationAsync
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteWalletLocationAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
-            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteWalletLocationAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling deleteWalletLocationAsync(Async)");
-        }
-
-        // verify the required parameter 'locationId' is set
-        if (locationId == null) {
-            throw new ApiException("Missing the required parameter 'locationId' when calling deleteWalletLocationAsync(Async)");
-        }
-
-        return deleteWalletLocationAsyncCall(walletId, locationId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Delete Wallet Location
-     * Delete a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return EmptyEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-     </table>
-     */
-    public EmptyEnvelope deleteWalletLocationAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = deleteWalletLocationAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete Wallet Location
-     * Delete a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;EmptyEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EmptyEnvelope> deleteWalletLocationAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = deleteWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Delete Wallet Location (asynchronously)
-     * Delete a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteWalletLocationAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1932,6 +1932,460 @@ public class WalletsApi {
     public okhttp3.Call getIncomingWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIncomingWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getLocationForWalletAsync
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationForWalletAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
+            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLocationForWalletAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling getLocationForWalletAsync(Async)");
+        }
+
+        // verify the required parameter 'locationId' is set
+        if (locationId == null) {
+            throw new ApiException("Missing the required parameter 'locationId' when calling getLocationForWalletAsync(Async)");
+        }
+
+        return getLocationForWalletAsyncCall(walletId, locationId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get Wallet Location
+     * Get a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return LocationDtoEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public LocationDtoEnvelope getLocationForWalletAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<LocationDtoEnvelope> localVarResp = getLocationForWalletAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Wallet Location
+     * Get a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;LocationDtoEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LocationDtoEnvelope> getLocationForWalletAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<LocationDtoEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Wallet Location (asynchronously)
+     * Get a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationForWalletAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback<LocationDtoEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<LocationDtoEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getLocationsForWalletAsync
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationsForWalletAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLocationsForWalletAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling getLocationsForWalletAsync(Async)");
+        }
+
+        return getLocationsForWalletAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get Wallet Locations
+     * Get locations of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return LocationDtoListEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public LocationDtoListEnvelope getLocationsForWalletAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<LocationDtoListEnvelope> localVarResp = getLocationsForWalletAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Wallet Locations
+     * Get locations of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;LocationDtoListEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LocationDtoListEnvelope> getLocationsForWalletAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Wallet Locations (asynchronously)
+     * Get locations of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationsForWalletAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<LocationDtoListEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getLocationsForWalletAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
+        Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getLocationsForWalletCountAsync
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationsForWalletCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLocationsForWalletCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling getLocationsForWalletCountAsync(Async)");
+        }
+
+        return getLocationsForWalletCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
+
+    }
+
+    /**
+     * Get Wallet Locations Count
+     * Get locations count of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return Int32Envelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public Int32Envelope getLocationsForWalletCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
+        ApiResponse<Int32Envelope> localVarResp = getLocationsForWalletCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Wallet Locations Count
+     * Get locations count of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @return ApiResponse&lt;Int32Envelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Int32Envelope> getLocationsForWalletCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
+        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Wallet Locations Count (asynchronously)
+     * Get locations count of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLocationsForWalletCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getLocationsForWalletCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3866,460 +4320,6 @@ public class WalletsApi {
     public okhttp3.Call getWalletInvoicesCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWalletInvoicesCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getWalletLocationAsync
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
-            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletLocationAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling getWalletLocationAsync(Async)");
-        }
-
-        // verify the required parameter 'locationId' is set
-        if (locationId == null) {
-            throw new ApiException("Missing the required parameter 'locationId' when calling getWalletLocationAsync(Async)");
-        }
-
-        return getWalletLocationAsyncCall(walletId, locationId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Get Wallet Location
-     * Get a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return LocationDtoEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public LocationDtoEnvelope getWalletLocationAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LocationDtoEnvelope> localVarResp = getWalletLocationAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Wallet Location
-     * Get a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;LocationDtoEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<LocationDtoEnvelope> getWalletLocationAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<LocationDtoEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Wallet Location (asynchronously)
-     * Get a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, final ApiCallback<LocationDtoEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<LocationDtoEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getWalletLocationsAsync
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationsAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletLocationsAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling getWalletLocationsAsync(Async)");
-        }
-
-        return getWalletLocationsAsyncCall(walletId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Get Wallet Locations
-     * Get locations of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return LocationDtoListEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public LocationDtoListEnvelope getWalletLocationsAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<LocationDtoListEnvelope> localVarResp = getWalletLocationsAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Wallet Locations
-     * Get locations of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;LocationDtoListEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<LocationDtoListEnvelope> getWalletLocationsAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Wallet Locations (asynchronously)
-     * Get locations of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationsAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<LocationDtoListEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getWalletLocationsAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
-        Type localVarReturnType = new TypeToken<LocationDtoListEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getWalletLocationsCountAsync
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationsCountAsyncCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/Count"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWalletLocationsCountAsyncValidateBeforeCall(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling getWalletLocationsCountAsync(Async)");
-        }
-
-        return getWalletLocationsCountAsyncCall(walletId, apiVersion, xApiVersion, _callback);
-
-    }
-
-    /**
-     * Get Wallet Locations Count
-     * Get locations count of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return Int32Envelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public Int32Envelope getWalletLocationsCountAsync(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        ApiResponse<Int32Envelope> localVarResp = getWalletLocationsCountAsyncWithHttpInfo(walletId, apiVersion, xApiVersion);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Wallet Locations Count
-     * Get locations count of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @return ApiResponse&lt;Int32Envelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Int32Envelope> getWalletLocationsCountAsyncWithHttpInfo(UUID walletId, String apiVersion, String xApiVersion) throws ApiException {
-        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, null);
-        Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Wallet Locations Count (asynchronously)
-     * Get locations count of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getWalletLocationsCountAsyncAsync(UUID walletId, String apiVersion, String xApiVersion, final ApiCallback<Int32Envelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getWalletLocationsCountAsyncValidateBeforeCall(walletId, apiVersion, xApiVersion, _callback);
         Type localVarReturnType = new TypeToken<Int32Envelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6883,6 +6883,170 @@ public class WalletsApi {
         return localVarCall;
     }
     /**
+     * Build call for updateLocationForWalletAsync
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateLocationForWalletAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = locationUpdateDto;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
+            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
+            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (apiVersion != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
+        }
+
+        if (xApiVersion != null) {
+            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "application/xml"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateLocationForWalletAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'walletId' is set
+        if (walletId == null) {
+            throw new ApiException("Missing the required parameter 'walletId' when calling updateLocationForWalletAsync(Async)");
+        }
+
+        // verify the required parameter 'locationId' is set
+        if (locationId == null) {
+            throw new ApiException("Missing the required parameter 'locationId' when calling updateLocationForWalletAsync(Async)");
+        }
+
+        return updateLocationForWalletAsyncCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, _callback);
+
+    }
+
+    /**
+     * Update Wallet Location
+     * Update a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @return EmptyEnvelope
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmptyEnvelope updateLocationForWalletAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto) throws ApiException {
+        ApiResponse<EmptyEnvelope> localVarResp = updateLocationForWalletAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Wallet Location
+     * Update a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @return ApiResponse&lt;EmptyEnvelope&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmptyEnvelope> updateLocationForWalletAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto) throws ApiException {
+        okhttp3.Call localVarCall = updateLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, null);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Wallet Location (asynchronously)
+     * Update a specific location of a specific wallet by ID.
+     * @param walletId  (required)
+     * @param locationId  (required)
+     * @param apiVersion  (optional)
+     * @param xApiVersion  (optional)
+     * @param locationUpdateDto  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateLocationForWalletAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateLocationForWalletAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, _callback);
+        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateWalletBankAccountAsync
      * @param walletId  (required)
      * @param bankAccountId  (required)
@@ -7042,170 +7206,6 @@ public class WalletsApi {
     public okhttp3.Call updateWalletBankAccountAsyncAsync(UUID walletId, UUID bankAccountId, String apiVersion, String xApiVersion, BankAccountUpdateDto bankAccountUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateWalletBankAccountAsyncValidateBeforeCall(walletId, bankAccountId, apiVersion, xApiVersion, bankAccountUpdateDto, _callback);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateWalletLocationAsync
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateWalletLocationAsyncCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = locationUpdateDto;
-
-        // create path and map variables
-        String localVarPath = "/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}"
-            .replace("{" + "walletId" + "}", localVarApiClient.escapeString(walletId.toString()))
-            .replace("{" + "locationId" + "}", localVarApiClient.escapeString(locationId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (apiVersion != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("api-version", apiVersion));
-        }
-
-        if (xApiVersion != null) {
-            localVarHeaderParams.put("x-api-version", localVarApiClient.parameterToString(xApiVersion));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json",
-            "application/xml"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateWalletLocationAsyncValidateBeforeCall(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'walletId' is set
-        if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling updateWalletLocationAsync(Async)");
-        }
-
-        // verify the required parameter 'locationId' is set
-        if (locationId == null) {
-            throw new ApiException("Missing the required parameter 'locationId' when calling updateWalletLocationAsync(Async)");
-        }
-
-        return updateWalletLocationAsyncCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, _callback);
-
-    }
-
-    /**
-     * Update Wallet Location
-     * Update a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @return EmptyEnvelope
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public EmptyEnvelope updateWalletLocationAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto) throws ApiException {
-        ApiResponse<EmptyEnvelope> localVarResp = updateWalletLocationAsyncWithHttpInfo(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update Wallet Location
-     * Update a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @return ApiResponse&lt;EmptyEnvelope&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EmptyEnvelope> updateWalletLocationAsyncWithHttpInfo(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto) throws ApiException {
-        okhttp3.Call localVarCall = updateWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, null);
-        Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Update Wallet Location (asynchronously)
-     * Update a specific location of a specific wallet by ID.
-     * @param walletId  (required)
-     * @param locationId  (required)
-     * @param apiVersion  (optional)
-     * @param xApiVersion  (optional)
-     * @param locationUpdateDto  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateWalletLocationAsyncAsync(UUID walletId, UUID locationId, String apiVersion, String xApiVersion, LocationUpdateDto locationUpdateDto, final ApiCallback<EmptyEnvelope> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateWalletLocationAsyncValidateBeforeCall(walletId, locationId, apiVersion, xApiVersion, locationUpdateDto, _callback);
         Type localVarReturnType = new TypeToken<EmptyEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

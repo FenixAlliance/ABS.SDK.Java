@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * MarketingLeadDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T12:00:54.148456900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T21:04:15.419992100-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class MarketingLeadDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

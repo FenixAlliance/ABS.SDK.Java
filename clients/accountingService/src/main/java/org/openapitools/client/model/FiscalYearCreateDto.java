@@ -51,7 +51,7 @@ import org.openapitools.client.JSON;
 /**
  * FiscalYearCreateDto
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T11:53:41.709563900-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-23T20:57:43.329807800-05:00[America/Bogota]", comments = "Generator version: 7.9.0")
 public class FiscalYearCreateDto {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -135,7 +135,7 @@ public class FiscalYearCreateDto {
    * Get name
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -230,7 +230,7 @@ public class FiscalYearCreateDto {
    * Get fiscalAuthorityId
    * @return fiscalAuthorityId
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getFiscalAuthorityId() {
     return fiscalAuthorityId;
   }
@@ -321,6 +321,8 @@ public class FiscalYearCreateDto {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("fiscalAuthorityId");
   }
 
   /**
@@ -343,17 +345,24 @@ public class FiscalYearCreateDto {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FiscalYearCreateDto` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : FiscalYearCreateDto.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("fiscalAuthorityId") != null && !jsonObj.get("fiscalAuthorityId").isJsonNull()) && !jsonObj.get("fiscalAuthorityId").isJsonPrimitive()) {
+      if (!jsonObj.get("fiscalAuthorityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fiscalAuthorityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fiscalAuthorityId").toString()));
       }
   }

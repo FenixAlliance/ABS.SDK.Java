@@ -7,6 +7,7 @@ All URIs are relative to *https://absuite.net*
 | [**createTaskTypeAsync**](TaskTypesApi.md#createTaskTypeAsync) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type |
 | [**deleteTaskTypeAsync**](TaskTypesApi.md#deleteTaskTypeAsync) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type |
 | [**getTaskTypeByIdAsync**](TaskTypesApi.md#getTaskTypeByIdAsync) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID |
+| [**patchTaskTypeAsync**](TaskTypesApi.md#patchTaskTypeAsync) | **PATCH** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Patches a task type |
 | [**updateTaskTypeAsync**](TaskTypesApi.md#updateTaskTypeAsync) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type |
 
 
@@ -199,6 +200,74 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+
+<a id="patchTaskTypeAsync"></a>
+# **patchTaskTypeAsync**
+> EmptyEnvelope patchTaskTypeAsync(taskTypeId, tenantId, operation)
+
+Patches a task type
+
+Partially updates the specified task type.
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TaskTypesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://absuite.net");
+
+    TaskTypesApi apiInstance = new TaskTypesApi(defaultClient);
+    UUID taskTypeId = UUID.randomUUID(); // UUID | 
+    UUID tenantId = UUID.randomUUID(); // UUID | 
+    List<Operation> operation = Arrays.asList(); // List<Operation> | 
+    try {
+      EmptyEnvelope result = apiInstance.patchTaskTypeAsync(taskTypeId, tenantId, operation);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TaskTypesApi#patchTaskTypeAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taskTypeId** | **UUID**|  | |
+| **tenantId** | **UUID**|  | |
+| **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] |
+
+### Return type
+
+[**EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 ### HTTP response details
