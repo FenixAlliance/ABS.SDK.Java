@@ -106,7 +106,7 @@ public class CompletionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/v2/AiService/Completions/Complete";
+        String localVarPath = "/api/v2/IntelligenceService/Completions/Complete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
